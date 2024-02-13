@@ -7,8 +7,8 @@ export const quiz = [
       { id: 2, answer: '19', correct: true },
       { id: 3, answer: '20', correct: false },
       { id: 4, answer: '21', correct: false },
-    ]
-  }, 
+    ],
+  },
   {
     id: 2,
     question: 'What is your name?',
@@ -16,16 +16,32 @@ export const quiz = [
       { id: 1, answer: 'Carl', correct: false },
       { id: 2, answer: 'Emily', correct: true },
       { id: 3, answer: 'Eva', correct: true },
-    ]
+    ],
   },
   {
     id: 3,
-    question: {
+    question: [
+      {
         componentType: 'Text', // Dodajemy komponent Image
         value: 'Do you have a pet?',
       },
+      {
+        componentType: 'Text', // Dodajemy komponent Image
+        value: ' Hello',
+      },
+      {
+        componentType: 'Image', // Dodajemy komponent Image
+        value: 'https://legacy.reactjs.org/logo-og.png',
+      },
+    ],
     answers: [
-      { id: 1, answer: 'yes', correct: false },
+      {
+        id: 1,
+        answer: 'yes',
+        correct: false,
+        componentType: 'Text',
+        props: {},
+      },
       { id: 2, answer: 'no', correct: true },
     ],
   },

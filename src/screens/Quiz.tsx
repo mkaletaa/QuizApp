@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Dimensions, FlatList } from 'react-native'
 import { quiz } from '../../data/quiz/quiz'
 import Question from '../components/Question'
+import Answers from '../components/Answers'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -18,11 +19,8 @@ export default function Quiz({ route }) {
           style={[styles.card, { width: screenWidth, height: screenHeight }]}
         >
           <Question prop={item.question}/>
-          {item.answers.map(answer => (
-            <View key={answer.id} style={styles.answerContainer}>
-              <Text>{answer.answer}</Text>
-            </View>
-          ))}
+          <Answers answers={item.answers}/>
+          
         </View>
       )}
     />
@@ -35,8 +33,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-  },
-  answerContainer: {
-    marginTop: 10,
-  },
+  }
 })

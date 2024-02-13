@@ -2,30 +2,43 @@ import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
 const renderComponent = data => {
-  const { componentType, props } = data
-  console.log('🚀 ~ renderComponent ~ data:', data)
-  // Obsługuj różne rodzaje komponentów
-  switch (componentType) {
-    //Text, Image, MathView, CodeView, BoldText, ItalicText,
+  const { componentType, props, value } = data
+  console.log("🚀 ~ renderComponent ~ value:", value)
 
+  switch (componentType) {
     case 'Text':
       return (
-        <Text key={componentType} {...props}>
-          {data.value}
-        </Text>
+        <View key={value}>
+          <Text {...props}>{value}</Text>
+        </View>
+      )
+
+    case 'Image':
+      return (
+        // include at least width and height!
+        <Image
+        key={value}
+          style={{
+            width: 51,
+            height: 51,
+            // resizeMode: 'contain',
+          }}
+          source={{
+            uri: value,
+          }}
+        />
       )
 
     default:
-      return (
-        <Text key={componentType} {...props}>
-          {data}
-        </Text>
-      )
+      return <Text {...props}>{data}</Text>
   }
 }
 
 export default function Question({ prop }) {
-  return <View>{renderComponent(prop)}</View>
+   const questionData = Array.isArray(prop) ? prop : [prop]
+
+
+   return <View>{questionData.map((a, i) => renderComponent(a))}</View>
 }
 
 const styles = StyleSheet.create({
