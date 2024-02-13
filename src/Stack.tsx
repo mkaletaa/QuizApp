@@ -55,7 +55,7 @@ const MyStack = () => {
         component={Quiz}
         options={({ route }) => ({
           ...header, //@ts-ignore
-          title: `${route.params?.categoryName || 'topic name'}`,
+          title: `${route.params?.topicName || 'topic name'}`,
         })}
       />
 

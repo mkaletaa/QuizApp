@@ -4,10 +4,9 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  FlatList,
   Button,
+  FlatList
 } from 'react-native'
-import { quiz } from '../../data/quiz/quiz'
 import Question from '../components/Question'
 import Options from '../components/Options'
 import Finish from '../components/Finish'
@@ -15,6 +14,9 @@ import Finish from '../components/Finish'
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
+  
+  // console.log("🚀 ~ Quiz ~ route:", route.params.quiz)
+  const quiz = route.params.quiz
   const quizToIterate = [...quiz, { id: -1 }]
 
   let arrayOfResults = [] // This array stores user choices
