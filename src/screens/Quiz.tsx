@@ -27,6 +27,7 @@ export default function Quiz({ route }) {
           arrayOfResults[i] = { id: itemId, userChoices: [] }
         }
 
+        arrayOfResults[i].explanation = quiz[i].explanation
         // Sprawdź, czy pressedOption jest już w userChoices, jeśli tak, usuń go, jeśli nie, dodaj
         const index = arrayOfResults[i].userChoices.findIndex(
           choice => choice.id === pressedOption.id

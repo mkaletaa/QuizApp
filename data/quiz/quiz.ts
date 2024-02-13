@@ -11,6 +11,20 @@ export const quiz = [
       { id: 3, answer: '20', correct: false },
       { id: 4, answer: '21', correct: false },
     ],
+    explanation: [
+      {
+        componentType: 'Text', // Dodajemy komponent Image
+        value: 'Expl?',
+      },
+      {
+        componentType: 'Text', // Dodajemy komponent Image
+        value: ' Anation',
+      },
+      {
+        componentType: 'Image', // Dodajemy komponent Image
+        value: 'https://legacy.reactjs.org/logo-og.png',
+      },
+    ],
   },
   {
     id: 2,
@@ -21,6 +35,7 @@ export const quiz = [
       { id: 2, answer: 'Emily', correct: true },
       { id: 3, answer: 'Eva', correct: true },
     ],
+    explanation: 'www',
   },
   {
     id: 3,
@@ -49,5 +64,6 @@ export const quiz = [
       },
       { id: 2, answer: 'no', correct: true },
     ],
+    explanation: 'www',
   },
 ]

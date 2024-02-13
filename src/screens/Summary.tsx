@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  Modal,
-  Button,
-  StyleSheet,
-  FlatList,
+    Button,
+    FlatList,
+    Modal,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native'
-import Finish from '../components/Finish'
-import Question from '../components/Question'
-import Options from './Options'
+import Explanation from '../components/Explanation'
 
 export default function Summary({ route }) {
   const [modalVisible, setModalVisible] = useState(false)
@@ -28,7 +26,7 @@ export default function Summary({ route }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              setModalVisible(true), setModalContents(item.isCorrect)
+              setModalVisible(true), setModalContents(item.explanation)
             }}
           >
             <View
@@ -54,7 +52,7 @@ export default function Summary({ route }) {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalContainer}>
-          <Text>{modalContents}</Text>
+          <Explanation explanation={modalContents}></Explanation>
           <Button title="Close Modal" onPress={() => setModalVisible(false)} />
         </View>
       </Modal>
