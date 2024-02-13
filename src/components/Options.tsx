@@ -11,9 +11,6 @@ const optionComponent = (option, fn, item) => {
     // Jeśli klucz 'chosen' nie istnieje, dodaj go z wartością true
     else pressedOption.isChosen = true
 
-    // console.log('🚀 ~ handlePress ~ answerValue:', answerValue)
-    // console.log('🚀 ~ handlePress ~ id', item)
-
     // Wywołaj funkcję przekazaną jako fn z argumentem data
     fn(pressedOption, item.id)
   }

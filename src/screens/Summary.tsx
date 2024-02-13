@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import {
-    Button,
-    FlatList,
-    Modal,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Button,
+  FlatList,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native'
-import Explanation from '../components/Explanation'
+import ContentRenderer from '../components/ContentRenderer'
 
 export default function Summary({ route }) {
   const [modalVisible, setModalVisible] = useState(false)
@@ -52,7 +52,7 @@ export default function Summary({ route }) {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalContainer}>
-          <Explanation explanation={modalContents}></Explanation>
+          <ContentRenderer data={modalContents}></ContentRenderer>
           <Button title="Close Modal" onPress={() => setModalVisible(false)} />
         </View>
       </Modal>
