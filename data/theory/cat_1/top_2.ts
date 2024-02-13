@@ -16,6 +16,18 @@ export const top_2 = {
           children: 'Goodbye, World!',
         },
       },
+      {
+        componentType: 'Image', // Dodajemy komponent Image
+        props: {
+          source: {
+            uri: 'icon',
+          }, // Tutaj umieść ścieżkę do zdjęcia lub URL
+          style: {
+            width: 100,
+            height: 100,
+          },
+        },
+      },
     ],
   },
 }

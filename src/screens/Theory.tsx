@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import { theory } from '../../data/theory/theory'
+
 
 const renderComponent = data => {
   const { componentType, props } = data
@@ -20,6 +21,40 @@ const renderComponent = data => {
           {props.children}
         </Text>
       )
+
+    case 'Image':
+      // Załaduj obraz z assetów
+      //   console.log(props.source.uri === '../../assets/favicon.png')
+      //   const imageSource = require('../../assets/favicon.png')
+
+      switch (props.source.uri) {
+        case 'favicon':
+          return (
+            <Image
+              key={componentType}
+              {...props}
+              source={require('../../assets/favicon.png')}
+            />
+          )
+
+        case 'icon':
+          return (
+            <Image
+              key={componentType}
+              {...props}
+              source={require('../../assets/icon.png')}
+            />
+          )
+        default:
+          return (
+            <Image
+              key={componentType}
+              {...props}
+            //   source={require('https://example.com/image.jpg')}
+            />
+          )
+      }
+
     default:
       return null
   }
@@ -45,7 +80,8 @@ export default function Theory({ route }) {
     for (const cat in theory) {
       //ietrate through categories (main keys) in theory
       if (theory.hasOwnProperty(cat)) {
-        if (cat !== route.params.categoryName) { //check the name of the main key
+        if (cat !== route.params.categoryName) {
+          //check the name of the main key
           console.log('🚀 ~ useEffect ~ cat:', cat)
           continue //skip if not the correct category
         }

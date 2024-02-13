@@ -23,6 +23,11 @@ export default function Topics({ route }) {
     //@ts-ignore
     navigation.navigate('Theory', {topicName, categoryName})
   }
+  
+  const onPressQuiz = (topicName, categoryName )=> {
+    //@ts-ignore
+    navigation.navigate('Quiz', {topicName, categoryName})
+  }
 
   return (
     <View style={styles.container}>
@@ -33,7 +38,7 @@ export default function Topics({ route }) {
           <Text>{topic.des}</Text>
           <Button
             title={topic.name}
-            //   onPress={() => onPressButton(folderName)}
+              onPress={() => onPressQuiz(topic.name, categoryName)}
           />
           <Button
             title="read about"
