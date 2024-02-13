@@ -19,9 +19,9 @@ export default function Quiz({ route }) {
     },
   ]
 
-  function manipulate(data) {
-    console.log("🚀 ~ manipulate ~ data:", data)
-    console.log(quizToIterate)
+  function compare(data) {
+    // console.log("🚀 ~ manipulate ~ data:", data)
+    // console.log(quizToIterate)
   }
 
   return (
@@ -29,15 +29,15 @@ export default function Quiz({ route }) {
       <FlatList
         data={quizToIterate}
         horizontal
-        pagingEnabled // Ustawienie, które zapewnia efekt "oporu"
+        pagingEnabled 
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <View
             style={[styles.card, { width: screenWidth, height: screenHeight }]}
           >
-            {item?.question ? <Question prop={item?.question} /> : <Finish/> }
+            {item?.question ? <Question question={item?.question} /> : <Finish/> }
 
-            {item?.answers ? <Answers answers={item?.answers} fn={manipulate}/> : null}
+            {item?.answers ? <Answers item={item} fn={compare}/> : null}
 
 
           </View>

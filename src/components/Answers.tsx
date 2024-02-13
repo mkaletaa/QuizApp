@@ -1,17 +1,24 @@
 import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
-const option = (data, fn) => {
-  const { componentType, props, answer } = data
-  const [n, setN]= useState(0)
+const option = (answer, fn, item) => {
+  const { componentType, props, answer: answerValue } = answer
 
-  function handlePress(data){
-    console.log("🚀 ~ handlePress ~ data", data)
-    data.neww="ddd"
-    setN(prev=>prev+1)
-    console.log(n)
+function handlePress(pressedOption) {
+  if (pressedOption.hasOwnProperty('isChosen')) {
+    // Jeśli klucz 'chosen' istnieje w obiekcie data, zmień jego wartość na przeciwną
+    pressedOption.isChosen = !pressedOption.isChosen
+  } else {
+    // Jeśli klucz 'chosen' nie istnieje, dodaj go z wartością true
+    pressedOption.isChosen = true
   }
 
+  // console.log('🚀 ~ handlePress ~ data:', answer)
+  // console.log('🚀 ~ handlePress ~ prop', item.id)
+
+  // Wywołaj funkcję przekazaną jako fn z argumentem data
+  fn(pressedOption)
+}
 
 
   switch (componentType) {
@@ -21,9 +28,9 @@ const option = (data, fn) => {
           activeOpacity={0.7}
           {...props}
           style={styles.touchableOpacity}
-          onPressOut={()=> fn(data)}
+          onPressOut={() => handlePress(answer)}
         >
-          <Text style={styles.buttonText}>{answer} dddg</Text>
+          <Text style={styles.buttonText}>{answerValue} dddg</Text>
         </TouchableOpacity>
       )
 
@@ -33,20 +40,20 @@ const option = (data, fn) => {
           activeOpacity={0.7}
           {...props}
           style={styles.touchableOpacity}
-          onPressOut={() => fn(data)}
+          onPressOut={() => handlePress(answer)}
         >
-          <Text style={styles.buttonText}>{answer}</Text>
+          <Text style={styles.buttonText}>{answerValue}</Text>
         </TouchableOpacity>
       )
   }
 }
 
-export default function Answers({ answers, fn }) {
+export default function Answers({ item, fn }) {
   return (
     <View>
-      {answers.map(answer => (
+      {item.answers.map(answer => (
         <View key={answer.id} style={styles.answerContainer}>
-          {option(answer, fn)}
+          {option(answer, fn, item)}
         </View>
       ))}
     </View>

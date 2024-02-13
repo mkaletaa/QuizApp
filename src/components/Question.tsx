@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
-const renderComponent = data => {
-  const { componentType, props, value } = data
-  console.log("🚀 ~ renderComponent ~ value:", data)
+
+//questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
+const renderComponent = questionComponent => {
+  const { componentType, value } = questionComponent
+  console.log("🚀 ~ renderComponent ~ data:", questionComponent)
+  console.log("🚀 ~ renderComponent ~ componentType:", componentType)
+  // console.log("🚀 ~ renderComponent ~ props:", props)
+  console.log("🚀 ~ renderComponent ~ value:", value)
 
   switch (componentType) {
     case 'Text':
       return (
         //<View key={value}>
-          <Text key={value}  {...props}>
+          <Text key={value} >
             {value}
           </Text>
         //</View> 
@@ -32,15 +37,16 @@ const renderComponent = data => {
       )
 
     default:
-      return <Text {...props}>{data}</Text>
+      return <Text>{questionComponent}</Text>
   }
 }
 
-export default function Question({ prop }) {
-   const questionData = Array.isArray(prop) ? prop : [prop]
+export default function Question({ question }) {
+  // if a question is text only, turn it into one element array
+   const questionData = Array.isArray(question) ? question : [question]
 
-
-   return <View>{questionData.map((a, i) => renderComponent(a))}</View>
+    //if a question consists of not only text but also eg. an image, each of the componnts is rendered separately
+   return <View>{questionData.map((questionComponent) => renderComponent(questionComponent))}</View>
 }
 
 const styles = StyleSheet.create({
