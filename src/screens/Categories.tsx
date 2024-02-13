@@ -8,7 +8,7 @@ export default function Categories() {
   const navigation = useNavigation()
 
   const onPressButton = catName => {
-    //@ts-ignore
+    // @ts-ignore
     navigation.navigate('Topics', { categoryName: catName })
   }
 

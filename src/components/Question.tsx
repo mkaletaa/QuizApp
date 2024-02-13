@@ -3,14 +3,16 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 
 const renderComponent = data => {
   const { componentType, props, value } = data
-  console.log("🚀 ~ renderComponent ~ value:", value)
+  console.log("🚀 ~ renderComponent ~ value:", data)
 
   switch (componentType) {
     case 'Text':
       return (
-        <View key={value}>
-          <Text {...props}>{value}</Text>
-        </View>
+        //<View key={value}>
+          <Text key={value}  {...props}>
+            {value}
+          </Text>
+        //</View> 
       )
 
     case 'Image':

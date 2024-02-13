@@ -1,6 +1,7 @@
 export const quiz = [
   {
     id: 1,
+    multiChoice: false,
     question: 'How old are you?',
     answers: [
       { id: 1, answer: '18', correct: false },
@@ -11,6 +12,7 @@ export const quiz = [
   },
   {
     id: 2,
+    multiChoice: true,
     question: 'What is your name?',
     answers: [
       { id: 1, answer: 'Carl', correct: false },
@@ -20,6 +22,7 @@ export const quiz = [
   },
   {
     id: 3,
+    multiChoice: false,
     question: [
       {
         componentType: 'Text', // Dodajemy komponent Image

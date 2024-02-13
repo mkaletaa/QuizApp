@@ -7,6 +7,7 @@ import { Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Theory from './screens/Theory'
 import Quiz from './screens/Quiz'
+import Summary from './screens/Summary'
 
 const Stack = createStackNavigator()
 
@@ -52,6 +53,15 @@ const MyStack = () => {
       <Stack.Screen
         name="Quiz"
         component={Quiz}
+        options={({ route }) => ({
+          ...header, //@ts-ignore
+          title: `${route.params?.categoryName || 'topic name'}`,
+        })}
+      />
+
+      <Stack.Screen
+        name="Summary"
+        component={Summary}
         options={({ route }) => ({
           ...header, //@ts-ignore
           title: `${route.params?.categoryName || 'topic name'}`,

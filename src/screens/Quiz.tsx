@@ -1,37 +1,73 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, FlatList } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, FlatList, Button } from 'react-native'
 import { quiz } from '../../data/quiz/quiz'
 import Question from '../components/Question'
 import Answers from '../components/Answers'
+import Finish from '../components/Finish'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
+  const quizToIterate = [
+    ...quiz,
+    {
+      id: -1,
+      // componentType: 'result'
+      // question: 'hh',
+      // answers: [
+      // ],
+    },
+  ]
+
+  function manipulate(data) {
+    console.log("🚀 ~ manipulate ~ data:", data)
+    console.log(quizToIterate)
+  }
 
   return (
-    <FlatList
-      data={quiz}
-      horizontal
-      pagingEnabled // Ustawienie, które zapewnia efekt "oporu"
-      keyExtractor={item => item.id.toString()}
-      renderItem={({ item }) => (
-        <View
-          style={[styles.card, { width: screenWidth, height: screenHeight }]}
-        >
-          <Question prop={item.question}/>
-          <Answers answers={item.answers}/>
-          
-        </View>
-      )}
-    />
+    <View>
+      <FlatList
+        data={quizToIterate}
+        horizontal
+        pagingEnabled // Ustawienie, które zapewnia efekt "oporu"
+        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => (
+          <View
+            style={[styles.card, { width: screenWidth, height: screenHeight }]}
+          >
+            {item?.question ? <Question prop={item?.question} /> : <Finish/> }
+
+            {item?.answers ? <Answers answers={item?.answers} fn={manipulate}/> : null}
+
+
+          </View>
+        )}
+      />
+
+      {/* <View style={styles.buttonContainer}>
+        <Button title="dede" style={styles.button} onPress={()=>onPress()}></Button>
+      </View> */}
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   card: {
     backgroundColor: 'lightgray',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-  }
+  },
+  // buttonContainer: {
+  //   position: 'absolute',
+  //   bottom: 20, // Dostosuj do preferowanej odległości od dołu
+  //   left: 20, // Dostosuj do preferowanej odległości od lewej
+  //   right: 20, // Dostosuj do preferowanej odległości od prawej
+  // },
+  // button: {
+  //   width: '100%',
+  // },
 })
