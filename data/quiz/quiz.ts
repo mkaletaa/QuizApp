@@ -1,9 +1,11 @@
+//* może zmienić answers na options
+
 export const quiz = [
   {
     id: 1,
     multiChoice: false,
     question: 'How old are you?',
-    answers: [
+    options: [
       { id: 1, answer: '18', correct: false },
       { id: 2, answer: '19', correct: true },
       { id: 3, answer: '20', correct: false },
@@ -14,7 +16,7 @@ export const quiz = [
     id: 2,
     multiChoice: true,
     question: 'What is your name?',
-    answers: [
+    options: [
       { id: 1, answer: 'Carl', correct: false },
       { id: 2, answer: 'Emily', correct: true },
       { id: 3, answer: 'Eva', correct: true },
@@ -37,7 +39,7 @@ export const quiz = [
         value: 'https://legacy.reactjs.org/logo-og.png',
       },
     ],
-    answers: [
+    options: [
       {
         id: 1,
         answer: 'yes',

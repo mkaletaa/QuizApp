@@ -1,25 +1,22 @@
 import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
-const option = (answer, fn, item) => {
-  const { componentType, props, answer: answerValue } = answer
+const optionComponent = (option, fn, item) => {
+  const { componentType, props, answer: answerValue } = option
 
-function handlePress(pressedOption) {
-  if (pressedOption.hasOwnProperty('isChosen')) {
-    // Jeśli klucz 'chosen' istnieje w obiekcie data, zmień jego wartość na przeciwną
-    pressedOption.isChosen = !pressedOption.isChosen
-  } else {
+  function handlePress(pressedOption) {
+    if (pressedOption.hasOwnProperty('isChosen'))
+      // Jeśli klucz 'chosen' istnieje w obiekcie data, zmień jego wartość na przeciwną
+      pressedOption.isChosen = !pressedOption.isChosen
     // Jeśli klucz 'chosen' nie istnieje, dodaj go z wartością true
-    pressedOption.isChosen = true
+    else pressedOption.isChosen = true
+
+    // console.log('🚀 ~ handlePress ~ answerValue:', answerValue)
+    // console.log('🚀 ~ handlePress ~ id', item)
+
+    // Wywołaj funkcję przekazaną jako fn z argumentem data
+    fn(pressedOption, item.id)
   }
-
-  // console.log('🚀 ~ handlePress ~ data:', answer)
-  // console.log('🚀 ~ handlePress ~ prop', item.id)
-
-  // Wywołaj funkcję przekazaną jako fn z argumentem data
-  fn(pressedOption)
-}
-
 
   switch (componentType) {
     case 'Text':
@@ -28,7 +25,7 @@ function handlePress(pressedOption) {
           activeOpacity={0.7}
           {...props}
           style={styles.touchableOpacity}
-          onPressOut={() => handlePress(answer)}
+          onPressOut={() => handlePress(option)}
         >
           <Text style={styles.buttonText}>{answerValue} dddg</Text>
         </TouchableOpacity>
@@ -40,7 +37,7 @@ function handlePress(pressedOption) {
           activeOpacity={0.7}
           {...props}
           style={styles.touchableOpacity}
-          onPressOut={() => handlePress(answer)}
+          onPressOut={() => handlePress(option)}
         >
           <Text style={styles.buttonText}>{answerValue}</Text>
         </TouchableOpacity>
@@ -48,12 +45,12 @@ function handlePress(pressedOption) {
   }
 }
 
-export default function Answers({ item, fn }) {
+export default function Options({ item, fn }) {
   return (
     <View>
-      {item.answers.map(answer => (
-        <View key={answer.id} style={styles.answerContainer}>
-          {option(answer, fn, item)}
+      {item.options.map(option => (
+        <View key={option.id} style={styles.answerContainer}>
+          {optionComponent(option, fn, item)}
         </View>
       ))}
     </View>
