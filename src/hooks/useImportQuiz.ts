@@ -2,49 +2,36 @@
 import { useNavigation } from '@react-navigation/native'
 import { cat_1 as quiz } from '../../data/quiz/quizModule'
 
-type topicType = string | Map<string, boolean>
-
 const useImportQuiz = () => {
   const navigation = useNavigation()
 
-  const importQuiz = async (topic: topicType, categoryName: string, topics) => {
-    let topicMap
+  const importQuiz = async (
+    chosenTopicsArray: Array<string>, //an array of topics taht user chosen to have a quiz
+    categoryName: string, //the category of the chosen topics
+    topics //all topics of all categories available in the app
+  ) => {
 
-    if (typeof topic === 'string') {
-      // Jeśli topic nie jest mapą, zamień go na mapę
-      topicMap = new Map([[topic, true]])
-    } else {
-      // Jeśli już jest mapą, przypisz go bezpośrednio
-      topicMap = topic
-    }
-
-    // Iteruj przez mapę
+    
+    // Iteruj przez tablicę
     let items = []
-    topicMap.forEach((value, key) => {
-      if (value) {
-        for (const topic of topics[categoryName]) {
-          if (topic.name === key) {
-            console.log('🚀 ~ topicMap.forEach ~ key:', key)
-            console.log('🚀 ~ topicMap.forEach ~ topic:', topic.name)
-            items.push(...quiz[key])
-            //gdyby quiz skladalo sie tez z kategorii to chyba wystarczy ...quiz[category][key]
-            break
-          }
+    
+    for(const chosenTopic of chosenTopicsArray) {
+      for (const topic of topics[categoryName]) {
+        if (topic.name === chosenTopic) {
+          console.log('🚀 ~ topicMap.forEach ~ key:', chosenTopic)
+          console.log('🚀 ~ topicMap.forEach ~ topic:', topic.name)
+          items.push(...quiz[chosenTopic])
+          //gdyby quiz skladalo sie tez z kategorii to chyba wystarczy ...quiz[category][chosenTopic]
+          break
         }
       }
-    })
-
-    // Sprawdź, ile kluczy spełnia warunek true
-    const trueKeysCount = Array.from(topicMap.values()).filter(Boolean).length
-
-    // Ustaw topicName na odpowiednią wartość
-    const topicName =
-      trueKeysCount === 1
-        ? Array.from(topicMap.entries()).find(([_, value]) => value === true)[0]
-        : 'all' //tutaj jest bug
+    }
+    
+    
+    const headerText:string = chosenTopicsArray.length === 1 ? chosenTopicsArray[0] : 'all'
 
     //@ts-ignore
-    navigation.navigate('Quiz', { quiz: items, topicName })
+    navigation.navigate('Quiz', { quiz: items, topicName:headerText })
   }
 
   return importQuiz
