@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import { categories, topics } from '../../data/data'
 import QuizModalSwitch from '../components/QuizModalSwitch'
 import useImportQuiz from '../hooks/useImportQuiz'
+import ModalComponent from '../components/ModalComponent'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
@@ -100,7 +101,7 @@ export default function Categories() {
         </View>
       ))}
 
-      <Modal
+      {/* <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -121,7 +122,15 @@ export default function Categories() {
             }}
           />
         </View>
-      </Modal>
+      </Modal> */}
+
+      <ModalComponent
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        dataToIterate={categories}
+        toggleTopic={toggleTopic}
+        showQuiz={() => showQuiz(chosenCategories)}
+      />
     </View>
   )
 }

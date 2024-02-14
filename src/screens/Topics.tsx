@@ -5,6 +5,7 @@ import { Button, Modal, StyleSheet, Text, View } from 'react-native'
 import { topics } from '../../data/data'
 import QuizModalSwitch from '../components/QuizModalSwitch'
 import useImportQuiz from '../hooks/useImportQuiz'
+import ModalComponent from '../components/ModalComponent'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -55,11 +56,12 @@ export default function Topics({ route }) {
       setModalVisible(true)
       return
     }
-
-    if (topicsArray.length > 2) {
-      setModalVisible(true)
-      return
-    }
+    console.log(topicsArray)
+    
+    // if (topicsArray.length > 2) {
+    //   setModalVisible(true)
+    //   return
+    // }
 
     importQuiz(topicsArray, categoryName, topics)
   }
@@ -96,7 +98,7 @@ export default function Topics({ route }) {
         </View>
       ))}
 
-      <Modal
+      {/* <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -117,7 +119,15 @@ export default function Topics({ route }) {
             }}
           />
         </View>
-      </Modal>
+      </Modal> */}
+
+      <ModalComponent
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        dataToIterate={topics[categoryName]}
+        toggleTopic={toggleTopic}
+        showQuiz={()=>showQuiz(chosenTopics, categoryName)}
+      />
     </View>
   )
 }
@@ -128,11 +138,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.7)',
   },
 })
