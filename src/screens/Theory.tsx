@@ -2,63 +2,8 @@ import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { theory } from '../../data/theory/theory'
+import ContentRenderer from '../components/ContentRenderer'
 
-
-const renderComponent = data => {
-  const { componentType, props } = data
-
-  // Obsługuj różne rodzaje komponentów
-  switch (componentType) {
-    case 'View':
-      return (
-        <View key={componentType} {...props}>
-          {props.children.map(renderComponent)}
-        </View>
-      )
-    case 'Text':
-      return (
-        <Text key={componentType} {...props}>
-          {props.children}
-        </Text>
-      )
-
-    case 'Image':
-      // Załaduj obraz z assetów
-      //   console.log(props.source.uri === '../../assets/favicon.png')
-      //   const imageSource = require('../../assets/favicon.png')
-
-      switch (props.source.uri) {
-        case 'favicon':
-          return (
-            <Image
-              key={componentType}
-              {...props}
-              source={require('../../assets/favicon.png')}
-            />
-          )
-
-        case 'icon':
-          return (
-            <Image
-              key={componentType}
-              {...props}
-              source={require('../../assets/icon.png')}
-            />
-          )
-        default:
-          return (
-            <Image
-              key={componentType}
-              {...props}
-            //   source={require('https://example.com/image.jpg')}
-            />
-          )
-      }
-
-    default:
-      return null
-  }
-}
 
 export default function Theory({ route }) {
   const [topicName, setTopicName] = useState('')
@@ -66,42 +11,6 @@ export default function Theory({ route }) {
 
   useEffect(() => {
     setTopicName(route.params.topicName)
-
-    // for (const topic of theories) {
-    //   if (topic.name === route.params.topicName) {
-    //     console.log("🚀 ~ useEffect ~ topic:", topic)
-    //     setTheory(topic)
-    //     break
-    //   }
-    // }
-
-    console.log('ttt', JSON.stringify(theory))
-
-    for (const cat in theory) {
-      //ietrate through categories (main keys) in theory
-      if (theory.hasOwnProperty(cat)) {
-        if (cat !== route.params.categoryName) {
-          //check the name of the main key
-          console.log('🚀 ~ useEffect ~ cat:', cat)
-          continue //skip if not the correct category
-        }
-        const value = theory[cat]
-        for (const top in value) {
-          //iterate through topics in correct category
-          console.log(value[top].name)
-          if (value[top].name === route.params.topicName) {
-            setTopicTheory(value[top])
-            console.log(`Key: ${cat}, Value: ${value[top]}`)
-            break
-          }
-        }
-      }
-    }
-
-    // switch(route.params.topicName){
-    //     case 'top_1': setTheory(top_1); break;
-    //     case 'top_2': setTheory(top_2); break;
-    // }
   }, [route.params])
 
   return (
@@ -111,7 +20,9 @@ export default function Theory({ route }) {
 
       <View>
         <Text>this is the theory of {topicName}</Text>
-        {renderComponent(topicTheory)}
+        {theory[route.params.categoryName][topicName]?.map(questionComponent => (
+          <ContentRenderer data={questionComponent}></ContentRenderer>
+        ))}
       </View>
     </View>
   )

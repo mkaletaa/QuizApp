@@ -1,0 +1,10 @@
+[
+  {
+    "componentType": "Text",
+    "value": "text"
+  },
+   {
+     "componentType": "Text",
+     "value": "another text"
+   }
+]
