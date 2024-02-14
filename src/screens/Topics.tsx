@@ -8,118 +8,89 @@ import useImportQuiz from '../hooks/useImportQuiz'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
-  const [currentTopics, setCurrentTopics] = useState([]) //all topics with one dummy topic at the beginning representing __All__
+  const [topicsToShow, setTopicsToShow] = useState([]) //all topics with one dummy topic at the beginning representing __All__
   const [modalVisible, setModalVisible] = useState(false)
-  const [chosenTopics, setChosenTopics] = useState(new Map())
+  const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
   const importQuiz = useImportQuiz()
   const navigation = useNavigation()
 
-  // Ustawienie domyślnej wartości na mapę
   useEffect(() => {
-    const defaultChosenTopics = new Map()
-
-    if (categoryName !== '' && topics[categoryName]?.length > 0) {
-      for (let i = 0; i < topics[categoryName]?.length; i++) {
-        const topic = topics[categoryName][i]
-        //  console.log('🚀 ~ forEach ~ topicName:', topic.name)
-        defaultChosenTopics.set(topic.name, true)
-      }
-    }
-
-    setChosenTopics(defaultChosenTopics)
-    //  console.log('🚀 ~ useEffect ~ topics:', defaultChosenTopics)
-  }, [categoryName, topics])
-
-  useEffect(() => {
+    //Here a dummy topic is added
     const { categoryName } = route.params || {}
     if (categoryName && topics[categoryName]) {
       setCategoryName(categoryName)
       let name: string = categoryName + '__All__'
-      setCurrentTopics([{ name, pic: '', des: '' }, ...topics[categoryName]])
+      setTopicsToShow([{ name, pic: '', des: '' }, ...topics[categoryName]])
     }
   }, [route.params])
 
   useEffect(() => {
-    //set all values of chosenTopics to true after closing the modal to avoid bugs
-    if (!modalVisible) {
-      const updatedChosenTopics = new Map(chosenTopics)
+    // Set all values of chosenTopics after closing and opening the modal to avoid bugs
+    if (modalVisible) {
+      const updatedChosenTopics = []
 
-      // Iteruj przez wszystkie klucze i ustaw ich wartości na true
-      updatedChosenTopics.forEach((_, key) => {
-        updatedChosenTopics.set(key, true)
+      Object.keys(topics).forEach(category => {
+        topics[category].forEach(topic => {
+          if (category === categoryName) {
+            updatedChosenTopics.push(topic.name)
+          }
+        })
       })
 
       setChosenTopics(updatedChosenTopics)
+    } else {
+      setChosenTopics([])
     }
   }, [modalVisible])
 
-  const pressTheory = (topicName, categoryName) => {
+  const showTheory = (topicName, categoryName) => {
     //@ts-ignore
     navigation.navigate('Theory', { topicName, categoryName })
   }
 
-  function convertToArray(
-    topicName: string | Map<string, boolean>,
-    categoryName: string
-  ) {
-    console.log('🚀 ~ Topics ~ topicName:', topicName)
-    let topicList = [] //this array stores a list of topics that need to be imported
-    //zamień topicName na tablicę, jeśli jest mapą. Do tablicy mają być wkładane tylko te klucze, które mają wartośc true
-
-    // Sprawdź typ topicName i odpowiednio przekształć go na tablicę
-    if (typeof topicName === 'string') {
-      // Jeśli topicName jest stringiem, dodaj go do listy
-      topicList.push(topicName)
-    } else if (topicName instanceof Map) {
-      // Jeśli topicName jest mapą, dodaj klucze o wartości true do listy
-      topicName.forEach((value, key) => {
-        if (value) {
-          topicList.push(key)
-        }
-      })
-    } else if (Array.isArray(topicName)) {
-      // Jeśli topicName jest tablicą, dodaj jej elementy do listy
-      topicList = topicList.concat(topicName)
-    }
-
-    importQuiz(topicList, categoryName, topics)
-  }
-
   //this function calls importQuiz and gives it an array of chosen topics
-  const pressQuiz = (
-    topicName: string | Map<string, boolean>,
-    categoryName
-  ) => {
+  const showQuiz = (topicsArray: Array<string>, categoryName) => {
     //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
-    if (typeof topicName === 'string' && topicName.endsWith('__All__')) {
+    if (topicsArray[0].endsWith('__All__')) {
       setModalVisible(true)
       return
     }
 
-    convertToArray(topicName, categoryName)
+    if (topicsArray.length > 2) {
+      setModalVisible(true)
+      return
+    }
+
+    importQuiz(topicsArray, categoryName, topics)
   }
 
   function toggleTopic(name: string, isChosen: boolean): void {
-    setChosenTopics(
-      prevChosenTopics => new Map(prevChosenTopics.set(name, !isChosen))
-    )
+    setChosenTopics(prevChosenTopics => {
+      if (!isChosen) {
+        // Dodaj name do tablicy, jeśli isChosen jest true
+        return prevChosenTopics.concat(name)
+      } else {
+        // Usuń name z tablicy, jeśli isChosen jest false
+        return prevChosenTopics.filter(topic => topic !== name)
+      }
+    })
   }
 
   return (
     <View style={styles.container}>
       <Text>List of all topics for {categoryName}:</Text>
       <StatusBar style="auto" />
-      {currentTopics.map(topic => (
+      {topicsToShow.map(topic => (
         <View key={topic.name}>
           <Text>{topic.des}</Text>
           <Button
             title={topic.name}
-            onPress={() => pressQuiz(topic.name, categoryName)}
+            onPress={() => showQuiz([topic.name], categoryName)}
           />
           {!topic.name.endsWith('__All__') ? (
             <Button
               title="read about"
-              onPress={() => pressTheory(topic.name, categoryName)}
+              onPress={() => showTheory(topic.name, categoryName)}
             />
           ) : null}
         </View>
@@ -142,7 +113,7 @@ export default function Topics({ route }) {
             title="Start the quiz"
             onPress={() => {
               setModalVisible(false)
-              pressQuiz(chosenTopics, categoryName)
+              showQuiz(chosenTopics, categoryName)
             }}
           />
         </View>

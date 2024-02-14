@@ -4,10 +4,8 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer'
 
-
 export default function Theory({ route }) {
   const [topicName, setTopicName] = useState('')
-  const [topicTheory, setTopicTheory] = useState({})
 
   useEffect(() => {
     setTopicName(route.params.topicName)
@@ -20,9 +18,11 @@ export default function Theory({ route }) {
 
       <View>
         <Text>this is the theory of {topicName}</Text>
-        {theory[route.params.categoryName][topicName]?.map(questionComponent => (
-          <ContentRenderer data={questionComponent}></ContentRenderer>
-        ))}
+        {theory[route.params.categoryName][route.params.topicName]?.map(
+          questionComponent => (
+            <ContentRenderer data={questionComponent}></ContentRenderer>
+          )
+        )}
       </View>
     </View>
   )
