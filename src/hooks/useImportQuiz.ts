@@ -18,8 +18,8 @@ const useImportQuiz = () => {
     for(const chosenTopic of chosenTopicsArray) {
       for (const topic of topics[categoryName]) {
         if (topic.name === chosenTopic) {
-          console.log('🚀 ~ topicMap.forEach ~ key:', chosenTopic)
-          console.log('🚀 ~ topicMap.forEach ~ topic:', topic.name)
+          // console.log('🚀 ~ topicMap.forEach ~ key:', chosenTopic)
+          // console.log('🚀 ~ topicMap.forEach ~ topic:', topic.name)
           items.push(...quiz[categoryName][chosenTopic])
           //gdyby quiz skladalo sie tez z kategorii to chyba wystarczy ...quiz[category][chosenTopic]
           break

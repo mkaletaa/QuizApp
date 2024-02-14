@@ -12,6 +12,7 @@ export default function Topics({ route }) {
   const [modalVisible, setModalVisible] = useState(false)
   const [chosenTopics, setChosenTopics] = useState(new Map())
   const importQuiz = useImportQuiz()
+  const navigation = useNavigation()
 
   // Ustawienie domyślnej wartości na mapę
   useEffect(() => {
@@ -29,8 +30,6 @@ export default function Topics({ route }) {
     //  console.log('🚀 ~ useEffect ~ topics:', defaultChosenTopics)
   }, [categoryName, topics])
 
-  const navigation = useNavigation()
-
   useEffect(() => {
     const { categoryName } = route.params || {}
     if (categoryName && topics[categoryName]) {
@@ -39,6 +38,20 @@ export default function Topics({ route }) {
       setCurrentTopics([{ name, pic: '', des: '' }, ...topics[categoryName]])
     }
   }, [route.params])
+
+  useEffect(() => {
+    //set all values of chosenTopics to true after closing the modal to avoid bugs
+    if (!modalVisible) {
+      const updatedChosenTopics = new Map(chosenTopics)
+
+      // Iteruj przez wszystkie klucze i ustaw ich wartości na true
+      updatedChosenTopics.forEach((_, key) => {
+        updatedChosenTopics.set(key, true)
+      })
+
+      setChosenTopics(updatedChosenTopics)
+    }
+  }, [modalVisible])
 
   const pressTheory = (topicName, categoryName) => {
     //@ts-ignore
@@ -49,6 +62,7 @@ export default function Topics({ route }) {
     topicName: string | Map<string, boolean>,
     categoryName: string
   ) {
+    console.log('🚀 ~ Topics ~ topicName:', topicName)
     let topicList = [] //this array stores a list of topics that need to be imported
     //zamień topicName na tablicę, jeśli jest mapą. Do tablicy mają być wkładane tylko te klucze, które mają wartośc true
 
