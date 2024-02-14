@@ -35,10 +35,8 @@ export default function Topics({ route }) {
     const { categoryName } = route.params || {}
     if (categoryName && topics[categoryName]) {
       setCategoryName(categoryName)
-      setCurrentTopics([
-        { name: 'cat_1__All__', pic: '', des: '' },
-        ...topics[categoryName],
-      ])
+      let name: string = categoryName + '__All__'
+      setCurrentTopics([{ name, pic: '', des: '' }, ...topics[categoryName]])
     }
   }, [route.params])
 

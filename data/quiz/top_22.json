@@ -1,0 +1,58 @@
+[
+  {
+    "id": 24,
+    "multiChoice": false,
+    "question": "IDK",
+    "options": [
+      { "id": 11, "answer": "I", "correct": true },
+      { "id": 21, "answer": "D", "correct": false },
+      { "id": 31, "answer": "K", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Text", 
+        "value": "French capital"
+      },
+      {
+        "componentType": "Text", 
+        "value": " is definitely Paris"
+      },
+      {
+        "componentType": "Image", 
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "multiChoice": true,
+    "question": "papieź",
+    "options": [
+      { "id": 11, "answer": "pedał", "correct": true },
+      { "id": 21, "answer": "dzieci", "correct": true },
+      { "id": 31, "answer": "jebał", "correct": true }
+    ],
+    "explanation": "CRA is outdated"
+  },
+  {
+    "id": 26,
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text", 
+        "value": "serio już nie mam pomysłu"
+      }
+    ],
+    "options": [
+      {
+        "id": 11,
+        "answer": "sdsd",
+        "correct": false,
+        "componentType": "Text",
+        "props": {}
+      },
+      { "id": 21, "answer": "cujyujyu", "correct": true }
+    ],
+    "explanation": "..."
+  }
+]

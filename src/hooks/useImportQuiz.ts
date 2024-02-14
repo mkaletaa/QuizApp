@@ -1,6 +1,6 @@
 // hooks/useImportQuiz.js
 import { useNavigation } from '@react-navigation/native'
-import { cat_1 as quiz } from '../../data/quiz/quizModule'
+import { quiz } from '../../data/quiz/quizModule'
 
 const useImportQuiz = () => {
   const navigation = useNavigation()
@@ -20,7 +20,7 @@ const useImportQuiz = () => {
         if (topic.name === chosenTopic) {
           console.log('🚀 ~ topicMap.forEach ~ key:', chosenTopic)
           console.log('🚀 ~ topicMap.forEach ~ topic:', topic.name)
-          items.push(...quiz[chosenTopic])
+          items.push(...quiz[categoryName][chosenTopic])
           //gdyby quiz skladalo sie tez z kategorii to chyba wystarczy ...quiz[category][chosenTopic]
           break
         }

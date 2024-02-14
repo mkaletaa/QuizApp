@@ -1,4 +1,4 @@
-import  quiz  from './quiz.json'
-import  quiz2  from './quiz2.json'
+import { cat_1 } from "./cat_1";
+import { cat_2 } from "./cat_2";
 
-export const cat_1 = { top_1: quiz, top_2: quiz2 }
+export const quiz = { cat_1, cat_2 };
