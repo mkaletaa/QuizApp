@@ -1,45 +1,55 @@
 [
   {
-    "name": "top_1",
-    "componentType": "View",
-    "props": {
-      "style": {
-        "backgroundColor": "blue",
-        "padding": 10
-      },
-      "children": [
-        {
-          "componentType": "Text",
-          "props": {
-            "style": {
-              "color": "white"
-            },
-            "children": "Hello, World!"
-          }
-        }
-      ]
-    }
+    "id": 1,
+    "multiChoice": false,
+    "question": "How old are you?",
+    "options": [
+      { "id": 1, "answer": "18", "correct": false },
+      { "id": 2, "answer": "19", "correct": true },
+      { "id": 3, "answer": "20", "correct": false },
+      { "id": 4, "answer": "21", "correct": false }
+    ],
+    "explanation": [
+      { "componentType": "Text", "value": "Expl?" },
+      { "componentType": "Text", "value": " Anation" },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      }
+    ]
   },
-
   {
-    "name": "top_2",
-    "componentType": "View",
-    "props": {
-      "style": {
-        "backgroundColor": "blue",
-        "padding": 10
+    "id": 2,
+    "multiChoice": true,
+    "question": "What is your name?",
+    "options": [
+      { "id": 1, "answer": "Carl", "correct": false },
+      { "id": 2, "answer": "Emily", "correct": true },
+      { "id": 3, "answer": "Eva", "correct": true }
+    ],
+    "explanation": "www"
+  },
+  {
+    "id": 3,
+    "multiChoice": false,
+    "question": [
+      { "componentType": "Text", "value": "Do you have a pet?" },
+      { "componentType": "Text", "value": " Hello" },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      }
+    ],
+    "options": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "correct": false,
+        "componentType": "Text",
+        "props": {}
       },
-      "children": [
-        {
-          "componentType": "Text",
-          "props": {
-            "style": {
-              "color": "white"
-            },
-            "children": "GoodBye, World!"
-          }
-        }
-      ]
-    }
+      { "id": 2, "answer": "no", "correct": true }
+    ],
+    "explanation": "www"
   }
 ]

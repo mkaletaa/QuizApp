@@ -12,6 +12,7 @@ export default function Categories() {
   const [chosenCategories, setChosenCategories] = useState([]) //topics that user want to take a quiz
   const importQuiz = useImportQuiz()
   const navigation = useNavigation()
+
   useEffect(() => {
     console.log('🚀 ~ Categories ~ chosenCategories:', chosenCategories)
   }, [chosenCategories])
@@ -54,33 +55,44 @@ export default function Categories() {
     })
   }
 
-  const showQuiz = (topicsArray: Array<string>) => {
+  const showQuiz = (categoriesArray: Array<string>) => {
+    console.log('🚀 ~ showQuiz ~ categoriesArray:', categoriesArray)
     //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
-    if (topicsArray[0].endsWith('__All__')) {
+    if (categoriesArray[0].endsWith('__All__')) {
       setModalVisible(true)
       return
     }
 
-    if (topicsArray.length > 2) {
-      setModalVisible(true)
-      return
-    }
+    let itemsArray = []
+    
+    chosenCategories.map(cat => {
+      let topicsArray = []
+      // topicsArray.push([...topics[cat]])
+      topics[cat].map(topic => {
+        itemsArray.push(...importQuiz([topic.name], cat, topics, true))
+        
+        })
+        
+        // console.log( JSON.stringify(importQuiz(topicsArray, cat.name, topics, true)))
+      })
 
-    importQuiz(topicsArray, 'cat_1', topics)
+        // console.log("🚀 ~ showQuiz ~ itemsArray:",  JSON.stringify(str))
+    //@ts-ignore
+    navigation.navigate('Quiz', { quiz: itemsArray, topicName: 'headerText' })
   }
 
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
-      {categoriesToShow.map(cat => (
+      {categoriesToShow?.map(cat => (
         <View key={cat.name}>
           <Text>{cat.des}</Text>
 
           {cat.name.endsWith('__All__') ? (
             <Button
               title={'all categories quiz'}
-              onPress={() => showQuiz(cat.name)}
+              onPress={() => showQuiz([cat.name])}
             />
           ) : (
             <Button title={cat.name} onPress={() => goToTopics(cat.name)} />
