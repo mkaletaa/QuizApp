@@ -8,11 +8,13 @@ import { useNavigation } from '@react-navigation/native'
 import Theory from './screens/Theory'
 import Quiz from './screens/Quiz'
 import Summary from './screens/Summary'
+import useModifyText from './hooks/useModifyText'
 
 const Stack = createStackNavigator()
 
 const MyStack = () => {
   const navigation = useNavigation()
+  const modifyText = useModifyText()
 
   const header = {
     headerRight: () => (
@@ -37,7 +39,7 @@ const MyStack = () => {
         component={Topics}
         options={({ route }) => ({
           ...header, //@ts-ignore
-          title: `${route.params?.categoryName || 'category name'}`,
+          title: `${modifyText(route.params?.categoryName)}` || 'category name',
         })}
       />
 
@@ -46,7 +48,7 @@ const MyStack = () => {
         component={Theory}
         options={({ route }) => ({
           ...header, //@ts-ignore
-          title: `${route.params?.categoryName || 'topic name'}`,
+          title: `${modifyText(route.params?.categoryName)}` + ' - theory' || 'topic name',
         })}
       />
 
@@ -55,7 +57,7 @@ const MyStack = () => {
         component={Quiz}
         options={({ route }) => ({
           ...header, //@ts-ignore
-          title: `${route.params?.topicName || 'topic name'}`,
+          title: `${modifyText(route.params?.topicName) || 'topic name'}`+' - quiz',
         })}
       />
 
@@ -64,7 +66,7 @@ const MyStack = () => {
         component={Summary}
         options={({ route }) => ({
           ...header, //@ts-ignore
-          title: `${route.params?.categoryName || 'topic name'}`,
+          title: `${route.params?.categoryName}` + ' - quiz summary' || 'topic name',
         })}
       />
 

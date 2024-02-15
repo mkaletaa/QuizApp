@@ -1,11 +1,19 @@
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
+import {
+  Button,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import { topics } from '../../data/data'
 import ModalComponent from '../components/ModalComponent'
 import useImportQuiz from '../hooks/useImportQuiz'
 import Card from '../components/Card'
+import useModifyText from '../hooks/useModifyText'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -14,6 +22,7 @@ export default function Topics({ route }) {
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
   const importQuiz = useImportQuiz()
   const navigation = useNavigation()
+  const modifyText = useModifyText()
 
   useEffect(() => {
     //Here a dummy topic is added
@@ -21,7 +30,10 @@ export default function Topics({ route }) {
     if (categoryName && topics[categoryName]) {
       setCategoryName(categoryName)
       let name: string = categoryName + '__All__'
-      setTopicsToShow([{ name, pic: '', des: '' }, ...topics[categoryName]])
+      setTopicsToShow([
+        { name, image: 'https://reactjs.org/logo-og.png', des: '' },
+        ...topics[categoryName],
+      ])
     }
   }, [route.params])
 
@@ -57,11 +69,6 @@ export default function Topics({ route }) {
       return
     }
     console.log(topicsArray)
-    
-    // if (topicsArray.length > 2) {
-    //   setModalVisible(true)
-    //   return
-    // }
 
     importQuiz(topicsArray, categoryName, topics)
   }
@@ -80,65 +87,33 @@ export default function Topics({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text>List of all topics for {categoryName}:</Text>
+      <Text>List of all topics for {modifyText(categoryName)}:</Text>
       <StatusBar style="auto" />
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-
-      {topicsToShow.map(topic => (
-
-        <Card data={topic} showQuiz={()=>showQuiz([topic.name], categoryName)} >
-          {!topic.name.endsWith('__All__') ? (
-            <Button
-              title="read about"
-              onPress={() => showTheory(topic.name, categoryName)}
-            />
-          ) : null}
-        </Card>
-        // <View key={topic.name}>
-        //   <Text>{topic.des}</Text>
-        //   <Button
-        //     title={topic.name}
-        //     onPress={() => showQuiz([topic.name], categoryName)}
-        //   />
-        //   {!topic.name.endsWith('__All__') ? (
-        //     <Button
-        //       title="read about"
-        //       onPress={() => showTheory(topic.name, categoryName)}
-        //     />
-        //   ) : null}
-        // </View>
-      ))}
+        {topicsToShow.map(topic => (
+          <Card
+            data={topic}
+            showQuiz={() => showQuiz([topic.name], categoryName)}
+          >
+            {!topic.name.endsWith('__All__') ? (
+              <TouchableOpacity
+                activeOpacity={0.75}
+                style={styles.theoryBtn}
+                onPress={() => showTheory(topic.name, categoryName)}
+              >
+                <Text style={styles.theoryText}>Learn</Text>
+              </TouchableOpacity>
+            ) : null}
+          </Card>
+        ))}
       </ScrollView>
-
-      {/* <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modalContainer}>
-          {topics[categoryName] &&
-            topics[categoryName].map(topic => (
-              <QuizModalSwitch topic={topic} toggleTopic={toggleTopic} />
-            ))}
-
-          <Button title="Close Modal" onPress={() => setModalVisible(false)} />
-          <Button
-            title="Start the quiz"
-            onPress={() => {
-              setModalVisible(false)
-              showQuiz(chosenTopics, categoryName)
-            }}
-          />
-        </View>
-      </Modal> */}
 
       <ModalComponent
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         dataToIterate={topics[categoryName]}
         toggleTopic={toggleTopic}
-        showQuiz={()=>showQuiz(chosenTopics, categoryName)}
+        showQuiz={() => showQuiz(chosenTopics, categoryName)}
       />
     </View>
   )
@@ -152,12 +127,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   scrollViewContainer: {
-    // backgroundColor: '#fffbbb',
     flexGrow: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
     // flex: 1
-  }
+  },
+  theoryBtn: {
+    backgroundColor: 'lightblue',
+    width: '100%',
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: 'grey',
+    shadowColor: 'rgba(0,0,0, .4)', // IOS
+    shadowOffset: { height: 1, width: 1 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 2, //IOS
+    elevation: 4, // Android
+  },
+  theoryText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    // width: '100%',
+  },
 })

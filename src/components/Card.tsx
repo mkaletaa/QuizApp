@@ -1,34 +1,55 @@
 import React from 'react'
 import {
-  Image,
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  useWindowDimensions,
+    Image,
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
+    useWindowDimensions,
 } from 'react-native'
-import { TouchableHighlight } from 'react-native-gesture-handler'
+import useModifyText from '../hooks/useModifyText'
 
-export default function Card({ data, showQuiz, goToTopics=null, children=null }) {
+export default function Card({
+  data,
+  showQuiz,
+  goToTopics = null,
+  children = null,
+}) {
   const handlePress = () => {
     if (data.name.endsWith('__All__')) {
       showQuiz()
     } else {
-      goToTopics===null ? showQuiz([data.name]) : goToTopics(data.name) 
+      goToTopics === null ? showQuiz([data.name]) : goToTopics(data.name)
     }
   }
   const windowDimensions = useWindowDimensions()
+  const modifyText = useModifyText()
 
   const calculateCardSize = () => {
     // Dostosuj rozmiar karty na podstawie szerokości ekranu
     const screenWidth = windowDimensions.width
-    const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth/2.7 // Przykładowy podział dla szerokich i wąskich ekranów
-    const cardHeight = cardWidth*1.2  // Przykładowy stosunek wysokości do szerokości
+    const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.7 // Przykładowy podział dla szerokich i wąskich ekranów
+    const cardHeight = !goToTopics ? cardWidth * 1.25 : cardWidth * 1.2 // Przykładowy stosunek wysokości do szerokości
 
     return { width: cardWidth, height: cardHeight }
   }
-    const cardSize = calculateCardSize()
 
+  const cardSize = calculateCardSize()
+
+//   function mofidyText(str: string): string {
+//     // Jeśli str zawiera __All__, usuń je
+//     let modifiedStr = str
+
+//     if (str.endsWith('__All__')) {
+//       modifiedStr = str.replace('__All__', '')
+//       modifiedStr += ' - all topics'
+//     }
+
+//     // Następnie, jeśli zawiera podkreślenia, zamień je na spacje
+//     modifiedStr = modifiedStr.replace(/_/g, ' ')
+
+//     return modifiedStr
+//   }
 
   return (
     <Pressable
@@ -39,9 +60,8 @@ export default function Card({ data, showQuiz, goToTopics=null, children=null })
       //   ]}
     >
       <View style={[styles.cardContainer, cardSize]} key={data.name}>
-        <Text style={styles.cardText}>
-          {data.name}
-          {windowDimensions.width}
+        <Text numberOfLines={1} style={styles.cardText}>
+          {modifyText(data.name)}
         </Text>
 
         <Image
@@ -52,7 +72,6 @@ export default function Card({ data, showQuiz, goToTopics=null, children=null })
         />
 
         {children}
-
       </View>
     </Pressable>
   )
@@ -79,6 +98,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    // overflow: 'hidden'
   },
   cardText: {
     fontSize: 16,
@@ -89,6 +109,8 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     resizeMode: 'cover',
-    marginBottom: 10,
+    marginTop: 15,
+    marginBottom: -5,
+    borderRadius: 10,
   },
 })
