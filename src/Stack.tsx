@@ -1,15 +1,15 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import Categories from './screens/Categories'
-import Topics from './screens/Topics'
-import Options from './screens/Options'
-import { Button } from 'react-native'
+import { Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import Theory from './screens/Theory'
+import { createStackNavigator } from '@react-navigation/stack'
+import React from 'react'
+import useModifyText from './hooks/useModifyText'
+import Categories from './screens/Categories'
+import Options from './screens/Options'
 import Quiz from './screens/Quiz'
 import Summary from './screens/Summary'
-import useModifyText from './hooks/useModifyText'
-
+import Theory from './screens/Theory'
+import Topics from './screens/Topics'
+import { Feather } from '@expo/vector-icons'
 const Stack = createStackNavigator()
 
 const MyStack = () => {
@@ -18,11 +18,29 @@ const MyStack = () => {
 
   const header = {
     headerRight: () => (
-      <Button //@ts-ignore
-        onPress={() => navigation.navigate("Options")}
-        title="opcje"
-        color="#000"
+      <Entypo
+        //@ts-ignore
+        onPress={() => navigation.navigate('Options')}
+        name="dots-three-vertical"
+        size={28}
+        color="black"
+        style={{
+          marginRight: 15,
+        }}
       />
+
+      // <Feather
+      //   name="sliders"
+      //   size={28}
+      //   color="black"
+      //   onPress={() => navigation.navigate('Options')}
+
+      //     style={{
+      //       marginRight: 15,
+      //       borderRadius: 3,
+
+      //     }}
+      // />
     ),
   }
 
@@ -47,8 +65,10 @@ const MyStack = () => {
         name="Theory"
         component={Theory}
         options={({ route }) => ({
-          ...header, //@ts-ignore
-          title: `${modifyText(route.params?.categoryName)}` + ' - theory' || 'topic name',
+          ...header, 
+          title: //@ts-ignore
+            `${modifyText(route.params?.categoryName)}` + ' - theory' ||
+            'topic name',
         })}
       />
 
@@ -56,8 +76,10 @@ const MyStack = () => {
         name="Quiz"
         component={Quiz}
         options={({ route }) => ({
-          ...header, //@ts-ignore
-          title: `${modifyText(route.params?.topicName) || 'topic name'}`+' - quiz',
+          ...header, 
+          title: //@ts-ignore
+            `${modifyText(route.params?.topicName) || 'topic name'}` +
+            ' - quiz',
         })}
       />
 
@@ -65,8 +87,9 @@ const MyStack = () => {
         name="Summary"
         component={Summary}
         options={({ route }) => ({
-          ...header, //@ts-ignore
-          title: `${route.params?.categoryName}` + ' - quiz summary' || 'topic name',
+          ...header, 
+          title: //@ts-ignore
+            `${route.params?.categoryName}` + ' - quiz summary' || 'topic name',
         })}
       />
 
