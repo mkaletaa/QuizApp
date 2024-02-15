@@ -13,7 +13,7 @@ const renderComponent = dataComponent => {
     case 'Text':
       return (
         //<View key={value}>
-        <Text key={value}>{value}</Text>
+        <Text key={value} style={styles.text}>{value}</Text>
         //</View>
       )
 
@@ -23,9 +23,10 @@ const renderComponent = dataComponent => {
         <Image
           key={value}
           style={{
-            width: 51,
-            height: 51,
+            width: 200,
+            height: 100,
             // resizeMode: 'contain',
+            backgroundColor: 'red',
           }}
           source={{
             uri: value,
@@ -34,7 +35,7 @@ const renderComponent = dataComponent => {
       )
 
     default:
-      return <Text>{dataComponent}</Text>
+      return <Text style={styles.text} key={value}>{dataComponent}</Text>
   }
 }
 
@@ -43,14 +44,20 @@ export default function ContentRenderer({ data }) {
   const dataArray = Array.isArray(data) ? data : [data]
 
   //if a question consists of not only text but also eg. an image, each of the componnts is rendered separately
-  return <View>{dataArray.map(component => renderComponent(component))}</View>
+  return <View style={styles.container}>{dataArray.map(component => renderComponent(component))}</View>
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    // flex: 1,
+    // backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingLeft:20,
+    paddingRight:20,
+    // justifyContent: 'center',
+
   },
+  text:{
+    fontSize: 18
+  }
 })

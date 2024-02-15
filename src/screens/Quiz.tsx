@@ -5,16 +5,19 @@ import {
   StyleSheet,
   Dimensions,
   Button,
-  FlatList
+  FlatList,
+  ScrollView,
 } from 'react-native'
 import Question from '../components/Question'
 import Options from '../components/Options'
 import Finish from '../components/Finish'
+import { useHeaderHeight } from '@react-navigation/elements'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
-  
+  const headerHeight = useHeaderHeight()
+
   // console.log("🚀 ~ Quiz ~ route:", route.params.quiz)
   const quiz = route.params.quiz
   const quizToIterate = [...quiz, { id: -1 }]
@@ -85,44 +88,33 @@ export default function Quiz({ route }) {
         pagingEnabled
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
-          <View
-            style={[styles.card, { width: screenWidth, height: screenHeight }]}
+          <ScrollView
+            contentContainerStyle={[
+              styles.card,
+              { width: screenWidth, minHeight: screenHeight - headerHeight },
+            ]}
           >
             {item?.question ? (
-              <Question question={item?.question} />
+              <Question question={item?.question}/>
             ) : (
               <Finish userChoices={arrayOfResults} />
             )}
 
-            {item?.options ? <Options item={item} fn={compare} /> : null}
-          </View>
+            {item?.options ? <Options item={item} fn={compare} multiChoice={item.multiChoice} /> : null}
+          </ScrollView>
         )}
       />
-
-      {/* <View style={styles.buttonContainer}>
-        <Button title="dede" style={styles.button} onPress={()=>onPress()}></Button>
-      </View> */}
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   card: {
+    // flex: 1,
     backgroundColor: 'lightgray',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    borderRadius: 8,
+    paddingBottom: 50,
+    paddingTop: 20,
   },
-  // buttonContainer: {
-  //   position: 'absolute',
-  //   bottom: 20, // Dostosuj do preferowanej odległości od dołu
-  //   left: 20, // Dostosuj do preferowanej odległości od lewej
-  //   right: 20, // Dostosuj do preferowanej odległości od prawej
-  // },
-  // button: {
-  //   width: '100%',
-  // },
 })
