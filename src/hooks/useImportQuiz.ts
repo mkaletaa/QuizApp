@@ -11,12 +11,10 @@ const useImportQuiz = () => {
     topics,
     returnItems: boolean = false //all topics of all categories available in the app
   ) => {
-
-    
     // Iteruj przez tablicę
     let items = []
-    
-    for(const chosenTopic of chosenTopicsArray) {
+
+    for (const chosenTopic of chosenTopicsArray) {
       for (const topic of topics[categoryName]) {
         if (topic.name === chosenTopic) {
           // console.log('🚀 ~ topicMap.forEach ~ key:', chosenTopic)
@@ -29,16 +27,22 @@ const useImportQuiz = () => {
     }
 
     let stringified = JSON.stringify(items)
-    
-    console.log("🚀 ~ useImportQuiz ~ items:", stringified)
-    
-    
-    if(returnItems)
-    return items
-  
-  const headerText:string = chosenTopicsArray.length === 1 ? chosenTopicsArray[0] : 'all'
+
+    console.log('🚀 ~ useImportQuiz ~ items:', stringified)
+
+    if (returnItems) return items
+
+    const headerText: string =
+      chosenTopicsArray.length === 1 ? chosenTopicsArray[0] : 'all'
     //@ts-ignore
-    navigation.navigate('Quiz', { quiz: items, topicName:headerText })
+    navigation.navigate('Quiz', { quiz: items, topicName: headerText })
+  }
+
+  function shuffle(items): typeof items {
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[items[i], items[j]] = [items[j], items[i]]
+    }
   }
 
   return importQuiz

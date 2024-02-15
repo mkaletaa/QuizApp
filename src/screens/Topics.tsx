@@ -1,11 +1,10 @@
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import { Button, Modal, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 import { topics } from '../../data/data'
-import QuizModalSwitch from '../components/QuizModalSwitch'
-import useImportQuiz from '../hooks/useImportQuiz'
 import ModalComponent from '../components/ModalComponent'
+import useImportQuiz from '../hooks/useImportQuiz'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -82,6 +81,7 @@ export default function Topics({ route }) {
     <View style={styles.container}>
       <Text>List of all topics for {categoryName}:</Text>
       <StatusBar style="auto" />
+      
       {topicsToShow.map(topic => (
         <View key={topic.name}>
           <Text>{topic.des}</Text>

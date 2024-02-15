@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Button, Modal, StyleSheet, Text, View } from 'react-native'
+import { Button, Modal, StyleSheet, Text, View , Image, ScrollView, useWindowDimensions} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { categories, topics } from '../../data/data'
 import QuizModalSwitch from '../components/QuizModalSwitch'
 import useImportQuiz from '../hooks/useImportQuiz'
 import ModalComponent from '../components/ModalComponent'
+import Card from '../components/Card'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
@@ -23,8 +24,9 @@ export default function Categories() {
       // @ts-ignore
       navigation.navigate('Topics', { categoryName: categories[0].name })
     else {
-      let name: string = 'AppName' + '__All__'
-      setCategoriesToShow([{ name, pic: '', des: '' }, ...categories])
+      let name: string = '__All__'
+      // setCategoriesToShow([{ name, pic: '___All__.png', des: '' }, ...categories])
+      setCategoriesToShow(categories)
     }
   }, [])
 
@@ -82,65 +84,39 @@ export default function Categories() {
     navigation.navigate('Quiz', { quiz: itemsArray, topicName: 'headerText' })
   }
 
+  const windowWidth = useWindowDimensions().width
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      {categoriesToShow?.map(cat => (
-        <View key={cat.name}>
-          <Text>{cat.des}</Text>
 
-          {cat.name.endsWith('__All__') ? (
-            <Button
-              title={'all categories quiz'}
-              onPress={() => showQuiz([cat.name])}
-            />
-          ) : (
-            <Button title={cat.name} onPress={() => goToTopics(cat.name)} />
-          )}
-        </View>
-      ))}
+      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+        {/* <Text>Open up App.js to start working on your app!</Text> */}
+        <StatusBar style="auto" />
+        {categoriesToShow?.map(data => (
+          <Card data={data} showQuiz={showQuiz} goToTopics={goToTopics}></Card>
+        ))}
 
-      {/* <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modalContainer}>
-          {categories &&
-            categories.map(topic => (
-              <QuizModalSwitch topic={topic} toggleTopic={toggleTopic} />
-            ))}
+        <ModalComponent
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          dataToIterate={categories}
+          toggleTopic={toggleTopic}
+          showQuiz={() => showQuiz(chosenCategories)}
+        />
+      </ScrollView>
 
-          <Button title="Close Modal" onPress={() => setModalVisible(false)} />
-          <Button
-            title="Start the quiz"
-            onPress={() => {
-              setModalVisible(false)
-              showQuiz(chosenCategories)
-            }}
-          />
-        </View>
-      </Modal> */}
-
-      <ModalComponent
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        dataToIterate={categories}
-        toggleTopic={toggleTopic}
-        showQuiz={() => showQuiz(chosenCategories)}
-      />
-    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+
+  scrollViewContainer: {
+    // backgroundColor: '#fffbbb',
+    flexGrow: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
+    // flex: 1
   },
   modalContainer: {
     flex: 1,
