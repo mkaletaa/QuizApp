@@ -1,10 +1,11 @@
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { topics } from '../../data/data'
 import ModalComponent from '../components/ModalComponent'
 import useImportQuiz from '../hooks/useImportQuiz'
+import Card from '../components/Card'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -81,22 +82,33 @@ export default function Topics({ route }) {
     <View style={styles.container}>
       <Text>List of all topics for {categoryName}:</Text>
       <StatusBar style="auto" />
-      
+      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+
       {topicsToShow.map(topic => (
-        <View key={topic.name}>
-          <Text>{topic.des}</Text>
-          <Button
-            title={topic.name}
-            onPress={() => showQuiz([topic.name], categoryName)}
-          />
+
+        <Card data={topic} showQuiz={()=>showQuiz([topic.name], categoryName)} >
           {!topic.name.endsWith('__All__') ? (
             <Button
               title="read about"
               onPress={() => showTheory(topic.name, categoryName)}
             />
           ) : null}
-        </View>
+        </Card>
+        // <View key={topic.name}>
+        //   <Text>{topic.des}</Text>
+        //   <Button
+        //     title={topic.name}
+        //     onPress={() => showQuiz([topic.name], categoryName)}
+        //   />
+        //   {!topic.name.endsWith('__All__') ? (
+        //     <Button
+        //       title="read about"
+        //       onPress={() => showTheory(topic.name, categoryName)}
+        //     />
+        //   ) : null}
+        // </View>
       ))}
+      </ScrollView>
 
       {/* <Modal
         animationType="slide"
@@ -139,4 +151,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  scrollViewContainer: {
+    // backgroundColor: '#fffbbb',
+    flexGrow: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // flex: 1
+  }
 })

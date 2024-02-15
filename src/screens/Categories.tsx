@@ -25,8 +25,11 @@ export default function Categories() {
       navigation.navigate('Topics', { categoryName: categories[0].name })
     else {
       let name: string = '__All__'
-      // setCategoriesToShow([{ name, pic: '___All__.png', des: '' }, ...categories])
-      setCategoriesToShow(categories)
+      setCategoriesToShow([
+        { name, image: 'https://reactjs.org/logo-og.png', des: '' },
+        ...categories,
+      ])
+      // setCategoriesToShow(categories)
     }
   }, [])
 
@@ -91,8 +94,8 @@ export default function Categories() {
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {/* <Text>Open up App.js to start working on your app!</Text> */}
         <StatusBar style="auto" />
-        {categoriesToShow?.map(data => (
-          <Card data={data} showQuiz={showQuiz} goToTopics={goToTopics}></Card>
+        {categoriesToShow?.map(category => (
+          <Card data={category} showQuiz={()=>showQuiz([category.name])} goToTopics={goToTopics}></Card>
         ))}
 
         <ModalComponent

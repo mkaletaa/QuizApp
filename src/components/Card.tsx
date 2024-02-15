@@ -9,12 +9,12 @@ import {
 } from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
-export default function Card({ data, showQuiz, goToTopics }) {
+export default function Card({ data, showQuiz, goToTopics=null, children=null }) {
   const handlePress = () => {
     if (data.name.endsWith('__All__')) {
-      showQuiz([data.name])
+      showQuiz()
     } else {
-      goToTopics(data.name)
+      goToTopics===null ? showQuiz([data.name]) : goToTopics(data.name) 
     }
   }
   const windowDimensions = useWindowDimensions()
@@ -50,6 +50,9 @@ export default function Card({ data, showQuiz, goToTopics }) {
             uri: data.image,
           }}
         />
+
+        {children}
+
       </View>
     </Pressable>
   )
