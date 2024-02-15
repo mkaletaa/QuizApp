@@ -1,49 +1,102 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
-const optionComponent = (option, fn, item) => {
+const OptionComponent = ({ option, fn, item }) => {
   const { componentType, props, answer: answerValue } = option
-
-  function handlePress(pressedOption) {
-    if (pressedOption.hasOwnProperty('isChosen'))
-      // Jeśli klucz 'chosen' istnieje w obiekcie data, zmień jego wartość na przeciwną
-      pressedOption.isChosen = !pressedOption.isChosen
-    // Jeśli klucz 'chosen' nie istnieje, dodaj go z wartością true
-    else pressedOption.isChosen = true
-
-    // Wywołaj funkcję przekazaną jako fn z argumentem data
-    fn(pressedOption, item.id)
-  }
 
   switch (componentType) {
     case 'Text':
-      return (
-        <TouchableOpacity
-          activeOpacity={0.7}
-          {...props}
-          style={styles.touchableOpacity}
-          onPressOut={() => handlePress(option)}
-        >
-          <Text style={styles.buttonText}>{answerValue} dddg</Text>
-        </TouchableOpacity>
-      )
+      return <Text style={styles.buttonText}>{answerValue} dddg</Text>
 
     default:
       return (
-        <TouchableOpacity
-          activeOpacity={0.7}
-          {...props}
-          style={styles.touchableOpacity}
-          onPressOut={() => handlePress(option)}
-        >
-          <Text style={styles.buttonText}>{answerValue}</Text>
-        </TouchableOpacity>
+        <Text style={styles.buttonText}>{answerValue}</Text>
+        // </TouchableOpacity>
       )
   }
 }
 
-export default function Options({ item, fn, multiChoice }) {
+const Options = ({ item, fn, multiChoice }) => {
+  const [pressedButtons, setPressedButtons] = useState(
+    new Map<string, boolean>()
+    )
+    
+    useEffect(() => {
+      const initialPressedButtons = new Map()
+      
+      // Inicjalizacja mapy
+      for (const option of item.options) {
+        //sometimes a bug occurs; for some reason isChosen is initialy set to true for correct answers
+        option.isChosen=false
+        initialPressedButtons.set(option.id, false)
+      }
+      
+      console.log("🚀 ~ Options ~ item:", item.options)
+    setPressedButtons(initialPressedButtons)
+  }, [])
+
+  // useEffect(() => {
+  //   console.log('🚀 ~ Options ~ pressedButtons:', pressedButtons)
+  // }, [pressedButtons])
+
+  function handlePress(pressedOption, multiChoice: boolean): void {
+    console.log('pressedOptoin 0: ', pressedOption)
+    //if this option has already been chosen, unchoose it
+    if (pressedOption.isChosen) {
+      console.log('pressedOptoin 1: ', pressedOption)
+      pressedOption.isChosen = false
+      setPressedButtons(prevState => {
+        const newMap = new Map(prevState)
+        newMap.set(pressedOption.id, false)
+        return newMap
+      })
+      fn(pressedOption, item.id)
+      return
+    }
+
+    if (multiChoice && !pressedOption.isChosen) {
+      console.log('pressedOptoin 2: ', pressedOption)
+
+      pressedOption.isChosen = true
+      
+      setPressedButtons(prevState => {
+        const newMap = new Map(prevState)
+        newMap.set(pressedOption.id, true)
+        return newMap
+      })
+      fn(pressedOption, item.id)
+      return
+    }
+
+    //czy ten kod soę wykona, jeśli isChosen było true?
+    if (!multiChoice && !pressedOption.isChosen) {
+      console.log('pressedOptoin 3: ', pressedOption)
+      for (const option of item.options) {
+        option.isChosen = false
+      }
+      pressedOption.isChosen = true
+
+      //ustaw wszystkie wartości na false
+      setPressedButtons(prevState => {
+        const newMap = new Map(prevState)
+
+        // Ustaw wszystkie wartości na false
+        newMap.forEach((value, key) => {
+          newMap.set(key, false)
+        })
+
+        // Ustaw konkretny klucz na true
+        newMap.set(pressedOption.id, true)
+
+        return newMap
+      })
+      fn(pressedOption, item.id)
+      return
+    }
+
+  }
+
   return (
     <View style={styles.wrapper}>
       {multiChoice ? (
@@ -54,19 +107,39 @@ export default function Options({ item, fn, multiChoice }) {
             marginBottom: 15,
             alignItems: 'center',
             flexDirection: 'row',
-            padding: 5
+            padding: 5,
           }}
         >
-          <AntDesign name="warning" size={16} color="black" style={{marginRight: 5}} />
+          <AntDesign
+            name="warning"
+            size={16}
+            color="black"
+            style={{ marginRight: 5 }}
+          />
           <Text style={{ textAlign: 'center', fontSize: 15 }}>
-            This is a multi choice question
+            This is a multi-choice question
           </Text>
         </View>
       ) : null}
 
       {item.options.map(option => (
         <View key={option.id} style={styles.answerContainer}>
-          {optionComponent(option, fn, item)}
+          <TouchableOpacity
+            activeOpacity={0.7}
+            // {...props}
+            style={[
+              styles.touchableOpacity,
+              {
+                backgroundColor: pressedButtons.get(option.id)
+                  ? 'lightblue'
+                  : 'silver',
+              },
+            ]}
+            onPress={() => handlePress(option, multiChoice)}
+          >
+            <Text>{option.isChosen ? 'true' : 'false'}</Text>
+            <OptionComponent option={option} fn={fn} item={item} />
+          </TouchableOpacity>
         </View>
       ))}
     </View>
@@ -76,7 +149,6 @@ export default function Options({ item, fn, multiChoice }) {
 const styles = StyleSheet.create({
   answerContainer: {},
   touchableOpacity: {
-    backgroundColor: 'silver',
     padding: 10,
     borderRadius: 5,
     marginVertical: 5,
@@ -88,11 +160,14 @@ const styles = StyleSheet.create({
     color: 'black',
     width: 200,
     textAlign: 'center',
-    // Dodaj style dla komponentu Text
   },
   wrapper: {
     marginBottom: -20,
     marginTop: 20,
-    // backgroundColor: 'lightblue',
   },
 })
+
+export default Options
+// function useEffect(arg0: () => void, arg1: undefined[]) {
+//   throw new Error('Function not implemented.')
+// }

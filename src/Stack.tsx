@@ -75,12 +75,7 @@ const MyStack = () => {
       <Stack.Screen
         name="Quiz"
         component={Quiz}
-        options={({ route }) => ({
-          ...header, 
-          title: //@ts-ignore
-            `${modifyText(route.params?.topicName) || 'topic name'}` +
-            ' - quiz',
-        })}
+        options={{headerShown: false}}
       />
 
       <Stack.Screen
