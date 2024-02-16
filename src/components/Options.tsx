@@ -41,10 +41,10 @@ const Options = ({ item, fn, multiChoice }) => {
   // }, [pressedButtons])
 
   function handlePress(pressedOption, multiChoice: boolean): void {
-    console.log('pressedOptoin 0: ', pressedOption)
+    // console.log('pressedOptoin 0: ', pressedOption)
     //if this option has already been chosen, unchoose it
     if (pressedOption.isChosen) {
-      console.log('pressedOptoin 1: ', pressedOption)
+      // console.log('pressedOptoin 1: ', pressedOption)
       pressedOption.isChosen = false
       setPressedButtons(prevState => {
         const newMap = new Map(prevState)
@@ -56,7 +56,7 @@ const Options = ({ item, fn, multiChoice }) => {
     }
 
     if (multiChoice && !pressedOption.isChosen) {
-      console.log('pressedOptoin 2: ', pressedOption)
+      // console.log('pressedOptoin 2: ', pressedOption)
 
       pressedOption.isChosen = true
       
@@ -71,7 +71,7 @@ const Options = ({ item, fn, multiChoice }) => {
 
     //czy ten kod soę wykona, jeśli isChosen było true?
     if (!multiChoice && !pressedOption.isChosen) {
-      console.log('pressedOptoin 3: ', pressedOption)
+      // console.log('pressedOptoin 3: ', pressedOption)
       for (const option of item.options) {
         option.isChosen = false
       }

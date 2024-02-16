@@ -23,81 +23,121 @@ export default function Quiz({ route }) {
   const headerHeight = useHeaderHeight()
   const navigation = useNavigation()
   // console.log("🚀 ~ Quiz ~ route:", route.params.quiz)
-  const quiz = route.params.quiz
-  const quizToIterate = [...quiz, { id: -1 }]
+  const itemSet = route.params.quiz
+  const quizToIterate = [...itemSet, { id: -1 }]
   const [modalVisible, setModalVisible] = useState(false)
-  let arrayOfResults = [] // This array stores user choices
+  // let results = [] // This array stores user choices
+  const [results, setResults] = useState([]) //same as results but as a state
 
+  useEffect(() => {
+    console.log('rerender')
+    for (const item of itemSet) {
+      //dodaj obiekt {id: item.id, userChoices: []}
+      setResults(prev => [...prev, { id: item.id, userChoices: [] }])
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log('results: ', JSON.stringify(results))
+  }, [results])
+
+
+  /* funkcja przyjmuje id itema oraz naciśniętą opcję 
+(niezależnie czy została naciśnięta w celu zaznaczenia czy odznaczenia) */
   function compare(pressedOption, itemId) {
-    console.log("🚀 ~ compare ~ pressedOption:", pressedOption)
-    for (let i = 0; i < quiz.length; i++) {
-      if (quiz[i].id === itemId) {
-        // Jeśli jeszcze nie ma obiektu w arrayOfResults dla danego pytania, dodaj go
-        if (!arrayOfResults[i]) {
-          arrayOfResults[i] = { id: itemId, userChoices: [] }
+    for (let i = 0; i < itemSet.length; i++) {
+      if (itemSet[i].id === itemId) {
+        // console.log("🚀 ~ compare ~ quiz:", quiz[i].id)
+        // console.log("🚀 ~ compare ~ itemId:", itemId, )
+
+        if (!itemSet[i].multiChoice) {
+          //w przypadku pytań jednokrotnego wyboru:
+          if (results[i]?.userChoices?.length === 0) {
+            console.log('nie było nic jeszcze zaznaczone')
+            //jeli nie udzielono jeszcze odpowiedzi na to pytanie, dodaj ją do arrayOfResults
+            // results[i].userChoices.push(pressedOption)
+            let results2 = [...results]
+            results2[i].userChoices.push(pressedOption)
+            setResults(results2)
+          } else {
+            console.log('coś było juz zaznazone i...')
+
+            //jeśli już ucoś było zaznaczone
+            if (pressedOption.isChosen) {
+              //jeśli zaznaczono inną odpowiedź
+              console.log('...zaznaczono inną odpowiedź')
+
+              // results[i].userChoices.pop() //pozbądź się starej odpowiedzi
+              // results[i].userChoices.push(pressedOption) //dodaj zaktualizowaną odpowiedź
+              let results2 = [...results]
+              results2[i].userChoices = [pressedOption]
+              setResults(results2)
+            } else {
+              console.log('...odznaczono odpowiedź')
+
+              //jeśli odznaczono istniejącą odpowiedź
+              // results[i].userChoices.pop() //pozbądź się starej odpowiedzi
+              let results2 = [...results]
+              results2[i].userChoices = []
+              setResults(results2)
+            }
+          }
+          // setResults(results)
+          return
         }
 
-        arrayOfResults[i].explanation = quiz[i].explanation
-        // Sprawdź, czy pressedOption jest już w userChoices, jeśli tak, usuń go, jeśli nie, dodaj
-        const index = arrayOfResults[i].userChoices.findIndex(
-          choice => choice.id === pressedOption.id
-        )
-
-        if (pressedOption.isChosen) {
-          // Jeśli pressedOption jest zaznaczone, ale jeszcze nie jest w userChoices, dodaj go
-          if (index === -1) {
-            arrayOfResults[i].userChoices.push(pressedOption)
-          }
+        //jeśli pytanie jest wielokrotnego wyboru:
+        if (results[i].userChoices.length === 0) {
+          console.log('nie było nic jeszcze zaznaczoneeeee')
+          //jeli nie udzielono jeszcze odpowiedzi na to pytanie, dodaj ją do arrayOfResults
+          // results[i].userChoices.push(pressedOption)\
+          let results2 = [...results]
+          results2[i].userChoices.push(pressedOption)
+          console.log("🚀 ~ compare ~ results2:", results2)
+          setResults(results2)
         } else {
-          // Jeśli pressedOption nie jest zaznaczone, ale jest w userChoices, usuń go
-          if (index !== -1) {
-            arrayOfResults[i].userChoices.splice(index, 1)
+          //jeśli już udzielono odpowiedzi
+          console.log('coś było juz zaznazone i...')
+          if (pressedOption.isChosen) {
+            console.log('...zaznaczono inną odpowiedź')
+            let results2 = [...results]
+            results2[i].userChoices.push(pressedOption)
+            //jeśli zaznaczono inną odpowiedź
+
+            setResults(results2)
+            // arrayOfResults[i].userChoices.filter //pozbądź się starej odpowiedzi
+            // results[i].userChoices?.push(pressedOption) //dodaj zaktualizowaną odpowiedź
+          } else {
+            console.log('...odznaczono odpowiedź')
+            //jeśli odznaczono istniejącą odpowiedź pozbądź się starej odpowiedzi
+            let results2 = [...results]
+            results2[i].userChoices = results2[i].userChoices.filter(
+              option => option.id !== pressedOption.id
+            )
+            setResults(results2)
           }
         }
 
-        // Dodaj pole correctAnswer do arrayOfResults, jeśli jeszcze nie istnieje
-        if (!arrayOfResults[i].correctAnswer) {
-          arrayOfResults[i].correctAnswer = quiz[i].options
-            .filter(answer => answer.correct)
-            .map(correctAnswer => correctAnswer.id)
-        }
-
-        // Dodaj składnik isCorrect do arrayOfResults
-        // Dodaj składnik isCorrect do arrayOfResults jako string "true" lub "false"
-        arrayOfResults[i].isCorrect = (
-          arrayOfResults[i].userChoices.length ===
-            arrayOfResults[i].correctAnswer.length &&
-          arrayOfResults[i].correctAnswer.every(correctId =>
-            arrayOfResults[i].userChoices.some(
-              choice => choice.id === correctId
-            )
-          )
-        ).toString()
-
-        // Wyświetl pytanie i wyniki
-        console.log('question: ', quiz[i].question)
-        console.log('userChoices: ', arrayOfResults[i].userChoices)
-        console.log('correctAnswer: ', arrayOfResults[i].correctAnswer)
-        console.log('isCorrect: ', arrayOfResults[i].isCorrect)
+        // setResults(results)
 
         break
       }
     }
   }
 
-  useEffect(() => {
-    const handleBackPress = () => {
-      setModalVisible(true)
-      return true
-    }
+  // useEffect(() => {
+  //   const handleBackPress = () => {
+  //     setModalVisible(true)
+  //     return true
+  //   }
 
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      handleBackPress
-    )
-    console.log('first')
-    return () => backHandler.remove()
-  }, [navigation])
+  //   const backHandler = BackHandler.addEventListener(
+  //     'hardwareBackPress',
+  //     handleBackPress
+  //   )
+  //   console.log('first')
+  //   return () => backHandler.remove()
+  // }, [navigation])
 
   function closeModalAndGoBack(): void {
     setModalVisible(false)
@@ -121,12 +161,10 @@ export default function Quiz({ route }) {
             {item?.question ? (
               <Question question={item?.question} />
             ) : (
-              <Finish userChoices={arrayOfResults} />
+              <Finish userChoices={results} nrOfItems={itemSet.length} />
             )}
 
             {item?.options ? (
-
-              
               <Options
                 item={item}
                 fn={compare}
@@ -140,7 +178,7 @@ export default function Quiz({ route }) {
       <Modal
         animationType="slide"
         transparent={true}
-        visible={modalVisible}
+        visible={false} //modalVisible
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalContainer}>

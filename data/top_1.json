@@ -1,13 +1,9 @@
 [
   {
     "id": 1,
-    "multiChoice": false,
-    "question": "How old are you?",
-    "options": [
-      { "id": 1, "answer": "18", "correct": false },
-      { "id": 2, "answer": "19", "correct": true },
-      { "id": 3, "answer": "20", "correct": false },
-      { "id": 4, "answer": "21", "correct": false }
+    "userChoices": [
+      { "id": 4, "answer": "21", "correct": false, "isChosen": true },
+      { "id": 5, "answer": "21", "correct": false, "isChosen": true }
     ],
     "explanation": [
       { "componentType": "Text", "value": "Expl?" },
@@ -16,40 +12,27 @@
         "componentType": "Image",
         "value": "https://legacy.reactjs.org/logo-og.png"
       }
-    ]
+    ],
+    "correctAnswer": [2],
+    "isCorrect": "false"
   },
   {
     "id": 2,
-    "multiChoice": true,
-    "question": "What is your name?",
-    "options": [
-      { "id": 1, "answer": "Carl", "correct": false },
-      { "id": 2, "answer": "Emily", "correct": true },
-      { "id": 3, "answer": "Eva", "correct": true }
+    "userChoices": [
+      { "id": 1, "answer": "Carl", "correct": false, "isChosen": true },
+      { "id": 2, "answer": "Emily", "correct": true, "isChosen": true }
     ],
-    "explanation": "www"
+    "explanation": "www",
+    "correctAnswer": [2, 3],
+    "isCorrect": "false"
   },
   {
     "id": 3,
-    "multiChoice": false,
-    "question": [
-      { "componentType": "Text", "value": "Do you have a pet?" },
-      { "componentType": "Text", "value": " Hello" },
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      }
+    "userChoices": [
+      { "id": 2, "answer": "no", "correct": true, "isChosen": true }
     ],
-    "options": [
-      {
-        "id": 1,
-        "answer": "yes",
-        "correct": false,
-        "componentType": "Text",
-        "props": {}
-      },
-      { "id": 2, "answer": "no", "correct": true }
-    ],
-    "explanation": "www"
+    "explanation": "www",
+    "correctAnswer": [2],
+    "isCorrect": "true"
   }
 ]
