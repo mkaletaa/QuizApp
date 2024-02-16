@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 // import React from 'react'
 import {
   View,
@@ -9,7 +9,9 @@ import {
   FlatList,
   ScrollView,
   Modal,
+
 } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import Question from '../components/Question'
 import Options from '../components/Options'
 import Finish from '../components/Finish'
@@ -17,6 +19,7 @@ import { useHeaderHeight } from '@react-navigation/elements'
 import { BackHandler } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import useResults from '../hooks/useResults'
+import Pagination from '../components/Pagination'
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
@@ -25,10 +28,26 @@ export default function Quiz({ route }) {
   const itemSet = route.params.quiz
   const quizToIterate = [...itemSet, { id: -1 }]
   const [modalVisible, setModalVisible] = useState(false)
-
+  const [currentVisibleIndex, setCurrentVisibleIndex] = useState(0)
+  console.log('Quiz renders') // Dodaj ten log
   const [results, setResults, compare] = useResults(itemSet)
 
+  // const screenWidth = Dimensions.get('window').width
+  const flatListRef = useRef(null)
+
+  const onViewableItemsChanged = ({ viewableItems }) => {
+    if (viewableItems.length > 0) {
+      const firstVisibleItemIndex = viewableItems[0].index
+      // setNrOfVisibles(firstVisibleItemIndex)
+      setCurrentVisibleIndex(firstVisibleItemIndex)
+      console.log(
+        `Użytkownik przewinął się do elementu o indeksie: ${firstVisibleItemIndex}`
+      )
+    }
+  }
+
   useEffect(() => {
+    // flatListRef.current.scrollToOffset({ offset: 0, animated: false })
     console.log('rerender')
     for (const item of itemSet) {
       //@ts-ignore
@@ -41,13 +60,34 @@ export default function Quiz({ route }) {
     navigation.goBack() // powrót do poprzedniego ekranu
   }
 
+  const scrollTo = n => {
+    flatListRef.current.scrollToIndex({
+      animated: true,
+      index: n, // Indeks ostatniego elementu, możesz zmienić na dowolny inny indeks
+    })
+  }
+
+
   return (
-    <View>
+    <SafeAreaView>
+
+      <Pagination
+        scrollTo={scrollTo}
+        elements={quizToIterate}
+        currentVisibleIndex={currentVisibleIndex}
+        results={results}
+      />
+
       <FlatList
         data={quizToIterate}
         horizontal
         pagingEnabled
         keyExtractor={item => item.id.toString()}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={{
+          itemVisiblePercentThreshold: 50, // Procent widoczności elementu wymagany, aby został uznany za "widoczny"
+        }}
+        ref={flatListRef}
         renderItem={({ item }) => (
           <ScrollView
             contentContainerStyle={[
@@ -99,7 +139,7 @@ export default function Quiz({ route }) {
           </View>
         </View>
       </Modal>
-    </View>
+    </SafeAreaView>
   )
 }
 
