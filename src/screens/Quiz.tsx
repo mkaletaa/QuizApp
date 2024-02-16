@@ -35,7 +35,7 @@ export default function Quiz({ route }) {
       //dodaj obiekt {id: item.id, userChoices: []}
       setResults(prev => [
         ...prev,
-        { id: item.id, userChoices: [], explanation: item.explanation },
+        { id: item.id, userChoices: [], item },
       ])
     }
   }, [])

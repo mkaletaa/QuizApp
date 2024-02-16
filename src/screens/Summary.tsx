@@ -37,20 +37,21 @@ export default function Summary({ route }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              setModalVisible(true), setModalContents(item.explanation)
+              setModalVisible(true), setModalContents(item.item.explanation)
             }}
           >
             <View
               style={[
                 styles.item,
                 {
-                  backgroundColor: setBackgroundColor(item.isCorrect)
+                  backgroundColor: setBackgroundColor(item.isCorrect),
                 },
               ]}
             >
-              <Text>
+              {/* <Text>
                 {item.id}, {item.isCorrect}
-              </Text>
+              </Text> */}
+              <ContentRenderer data={item.item.question}></ContentRenderer>
             </View>
           </TouchableOpacity>
         )}
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.1)',
   },
   item: {
-    width: 50,
-    height: 50,
+    // width: 50,
+    height: 70,
   },
 })
