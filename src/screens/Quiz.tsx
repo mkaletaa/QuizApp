@@ -33,14 +33,47 @@ export default function Quiz({ route }) {
     console.log('rerender')
     for (const item of itemSet) {
       //dodaj obiekt {id: item.id, userChoices: []}
-      setResults(prev => [...prev, { id: item.id, userChoices: [] }])
+      setResults(prev => [
+        ...prev,
+        { id: item.id, userChoices: [], explanation: item.explanation },
+      ])
     }
   }, [])
 
-  useEffect(() => {
-    console.log('results: ', JSON.stringify(results))
-  }, [results])
+  function isCorrect(
+    itemUserChoices,
+    options
+  ): 'correct' | 'incorrect' | 'kindof' {
+    console.log('🚀 ~ Quiz ~ options:', options)
+    console.log('🚀 ~ isCorrect ~ userChoices:', itemUserChoices)
 
+    let nrOfCorrectUserOptions = 0
+    let nrOfCorrectOptions = 0
+    
+    for (const itemUserChoice of itemUserChoices) {
+      if (itemUserChoice?.correct) nrOfCorrectUserOptions++
+    }
+    console.log("🚀 ~ Quiz ~ nrOfCorrectUserOptions:", nrOfCorrectUserOptions)
+    
+    if (nrOfCorrectUserOptions === 0) return 'incorrect'
+    
+    for (const option of options) {
+      if (option.correct) nrOfCorrectOptions++
+    }
+    console.log("🚀 ~ Quiz ~ nrOfCorrectOptions:", nrOfCorrectOptions)
+
+    if (
+      nrOfCorrectUserOptions === nrOfCorrectOptions &&
+      nrOfCorrectOptions === itemUserChoices.length
+    )
+      return 'correct'
+      console.log("🚀 ~ Quiz ~ itemUserChoices:", itemUserChoices.length)
+
+    return 'kindof'
+    //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
+    //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
+    // return 'correct'
+  }
 
   /* funkcja przyjmuje id itema oraz naciśniętą opcję 
 (niezależnie czy została naciśnięta w celu zaznaczenia czy odznaczenia) */
@@ -58,6 +91,10 @@ export default function Quiz({ route }) {
             // results[i].userChoices.push(pressedOption)
             let results2 = [...results]
             results2[i].userChoices.push(pressedOption)
+            results2[i].isCorrect = isCorrect(
+              results[i].userChoices,
+              itemSet[i].options
+            )
             setResults(results2)
           } else {
             console.log('coś było juz zaznazone i...')
@@ -70,7 +107,13 @@ export default function Quiz({ route }) {
               // results[i].userChoices.pop() //pozbądź się starej odpowiedzi
               // results[i].userChoices.push(pressedOption) //dodaj zaktualizowaną odpowiedź
               let results2 = [...results]
+
               results2[i].userChoices = [pressedOption]
+              results2[i].isCorrect = isCorrect(
+                results[i].userChoices,
+                itemSet[i].options
+              )
+
               setResults(results2)
             } else {
               console.log('...odznaczono odpowiedź')
@@ -79,6 +122,10 @@ export default function Quiz({ route }) {
               // results[i].userChoices.pop() //pozbądź się starej odpowiedzi
               let results2 = [...results]
               results2[i].userChoices = []
+              results2[i].isCorrect = isCorrect(
+                results[i].userChoices,
+                itemSet[i].options
+              )
               setResults(results2)
             }
           }
@@ -93,7 +140,12 @@ export default function Quiz({ route }) {
           // results[i].userChoices.push(pressedOption)\
           let results2 = [...results]
           results2[i].userChoices.push(pressedOption)
-          console.log("🚀 ~ compare ~ results2:", results2)
+          console.log('🚀 ~ compare ~ results2:', results2)
+          results2[i].isCorrect = isCorrect(
+            results[i].userChoices,
+            itemSet[i].options
+          )
+
           setResults(results2)
         } else {
           //jeśli już udzielono odpowiedzi
@@ -103,6 +155,10 @@ export default function Quiz({ route }) {
             let results2 = [...results]
             results2[i].userChoices.push(pressedOption)
             //jeśli zaznaczono inną odpowiedź
+            results2[i].isCorrect = isCorrect(
+              results[i].userChoices,
+              itemSet[i].options
+            )
 
             setResults(results2)
             // arrayOfResults[i].userChoices.filter //pozbądź się starej odpowiedzi
@@ -113,6 +169,10 @@ export default function Quiz({ route }) {
             let results2 = [...results]
             results2[i].userChoices = results2[i].userChoices.filter(
               option => option.id !== pressedOption.id
+            )
+            results2[i].isCorrect = isCorrect(
+              results[i].userChoices,
+              itemSet[i].options
             )
             setResults(results2)
           }

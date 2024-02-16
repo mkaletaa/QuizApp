@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Button,
   FlatList,
@@ -13,6 +13,17 @@ import ContentRenderer from '../components/ContentRenderer'
 export default function Summary({ route }) {
   const [modalVisible, setModalVisible] = useState(false)
   const [modalContents, setModalContents] = useState()
+
+  useEffect(() => {
+    console.log('Summary', JSON.stringify(route.params))
+  }, []);
+
+
+  function setBackgroundColor(isCorrect: string): 'red' | 'green' | 'orange' {
+    if(isCorrect==='correct') return 'green'  
+    if(isCorrect==='incorrect') return 'red'  
+    if(isCorrect==='kindof') return 'orange'  
+  }
 
   return (
     <View>
@@ -33,7 +44,7 @@ export default function Summary({ route }) {
               style={[
                 styles.item,
                 {
-                  backgroundColor: item.isCorrect === 'true' ? 'green' : 'red',
+                  backgroundColor: setBackgroundColor(item.isCorrect)
                 },
               ]}
             >
