@@ -50,33 +50,14 @@
     "question": [
       {
         "componentType": "Math",
-        "value": "$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$"
+        "value": "$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$",
+        "props": {"fontSize": 20}
       },
 
       {
         "componentType": "Code",
         "value": "https://legacy.ffffffffffffffffffffffffffffffffffffreactjs.org/logo-og.png\ndefrvfvfvdfv\n\n\ndfvhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdfvdfv",
         "props": {"height": 200}
-      },
-
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      },
-
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      },
-
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      },
-
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
       }
     ],
     "options": [

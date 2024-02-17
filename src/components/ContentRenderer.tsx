@@ -43,10 +43,11 @@ const renderComponent = (dataComponent: Component) => {
           <MathJax
             style={{
               backgroundColor: 'transparent',
-              color: 'black',
+              // color: 'red',
               width: 360,
             }} //TODO: change 360 to screen width
             html={value}
+            size={props?.fontSize? props.fontSize : 18}
           />
         </Pressable>
       )
