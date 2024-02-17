@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { Component } from '../utils/types'
+import MathJax from 'react-native-mathjax'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 const renderComponent = (dataComponent: Component ) => {
@@ -24,7 +25,14 @@ const renderComponent = (dataComponent: Component ) => {
           }}
         />
       )
-
+    case 'Math':
+      return (
+        <MathJax
+          style={{ backgroundColor: 'lightgrey' }}
+          // mathJaxOptions={mmlOptions}
+          html={value}
+        />
+      )
     // default:
     //   return (
     //     <Text style={styles.text} key={value}>

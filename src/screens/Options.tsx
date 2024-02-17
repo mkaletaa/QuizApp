@@ -1,30 +1,12 @@
-import { View, StatusBar, Text } from 'react-native'
+import React from 'react'
+import { View, StatusBar, Text, StyleSheet, Pressable } from 'react-native'
 import MathJax from 'react-native-mathjax'
 
 export default function Options() {
-  const mmlOptions = {
-    messageStyle: 'none',
-    extensions: ['tex2jax.js'],
-    jax: ['input/TeX', 'output/HTML-CSS'],
-    tex2jax: {
-      inlineMath: [
-        ['$', '$'],
-        ['\\(', '\\)'],
-      ],
-      displayMath: [
-        ['$$', '$$'],
-        ['\\[', '\\]'],
-      ],
-      processEscapes: true,
-    },
-    TeX: {
-      extensions: [
-        'AMSmath.js',
-        'AMSsymbols.js',
-        'noErrors.js',
-        'noUndefined.js',
-      ],
-    },
+  const handleLongPress = e => {
+    console.log('first')
+    //e.preventDefault() // Prevent the default context menu
+    // Additional logic or actions you want to perform on long press
   }
 
   return (
@@ -32,10 +14,20 @@ export default function Options() {
       <Text>Options</Text>
       <StatusBar />
 
-      <MathJax
-        // mathJaxOptions={mmlOptions}
-        html={'$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$'}
-      />
+      <Pressable onPress={handleLongPress} onLongPress={handleLongPress}>
+        <MathJax
+          style={styles.math}
+          html={'$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$'}
+        />
+      </Pressable>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  math: {
+    backgroundColor: 'transparent',
+    height: 400,
+    // width:50
+  },
+})

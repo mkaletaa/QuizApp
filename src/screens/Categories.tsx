@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Button, Modal, StyleSheet, Text, View , Image, ScrollView, useWindowDimensions} from 'react-native'
+import {
+  Button,
+  Modal,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  useWindowDimensions,
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { categories, topics } from '../../data/data'
 import QuizModalSwitch from '../components/QuizModalSwitch'
@@ -14,7 +23,6 @@ export default function Categories() {
   const [chosenCategories, setChosenCategories] = useState([]) //topics that user want to take a quiz
   const importQuiz = useImportQuiz()
   const navigation = useNavigation()
-
 
   useEffect(() => {
     if (categories.length === 1)
@@ -67,19 +75,18 @@ export default function Categories() {
     }
 
     let itemsArray = []
-    
+
     chosenCategories.map(cat => {
       // let topicsArray = []
       // topicsArray.push([...topics[cat]])
       topics[cat].map(topic => {
         itemsArray.push(...importQuiz([topic.name], cat, true))
-        
-        })
-        
-        // console.log( JSON.stringify(importQuiz(topicsArray, cat.name, topics, true)))
       })
 
-        // console.log("🚀 ~ showQuiz ~ itemsArray:",  JSON.stringify(str))
+      // console.log( JSON.stringify(importQuiz(topicsArray, cat.name, topics, true)))
+    })
+
+    // console.log("🚀 ~ showQuiz ~ itemsArray:",  JSON.stringify(str))
     //@ts-ignore
     navigation.navigate('Quiz', { quiz: itemsArray, topicName: 'headerText' })
   }
@@ -87,28 +94,30 @@ export default function Categories() {
   const windowWidth = useWindowDimensions().width
 
   return (
-
-      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        {/* <Text>Open up App.js to start working on your app!</Text> */}
-        <StatusBar style="auto" />
-        {categoriesToShow?.map(category => (
-          <Card data={category} showQuiz={()=>showQuiz([category.name])} goToTopics={goToTopics}></Card>
-        ))}
-
-        <ModalComponent
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-          dataToIterate={categories}
-          toggleTopic={toggleTopic}
-          showQuiz={() => showQuiz(chosenCategories)}
+    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+      {/* <Text>Open up App.js to start working on your app!</Text> */}
+      <StatusBar style="auto" />
+      {categoriesToShow?.map(category => (
+        <Card
+          key={category.name}
+          data={category}
+          showQuiz={() => showQuiz([category.name])}
+          goToTopics={goToTopics}
         />
-      </ScrollView>
+      ))}
 
+      <ModalComponent
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        dataToIterate={categories}
+        toggleTopic={toggleTopic}
+        showQuiz={() => showQuiz(chosenCategories)}
+      />
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-
   scrollViewContainer: {
     // backgroundColor: '#fffbbb',
     flexGrow: 1,

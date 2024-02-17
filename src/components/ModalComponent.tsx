@@ -14,7 +14,7 @@ return (
     <View style={styles.modalContainer}>
       {dataToIterate &&
         dataToIterate.map(topic => (
-          <QuizModalSwitch topic={topic} toggleTopic={toggleTopic} />
+          <QuizModalSwitch key={topic.name} topic={topic} toggleTopic={toggleTopic} />
         ))}
 
       <Button title="Close Modal" onPress={() => setModalVisible(false)} />

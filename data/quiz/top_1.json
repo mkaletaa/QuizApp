@@ -81,22 +81,6 @@
       {
         "componentType": "Image",
         "value": "https://legacy.reactjs.org/logo-og.png"
-      },
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      },
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      },
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      },
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
       }
     ],
     "options": [
@@ -107,7 +91,7 @@
         "componentType": "Math",
         "props": {}
       },
-      { "id": 2, "answer": "no", "correct": true }
+      { "id": 2, "answer": "noyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy", "correct": true }
     ],
     "explanation": "www"
   }

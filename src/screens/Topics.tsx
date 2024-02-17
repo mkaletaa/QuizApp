@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native'
 import { topics } from '../../data/data'
 import Card from '../components/Card'
@@ -16,16 +16,15 @@ import useImportQuiz from '../hooks/useImportQuiz'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
-  const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__ 
+  const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
   const importQuiz = useImportQuiz()
   const navigation = useNavigation()
 
-
   useEffect(() => {
     //Here a dummy topic is added
-    const  categoryName: string  = route.params.categoryName 
+    const categoryName: string = route.params.categoryName
     const categoryDescription: string = route.params.categoryDescription
     if (categoryName && topics[categoryName]) {
       setCategoryName(categoryName)
@@ -69,7 +68,7 @@ export default function Topics({ route }) {
       return
     }
     // console.log(topicsArray)
-    console.log("🚀 ~ showQuiz ~ topicsArray:", topics)
+    console.log('🚀 ~ showQuiz ~ topicsArray:', topics)
 
     importQuiz(topicsArray, categoryName)
   }
@@ -92,6 +91,7 @@ export default function Topics({ route }) {
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {topicsToShow.map(topic => (
           <Card
+            key={topic.name}
             data={topic}
             showQuiz={() => showQuiz([topic.name], categoryName)}
           >
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     borderColor: 'grey',
-    elevation: 4, 
+    elevation: 4,
   },
   theoryText: {
     textAlign: 'center',

@@ -15,9 +15,10 @@ const OptionComponent = ({ option }: {option: Option}) => {
     case 'Math':
       return (
         <MathJax
-          style={{ backgroundColor: 'silver' }}
+          style={{ backgroundColor: 'transparent' }}
           // mathJaxOptions={mmlOptions}
-          html={answerValue}
+          html={`$∑(i=1)^n i^3=((n(n+1))/2)^2$`}
+          // config={{ 'HTML-CSS': {  scale: 20 } }}
         />
       )
     default:
@@ -38,6 +39,12 @@ const Options = ({ item, createResultsArray, multiChoice }) => {
     //@ts-ignore
     setPressedButtons(initialPressedButtons)
   }, [])
+
+    const handleLongPress = e => {
+
+      e.preventDefault() // Prevent the default context menu
+      // Additional logic or actions you want to perform on long press
+    }
 
   return (
     <View style={styles.wrapper}>
@@ -69,6 +76,7 @@ const Options = ({ item, createResultsArray, multiChoice }) => {
               },
             ]}
             onPress={() => handleOptionPress(option, multiChoice)}
+            onLongPress={handleLongPress}
           >
             <OptionComponent option={option} />
           </TouchableOpacity>
@@ -79,19 +87,25 @@ const Options = ({ item, createResultsArray, multiChoice }) => {
 }
 
 const styles = StyleSheet.create({
-  answerContainer: {},
+  answerContainer: {
+    // width: 300,
+    alignItems: 'center',
+  },
   touchableOpacity: {
     padding: 10,
     borderRadius: 5,
     marginVertical: 5,
     borderWidth: 1,
     borderColor: 'dimgrey',
+    width: 250,
+    minWidth: 250//
   },
   buttonText: {
     fontSize: 16,
     color: 'black',
-    width: 200,
+    // width: 250,
     textAlign: 'center',
+    // backgroundColor: 'white',
   },
   wrapper: {
     marginBottom: -20,
