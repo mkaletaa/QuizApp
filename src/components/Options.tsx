@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
+import {useOptionPress} from '../hooks/useOptionPress'
+
 
 const OptionComponent = ({ option }) => {
-  const { componentType, props, answer: answerValue } = option
+  const { componentType, answer: answerValue } = option
 
   switch (componentType) {
     case 'Text':
@@ -17,94 +19,24 @@ const OptionComponent = ({ option }) => {
 }
 
 const Options = ({ item, createResultsArray, multiChoice }) => {
-  const [pressedButtons, setPressedButtons] = useState(
-    new Map<string, boolean>()
-    )
-    
-    useEffect(() => {
-      const initialPressedButtons = new Map()
-      
-      // Inicjalizacja mapy
-      for (const option of item.options) {
-        //sometimes a bug occurs; for some reason isChosen is initialy set to true for correct answers
-        option.isChosen=false
-        initialPressedButtons.set(option.id, false)
-      }
-      
-      console.log("🚀 ~ Options ~ item:", item.options)
-    setPressedButtons(initialPressedButtons)
-  }, [])
 
+    const {pressedButtons, setPressedButtons, handleOptionPress} = useOptionPress(item, createResultsArray)
 
+useEffect(() => {
+  const initialPressedButtons = new Map(
+    item.options.map(option => [option.id, false])
+  )
 
-  function handleOptionPress(pressedOption, multiChoice: boolean): void {
+  // console.log('🚀 ~ Options ~ item:', item.options)
+  //@ts-ignore
+  setPressedButtons(initialPressedButtons)
+}, [])
 
-    //if this option has already been chosen, unchoose it
-    if (pressedOption.isChosen) {
-      // console.log('pressedOptoin 1: ', pressedOption)
-      pressedOption.isChosen = false
-      setPressedButtons(prevState => {
-        const newMap = new Map(prevState)
-        newMap.set(pressedOption.id, false)
-        return newMap
-      })
-      createResultsArray(pressedOption, item.id)
-      return
-    }
-
-    if (multiChoice && !pressedOption.isChosen) {
-
-      pressedOption.isChosen = true
-      
-      setPressedButtons(prevState => {
-        const newMap = new Map(prevState)
-        newMap.set(pressedOption.id, true)
-        return newMap
-      })
-      createResultsArray(pressedOption, item.id)
-      return
-    }
-
-    if (!multiChoice && !pressedOption.isChosen) {
-      // console.log('pressedOptoin 3: ', pressedOption)
-      for (const option of item.options) {
-        option.isChosen = false
-      }
-      pressedOption.isChosen = true
-
-      //ustaw wszystkie wartości na false
-      setPressedButtons(prevState => {
-        const newMap = new Map(prevState)
-
-        // Ustaw wszystkie wartości na false
-        newMap.forEach((value, key) => {
-          newMap.set(key, false)
-        })
-
-        // Ustaw konkretny klucz na true
-        newMap.set(pressedOption.id, true)
-
-        return newMap
-      })
-      createResultsArray(pressedOption, item.id)
-      return
-    }
-
-  }
 
   return (
     <View style={styles.wrapper}>
       {multiChoice ? (
-        <View
-          style={{
-            backgroundColor: 'orange',
-            borderRadius: 4,
-            marginBottom: 15,
-            alignItems: 'center',
-            flexDirection: 'row',
-            padding: 5,
-          }}
-        >
+        <View style={styles.alert}>
           <AntDesign
             name="warning"
             size={16}
@@ -135,8 +67,6 @@ const Options = ({ item, createResultsArray, multiChoice }) => {
             <Text>{option.isChosen ? 'true' : 'false'}</Text>
             <OptionComponent
               option={option}
-              // createResultsArray={createResultsArray}
-              // item={item}
             />
           </TouchableOpacity>
         </View>
@@ -164,9 +94,15 @@ const styles = StyleSheet.create({
     marginBottom: -20,
     marginTop: 20,
   },
+  alert: {
+    backgroundColor: 'orange',
+    borderRadius: 4,
+    marginBottom: 15,
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: 5,
+  },
 })
 
 export default Options
-// function useEffect(arg0: () => void, arg1: undefined[]) {
-//   throw new Error('Function not implemented.')
-// }
+
