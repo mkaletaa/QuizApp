@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
-const OptionComponent = ({ option, fn, item }) => {
+const OptionComponent = ({ option }) => {
   const { componentType, props, answer: answerValue } = option
 
   switch (componentType) {
@@ -12,12 +12,11 @@ const OptionComponent = ({ option, fn, item }) => {
     default:
       return (
         <Text style={styles.buttonText}>{answerValue}</Text>
-        // </TouchableOpacity>
       )
   }
 }
 
-const Options = ({ item, fn, multiChoice }) => {
+const Options = ({ item, createResultsArray, multiChoice }) => {
   const [pressedButtons, setPressedButtons] = useState(
     new Map<string, boolean>()
     )
@@ -36,12 +35,10 @@ const Options = ({ item, fn, multiChoice }) => {
     setPressedButtons(initialPressedButtons)
   }, [])
 
-  // useEffect(() => {
-  //   console.log('🚀 ~ Options ~ pressedButtons:', pressedButtons)
-  // }, [pressedButtons])
 
-  function handlePress(pressedOption, multiChoice: boolean): void {
-    // console.log('pressedOptoin 0: ', pressedOption)
+
+  function handleOptionPress(pressedOption, multiChoice: boolean): void {
+
     //if this option has already been chosen, unchoose it
     if (pressedOption.isChosen) {
       // console.log('pressedOptoin 1: ', pressedOption)
@@ -51,12 +48,11 @@ const Options = ({ item, fn, multiChoice }) => {
         newMap.set(pressedOption.id, false)
         return newMap
       })
-      fn(pressedOption, item.id)
+      createResultsArray(pressedOption, item.id)
       return
     }
 
     if (multiChoice && !pressedOption.isChosen) {
-      // console.log('pressedOptoin 2: ', pressedOption)
 
       pressedOption.isChosen = true
       
@@ -65,11 +61,10 @@ const Options = ({ item, fn, multiChoice }) => {
         newMap.set(pressedOption.id, true)
         return newMap
       })
-      fn(pressedOption, item.id)
+      createResultsArray(pressedOption, item.id)
       return
     }
 
-    //czy ten kod soę wykona, jeśli isChosen było true?
     if (!multiChoice && !pressedOption.isChosen) {
       // console.log('pressedOptoin 3: ', pressedOption)
       for (const option of item.options) {
@@ -91,7 +86,7 @@ const Options = ({ item, fn, multiChoice }) => {
 
         return newMap
       })
-      fn(pressedOption, item.id)
+      createResultsArray(pressedOption, item.id)
       return
     }
 
@@ -135,10 +130,14 @@ const Options = ({ item, fn, multiChoice }) => {
                   : 'silver',
               },
             ]}
-            onPress={() => handlePress(option, multiChoice)}
+            onPress={() => handleOptionPress(option, multiChoice)}
           >
             <Text>{option.isChosen ? 'true' : 'false'}</Text>
-            <OptionComponent option={option} fn={fn} item={item} />
+            <OptionComponent
+              option={option}
+              // createResultsArray={createResultsArray}
+              // item={item}
+            />
           </TouchableOpacity>
         </View>
       ))}

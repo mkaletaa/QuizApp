@@ -4,30 +4,20 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 const renderComponent = dataComponent => {
   const { componentType, value } = dataComponent
-  //   console.log('🚀 ~ renderComponent ~ data:', questionComponent)
-  //   console.log('🚀 ~ renderComponent ~ componentType:', componentType)
-  // console.log("🚀 ~ renderComponent ~ props:", props)
-  //   console.log('🚀 ~ renderComponent ~ value:', value)
 
   switch (componentType) {
     case 'Text':
       return (
-        //<View key={value}>
-        <Text key={value} style={styles.text}>{value}</Text>
-        //</View>
+        <Text key={value} style={styles.text}>
+          {value}
+        </Text>
       )
 
     case 'Image':
       return (
-        // include at least width and height!
         <Image
           key={value}
-          style={{
-            width: 200,
-            height: 100,
-            // resizeMode: 'contain',
-            backgroundColor: 'red',
-          }}
+          style={styles.image}
           source={{
             uri: value,
           }}
@@ -35,7 +25,11 @@ const renderComponent = dataComponent => {
       )
 
     default:
-      return <Text style={styles.text} key={value}>{dataComponent}</Text>
+      return (
+        <Text style={styles.text} key={value}>
+          {dataComponent}
+        </Text>
+      )
   }
 }
 
@@ -43,21 +37,26 @@ export default function ContentRenderer({ data }) {
   // if a question is text only, turn it into one element array
   const dataArray = Array.isArray(data) ? data : [data]
 
-  //if a question consists of not only text but also eg. an image, each of the componnts is rendered separately
-  return <View style={styles.container}>{dataArray.map(component => renderComponent(component))}</View>
+  return (
+    <View style={styles.container}>
+      {dataArray.map(component => renderComponent(component))}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // backgroundColor: '#fff',
     alignItems: 'center',
-    paddingLeft:20,
-    paddingRight:20,
-    // justifyContent: 'center',
-
+    paddingLeft: 20,
+    paddingRight: 20,
   },
-  text:{
-    fontSize: 18
-  }
+  text: {
+    fontSize: 18,
+  },
+  image: {
+    width: 200,
+    height: 100,
+    // resizeMode: 'contain',
+    backgroundColor: 'red',
+  },
 })

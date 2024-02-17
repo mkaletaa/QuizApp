@@ -2,19 +2,18 @@ import { Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import useModifyText from './hooks/useModifyText'
 import Categories from './screens/Categories'
 import Options from './screens/Options'
 import Quiz from './screens/Quiz'
 import Summary from './screens/Summary'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
-import { Feather } from '@expo/vector-icons'
+import { removeUnderscores } from './utils/modifyText'
 const Stack = createStackNavigator()
 
 const MyStack = () => {
   const navigation = useNavigation()
-  const modifyText = useModifyText()
+
 
   const header = {
     headerRight: () => (
@@ -57,7 +56,7 @@ const MyStack = () => {
         component={Topics}
         options={({ route }) => ({
           ...header, //@ts-ignore
-          title: `${modifyText(route.params?.categoryName)}` || 'category name',
+          title: `${removeUnderscores(route.params?.categoryName)}` || 'category name',
         })}
       />
 
@@ -67,7 +66,7 @@ const MyStack = () => {
         options={({ route }) => ({
           ...header, 
           title: //@ts-ignore
-            `${modifyText(route.params?.categoryName)}` + ' - theory' ||
+            `${removeUnderscores(route.params?.categoryName)}` + ' - theory' ||
             'topic name',
         })}
       />

@@ -20,35 +20,31 @@ import { BackHandler } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import useResults from '../hooks/useResults'
 import Pagination from '../components/Pagination'
+
 export default function Quiz({ route }) {
+
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
   const navigation = useNavigation()
   const itemSet = route.params.quiz
   const quizToIterate = [...itemSet, { id: -1 }]
-  const [modalVisible, setModalVisible] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(0)
-  console.log('Quiz renders') // Dodaj ten log
-  const [results, setResults, compare] = useResults(itemSet)
+  const [results, setResults, createResultsArray] = useResults(itemSet)
 
-  // const screenWidth = Dimensions.get('window').width
   const flatListRef = useRef(null)
 
   const onViewableItemsChanged = ({ viewableItems }) => {
     if (viewableItems.length > 0) {
-      const firstVisibleItemIndex = viewableItems[0].index
-      // setNrOfVisibles(firstVisibleItemIndex)
-      setCurrentVisibleIndex(firstVisibleItemIndex)
-      console.log(
-        `Użytkownik przewinął się do elementu o indeksie: ${firstVisibleItemIndex}`
-      )
+      const currentlyVisibleItemIndex = viewableItems[0].index
+
+      setCurrentVisibleIndex(currentlyVisibleItemIndex)
+
     }
   }
 
   useEffect(() => {
-    // flatListRef.current.scrollToOffset({ offset: 0, animated: false })
-    console.log('rerender')
     for (const item of itemSet) {
       //@ts-ignore
       setResults(prev => [...prev, { id: item.id, userChoices: [], item }])
@@ -56,14 +52,14 @@ export default function Quiz({ route }) {
   }, [])
 
   function closeModalAndGoBack(): void {
-    setModalVisible(false)
+    setShowModal(false)
     navigation.goBack() // powrót do poprzedniego ekranu
   }
 
-  const scrollTo = n => {
+  const scrollTo = indexToScrollTo => {
     flatListRef.current.scrollToIndex({
       animated: true,
-      index: n, // Indeks ostatniego elementu, możesz zmienić na dowolny inny indeks
+      index: indexToScrollTo
     })
   }
 
@@ -104,7 +100,7 @@ export default function Quiz({ route }) {
             {item?.options ? (
               <Options
                 item={item}
-                fn={compare}
+                createResultsArray={createResultsArray}
                 multiChoice={item.multiChoice}
               />
             ) : null}
@@ -115,8 +111,8 @@ export default function Quiz({ route }) {
       <Modal
         animationType="slide"
         transparent={true}
-        visible={false} //modalVisible
-        onRequestClose={() => setModalVisible(false)}
+        visible={false} //showModal
+        onRequestClose={() => setShowModal(false)}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
@@ -133,7 +129,7 @@ export default function Quiz({ route }) {
               />
               <Button
                 title="nah, I want to stay here"
-                onPress={() => setModalVisible(false)}
+                onPress={() => setShowModal(false)}
               />
             </View>
           </View>

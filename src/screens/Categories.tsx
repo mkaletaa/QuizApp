@@ -15,9 +15,6 @@ export default function Categories() {
   const importQuiz = useImportQuiz()
   const navigation = useNavigation()
 
-  useEffect(() => {
-    console.log('🚀 ~ Categories ~ chosenCategories:', chosenCategories)
-  }, [chosenCategories])
 
   useEffect(() => {
     if (categories.length === 1)

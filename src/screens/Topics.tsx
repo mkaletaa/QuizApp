@@ -2,36 +2,36 @@ import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
 import {
-  Button,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native'
 import { topics } from '../../data/data'
+import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
 import useImportQuiz from '../hooks/useImportQuiz'
-import Card from '../components/Card'
-import useModifyText from '../hooks/useModifyText'
+// import { removeUnderscores } from '../utils/modifyText'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
-  const [topicsToShow, setTopicsToShow] = useState([]) //all topics with one dummy topic at the beginning representing __All__
-  const [modalVisible, setModalVisible] = useState(false)
+  const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__ 
+  const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
   const importQuiz = useImportQuiz()
   const navigation = useNavigation()
-  const modifyText = useModifyText()
+
 
   useEffect(() => {
     //Here a dummy topic is added
-    const { categoryName } = route.params || {}
+    const  categoryName: string  = route.params.categoryName 
+    const categoryDescription: string = route.params.categoryDescription
     if (categoryName && topics[categoryName]) {
       setCategoryName(categoryName)
       let name: string = categoryName + '__All__'
       setTopicsToShow([
-        { name, image: 'https://reactjs.org/logo-og.png', des: '' },
+        { name, image: 'https://reactjs.org/logo-og.png' },
         ...topics[categoryName],
       ])
     }
@@ -39,7 +39,7 @@ export default function Topics({ route }) {
 
   useEffect(() => {
     // Set all values of chosenTopics after closing and opening the modal to avoid bugs
-    if (modalVisible) {
+    if (showModal) {
       const updatedChosenTopics = []
 
       Object.keys(topics).forEach(category => {
@@ -54,7 +54,7 @@ export default function Topics({ route }) {
     } else {
       setChosenTopics([])
     }
-  }, [modalVisible])
+  }, [showModal])
 
   const showTheory = (topicName, categoryName) => {
     //@ts-ignore
@@ -62,10 +62,10 @@ export default function Topics({ route }) {
   }
 
   //this function calls importQuiz and gives it an array of chosen topics
-  const showQuiz = (topicsArray: Array<string>, categoryName) => {
+  const showQuiz = (topicsArray: string[], categoryName: string): void => {
     //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
     if (topicsArray[0].endsWith('__All__')) {
-      setModalVisible(true)
+      setShowModal(true)
       return
     }
     console.log(topicsArray)
@@ -87,7 +87,6 @@ export default function Topics({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text>List of all topics for {modifyText(categoryName)}:</Text>
       <StatusBar style="auto" />
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {topicsToShow.map(topic => (
@@ -109,8 +108,8 @@ export default function Topics({ route }) {
       </ScrollView>
 
       <ModalComponent
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
+        modalVisible={showModal}
+        setModalVisible={setShowModal}
         dataToIterate={topics[categoryName]}
         toggleTopic={toggleTopic}
         showQuiz={() => showQuiz(chosenTopics, categoryName)}
@@ -132,7 +131,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    // flex: 1
   },
   theoryBtn: {
     backgroundColor: 'lightblue',
@@ -140,16 +138,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     borderColor: 'grey',
-    shadowColor: 'rgba(0,0,0, .4)', // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 2, //IOS
-    elevation: 4, // Android
+    elevation: 4, 
   },
   theoryText: {
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-    // width: '100%',
   },
 })

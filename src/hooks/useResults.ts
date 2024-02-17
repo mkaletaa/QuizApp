@@ -4,11 +4,12 @@ const useResults = itemSet => {
   const [results, setResults] = useState([]) //same as results but as a state
 
   function isCorrect(
-    itemUserChoices,
-    options
+    itemUserChoices, //opcje danego itema, które zaznaczył user
+    options //opcje konkretnego itema
   ): 'correct' | 'incorrect' | 'kindof' {
-    console.log('🚀 ~ Quiz ~ options:', options)
-    console.log('🚀 ~ isCorrect ~ userChoices:', itemUserChoices)
+    //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
+    //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
+    //zwróć w każdym innym przypadku
 
     let nrOfCorrectUserOptions = 0
     let nrOfCorrectOptions = 0
@@ -16,35 +17,27 @@ const useResults = itemSet => {
     for (const itemUserChoice of itemUserChoices) {
       if (itemUserChoice?.correct) nrOfCorrectUserOptions++
     }
-    console.log('🚀 ~ Quiz ~ nrOfCorrectUserOptions:', nrOfCorrectUserOptions)
 
     if (nrOfCorrectUserOptions === 0) return 'incorrect'
 
     for (const option of options) {
       if (option.correct) nrOfCorrectOptions++
     }
-    console.log('🚀 ~ Quiz ~ nrOfCorrectOptions:', nrOfCorrectOptions)
 
     if (
       nrOfCorrectUserOptions === nrOfCorrectOptions &&
       nrOfCorrectOptions === itemUserChoices.length
     )
       return 'correct'
-    console.log('🚀 ~ Quiz ~ itemUserChoices:', itemUserChoices.length)
 
     return 'kindof'
-    //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
-    //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
-    // return 'correct'
   }
 
   /* funkcja przyjmuje id itema oraz naciśniętą opcję 
 (niezależnie czy została naciśnięta w celu zaznaczenia czy odznaczenia) */
-  function compare(pressedOption, itemId) {
+  function createResultsArray(pressedOption, itemId) {
     for (let i = 0; i < itemSet.length; i++) {
       if (itemSet[i].id === itemId) {
-        // console.log("🚀 ~ compare ~ quiz:", quiz[i].id)
-        // console.log("🚀 ~ compare ~ itemId:", itemId, )
 
         if (!itemSet[i].multiChoice) {
           //w przypadku pytań jednokrotnego wyboru:
@@ -148,7 +141,7 @@ const useResults = itemSet => {
     }
   }
 
-  return [results, setResults, compare]
+  return [results, setResults, createResultsArray]
 }
 
 export default useResults

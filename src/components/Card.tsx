@@ -1,4 +1,5 @@
 import React from 'react'
+import {removeUnderscores} from '../utils/modifyText'
 import {
     Image,
     Pressable,
@@ -7,7 +8,6 @@ import {
     View,
     useWindowDimensions,
 } from 'react-native'
-import useModifyText from '../hooks/useModifyText'
 
 export default function Card({
   data,
@@ -23,33 +23,17 @@ export default function Card({
     }
   }
   const windowDimensions = useWindowDimensions()
-  const modifyText = useModifyText()
 
   const calculateCardSize = () => {
-    // Dostosuj rozmiar karty na podstawie szerokości ekranu
+    //Adjust the size of the card based on the screen width
     const screenWidth = windowDimensions.width
-    const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.7 // Przykładowy podział dla szerokich i wąskich ekranów
-    const cardHeight = !goToTopics ? cardWidth * 1.25 : cardWidth * 1.2 // Przykładowy stosunek wysokości do szerokości
+    const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.7 
+    const cardHeight = !goToTopics ? cardWidth * 1.25 : cardWidth * 1.2 
 
     return { width: cardWidth, height: cardHeight }
   }
 
   const cardSize = calculateCardSize()
-
-//   function mofidyText(str: string): string {
-//     // Jeśli str zawiera __All__, usuń je
-//     let modifiedStr = str
-
-//     if (str.endsWith('__All__')) {
-//       modifiedStr = str.replace('__All__', '')
-//       modifiedStr += ' - all topics'
-//     }
-
-//     // Następnie, jeśli zawiera podkreślenia, zamień je na spacje
-//     modifiedStr = modifiedStr.replace(/_/g, ' ')
-
-//     return modifiedStr
-//   }
 
   return (
     <Pressable
@@ -61,7 +45,7 @@ export default function Card({
     >
       <View style={[styles.cardContainer, cardSize]} key={data.name}>
         <Text numberOfLines={1} style={styles.cardText}>
-          {modifyText(data.name)}
+          {removeUnderscores(data.name)}
         </Text>
 
         <Image
