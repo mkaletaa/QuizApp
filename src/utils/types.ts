@@ -1,6 +1,7 @@
 export type Component = {
   componentType: string
   value: string
+  props?:any
 }
 
 export type Option = {

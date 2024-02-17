@@ -91,8 +91,8 @@ export default function Quiz({ route }) {
         renderItem={({ item }) => (
           <ScrollView
             contentContainerStyle={[
-              styles.card,
-              { width: screenWidth, minHeight: screenHeight - headerHeight },
+              styles.screen,
+              { width: screenWidth, minHeight: screenHeight -25 },//height of the pagination is 45
             ]}
           >
             {item?.question ? (
@@ -144,7 +144,7 @@ export default function Quiz({ route }) {
 }
 
 const styles = StyleSheet.create({
-  card: {
+  screen: {
     backgroundColor: 'lightgray',
     justifyContent: 'space-around',
     alignItems: 'center',

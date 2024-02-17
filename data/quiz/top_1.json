@@ -8,37 +8,15 @@
       { "id": 2, "answer": "19", "correct": true },
       { "id": 3, "answer": "20", "correct": false },
       { "id": 4, "answer": "21", "correct": false },
-      { "id": 5, "answer": "21", "correct": false },
-      { "id": 6, "answer": "21", "correct": false },
-      { "id": 7, "answer": "21", "correct": false },
-      { "id": 8, "answer": "21", "correct": false },
-      { "id": 9, "answer": "21", "correct": false },
-      { "id": 10, "answer": "21", "correct": false },
-      { "id": 11, "answer": "21", "correct": false },
-      { "id": 12, "answer": "21", "correct": false },
-      { "id": 13, "answer": "21", "correct": false },
-      { "id": 14, "answer": "21", "correct": false },
-      { "id": 15, "answer": "21", "correct": false },
-      { "id": 16, "answer": "21", "correct": false },
-      { "id": 17, "answer": "21", "correct": false },
-      { "id": 18, "answer": "21", "correct": false },
-      { "id": 19, "answer": "21", "correct": false },
-      { "id": 20, "answer": "21", "correct": false },
-      { "id": 21, "answer": "21", "correct": false },
-      { "id": 22, "answer": "21", "correct": false },
-      { "id": 23, "answer": "21", "correct": false },
-      { "id": 24, "answer": "21", "correct": false },
-      { "id": 25, "answer": "21", "correct": false },
-      { "id": 26, "answer": "21", "correct": false },
-      { "id": 27, "answer": "21", "correct": false },
-      { "id": 28, "answer": "21", "correct": false },
-      { "id": 29, "answer": "21", "correct": false },
-      { "id": 30, "answer": "21", "correct": false },
-      { "id": 31, "answer": "21", "correct": false },
-      { "id": 32, "answer": "21", "correct": false },
-      { "id": 33, "answer": "21", "correct": false },
-      { "id": 34, "answer": "21", "correct": false },
-      { "id": 35, "answer": "21", "correct": false }
+      { "id": 5, "answer": "22", "correct": false },
+      { "id": 6, "answer": "23", "correct": false },
+      { "id": 7, "answer": "24", "correct": false },
+      { "id": 8, "answer": "25", "correct": false },
+      { "id": 9, "answer": "26", "correct": false },
+      { "id": 10, "answer": "27", "correct": false },
+      { "id": 11, "answer": "28", "correct": false },
+      { "id": 12, "answer": "29", "correct": false },
+      { "id": 13, "answer": "30", "correct": false }
     ],
     "explanation": [
       {
@@ -71,13 +49,31 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
-        "value": "Do you have a petuygkjhkjhjuiygtiu yiytouytboto utbbuytbiuytbgi?"
+        "componentType": "Math",
+        "value": "$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$"
       },
+
       {
-        "componentType": "Text",
-        "value": " Hello"
+        "componentType": "Code",
+        "value": "https://legacy.ffffffffffffffffffffffffffffffffffffreactjs.org/logo-og.png\ndefrvfvfvdfv\n\n\ndfvhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdfvdfv",
+        "props": {"height": 200}
       },
+
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+
       {
         "componentType": "Image",
         "value": "https://legacy.reactjs.org/logo-og.png"

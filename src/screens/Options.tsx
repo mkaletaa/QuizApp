@@ -1,33 +1,33 @@
 import React from 'react'
-import { View, StatusBar, Text, StyleSheet, Pressable } from 'react-native'
-import MathJax from 'react-native-mathjax'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import CodeHighlighter from 'react-native-code-highlighter'
+import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+
+const CODE_STR = `var hello = "worldggggggggg\n\n\nggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"`
 
 export default function Options() {
-  const handleLongPress = e => {
-    console.log('first')
-    //e.preventDefault() // Prevent the default context menu
-    // Additional logic or actions you want to perform on long press
-  }
-
   return (
-    <View>
-      <Text>Options</Text>
-      <StatusBar />
-
-      <Pressable onPress={handleLongPress} onLongPress={handleLongPress}>
-        <MathJax
-          style={styles.math}
-          html={'$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$'}
-        />
-      </Pressable>
-    </View>
+    <ScrollView style={{ height: 50 }}>
+      <CodeHighlighter
+        hljsStyle={atomOneDarkReasonable}
+        containerStyle={styles.codeContainer}
+        textStyle={styles.text}
+        language="typescript"
+      >
+        {CODE_STR}
+      </CodeHighlighter>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  math: {
-    backgroundColor: 'transparent',
-    height: 400,
-    // width:50
+  codeContainer: {
+    padding: 16,
+    backgroundColor: 'transparent', // Ustaw tło na przezroczyste
+    width: '100%',
+  },
+  text: {
+    // fontSize: 16,
+    // fontFamily: 'Courier New',
   },
 })

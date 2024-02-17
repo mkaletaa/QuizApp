@@ -17,7 +17,7 @@ const OptionComponent = ({ option }: {option: Option}) => {
         <MathJax
           style={{ backgroundColor: 'transparent' }}
           // mathJaxOptions={mmlOptions}
-          html={`$∑(i=1)^n i^3=((n(n+1))/2)^2$`}
+          html={answerValue}
           // config={{ 'HTML-CSS': {  scale: 20 } }}
         />
       )
@@ -90,6 +90,8 @@ const styles = StyleSheet.create({
   answerContainer: {
     // width: 300,
     alignItems: 'center',
+    // backgroundColor: 'red',
+    // marginBottom: 50
   },
   touchableOpacity: {
     padding: 10,
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'white',
   },
   wrapper: {
-    marginBottom: -20,
+    marginBottom: 50,
     marginTop: 20,
   },
   alert: {

@@ -9,7 +9,7 @@ export default function Question({ question }: {question: string | Array<Compone
 
   //if a question consists of not only text but also eg. an image, each of the componnts is rendered separately
   return (
-    <View>
+    <View style={styles.container}>
       {/* {questionData.map(questionComponent => (
         <ContentRenderer data={questionComponent}></ContentRenderer>
         ))} */}
@@ -21,9 +21,7 @@ export default function Question({ question }: {question: string | Array<Compone
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 20,
+    // backgroundColor: 'lightgray',
   },
 })
