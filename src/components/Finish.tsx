@@ -11,9 +11,6 @@ export default function Finish({ userChoices, nrOfItems }) {
     console.log('userChoices', JSON.stringify(userChoices))
   }
 
-  useEffect(() => {
-    // console.log('firstfddf', JSON.stringify(userChoices))
-  }, [userChoices])
 
   function isSummaryEnabled(): boolean {
     let nrOfAnswers = 0 //na ile pytń user udzielił odpowiedzi

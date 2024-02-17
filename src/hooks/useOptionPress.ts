@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import {Option} from '../utils/types'
 
 export const useOptionPress = (item, createResultsArray) => {
 
@@ -6,7 +7,7 @@ export const useOptionPress = (item, createResultsArray) => {
     new Map<string, boolean>()
   )
 
-  function handleOptionPress(pressedOption: any, multiChoice: boolean): void {
+  function handleOptionPress(pressedOption: Option, multiChoice: boolean): void {
     //if this option has already been chosen, unchoose it
     if (pressedOption.isChosen) {
       // console.log('pressedOptoin 1: ', pressedOption)

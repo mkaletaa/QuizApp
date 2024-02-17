@@ -1,37 +1,43 @@
 import React, { useState, useEffect } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import {useOptionPress} from '../hooks/useOptionPress'
+import { useOptionPress } from '../hooks/useOptionPress'
+import MathJax from 'react-native-mathjax'
+import {Option} from '../utils/types'
 
-
-const OptionComponent = ({ option }) => {
+const OptionComponent = ({ option }: {option: Option}) => {
   const { componentType, answer: answerValue } = option
+
 
   switch (componentType) {
     case 'Text':
       return <Text style={styles.buttonText}>{answerValue} dddg</Text>
-
-    default:
+    case 'Math':
       return (
-        <Text style={styles.buttonText}>{answerValue}</Text>
+        <MathJax
+          style={{ backgroundColor: 'silver' }}
+          // mathJaxOptions={mmlOptions}
+          html={answerValue}
+        />
       )
+    default:
+      return <Text style={styles.buttonText}>{answerValue}</Text>
   }
 }
 
 const Options = ({ item, createResultsArray, multiChoice }) => {
+  const { pressedButtons, setPressedButtons, handleOptionPress } =
+    useOptionPress(item, createResultsArray)
 
-    const {pressedButtons, setPressedButtons, handleOptionPress} = useOptionPress(item, createResultsArray)
+  useEffect(() => {
+    const initialPressedButtons = new Map(
+      item.options.map(option => [option.id, false])
+    )
 
-useEffect(() => {
-  const initialPressedButtons = new Map(
-    item.options.map(option => [option.id, false])
-  )
-
-  // console.log('🚀 ~ Options ~ item:', item.options)
-  //@ts-ignore
-  setPressedButtons(initialPressedButtons)
-}, [])
-
+    // console.log('🚀 ~ Options ~ item:', item.options)
+    //@ts-ignore
+    setPressedButtons(initialPressedButtons)
+  }, [])
 
   return (
     <View style={styles.wrapper}>
@@ -64,10 +70,7 @@ useEffect(() => {
             ]}
             onPress={() => handleOptionPress(option, multiChoice)}
           >
-            <Text>{option.isChosen ? 'true' : 'false'}</Text>
-            <OptionComponent
-              option={option}
-            />
+            <OptionComponent option={option} />
           </TouchableOpacity>
         </View>
       ))}
@@ -105,4 +108,3 @@ const styles = StyleSheet.create({
 })
 
 export default Options
-

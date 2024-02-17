@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
+import { Component } from '../utils/types'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
-const renderComponent = dataComponent => {
+const renderComponent = (dataComponent: Component ) => {
   const { componentType, value } = dataComponent
 
   switch (componentType) {
@@ -24,22 +25,25 @@ const renderComponent = dataComponent => {
         />
       )
 
-    default:
-      return (
-        <Text style={styles.text} key={value}>
-          {dataComponent}
-        </Text>
-      )
+    // default:
+    //   return (
+    //     <Text style={styles.text} key={value}>
+    //       {dataComponent}
+    //     </Text>
+    //   )
   }
 }
 
-export default function ContentRenderer({ data }) {
+//tutaj trafia question, explanation i theory
+export default function ContentRenderer({ content }) {
+  if(Array.isArray(content)) 
+  console.log("🚀 ~ ContentRenderer ~ data:", content)
   // if a question is text only, turn it into one element array
-  const dataArray = Array.isArray(data) ? data : [data]
+  const contentArray = Array.isArray(content) ? content : [{componentType: "Text", value: content}]
 
   return (
     <View style={styles.container}>
-      {dataArray.map(component => renderComponent(component))}
+      {contentArray.map(component => renderComponent(component))}
     </View>
   )
 }

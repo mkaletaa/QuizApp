@@ -18,11 +18,9 @@ export default function Theory({ route }) {
 
       <View>
         <Text>this is the theory of {topicName}</Text>
-        {theory[route.params.categoryName][route.params.topicName]?.map(
-          questionComponent => (
-            <ContentRenderer data={questionComponent}></ContentRenderer>
-          )
-        )}
+        <ContentRenderer
+          content={theory[route.params.categoryName][route.params.topicName]}
+        ></ContentRenderer>
       </View>
     </View>
   )

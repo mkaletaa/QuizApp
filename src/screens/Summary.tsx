@@ -51,7 +51,7 @@ export default function Summary({ route }) {
               {/* <Text>
                 {item.id}, {item.isCorrect}
               </Text> */}
-              <ContentRenderer data={item.item.question}></ContentRenderer>
+              <ContentRenderer content={item.item.question}></ContentRenderer>
             </View>
           </TouchableOpacity>
         )}
@@ -65,7 +65,7 @@ export default function Summary({ route }) {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalContainer}>
-          <ContentRenderer data={modalContents}></ContentRenderer>
+          <ContentRenderer content={modalContents}></ContentRenderer>
           <Button title="Close Modal" onPress={() => setModalVisible(false)} />
         </View>
       </Modal>

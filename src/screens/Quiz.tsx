@@ -20,6 +20,7 @@ import { BackHandler } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import useResults from '../hooks/useResults'
 import Pagination from '../components/Pagination'
+import { Item } from '../utils/types'
 
 export default function Quiz({ route }) {
 
@@ -27,8 +28,8 @@ export default function Quiz({ route }) {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
   const navigation = useNavigation()
-  const itemSet = route.params.quiz
-  const quizToIterate = [...itemSet, { id: -1 }]
+  const itemSet: Array<Item> = route.params.quiz
+  const quizToIterate: Array<Item | {id: string}> = [...itemSet, { id: "-1" }]
   const [showModal, setShowModal] = useState(false)
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(0)
   const [results, setResults, createResultsArray] = useResults(itemSet)
@@ -46,8 +47,8 @@ export default function Quiz({ route }) {
 
   useEffect(() => {
     for (const item of itemSet) {
-      //@ts-ignore
-      setResults(prev => [...prev, { id: item.id, userChoices: [], item }])
+      //@ts-ignore TODO: remove toString
+      setResults(prev => [...prev, { id: item.id.toString(), userChoices: [], item }])
     }
   }, [])
 
@@ -78,7 +79,7 @@ export default function Quiz({ route }) {
         data={quizToIterate}
         horizontal
         pagingEnabled
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id.toString()} //TODO remove toString
         onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={{
           itemVisiblePercentThreshold: 50, // Procent widoczności elementu wymagany, aby został uznany za "widoczny"
