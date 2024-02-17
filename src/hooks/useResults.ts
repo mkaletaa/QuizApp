@@ -37,14 +37,16 @@ const useResults = itemSet => {
 (niezależnie czy została naciśnięta w celu zaznaczenia czy odznaczenia) */
   function createResultsArray(pressedOption, itemId) {
     for (let i = 0; i < itemSet.length; i++) {
+      //pętla po itemSet
       if (itemSet[i].id === itemId) {
+        //jeśli natrafimy na itema, którego opcja zozstała przyciśnięta
 
+        //w przypadku pytań jednokrotnego wyboru:
         if (!itemSet[i].multiChoice) {
-          //w przypadku pytań jednokrotnego wyboru:
+          //jeli nie udzielono jeszcze odpowiedzi na to pytanie, dodaj ją do arrayOfResults
           if (results[i]?.userChoices?.length === 0) {
             console.log('nie było nic jeszcze zaznaczone')
-            //jeli nie udzielono jeszcze odpowiedzi na to pytanie, dodaj ją do arrayOfResults
-            // results[i].userChoices.push(pressedOption)
+
             let results2 = [...results]
             results2[i].userChoices.push(pressedOption)
             results2[i].isCorrect = isCorrect(
@@ -53,15 +55,12 @@ const useResults = itemSet => {
             )
             setResults(results2)
           } else {
+            //jeśli już coś było zaznaczone
             console.log('coś było juz zaznazone i...')
-
-            //jeśli już ucoś było zaznaczone
+            //jeśli zaznaczono nową opcję
             if (pressedOption.isChosen) {
-              //jeśli zaznaczono inną odpowiedź
-              console.log('...zaznaczono inną odpowiedź')
+              console.log('...zaznaczono nową odpowiedź')
 
-              // results[i].userChoices.pop() //pozbądź się starej odpowiedzi
-              // results[i].userChoices.push(pressedOption) //dodaj zaktualizowaną odpowiedź
               let results2 = [...results]
 
               results2[i].userChoices = [pressedOption]
@@ -72,10 +71,8 @@ const useResults = itemSet => {
 
               setResults(results2)
             } else {
+              // jeśli odznaczono odpowiedź
               console.log('...odznaczono odpowiedź')
-
-              //jeśli odznaczono istniejącą odpowiedź
-              // results[i].userChoices.pop() //pozbądź się starej odpowiedzi
               let results2 = [...results]
               results2[i].userChoices = []
               results2[i].isCorrect = isCorrect(
@@ -85,15 +82,14 @@ const useResults = itemSet => {
               setResults(results2)
             }
           }
-          // setResults(results)
           return
         }
 
         //jeśli pytanie jest wielokrotnego wyboru:
+        //jeli na pytanie nie udzielono jeszcze żadnej odpowiedzi
         if (results[i].userChoices.length === 0) {
-          console.log('nie było nic jeszcze zaznaczoneeeee')
-          //jeli nie udzielono jeszcze odpowiedzi na to pytanie, dodaj ją do arrayOfResults
-          // results[i].userChoices.push(pressedOption)\
+          console.log('nie było nic jeszcze zaznaczone')
+
           let results2 = [...results]
           results2[i].userChoices.push(pressedOption)
           console.log('🚀 ~ compare ~ results2:', results2)
@@ -106,22 +102,21 @@ const useResults = itemSet => {
         } else {
           //jeśli już udzielono odpowiedzi
           console.log('coś było juz zaznazone i...')
+          //jeśli zaznaczono nową odpowiedź
           if (pressedOption.isChosen) {
-            console.log('...zaznaczono inną odpowiedź')
+            console.log('...zaznaczono nową odpowiedź')
             let results2 = [...results]
             results2[i].userChoices.push(pressedOption)
-            //jeśli zaznaczono inną odpowiedź
             results2[i].isCorrect = isCorrect(
               results[i].userChoices,
               itemSet[i].options
             )
 
             setResults(results2)
-            // arrayOfResults[i].userChoices.filter //pozbądź się starej odpowiedzi
-            // results[i].userChoices?.push(pressedOption) //dodaj zaktualizowaną odpowiedź
           } else {
+            //jeśli odznaczono odpowiedź
             console.log('...odznaczono odpowiedź')
-            //jeśli odznaczono istniejącą odpowiedź pozbądź się starej odpowiedzi
+
             let results2 = [...results]
             results2[i].userChoices = results2[i].userChoices.filter(
               option => option.id !== pressedOption.id
@@ -133,8 +128,6 @@ const useResults = itemSet => {
             setResults(results2)
           }
         }
-
-        // setResults(results)
 
         break
       }
