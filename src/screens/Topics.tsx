@@ -68,9 +68,10 @@ export default function Topics({ route }) {
       setShowModal(true)
       return
     }
-    console.log(topicsArray)
+    // console.log(topicsArray)
+    console.log("🚀 ~ showQuiz ~ topicsArray:", topics)
 
-    importQuiz(topicsArray, categoryName, topics)
+    importQuiz(topicsArray, categoryName)
   }
 
   function toggleTopic(name: string, isChosen: boolean): void {

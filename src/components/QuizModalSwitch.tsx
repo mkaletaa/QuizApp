@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
 import { Image, StyleSheet, Switch, Text, View } from 'react-native'
+import { Topic } from '../utils/types'
 // import { isEnabled } from 'react-native/Libraries/Performance/Systrace'
 
-export default function QuizModalSwitch({ topic, toggleTopic }) {
+export default function QuizModalSwitch({
+  topic,
+  toggleTopic,
+}: {
+  topic: Topic
+  toggleTopic: (string, boolean) => void
+}) {
   const [isEnabled, setIsEnabled] = useState(true)
 
   return (

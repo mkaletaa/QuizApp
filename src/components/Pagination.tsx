@@ -1,13 +1,19 @@
-import React from 'react'
-import { useState } from 'react'
-import { View, Text, FlatList, StyleSheet, Button } from 'react-native'
+import React, { useState } from 'react'
+import { Button, FlatList, StyleSheet, View } from 'react-native'
 // import { Button, } from 'react-native-paper' // Załóżmy, że używasz biblioteki react-native-paper
 import { Entypo } from '@expo/vector-icons'
+import { Result } from '../utils/types'
+
 export default function Pagination({
   scrollTo,
   elements = null,
   currentVisibleIndex = null,
   results,
+}: {
+  scrollTo: (number) => void
+  elements: any[]
+  currentVisibleIndex: number
+  results: Array<Result>
 }) {
   const [nrOfVisibles, setNrOfVisibles] = useState(0)
 

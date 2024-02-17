@@ -9,7 +9,6 @@ import {
   FlatList,
   ScrollView,
   Modal,
-
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Question from '../components/Question'
@@ -23,13 +22,20 @@ import Pagination from '../components/Pagination'
 import { Item } from '../utils/types'
 
 export default function Quiz({ route }) {
-
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
   const navigation = useNavigation()
   const itemSet: Array<Item> = route.params.quiz
-  const quizToIterate: Array<Item | {id: string}> = [...itemSet, { id: "-1" }]
+  const quizToIterate: Array<
+    | Item
+    | {
+        id: string
+        question?
+        options?
+        multiChoice?
+      }
+  > = [...itemSet, { id: '-1' }]
   const [showModal, setShowModal] = useState(false)
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(0)
   const [results, setResults, createResultsArray] = useResults(itemSet)
@@ -41,14 +47,13 @@ export default function Quiz({ route }) {
       const currentlyVisibleItemIndex = viewableItems[0].index
 
       setCurrentVisibleIndex(currentlyVisibleItemIndex)
-
     }
   }
 
   useEffect(() => {
     for (const item of itemSet) {
       //@ts-ignore TODO: remove toString
-      setResults(prev => [...prev, { id: item.id.toString(), userChoices: [], item }])
+      setResults(prev => [...prev, { id: item.id, userChoices: [], item }])
     }
   }, [])
 
@@ -57,17 +62,15 @@ export default function Quiz({ route }) {
     navigation.goBack() // powrót do poprzedniego ekranu
   }
 
-  const scrollTo = indexToScrollTo => {
+  const scrollTo = (indexToScrollTo: number): void => {
     flatListRef.current.scrollToIndex({
       animated: true,
-      index: indexToScrollTo
+      index: indexToScrollTo,
     })
   }
 
-
   return (
     <SafeAreaView>
-
       <Pagination
         scrollTo={scrollTo}
         elements={quizToIterate}

@@ -69,10 +69,10 @@ export default function Categories() {
     let itemsArray = []
     
     chosenCategories.map(cat => {
-      let topicsArray = []
+      // let topicsArray = []
       // topicsArray.push([...topics[cat]])
       topics[cat].map(topic => {
-        itemsArray.push(...importQuiz([topic.name], cat, topics, true))
+        itemsArray.push(...importQuiz([topic.name], cat, true))
         
         })
         

@@ -1,13 +1,24 @@
 import { useState } from 'react'
-import {Option} from '../utils/types'
+import { Option, Item } from '../utils/types'
 
-export const useOptionPress = (item, createResultsArray) => {
+type UseOptionPressReturnType = {
+  pressedButtons: Map<string, boolean>
+  setPressedButtons: React.Dispatch<React.SetStateAction<Map<string, boolean>>>
+  handleOptionPress: (pressedOption: Option, multiChoice: boolean) => void
+}
 
+export const useOptionPress = (
+  item: Item,
+  createResultsArray: (pressedOption: Option, item_id: string) => void
+): UseOptionPressReturnType => {
   const [pressedButtons, setPressedButtons] = useState(
     new Map<string, boolean>()
   )
 
-  function handleOptionPress(pressedOption: Option, multiChoice: boolean): void {
+  function handleOptionPress(
+    pressedOption: Option,
+    multiChoice: boolean
+  ): void {
     //if this option has already been chosen, unchoose it
     if (pressedOption.isChosen) {
       // console.log('pressedOptoin 1: ', pressedOption)
@@ -59,5 +70,5 @@ export const useOptionPress = (item, createResultsArray) => {
     }
   }
 
-  return {pressedButtons, setPressedButtons, handleOptionPress}
+  return { pressedButtons, setPressedButtons, handleOptionPress }
 }

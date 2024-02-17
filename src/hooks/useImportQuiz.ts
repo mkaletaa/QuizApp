@@ -1,6 +1,8 @@
 // hooks/useImportQuiz.js
 import { useNavigation } from '@react-navigation/native'
 import { quiz } from '../../data/quiz/quizModule'
+import {Item, Topics} from '../utils/types'
+import {topics} from '../../data/data'
 
 const useImportQuiz = () => {
   const navigation = useNavigation()
@@ -8,9 +10,9 @@ const useImportQuiz = () => {
   const importQuiz = (
     chosenTopicsArray: Array<string>, //an array of topics tahat user chosen to have a quiz
     categoryName: string, //the category of the chosen topics
-    topics,
+    // topics: Topics, //topics object from data.ts
     returnItems: boolean = false //all topics of all categories available in the app
-  ) => {
+  ): undefined | Array<Item> => {
     let items = []
 
     for (const chosenTopic of chosenTopicsArray) {
@@ -35,7 +37,7 @@ const useImportQuiz = () => {
     navigation.navigate('Quiz', { quiz: items, topicName: headerText })
   }
 
-  function shuffle(items) {
+  function shuffle(items: Array<Item>): Array<Item>{
     for (let i = items.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1))
       ;[items[i], items[j]] = [items[j], items[i]]

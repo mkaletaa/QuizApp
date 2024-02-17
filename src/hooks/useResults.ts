@@ -1,11 +1,19 @@
 import { useState } from 'react'
+import { Item, Option } from '../utils/types'
+import {Result} from '../utils/types'
 
-const useResults = itemSet => {
-  const [results, setResults] = useState([]) //same as results but as a state
+type UseResultsReturnType = [
+  Array<Result>,
+  React.Dispatch<React.SetStateAction<Array<Result>>>,
+  (pressedOption: Option, itemId: string) => void
+]
+
+const useResults = (itemSet: Array<Item>): UseResultsReturnType => {
+  const [results, setResults] = useState<Array<Result>>([]) //same as results but as a state
 
   function isCorrect(
-    itemUserChoices, //opcje danego itema, które zaznaczył user
-    options //opcje konkretnego itema
+    itemUserChoices: Array<Option>, //opcje danego itema, które zaznaczył user
+    options: Array<Option> //opcje konkretnego itema
   ): 'correct' | 'incorrect' | 'kindof' {
     //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
     //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
@@ -35,7 +43,7 @@ const useResults = itemSet => {
 
   /* funkcja przyjmuje id itema oraz naciśniętą opcję 
 (niezależnie czy została naciśnięta w celu zaznaczenia czy odznaczenia) */
-  function createResultsArray(pressedOption, itemId) {
+  function createResultsArray(pressedOption: Option, itemId: string): void {
     for (let i = 0; i < itemSet.length; i++) {
       //pętla po itemSet
       if (itemSet[i].id === itemId) {
@@ -134,6 +142,8 @@ const useResults = itemSet => {
     }
   }
 
+  console.log("🚀 ~ useResults ~ results:",  JSON.stringify(results))
+  
   return [results, setResults, createResultsArray]
 }
 
