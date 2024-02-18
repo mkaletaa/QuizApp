@@ -5,6 +5,7 @@ import React from 'react'
 import Categories from './screens/Categories'
 import Options from './screens/Options'
 import Quiz from './screens/Quiz'
+import Quiz2 from './screens/Quiz2' 
 import Summary from './screens/Summary'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
@@ -73,7 +74,7 @@ const MyStack = () => {
 
       <Stack.Screen
         name="Quiz"
-        component={Quiz}
+        component={Quiz2}
         options={{headerShown: false}}
       />
 

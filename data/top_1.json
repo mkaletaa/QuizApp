@@ -1,70 +1,19 @@
-[
-  {
-    "id": 4,
-    "userChoices": [
-      { "id": 21, "answer": "Rome", "correct": false, "isChosen": true }
-    ],
-    "item": {
-      "id": 4,
-      "multiChoice": false,
-      "question": "What is the capital of France?",
-      "options": [
-        { "id": 11, "answer": "Paris", "correct": true, "isChosen": false },
-        { "id": 21, "answer": "Rome", "correct": false, "isChosen": true },
-        { "id": 31, "answer": "Berlin", "correct": false, "isChosen": false },
-        { "id": 41, "answer": "Madrid", "correct": false, "isChosen": false }
-      ],
-      "explanation": [
-        { "componentType": "Text", "value": "French capital" },
-        { "componentType": "Text", "value": " is definitely Paris" },
-        {
-          "componentType": "Image",
-          "value": "https://legacy.reactjs.org/logo-og.png"
-        }
-      ]
-    },
-    "isCorrect": "incorrect"
-  },
-  {
-    "id": 5,
-    "userChoices": [],
-    "item": {
-      "id": 5,
-      "multiChoice": true,
-      "question": "React CLI?",
-      "options": [
-        { "id": 11, "answer": "create react app", "correct": false },
-        { "id": 21, "answer": "create next app", "correct": true },
-        { "id": 31, "answer": "create vite app", "correct": true }
-      ],
-      "explanation": "CRA is outdated"
+{
+  "explanation": [
+    { "componentType": "Text", "value": "French capital" },
+    { "componentType": "Text", "value": " is definitely Paris" },
+    {
+      "componentType": "Image",
+      "value": "https://legacy.reactjs.org/logo-og.png"
     }
-  },
-  {
-    "id": 6,
-    "userChoices": [],
-    "item": {
-      "id": 6,
-      "multiChoice": false,
-      "question": [
-        { "componentType": "Text", "value": "What can be put on pizza" },
-        { "componentType": "Text", "value": "Except pineapple ofc" },
-        {
-          "componentType": "Image",
-          "value": "https://legacy.reactjs.org/logo-og.png"
-        }
-      ],
-      "options": [
-        {
-          "id": 11,
-          "answer": "chocolate",
-          "correct": false,
-          "componentType": "Text",
-          "props": {}
-        },
-        { "id": 21, "answer": "cheese", "correct": true }
-      ],
-      "explanation": "..."
-    }
-  }
-]
+  ],
+  "id": 4,
+  "multiChoice": false,
+  "options": [
+    { "answer": "Paris", "correct": true, "id": 11, "isChosen": true },
+    { "answer": "Rome", "correct": false, "id": 21, "isChosen": false },
+    { "answer": "Berlin", "correct": false, "id": 31, "isChosen": false },
+    { "answer": "Madrid", "correct": false, "id": 41, "isChosen": false }
+  ],
+  "question": "What is the capital of France?"
+}

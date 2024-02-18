@@ -86,8 +86,7 @@ const renderComponent = (dataComponent: Component) => {
 
 //tutaj trafia question, explanation i theory
 export default function ContentRenderer({ content }) {
-  if (Array.isArray(content))
-    console.log('🚀 ~ ContentRenderer ~ data:', content)
+
   // if a question is text only, turn it into one element array
   const contentArray = Array.isArray(content)
     ? content

@@ -12,6 +12,7 @@ import { topics } from '../../data/data'
 import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
 import useImportQuiz from '../hooks/useImportQuiz'
+// import Quiz from './Quiz2'
 // import { removeUnderscores } from '../utils/modifyText'
 
 export default function Topics({ route }) {
@@ -70,7 +71,9 @@ export default function Topics({ route }) {
     // console.log(topicsArray)
     console.log('🚀 ~ showQuiz ~ topicsArray:', topics)
 
-    importQuiz(topicsArray, categoryName)
+    // importQuiz(topicsArray, categoryName)
+    //@ts-ignore
+    navigation.navigate('Quiz', { topArray: topicsArray, catArray: [categoryName] })
   }
 
   function toggleTopic(name: string, isChosen: boolean): void {

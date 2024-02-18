@@ -66,7 +66,7 @@ const useResults = (itemSet: Array<Item>): UseResultsReturnType => {
             //jeśli już coś było zaznaczone
             console.log('coś było juz zaznazone i...')
             //jeśli zaznaczono nową opcję
-            if (pressedOption.isChosen) {
+            if (pressedOption.isMarked) {
               console.log('...zaznaczono nową odpowiedź')
 
               let results2 = [...results]
@@ -111,7 +111,7 @@ const useResults = (itemSet: Array<Item>): UseResultsReturnType => {
           //jeśli już udzielono odpowiedzi
           console.log('coś było juz zaznazone i...')
           //jeśli zaznaczono nową odpowiedź
-          if (pressedOption.isChosen) {
+          if (pressedOption.isMarked) {
             console.log('...zaznaczono nową odpowiedź')
             let results2 = [...results]
             results2[i].userChoices.push(pressedOption)

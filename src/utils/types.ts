@@ -10,7 +10,7 @@ export type Option = {
   correct: boolean
   componentType?: 'Text' | 'Math' 
   props?: {} 
-  isChosen?: boolean 
+  isMarked?: boolean 
 }
 
 export type Item = {
@@ -33,7 +33,7 @@ export type Topics = {
 
 export type Result = {
     id: string
-    userChoices: Option[]
+    userChoices?: Option[]
     item: Item
     isCorrect: 'correct' | 'incorrect' | 'kindof'
 }

@@ -20,9 +20,9 @@ export const useOptionPress = (
     multiChoice: boolean
   ): void {
     //if this option has already been chosen, unchoose it
-    if (pressedOption.isChosen) {
+    if (pressedOption.isMarked) {
       // console.log('pressedOptoin 1: ', pressedOption)
-      pressedOption.isChosen = false
+      pressedOption.isMarked = false
       setPressedButtons(prevState => {
         const newMap = new Map(prevState)
         newMap.set(pressedOption.id, false)
@@ -32,8 +32,8 @@ export const useOptionPress = (
       return
     }
 
-    if (multiChoice && !pressedOption.isChosen) {
-      pressedOption.isChosen = true
+    if (multiChoice && !pressedOption.isMarked) {
+      pressedOption.isMarked = true
 
       setPressedButtons(prevState => {
         const newMap = new Map(prevState)
@@ -44,12 +44,12 @@ export const useOptionPress = (
       return
     }
 
-    if (!multiChoice && !pressedOption.isChosen) {
+    if (!multiChoice && !pressedOption.isMarked) {
       // console.log('pressedOptoin 3: ', pressedOption)
       for (const option of item.options) {
-        option.isChosen = false
+        option.isMarked = false
       }
-      pressedOption.isChosen = true
+      pressedOption.isMarked = true
 
       //ustaw wszystkie wartości na false
       setPressedButtons(prevState => {
