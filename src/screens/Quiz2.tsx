@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import {
   Button,
@@ -11,13 +10,14 @@ import {
   Text,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { quiz } from '../../data/quiz/quizModule'
+import { quiz } from '../../data/quiz/quizModule' //normalnie tego importu nie powinno być
 import ContentRenderer from '../components/ContentRenderer'
 import Options from '../components/Options2'
 import Question from '../components/Question'
 import { Item, Option, Result } from '../utils/types'
 import Line from '../components/Line'
 import Explanation from '../components/Explanation'
+import useImportItem from '../hooks/useImportItem'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -31,105 +31,196 @@ export default function Quiz({ route }) {
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [resultsArray, setResultsArray] = useState<Result[]>([])
 
-  let whichCat: number = 0
-  let whichTop: number = 0
-
   const [allItemsCount, setAllItemsCount] = useState(0)
-  const [whichItem, setWhichItem] = useState(0)
+  const [allItemsCountArray, setAllItemsCountArray] = useState([0][0][0])
+  // const [whichItem, setWhichItem] = useState(0)
+  // const [whichCat, setWhichCat] = useState(0)
+  // const [whichTop, setWhichTop] = useState(0)
+
+  const importItem = useImportItem()
+
+  const [whichObject, setWhichObject] = useState({
+    whichItem: 0,
+    whichTopic: 0,
+    whichCategory: 0,
+  })
 
   useEffect(() => {
-    if(chosenOptions.length>0)
-    setChosenOptions([])
-    console.log('🚀 ~ Quiz ~ chosenOptions:', chosenOptions)
+    // if (chosenOptions.length > 0) setChosenOptions([])
+    let allItemsCountHelp = []
+
     for (let i = 0; i < catArray.length; i++) {
-      // console.log('first')
+      let catArrayRow = []
+
       for (let j = 0; j < topArray.length; j++) {
+        let topArrayRow = []
         let itemsArray: Array<Item> = quiz[catArray[i]][topArray[j]]
-        setAllItemsCount(prev => prev + itemsArray.length)
+        setAllItemsCount(prev => prev + itemsArray.length) //zliczanie wszystkich itemów
+
+        for (let k = 0; k < quiz[catArray[i]][topArray[j]].length; k++) {
+          topArrayRow.push(k)
+        }
+
+        catArrayRow.push(topArrayRow)
       }
+
+      allItemsCountHelp.push(catArrayRow)
     }
 
-    // console.log('🚀 ~ Quiz ~ allItemsCount:', allItemsCount)
+    console.log('🚀 ~ useEffect ~ allItemsCountHelp:', allItemsCountHelp)
+    setAllItemsCountArray(allItemsCountArray)
+
     let importedItem: Item = importItem(
-      catArray[whichCat],
-      topArray[whichTop],
-      whichItem
+      catArray[whichObject.whichCategory],
+      topArray[whichObject.whichTopic],
+      whichObject.whichItem
     )
-    if (importedItem !== null) setItem(importedItem)
-
-
-        // return () => {
-        //   // Tutaj możesz umieścić kod, który ma zostać wykonany po odmontowaniu komponentu
-        //   console.log('Komponent został odmontowany')
-        //   setChosenOptions([])
-        // }
+    if (importedItem !== null) setItem(importedItem) //yyy co?
+    else setItem(null)
   }, [])
 
-  function importItem(
-    cat: string,
-    top: string,
-    whichItem: number
-  ): Item | null {
-    let item: Item = quiz[cat][top][whichItem]
-    return item
+  //uruchamia się po naciśnięciu przycisku w modalu
+  function nextItem(): void {
+    console.log('🚀 ~ nextItem ~ whichObject:', whichObject)
+    console.log('🚀 ~ nextItem ~ catArray:', catArray.length)
+    console.log('🚀 ~ nextItem ~ topArray:', topArray.length)
+    console.log(
+      'ile itmeów w optiku:',
+      quiz[catArray[whichObject.whichCategory]][
+        topArray[whichObject.whichTopic]
+      ].length
+    )
+
+    //jeśli juz wszystkie kategorie zużyte
+    // console.log(4)
+    // if (whichObject.whichCategory === catArray.length) {
+    //   setItem(null)
+    //   console.log('4 wewnątrz')
+    //   return
+    // }
+
+    // console.log(3)
+    // //jeśli już wszystkei topiki zużyte
+    // if (whichObject.whichTopic === topArray.length) {
+    //   setWhichObject(prev => ({
+    //     whichCategory: prev.whichCategory,
+    //     whichTopic: 0,
+    //     whichItem: 0,
+    //   }))
+    //   console.log('3 wewnątrz')
+
+    //   return
+    // }
+
+    console.log(2)
+    let ileItemowwTopicu =
+      quiz[catArray[whichObject.whichCategory]][
+        topArray[whichObject.whichTopic]
+      ].length
+
+    //jeśli liczba itemów w topicu dobiegła końca
+    if (whichObject.whichItem === ileItemowwTopicu - 1) {
+      //jeśli iliczba topików w kategorii dobiegła końca
+      if (whichObject.whichTopic === topArray.length - 1) {
+        //jeśli iliczba kategorii dobiegła końca
+        if (whichObject.whichCategory === catArray.length - 1) {
+          setItem(null)
+          setShowResultModal(false)
+        } else {
+          setWhichObject(prev => ({
+            whichCategory: prev.whichCategory + 1,
+            whichTopic: 0,
+            whichItem: 0,
+          }))
+        }
+      }
+      //jeśli iliczba topików w kategorii nie dobiegła końca
+      else
+        setWhichObject(prev => ({
+          ...prev,
+          whichTopic: prev.whichTopic + 1,
+          whichItem: 0,
+        }))
+
+      console.log('2 wewnątrz')
+
+      return
+    }
+
+    console.log(1)
+    setWhichObject(prev => ({
+      ...prev,
+      whichItem: prev.whichItem + 1,
+    }))
+    console.log('1 wewnątrz')
+    // setChosenOptions([])
   }
+
+  useEffect(() => {
+    console.log('🚀 ~ useEffect ~ whichObject:', whichObject)
+    console.log('🚀 ~ useEffect ~ catArray:', catArray.length)
+    console.log('🚀 ~ useEffect ~ topArray:', topArray.length)
+    console.log(
+      'ile itmeów w optiku:',
+      quiz[catArray[whichObject.whichCategory]][
+        topArray[whichObject.whichTopic]
+      ].length
+    )
+    let item
+    if (
+      quiz[catArray[whichObject.whichCategory]][
+        topArray[whichObject.whichTopic]
+      ]
+    ) {
+      item = importItem(
+        catArray[whichObject.whichCategory],
+        topArray[whichObject.whichTopic],
+        whichObject.whichItem
+      )
+      setItem(item)
+      setShowResultModal(false)
+      setChosenOptions([])
+    } else nextItem()
+  }, [whichObject])
 
   function closeModalAndGoBack(): void {
     setShowModal(false)
     navigation.goBack() // powrót do poprzedniego ekranu
   }
 
-  //uruchamia się po naciśnięciu przycisku w modalu
-  function nextItem(): void {
-    setWhichItem(prev => prev + 1)
-  }
-
-  useEffect(() => {
-    setItem(importItem(catArray[whichCat], topArray[whichTop], whichItem))
-    setShowResultModal(false)
-    setChosenOptions([])
-  }, [whichItem])
-
-  useEffect(() => {
-    // console.log('🚀 ~ Quiz ~ chosenOptions:', chosenOptions)
-  }, [chosenOptions])
-
-  function handleOptionPress(option: Option) {
-    console.log('🚀 ~ handleOptionPress ~ option:', chosenOptions)
+  function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
     //jeśli opcja została zaznaczona i jest multichoice
-    if (option.isMarked && item.multiChoice) {
+    if (whatToDo === 'add' && item.multiChoice) {
+      console.log('1')
       setChosenOptions(prev => [...prev, option])
       return
     }
 
     //jeśli opcja została zaznaczona i nie jest multichoice
-    if (option.isMarked && !item.multiChoice) {
-      setChosenOptions([option]) 
+    if (whatToDo === 'add' && !item.multiChoice) {
+      setChosenOptions([option])
       return
-    } 
-    
-    //jeśli opcja została odznaczona 
-    if(!option.isMarked){
-      //stworzyć nową tablicę na podstawie starej tylko nie zawierającej option
-      let chosenOptions2= chosenOptions.filter(id => id !== option)
+    }
+
+    //jeśli opcja została odznaczona
+    if (whatToDo === 'remove') {
+      let chosenOptions2 = chosenOptions.filter(el => el.id !== option.id)
       setChosenOptions(chosenOptions2)
     }
   }
 
+  //activated after pressing zatwierdź button
   function setResults() {
-    //activated after pressing zatwierdź button
     let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' = checkTheResult(
       item,
       chosenOptions
     )
-    // console.log('🚀 ~ setResults ~ thisQuestionResult:', thisQuestionResult)
     let result: Result = {
       id: item.id,
       item: item,
       isCorrect: thisQuestionResult,
     }
     setResultsArray(prev => [...prev, result])
-    // console.log('🚀 ~ setResults ~ item:', item.id)
     setShowResultModal(true)
   }
 
@@ -141,7 +232,6 @@ export default function Quiz({ route }) {
     //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
     //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
     //zwróć w każdym innym przypadku
-    // console.log('🚀 ~ Quiz ~ chosenOptions:', chosenOptions)
 
     let nrOfCorrectUserOptions = 0
     let nrOfCorrectOptions = 0
@@ -149,11 +239,10 @@ export default function Quiz({ route }) {
     for (const chosenOption of chosenOptions) {
       if (chosenOption?.correct) nrOfCorrectUserOptions++
     }
-    // console.log('🚀 ~ Quiz ~ nrOfCorrectUserOptions:', nrOfCorrectUserOptions)
 
     if (nrOfCorrectUserOptions === 0) return 'incorrect'
 
-    for (const option of item.options) {
+    for (const option of item?.options) {
       if (option.correct) nrOfCorrectOptions++
     }
 
@@ -181,12 +270,9 @@ export default function Quiz({ route }) {
         {item && (
           <React.Fragment>
             <Question question={item?.question} />
-            {chosenOptions.map((option, index) =>(
-              <Text>{option.answer}, {option.isMarked}</Text>
-            ))}
             <Options
               item={item}
-              // createResultsArray={() => {}}
+              chosenOptions={chosenOptions}
               handleOptionPress={handleOptionPress}
               multiChoice={item.multiChoice}
             />
@@ -198,7 +284,7 @@ export default function Quiz({ route }) {
           </React.Fragment>
         )}
 
-        {!item &&
+        {resultsArray.length === allItemsCount &&
           resultsArray.map((result, index) => (
             <View
               style={[
@@ -210,6 +296,7 @@ export default function Quiz({ route }) {
                 },
               ]}
             >
+              <Text>wynikiii</Text>
               {/* <ContentRenderer content={result.item.question}></ContentRenderer> */}
             </View>
           ))}

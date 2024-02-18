@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import { useOptionPress } from '../hooks/useOptionPress'
+import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import MathJax from 'react-native-mathjax'
 import { Option } from '../utils/types'
 
@@ -25,115 +24,26 @@ const OptionComponent = ({ option }: { option: Option }) => {
   }
 }
 
-const Options = ({ item, multiChoice, handleOptionPress }) => {
-  // const { pressedButtons, setPressedButtons, handleOptionPress } =
-  //   useOptionPress(item, createResultsArray)
-  const [pressedButtons, setPressedButtons] = useState(
-    new Map<string, boolean>()
-    )
-    
-    useEffect(() => {
-    console.log("🚀 ~ Options ~ item.options:", item.options)
-    if (pressedButtons.size > 0) {
-      setPressedButtons(new Map())
-    }
-
-    const initialPressedButtons: Map<string, boolean> = new Map(
-      item.options.map(option => [option.id, false])
-    )
-
-    setPressedButtons(initialPressedButtons)
-
-    // return () => {
-    //   // Tutaj możesz umieścić kod, który ma zostać wykonany po odmontowaniu komponentu
-    //   console.log('Komponent został odmontowany')
-    //   setPressedButtons(initialPressedButtons)
-    // }
-  }, [])
-
-  useEffect(() => {
-    console.log('🚀 ~ useEffect ~ pressedButtons:', pressedButtons)
-  }, [pressedButtons])
-
-  useEffect(() => {
-    // if (pressedButtons.size > 0) {
-    //   setPressedButtons(new Map())
-    // }
-
-    const initialPressedButtons: Map<string, boolean> = new Map(
-      item.options.map(option => [option.id, false])
-    )
-
-    setPressedButtons(initialPressedButtons)
-  }, [item])
+const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
 
   function setButtonBackground(pressedOption: Option) {
-    // console.log('set btn bckgrnd, ', pressedOption)
+    let isChosen = chosenOptions.some(el => el.id === pressedOption.id)
+    const updatedOption = { ...pressedOption }
+
     //if this option has already been chosen, unchoose it
-    if (pressedOption.isMarked) {
-      console.log(
-        'opcja już była zaznaczona. stan przed zaznaczeniem: ',
-        pressedOption
-      )
-      pressedOption.isMarked = false
-      console.log('...i po zaznaczeniu: ', pressedOption)
-      setPressedButtons(prevState => {
-        const newMap = new Map(prevState)
-        newMap.set(pressedOption.id, false)
-        return newMap
-      })
-      handleOptionPress(pressedOption)
-      // createResultsArray(pressedOption, item.id)
+    if (isChosen) {
+      handleOptionPress(pressedOption, 'remove')
+      return
+    }
+    //if this option han't been chosen yet, add it to chosenOptions
+    if (multiChoice && !isChosen) {
+      handleOptionPress(pressedOption, 'add')
       return
     }
 
-    if (multiChoice && !pressedOption.isMarked) {
-      console.log(
-        'opcja nie była zaznaczona (multichoice), stan przed: ',
-        pressedOption
-      )
-      pressedOption.isMarked = true
-      console.log('... i stan po: ', pressedOption)
-
-      setPressedButtons(prevState => {
-        const newMap = new Map(prevState)
-        newMap.set(pressedOption.id, true)
-        return newMap
-      })
-      // createResultsArray(pressedOption, item.id)
-      handleOptionPress(pressedOption)
-
-      return
-    }
-
-    if (!multiChoice && !pressedOption.isMarked) {
-      console.log(
-        'opcja nie była zaznaczona (single choice). Stan przed: ',
-        pressedOption
-      )
-      // for (const option of item.options) {
-      //   option.isMarked = false
-      // }
-      pressedOption.isMarked = true
-      console.log('...i po: ', pressedOption)
-
-      //ustaw wszystkie wartości na false
-      setPressedButtons(prevState => {
-        const newMap = new Map(prevState)
-
-        // Ustaw wszystkie wartości na false
-        newMap.forEach((value, key) => {
-          newMap.set(key, false)
-        })
-
-        // Ustaw konkretny klucz na true
-        newMap.set(pressedOption.id, true)
-
-        return newMap
-      })
-      handleOptionPress(pressedOption)
-
-      // createResultsArray(pressedOption, item.id)
+    //if this option han't been chosen yet, add it to chosenOptions
+    if (!multiChoice && !isChosen) {
+      handleOptionPress(pressedOption, 'add')
       return
     }
   }
@@ -154,16 +64,15 @@ const Options = ({ item, multiChoice, handleOptionPress }) => {
         </View>
       ) : null}
 
-      {item.options.map(option => (
+      {item.options?.map(option => (
         <View key={option.id} style={styles.answerContainer}>
-          <Text>{JSON.stringify(pressedButtons.get(option.id))}</Text>
           <TouchableOpacity
             activeOpacity={0.7}
             // {...props}
             style={[
               styles.touchableOpacity,
               {
-                backgroundColor: pressedButtons.get(option.id)
+                backgroundColor: chosenOptions.some(el => el.id === option.id)
                   ? 'lightblue'
                   : 'silver',
               },

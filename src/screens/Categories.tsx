@@ -88,7 +88,12 @@ export default function Categories() {
 
     // console.log("🚀 ~ showQuiz ~ itemsArray:",  JSON.stringify(str))
     //@ts-ignore
-    navigation.navigate('Quiz', { quiz: itemsArray, topicName: 'headerText' })
+    navigation.navigate('Quiz', {
+      topArray: [],
+      catArray: categoriesArray,
+    })
+
+    // navigation.navigate('Quiz', { quiz: itemsArray, topicName: 'headerText' })
   }
 
   const windowWidth = useWindowDimensions().width

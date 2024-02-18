@@ -19,7 +19,7 @@ export type Item = {
   question: string | Array<Component>
   options: Array<Option>
   explanation: string | Array<Component>
-}
+} 
 
 
 export type Topic = {
