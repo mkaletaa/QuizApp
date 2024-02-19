@@ -14,24 +14,15 @@ const useImportItem = () => {
   }
 
   function countItems(catArray, topArray): number {
-    // let allItemsCountHelp = []
-    let itemsCount=0
+    let itemsCount = 0
+
     for (let i = 0; i < catArray.length; i++) {
-      // let catArrayRow = []
-
       for (let j = 0; j < topArray.length; j++) {
-        // let topArrayRow = []
         let itemsArray: Array<Item> = quiz[catArray[i]][topArray[j]]
-        itemsCount+=itemsArray.length
-        // for (let k = 0; k < quiz[catArray[i]][topArray[j]].length; k++) {
-        //   topArrayRow.push(k)
-        // }
-
-        // catArrayRow.push(topArrayRow)
+        itemsCount += itemsArray.length
       }
-
-      // allItemsCountHelp.push(catArrayRow)
     }
+
     return itemsCount
   }
 

@@ -26,6 +26,7 @@ export default function Quiz({ route }) {
   const navigation = useNavigation()
   const topArray: Array<string> = route.params.topArray
   const catArray: Array<string> = route.params.catArray
+  const catTopArray: Array<string> = route.params.catTopArray
   const [item, setItem] = useState<Item>()
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji

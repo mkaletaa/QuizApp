@@ -88,13 +88,35 @@ export default function Categories() {
 
     // console.log("🚀 ~ showQuiz ~ itemsArray:",  JSON.stringify(str))
     //TODO: pętla po kategoriach tworząca topics array
+
+    let catTopArray = []
+
+    for (const category of categories) {
+      let topicsArray = []
+
+      for (const cat in topics) {
+        if (cat === category.name) {
+          topicsArray = topics[cat].map(topic => topic.name)
+          // Map the topics array to only include names
+        }
+      }
+
+      catTopArray.push({
+        [category.name]: topicsArray,
+      })
+    }
+
+    console.log('🚀 ~ showQuiz ~ catTopArray:', JSON.stringify(catTopArray))
+
     //@ts-ignore
     navigation.navigate('Quiz', {
+      catTopArray,
       topArray: [],
       catArray: categoriesArray,
     })
 
-    // navigation.navigate('Quiz', { quiz: itemsArray, topicName: 'headerText' })
+    //@ts-ignore
+    // navigation.navigate('Quiz', {catTopArray, quiz: itemsArray, topicName: 'headerText' })
   }
 
   const windowWidth = useWindowDimensions().width
