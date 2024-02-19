@@ -1,5 +1,7 @@
 import { quiz } from '../../data/quiz/quizModule'
 import { Item } from '../utils/types'
+import { topics } from '../../data/data'
+
 
 const useImportItem = () => {
   function importItem(
@@ -16,12 +18,19 @@ const useImportItem = () => {
   function countItems(catArray, topArray): number {
     let itemsCount = 0
 
-    for (let i = 0; i < catArray.length; i++) {
+    // if (catArray.length === 0) {
       for (let j = 0; j < topArray.length; j++) {
-        let itemsArray: Array<Item> = quiz[catArray[i]][topArray[j]]
+        let itemsArray: Array<Item> = quiz[0][topArray[j]]
         itemsCount += itemsArray.length
       }
-    }
+    // } else { //jeśli user wybrał quiz ze wszystkich kategorii
+    //   for (let i = 0; i < catArray.length; i++) {
+    //     for (let j = 0; j < topics[catArray][i]; j++) {
+    //       let itemsArray: Array<Item> = quiz[catArray[i]][topArray[j]]
+    //       itemsCount += itemsArray.length
+    //     }
+    //   }
+    // }
 
     return itemsCount
   }

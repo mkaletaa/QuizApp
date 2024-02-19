@@ -1,27 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { StatusBar } from 'expo-status-bar'
-import {
-  Button,
-  Modal,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  useWindowDimensions,
-} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { categories, topics } from '../../data/data'
-import QuizModalSwitch from '../components/QuizModalSwitch'
-import useImportQuiz from '../hooks/useImportQuiz'
-import ModalComponent from '../components/ModalComponent'
+import { StatusBar } from 'expo-status-bar'
+import React, { useEffect, useState } from 'react'
+import {
+  ScrollView,
+  StyleSheet
+} from 'react-native'
+import { categories } from '../../data/data'
 import Card from '../components/Card'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
-  const [modalVisible, setModalVisible] = useState(false)
-  const [chosenCategories, setChosenCategories] = useState([]) //topics that user want to take a quiz
-  const importQuiz = useImportQuiz()
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -30,96 +18,16 @@ export default function Categories() {
       navigation.navigate('Topics', { categoryName: categories[0].name })
     else {
       let name: string = '__All__'
-      setCategoriesToShow([
-        { name, image: 'https://reactjs.org/logo-og.png', des: '' },
-        ...categories,
-      ])
+      setCategoriesToShow([...categories])
       // setCategoriesToShow(categories)
     }
   }, [])
 
-  useEffect(() => {
-    // Set all values of chosenTopics after closing and opening the modal to avoid bugs
-    if (modalVisible) {
-      const updatedChosenCats = []
-      categories.map(cat => updatedChosenCats.push(cat.name))
-      setChosenCategories(updatedChosenCats)
-    } else {
-      setChosenCategories([])
-    }
-  }, [modalVisible])
 
   const goToTopics = catName => {
     // @ts-ignore
     navigation.navigate('Topics', { categoryName: catName })
   }
-
-  function toggleTopic(name: string, isChosen: boolean): void {
-    setChosenCategories(prevChosenTopics => {
-      if (!isChosen) {
-        // Dodaj name do tablicy, jeśli isChosen jest true
-        return prevChosenTopics.concat(name)
-      } else {
-        // Usuń name z tablicy, jeśli isChosen jest false
-        return prevChosenTopics.filter(topic => topic !== name)
-      }
-    })
-  }
-
-  const showQuiz = (categoriesArray: Array<string>) => {
-    console.log('🚀 ~ showQuiz ~ categoriesArray:', categoriesArray)
-    //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
-    if (categoriesArray[0].endsWith('__All__')) {
-      setModalVisible(true)
-      return
-    }
-
-    let itemsArray = []
-
-    chosenCategories.map(cat => {
-      // let topicsArray = []
-      // topicsArray.push([...topics[cat]])
-      topics[cat].map(topic => {
-        itemsArray.push(...importQuiz([topic.name], cat, true))
-      })
-
-      // console.log( JSON.stringify(importQuiz(topicsArray, cat.name, topics, true)))
-    })
-
-    // console.log("🚀 ~ showQuiz ~ itemsArray:",  JSON.stringify(str))
-    //TODO: pętla po kategoriach tworząca topics array
-
-    let catTopArray = []
-
-    for (const category of categories) {
-      let topicsArray = []
-
-      for (const cat in topics) {
-        if (cat === category.name) {
-          topicsArray = topics[cat].map(topic => topic.name)
-          // Map the topics array to only include names
-        }
-      }
-
-      catTopArray.push({
-        [category.name]: topicsArray,
-      })
-    }
-
-    console.log('🚀 ~ showQuiz ~ catTopArray:', JSON.stringify(catTopArray))
-
-    //@ts-ignore
-    navigation.navigate('Quiz', {
-      catTopArray,
-      topArray: [],
-      catArray: categoriesArray,
-    })
-
-    //@ts-ignore
-    // navigation.navigate('Quiz', {catTopArray, quiz: itemsArray, topicName: 'headerText' })
-  }
-
-  const windowWidth = useWindowDimensions().width
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
@@ -129,18 +37,11 @@ export default function Categories() {
         <Card
           key={category.name}
           data={category}
-          showQuiz={() => showQuiz([category.name])}
+          showQuiz={() => {}}
           goToTopics={goToTopics}
         />
       ))}
 
-      <ModalComponent
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        dataToIterate={categories}
-        toggleTopic={toggleTopic}
-        showQuiz={() => showQuiz(chosenCategories)}
-      />
     </ScrollView>
   )
 }
@@ -154,11 +55,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     // flex: 1
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.7)',
-  },
+  }
 })
