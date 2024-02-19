@@ -37,7 +37,7 @@ export default function Quiz({ route }) {
   // const [whichCat, setWhichCat] = useState(0)
   // const [whichTop, setWhichTop] = useState(0)
 
-  const importItem = useImportItem()
+  const {importItem, countItems} = useImportItem()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
@@ -47,25 +47,13 @@ export default function Quiz({ route }) {
 
   useEffect(() => {
     // if (chosenOptions.length > 0) setChosenOptions([])
-    let allItemsCountHelp = []
-
-    for (let i = 0; i < catArray.length; i++) {
-      let catArrayRow = []
-
-      for (let j = 0; j < topArray.length; j++) {
-        let topArrayRow = []
-        let itemsArray: Array<Item> = quiz[catArray[i]][topArray[j]]
-        setAllItemsCount(prev => prev + itemsArray.length) //zliczanie wszystkich itemów
-
-        for (let k = 0; k < quiz[catArray[i]][topArray[j]].length; k++) {
-          topArrayRow.push(k)
-        }
-
-        catArrayRow.push(topArrayRow)
-      }
-
-      allItemsCountHelp.push(catArrayRow)
+    
+    if(topArray.length === 0) {
+      
     }
+    
+    setAllItemsCount(countItems(catArray, topArray))
+    console.log('setAllItemsCount', countItems(catArray, topArray))
 
     // console.log('🚀 ~ useEffect ~ allItemsCountHelp:', allItemsCountHelp)
     setAllItemsCountArray(allItemsCountArray)
