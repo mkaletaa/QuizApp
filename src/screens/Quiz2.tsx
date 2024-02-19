@@ -25,8 +25,8 @@ export default function Quiz({ route }) {
   const [showModal, setShowModal] = useState(false)
   const navigation = useNavigation()
   const topArray: Array<string> = route.params.topArray
-  const catArray: Array<string> = route.params.catArray
-  const catTopArray: Array<string> = route.params.catTopArray
+  const catName: string = route.params.categoryName
+  // const catTopArray: Array<string> = route.params.catTopArray
   const [item, setItem] = useState<Item>()
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
@@ -34,33 +34,26 @@ export default function Quiz({ route }) {
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
   const [allItemsCountArray, setAllItemsCountArray] = useState([0][0][0])
-  // const [whichItem, setWhichItem] = useState(0)
-  // const [whichCat, setWhichCat] = useState(0)
-  // const [whichTop, setWhichTop] = useState(0)
 
-  const {importItem, countItems} = useImportItem()
+
+  const { importItem, countItems } = useImportItem()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
     whichTopic: 0,
-    whichCategory: 0,
+    // whichCategory: 0,
   })
 
   useEffect(() => {
-    // if (chosenOptions.length > 0) setChosenOptions([])
-    
-    if(topArray.length === 0) {
-      
-    }
-    
-    setAllItemsCount(countItems(catArray, topArray))
-    console.log('setAllItemsCount', countItems(catArray, topArray))
+
+    setAllItemsCount(countItems(catName, topArray))
+    console.log('setAllItemsCount', countItems(catName, topArray))
 
     // console.log('🚀 ~ useEffect ~ allItemsCountHelp:', allItemsCountHelp)
     setAllItemsCountArray(allItemsCountArray)
 
     let importedItem: Item = importItem(
-      catArray[whichObject.whichCategory],
+      catName,
       topArray[whichObject.whichTopic],
       whichObject.whichItem
     )
@@ -70,16 +63,13 @@ export default function Quiz({ route }) {
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextItem(): void {
     let ileItemowwTopicu =
-      quiz[catArray[whichObject.whichCategory]][
-        topArray[whichObject.whichTopic]
-      ].length
+      quiz[catName][topArray[whichObject.whichTopic]].length
 
     //jeśli liczba itemów w topicu dobiegła końca
     if (whichObject.whichItem === ileItemowwTopicu - 1) {
       //jeśli iliczba topików w kategorii dobiegła końca
       if (whichObject.whichTopic === topArray.length - 1) {
-        //jeśli iliczba kategorii dobiegła końca
-        if (whichObject.whichCategory === catArray.length - 1) {
+        
           setItem(null)
           setTimeout(() => {
             setShowGeneralResults(true)
@@ -87,13 +77,7 @@ export default function Quiz({ route }) {
 
           // resultsArray.length === allItemsCount
           setShowResultModal(false)
-        } else {
-          setWhichObject(prev => ({
-            whichCategory: prev.whichCategory + 1,
-            whichTopic: 0,
-            whichItem: 0,
-          }))
-        }
+        
       }
       //jeśli iliczba topików w kategorii nie dobiegła końca
       else
@@ -120,7 +104,7 @@ export default function Quiz({ route }) {
     let item: Item
 
     item = importItem(
-      catArray[whichObject.whichCategory],
+      catName,
       topArray[whichObject.whichTopic],
       whichObject.whichItem
     )

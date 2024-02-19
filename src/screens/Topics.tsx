@@ -68,21 +68,10 @@ export default function Topics({ route }) {
       setShowModal(true)
       return
     }
-    // console.log(topicsArray)
-    console.log('🚀 ~ showQuiz ~ topicsArray:', topics)
 
-    // importQuiz(topicsArray, categoryName)
-
-    let catTopArray = [
-      {
-        [categoryName]: [...topicsArray],
-      }
-    ]
     
-
-
     //@ts-ignore
-    navigation.navigate('Quiz', {catTopArray, topArray: topicsArray, catArray: [categoryName] })
+    navigation.navigate('Quiz', {topArray: topicsArray, categoryName })
   }
 
   function toggleTopic(name: string, isChosen: boolean): void {

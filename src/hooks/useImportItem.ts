@@ -15,12 +15,12 @@ const useImportItem = () => {
     return item
   }
 
-  function countItems(catArray, topArray): number {
+  function countItems(catName, topArray): number {
     let itemsCount = 0
 
     // if (catArray.length === 0) {
       for (let j = 0; j < topArray.length; j++) {
-        let itemsArray: Array<Item> = quiz[0][topArray[j]]
+        let itemsArray: Array<Item> = quiz[catName][topArray[j]]
         itemsCount += itemsArray.length
       }
     // } else { //jeśli user wybrał quiz ze wszystkich kategorii
