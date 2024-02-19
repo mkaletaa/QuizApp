@@ -1,37 +1,60 @@
-import { View, Button, StyleSheet, Text } from 'react-native'
+import { View, Button, StyleSheet, Text, ScrollView } from 'react-native'
 import ContentRenderer from './ContentRenderer'
-import { Item } from '../utils/types'
+import { Item, Option } from '../utils/types'
+import { useEffect } from 'react'
 
 export default function Explanation({
   item,
+  chosenOptions,
   nextItem,
+  btnTitle
 }: {
   item: Item
+  chosenOptions: Option[]
   nextItem: () => void
+  btnTitle: string
 }) {
+  useEffect(() => {
+    // console.log('poprawne odpowiedzi: ', item.options)
+  }, [])
+
   return (
-    <View style={styles.modalContainer}>
-      <Text>poprawne odpowiedzi:</Text>
-      {/* {item?.options.map((option, index) => (
-            <ContentRenderer content={option}></ContentRenderer>
-          ))} */}
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <View style={styles.contentContainer}>
+        <Text style={styles.heading}>Correct answer(s):</Text>
+        {item?.options
+          .filter(option => option.correct === true)
+          .map((option, index) => (
+            <ContentRenderer content={option.answer} key={index} />
+          ))}
 
-      <Text>twoje odpowiedzi:</Text>
-      {/* {chosenOptions.map((option, index) => (
-            <ContentRenderer content={option}></ContentRenderer>
-          ))} */}
+        <Text style={styles.heading}>Your answer(s):</Text>
+        {chosenOptions.map((option, index) => (
+          <ContentRenderer content={option.answer} key={index} />
+        ))}
 
-      <ContentRenderer content={item?.explanation}></ContentRenderer>
-      <Button title="Next Question" onPress={() => nextItem()} />
-    </View>
+        <Text style={styles.heading}>Explanation:</Text>
+        <ContentRenderer content={item?.explanation} />
+
+        <Button title={btnTitle} onPress={() => nextItem()} />
+      </View>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  modalContainer: {
-    flex: 1,
+  scrollContainer: {
+    flexGrow: 1,
     justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+  },
+  contentContainer: {
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,1)',
+    padding: 20,
+  },
+  heading: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 })

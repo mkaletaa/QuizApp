@@ -18,6 +18,7 @@ import { Item, Option, Result } from '../utils/types'
 import Line from '../components/Line'
 import Explanation from '../components/Explanation'
 import useImportItem from '../hooks/useImportItem'
+import GeneralResults from '../components/GeneralResults'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -33,10 +34,9 @@ export default function Quiz({ route }) {
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
-  const [allItemsCountArray, setAllItemsCountArray] = useState([0][0][0])
+  // const [allItemsCountArray, setAllItemsCountArray] = useState([0][0][0])
 
-
-  const { importItem, countItems } = useImportItem()
+  const { importItem, countItems, importRandomItem } = useImportItem()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
@@ -45,19 +45,20 @@ export default function Quiz({ route }) {
   })
 
   useEffect(() => {
-
     setAllItemsCount(countItems(catName, topArray))
-    console.log('setAllItemsCount', countItems(catName, topArray))
+    // console.log('setAllItemsCount', countItems(catName, topArray))
 
     // console.log('🚀 ~ useEffect ~ allItemsCountHelp:', allItemsCountHelp)
-    setAllItemsCountArray(allItemsCountArray)
+    // setAllItemsCountArray(allItemsCountArray)
 
-    let importedItem: Item = importItem(
-      catName,
-      topArray[whichObject.whichTopic],
-      whichObject.whichItem
-    )
-    setItem(importedItem)
+    // let importedItem: Item = importItem(
+    //   catName,
+    //   topArray[whichObject.whichTopic],
+    //   whichObject.whichItem
+    // )
+    // let importedItem = importRandomItem(catName, topArray)
+    // console.log("🚀 ~ useEffect ~ importedItem:", importedItem)
+    // setItem(importedItem)
   }, [])
 
   //uruchamia się po naciśnięciu przycisku w modalu
@@ -69,15 +70,13 @@ export default function Quiz({ route }) {
     if (whichObject.whichItem === ileItemowwTopicu - 1) {
       //jeśli iliczba topików w kategorii dobiegła końca
       if (whichObject.whichTopic === topArray.length - 1) {
-        
-          setItem(null)
-          setTimeout(() => {
-            setShowGeneralResults(true)
-          }, 0)
+        setItem(null)
+        setTimeout(() => {
+          setShowGeneralResults(true)
+        }, 0)
 
-          // resultsArray.length === allItemsCount
-          setShowResultModal(false)
-        
+        // resultsArray.length === allItemsCount
+        setShowResultModal(false)
       }
       //jeśli iliczba topików w kategorii nie dobiegła końca
       else
@@ -102,12 +101,18 @@ export default function Quiz({ route }) {
 
   useEffect(() => {
     let item: Item
+console.log('dupe')
+    
+    // item = importItem(
+    //   catName,
+    //   topArray[whichObject.whichTopic],
+    //   whichObject.whichItem
+    // )
+    item= importRandomItem(catName, topArray)
 
-    item = importItem(
-      catName,
-      topArray[whichObject.whichTopic],
-      whichObject.whichItem
-    )
+    // console.log('item: ', item)
+    importRandomItem(catName, topArray)
+    
     setItem(item)
     setShowResultModal(false)
     setChosenOptions([])
@@ -121,7 +126,7 @@ export default function Quiz({ route }) {
   function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
     //jeśli opcja została zaznaczona i jest multichoice
     if (whatToDo === 'add' && item.multiChoice) {
-      console.log('1')
+      // console.log('1')
       setChosenOptions(prev => [...prev, option])
       return
     }
@@ -149,6 +154,7 @@ export default function Quiz({ route }) {
       id: item.id,
       item: item,
       isCorrect: thisQuestionResult,
+      userChoices: chosenOptions,
     }
     setResultsArray(prev => [...prev, result])
     setShowResultModal(true)
@@ -214,22 +220,7 @@ export default function Quiz({ route }) {
           </React.Fragment>
         )}
 
-        {showGeneralResults &&
-          resultsArray.map((result, index) => (
-            <View
-              style={[
-                {
-                  backgroundColor:
-                    result.isCorrect === 'correct' ? 'green' : 'red',
-                  width: screenWidth,
-                  height: 20,
-                },
-              ]}
-            >
-              <Text>wynikiii</Text>
-              {/* <ContentRenderer content={result.item.question}></ContentRenderer> */}
-            </View>
-          ))}
+        {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
       </ScrollView>
 
       <Modal
@@ -239,7 +230,15 @@ export default function Quiz({ route }) {
         visible={showResultModal}
         // onRequestClose={() => setModalVisible(false)}
       >
-        <Explanation item={item} nextItem={nextItem} />
+        <Explanation
+          item={item}
+          chosenOptions={chosenOptions}
+          nextItem={nextItem}
+          btnTitle={
+            resultsArray.length === allItemsCount ? 'summary' : 'next question'
+          }
+        />
+
       </Modal>
 
       {/* <Modal

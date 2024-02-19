@@ -1,19 +1,15 @@
 {
-  "explanation": [
-    { "componentType": "Text", "value": "French capital" },
-    { "componentType": "Text", "value": " is definitely Paris" },
-    {
-      "componentType": "Image",
-      "value": "https://legacy.reactjs.org/logo-og.png"
-    }
-  ],
-  "id": 4,
-  "multiChoice": false,
-  "options": [
-    { "answer": "Paris", "correct": true, "id": 11, "isChosen": true },
-    { "answer": "Rome", "correct": false, "id": 21, "isChosen": false },
-    { "answer": "Berlin", "correct": false, "id": 31, "isChosen": false },
-    { "answer": "Madrid", "correct": false, "id": 41, "isChosen": false }
-  ],
-  "question": "What is the capital of France?"
+  "id": 25,
+  "item": {
+    "id": 25,
+    "multiChoice": true,
+    "question": "papieź",
+    "options": [
+      { "id": 11, "answer": "pedał", "correct": true },
+      { "id": 21, "answer": "dzieci", "correct": true },
+      { "id": 31, "answer": "jebał", "correct": true }
+    ],
+    "explanation": "CRA is outdated"
+  },
+  "isCorrect": "kindof"
 }
