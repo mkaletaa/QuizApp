@@ -87,6 +87,7 @@ export default function Categories() {
     })
 
     // console.log("🚀 ~ showQuiz ~ itemsArray:",  JSON.stringify(str))
+    //TODO: pętla po kategoriach tworząca topics array
     //@ts-ignore
     navigation.navigate('Quiz', {
       topArray: [],
