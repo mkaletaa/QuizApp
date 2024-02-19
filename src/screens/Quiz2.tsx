@@ -27,38 +27,22 @@ export default function Quiz({ route }) {
   const navigation = useNavigation()
   const topArray: Array<string> = route.params.topArray
   const catName: string = route.params.categoryName
-  // const catTopArray: Array<string> = route.params.catTopArray
   const [item, setItem] = useState<Item>()
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
-  // const [allItemsCountArray, setAllItemsCountArray] = useState([0][0][0])
 
   const { importItem, countItems, importRandomItem } = useImportItem()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
     whichTopic: 0,
-    // whichCategory: 0,
   })
 
   useEffect(() => {
     setAllItemsCount(countItems(catName, topArray))
-    // console.log('setAllItemsCount', countItems(catName, topArray))
-
-    // console.log('🚀 ~ useEffect ~ allItemsCountHelp:', allItemsCountHelp)
-    // setAllItemsCountArray(allItemsCountArray)
-
-    // let importedItem: Item = importItem(
-    //   catName,
-    //   topArray[whichObject.whichTopic],
-    //   whichObject.whichItem
-    // )
-    // let importedItem = importRandomItem(catName, topArray)
-    // console.log("🚀 ~ useEffect ~ importedItem:", importedItem)
-    // setItem(importedItem)
   }, [])
 
   //uruchamia się po naciśnięciu przycisku w modalu
@@ -86,33 +70,31 @@ export default function Quiz({ route }) {
           whichItem: 0,
         }))
 
-      // console.log('2 wewnątrz')
 
       return
     }
 
-    // console.log(1)
     setWhichObject(prev => ({
       ...prev,
       whichItem: prev.whichItem + 1,
     }))
-    // console.log('1 wewnątrz')
   }
 
   useEffect(() => {
     let item: Item
-console.log('dupe')
-    
-    // item = importItem(
-    //   catName,
-    //   topArray[whichObject.whichTopic],
-    //   whichObject.whichItem
-    // )
-    item= importRandomItem(catName, topArray)
+    console.log('dupe')
 
-    // console.log('item: ', item)
-    importRandomItem(catName, topArray)
-    
+    let random:boolean = false
+    if (random) item = importRandomItem(catName, topArray)
+    else
+    item = importItem(
+      catName,
+      topArray[whichObject.whichTopic],
+      whichObject.whichItem
+    )
+
+    console.log('reremnder: ')
+
     setItem(item)
     setShowResultModal(false)
     setChosenOptions([])
@@ -238,7 +220,6 @@ console.log('dupe')
             resultsArray.length === allItemsCount ? 'summary' : 'next question'
           }
         />
-
       </Modal>
 
       {/* <Modal

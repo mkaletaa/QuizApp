@@ -15,78 +15,47 @@ const useImportItem = () => {
     return item
   }
 
-  const [itemsMatrix, setItemsMatrix] = useState([])
-  // [{ name: '', items: [] }]
+
+
+  const [itemsArray, setItemsArray] = useState([])
+  // [{ name: 'nazwa topica', nr, 1 }]
   function importRandomItem(catName: string, topArray: string[]) {
     let itemsH = [] //pojemnik na obiekty {name, items}
     let randomItem: Item
 
-    console.log("🚀 ~ importRandomItem ~ itemsMatrix.lrngtgh:", itemsMatrix.length)
-    if (itemsMatrix.length === 0) {
-      // console.log('pierwszy raz')
+
+    if (itemsArray.length === 0) {
       //jeśli itemsMatric jest puste, zapełnij je
       for (let i = 0; i < topArray.length; i++) {
         let itemsArray: Array<Item> = quiz[catName][topArray[i]]
-        
-        let itemsNumbers = [] //pojemnik na tablicę liczb naturalnych
+
         for (let j = 0; j < itemsArray.length; j++) {
-          itemsNumbers.push(j)
+          itemsH.push({ topName: topArray[i], nr: j })
         }
-        itemsH.push({ name: topArray[i], items: itemsNumbers })
       }
-      console.log("🚀 ~ importRandomItem ~ itemsHggg:", itemsH)
-      setItemsMatrix(itemsH)
-      console.log("🚀 ~ importRandomItem ~ itemsMatrix:", itemsMatrix)
+      setItemsArray(itemsH)
       return returnItem(itemsH)
     }
-    
+
     function returnItem(itemsM2) {
-      // console.log('kolejny raz')
       let itemsM = itemsM2
-      console.log("🚀 ~ returnItem ~ itemsM:", itemsM)
-      let randomTopicNr = Math.floor(Math.random() * itemsM.length)
-      // console.log("🚀 ~ returnItem ~ randomTopicNr:", randomTopicNr)
-      let randomItemNrIndeks = Math.floor(
-        Math.random() * itemsM[randomTopicNr].items.length
-      ) //powinno być itemsM
-      // console.log("🚀 ~ returnItem ~ randomItemNr:", randomItemNr)
-        let randomItemNr = itemsM[randomTopicNr].items[randomItemNrIndeks]
+      let randomNr = Math.floor(Math.random() * itemsM.length)
 
-      let topicName = topArray[randomTopicNr]
-      // console.log("🚀 ~ returnItem ~ topicName:", topicName)
+      let topicName = itemsM[randomNr].topName
+      let randomItemNr = itemsM[randomNr].nr
 
-      // Usuń wylosowany numer z tablicy odpowiedniego obiektu należącego do itemsM.
-      itemsM = itemsM.map((topic, index) => {
-        if (index === randomTopicNr) {
-          const updatedItems = topic.items.filter(item => item !== randomItemNrIndeks)
-          return { ...topic, items: updatedItems }
-        }
-        return topic
-      })
-      
-
-      // Jeśli items jest puste, usuń cały obiekt z itemsM.
-      if (itemsM[randomTopicNr].items.length === 0) {
-        itemsM.splice(randomTopicNr, 1)
-      }
-      console.log(
-        '🚀 ~ returnItem ~ itemsM[randomTopicNr].items.length:',
-        itemsM[randomTopicNr].items.length
-      )
-      
-      // console.log("🚀 ~ returnItem ~ itemsM:", itemsM)
-
-      setItemsMatrix(itemsM)
-
-      //usuń wylosowany numer z yablicy odpowiedniego obiektu należacego do itemsMatrx. Jeśli items jest puste, usuń cały obiekt z itemsMatrix
+      //usuwanie
+      itemsM.splice(randomNr, 1)
+      setItemsArray(itemsM)
 
       return quiz[catName][topicName][randomItemNr]
     }
-    
-    randomItem = returnItem(itemsMatrix)
+
+    randomItem = returnItem(itemsArray)
 
     return randomItem
   }
+
 
   function countItems(catName, topArray): number {
     let itemsCount = 0
