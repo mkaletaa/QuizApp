@@ -63,10 +63,14 @@ export default function GneralResults({
             style={[
               {
                 backgroundColor: setColor(result),
-                width: screenWidth,
-                height: 500, //100
+                width: 250,
+                height: 80, //100
                 overflow: 'hidden',
                 alignItems: 'center',
+                marginTop: 16,
+                borderRadius: 10,
+                 elevation: 3
+
               },
             ]}
           >
@@ -74,12 +78,12 @@ export default function GneralResults({
 
             <Question question={result.item.question} />
 
-            <Explanation item={result.item} chosenOptions={result.userChoices} nextItem={null} btnTitle={''}/>
+            {/* <Explanation showQuestion={true} item={result.item} chosenOptions={result.userChoices} nextItem={null} btnTitle={''}/> */}
 
             <LinearGradient
               // Button Linear Gradient
-              colors={['transparent', 'dimgrey']}
-              style={{ width: screenWidth, height: 80, position: 'absolute', bottom: 0 }}
+              colors={['transparent', setColor(result)]}
+              style={{ width: screenWidth, height: 50, position: 'absolute', bottom: 0 }}
             ></LinearGradient>
             {/* <ContentRenderer content={result.item.question}></ContentRenderer> */}
           </View>
@@ -94,6 +98,7 @@ export default function GneralResults({
         onRequestClose={() => setShowModal(false)}
       >
         <Explanation
+        showQuestion={true} 
           item={modalItem}
           chosenOptions={modalChoices}
           nextItem={() => {

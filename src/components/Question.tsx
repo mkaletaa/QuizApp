@@ -22,6 +22,9 @@ export default function Question({ question }: {question: string | Array<Compone
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
+    ////////////////
     // backgroundColor: 'lightgray',
+    // width: '100%',
+    // height: '100%',
   },
 })

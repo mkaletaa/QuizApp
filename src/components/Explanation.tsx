@@ -1,26 +1,39 @@
-import { View, Button, StyleSheet, Text, ScrollView, StatusBar } from 'react-native'
+import {
+  View,
+  Button,
+  StyleSheet,
+  Text,
+  ScrollView,
+  StatusBar,
+} from 'react-native'
 import ContentRenderer from './ContentRenderer'
 import { Item, Option } from '../utils/types'
 import { useEffect } from 'react'
+import Question from './Question'
 
 export default function Explanation({
   item,
   chosenOptions,
   nextItem,
-  btnTitle
+  btnTitle,
+  showQuestion=false,
 }: {
   item: Item
   chosenOptions: Option[]
   nextItem: () => void
   btnTitle: string
+  showQuestion: boolean
 }) {
   useEffect(() => {
-    // console.log('poprawne odpowiedzi: ', item.options)
+    // console.log('poprawne odpowiedzi: ', question)
   }, [])
 
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
+
+          {showQuestion && <Question question={item.question}></Question>}
       <View style={styles.contentContainer}>
+
         <Text style={styles.heading}>Correct answer(s):</Text>
         {item?.options
           .filter(option => option.correct === true)
@@ -54,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 50,
     // backgroundColor: 'red',
-    gap: 10
+    gap: 10,
     // paddingBottom: 50
   },
   heading: {
@@ -62,7 +75,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
   },
-  nextItem:{
-    marginTop: 20
-  }
+  nextItem: {
+    marginTop: 20,
+  },
 })

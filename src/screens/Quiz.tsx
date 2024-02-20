@@ -11,7 +11,6 @@ import {
   StatusBar,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { quiz } from '../../data/quiz/quizModule' //normalnie tego importu nie powinno być
 import ContentRenderer from '../components/ContentRenderer'
 import Options from '../components/Options'
 import Question from '../components/Question'
@@ -61,8 +60,11 @@ export default function Quiz({ route }) {
       return
     }
 
-    let ileItemowwTopicu =
-      quiz[catName][topArray[whichObject.whichTopic]].length
+    let ileItemowwTopicu = countItems(catName, [
+      topArray[whichObject.whichTopic],
+    ])
+
+    // console.log('🚀 ~ nextItem ~ topArray:', countItems(catName, [topArray[whichObject.whichTopic]]))
 
     //jeśli liczba itemów w topicu dobiegła końca
     if (whichObject.whichItem === ileItemowwTopicu - 1) {
@@ -225,6 +227,7 @@ export default function Quiz({ route }) {
         // onRequestClose={() => setModalVisible(false)}
       >
         <Explanation
+          showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}
           nextItem={nextItem}
