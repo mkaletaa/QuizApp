@@ -8,10 +8,11 @@ import {
     View,
     useWindowDimensions,
 } from 'react-native'
+import useImportItem from '../hooks/useImportItem'
 
 export default function Card({
   data,
-  showQuiz,
+  showQuiz = null,
   goToTopics = null,
   children = null,
 }) {
@@ -23,11 +24,12 @@ export default function Card({
     }
   }
   const windowDimensions = useWindowDimensions()
+  const {countItems} = useImportItem()
 
   const calculateCardSize = () => {
     //Adjust the size of the card based on the screen width
     const screenWidth = windowDimensions.width
-    const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.7 
+    const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.3 
     const cardHeight = !goToTopics ? cardWidth * 1.25 : cardWidth * 1.2 
 
     return { width: cardWidth, height: cardHeight }
@@ -44,15 +46,22 @@ export default function Card({
       //   ]}
     >
       <View style={[styles.cardContainer, cardSize]} key={data.name}>
-        <Text numberOfLines={1} style={styles.cardText}>
+        <Text numberOfLines={1} style={styles.cardTitle}>
           {removeUnderscores(data.name)}
+        </Text>
+        <Text numberOfLines={1} style={styles.cardDes}>
+          {/* {showQuiz!==null && countItems('cat_1', [data.name])} questions */}
         </Text>
 
         <Image
-          style={[styles.cardImage, { alignSelf: 'center' }]}
+          style={[
+            styles.cardImage,
+            { alignSelf: 'center', height: cardSize.height * 0.6 },
+          ]}
           source={{
             uri: data.image,
           }}
+          // aspectRatio={1/1}
         />
 
         {children}
@@ -84,16 +93,23 @@ const styles = StyleSheet.create({
     elevation: 5,
     // overflow: 'hidden'
   },
-  cardText: {
-    fontSize: 16,
+  cardTitle: {
+    fontSize: 15,
     marginBottom: 10,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  cardDes: {
+    fontSize: 12,
+    marginBottom: 10,
+    // fontWeight: 'bold',
     textAlign: 'center',
   },
   cardImage: {
-    width: 100,
-    height: 100,
+    width: '90%',
+    // resizeMode: 'contain',
     resizeMode: 'cover',
-    marginTop: 15,
+    // marginTop: 15,
     marginBottom: -5,
     borderRadius: 10,
   },

@@ -16,8 +16,8 @@ export default function QuizModalSwitch({
     <View key={topic.name}>
       <Text style={{ color: 'white' }}>{topic.name}</Text>
       <Switch
-        trackColor={{ false: '#767577', true: '#81b0ff' }}
-        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+        trackColor={{ false: '#767577', true: 'lightblue' }}
+        thumbColor={isEnabled ? 'gold' : '#f4f3f4'}
         onValueChange={() => {
           setIsEnabled(val => !val)
           toggleTopic(topic.name, isEnabled)

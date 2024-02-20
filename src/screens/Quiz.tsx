@@ -1,188 +1,308 @@
-// import React, { useEffect, useState, useRef, useMemo } from 'react'
-// // import React from 'react'
-// import {
-//   View,
-//   Text,
-//   StyleSheet,
-//   Dimensions,
-//   Button,
-//   FlatList,
-//   ScrollView,
-//   Modal,
-// } from 'react-native'
-// import { SafeAreaView } from 'react-native-safe-area-context'
-// import Question from '../components/Question'
-// import Options from '../components/Options'
-// import Finish from '../components/Finish'
-// import { useHeaderHeight } from '@react-navigation/elements'
-// import { BackHandler } from 'react-native'
-// import { useNavigation } from '@react-navigation/native'
-// import useResults from '../hooks/useResults'
-// import Pagination from '../components/Pagination'
-// import { Item } from '../utils/types'
+import React, { useEffect, useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import {
+  Button,
+  Dimensions,
+  Modal,
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+} from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { quiz } from '../../data/quiz/quizModule' //normalnie tego importu nie powinno być
+import ContentRenderer from '../components/ContentRenderer'
+import Options from '../components/Options'
+import Question from '../components/Question'
+import { Item, Option, Result } from '../utils/types'
+import Line from '../components/Line'
+import Explanation from '../components/Explanation'
+import useImportItem from '../hooks/useImportItem'
+import GeneralResults from '../components/GeneralResults'
 
-// export default function Quiz({ route }) {
-//   const screenWidth = Dimensions.get('window').width
-//   const screenHeight = Dimensions.get('window').height
-//   const headerHeight = useHeaderHeight()
-//   const navigation = useNavigation()
-//   const itemSet: Array<Item> = route.params.quiz
-//   const quizToIterate: Array<
-//     | Item
-//     | {
-//         id: string
-//         question?
-//         options?
-//         multiChoice?
-//       }
-//   > = [...itemSet, { id: '-1' }]
-//   const [showModal, setShowModal] = useState(false)
-//   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(0)
-//   const [results, setResults, createResultsArray] = useResults(itemSet)
+export default function Quiz({ route }) {
+  const screenWidth = Dimensions.get('window').width
+  const screenHeight = Dimensions.get('window').height
+  const [showModal, setShowModal] = useState(false)
+  const navigation = useNavigation()
+  const topArray: Array<string> = route.params.topArray
+  const catName: string = route.params.categoryName
+  const [item, setItem] = useState<Item>()
+  const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
+  const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
+  const [resultsArray, setResultsArray] = useState<Result[]>([])
+  const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
+  const [allItemsCount, setAllItemsCount] = useState(0)
 
-//   const flatListRef = useRef(null)
+  const { importItem, countItems, importRandomItem } = useImportItem()
 
-//   const onViewableItemsChanged = ({ viewableItems }) => {
-//     if (viewableItems.length > 0) {
-//       const currentlyVisibleItemIndex = viewableItems[0].index
+  const [whichObject, setWhichObject] = useState({
+    whichItem: 0,
+    whichTopic: 0,
+  })
 
-//       setCurrentVisibleIndex(currentlyVisibleItemIndex)
-//     }
-//   }
+  useEffect(() => {
+    route.params.howManyItems
+      ? setAllItemsCount(route.params.howManyItems)
+      : setAllItemsCount(countItems(catName, topArray))
+  }, [])
 
-//   useEffect(() => {
-//     for (const item of itemSet) {
-//       //@ts-ignore TODO: remove toString
-//       setResults(prev => [...prev, { id: item.id, userChoices: [], item }])
-//     }
-//   }, [])
+  //uruchamia się po naciśnięciu przycisku w modalu
+  function nextItem(): void {
+    if (resultsArray.length === allItemsCount) {
+      setItem(null)
+      setTimeout(() => {
+        setShowGeneralResults(true)
+      }, 0)
 
-//   function closeModalAndGoBack(): void {
-//     setShowModal(false)
-//     navigation.goBack() // powrót do poprzedniego ekranu
-//   }
+      // resultsArray.length === allItemsCount
+      setShowResultModal(false)
+      return
+    }
 
-//   const scrollTo = (indexToScrollTo: number): void => {
-//     flatListRef.current.scrollToIndex({
-//       animated: true,
-//       index: indexToScrollTo,
-//     })
-//   }
+    
+    let ileItemowwTopicu =
+      quiz[catName][topArray[whichObject.whichTopic]].length
 
-//   return (
-//     <SafeAreaView>
-//       <Pagination
-//         scrollTo={scrollTo}
-//         elements={quizToIterate}
-//         currentVisibleIndex={currentVisibleIndex}
-//         results={results}
-//       />
+    //jeśli liczba itemów w topicu dobiegła końca
+    if (whichObject.whichItem === ileItemowwTopicu - 1) {
+      //jeśli iliczba topików w kategorii dobiegła końca
+      if (whichObject.whichTopic === topArray.length - 1) {
+        setItem(null)
+        setTimeout(() => {
+          setShowGeneralResults(true)
+        }, 0)
 
-//       <FlatList
-//         data={quizToIterate}
-//         horizontal
-//         pagingEnabled
-//         keyExtractor={item => item.id.toString()} //TODO remove toString
-//         onViewableItemsChanged={onViewableItemsChanged}
-//         viewabilityConfig={{
-//           itemVisiblePercentThreshold: 50, // Procent widoczności elementu wymagany, aby został uznany za "widoczny"
-//         }}
-//         ref={flatListRef}
-//         renderItem={({ item }) => (
-//           <ScrollView
-//             contentContainerStyle={[
-//               styles.screen,
-//               { width: screenWidth, minHeight: screenHeight -25 },//height of the pagination is 45
-//             ]}
-//           >
-//             {item?.question ? (
-//               <Question question={item?.question} />
-//             ) : (
-//               <Finish userChoices={results} nrOfItems={itemSet.length} />
-//             )}
+        // resultsArray.length === allItemsCount
+        setShowResultModal(false)
+      }
+      //jeśli iliczba topików w kategorii nie dobiegła końca
+      else
+        setWhichObject(prev => ({
+          ...prev,
+          whichTopic: prev.whichTopic + 1,
+          whichItem: 0,
+        }))
 
-//             {item?.options ? (
-//               <Options
-//                 item={item}
-//                 createResultsArray={createResultsArray}
-//                 multiChoice={item.multiChoice}
-//               />
-//             ) : null}
-//           </ScrollView>
-//         )}
-//       />
+      return
+    }
 
-//       <Modal
-//         animationType="slide"
-//         transparent={true}
-//         visible={false} //showModal
-//         onRequestClose={() => setShowModal(false)}
-//       >
-//         <View style={styles.modalContainer}>
-//           <View style={styles.modalContent}>
-//             <Text
-//               style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}
-//             >
-//               Are you sure you want to go back? Your progress won't be saved
-//             </Text>
-//             <View style={styles.buttonsContainer}>
-//               <Button
-//                 title="yes, quit the quiz"
-//                 color="red"
-//                 onPress={closeModalAndGoBack}
-//               />
-//               <Button
-//                 title="nah, I want to stay here"
-//                 onPress={() => setShowModal(false)}
-//               />
-//             </View>
-//           </View>
-//         </View>
-//       </Modal>
-//     </SafeAreaView>
-//   )
-// }
+    setWhichObject(prev => ({
+      ...prev,
+      whichItem: prev.whichItem + 1,
+    }))
+  }
 
-// const styles = StyleSheet.create({
-//   screen: {
-//     backgroundColor: 'lightgray',
-//     justifyContent: 'space-around',
-//     alignItems: 'center',
-//     paddingBottom: 50,
-//     paddingTop: 20,
-//   },
-//   modalContainer: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: 'rgba(0, 0, 0, 0.2)',
-//   },
-//   modalText: {
-//     textAlign: 'center',
-//     marginBottom: 20,
-//     paddingHorizontal: 20,
-//     fontSize: 18,
-//   },
-//   buttonsContainer: {
-//     justifyContent: 'space-between',
-//     gap: 12,
-//     width: '100%',
-//   },
-//   modalContent: {
-//     width: 300,
-//     backgroundColor: '#fff',
-//     padding: 20,
-//     borderRadius: 10,
-//     shadowColor: '#000',
-//     shadowOffset: {
-//       width: 0,
-//       height: 0,
-//     },
-//     shadowOpacity: 0.25,
-//     shadowRadius: 3.84,
-//     elevation: 15,
-//   },
-//   button: {
-//     fontSize: 10,
-//   },
-// })
+  useEffect(() => {
+    let item: Item
+
+    let random: boolean = topArray.length > 1 ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
+    if (random) item = importRandomItem(catName, topArray)
+    else
+      item = importItem(
+        catName,
+        topArray[whichObject.whichTopic],
+        whichObject.whichItem
+      )
+
+    setItem(item)
+    setShowResultModal(false)
+    setChosenOptions([])
+  }, [whichObject])
+
+  function closeModalAndGoBack(): void {
+    setShowModal(false)
+    navigation.goBack() // powrót do poprzedniego ekranu
+  }
+
+  function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
+    //jeśli opcja została zaznaczona i jest multichoice
+    if (whatToDo === 'add' && item.multiChoice) {
+      // console.log('1')
+      setChosenOptions(prev => [...prev, option])
+      return
+    }
+
+    //jeśli opcja została zaznaczona i nie jest multichoice
+    if (whatToDo === 'add' && !item.multiChoice) {
+      setChosenOptions([option])
+      return
+    }
+
+    //jeśli opcja została odznaczona
+    if (whatToDo === 'remove') {
+      let chosenOptions2 = chosenOptions.filter(el => el.id !== option.id)
+      setChosenOptions(chosenOptions2)
+    }
+  }
+
+  //activated after pressing zatwierdź button
+  function setResults() {
+    let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' = checkTheResult(
+      item,
+      chosenOptions
+    )
+    let result: Result = {
+      id: item.id,
+      item: item,
+      isCorrect: thisQuestionResult,
+      userChoices: chosenOptions,
+    }
+    setResultsArray(prev => [...prev, result])
+    setShowResultModal(true)
+  }
+
+  //sprawdza czy na to pytanie udzielono dobrej(dobrych) odpowiedzi
+  function checkTheResult(
+    item: Item,
+    chosenOptions: Option[]
+  ): 'correct' | 'incorrect' | 'kindof' {
+    //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
+    //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
+    //zwróć w każdym innym przypadku
+
+    let nrOfCorrectUserOptions = 0
+    let nrOfCorrectOptions = 0
+
+    for (const chosenOption of chosenOptions) {
+      if (chosenOption?.correct) nrOfCorrectUserOptions++
+    }
+
+    if (nrOfCorrectUserOptions === 0) return 'incorrect'
+
+    for (const option of item?.options) {
+      if (option.correct) nrOfCorrectOptions++
+    }
+
+    if (
+      nrOfCorrectUserOptions === nrOfCorrectOptions &&
+      nrOfCorrectOptions === chosenOptions.length
+    )
+      return 'correct'
+
+    return 'kindof'
+  }
+
+  return (
+    <SafeAreaView>
+      {item && (
+        <Line resultsArray={resultsArray} allItemsCount={allItemsCount} />
+      )}
+
+      <ScrollView
+        contentContainerStyle={[
+          styles.screen,
+          { width: screenWidth, minHeight: screenHeight - 25 }, //height of the pagination is 45
+        ]}
+      >
+        {item &&  (
+          <React.Fragment>
+            <Question question={item?.question} />
+            <Options
+              item={item}
+              chosenOptions={chosenOptions}
+              handleOptionPress={handleOptionPress}
+              multiChoice={item.multiChoice}
+            />
+            <Button
+              title="zatwierdź"
+              onPress={() => setResults()}
+              disabled={chosenOptions.length === 0}
+            />
+          </React.Fragment>
+        )}
+
+        {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
+      </ScrollView>
+
+      <Modal
+        // duration={1000}
+        animationType="fade"
+        transparent={true}
+        visible={showResultModal}
+        // onRequestClose={() => setModalVisible(false)}
+      >
+        <Explanation
+          item={item}
+          chosenOptions={chosenOptions}
+          nextItem={nextItem}
+          btnTitle={
+            resultsArray.length === allItemsCount ? 'summary' : 'next question'
+          }
+        />
+      </Modal>
+
+      {/* <Modal
+        animationType="slide"
+        transparent={true}
+        visible={false} //showModal
+        onRequestClose={() => setShowModal(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text
+              style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}
+            >
+              Are you sure you want to go back? Your progress won't be saved
+            </Text>
+            <View style={styles.buttonsContainer}>
+              <Button
+                title="yes, quit the quiz"
+                color="red"
+                onPress={closeModalAndGoBack}
+              />
+              <Button
+                title="nah, I want to stay here"
+                onPress={() => setShowModal(false)}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal> */}
+    </SafeAreaView>
+  )
+}
+
+const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: 'lightgray',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingBottom: 50,
+    paddingTop: 20,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,1)',
+  },
+  modalText: {
+    textAlign: 'center',
+    marginBottom: 20,
+    paddingHorizontal: 20,
+    fontSize: 18,
+  },
+  buttonsContainer: {
+    justifyContent: 'space-between',
+    gap: 12,
+    width: '100%',
+  },
+  modalContent: {
+    width: 300,
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 15,
+  },
+  button: {
+    fontSize: 10,
+  },
+})

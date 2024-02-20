@@ -37,7 +37,7 @@ export default function Categories() {
         <Card
           key={category.name}
           data={category}
-          showQuiz={() => {}}
+          // showQuiz={() => {}}
           goToTopics={goToTopics}
         />
       ))}

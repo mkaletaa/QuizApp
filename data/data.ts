@@ -15,12 +15,25 @@ export const categories = [
 //main keys must be exact the same as names of categories
 export const topics = {
   cat_1: [
-    { name: 'top_1', image: 'https://reactjs.org/logo-og.png'},
-    { name: 'top_2', image: 'https://reactjs.org/logo-og.png'},
-    { name: 'top_3', image: 'https://reactjs.org/logo-og.png'}
+    { name: 'top_1', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_2', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_3', image: 'https://reactjs.org/logo-og.png' },
   ],
   cat_2: [
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png'},
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png'}
-  ]
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+  ],
 }

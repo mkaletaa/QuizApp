@@ -58,10 +58,13 @@ const useImportItem = () => {
 
 
   function countItems(catName, topArray): number {
+    console.log("🚀 ~ countItems ~ catName:", catName)
     let itemsCount = 0
 
+    console.log("🚀 ~ countItems ~ itemsCount:", topArray.length)
     for (let j = 0; j < topArray.length; j++) {
       let itemsArray: Array<Item> = quiz[catName][topArray[j]]
+      console.log("🚀 ~ countItems ~ itemsArray:", itemsArray)
       itemsCount += itemsArray.length
     }
 

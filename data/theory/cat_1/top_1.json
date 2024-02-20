@@ -3,8 +3,33 @@
     "componentType": "Text",
     "value": "text"
   },
-   {
-     "componentType": "Text",
-     "value": "another text"
-   }
+  {
+    "componentType": "Text",
+    "value": "another text"
+  },
+  {
+    "componentType": "Link",
+    "value": "https://www.youtube.com/watch?v=2qCmRJz3NOE",
+    "props": {"text": "otworz se linka"}
+  },
+  {
+    "componentType": "Youtube",
+    "value": "2qCmRJz3NOE"
+  },
+  {
+    "componentType": "Image",
+    "value": "https://legacy.reactjs.org/logo-og.png"
+  },
+  {
+    "componentType": "Image",
+    "value": "https://legacy.reactjs.org/logo-og.png"
+  },
+  {
+    "componentType": "Image",
+    "value": "https://legacy.reactjs.org/logo-og.png"
+  },
+  {
+    "componentType": "Image",
+    "value": "https://legacy.reactjs.org/logo-og.png"
+  }
 ]

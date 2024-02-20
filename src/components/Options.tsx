@@ -1,126 +1,129 @@
-// import React, { useState, useEffect } from 'react'
-// import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-// import { AntDesign } from '@expo/vector-icons'
-// import { useOptionPress } from '../hooks/useOptionPress'
-// import MathJax from 'react-native-mathjax'
-// import {Option} from '../utils/types'
+import { AntDesign } from '@expo/vector-icons'
+import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import MathJax from 'react-native-mathjax'
+import { Option } from '../utils/types'
 
-// const OptionComponent = ({ option }: {option: Option}) => {
-//   const { componentType, answer: answerValue } = option
+const OptionComponent = ({ option }: { option: Option }) => {
+  const { componentType, answer: answerValue } = option
 
+  switch (componentType) {
+    case 'Text':
+      return <Text style={styles.buttonText}>{answerValue} dddg</Text>
+    case 'Math':
+      return (
+        <MathJax
+          style={{ backgroundColor: 'transparent' }}
+          // mathJaxOptions={mmlOptions}
+          html={answerValue}
+          // config={{ 'HTML-CSS': {  scale: 20 } }}
+        />
+      )
+    default:
+      return <Text style={styles.buttonText}>{answerValue}</Text>
+  }
+}
 
-//   switch (componentType) {
-//     case 'Text':
-//       return <Text style={styles.buttonText}>{answerValue} dddg</Text>
-//     case 'Math':
-//       return (
-//         <MathJax
-//           style={{ backgroundColor: 'transparent' }}
-//           // mathJaxOptions={mmlOptions}
-//           html={answerValue}
-//           // config={{ 'HTML-CSS': {  scale: 20 } }}
-//         />
-//       )
-//     default:
-//       return <Text style={styles.buttonText}>{answerValue}</Text>
-//   }
-// }
+const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
 
-// const Options = ({ item, createResultsArray, multiChoice }) => {
-//   const { pressedButtons, setPressedButtons, handleOptionPress } =
-//     useOptionPress(item, createResultsArray)
+  function setButtonBackground(pressedOption: Option) {
+    let isChosen = chosenOptions.some(el => el.id === pressedOption.id)
+    const updatedOption = { ...pressedOption }
 
-//   useEffect(() => {
-//     const initialPressedButtons = new Map(
-//       item.options.map(option => [option.id, false])
-//     )
+    //if this option has already been chosen, unchoose it
+    if (isChosen) {
+      handleOptionPress(pressedOption, 'remove')
+      return
+    }
+    //if this option han't been chosen yet, add it to chosenOptions
+    if (multiChoice && !isChosen) {
+      handleOptionPress(pressedOption, 'add')
+      return
+    }
 
-//     // console.log('🚀 ~ Options ~ item:', item.options)
-//     //@ts-ignore
-//     setPressedButtons(initialPressedButtons)
-//   }, [])
+    //if this option han't been chosen yet, add it to chosenOptions
+    if (!multiChoice && !isChosen) {
+      handleOptionPress(pressedOption, 'add')
+      return
+    }
+  }
 
-//     const handleLongPress = e => {
+  return (
+    <View style={styles.wrapper}>
+      {multiChoice ? (
+        <View style={styles.alert}>
+          <AntDesign
+            name="warning"
+            size={16}
+            color="black"
+            style={{ marginRight: 5 }}
+          />
+          <Text style={{ textAlign: 'center', fontSize: 15 }}>
+            This is a multi-choice question
+          </Text>
+        </View>
+      ) : null}
 
-//       e.preventDefault() // Prevent the default context menu
-//       // Additional logic or actions you want to perform on long press
-//     }
+      {item.options?.map(option => (
+        <View key={option.id} style={styles.answerContainer}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            // {...props}
+            style={[
+              styles.touchableOpacity,
+              {
+                backgroundColor: chosenOptions.some(el => el.id === option.id)
+                  ? 'lightblue'
+                  : 'silver',
+              },
+            ]}
+            onPress={() => {
+              setButtonBackground(option)
+            }}
+          >
+            <OptionComponent option={option} />
+          </TouchableOpacity>
+        </View>
+      ))}
+    </View>
+  )
+}
 
-//   return (
-//     <View style={styles.wrapper}>
-//       {multiChoice ? (
-//         <View style={styles.alert}>
-//           <AntDesign
-//             name="warning"
-//             size={16}
-//             color="black"
-//             style={{ marginRight: 5 }}
-//           />
-//           <Text style={{ textAlign: 'center', fontSize: 15 }}>
-//             This is a multi-choice question
-//           </Text>
-//         </View>
-//       ) : null}
+const styles = StyleSheet.create({
+  answerContainer: {
+    // width: 300,
+    alignItems: 'center',
+    // backgroundColor: 'red',
+    // marginBottom: 50
+  },
+  touchableOpacity: {
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 5,
+    borderWidth: 1,
+    borderColor: 'dimgrey',
+    width: 250,
+    minWidth: 250, //
+  },
+  buttonText: {
+    fontSize: 16,
+    color: 'black',
+    // width: 250,
+    textAlign: 'center',
+    // backgroundColor: 'white',
+  },
+  wrapper: {
+    marginBottom: 50,
+    marginTop: 20,
+  },
+  alert: {
+    backgroundColor: 'orange',
+    borderRadius: 4,
+    marginBottom: 15,
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: 5,
+  },
+})
 
-//       {item.options.map(option => (
-//         <View key={option.id} style={styles.answerContainer}>
-//           <TouchableOpacity
-//             activeOpacity={0.7}
-//             // {...props}
-//             style={[
-//               styles.touchableOpacity,
-//               {
-//                 backgroundColor: pressedButtons.get(option.id)
-//                   ? 'lightblue'
-//                   : 'silver',
-//               },
-//             ]}
-//             onPress={() => handleOptionPress(option, multiChoice)}
-//             onLongPress={handleLongPress}
-//           >
-//             <OptionComponent option={option} />
-//           </TouchableOpacity>
-//         </View>
-//       ))}
-//     </View>
-//   )
-// }
-
-// const styles = StyleSheet.create({
-//   answerContainer: {
-//     // width: 300,
-//     alignItems: 'center',
-//     // backgroundColor: 'red',
-//     // marginBottom: 50
-//   },
-//   touchableOpacity: {
-//     padding: 10,
-//     borderRadius: 5,
-//     marginVertical: 5,
-//     borderWidth: 1,
-//     borderColor: 'dimgrey',
-//     width: 250,
-//     minWidth: 250//
-//   },
-//   buttonText: {
-//     fontSize: 16,
-//     color: 'black',
-//     // width: 250,
-//     textAlign: 'center',
-//     // backgroundColor: 'white',
-//   },
-//   wrapper: {
-//     marginBottom: 50,
-//     marginTop: 20,
-//   },
-//   alert: {
-//     backgroundColor: 'orange',
-//     borderRadius: 4,
-//     marginBottom: 15,
-//     alignItems: 'center',
-//     flexDirection: 'row',
-//     padding: 5,
-//   },
-// })
-
-// export default Options
+export default Options

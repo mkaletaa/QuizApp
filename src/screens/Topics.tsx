@@ -11,9 +11,7 @@ import {
 import { topics } from '../../data/data'
 import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
-// import useImportQuiz from '../hooks/useImportQuiz'
-// import Quiz from './Quiz2'
-// import { removeUnderscores } from '../utils/modifyText'
+import useImportItem from '../hooks/useImportItem'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -21,7 +19,7 @@ export default function Topics({ route }) {
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
-  // const importQuiz = useImportQuiz()
+  const {countItems} = useImportItem()
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -36,6 +34,7 @@ export default function Topics({ route }) {
         ...topics[categoryName],
       ])
     }
+        console.log("🚀 ~ useEffect ~ topics:", [...topics[categoryName]])
   }, [route.params])
 
   useEffect(() => {
@@ -75,6 +74,8 @@ export default function Topics({ route }) {
     navigation.navigate('Quiz', {topArray: topicsArray, categoryName, howManyItems })
   }
 
+  
+
   function toggleTopic(name: string, isChosen: boolean): void {
     setChosenTopics(prevChosenTopics => {
       if (!isChosen) {
@@ -86,6 +87,8 @@ export default function Topics({ route }) {
       }
     })
   }
+
+
 
   return (
     <View style={styles.container}>

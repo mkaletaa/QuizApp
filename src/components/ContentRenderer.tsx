@@ -7,12 +7,13 @@ import {
   SectionList,
   StyleSheet,
   Text,
-  View,
+  View, Dimensions, TouchableOpacity, Linking
 } from 'react-native'
 import { Component } from '../utils/types'
 import MathJax from 'react-native-mathjax'
 import CodeHighlighter from 'react-native-code-highlighter'
 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import YoutubePlayer from 'react-native-youtube-iframe'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 const renderComponent = (dataComponent: Component) => {
@@ -62,20 +63,41 @@ const renderComponent = (dataComponent: Component) => {
           style={{  width: '90%'}} //można jeszcze określić maxWidth dla większych ekranów
         >
 
-              <CodeHighlighter
-                hljsStyle={atomOneDarkReasonable}
-                textStyle={{ fontSize: 16 }}
-                language="typescript"
-                //@ts-ignore
-                customStyle={{  padding: 6, borderRadius: 7 , backgroundColor: 'dimgrey', elevation: 10}}
-                containerStyle={styles.codeContainer}
-              >
-                {value}
-              </CodeHighlighter>
+          <CodeHighlighter
+            hljsStyle={atomOneDarkReasonable}
+            textStyle={{ fontSize: 16 }}
+            language="typescript"
+            //@ts-ignore
+            customStyle={{  padding: 6, borderRadius: 7 , backgroundColor: 'dimgrey', elevation: 10}}
+            containerStyle={styles.codeContainer}
+          >
+            {value}
+          </CodeHighlighter>
 
         </View>
       )
-    // default:
+    case 'Youtube':
+      const screenWidth = Dimensions.get('window').width
+
+          return(
+            <YoutubePlayer
+            height={screenWidth*0.9*9/16}
+            // style={{aspctRatio: 16/9}}
+            width={screenWidth*0.9}
+            play={true}
+            videoId={value}
+            onChangeState={()=>{}}
+          />
+        )
+      case 'Link':
+        return (
+          <TouchableOpacity onPress={()=>Linking.openURL(value)}>
+            <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
+             {props.text}
+            </Text>
+          </TouchableOpacity>
+        )
+  // default:
     //   return (
     //     <Text style={styles.text} key={value}>
     //       {dataComponent}

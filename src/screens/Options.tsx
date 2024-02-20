@@ -1,33 +1,29 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import CodeHighlighter from 'react-native-code-highlighter'
-import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-
-const CODE_STR = `var hello = "worldggggggggg\n\n\nggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"`
+import { View, StyleSheet } from 'react-native'
+import YoutubePlayer from 'react-native-youtube-iframe'
 
 export default function Options() {
   return (
-    <ScrollView style={{ height: 50 }}>
-      <CodeHighlighter
-        hljsStyle={atomOneDarkReasonable}
-        containerStyle={styles.codeContainer}
-        textStyle={styles.text}
-        language="typescript"
-      >
-        {CODE_STR}
-      </CodeHighlighter>
-    </ScrollView>
+    // <View style={styles.container}>
+      <YoutubePlayer
+        height={300}
+        play={true}
+        videoId={'iee2TATGMyI'}
+        onChangeState={()=>{}}
+      />
+    //{/* </View> */}
   )
 }
 
 const styles = StyleSheet.create({
-  codeContainer: {
-    padding: 16,
-    backgroundColor: 'transparent', // Ustaw tło na przezroczyste
-    width: '100%',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  text: {
-    // fontSize: 16,
-    // fontFamily: 'Courier New',
+  videoPlayer: {
+    width: '100%',
+    height: 100,
+    aspectRatio: 16 / 9, // Example aspect ratio (adjust as needed)
   },
 })

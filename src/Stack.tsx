@@ -5,7 +5,7 @@ import React from 'react'
 import Categories from './screens/Categories'
 import Options from './screens/Options'
 // import Quiz from './screens/Quiz'
-import Quiz2 from './screens/Quiz2' 
+import Quiz2 from './screens/Quiz' 
 import Summary from './screens/Summary'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
@@ -85,10 +85,11 @@ const MyStack = () => {
           ...header, 
           title: //@ts-ignore
             `${route.params?.categoryName}` + ' - quiz summary' || 'topic name',
+            
         })}
       />
 
-      <Stack.Screen name="Options" component={Options} />
+      <Stack.Screen name="Options" component={Options}  />
     </Stack.Navigator>
   )
 }
