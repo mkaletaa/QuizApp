@@ -1,4 +1,4 @@
-import { View, Button, StyleSheet, Text, ScrollView } from 'react-native'
+import { View, Button, StyleSheet, Text, ScrollView, StatusBar } from 'react-native'
 import ContentRenderer from './ContentRenderer'
 import { Item, Option } from '../utils/types'
 import { useEffect } from 'react'
@@ -19,7 +19,7 @@ export default function Explanation({
   }, [])
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
+    <ScrollView contentContainerStyle={[styles.scrollContainer]}>
       <View style={styles.contentContainer}>
         <Text style={styles.heading}>Correct answer(s):</Text>
         {item?.options
@@ -36,7 +36,9 @@ export default function Explanation({
         <Text style={styles.heading}>Explanation:</Text>
         <ContentRenderer content={item?.explanation} />
 
-        <Button title={btnTitle} onPress={() => nextItem()} />
+        <View style={styles.nextItem}>
+          <Button title={btnTitle} onPress={() => nextItem()} />
+        </View>
       </View>
     </ScrollView>
   )
@@ -50,11 +52,17 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     alignItems: 'center',
-    padding: 20,
+    padding: 50,
+    // backgroundColor: 'red',
+    gap: 10
+    // paddingBottom: 50
   },
   heading: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
   },
+  nextItem:{
+    marginTop: 20
+  }
 })

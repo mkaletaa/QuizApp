@@ -2,13 +2,24 @@ import { View, Text, Dimensions, Modal, Pressable } from 'react-native'
 import ContentRenderer from './ContentRenderer'
 import { Item, Result, Option } from '../utils/types'
 import Explanation from './Explanation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function GneralResults({
   resultsArray,
 }: {
   resultsArray: Result[]
 }) {
+
+  const [correctNr, setCorrectNr] = useState(0)
+  useEffect(() =>{
+    let correct = 0
+    resultsArray.forEach(result => {
+      if(result.isCorrect === 'correct') correct++
+    })
+    setCorrectNr(correct)
+  }, [])
+
+
   const screenWidth = Dimensions.get('window').width
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState<Item>()
@@ -27,8 +38,12 @@ export default function GneralResults({
     if (result.isCorrect === 'kindof') return 'orange'
   }
 
+
   return (
     <View>
+      <Text>
+      Your score is {correctNr}/{resultsArray.length}
+      </Text>
       {resultsArray.map((result, index) => (
         <View
           style={[

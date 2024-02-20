@@ -3,7 +3,7 @@ import { Item } from '../utils/types'
 import { topics } from '../../data/data'
 import { useState } from 'react'
 
-const useImportItem = () => {
+const useQuizData = () => {
   function importItem(
     cat: string,
     top: string,
@@ -15,14 +15,11 @@ const useImportItem = () => {
     return item
   }
 
-
-
   const [itemsArray, setItemsArray] = useState([])
   // [{ name: 'nazwa topica', nr, 1 }]
   function importRandomItem(catName: string, topArray: string[]) {
     let itemsH = [] //pojemnik na obiekty {name, items}
     let randomItem: Item
-
 
     if (itemsArray.length === 0) {
       //jeśli itemsMatric jest puste, zapełnij je
@@ -56,15 +53,14 @@ const useImportItem = () => {
     return randomItem
   }
 
-
   function countItems(catName, topArray): number {
-    console.log("🚀 ~ countItems ~ catName:", catName)
+    console.log('🚀 ~ countItems ~ catName:', catName)
     let itemsCount = 0
 
-    console.log("🚀 ~ countItems ~ itemsCount:", topArray.length)
+    console.log('🚀 ~ countItems ~ itemsCount:', topArray.length)
     for (let j = 0; j < topArray.length; j++) {
       let itemsArray: Array<Item> = quiz[catName][topArray[j]]
-      console.log("🚀 ~ countItems ~ itemsArray:", itemsArray)
+      console.log('🚀 ~ countItems ~ itemsArray:', itemsArray)
       itemsCount += itemsArray.length
     }
 
@@ -74,4 +70,4 @@ const useImportItem = () => {
   return { importItem, countItems, importRandomItem }
 }
 
-export default useImportItem
+export default useQuizData

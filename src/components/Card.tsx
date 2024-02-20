@@ -1,70 +1,84 @@
 import React from 'react'
-import {removeUnderscores} from '../utils/modifyText'
+import { removeUnderscores } from '../utils/functions'
 import {
-    Image,
-    Pressable,
-    StyleSheet,
-    Text,
-    View,
-    useWindowDimensions,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
+  Dimensions,
 } from 'react-native'
-import useImportItem from '../hooks/useImportItem'
+import useQuizData from '../hooks/useQuizData'
+
+const screenWidthDim = Dimensions.get('window').width
+
+const calculateCardSize = () => {
+  //Adjust the size of the card based on the screen width
+  const screenWidth = screenWidthDim
+  const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.3
+  const cardHeight = cardWidth * 1.2
+
+  return { width: cardWidth, height: cardHeight }
+}
+
+const cardSize = calculateCardSize()
 
 export default function Card({
   data,
+  catOrTop, //does this card represent topic or category
   showQuiz = null,
   goToTopics = null,
-  children = null,
+  showTheory = null,
 }) {
   const handlePress = () => {
     if (data.name.endsWith('__All__')) {
       showQuiz()
     } else {
-      goToTopics === null ? showQuiz([data.name]) : goToTopics(data.name)
+      catOrTop === 'top' ? showQuiz([data.name]) : goToTopics(data.name)
     }
   }
-  const windowDimensions = useWindowDimensions()
-  const {countItems} = useImportItem()
-
-  const calculateCardSize = () => {
-    //Adjust the size of the card based on the screen width
-    const screenWidth = windowDimensions.width
-    const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.3 
-    const cardHeight = !goToTopics ? cardWidth * 1.25 : cardWidth * 1.2 
-
-    return { width: cardWidth, height: cardHeight }
-  }
-
-  const cardSize = calculateCardSize()
 
   return (
     <Pressable
       onPress={handlePress}
+      onLongPress={() => console.log('Press')}
       //   style={({ pressed }) => [
       //     styles.cardPressable,
       //     pressed && styles.cardPressablePressed,
       //   ]}
     >
       <View style={[styles.cardContainer, cardSize]} key={data.name}>
-        <Text numberOfLines={1} style={styles.cardTitle}>
-          {removeUnderscores(data.name)}
-        </Text>
-        <Text numberOfLines={1} style={styles.cardDes}>
-          {/* {showQuiz!==null && countItems('cat_1', [data.name])} questions */}
-        </Text>
-
         <Image
           style={[
             styles.cardImage,
-            { alignSelf: 'center', height: cardSize.height * 0.6 },
+            {
+              alignSelf: 'center',
+              height: cardSize.height * 0.6,
+              backgroundColor: 'blue',
+            },
           ]}
           source={{
             uri: data.image,
           }}
-          // aspectRatio={1/1}
         />
 
-        {children}
+        <View style={styles.textContainer}>
+          <Text numberOfLines={1} style={styles.cardTitle}>
+            {removeUnderscores(data.name, true)}
+          </Text>
+
+          {!data.name.endsWith('__All__') && catOrTop === 'top' ? (
+            <TouchableOpacity
+              activeOpacity={0.75}
+              style={styles.readTouchable}
+              onPress={() => showTheory()}
+            >
+              <Text style={styles.read}>Read</Text>
+            </TouchableOpacity>
+          ) : null}
+        </View>
       </View>
     </Pressable>
   )
@@ -72,11 +86,7 @@ export default function Card({
 
 const styles = StyleSheet.create({
   cardPressable: {
-    overflow: 'hidden',
     borderRadius: 10,
-  },
-  cardPressablePressed: {
-    backgroundColor: '#ddd', // Change to the desired pressed color
   },
   cardContainer: {
     backgroundColor: '#fff',
@@ -91,26 +101,39 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    // overflow: 'hidden'
+    alignItems: 'center',
+    gap: 5,
   },
   cardTitle: {
     fontSize: 15,
-    marginBottom: 10,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   cardDes: {
     fontSize: 12,
-    marginBottom: 10,
-    // fontWeight: 'bold',
     textAlign: 'center',
   },
   cardImage: {
     width: '90%',
-    // resizeMode: 'contain',
     resizeMode: 'cover',
-    // marginTop: 15,
-    marginBottom: -5,
     borderRadius: 10,
+  },
+  textContainer: {
+    justifyContent: 'center',
+    gap: 5,
+    marginTop: 5,
+    width: '90%',
+    height: cardSize.height - cardSize.width * 0.9,
+  },
+  readTouchable: {
+    borderRadius: 10,
+    borderTopWidth: 1,
+    borderColor: 'grey',
+  },
+  read: {
+    opacity: 0.6,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
   },
 })

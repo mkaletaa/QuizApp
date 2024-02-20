@@ -1,4 +1,4 @@
-export function removeUnderscores(str: string): string {
+export function removeUnderscores(str: string, capitalizeFirstLetter=false): string {
   let modifiedStr = str
 
   if (str.endsWith('__All__')) {
@@ -7,6 +7,10 @@ export function removeUnderscores(str: string): string {
   }
 
   modifiedStr = modifiedStr.replace(/_/g, ' ')
+
+  if(capitalizeFirstLetter){
+   modifiedStr = modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1)
+  }
 
   return modifiedStr
 }

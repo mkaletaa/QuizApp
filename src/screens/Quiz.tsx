@@ -8,6 +8,7 @@ import {
   StyleSheet,
   View,
   Text,
+  StatusBar,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { quiz } from '../../data/quiz/quizModule' //normalnie tego importu nie powinno być
@@ -17,7 +18,7 @@ import Question from '../components/Question'
 import { Item, Option, Result } from '../utils/types'
 import Line from '../components/Line'
 import Explanation from '../components/Explanation'
-import useImportItem from '../hooks/useImportItem'
+import useQuizData from '../hooks/useQuizData'
 import GeneralResults from '../components/GeneralResults'
 
 export default function Quiz({ route }) {
@@ -34,7 +35,7 @@ export default function Quiz({ route }) {
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
 
-  const { importItem, countItems, importRandomItem } = useImportItem()
+  const { importItem, countItems, importRandomItem } = useQuizData()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
@@ -60,7 +61,6 @@ export default function Quiz({ route }) {
       return
     }
 
-    
     let ileItemowwTopicu =
       quiz[catName][topArray[whichObject.whichTopic]].length
 
@@ -189,13 +189,15 @@ export default function Quiz({ route }) {
         <Line resultsArray={resultsArray} allItemsCount={allItemsCount} />
       )}
 
+      {/* <StatusBar style="auto" /> */}
+
       <ScrollView
         contentContainerStyle={[
           styles.screen,
           { width: screenWidth, minHeight: screenHeight - 25 }, //height of the pagination is 45
         ]}
       >
-        {item &&  (
+        {item && (
           <React.Fragment>
             <Question question={item?.question} />
             <Options

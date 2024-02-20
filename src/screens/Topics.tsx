@@ -11,7 +11,8 @@ import {
 import { topics } from '../../data/data'
 import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
-import useImportItem from '../hooks/useImportItem'
+import useQuizData from '../hooks/useQuizData'
+import utilStyles from '../utils/styles'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -19,7 +20,7 @@ export default function Topics({ route }) {
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
-  const {countItems} = useImportItem()
+  const { countItems } = useQuizData()
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function Topics({ route }) {
         ...topics[categoryName],
       ])
     }
-        console.log("🚀 ~ useEffect ~ topics:", [...topics[categoryName]])
+    console.log('🚀 ~ useEffect ~ topics:', [...topics[categoryName]])
   }, [route.params])
 
   useEffect(() => {
@@ -62,19 +63,24 @@ export default function Topics({ route }) {
   }
 
   //this function calls importQuiz and gives it an array of chosen topics
-  const showQuiz = (topicsArray: string[], categoryName: string, howManyItems:number | null=null): void => {
+  const showQuiz = (
+    topicsArray: string[],
+    categoryName: string,
+    howManyItems: number | null = null
+  ): void => {
     //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
     if (topicsArray[0].endsWith('__All__')) {
       setShowModal(true)
       return
     }
 
-    
     //@ts-ignore
-    navigation.navigate('Quiz', {topArray: topicsArray, categoryName, howManyItems })
+    navigation.navigate('Quiz', {
+      topArray: topicsArray,
+      categoryName,
+      howManyItems,
+    })
   }
-
-  
 
   function toggleTopic(name: string, isChosen: boolean): void {
     setChosenTopics(prevChosenTopics => {
@@ -88,28 +94,17 @@ export default function Topics({ route }) {
     })
   }
 
-
-
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+    <View>
+      <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         {topicsToShow.map(topic => (
           <Card
+            catOrTop={'top'}
             key={topic.name}
             data={topic}
             showQuiz={() => showQuiz([topic.name], categoryName)}
-          >
-            {!topic.name.endsWith('__All__') ? (
-              <TouchableOpacity
-                activeOpacity={0.75}
-                style={styles.theoryBtn}
-                onPress={() => showTheory(topic.name, categoryName)}
-              >
-                <Text style={styles.theoryText}>Learn</Text>
-              </TouchableOpacity>
-            ) : null}
-          </Card>
+            showTheory={() => showTheory(topic.name, categoryName)}
+          ></Card>
         ))}
       </ScrollView>
 
@@ -123,32 +118,3 @@ export default function Topics({ route }) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  scrollViewContainer: {
-    flexGrow: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  theoryBtn: {
-    backgroundColor: 'lightblue',
-    width: '100%',
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: 'grey',
-    elevation: 4,
-  },
-  theoryText: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-  },
-})

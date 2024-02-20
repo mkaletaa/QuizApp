@@ -5,16 +5,15 @@ import React from 'react'
 import Categories from './screens/Categories'
 import Options from './screens/Options'
 // import Quiz from './screens/Quiz'
-import Quiz2 from './screens/Quiz' 
-import Summary from './screens/Summary'
+import Quiz2 from './screens/Quiz'
+// import Summary from './screens/Summary'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
-import { removeUnderscores } from './utils/modifyText'
+import { removeUnderscores } from './utils/functions'
 const Stack = createStackNavigator()
 
 const MyStack = () => {
   const navigation = useNavigation()
-
 
   const header = {
     headerRight: () => (
@@ -56,8 +55,11 @@ const MyStack = () => {
         name="Topics"
         component={Topics}
         options={({ route }) => ({
-          ...header, //@ts-ignore
-          title: `${removeUnderscores(route.params?.categoryName)}` || 'category name',
+          ...header,
+          title:
+            //@ts-ignore
+            `${removeUnderscores(route.params?.categoryName, true)}` ||
+            'category name',
         })}
       />
 
@@ -65,20 +67,22 @@ const MyStack = () => {
         name="Theory"
         component={Theory}
         options={({ route }) => ({
-          ...header, 
-          title: //@ts-ignore
-            `${removeUnderscores(route.params?.categoryName)}` + ' - theory' ||
-            'topic name',
+          ...header,
+
+          title:
+            //@ts-ignore
+            `${removeUnderscores(route.params?.categoryName, true)}` +
+              ' - theory' || 'topic name',
         })}
       />
 
       <Stack.Screen
         name="Quiz"
         component={Quiz2}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
 
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Summary"
         component={Summary}
         options={({ route }) => ({
@@ -87,9 +91,9 @@ const MyStack = () => {
             `${route.params?.categoryName}` + ' - quiz summary' || 'topic name',
             
         })}
-      />
+      /> */}
 
-      <Stack.Screen name="Options" component={Options}  />
+      <Stack.Screen name="Options" component={Options} />
     </Stack.Navigator>
   )
 }

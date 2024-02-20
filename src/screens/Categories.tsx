@@ -1,12 +1,10 @@
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import {
-  ScrollView,
-  StyleSheet
-} from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import { categories } from '../../data/data'
 import Card from '../components/Card'
+import utilStyles from '../utils/styles'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
@@ -23,37 +21,23 @@ export default function Categories() {
     }
   }, [])
 
-
   const goToTopics = catName => {
     // @ts-ignore
     navigation.navigate('Topics', { categoryName: catName })
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+    <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
       {/* <Text>Open up App.js to start working on your app!</Text> */}
       <StatusBar style="auto" />
       {categoriesToShow?.map(category => (
         <Card
+          catOrTop={'cat'}
           key={category.name}
           data={category}
-          // showQuiz={() => {}}
           goToTopics={goToTopics}
         />
       ))}
-
     </ScrollView>
   )
 }
-
-const styles = StyleSheet.create({
-  scrollViewContainer: {
-    // backgroundColor: '#fffbbb',
-    flexGrow: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-    // flex: 1
-  }
-})
