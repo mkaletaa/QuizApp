@@ -76,6 +76,11 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
                   ? 'lightblue'
                   : 'silver',
               },
+              // {
+              //   borderWidth: chosenOptions.some(el => el.id === option.id)
+              //     ? 2
+              //     : 1,
+              // },
             ]}
             onPress={() => {
               setButtonBackground(option)

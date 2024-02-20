@@ -3,6 +3,9 @@ import ContentRenderer from './ContentRenderer'
 import { Item, Result, Option } from '../utils/types'
 import Explanation from './Explanation'
 import { useEffect, useState } from 'react'
+import { LinearGradient } from 'expo-linear-gradient'
+import Question from './Question'
+
 
 export default function GneralResults({
   resultsArray,
@@ -40,30 +43,47 @@ export default function GneralResults({
 
 
   return (
-    <View>
+    <View
+      style={{
+        alignItems: 'center',
+        // width: 200,
+        // padding: 10
+      }}
+    >
       <Text>
-      Your score is {correctNr}/{resultsArray.length}
+        Your score is {correctNr}/{resultsArray.length}
       </Text>
       {resultsArray.map((result, index) => (
-        <View
-          style={[
-            {
-              backgroundColor: setColor(result),
-              width: 50,
-              height: 20,
-            },
-          ]}
+        <Pressable
+          onPress={() => {
+            handlePress(result.item, result.userChoices)
+          }}
         >
-          <Pressable
-            onPress={() => {
-              handlePress(result.item, result.userChoices)
-            }}
+          <View
+            style={[
+              {
+                backgroundColor: setColor(result),
+                width: screenWidth,
+                height: 500, //100
+                overflow: 'hidden',
+                alignItems: 'center',
+              },
+            ]}
           >
-            <Text>{index}</Text>
-          </Pressable>
+            {/* <Text>{index}</Text> */}
 
-          {/* <ContentRenderer content={result.item.question}></ContentRenderer> */}
-        </View>
+            <Question question={result.item.question} />
+
+            <Explanation item={result.item} chosenOptions={result.userChoices} nextItem={null} btnTitle={''}/>
+
+            <LinearGradient
+              // Button Linear Gradient
+              colors={['transparent', 'dimgrey']}
+              style={{ width: screenWidth, height: 80, position: 'absolute', bottom: 0 }}
+            ></LinearGradient>
+            {/* <ContentRenderer content={result.item.question}></ContentRenderer> */}
+          </View>
+        </Pressable>
       ))}
 
       <Modal
@@ -76,7 +96,9 @@ export default function GneralResults({
         <Explanation
           item={modalItem}
           chosenOptions={modalChoices}
-          nextItem={() => {setShowModal(false)}}
+          nextItem={() => {
+            setShowModal(false)
+          }}
           btnTitle={'close'}
         />
       </Modal>
