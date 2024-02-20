@@ -11,16 +11,17 @@ import {
 import { topics } from '../../data/data'
 import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
-import useImportQuiz from '../hooks/useImportQuiz'
+// import useImportQuiz from '../hooks/useImportQuiz'
 // import Quiz from './Quiz2'
 // import { removeUnderscores } from '../utils/modifyText'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
+  // const [howManyItems, setHowManyItems] = useState<number | null>(null)
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
-  const importQuiz = useImportQuiz()
+  // const importQuiz = useImportQuiz()
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -62,7 +63,7 @@ export default function Topics({ route }) {
   }
 
   //this function calls importQuiz and gives it an array of chosen topics
-  const showQuiz = (topicsArray: string[], categoryName: string): void => {
+  const showQuiz = (topicsArray: string[], categoryName: string, howManyItems:number | null=null): void => {
     //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
     if (topicsArray[0].endsWith('__All__')) {
       setShowModal(true)
@@ -71,7 +72,7 @@ export default function Topics({ route }) {
 
     
     //@ts-ignore
-    navigation.navigate('Quiz', {topArray: topicsArray, categoryName })
+    navigation.navigate('Quiz', {topArray: topicsArray, categoryName, howManyItems })
   }
 
   function toggleTopic(name: string, isChosen: boolean): void {

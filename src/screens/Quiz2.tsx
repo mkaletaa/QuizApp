@@ -42,11 +42,25 @@ export default function Quiz({ route }) {
   })
 
   useEffect(() => {
-    setAllItemsCount(countItems(catName, topArray))
+    route.params.howManyItems
+      ? setAllItemsCount(route.params.howManyItems)
+      : setAllItemsCount(countItems(catName, topArray))
   }, [])
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextItem(): void {
+    if (resultsArray.length === allItemsCount) {
+      setItem(null)
+      setTimeout(() => {
+        setShowGeneralResults(true)
+      }, 0)
+
+      // resultsArray.length === allItemsCount
+      setShowResultModal(false)
+      return
+    }
+
+    
     let ileItemowwTopicu =
       quiz[catName][topArray[whichObject.whichTopic]].length
 
@@ -70,7 +84,6 @@ export default function Quiz({ route }) {
           whichItem: 0,
         }))
 
-
       return
     }
 
@@ -82,18 +95,15 @@ export default function Quiz({ route }) {
 
   useEffect(() => {
     let item: Item
-    console.log('dupe')
 
-    let random:boolean = false
+    let random: boolean = topArray.length > 1 ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
     if (random) item = importRandomItem(catName, topArray)
     else
-    item = importItem(
-      catName,
-      topArray[whichObject.whichTopic],
-      whichObject.whichItem
-    )
-
-    console.log('reremnder: ')
+      item = importItem(
+        catName,
+        topArray[whichObject.whichTopic],
+        whichObject.whichItem
+      )
 
     setItem(item)
     setShowResultModal(false)
@@ -185,7 +195,7 @@ export default function Quiz({ route }) {
           { width: screenWidth, minHeight: screenHeight - 25 }, //height of the pagination is 45
         ]}
       >
-        {item && (
+        {item &&  (
           <React.Fragment>
             <Question question={item?.question} />
             <Options
