@@ -47,7 +47,7 @@ export default function Categories() {
     //@ts-ignore
     navigation.navigate('Quiz', {
       catArray,
-      // categoryName,
+      topArray:[],
       howManyItems,
     })
   }

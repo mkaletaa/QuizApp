@@ -21,19 +21,6 @@ export const topics = {
   ],
   cat_2: [
     { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' }
   ],
 }
