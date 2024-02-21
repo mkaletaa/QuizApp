@@ -21,6 +21,7 @@ export default function Topics({ route }) {
   const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
   // const { countItemsInTopic } = useQuizData()
+  const [howManyItems, setHowManyItems] = useState(0)
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -66,7 +67,7 @@ export default function Topics({ route }) {
   const showQuiz = (
     topicsArray: string[],
     categoryName: string,
-    howManyItems: number | null = null
+    // howManyItems: number | null = null
   ): void => {
     //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
     if (topicsArray[0].endsWith('__All__')) {
@@ -95,6 +96,11 @@ export default function Topics({ route }) {
     })
   }
 
+  function sliderHandle(value: number): void {
+    setHowManyItems(value)
+    console.log(value)
+  }
+
   return (
     <View>
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
@@ -115,6 +121,10 @@ export default function Topics({ route }) {
         dataToIterate={topics[categoryName]}
         toggleTopic={toggleTopic}
         showQuiz={() => showQuiz(chosenTopics, categoryName)}
+        sliderHandle={sliderHandle}
+        nrOfItems={howManyItems}
+        catName={categoryName}
+        chosenTopics={chosenTopics}
       />
     </View>
   )

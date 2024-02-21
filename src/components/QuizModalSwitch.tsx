@@ -42,7 +42,7 @@ export default function QuizModalSwitch({
         <View style={styles.textContainer}>
           {/* <View> */}
 
-          <Text style={{ color: 'white' }}>{topic.name}</Text>
+          <Text style={{ color: 'white', fontSize:20 }}>{topic.name}</Text>
           {/* </View> */}
         </View>
       </View>

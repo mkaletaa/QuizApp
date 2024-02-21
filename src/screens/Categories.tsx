@@ -99,13 +99,13 @@ export default function Categories() {
         />
       ))}
 
-      <ModalComponent
+      {/* <ModalComponent
         dataToIterate={categories}
         modalVisible={showModal}
         setModalVisible={setShowModal}
         toggleTopic={toggleTopic}
         showQuiz={()=>{showQuiz(chosencategories)}}
-      ></ModalComponent>
+      ></ModalComponent> */}
     </ScrollView>
   )
 }

@@ -315,6 +315,7 @@ export default function Quiz({ route }) {
         visible={showResultModal}
         // onRequestClose={() => setModalVisible(false)}
       >
+        
         <Explanation
           showQuestion={false}
           item={item}

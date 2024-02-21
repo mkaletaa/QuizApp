@@ -11,12 +11,15 @@ import { Item, Option } from '../utils/types'
 import { useEffect } from 'react'
 import Question from './Question'
 
+import React from 'react'
+import IconPrompt from './IconPrompt'
+
 export default function Explanation({
   item,
   chosenOptions,
   nextItem,
   btnTitle,
-  showQuestion=false,
+  showQuestion = false,
 }: {
   item: Item
   chosenOptions: Option[]
@@ -29,11 +32,21 @@ export default function Explanation({
   }, [])
 
   return (
+    
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
 
-          {showQuestion && <Question question={item.question}></Question>}
-      <View style={styles.contentContainer}>
 
+      <IconPrompt></IconPrompt>
+      {showQuestion && 
+
+
+
+      <Question question={item.question}></Question>
+
+      
+      
+      }
+      <View style={styles.contentContainer}>
         <Text style={styles.heading}>Correct answer(s):</Text>
         {item?.options
           .filter(option => option.correct === true)
@@ -68,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 50,
     // backgroundColor: 'red',
     gap: 10,
+    // marginTop:10
     // paddingBottom: 50
   },
   heading: {

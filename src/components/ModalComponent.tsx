@@ -13,24 +13,34 @@ import QuizModalSwitch from './QuizModalSwitch'
 import { AntDesign } from '@expo/vector-icons'
 import { isEnabled } from 'react-native/Libraries/Performance/Systrace'
 import { useEffect } from 'react'
-
+import Slider from '@react-native-community/slider'
+import useQuizData from '../hooks/useQuizData'
 export default function ModalComponent({
   modalVisible,
   setModalVisible,
   dataToIterate,
   toggleTopic,
   showQuiz,
-}:{
-  modalVisible: boolean,
-  setModalVisible: any,
-  dataToIterate: any,
-  toggleTopic: any,
-  showQuiz: ()=>void
+  sliderHandle,
+  nrOfItems,
+  catName,
+  chosenTopics
+}: {
+  modalVisible: boolean
+  setModalVisible: any
+  dataToIterate: any
+  toggleTopic: any
+  showQuiz: () => void
+  sliderHandle?: (value: number) => void
+  nrOfItems?: number
+  catName?: string
+  chosenTopics: string[]
 }) {
   useEffect(() => {
-    console.log("🚀 ~ showQuiz:", showQuiz)
-    
+    console.log('🚀 ~ showQuiz:', showQuiz)
   }, [])
+const {countItemsInTopics} = useQuizData()
+  // const[slider]
   return (
     <Modal
       animationType="slide"
@@ -62,6 +72,16 @@ export default function ModalComponent({
               toggleTopic={toggleTopic}
             />
           ))}
+        <Text style={{ color: 'white', fontSize: 20 }}>{nrOfItems===0 ? 'infinity' : nrOfItems}</Text>
+        <Slider
+          style={{ width: 200, height: 40 }}
+          minimumValue={0}
+          maximumValue={countItemsInTopics(chosenTopics, catName)}
+          step={1}
+          minimumTrackTintColor="#FFFFFF"
+          maximumTrackTintColor="#000000"
+          onValueChange={value => sliderHandle(value)}
+        />
         <Pressable
           style={{ marginBottom: 50 }}
           // title="Start the quiz"
@@ -70,7 +90,11 @@ export default function ModalComponent({
             showQuiz()
           }}
         >
-          <Text style={{ color: 'white', backgroundColor: 'blue' }}>dede</Text>
+          <Text
+            style={{ color: 'white', backgroundColor: 'blue', fontSize: 20 }}
+          >
+            dede
+          </Text>
         </Pressable>
       </ScrollView>
     </Modal>
@@ -82,7 +106,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.7)',
+    backgroundColor: 'rgba(0,0,0,0.85)',
     paddingVertical: 10,
     gap: 10,
   },
