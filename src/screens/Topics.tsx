@@ -20,7 +20,7 @@ export default function Topics({ route }) {
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
-  const { countItems } = useQuizData()
+  // const { countItemsInTopic } = useQuizData()
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -77,12 +77,13 @@ export default function Topics({ route }) {
     //@ts-ignore
     navigation.navigate('Quiz', {
       topArray: topicsArray,
-      categoryName,
+      catArray : [categoryName],
       howManyItems,
     })
   }
 
   function toggleTopic(name: string, isChosen: boolean): void {
+    console.log('toggle', name)
     setChosenTopics(prevChosenTopics => {
       if (!isChosen) {
         // Dodaj name do tablicy, jeśli isChosen jest true
@@ -102,7 +103,7 @@ export default function Topics({ route }) {
             catOrTop={'top'}
             key={topic.name}
             data={topic}
-            showQuiz={() => showQuiz([topic.name], categoryName)}
+            onCardPress={() => showQuiz([topic.name], categoryName)}
             showTheory={() => showTheory(topic.name, categoryName)}
           ></Card>
         ))}

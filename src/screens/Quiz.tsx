@@ -25,8 +25,9 @@ export default function Quiz({ route }) {
   const screenHeight = Dimensions.get('window').height
   const [showModal, setShowModal] = useState(false)
   const navigation = useNavigation()
-  const topArray: Array<string> = route.params.topArray
-  const catName: string = route.params.categoryName
+  const catArray: string[] = route.params.catArray
+  let topArray: Array<string> = route.params.topArray
+  // let catName: string = route.params.categoryName
   const [item, setItem] = useState<Item>()
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
@@ -34,49 +35,103 @@ export default function Quiz({ route }) {
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
 
-  const { importItem, countItems, importRandomItem } = useQuizData()
+  const {
+    importItem,
+    countItemsInCategories,
+    countItemsInTopics,
+    importRandomItem,
+    countTopics,
+    getTopicsForCategory,
+  } = useQuizData()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
     whichTopic: 0,
+    whichCategory: 0,
   })
 
   useEffect(() => {
-    route.params.howManyItems
-      ? setAllItemsCount(route.params.howManyItems)
-      : setAllItemsCount(countItems(catName, topArray))
+    // else catName = []
+
+    // console.log('🚀 ~ useEffect ~ catName:', catArray)
+    // if (!topArray) {
+    //   topArray = getTopicsForCategory(catArray[0])
+    // }
+    
+    if (route.params.howManyItems) {
+      setAllItemsCount(route.params.howManyItems)
+    } else if (topArray) {
+      console.log('toparray undefined', topArray)
+      //user wszedł tu z poziomu topiców
+      setAllItemsCount(countItemsInTopics(topArray, catArray[0]))
+    } else {
+      //user wszedł tu z poziomu kategorii
+      topArray = getTopicsForCategory(catArray[0])
+      setAllItemsCount(countItemsInCategories(catArray ))
+
+    }
+
+    //tu poprawić, bo na razie liczy tylko itemuy z jednego topica
   }, [])
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextItem(): void {
+    console.log("🚀 ~ nextItem ~ resultsArray:", resultsArray.length)
     if (resultsArray.length === allItemsCount) {
       setItem(null)
       setTimeout(() => {
         setShowGeneralResults(true)
       }, 0)
-
+      
       // resultsArray.length === allItemsCount
       setShowResultModal(false)
       return
     }
+    
+    // return
+    console.log("🚀 ~ nextItem ~ topArray:", topArray)
+    // console.log("🚀 ~ nextItem ~ topArray[whichObject.whichTopic]:", topArray[whichObject.whichTopic])
+    // return
+      // topArray = getTopicsForCategory(catArray[whichObject.whichTopic])
 
-    let ileItemowwTopicu = countItems(catName, [
-      topArray[whichObject.whichTopic],
-    ])
-
+      console.log("🚀 ~ nextItem ~ whichObjet:", JSON.stringify(whichObject))
+    console.log("🚀 ~ nextItem ~ catArray[whichObject.whichCategory]:", catArray[whichObject.whichCategory])
+    console.log("🚀 ~ nextItem ~ topArray[whichObject.whichTopic]:", topArray[whichObject.whichTopic])
+    
+    let ileItemowwTopicu = countItemsInTopics(
+      [topArray[whichObject.whichTopic]],
+      catArray[whichObject.whichCategory]
+      )
+      
+      console.log("🚀 ~ nextItem ~ ileItemowwTopicu:", ileItemowwTopicu)
+      
+      let ileTopikowwKategorii = countTopics(catArray[whichObject.whichCategory])
+      console.log("🚀 ~ nextItem ~ ileTopikowwKategorii:", ileTopikowwKategorii)
+      
+      // return
     // console.log('🚀 ~ nextItem ~ topArray:', countItems(catName, [topArray[whichObject.whichTopic]]))
 
     //jeśli liczba itemów w topicu dobiegła końca
     if (whichObject.whichItem === ileItemowwTopicu - 1) {
       //jeśli iliczba topików w kategorii dobiegła końca
       if (whichObject.whichTopic === topArray.length - 1) {
-        setItem(null)
-        setTimeout(() => {
-          setShowGeneralResults(true)
-        }, 0)
+        //jeśli iliczba kategorii dobiegła końca
+        if (whichObject.whichCategory === ileTopikowwKategorii - 1) {
+          setItem(null)
+          setTimeout(() => {
+            setShowGeneralResults(true)
+          }, 0)
 
-        // resultsArray.length === allItemsCount
-        setShowResultModal(false)
+          // resultsArray.length === allItemsCount
+          setShowResultModal(false)
+        } else {
+          setWhichObject(prev => ({
+            whichCategory: prev.whichCategory + 1,
+            whichTopic: 0,
+            whichItem: 0,
+          }))
+        }
+        topArray = getTopicsForCategory(catArray[0])
       }
       //jeśli iliczba topików w kategorii nie dobiegła końca
       else
@@ -96,13 +151,15 @@ export default function Quiz({ route }) {
   }
 
   useEffect(() => {
+    // return
     let item: Item
 
-    let random: boolean = topArray.length > 1 ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
-    if (random) item = importRandomItem(catName, topArray)
+    let random: boolean = false ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
+    if (random)
+      item = importRandomItem(catArray[whichObject.whichCategory], topArray)
     else
       item = importItem(
-        catName,
+        catArray[whichObject.whichCategory],
         topArray[whichObject.whichTopic],
         whichObject.whichItem
       )
@@ -118,6 +175,7 @@ export default function Quiz({ route }) {
   }
 
   function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
+    // return
     //jeśli opcja została zaznaczona i jest multichoice
     if (whatToDo === 'add' && item.multiChoice) {
       // console.log('1')
@@ -143,15 +201,17 @@ export default function Quiz({ route }) {
     let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' = checkTheResult(
       item,
       chosenOptions
-    )
-    let result: Result = {
-      id: item.id,
-      item: item,
-      isCorrect: thisQuestionResult,
-      userChoices: chosenOptions,
-    }
-    setResultsArray(prev => [...prev, result])
-    setShowResultModal(true)
+      )
+      let result: Result = {
+        id: item.id,
+        item: item,
+        isCorrect: thisQuestionResult,
+        userChoices: chosenOptions,
+      }
+      console.log("🚀 ~ setResults ~ setResultsArray:", result)
+      setResultsArray(prev => [...prev, result])
+      // return
+      setShowResultModal(true)
   }
 
   //sprawdza czy na to pytanie udzielono dobrej(dobrych) odpowiedzi
@@ -162,7 +222,7 @@ export default function Quiz({ route }) {
     //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
     //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
     //zwróć w każdym innym przypadku
-
+    // return
     let nrOfCorrectUserOptions = 0
     let nrOfCorrectOptions = 0
 
@@ -187,11 +247,10 @@ export default function Quiz({ route }) {
 
   return (
     <SafeAreaView>
-      {item && (
+       {/* {item && (
         <Line resultsArray={resultsArray} allItemsCount={allItemsCount} />
-      )}
+      )} */}
 
-      {/* <StatusBar style="auto" /> */}
 
       <ScrollView
         contentContainerStyle={[
@@ -217,7 +276,7 @@ export default function Quiz({ route }) {
         )}
 
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
-      </ScrollView>
+      </ScrollView>  
 
       <Modal
         // duration={1000}
@@ -232,7 +291,8 @@ export default function Quiz({ route }) {
           chosenOptions={chosenOptions}
           nextItem={nextItem}
           btnTitle={
-            resultsArray.length === allItemsCount ? 'summary' : 'next question'
+            // resultsArray.length === allItemsCount ? 'summary' : 'next question'
+            'gcfuytfutf'
           }
         />
       </Modal>

@@ -1,8 +1,18 @@
-import { Modal, View, Button, StyleSheet, ScrollView , Text, Switch, Pressable} from 'react-native'
+import {
+  Modal,
+  View,
+  Button,
+  StyleSheet,
+  ScrollView,
+  Text,
+  Switch,
+  Pressable,
+} from 'react-native'
 import { topics } from '../../data/data'
 import QuizModalSwitch from './QuizModalSwitch'
 import { AntDesign } from '@expo/vector-icons'
 import { isEnabled } from 'react-native/Libraries/Performance/Systrace'
+import { useEffect } from 'react'
 
 export default function ModalComponent({
   modalVisible,
@@ -10,7 +20,17 @@ export default function ModalComponent({
   dataToIterate,
   toggleTopic,
   showQuiz,
+}:{
+  modalVisible: boolean,
+  setModalVisible: any,
+  dataToIterate: any,
+  toggleTopic: any,
+  showQuiz: ()=>void
 }) {
+  useEffect(() => {
+    console.log("🚀 ~ showQuiz:", showQuiz)
+    
+  }, [])
   return (
     <Modal
       animationType="slide"
@@ -49,7 +69,9 @@ export default function ModalComponent({
             setModalVisible(false)
             showQuiz()
           }}
-        ><Text style={{color: 'white', backgroundColor: 'blue'}}>dede</Text></Pressable>
+        >
+          <Text style={{ color: 'white', backgroundColor: 'blue' }}>dede</Text>
+        </Pressable>
       </ScrollView>
     </Modal>
   )

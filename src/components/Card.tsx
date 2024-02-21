@@ -28,15 +28,14 @@ const cardSize = calculateCardSize()
 export default function Card({
   data,
   catOrTop, //does this card represent topic or category
-  showQuiz = null,
-  goToTopics = null,
-  showTheory = null,
+  onCardPress,
+  showTheory=null
 }) {
   const handlePress = () => {
     if (data.name.endsWith('__All__')) {
-      showQuiz()
+      catOrTop==='top' ? onCardPress() : onCardPress(data.name)
     } else {
-      catOrTop === 'top' ? showQuiz([data.name]) : goToTopics(data.name)
+      catOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
     }
   }
 
