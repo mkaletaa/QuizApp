@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Image, Pressable, StyleSheet, Switch, Text, View } from 'react-native'
-import { Topic } from '../utils/types'
+import { Topic } from '../../utils/types'
 // import { isEnabled } from 'react-native/Libraries/Performance/Systrace'
 
 export default function QuizModalSwitch({
   topic,
   toggleTopic,
-  // isToggled,
-}: {
+}: // isToggled,
+{
   topic: Topic
   toggleTopic: (string, boolean) => void
   // isToggled: boolean
@@ -42,7 +42,7 @@ export default function QuizModalSwitch({
         <View style={styles.textContainer}>
           {/* <View> */}
 
-          <Text style={{ color: 'white', fontSize:20 }}>{topic.name}</Text>
+          <Text style={{ color: 'white', fontSize: 20 }}>{topic.name}</Text>
           {/* </View> */}
         </View>
       </View>

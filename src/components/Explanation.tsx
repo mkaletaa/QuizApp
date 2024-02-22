@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 import Question from './Question'
 
 import React from 'react'
-import IconPrompt from './IconPrompt'
+import IconPrompt from './ui/IconPrompt'
 
 export default function Explanation({
   item,

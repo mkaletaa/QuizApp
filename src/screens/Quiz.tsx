@@ -1,34 +1,24 @@
-import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import {
-  Button,
-  Dimensions,
-  Modal,
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { Button, Dimensions, Modal, ScrollView, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import ContentRenderer from '../components/ContentRenderer'
+import Explanation from '../components/Explanation'
+import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
 import Question from '../components/Question'
-import { Item, Option, Result } from '../utils/types'
-import Line from '../components/Line'
-import Explanation from '../components/Explanation'
+import Line from '../components/ui/Line'
 import useQuizData from '../hooks/useQuizData'
-import GeneralResults from '../components/GeneralResults'
+import { Item, Option, Result } from '../utils/types'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showModal, setShowModal] = useState(false)
   const navigation = useNavigation()
-  const catName: string = route.params.catName 
- const topArray: Array<string> = route.params.topArray
-  // let catName: string = route.params.categoryName
+  const catName: string = route.params.catName
+  const topArray: Array<string> = route.params.topArray
   const howManyItems: number = route.params.howManyItems
+  const shuffle: boolean = route.params.shuffle
   const [item, setItem] = useState<Item>()
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
@@ -38,11 +28,8 @@ export default function Quiz({ route }) {
 
   const {
     importItem,
-    countItemsInCategories,
     countItemsInTopics,
     importRandomItem,
-    countTopics,
-    getTopicsForCategory,
   } = useQuizData()
 
   const [whichObject, setWhichObject] = useState({
@@ -51,9 +38,8 @@ export default function Quiz({ route }) {
   })
 
   useEffect(() => {
-   setAllItemsCount(howManyItems)
+    setAllItemsCount(howManyItems)
   }, [])
-
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextItem(): void {
@@ -74,22 +60,22 @@ export default function Quiz({ route }) {
     )
 
     //jeśli liczba itemów w topicu dobiegła końca
-    if (whichObject.whichItem === topicItemsNr - 1) {
+    if (
+      whichObject.whichItem === topicItemsNr - 1 &&
+      allItemsCount !== Infinity
+    ) {
       //jeśli iliczba topików w kategorii dobiegła końca
       if (whichObject.whichTopic === topArray.length - 1) {
+        setItem(null)
+        setTimeout(() => {
+          setShowGeneralResults(true)
+        }, 0)
 
-          setItem(null)
-          setTimeout(() => {
-            setShowGeneralResults(true)
-          }, 0)
-
-          setShowResultModal(false)
-
+        setShowResultModal(false)
       }
       //jeśli iliczba topików w kategorii nie dobiegła końca
       else
         setWhichObject(prev => ({
-
           whichTopic: prev.whichTopic + 1,
           whichItem: 0,
         }))
@@ -104,14 +90,13 @@ export default function Quiz({ route }) {
     }))
   }
 
-
   useEffect(() => {
     // return
     let item: Item
 
-    let random: boolean = false ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
-    if (random)
-      item = importRandomItem(catName, topArray)
+    console.log('shufle', shuffle)
+    // let random: boolean = false ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
+    if (shuffle) item = importRandomItem(catName, topArray)
     else
       item = importItem(
         catName,
@@ -156,19 +141,18 @@ export default function Quiz({ route }) {
     let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' = checkTheResult(
       item,
       chosenOptions
-      )
-      let result: Result = {
-        id: item.id,
-        item: item,
-        isCorrect: thisQuestionResult,
-        userChoices: chosenOptions,
-      }
+    )
+    let result: Result = {
+      id: item.id,
+      item: item,
+      isCorrect: thisQuestionResult,
+      userChoices: chosenOptions,
+    }
 
-      setResultsArray(prev => [...prev, result])
-  
+    setResultsArray(prev => [...prev, result])
+
     setShowResultModal(true)
   }
-
 
   //sprawdza czy na to pytanie udzielono dobrej(dobrych) odpowiedzi
   function checkTheResult(
@@ -203,7 +187,7 @@ export default function Quiz({ route }) {
 
   return (
     <SafeAreaView>
-      {item && allItemsCount!==Infinity && (
+      {item && allItemsCount !== Infinity && (
         <Line resultsArray={resultsArray} allItemsCount={allItemsCount} />
       )}
 
@@ -233,12 +217,7 @@ export default function Quiz({ route }) {
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
       </ScrollView>
 
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={showResultModal}
-      >
-        
+      <Modal animationType="fade" transparent={true} visible={showResultModal}>
         <Explanation
           showQuestion={false}
           item={item}

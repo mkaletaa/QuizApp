@@ -1,13 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
-import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native'
+import { ScrollView, View } from 'react-native'
 import { topics } from '../../data/data'
 import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
@@ -24,9 +17,9 @@ export default function Topics({ route }) {
   const [howManyItems, setHowManyItems] = useState(0)
   const navigation = useNavigation()
 
-    const {
+  const {
     importItem,
-    countItemsInCategories,
+    // countItemsInCategories,
     countItemsInTopics,
     importRandomItem,
     countTopics,
@@ -75,7 +68,7 @@ export default function Topics({ route }) {
   //this function calls importQuiz and gives it an array of chosen topics
   const showQuiz = (
     topicsArray: string[],
-    categoryName: string,
+    categoryName: string
     // howManyItems: number | null = null
   ): void => {
     //jeśli topicName kończy się na "All" to wpierw otwórz modal, bo został wybrany tryb
@@ -84,20 +77,28 @@ export default function Topics({ route }) {
       return
     }
 
-    let nrOfItems = howManyItems 
+    let nrOfItems = howManyItems
+    let shuffle: boolean = true
 
-    if(nrOfItems === null) {
+    //? coś nie działa shuffle do końca dobrze
+
+    if (nrOfItems === null) {
       nrOfItems = countItemsInTopics(topicsArray, categoryName)
-    } else if(nrOfItems===0){
+      shuffle = false // sprawdź w ustawieniach
+    } else if (nrOfItems === 0) {
       nrOfItems = Infinity
+      shuffle = true
     }
 
     //@ts-ignore
     navigation.navigate('Quiz', {
       topArray: topicsArray,
-      catName : categoryName,
-      howManyItems: nrOfItems
+      catName: categoryName,
+      howManyItems: nrOfItems,
+      shuffle,
     })
+
+    setHowManyItems(null)
   }
 
   function toggleTopic(name: string, isChosen: boolean): void {

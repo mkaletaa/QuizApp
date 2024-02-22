@@ -9,7 +9,7 @@ import {
   Pressable,
 } from 'react-native'
 import { topics } from '../../data/data'
-import QuizModalSwitch from './QuizModalSwitch'
+import QuizModalSwitch from './ui/QuizModalSwitch'
 import { AntDesign } from '@expo/vector-icons'
 import { isEnabled } from 'react-native/Libraries/Performance/Systrace'
 import { useEffect } from 'react'
@@ -24,7 +24,7 @@ export default function ModalComponent({
   sliderHandle,
   nrOfItems,
   catName,
-  chosenTopics
+  chosenTopics,
 }: {
   modalVisible: boolean
   setModalVisible: any
@@ -39,7 +39,7 @@ export default function ModalComponent({
   useEffect(() => {
     console.log('🚀 ~ showQuiz:', showQuiz)
   }, [])
-const {countItemsInTopics} = useQuizData()
+  const { countItemsInTopics } = useQuizData()
   // const[slider]
   return (
     <Modal
@@ -72,7 +72,9 @@ const {countItemsInTopics} = useQuizData()
               toggleTopic={toggleTopic}
             />
           ))}
-        <Text style={{ color: 'white', fontSize: 20 }}>{nrOfItems===0 ? 'infinity' : nrOfItems}</Text>
+        <Text style={{ color: 'white', fontSize: 20 }}>
+          {nrOfItems === 0 ? 'infinity' : nrOfItems}
+        </Text>
         <Slider
           style={{ width: 200, height: 40 }}
           minimumValue={0}

@@ -55,22 +55,6 @@ const useQuizData = () => {
 
 
 
-  function countItemsInCategories(catArray): number {
-    // console.log('🚀 ~ countItems ~ catName:', catName)
-    let itemsCount = 0
-
-    return
-    //jeśli topArray jest puste to znaczye user przeszedł do quizu z poziomu kategorii
-      for (let i = 0; i < catArray.length; i++) {
-        for (let j = 0; j < countTopics(catArray[i]); j++) {
-          let itemsArray: Array<Item> = quiz[catArray[i]][catArray[i][j]]
-          console.log('🚀 ~ countItems ~ itemsArray:', itemsArray)
-          itemsCount += itemsArray.length
-        }
-      }
-    return itemsCount
-  }
-
     function countItemsInTopics(topArray: string[], catName:string): number {
       // console.log('🚀 ~ countItems ~ catName:', catName)
       let itemsCount = 0
@@ -84,9 +68,6 @@ const useQuizData = () => {
       return itemsCount
     }
 
-
-
-
   function countTopics(catName): number {
     return topics[catName].length
   }
@@ -95,7 +76,7 @@ const useQuizData = () => {
     return topics[catName].map(topic => topic.name)
   }
 
-  return { importItem, countItemsInTopics, countItemsInCategories, importRandomItem, countTopics, getTopicsForCategory }
+  return { importItem, countItemsInTopics, importRandomItem, countTopics, getTopicsForCategory }
 }
 
 export default useQuizData
