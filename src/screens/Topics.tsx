@@ -24,6 +24,15 @@ export default function Topics({ route }) {
   const [howManyItems, setHowManyItems] = useState(0)
   const navigation = useNavigation()
 
+    const {
+    importItem,
+    countItemsInCategories,
+    countItemsInTopics,
+    importRandomItem,
+    countTopics,
+    getTopicsForCategory,
+  } = useQuizData()
+
   useEffect(() => {
     //Here a dummy topic is added
     const categoryName: string = route.params.categoryName
@@ -75,11 +84,19 @@ export default function Topics({ route }) {
       return
     }
 
+    let nrOfItems = howManyItems 
+
+    if(nrOfItems === null) {
+      nrOfItems = countItemsInTopics(topicsArray, categoryName)
+    } else if(nrOfItems===0){
+      nrOfItems = Infinity
+    }
+
     //@ts-ignore
     navigation.navigate('Quiz', {
       topArray: topicsArray,
-      catArray : [categoryName],
-      howManyItems,
+      catName : categoryName,
+      howManyItems: nrOfItems
     })
   }
 
