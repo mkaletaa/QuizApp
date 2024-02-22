@@ -36,7 +36,7 @@ export default function Explanation({
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
 
 
-      <IconPrompt></IconPrompt>
+      <IconPrompt item={item}></IconPrompt>
       {showQuestion && 
 
 

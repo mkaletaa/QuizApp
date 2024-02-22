@@ -1,16 +1,11 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import {
-  Button,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
+import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer'
 // import { A } from '@expo/html-elements'
 import { useNavigation } from '@react-navigation/native'
+import sendAnEmail, { removeUnderscores } from '../utils/functions'
 
 export default function Theory({ route }) {
   const [topicName, setTopicName] = useState('')
@@ -34,8 +29,7 @@ export default function Theory({ route }) {
         title="report a mistake"
         color="red"
         onPress={() => {
-          //@ts-ignore
-          navigation.navigate('Report', {itemOrTheory:'theory'})
+          sendAnEmail("Topic name: "+ removeUnderscores(topicName))
         }}
       />
     </ScrollView>

@@ -2,9 +2,10 @@ import { AntDesign, Entypo } from '@expo/vector-icons'
 import { useState } from 'react'
 import { Button, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import sendAnEmail from '../../utils/functions'
+import { Item } from '../../utils/types'
 
-
-export default function IconPrompt() {
+export default function IconPrompt({item}: {item: Item}) {
   const [showPrompt, setShowPrompt] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
   const navigation = useNavigation()
@@ -17,9 +18,6 @@ export default function IconPrompt() {
     }, 3000)
     console.log('first')
   }
-
-
-
 
   return (
     <View
@@ -64,9 +62,13 @@ export default function IconPrompt() {
             zIndex: 1,
           }}
         >
-          <Button title="report a mistake" color="red" 
-          //@ts-ignore
-            onPress={()=>{navigation.navigate('Report')}}
+          <Button
+            title="report a mistake"
+            color="red"
+            //@ts-ignore
+            onPress={() => {
+              sendAnEmail("question id: " + item.id)
+            }}
           />
           <View
             style={{
@@ -92,16 +94,19 @@ export default function IconPrompt() {
             width: '100%',
             top: 95,
             alignItems: 'center',
-            
           }}
+        >
+          <Text
+            style={{
+              textAlign: 'center',
+              backgroundColor: 'lightblue',
+              padding: 5,
+              borderRadius: 10,
+              zIndex: 2,
+            }}
           >
-          <Text style={{textAlign: 'center',
-          backgroundColor: 'lightblue',
-          padding: 5,
-          borderRadius: 10,
-          zIndex: 2
-        
-        }}>The question has been saved!</Text>
+            The question has been saved!
+          </Text>
         </View>
       )}
     </View>
