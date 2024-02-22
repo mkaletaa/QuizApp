@@ -6,13 +6,15 @@ import { categories } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'
 import ModalComponent from '../components/ModalComponent'
+import useQuizData from '../hooks/useQuizData'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
   const navigation = useNavigation()
   const [showModal, setShowModal] = useState(false)
   const [chosencategories, setChosencategories] = useState([])
-  
+  const {getAllTopics, getTopicsForCategory} = useQuizData()
+
   useEffect(() => {
     if (categories.length === 1)
       // @ts-ignore
@@ -25,10 +27,15 @@ export default function Categories() {
 
   const goToTopics = (catName) => {
     if (catName==='__All__') {
+
+      // let topArray = 
+      //todo dla kazdej kategorii pobierz jej topiki i włóż do jednej tablicy
       //@ts-ignore
       navigation.navigate('Quiz', {
-        topArray: [],
-        howManyItems: Infinity
+        catName: '__All__',
+        topArray: getTopicsForCategory('cat_1'),
+        howManyItems: Infinity,
+        shuffle: true
       })
       return
     }

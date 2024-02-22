@@ -19,6 +19,7 @@ export default function Quiz({ route }) {
   const topArray: Array<string> = route.params.topArray
   const howManyItems: number = route.params.howManyItems
   const shuffle: boolean = route.params.shuffle
+  // const allItemsMode: boolean = route.params.allItemsMode
   const [item, setItem] = useState<Item>()
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
@@ -30,6 +31,7 @@ export default function Quiz({ route }) {
     importItem,
     countItemsInTopics,
     importRandomItem,
+    importRandomItemAllItemsMode,
   } = useQuizData()
 
   const [whichObject, setWhichObject] = useState({
@@ -44,12 +46,21 @@ export default function Quiz({ route }) {
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextItem(): void {
     // return
+
     if (resultsArray.length === allItemsCount) {
       setItem(null)
       setTimeout(() => {
         setShowGeneralResults(true)
       }, 0)
 
+      setShowResultModal(false)
+      return
+    }
+
+    if (catName === '__All__') {
+      setItem(importRandomItemAllItemsMode())
+      setShowResultModal(false)
+      setChosenOptions([])
       setShowResultModal(false)
       return
     }
@@ -93,10 +104,14 @@ export default function Quiz({ route }) {
   useEffect(() => {
     // return
     let item: Item
-
     console.log('shufle', shuffle)
+    if (catName === '__All__') {
+      // console.log("🚀 ~ useEffect ~ importRandomItemAllItemsMode:", importRandomItemAllItemsMode())
+      // return
+      item = importRandomItemAllItemsMode()
+    }
     // let random: boolean = false ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
-    if (shuffle) item = importRandomItem(catName, topArray)
+    else if (shuffle) item = importRandomItem(catName, topArray)
     else
       item = importItem(
         catName,
@@ -142,14 +157,17 @@ export default function Quiz({ route }) {
       item,
       chosenOptions
     )
-    let result: Result = {
-      id: item.id,
-      item: item,
-      isCorrect: thisQuestionResult,
-      userChoices: chosenOptions,
-    }
 
-    setResultsArray(prev => [...prev, result])
+    let result: Result
+    if (allItemsCount !== Infinity) {
+      result = {
+        id: item.id,
+        item: item,
+        isCorrect: thisQuestionResult,
+        userChoices: chosenOptions,
+      }
+      setResultsArray(prev => [...prev, result])
+    }
 
     setShowResultModal(true)
   }
@@ -208,7 +226,9 @@ export default function Quiz({ route }) {
             />
             <Button
               title="zatwierdź"
-              onPress={() => setResults()}
+              onPress={() => {
+                setResults()
+              }} //jak Infinity mode to nie ustawiaj rezultów
               disabled={chosenOptions.length === 0}
             />
           </React.Fragment>
