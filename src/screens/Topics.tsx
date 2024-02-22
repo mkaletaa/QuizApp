@@ -14,7 +14,7 @@ export default function Topics({ route }) {
   const [showModal, setShowModal] = useState(false)
   const [chosenTopics, setChosenTopics] = useState([]) //topics that user want to take a quiz
   // const { countItemsInTopic } = useQuizData()
-  const [howManyItems, setHowManyItems] = useState(0)
+  const [howManyItems, setHowManyItems] = useState<number | null>(null)
   const navigation = useNavigation()
 
   const {
@@ -79,8 +79,6 @@ export default function Topics({ route }) {
 
     let nrOfItems = howManyItems
     let shuffle: boolean = true
-
-    //? coś nie działa shuffle do końca dobrze
 
     if (nrOfItems === null) {
       nrOfItems = countItemsInTopics(topicsArray, categoryName)

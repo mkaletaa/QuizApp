@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Dimensions, Modal, ScrollView, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Explanation from '../components/Explanation'
@@ -26,26 +26,65 @@ export default function Quiz({ route }) {
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
-
+  
   const {
     importItem,
     countItemsInTopics,
     importRandomItem,
     importRandomItemAllItemsMode,
   } = useQuizData()
-
+  
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
     whichTopic: 0,
   })
-
+  
   useEffect(() => {
     setAllItemsCount(howManyItems)
+    console.log("🚀 ~ Quiz ~ catName:", catName)
+    console.log("🚀 ~ Quiz ~ topArray:", topArray)
+    console.log("🚀 ~ Quiz ~ howManyItems:", howManyItems)
+    console.log("🚀 ~ Quiz ~ shuffle:", shuffle)
+    // Kod do wykonania podczas unmountingu
+    return () => {
+      console.log('Component is unmounting...')
+      setAllItemsCount(0)
+          setResultsArray([])
+          setItem(null)
+          setChosenOptions(null)
+        }
   }, [])
 
+  //for some reason this useEffect runs right after mounting
+  //it also triggers after next Btn press
+    useEffect(() => {
+      getNextItem()
+    }, [whichObject])
+
+      function getNextItem() {
+    let item: Item
+    if (catName === '__All__') {
+      item = importRandomItemAllItemsMode()
+    } else if (shuffle) item = importRandomItem(catName, topArray)
+    else
+      item = importItem(
+        catName,
+        topArray[whichObject.whichTopic],
+        whichObject.whichItem
+      )
+
+    setItem(item)
+    setShowResultModal(false)
+    setChosenOptions([])
+  }
+
   //uruchamia się po naciśnięciu przycisku w modalu
-  function nextItem(): void {
-    // return
+  function nextBtnPress(): void {
+    // if allItemsMode
+    if (catName === '__All__') {
+      getNextItem()
+      return
+    }
 
     if (resultsArray.length === allItemsCount) {
       setItem(null)
@@ -53,14 +92,6 @@ export default function Quiz({ route }) {
         setShowGeneralResults(true)
       }, 0)
 
-      setShowResultModal(false)
-      return
-    }
-
-    if (catName === '__All__') {
-      setItem(importRandomItemAllItemsMode())
-      setShowResultModal(false)
-      setChosenOptions([])
       setShowResultModal(false)
       return
     }
@@ -101,28 +132,7 @@ export default function Quiz({ route }) {
     }))
   }
 
-  useEffect(() => {
-    // return
-    let item: Item
-    console.log('shufle', shuffle)
-    if (catName === '__All__') {
-      // console.log("🚀 ~ useEffect ~ importRandomItemAllItemsMode:", importRandomItemAllItemsMode())
-      // return
-      item = importRandomItemAllItemsMode()
-    }
-    // let random: boolean = false ? true : false //jeśli w opcjach jest zaznaczona opcja shuffle to zawsze true
-    else if (shuffle) item = importRandomItem(catName, topArray)
-    else
-      item = importItem(
-        catName,
-        topArray[whichObject.whichTopic],
-        whichObject.whichItem
-      )
 
-    setItem(item)
-    setShowResultModal(false)
-    setChosenOptions([])
-  }, [whichObject])
 
   function closeModalAndGoBack(): void {
     setShowModal(false)
@@ -242,7 +252,7 @@ export default function Quiz({ route }) {
           showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}
-          nextItem={nextItem}
+          nextItem={nextBtnPress}
           btnTitle={
             resultsArray.length === allItemsCount ? 'summary' : 'next question'
           }

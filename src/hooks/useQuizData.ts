@@ -56,22 +56,12 @@ const useQuizData = () => {
 
 
   function importRandomItemAllItemsMode(): Item{
-    console.log('ededfirst')
       let catNr: number = Math.floor(Math.random() * categories.length)
-      console.log("🚀 ~ importRandomItemAllItemsMode ~ catNr:", catNr)
       let catName: string = categories[catNr].name
-      console.log("🚀 ~ importRandomItemAllItemsMode ~ catName:", catName)
       let topNr: number = Math.floor(Math.random() * topics[catName].length) //można tez użyc funkcji countTopics
-      console.log("🚀 ~ importRandomItemAllItemsMode ~ topNr:", topNr)
       let topName: string = topics[catName][topNr].name
-      console.log("🚀 ~ importRandomItemAllItemsMode ~ topName:", topName)
       let itemNr: number = Math.floor(Math.random() * countItemsInTopics([topName], catName))
-      console.log("🚀 ~ importRandomItemAllItemsMode ~ itemNr:", itemNr)
       let item: Item =  quiz[catName][topName][itemNr]
-      console.log(
-        '🚀 ~ importRandomItemAllItemsMode ~ item:',
-        quiz[catName][topName][itemNr]
-      )
       return item
   }
 
