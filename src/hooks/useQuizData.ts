@@ -17,6 +17,17 @@ const useQuizData = () => {
     return item
   }
 
+  function importItemById(id: string): Item{
+    
+    const [category, topic] = id.split('|')
+ 
+    // const topicIndex: number = quiz[category].findIndex(item => item.id === id)
+    const itemIndex: number = quiz[category][topic].findIndex(item => item.id === id)
+    // console.log("🚀 ~ importItemById ~ index:", index)
+
+    return quiz[category][topic][itemIndex]
+  }
+
   const [itemsArray, setItemsArray] = useState([])
   // [{ name: 'nazwa topica', nr, 1 }]
   function importRandomItem(catName: string, topArray: string[]) {
@@ -102,7 +113,8 @@ const useQuizData = () => {
     countTopics,
     getTopicsForCategory,
     importRandomItemAllItemsMode,
-    getAllTopics
+    getAllTopics,
+    importItemById
   }
 }
 

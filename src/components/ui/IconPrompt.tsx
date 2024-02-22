@@ -26,7 +26,7 @@ export default function IconPrompt({ item }: { item: Item }) {
 
       const savedItems = await AsyncStorage.getItem('savedItems')
       const parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
-      if (parsedSavedItems.some(savedItem => savedItem.id === item.id))
+      if (parsedSavedItems.some(savedItem => savedItem === item.id))
         setSaved(true)
       else setSaved(false)
     } catch (error) {
@@ -42,7 +42,7 @@ export default function IconPrompt({ item }: { item: Item }) {
       let parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
 
       parsedSavedItems = parsedSavedItems.filter(
-        savedItem => savedItem.id !== item.id
+        savedItem => savedItem !== item.id
       )
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(parsedSavedItems))
@@ -59,13 +59,9 @@ export default function IconPrompt({ item }: { item: Item }) {
 
   async function saveItem() {
     
-    // Podzielenie ciągu na części pomiędzy pionowymi kreskami
-    const [category, topic] = item.id.split('|')
-    
-    console.log('Category:', category) // Wyświetli: Category: cat_2
-    console.log('Topic:', topic) // Wyświetli: Topic: top_3
-    
-    const value = JSON.stringify({category, topic, id: item.id })
+
+    const value = item.id
+    console.log("🚀 ~ saveItem ~ item.id:", item.id)
 
     try {
       console.log('dodawanko')
@@ -76,7 +72,8 @@ export default function IconPrompt({ item }: { item: Item }) {
         savedItems = JSON.parse(existingItems)
       }
 
-      savedItems.push(item)
+      savedItems.push(value)
+      console.log("🚀 ~ saveItem ~ savedItems:", savedItems)
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
       setSaved(true)
