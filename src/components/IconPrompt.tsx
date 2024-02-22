@@ -1,10 +1,25 @@
-import { View, Text, Button } from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
+import { AntDesign, Entypo } from '@expo/vector-icons'
 import { useState } from 'react'
+import { Button, Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+
 
 export default function IconPrompt() {
   const [showPrompt, setShowPrompt] = useState(false)
+  const [showMessage, setShowMessage] = useState(false)
+  const navigation = useNavigation()
+
+  function handleMessageFn() {
+    setShowMessage(true)
+
+    setTimeout(() => {
+      setShowMessage(false)
+    }, 3000)
+    console.log('first')
+  }
+
+
+
 
   return (
     <View
@@ -33,7 +48,7 @@ export default function IconPrompt() {
         <View
           style={{
             position: 'absolute',
-            top: 40,
+            top: 25,
             right: 60,
             flexDirection: 'row',
             elevation: 5,
@@ -49,7 +64,10 @@ export default function IconPrompt() {
             zIndex: 1,
           }}
         >
-          <Button title="report a mistake" color="red" />
+          <Button title="report a mistake" color="red" 
+          //@ts-ignore
+            onPress={()=>{navigation.navigate('Report')}}
+          />
           <View
             style={{
               height: '100%',
@@ -58,7 +76,32 @@ export default function IconPrompt() {
               marginHorizontal: 10,
             }}
           />
-          <AntDesign name="star" size={35} color="gold" />
+          <AntDesign
+            onPress={() => handleMessageFn()}
+            name="star"
+            size={35}
+            color="gold"
+          />
+        </View>
+      )}
+
+      {showMessage && (
+        <View
+          style={{
+            position: 'absolute',
+            width: '100%',
+            top: 95,
+            alignItems: 'center',
+            
+          }}
+          >
+          <Text style={{textAlign: 'center',
+          backgroundColor: 'lightblue',
+          padding: 5,
+          borderRadius: 10,
+          zIndex: 2
+        
+        }}>The question has been saved!</Text>
         </View>
       )}
     </View>

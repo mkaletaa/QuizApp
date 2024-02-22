@@ -10,6 +10,8 @@ import Quiz2 from './screens/Quiz'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
 import { removeUnderscores } from './utils/functions'
+import Report from './screens/Report'
+
 const Stack = createStackNavigator()
 
 const MyStack = () => {
@@ -80,6 +82,15 @@ const MyStack = () => {
         name="Quiz"
         component={Quiz2}
         options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Report"
+        component={Report}
+        options={({ route }) => ({
+          ...header,
+          title: 'report'
+        })}
       />
 
       {/* <Stack.Screen

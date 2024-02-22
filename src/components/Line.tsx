@@ -24,13 +24,14 @@ export default function Line({
         flexDirection: 'row',
         backgroundColor: 'lightgray',
       }}
-    >
+      >
       {resultsArray?.map(result => (
         <View
-          style={{
-            width: allItemsCount === 0 ? 0 : screenWidth / allItemsCount,
-            backgroundColor: setColor(result),
-            height: 5,
+        style={{
+          width: allItemsCount === 0 ? 0 : screenWidth / allItemsCount,
+          backgroundColor: setColor(result),
+          height: 5,
+          // zIndex: 10
           }}
         ></View>
       ))}
