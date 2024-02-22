@@ -1,6 +1,6 @@
 [
   {
-    "id": 7,
+    "id": "cat_1|top_3|1",
     "multiChoice": false,
     "question": "what is RGB?",
     "options": [
@@ -23,7 +23,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": "cat_1|top_3|2",
     "multiChoice": true,
     "question": "8th question",
     "options": [
@@ -34,7 +34,7 @@
     "explanation": "CRA is outdated"
   },
   {
-    "id": 9,
+    "id": "cat_1|top_3|3",
     "multiChoice": true,
     "question": [
       {

@@ -3,6 +3,8 @@ import { Item } from '../utils/types'
 import { topics, categories } from '../../data/data'
 import { useState } from 'react'
 
+//* UWAGA: można rozważyć włożenie do obiektów items i categories klucz z ilością topików/itemów żeby przyspieszyć działanie aplikacji
+
 const useQuizData = () => {
   function importItem(
     cat: string,
@@ -42,7 +44,6 @@ const useQuizData = () => {
       let randomItemNr = itemsM[randomNr].nr
 
       //usuwanie
-      //jeśli infinity mod to nie usuwac lub lepiej stworzyć osobną funkcję
       itemsM.splice(randomNr, 1)
       setItemsArray(itemsM)
 

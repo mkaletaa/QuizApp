@@ -1,6 +1,6 @@
 [
   {
-    "id": 24,
+    "id": "cat_2|top_3|1",
     "multiChoice": false,
     "question": "IDK",
     "options": [
@@ -24,7 +24,7 @@
     ]
   },
   {
-    "id": 25,
+    "id": "cat_2|top_3|2",
     "multiChoice": true,
     "question": "papieź",
     "options": [
@@ -35,7 +35,7 @@
     "explanation": "CRA is outdated"
   },
   {
-    "id": 26,
+    "id": "cat_2|top_3|3",
     "multiChoice": false,
     "question": [
       {

@@ -1,14 +1,94 @@
 import { AntDesign, Entypo } from '@expo/vector-icons'
-import { useState } from 'react'
+// import { AntDesign as staro } from '@expo/vector-icons'
+import { useEffect, useState } from 'react'
 import { Button, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import sendAnEmail from '../../utils/functions'
 import { Item } from '../../utils/types'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-export default function IconPrompt({item}: {item: Item}) {
+export default function IconPrompt({ item }: { item: Item }) {
   const [showPrompt, setShowPrompt] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
+  const [saved, setSaved] = useState(false)
   const navigation = useNavigation()
+  const [message, setMessage] = useState<string>()
+
+  // ...
+  useEffect(() => {
+    console.log('useEfefct')
+    checkIfSaved() // Sprawdzenie stanu zapisanego po każdej zmianie 'saved'
+  }, [saved, item.id])
+
+  const checkIfSaved = async () => {
+    try {
+      console.log('sprawdzanko')
+
+      const savedItems = await AsyncStorage.getItem('savedItems')
+      const parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
+      if (parsedSavedItems.some(savedItem => savedItem.id === item.id))
+        setSaved(true)
+      else setSaved(false)
+    } catch (error) {
+      setSaved(false)
+      console.error('Cannot check if the question is saved:', error)
+    }
+  }
+
+  const removeItem = async () => {
+    try {
+      console.log('usuwanko')
+      const savedItems = await AsyncStorage.getItem('savedItems')
+      let parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
+
+      parsedSavedItems = parsedSavedItems.filter(
+        savedItem => savedItem.id !== item.id
+      )
+
+      await AsyncStorage.setItem('savedItems', JSON.stringify(parsedSavedItems))
+      setSaved(false)
+
+      // setMessage('The question has been removed!')
+    } catch (error) {
+      setMessage('Something went wrong while removing the question')
+      console.error('Error removing item:', error)
+    }
+  }
+
+  // ...
+
+  async function saveItem() {
+    
+    // Podzielenie ciągu na części pomiędzy pionowymi kreskami
+    const [category, topic] = item.id.split('|')
+    
+    console.log('Category:', category) // Wyświetli: Category: cat_2
+    console.log('Topic:', topic) // Wyświetli: Topic: top_3
+    
+    const value = JSON.stringify({category, topic, id: item.id })
+
+    try {
+      console.log('dodawanko')
+      const existingItems = await AsyncStorage.getItem('savedItems')
+      let savedItems = []
+
+      if (existingItems) {
+        savedItems = JSON.parse(existingItems)
+      }
+
+      savedItems.push(item)
+
+      await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
+      setSaved(true)
+      setMessage('The question has been saved!')
+    } catch (error) {
+      setMessage('Something went wrong')
+    }
+  }
+
+  useEffect(() => {
+    handleMessageFn()
+  }, [message])
 
   function handleMessageFn() {
     setShowMessage(true)
@@ -67,7 +147,7 @@ export default function IconPrompt({item}: {item: Item}) {
             color="red"
             //@ts-ignore
             onPress={() => {
-              sendAnEmail("question id: " + item.id)
+              sendAnEmail('question id: ' + item.id)
             }}
           />
           <View
@@ -78,12 +158,21 @@ export default function IconPrompt({item}: {item: Item}) {
               marginHorizontal: 10,
             }}
           />
-          <AntDesign
-            onPress={() => handleMessageFn()}
-            name="star"
-            size={35}
-            color="gold"
-          />
+          {saved ? (
+            <AntDesign
+              onPress={() => removeItem()}
+              name="star"
+              size={35}
+              color="gold"
+            />
+          ) : (
+            <AntDesign
+              onPress={() => saveItem()}
+              name="staro"
+              size={35}
+              color="black"
+            />
+          )}
         </View>
       )}
 
@@ -100,12 +189,13 @@ export default function IconPrompt({item}: {item: Item}) {
             style={{
               textAlign: 'center',
               backgroundColor: 'lightblue',
+              opacity: 0.9,
               padding: 5,
               borderRadius: 10,
               zIndex: 2,
             }}
           >
-            The question has been saved!
+            {message}
           </Text>
         </View>
       )}

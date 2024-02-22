@@ -1,6 +1,6 @@
 [
   {
-    "id": 4,
+    "id": "cat_1|top_2|1",
     "multiChoice": false,
     "question": "What is the capital of France?",
     "options": [
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": "cat_1|top_2|2",
     "multiChoice": true,
     "question": "React CLI?",
     "options": [
@@ -36,7 +36,7 @@
     "explanation": "CRA is outdated"
   },
   {
-    "id": 6,
+    "id": "cat_1|top_2|3",
     "multiChoice": false,
     "question": [
       {

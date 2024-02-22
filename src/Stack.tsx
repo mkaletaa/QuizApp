@@ -10,6 +10,7 @@ import Quiz2 from './screens/Quiz'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
 import { removeUnderscores } from './utils/functions'
+import Saved from './screens/Saved'
 
 const Stack = createStackNavigator()
 
@@ -83,7 +84,14 @@ const MyStack = () => {
         options={{ headerShown: false }}
       />
 
-
+      <Stack.Screen
+        name="Saved"
+        component={Saved}
+        options={({ route }) => ({
+          ...header,
+          title: "Saved questions",
+        })}
+      />
 
       {/* <Stack.Screen
         name="Summary"

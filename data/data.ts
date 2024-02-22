@@ -11,7 +11,7 @@ export const categories = [
     des: 'short descirtption of a cat_2'
   }
 ]
-
+//also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
 export const topics = {
   cat_1: [

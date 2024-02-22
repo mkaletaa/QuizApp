@@ -1,7 +1,14 @@
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useState } from 'react'
-import { Button, Pressable, ScrollView, StyleSheet, Text, Dimensions } from 'react-native'
+import {
+  Button,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  Dimensions,
+} from 'react-native'
 import { categories } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'
@@ -13,45 +20,60 @@ export default function Categories() {
   const navigation = useNavigation()
   const [showModal, setShowModal] = useState(false)
   const [chosencategories, setChosencategories] = useState([])
-  const {getAllTopics, getTopicsForCategory} = useQuizData()
+  const { getAllTopics, getTopicsForCategory } = useQuizData()
 
-  // useEffect(() => {
-  //   if (categories.length === 1)
-  //     // @ts-ignore
-  //     navigation.navigate('Topics', { categoryName: categories[0].name })
-  //   else {
-  //     setCategoriesToShow([...categories])
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (categories.length === 1)
+      // @ts-ignore
+      navigation.navigate('Topics', { categoryName: categories[0].name })
+    else {
+      setCategoriesToShow([...categories])
+    }
+  }, [])
 
-  const goToTopics = (catName) => {
-
+  const goToTopics = catName => {
     // @ts-ignore
     navigation.navigate('Topics', { categoryName: catName })
   }
 
-const screenWidth = Dimensions.get('window').width
-function instantQuestion()
-{
-        //@ts-ignore
-        navigation.navigate('Quiz', {
-          catName: '__All__',
-          topArray: getTopicsForCategory('cat_1'),
-          howManyItems: Infinity,
-          shuffle: true,
-        })
-        return
-      
-}
+  const screenWidth = Dimensions.get('window').width
+  function instantQuestion() {
+    //@ts-ignore
+    navigation.navigate('Quiz', {
+      catName: '__All__',
+      topArray: getTopicsForCategory('cat_1'),
+      howManyItems: Infinity,
+      shuffle: true,
+    })
+    return
+  }
   return (
     <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
       <StatusBar style="auto" />
-      <Pressable onPress={instantQuestion} style={{ width: screenWidth,
-      backgroundColor:'red',
-      alignItems: 'center'
-      }}>
-        <Text style={{fontSize: 30}}>instant question</Text>
+      <Pressable
+        onPress={instantQuestion}
+        style={{
+          width: screenWidth,
+          backgroundColor: 'red',
+          alignItems: 'center',
+        }}
+      >
+        <Text style={{ fontSize: 30 }}>instant question</Text>
       </Pressable>
+
+      <Text style={{ fontSize: 30 }}>{' '}</Text>
+      <Pressable
+      //@ts-ignore
+        onPress={() => navigation.navigate('Saved')}
+        style={{
+          width: screenWidth,
+          backgroundColor: 'red',
+          alignItems: 'center',
+        }}
+      >
+        <Text style={{ fontSize: 30 }}>saevd</Text>
+      </Pressable>
+
       {categories?.map(category => (
         <Card
           catOrTop={'cat'}
