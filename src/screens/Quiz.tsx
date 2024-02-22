@@ -41,22 +41,22 @@ export default function Quiz({ route }) {
   
   useEffect(() => {
     setAllItemsCount(howManyItems)
-    console.log("🚀 ~ Quiz ~ catName:", catName)
-    console.log("🚀 ~ Quiz ~ topArray:", topArray)
-    console.log("🚀 ~ Quiz ~ howManyItems:", howManyItems)
-    console.log("🚀 ~ Quiz ~ shuffle:", shuffle)
-    // Kod do wykonania podczas unmountingu
-    return () => {
-      console.log('Component is unmounting...')
-      setAllItemsCount(0)
-          setResultsArray([])
-          setItem(null)
-          setChosenOptions(null)
-        }
+    // console.log("🚀 ~ Quiz ~ catName:", catName)
+    // console.log("🚀 ~ Quiz ~ topArray:", topArray)
+    // console.log("🚀 ~ Quiz ~ howManyItems:", howManyItems)
+    // console.log("🚀 ~ Quiz ~ shuffle:", shuffle)
+    // // Kod do wykonania podczas unmountingu
+    // return () => {
+    //   console.log('Component is unmounting...')
+    //   setAllItemsCount(0)
+    //       setResultsArray([])
+    //       setItem(null)
+    //       setChosenOptions(null)
+    //     }
   }, [])
 
   //for some reason this useEffect runs right after mounting
-  //it also triggers after next Btn press
+  //it also is triggered after next Btn press, because it is updated there
     useEffect(() => {
       getNextItem()
     }, [whichObject])
