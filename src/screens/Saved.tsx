@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, Pressable, Modal } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import useQuizData from '../hooks/useQuizData'
 import ContentRenderer from '../components/ContentRenderer'
 import Question from '../components/Question'
 import { Item } from '../utils/types'
-
+import { LinearGradient } from 'expo-linear-gradient'
+import Explanation from '../components/Explanation'
+//todo: util styles and refresh on scrollup 
 export default function Saved() {
   const [savedItems, setSavedItems] = useState([])
+  const [showModal, setShowModal] = useState(false)
+  const [modalItem, setModalItem] = useState(null)
   const { importItemById } = useQuizData()
 
   useEffect(() => {
@@ -19,15 +23,15 @@ export default function Saved() {
         if (jsonValue !== null) {
           // Parsuj wartość JSON i przypisz do stanu savedItems
           const parsedItems: string[] = JSON.parse(jsonValue)
-          console.log("🚀 ~ fetchSavedItems ~ parsedItems:", parsedItems)
-         let itemsH: Item[] = []
+          console.log('🚀 ~ fetchSavedItems ~ parsedItems:', parsedItems)
+          let itemsH: Item[] = []
 
-         // Wywołaj funkcję z hooka wewnątrz useEffect
-         for (const id of parsedItems) {
-           console.log('🚀 ~ fetchSavedItems ~ id:', id)
-           itemsH.push(importItemById(id))
-         }
-           console.log("🚀 ~ fetchSavedItems ~ itemsH:", itemsH)
+          // Wywołaj funkcję z hooka wewnątrz useEffect
+          for (const id of parsedItems) {
+            console.log('🚀 ~ fetchSavedItems ~ id:', id)
+            itemsH.push(importItemById(id))
+          }
+          console.log('🚀 ~ fetchSavedItems ~ itemsH:', itemsH)
 
           setSavedItems(itemsH)
         }
@@ -40,14 +44,89 @@ export default function Saved() {
     fetchSavedItems()
   }, [])
 
+  function seeFullQuestion(item: Item): void {
+    setModalItem(item)
+    setShowModal(true)
+    console.log('preswsed')
+  }
+
   return (
     <View>
-      <Text>saved</Text>
-      <ScrollView>
+      <Modal
+        // duration={1000}
+        animationType="fade"
+        transparent={true}
+        visible={showModal}
+        onRequestClose={() => setShowModal(false)}
+      >
+        <Explanation
+          showQuestion={true}
+          item={modalItem}
+          chosenOptions={null}
+          handleBtnPress={() => {
+            setShowModal(false)
+          }}
+          btnTitle={'close'}
+        />
+      </Modal>
+
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: 40,
+          // height: '100%',
+        }}
+      >
+        <View style={{}}>
+          <Text>saved</Text>
+          <Text>saved</Text>
+          <Text>saved</Text>
+          <Text>saved</Text>
+          <Text>saved</Text>
+          <Text>saved</Text>
+          <Text>saved</Text>
+
+        </View>
         {savedItems.map((item, index) => (
-          <View>
-            <Question question={item.question} />
-          </View>
+          <Pressable
+            style={{
+              // backgroundColor: 'red',
+              alignItems: 'center',
+            }}
+            onPress={() => {
+              seeFullQuestion(item)
+            }}
+          >
+            <View
+              style={[
+                {
+                  backgroundColor: 'white',
+                  width: 250,
+                  height: 80, //100
+                  overflow: 'hidden',
+                  alignItems: 'center',
+                  marginTop: 16,
+
+                  borderRadius: 10,
+                  elevation: 3,
+                },
+              ]}
+            >
+              {/* <Text>{index}</Text> */}
+
+              <Question question={item.question} />
+
+              <LinearGradient
+                // Button Linear Gradient
+                colors={['transparent', 'white']}
+                style={{
+                  width: '100%',
+                  height: 50,
+                  position: 'absolute',
+                  bottom: 0,
+                }}
+              ></LinearGradient>
+            </View>
+          </Pressable>
         ))}
       </ScrollView>
     </View>

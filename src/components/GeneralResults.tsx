@@ -69,8 +69,7 @@ export default function GneralResults({
                 alignItems: 'center',
                 marginTop: 16,
                 borderRadius: 10,
-                 elevation: 3
-
+                elevation: 3,
               },
             ]}
           >
@@ -83,7 +82,12 @@ export default function GneralResults({
             <LinearGradient
               // Button Linear Gradient
               colors={['transparent', setColor(result)]}
-              style={{ width: screenWidth, height: 50, position: 'absolute', bottom: 0 }}
+              style={{
+                width: screenWidth,
+                height: 50,
+                position: 'absolute',
+                bottom: 0,
+              }}
             ></LinearGradient>
             {/* <ContentRenderer content={result.item.question}></ContentRenderer> */}
           </View>
@@ -98,10 +102,10 @@ export default function GneralResults({
         onRequestClose={() => setShowModal(false)}
       >
         <Explanation
-        showQuestion={true} 
+          showQuestion={true}
           item={modalItem}
           chosenOptions={modalChoices}
-          nextItem={() => {
+          handleBtnPress={() => {
             setShowModal(false)
           }}
           btnTitle={'close'}

@@ -17,13 +17,13 @@ import IconPrompt from './ui/IconPrompt'
 export default function Explanation({
   item,
   chosenOptions,
-  nextItem,
+  handleBtnPress,
   btnTitle,
   showQuestion = false,
 }: {
   item: Item
   chosenOptions: Option[]
-  nextItem: () => void
+  handleBtnPress: () => void
   btnTitle: string
   showQuestion: boolean
 }) {
@@ -32,20 +32,9 @@ export default function Explanation({
   }, [])
 
   return (
-    
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-
-
       <IconPrompt item={item}></IconPrompt>
-      {showQuestion && 
-
-
-
-      <Question question={item.question}></Question>
-
-      
-      
-      }
+      {showQuestion && <Question question={item.question}></Question>}
       <View style={styles.contentContainer}>
         <Text style={styles.heading}>Correct answer(s):</Text>
         {item?.options
@@ -54,16 +43,20 @@ export default function Explanation({
             <ContentRenderer content={option.answer} key={index} />
           ))}
 
-        <Text style={styles.heading}>Your answer(s):</Text>
-        {chosenOptions.map((option, index) => (
-          <ContentRenderer content={option.answer} key={index} />
-        ))}
+        {chosenOptions && chosenOptions.length > 0 && (
+          <React.Fragment>
+            <Text style={styles.heading}>Your answer(s):</Text>
+            {chosenOptions.map((option, index) => (
+              <ContentRenderer content={option.answer} key={index} />
+            ))}
+          </React.Fragment>
+        )}
 
         <Text style={styles.heading}>Explanation:</Text>
         <ContentRenderer content={item?.explanation} />
 
         <View style={styles.nextItem}>
-          <Button title={btnTitle} onPress={() => nextItem()} />
+          <Button title={btnTitle} onPress={() => handleBtnPress()} />
         </View>
       </View>
     </ScrollView>
