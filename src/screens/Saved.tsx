@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ScrollView, Pressable, Modal } from 'react-native'
+import {
+  View,
+  Text,
+  ScrollView,
+  Pressable,
+  Modal,
+  Switch,
+  Button,
+} from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import useQuizData from '../hooks/useQuizData'
 import ContentRenderer from '../components/ContentRenderer'
@@ -7,12 +15,15 @@ import Question from '../components/Question'
 import { Item } from '../utils/types'
 import { LinearGradient } from 'expo-linear-gradient'
 import Explanation from '../components/Explanation'
-//todo: util styles and refresh on scrollup 
+import { useNavigation } from '@react-navigation/native'
+
+//todo: util styles, refresh on scrollup, message if empty, loader if loading
 export default function Saved() {
   const [savedItems, setSavedItems] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
   const { importItemById } = useQuizData()
+  const navigation = useNavigation()
 
   useEffect(() => {
     console.log('first saved')
@@ -48,6 +59,13 @@ export default function Saved() {
     setModalItem(item)
     setShowModal(true)
     console.log('preswsed')
+  }
+  const [isEnabled, setIsEnabled] = useState(false)
+
+  const toggleSwitch = () => {
+    setIsEnabled(previousState => !previousState)
+    let savedItemsH = savedItems.reverse()
+    setSavedItems(savedItemsH)
   }
 
   return (
@@ -85,6 +103,20 @@ export default function Saved() {
           <Text>saved</Text>
           <Text>saved</Text>
 
+          <Button
+            title="take a quiz"
+            onPress={() => {
+              //@ts-ignore
+              navigation.navigate('Quiz', {
+                catName: '__Saved__',
+                topArray: [],
+                howManyItems: savedItems.length,
+                shuffle: false,
+              })
+            }}
+          />
+
+          <Switch onValueChange={toggleSwitch} value={isEnabled} />
         </View>
         {savedItems.map((item, index) => (
           <Pressable

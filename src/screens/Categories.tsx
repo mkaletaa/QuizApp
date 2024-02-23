@@ -41,7 +41,7 @@ export default function Categories() {
     //@ts-ignore
     navigation.navigate('Quiz', {
       catName: '__All__',
-      topArray: getTopicsForCategory('cat_1'),
+      topArray: [],
       howManyItems: Infinity,
       shuffle: true,
     })

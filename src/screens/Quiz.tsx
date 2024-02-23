@@ -26,19 +26,20 @@ export default function Quiz({ route }) {
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
-  
+
   const {
     importItem,
     countItemsInTopics,
     importRandomItem,
     importRandomItemAllItemsMode,
+    importSavedItem,
   } = useQuizData()
-  
+
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
     whichTopic: 0,
   })
-  
+
   useEffect(() => {
     setAllItemsCount(howManyItems)
     // console.log("🚀 ~ Quiz ~ catName:", catName)
@@ -57,12 +58,18 @@ export default function Quiz({ route }) {
 
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
-    useEffect(() => {
-      getNextItem()
-    }, [whichObject])
+  useEffect(() => {
+    getNextItem()
+  }, [whichObject])
 
-      function getNextItem() {
+  async function getNextItem() {
     let item: Item
+
+    if (catName === '__Saved__') {
+      item = await importSavedItem()
+      console.log("🚀 ~ getNextItem ~ item1:", item)
+    }
+
     if (catName === '__All__') {
       item = importRandomItemAllItemsMode()
     } else if (shuffle) item = importRandomItem(catName, topArray)
@@ -73,15 +80,20 @@ export default function Quiz({ route }) {
         whichObject.whichItem
       )
 
+    console.log('🚀 ~ getNextItem ~ item2:', item) //not undefined
     setItem(item)
     setShowResultModal(false)
     setChosenOptions([])
   }
 
+useEffect(() => {
+  
+  console.log("🚀 ~ Quiz ~ item:", item) //undefined
+}, [item]);
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
     // if allItemsMode
-    if (catName === '__All__') {
+    if (catName === '__All__' || catName === '__Saved__') {
       getNextItem()
       return
     }
@@ -131,8 +143,6 @@ export default function Quiz({ route }) {
       whichItem: prev.whichItem + 1,
     }))
   }
-
-
 
   function closeModalAndGoBack(): void {
     setShowModal(false)
@@ -252,7 +262,7 @@ export default function Quiz({ route }) {
           showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}
-          nextItem={nextBtnPress}
+          handleBtnPress={nextBtnPress}
           btnTitle={
             resultsArray.length === allItemsCount ? 'summary' : 'next question'
           }
