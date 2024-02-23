@@ -17,6 +17,7 @@ export default function Quiz({ route }) {
   const navigation = useNavigation()
   const catName: string = route.params.catName
   const topArray: Array<string> = route.params.topArray
+  const itemsArray: Array<Item> = route.params.itemsArray
   const howManyItems: number = route.params.howManyItems
   const shuffle: boolean = route.params.shuffle
   // const allItemsMode: boolean = route.params.allItemsMode
@@ -26,9 +27,11 @@ export default function Quiz({ route }) {
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [allItemsCount, setAllItemsCount] = useState(0)
+  // const [itemsToShow, setItemsToShow] = useState<Item[]>()
 
   const {
     importItem,
+    importItemById,
     countItemsInTopics,
     importRandomItem,
     importRandomItemAllItemsMode,
@@ -42,6 +45,10 @@ export default function Quiz({ route }) {
 
   useEffect(() => {
     setAllItemsCount(howManyItems)
+    console.log("🚀 ~ Quiz ~ itemsArray:", itemsArray)
+    // if (itemsArray) {
+    //   setItemsToShow(itemsArray)
+    // }
     // console.log("🚀 ~ Quiz ~ catName:", catName)
     // console.log("🚀 ~ Quiz ~ topArray:", topArray)
     // console.log("🚀 ~ Quiz ~ howManyItems:", howManyItems)
@@ -62,16 +69,17 @@ export default function Quiz({ route }) {
     getNextItem()
   }, [whichObject])
 
-  async function getNextItem() {
+  function getNextItem() {
     let item: Item
 
     if (catName === '__Saved__') {
-      item = await importSavedItem()
-      let item2 = item
-      console.log("🚀 ~ getNextItem ~ item1 kurwaa:", item)
-          setItem(item2)
-          setShowResultModal(false)
-          setChosenOptions([])
+      // item = importItemById(itemsArray[0])
+      // console.log("🚀 ~ getNextItem ~ itemsArray.shift():", itemsArray.shift())
+      setItem(itemsArray.shift())
+      // return
+      setShowResultModal(false)
+      setChosenOptions([])
+      return
     }
 
     if (catName === '__All__') {
@@ -90,15 +98,33 @@ export default function Quiz({ route }) {
     setChosenOptions([])
   }
 
-useEffect(() => {
-  
-  console.log("🚀 ~ Quiz ~ item:", item) //undefined
-}, [item]);
+  useEffect(() => {
+    console.log('🚀 ~ Quiz ~ item:', item) //undefined
+  }, [item])
+
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
     // if allItemsMode
-    if (catName === '__All__' || catName === '__Saved__') {
+    if (catName === '__All__') {
       getNextItem()
+      return
+    }
+
+    if (catName === '__Saved__') {
+      
+      if (itemsArray.length === 0) {
+        //redundancja
+        // return
+        setItem(null)
+        setTimeout(() => {
+          setShowGeneralResults(true)
+        }, 0)
+        
+        setShowResultModal(false)
+        return
+      }
+      getNextItem()
+
       return
     }
 
@@ -261,7 +287,12 @@ useEffect(() => {
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
       </ScrollView>
 
-      <Modal animationType="fade" transparent={true} visible={showResultModal}>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={showResultModal}
+        onRequestClose={() => setShowResultModal(false)}
+      >
         <Explanation
           showQuestion={false}
           item={item}

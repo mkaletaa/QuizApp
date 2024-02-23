@@ -110,6 +110,7 @@ export default function Saved() {
               navigation.navigate('Quiz', {
                 catName: '__Saved__',
                 topArray: [],
+                itemsArray: savedItems,
                 howManyItems: savedItems.length,
                 shuffle: false,
               })
