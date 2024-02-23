@@ -133,7 +133,8 @@ export default function Saved() {
               style={[
                 {
                   backgroundColor: 'white',
-                  width: 250,
+                  width: '68%',
+                  // maxWidth: 400,
                   height: 80, //100
                   overflow: 'hidden',
                   alignItems: 'center',

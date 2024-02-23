@@ -1,8 +1,23 @@
 import { View, Text } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import useAsyncStorage from '../hooks/useAsyncStorage'
 
-export default function Stats({ onClose, catOrTop }) {
+export default function Stats({ onClose, catOrTop, key_: itemKey }) {
+  const { getValue } = useAsyncStorage()
+  const [stats, setStats] = useState<any>()
+  console.log("keyy: ", itemKey) //key jest undefined
+
+  useEffect(() => {
+    console.log("key: ", itemKey) //key jest undefined
+    getValue(itemKey).then(retrievedStats => {
+      if (retrievedStats !== undefined) {
+        setStats(retrievedStats)
+        console.log("🚀 ~ getValue ~ retrievedStats:", retrievedStats) //null
+      }
+    })
+  }, [])
+
   return (
     <View
       style={{
@@ -13,7 +28,7 @@ export default function Stats({ onClose, catOrTop }) {
         backgroundColor: 'white',
         borderRadius: 10,
         elevation: 3,
-        marginTop: 50
+        marginTop: 50,
       }}
     >
       <AntDesign
@@ -22,12 +37,16 @@ export default function Stats({ onClose, catOrTop }) {
         size={34}
         color="black"
       />
-      {catOrTop === 'cat' ? (
+      {stats ? (
         <React.Fragment>
           <Text>Ile topików:</Text>
           <Text>ile pytań:</Text>
-          <Text>dupa</Text>
-          <Text>dupa</Text>
+          <Text>ile odpowiedzainych {stats.answers}</Text>
+          <Text>ile odpowiedzainych dobzre {stats.correctAnswers}</Text>
+          <Text>ile odpowiedzainych źle {stats.incorrectAnswers}</Text>
+          <Text>ile odpowiedzainych prawie dobrze {stats.kindOfAnswers}</Text>
+          <Text>ile razy ukończony {stats.nrOfFinished}</Text>
+          <Text>kiedy ostatnio ukończony {stats.lastFinished}</Text>
         </React.Fragment>
       ) : null}
     </View>

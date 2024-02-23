@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderWidth: 1,
     borderColor: 'dimgrey',
-    width: 250,
+    width: '50%',
     minWidth: 250, //
   },
   buttonText: {

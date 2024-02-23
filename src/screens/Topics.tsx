@@ -119,11 +119,20 @@ export default function Topics({ route }) {
     console.log(value)
   }
 
+  const [pressedTopic, setPressedTopic] = useState<string>()
+  function handleLongPress(pressedTopicName: string) {
+    console.log("🚀 ~ handleLongPress ~ pressedTopicName:", pressedTopicName)
+    setPressedTopic(pressedTopicName)
+    setShowStats(true)
+  }
+  
+
+
   return (
     <View
-    style={{
-      alignItems: 'center',
-    }}
+      style={{
+        alignItems: 'center',
+      }}
     >
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         {topicsToShow.map(topic => (
@@ -133,12 +142,18 @@ export default function Topics({ route }) {
             data={topic}
             onCardPress={() => showQuiz([topic.name], categoryName)}
             showTheory={() => showTheory(topic.name, categoryName)}
-            onCardLongPress={() => setShowStats(true)}
+            onCardLongPress={() => handleLongPress(topic.name)}
           ></Card>
         ))}
       </ScrollView>
 
-      {showStats && <Stats onClose={() => setShowStats(false)} catOrTop={'top'} />}
+      {showStats && (
+        <Stats
+          key_={pressedTopic}
+          onClose={() => setShowStats(false)}
+          catOrTop={'top'}
+        />
+      )}
 
       <ModalComponent
         modalVisible={showModal}

@@ -18,7 +18,7 @@ const screenWidthDim = Dimensions.get('window').width
 const calculateCardSize = () => {
   //Adjust the size of the card based on the screen width
   const screenWidth = screenWidthDim
-  const cardWidth = screenWidth >= 600 ? screenWidth / 3 : screenWidth / 2.3
+  const cardWidth = screenWidth >= 600 ? screenWidth / 3.5 : screenWidth / 2.3
   const cardHeight = cardWidth * 1.2
 
   return { width: cardWidth, height: cardHeight }

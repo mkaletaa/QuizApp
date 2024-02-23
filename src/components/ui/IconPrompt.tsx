@@ -9,10 +9,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function IconPrompt({ item }: { item: Item }) {
   const [showPrompt, setShowPrompt] = useState(false)
-  const [showMessage, setShowMessage] = useState(false)
+  // const [showMessage, setShowMessage] = useState(false)
   const [saved, setSaved] = useState(false)
   const navigation = useNavigation()
-  const [message, setMessage] = useState<string>()
+  // const [message, setMessage] = useState<string>()
 
   // ...
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function IconPrompt({ item }: { item: Item }) {
 
       // setMessage('The question has been removed!')
     } catch (error) {
-      setMessage('Something went wrong while removing the question')
+      // setMessage('Something went wrong while removing the question')
       console.error('Error removing item:', error)
     }
   }
@@ -77,24 +77,28 @@ export default function IconPrompt({ item }: { item: Item }) {
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
       setSaved(true)
-      setMessage('The question has been saved!')
+      // setMessage('The question has been saved!')
     } catch (error) {
-      setMessage('Something went wrong')
+      // setMessage('Something went wrong')
     }
   }
 
-  useEffect(() => {
-    handleMessageFn()
-  }, [message])
+// useEffect(() => {
+//   handleMessageFn()
+//   console.log('handleFn')
+// }, [message])
 
-  function handleMessageFn() {
-    setShowMessage(true)
+// function handleMessageFn() {
+//   setTimeout(() => {
+//     setShowMessage(true)
 
-    setTimeout(() => {
-      setShowMessage(false)
-    }, 3000)
-    console.log('first')
-  }
+//     setTimeout(() => {
+//       setShowMessage(false)
+//     }, 3000)
+//   }, 100) // Dodane opóźnienie 100ms
+//   console.log('first')
+// }
+
 
   return (
     <View
@@ -173,7 +177,7 @@ export default function IconPrompt({ item }: { item: Item }) {
         </View>
       )}
 
-      {showMessage && (
+      {/*      {showMessage && (
         <View
           style={{
             position: 'absolute',
@@ -195,7 +199,7 @@ export default function IconPrompt({ item }: { item: Item }) {
             {message}
           </Text>
         </View>
-      )}
+      )}*/}
     </View>
   )
 }

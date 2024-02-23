@@ -17,6 +17,7 @@ import utilStyles from '../utils/styles'
 import ModalComponent from '../components/ModalComponent'
 import useQuizData from '../hooks/useQuizData'
 import Stats from '../components/Stats'
+import { AntDesign } from '@expo/vector-icons'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
@@ -33,7 +34,6 @@ export default function Categories() {
     else {
       setCategoriesToShow([...categories])
     }
-
   }, [])
 
   const goToTopics = catName => {
@@ -61,12 +61,19 @@ export default function Categories() {
       <Pressable
         onPress={instantQuestion}
         style={{
-          width: screenWidth,
-          backgroundColor: 'red',
+          width: screenWidth / 2.4,
+          backgroundColor: 'lightblue',
           alignItems: 'center',
+          elevation: 3,
+          borderRadius: 3,
+          height: 40,
+          justifyContent: 'center',
+          marginTop: 40,
+          marginRight: 15
+          // backgroundColor: 'blue'
         }}
       >
-        <Text style={{ fontSize: 30 }}>instant question</Text>
+        <Text style={{ fontSize: 15 }}>random question</Text>
       </Pressable>
 
       <Text style={{ fontSize: 30 }}> </Text>
@@ -74,12 +81,21 @@ export default function Categories() {
         //@ts-ignore
         onPress={() => navigation.navigate('Saved')}
         style={{
-          width: screenWidth,
-          backgroundColor: 'red',
+          width: screenWidth / 2.4,
+          backgroundColor: 'lightblue',
           alignItems: 'center',
+          elevation: 3,
+          borderRadius: 3,
+          // padding: 5,
+          height: 40,
+          flexDirection: 'row',
+          justifyContent: 'center',
+          gap: 10,
+          // backgroundColor: 'blue'
         }}
       >
-        <Text style={{ fontSize: 30 }}>saevd</Text>
+        <AntDesign name="star" size={24} color="black" />
+        <Text style={{ fontSize: 18 }}>saved</Text>
       </Pressable>
 
       {categories?.map(category => (
@@ -93,9 +109,10 @@ export default function Categories() {
       ))}
 
       {showStats && (
-        <Stats 
-        catOrTop={'cat'}
-        onClose={() => setShowStats(false)}
+        <Stats //todo: dokończyć
+          key_={'cat_1'}
+          catOrTop={'cat'}
+          onClose={() => setShowStats(false)}
         />
       )}
     </ScrollView>

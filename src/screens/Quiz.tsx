@@ -9,6 +9,7 @@ import Question from '../components/Question'
 import Line from '../components/ui/Line'
 import useQuizData from '../hooks/useQuizData'
 import { Item, Option, Result } from '../utils/types'
+import useAsyncStorage from '../hooks/useAsyncStorage'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -37,6 +38,7 @@ export default function Quiz({ route }) {
     importRandomItemAllItemsMode,
     importSavedItem,
   } = useQuizData()
+  const {storeStat, storeFinishedQuizStat} = useAsyncStorage()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
@@ -211,6 +213,9 @@ export default function Quiz({ route }) {
       chosenOptions
     )
 
+    storeStat(item.id, thisQuestionResult)
+    console.log("🚀 ~ setResults ~ item.id, thisQuestionResult:", item.id, thisQuestionResult)
+    
     let result: Result
     if (allItemsCount !== Infinity) {
       result = {

@@ -26,11 +26,11 @@
   {
     "id": "cat_2|top_22|2",
     "multiChoice": true,
-    "question": "papieź",
+    "question": "1",
     "options": [
-      { "id": 11, "answer": "pedał", "correct": true },
-      { "id": 21, "answer": "dzieci", "correct": true },
-      { "id": 31, "answer": "jebał", "correct": true }
+      { "id": 11, "answer": "2", "correct": true },
+      { "id": 21, "answer": "3", "correct": true },
+      { "id": 31, "answer": "4", "correct": true }
     ],
     "explanation": "CRA is outdated"
   },

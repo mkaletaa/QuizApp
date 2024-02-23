@@ -114,8 +114,8 @@ const styles = StyleSheet.create({
   },
   closeContainer: {
     position: 'absolute',
-    top: 20,
-    right: 20,
+    top: 50,
+    right: 25,
     zIndex: 1, // Aby przycisk był na wierzchu
   },
   close: {
