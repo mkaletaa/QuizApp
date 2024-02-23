@@ -45,7 +45,7 @@ export default function Quiz({ route }) {
 
   useEffect(() => {
     setAllItemsCount(howManyItems)
-    console.log("🚀 ~ Quiz ~ itemsArray:", itemsArray)
+    console.log('🚀 ~ Quiz ~ itemsArray:', itemsArray)
     // if (itemsArray) {
     //   setItemsToShow(itemsArray)
     // }
@@ -75,7 +75,7 @@ export default function Quiz({ route }) {
     if (catName === '__Saved__') {
       // item = importItemById(itemsArray[0])
       // console.log("🚀 ~ getNextItem ~ itemsArray.shift():", itemsArray.shift())
-      setItem(itemsArray.shift())
+      setItem(itemsArray[whichObject.whichItem])
       // return
       setShowResultModal(false)
       setChosenOptions([])
@@ -111,19 +111,22 @@ export default function Quiz({ route }) {
     }
 
     if (catName === '__Saved__') {
-      
-      if (itemsArray.length === 0) {
+      if (whichObject.whichItem === allItemsCount-1) {
         //redundancja
         // return
         setItem(null)
         setTimeout(() => {
           setShowGeneralResults(true)
         }, 0)
-        
+
         setShowResultModal(false)
         return
       }
-      getNextItem()
+
+      setWhichObject(prev => ({
+        whichTopic: 0,
+        whichItem: prev.whichItem + 1,
+      }))
 
       return
     }
