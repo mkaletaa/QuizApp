@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { removeUnderscores } from '../utils/functions'
 import {
   Image,
@@ -9,6 +9,7 @@ import {
   View,
   useWindowDimensions,
   Dimensions,
+  Modal,
 } from 'react-native'
 import useQuizData from '../hooks/useQuizData'
 
@@ -29,25 +30,30 @@ export default function Card({
   data,
   catOrTop, //does this card represent topic or category
   onCardPress,
-  showTheory=null
+  onCardLongPress,
+  showTheory = null,
 }) {
   const handlePress = () => {
     if (data.name.endsWith('__All__')) {
-      catOrTop==='top' ? onCardPress() : onCardPress(data.name)
+      catOrTop === 'top' ? onCardPress() : onCardPress(data.name)
     } else {
       catOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
     }
   }
 
+
+
   return (
     <Pressable
       onPress={handlePress}
-      onLongPress={() => console.log('Press')}
+      onLongPress={() => onCardLongPress()}
       //   style={({ pressed }) => [
       //     styles.cardPressable,
       //     pressed && styles.cardPressablePressed,
       //   ]}
     >
+
+
       <View style={[styles.cardContainer, cardSize]} key={data.name}>
         <Image
           style={[

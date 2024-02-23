@@ -8,30 +8,37 @@ import {
   StyleSheet,
   Text,
   Dimensions,
+  View,
+  Modal,
 } from 'react-native'
 import { categories } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'
 import ModalComponent from '../components/ModalComponent'
 import useQuizData from '../hooks/useQuizData'
+import Stats from '../components/Stats'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
   const navigation = useNavigation()
-  const [showModal, setShowModal] = useState(false)
+  const [showStats, setShowStats] = useState(false)
   const [chosencategories, setChosencategories] = useState([])
   const { getAllTopics, getTopicsForCategory } = useQuizData()
 
   useEffect(() => {
+    setShowStats(false)
     if (categories.length === 1)
       // @ts-ignore
       navigation.navigate('Topics', { categoryName: categories[0].name })
     else {
       setCategoriesToShow([...categories])
     }
+
   }, [])
 
   const goToTopics = catName => {
+    setShowStats(false)
+
     // @ts-ignore
     navigation.navigate('Topics', { categoryName: catName })
   }
@@ -45,6 +52,7 @@ export default function Categories() {
       howManyItems: Infinity,
       shuffle: true,
     })
+    setShowStats(false)
     return
   }
   return (
@@ -61,9 +69,9 @@ export default function Categories() {
         <Text style={{ fontSize: 30 }}>instant question</Text>
       </Pressable>
 
-      <Text style={{ fontSize: 30 }}>{' '}</Text>
+      <Text style={{ fontSize: 30 }}> </Text>
       <Pressable
-      //@ts-ignore
+        //@ts-ignore
         onPress={() => navigation.navigate('Saved')}
         style={{
           width: screenWidth,
@@ -80,8 +88,16 @@ export default function Categories() {
           key={category.name}
           data={category}
           onCardPress={goToTopics}
+          onCardLongPress={() => setShowStats(true)}
         />
       ))}
+
+      {showStats && (
+        <Stats 
+        catOrTop={'cat'}
+        onClose={() => setShowStats(false)}
+        />
+      )}
     </ScrollView>
   )
 }

@@ -101,9 +101,9 @@ const useQuizData = () => {
 
           setItemsArray(itemsH)
 
-          console.log("🚀 ~ fetchSavedItems ~ itemsH:", itemsH[0])
           // Dodaj warunek sprawdzający, czy istnieją elementy przed zwróceniem
           if (itemsH.length > 0) {
+            console.log("🚀 ~ fetchSavedItems ~ itemsH kurwaa:", itemsH[0])
             return itemsH[0]
           }
         }

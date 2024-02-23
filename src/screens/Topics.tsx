@@ -6,6 +6,7 @@ import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
 import useQuizData from '../hooks/useQuizData'
 import utilStyles from '../utils/styles'
+import Stats from '../components/Stats'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -16,6 +17,7 @@ export default function Topics({ route }) {
   // const { countItemsInTopic } = useQuizData()
   const [howManyItems, setHowManyItems] = useState<number | null>(null)
   const navigation = useNavigation()
+  const [showStats, setShowStats] = useState(false)
 
   const {
     importItem,
@@ -118,7 +120,11 @@ export default function Topics({ route }) {
   }
 
   return (
-    <View>
+    <View
+    style={{
+      alignItems: 'center',
+    }}
+    >
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         {topicsToShow.map(topic => (
           <Card
@@ -127,9 +133,12 @@ export default function Topics({ route }) {
             data={topic}
             onCardPress={() => showQuiz([topic.name], categoryName)}
             showTheory={() => showTheory(topic.name, categoryName)}
+            onCardLongPress={() => setShowStats(true)}
           ></Card>
         ))}
       </ScrollView>
+
+      {showStats && <Stats onClose={() => setShowStats(false)} catOrTop={'top'} />}
 
       <ModalComponent
         modalVisible={showModal}

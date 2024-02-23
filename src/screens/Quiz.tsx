@@ -67,7 +67,11 @@ export default function Quiz({ route }) {
 
     if (catName === '__Saved__') {
       item = await importSavedItem()
-      console.log("🚀 ~ getNextItem ~ item1:", item)
+      let item2 = item
+      console.log("🚀 ~ getNextItem ~ item1 kurwaa:", item)
+          setItem(item2)
+          setShowResultModal(false)
+          setChosenOptions([])
     }
 
     if (catName === '__All__') {
