@@ -21,13 +21,12 @@ export default function Quiz({ route }) {
   const itemsArray: Array<Item> = route.params.itemsArray
   const howManyItems: number = route.params.howManyItems
   const shuffle: boolean = route.params.shuffle
-  // const allItemsMode: boolean = route.params.allItemsMode
   const [item, setItem] = useState<Item>()
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
-  const [allItemsCount, setAllItemsCount] = useState(0)
+  const [allItemsCount, setAllItemsCount] = useState<number>(howManyItems)
   // const [itemsToShow, setItemsToShow] = useState<Item[]>()
 
   const {
@@ -36,18 +35,10 @@ export default function Quiz({ route }) {
     importRandomItem,
     importRandomItemAllItemsMode,
   } = useQuizData()
+
   const { storeStat, storeFinishedQuizStat } = useAsyncStorage()
 
   const [whichItem, setWhichItem] = useState(0)
-  // const [whichObject, setWhichObject] = useState({
-  //   whichItem: 0,
-  //   whichTopic: 0,
-  // })
-
-  useEffect(() => {
-    setAllItemsCount(howManyItems)
-
-  }, [])
 
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
@@ -57,20 +48,22 @@ export default function Quiz({ route }) {
 
   function getNextItem() {
     let item: Item
-
     if (catName === '__Saved__') {
       //* tu jeszcze sprawdzenie czy infinityMode
-     
+      
       setItem(itemsArray[whichItem])
       // return
       setShowResultModal(false)
       setChosenOptions([])
       return
     }
+    console.log('getNextItem')
+    console.log("🚀 ~ getNextItem ~ allItemsCount:", allItemsCount)
 
     if (allItemsCount === Infinity) {
-      item = importRandomItemAllItemsMode()
-    } else if (shuffle) item = importRandomItem(catName, [topName])
+      item = importRandomItemAllItemsMode(catName)
+   
+    } else if (shuffle) item = importRandomItem(catName, topName)
     else
       item = importItem(
         catName,
@@ -83,9 +76,6 @@ export default function Quiz({ route }) {
     setChosenOptions([])
   }
 
-  // useEffect(() => {
-  //   console.log('🚀 ~ Quiz ~ item:', item) //undefined
-  // }, [item])
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
@@ -99,7 +89,6 @@ export default function Quiz({ route }) {
       //tutaj sprawdzić czy Infinity
       if (whichItem === allItemsCount - 1) {
         //redundancja
-        // return
         setItem(null)
         setTimeout(() => {
           setShowGeneralResults(true)

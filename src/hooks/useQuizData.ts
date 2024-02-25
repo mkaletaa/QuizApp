@@ -32,19 +32,19 @@ const useQuizData = () => {
 
   const [itemsArray, setItemsArray] = useState([])
   // [{ name: 'nazwa topica', nr, 1 }]
-  function importRandomItem(catName: string, topArray: string[]) {
+  function importRandomItem(catName: string, topName: string) {
     let itemsH = [] //pojemnik na obiekty {name, items}
     let randomItem: Item
 
     if (itemsArray.length === 0) {
       //jeśli itemsMatric jest puste, zapełnij je
-      for (let i = 0; i < topArray.length; i++) {
-        let itemsArray: Array<Item> = quiz[catName][topArray[i]]
+      // for (let i = 0; i < topArray.length; i++) {
+        let itemsArray: Array<Item> = quiz[catName][topName]
 
         for (let j = 0; j < itemsArray.length; j++) {
-          itemsH.push({ topName: topArray[i], nr: j })
+          itemsH.push({ topName, nr: j })
         }
-      }
+      // }
       setItemsArray(itemsH)
       return returnItem(itemsH)
     }
@@ -68,9 +68,17 @@ const useQuizData = () => {
     return randomItem
   }
 
-  function importRandomItemAllItemsMode(): Item {
-    let catNr: number = Math.floor(Math.random() * categories.length)
-    let catName: string = categories[catNr].name
+  function importRandomItemAllItemsMode(categoryName: string): Item {
+    let catNr: number
+    let catName: string
+
+    if (categoryName === '__All__') {
+      catNr = Math.floor(Math.random() * categories.length)
+      catName = categories[catNr].name
+    } else
+      catName = categoryName
+    
+
     let topNr: number = Math.floor(Math.random() * topics[catName].length) //można tez użyc funkcji countTopics
     let topName: string = topics[catName][topNr].name
     let itemNr: number = Math.floor(

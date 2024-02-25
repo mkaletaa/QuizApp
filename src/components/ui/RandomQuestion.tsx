@@ -2,14 +2,14 @@ import { Dimensions, Pressable, Text } from "react-native";
 import { useNavigation } from '@react-navigation/native'
 
 
-export default function RandomQuestion(){
+export default function RandomQuestion({catName}){
   const navigation = useNavigation()
 
       const screenWidth = Dimensions.get('window').width
       function instantQuestion() {
         //@ts-ignore
         navigation.navigate('Quiz', {
-          catName: '__All__',
+          catName: catName,
           topName: '',
           howManyItems: Infinity,
           shuffle: true,
@@ -33,6 +33,8 @@ export default function RandomQuestion(){
           marginRight: 15,
           position: 'absolute',
           zIndex: 2,
+        //   borderColor: 'orange',
+        //   borderWidth: 1,
           // backgroundColor: 'blue'
         }}
       >
