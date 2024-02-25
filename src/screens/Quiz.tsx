@@ -17,7 +17,7 @@ export default function Quiz({ route }) {
   const [showModal, setShowModal] = useState(false)
   const navigation = useNavigation()
   const catName: string = route.params.catName
-  const topArray: Array<string> = route.params.topArray
+  const topName: string = route.params.topName
   const itemsArray: Array<Item> = route.params.itemsArray
   const howManyItems: number = route.params.howManyItems
   const shuffle: boolean = route.params.shuffle
@@ -32,52 +32,36 @@ export default function Quiz({ route }) {
 
   const {
     importItem,
-    importItemById,
     countItemsInTopics,
     importRandomItem,
     importRandomItemAllItemsMode,
-    // importSavedItem,
   } = useQuizData()
   const { storeStat, storeFinishedQuizStat } = useAsyncStorage()
 
-  const [whichObject, setWhichObject] = useState({
-    whichItem: 0,
-    whichTopic: 0,
-  })
+  const [whichItem, setWhichItem] = useState(0)
+  // const [whichObject, setWhichObject] = useState({
+  //   whichItem: 0,
+  //   whichTopic: 0,
+  // })
 
   useEffect(() => {
     setAllItemsCount(howManyItems)
-    console.log('🚀 ~ Quiz ~ itemsArray:', itemsArray)
-    // if (itemsArray) {
-    //   setItemsToShow(itemsArray)
-    // }
-    // console.log("🚀 ~ Quiz ~ catName:", catName)
-    // console.log("🚀 ~ Quiz ~ topArray:", topArray)
-    // console.log("🚀 ~ Quiz ~ howManyItems:", howManyItems)
-    // console.log("🚀 ~ Quiz ~ shuffle:", shuffle)
-    // // Kod do wykonania podczas unmountingu
-    // return () => {
-    //   console.log('Component is unmounting...')
-    //   setAllItemsCount(0)
-    //       setResultsArray([])
-    //       setItem(null)
-    //       setChosenOptions(null)
-    //     }
+
   }, [])
 
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
   useEffect(() => {
     getNextItem()
-  }, [whichObject])
+  }, [whichItem])
 
   function getNextItem() {
     let item: Item
 
     if (catName === '__Saved__') {
-      // item = importItemById(itemsArray[0])
-      // console.log("🚀 ~ getNextItem ~ itemsArray.shift():", itemsArray.shift())
-      setItem(itemsArray[whichObject.whichItem])
+      //* tu jeszcze sprawdzenie czy infinityMode
+     
+      setItem(itemsArray[whichItem])
       // return
       setShowResultModal(false)
       setChosenOptions([])
@@ -86,31 +70,34 @@ export default function Quiz({ route }) {
 
     if (allItemsCount === Infinity) {
       item = importRandomItemAllItemsMode()
-    } else if (shuffle) item = importRandomItem(catName, topArray)
+    } else if (shuffle) item = importRandomItem(catName, [topName])
     else
       item = importItem(
         catName,
-        topArray[whichObject.whichTopic],
-        whichObject.whichItem
+        topName,
+        whichItem
       )
 
-    console.log('🚀 ~ getNextItem ~ item2:', item) //not undefined
     setItem(item)
     setShowResultModal(false)
     setChosenOptions([])
   }
 
-  useEffect(() => {
-    console.log('🚀 ~ Quiz ~ item:', item) //undefined
-  }, [item])
+  // useEffect(() => {
+  //   console.log('🚀 ~ Quiz ~ item:', item) //undefined
+  // }, [item])
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
     // if allItemsMode
+    if (allItemsCount === Infinity) {
+      getNextItem()
+      return
+    }
 
     if (catName === '__Saved__') {
       //tutaj sprawdzić czy Infinity
-      if (whichObject.whichItem === allItemsCount - 1) {
+      if (whichItem === allItemsCount - 1) {
         //redundancja
         // return
         setItem(null)
@@ -122,18 +109,12 @@ export default function Quiz({ route }) {
         return
       }
 
-      setWhichObject(prev => ({
-        whichTopic: 0,
-        whichItem: prev.whichItem + 1,
-      }))
+      setWhichItem(prev => prev+1)
 
       return
     }
 
-    if (allItemsCount === Infinity) {
-      getNextItem()
-      return
-    }
+
 
     if (resultsArray.length === allItemsCount) {
       setItem(null)
@@ -146,39 +127,29 @@ export default function Quiz({ route }) {
     }
 
     let topicItemsNr = countItemsInTopics(
-      [topArray[whichObject.whichTopic]],
+      topName,
       catName
     )
 
     //jeśli liczba itemów w topicu dobiegła końca
     if (
-      whichObject.whichItem === topicItemsNr - 1 &&
-      allItemsCount !== Infinity
+      whichItem === topicItemsNr - 1 &&
+      allItemsCount !== Infinity //tego w zasadzie nie musze pisać
     ) {
-      //jeśli iliczba topików w kategorii dobiegła końca
-      if (whichObject.whichTopic === topArray.length - 1) {
+
         setItem(null)
         setTimeout(() => {
           setShowGeneralResults(true)
         }, 0)
 
         setShowResultModal(false)
-      }
-      //jeśli iliczba topików w kategorii nie dobiegła końca
-      else
-        setWhichObject(prev => ({
-          whichTopic: prev.whichTopic + 1,
-          whichItem: 0,
-        }))
 
       return
     }
 
+    setWhichItem(prev=>prev+1)
     // return
-    setWhichObject(prev => ({
-      ...prev,
-      whichItem: prev.whichItem + 1,
-    }))
+
   }
 
   function closeModalAndGoBack(): void {

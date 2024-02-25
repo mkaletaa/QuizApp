@@ -10,7 +10,7 @@ export default function RandomQuestion(){
         //@ts-ignore
         navigation.navigate('Quiz', {
           catName: '__All__',
-          topArray: [],
+          topName: '',
           howManyItems: Infinity,
           shuffle: true,
         })

@@ -92,9 +92,9 @@ export default function Topics({ route }) {
 
     //@ts-ignore
     navigation.navigate('Quiz', {
-      topArray: [topicName],
+      topName: topicName,
       catName: categoryName,
-      howManyItems: countItemsInTopics([topicName], categoryName),
+      howManyItems: countItemsInTopics(topicName, categoryName),
       shuffle: false,
     })
 

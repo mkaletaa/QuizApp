@@ -74,7 +74,7 @@ const useQuizData = () => {
     let topNr: number = Math.floor(Math.random() * topics[catName].length) //można tez użyc funkcji countTopics
     let topName: string = topics[catName][topNr].name
     let itemNr: number = Math.floor(
-      Math.random() * countItemsInTopics([topName], catName)
+      Math.random() * countItemsInTopics(topName, catName)
     )
     let item: Item = quiz[catName][topName][itemNr]
     return item
@@ -124,17 +124,9 @@ const useQuizData = () => {
   //   }
   // }
 
-  function countItemsInTopics(topArray: string[], catName: string): number {
-    // console.log('🚀 ~ countItems ~ catName:', catName)
-    let itemsCount = 0
-
-    for (let j = 0; j < topArray.length; j++) {
-      let itemsArray: Array<Item> = quiz[catName][topArray[j]]
-      // console.log('🚀 ~ countItems ~ itemsArray:', itemsArray)
-      itemsCount += itemsArray.length
-    }
-
-    return itemsCount
+  function countItemsInTopics(topName: string, catName: string): number {
+    let itemsArray: Array<Item> = quiz[catName][topName]
+    return itemsArray.length
   }
 
   function countTopics(catName): number {
