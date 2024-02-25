@@ -1,17 +1,16 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import YoutubePlayer from 'react-native-youtube-iframe'
-import {LinearGradient} from 'expo-linear-gradient'
+import { LinearGradient } from 'expo-linear-gradient'
 
-export default function Options() {
+export default function Settings() {
   return (
     // <View style={styles.container}>
-      <LinearGradient
-        // Button Linear Gradient
-        colors={['transparent', '#3b5998', 'transparent']}
-        style={{width: 50, height: 50}}
-      >
-      </LinearGradient>
+    <LinearGradient
+      // Button Linear Gradient
+      colors={['transparent', '#3b5998', 'transparent']}
+      style={{ width: 50, height: 50 }}
+    ></LinearGradient>
     // </View>
   )
 }

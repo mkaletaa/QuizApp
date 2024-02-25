@@ -15,7 +15,7 @@ import RandomQuestion from '../components/ui/RandomQuestion'
 export default function Categories() {
   // const [categoriesToShow, setCategoriesToShow] = useState([])
   const navigation = useNavigation()
-  const [showStats, setShowStats] = useState(false)
+  // const [showStats, setShowStats] = useState(false)
   // const [chosencategories, setChosencategories] = useState([])
 
   // useEffect(() => {
@@ -29,7 +29,7 @@ export default function Categories() {
   // }, [])
 
   const goToTopics = catName => {
-    setShowStats(false)
+    // setShowStats(false)
 
     // @ts-ignore
     navigation.navigate('Topics', { categoryName: catName })
@@ -52,17 +52,17 @@ export default function Categories() {
             key={category.name}
             data={category}
             onCardPress={goToTopics}
-            onCardLongPress={() => setShowStats(true)}
+            onCardLongPress={() => {}}
           />
         ))}
 
-        {showStats && (
+        {/* {showStats && (
           <Stats //todo: dokończyć
             key_={'cat_1'}
             catOrTop={'cat'}
             onClose={() => setShowStats(false)}
           />
-        )}
+        )} */}
       </ScrollView>
     </View>
   )

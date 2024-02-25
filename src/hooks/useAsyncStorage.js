@@ -42,41 +42,44 @@ export default function useAsyncStorage() {
     }
   }
 
-// import AsyncStorage from '@react-native-async-storage/async-storage'
+  // import AsyncStorage from '@react-native-async-storage/async-storage'
 
-async function storeFinishedQuizStat(topicName, catName, resultsArray) {
-  try {
-    let nrOfCorrect = 0
-    for (const result of resultsArray) {
-      if (result.isCorrect === 'correct') nrOfCorrect++
+  async function storeFinishedQuizStat(topicName, resultsArray) {
+    try {
+      let nrOfCorrect = 0
+      for (const result of resultsArray) {
+        if (result.isCorrect === 'correct') nrOfCorrect++
+      }
+
+      const existingTopicStat = await AsyncStorage.getItem(topicName)
+
+      let savedTopicStat = {}
+
+      if (existingTopicStat) savedTopicStat = JSON.parse(existingTopicStat)
+
+      // Utwórz właściwość, jeśli nie istnieje
+      savedTopicStat.nrOfFinished = (savedTopicStat.nrOfFinished || 0) + 1
+      savedTopicStat.lastFinished = Date.now()
+
+      // Sprawdź i utwórz właściwość, jeśli nie istnieje
+      if (nrOfCorrect === resultsArray.length)
+        savedTopicStat.allCorrect = (savedTopicStat.allCorrect || 0) + 1
+
+      // Sprawdź i utwórz właściwość, jeśli nie istnieje
+      if (
+        savedTopicStat.bestResult < (nrOfCorrect / resultsArray.length) * 100 ||
+        !savedTopicStat.bestResult
+      )
+        savedTopicStat.bestResult = (nrOfCorrect / resultsArray.length) * 100
+
+      console.log('🚀 ~ useAsyncStorage ~ savedTopicStat:', savedTopicStat)
+      //zapisz jeszcze kiedy ostatnio kiedy ostatnio zrobiono quiz w ogóle i może kiedy ostatnio zrobiono tę kategorię
+
+      await AsyncStorage.setItem(topicName, JSON.stringify(savedTopicStat))
+    } catch (error) {
+      console.error('Could not store finished stat:', error)
     }
-
-    const existingTopicStat = await AsyncStorage.getItem(topicName)
-
-    let savedTopicStat = {}
-
-    if (existingTopicStat) savedTopicStat = JSON.parse(existingTopicStat)
-
-    // Utwórz właściwość, jeśli nie istnieje
-    savedTopicStat.nrOfFinished = (savedTopicStat.nrOfFinished || 0) + 1
-    savedTopicStat.lastFinished = Date.now()
-
-    // Sprawdź i utwórz właściwość, jeśli nie istnieje
-    if (nrOfCorrect === resultsArray.length)
-      savedTopicStat.allCorrect = (savedTopicStat.allCorrect || 0) + 1
-
-    // Sprawdź i utwórz właściwość, jeśli nie istnieje
-    if (savedTopicStat.bestResult < (nrOfCorrect / resultsArray.length) * 100)
-      savedTopicStat.bestResult = (nrOfCorrect / resultsArray.length) * 100
-
-    console.log('🚀 ~ useAsyncStorage ~ savedTopicStat:', savedTopicStat)
-
-    await AsyncStorage.setItem(topicName, JSON.stringify(savedTopicStat))
-  } catch (error) {
-    console.error('Could not store finished stat:', error)
   }
-}
-
 
   async function getValue(key) {
     try {

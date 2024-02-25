@@ -37,18 +37,20 @@ export default function Stats({ onClose, catOrTop, key_: itemKey }) {
         size={34}
         color="black"
       />
-      {stats ? (
-        <React.Fragment>
+
+       {stats && <React.Fragment>
           <Text>Ile topików:</Text>
           <Text>ile pytań:</Text>
-          <Text>ile odpowiedzainych {stats.answers}</Text>
+          {/* <Text>ile odpowiedzainych {stats.answers}</Text>
           <Text>ile odpowiedzainych dobzre {stats.correctAnswers}</Text>
           <Text>ile odpowiedzainych źle {stats.incorrectAnswers}</Text>
-          <Text>ile odpowiedzainych prawie dobrze {stats.kindOfAnswers}</Text>
+          <Text>ile odpowiedzainych prawie dobrze {stats.kindOfAnswers}</Text> */}
           <Text>ile razy ukończony {stats.nrOfFinished}</Text>
           <Text>kiedy ostatnio ukończony {stats.lastFinished}</Text>
-        </React.Fragment>
-      ) : null}
+          <Text>ile razy ukończony na fulla {stats.allCorrect}</Text>
+          <Text>najlepszy wynik {stats.bestResult}</Text>
+        </React.Fragment>}
+ 
     </View>
   )
 }

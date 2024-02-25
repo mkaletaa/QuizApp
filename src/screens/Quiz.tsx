@@ -106,7 +106,7 @@ export default function Quiz({ route }) {
 
 
     if (resultsArray.length === allItemsCount) {
-      storeFinishedQuizStat(topName, catName, resultsArray)
+      storeFinishedQuizStat(topName, resultsArray)
       setItem(null)
       setTimeout(() => {
         setShowGeneralResults(true)

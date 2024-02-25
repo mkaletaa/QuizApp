@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 import Categories from './screens/Categories'
-import Options from './screens/Options'
+import Settings from './screens/Settings'
 // import Quiz from './screens/Quiz'
 import Quiz2 from './screens/Quiz'
 // import Summary from './screens/Summary'
@@ -35,8 +35,8 @@ const MyStack = () => {
         }}
       >
         {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
-        <View style={{ flexDirection: 'row',  gap: 1}}>
-          <Text style={{fontSize: 18, marginTop: -2}}>10</Text>
+        <View style={{ flexDirection: 'row', gap: 1 }}>
+          <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
           <Octicons name="flame" size={26} color="orange" />
         </View>
         {/* <AntDesign name="star" size={28} color="black" /> */}
@@ -119,7 +119,7 @@ const MyStack = () => {
           headerTitleStyle: {
             // color: 'darkblue',
             fontSize: 18,
-            marginLeft: -20
+            marginLeft: -20,
             // fontWeight: 'bold',
           },
         })}
@@ -136,7 +136,7 @@ const MyStack = () => {
         })}
       /> */}
 
-      <Stack.Screen name="Options" component={Options} />
+      <Stack.Screen name="Options" component={Settings} />
     </Stack.Navigator>
   )
 }
