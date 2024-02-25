@@ -40,7 +40,7 @@ export default function Topics({ route }) {
     categoryName: string
     // howManyItems: number | null = null
   ): void => {
-    //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray
+    //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
     //@ts-ignore
     navigation.navigate('Quiz', {
       topName: topicName,

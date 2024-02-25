@@ -20,6 +20,7 @@ import { useNavigation } from '@react-navigation/native'
 //todo: util styles, refresh on scrollup, message if empty, loader if loading
 export default function Saved() {
   const [savedItems, setSavedItems] = useState([])
+  const [isPending, setIsPending] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
   const { importItemById } = useQuizData()
@@ -46,6 +47,7 @@ export default function Saved() {
 
           setSavedItems(itemsH)
         }
+        setIsPending(false)
       } catch (error) {
         console.error('Błąd podczas pobierania danych z AsyncStorage:', error)
       }
@@ -88,23 +90,22 @@ export default function Saved() {
         />
       </Modal>
 
-      <ScrollView
-        contentContainerStyle={{
-          paddingBottom: 40,
-          // height: '100%',
-        }}
-      >
-        <View style={{}}>
-          <Text>saved</Text>
-          <Text>saved</Text>
-          <Text>saved</Text>
-          <Text>saved</Text>
-          <Text>saved</Text>
-          <Text>saved</Text>
-          <Text>saved</Text>
-
-          <Button
-            title="take a quiz"
+      {savedItems.length > 0 ? (
+        <ScrollView
+          contentContainerStyle={{
+            paddingBottom: 40,
+            paddingTop: 20,
+            // height: '100%',
+          }}
+        >
+          <Pressable
+            style={{
+              backgroundColor: 'rgb(0, 150, 255)',
+              width: 100,
+              padding: 10,
+              elevation: 5,
+              borderRadius: 3,
+            }}
             onPress={() => {
               //@ts-ignore
               navigation.navigate('Quiz', {
@@ -115,54 +116,60 @@ export default function Saved() {
                 shuffle: false,
               })
             }}
-          />
+          >
+            <Text>TAKE A QUIZ</Text>
+          </Pressable>
 
           <Switch onValueChange={toggleSwitch} value={isEnabled} />
-        </View>
-        {savedItems.map((item, index) => (
-          <Pressable
-            style={{
-              // backgroundColor: 'red',
-              alignItems: 'center',
-            }}
-            onPress={() => {
-              seeFullQuestion(item)
-            }}
-          >
-            <View
-              style={[
-                {
-                  backgroundColor: 'white',
-                  width: '68%',
-                  // maxWidth: 400,
-                  height: 80, //100
-                  overflow: 'hidden',
-                  alignItems: 'center',
-                  marginTop: 16,
-
-                  borderRadius: 10,
-                  elevation: 3,
-                },
-              ]}
+          {/* <View style={{}}></View> */}
+          {savedItems.map((item, index) => (
+            <Pressable
+              style={{
+                // backgroundColor: 'red',
+                alignItems: 'center',
+              }}
+              onPress={() => {
+                seeFullQuestion(item)
+              }}
             >
-              {/* <Text>{index}</Text> */}
+              <View
+                style={[
+                  {
+                    backgroundColor: 'white',
+                    width: '68%',
+                    // maxWidth: 400,
+                    height: 80, //100
+                    overflow: 'hidden',
+                    alignItems: 'center',
+                    marginTop: 16,
 
-              <Question question={item.question} />
+                    borderRadius: 10,
+                    elevation: 3,
+                  },
+                ]}
+              >
+                <Question question={item.question} />
 
-              <LinearGradient
-                // Button Linear Gradient
-                colors={['transparent', 'white']}
-                style={{
-                  width: '100%',
-                  height: 50,
-                  position: 'absolute',
-                  bottom: 0,
-                }}
-              ></LinearGradient>
-            </View>
-          </Pressable>
-        ))}
-      </ScrollView>
+                <LinearGradient
+                  // Button Linear Gradient
+                  colors={['transparent', 'white']}
+                  style={{
+                    width: '100%',
+                    height: 50,
+                    position: 'absolute',
+                    bottom: 0,
+                  }}
+                ></LinearGradient>
+              </View>
+            </Pressable>
+          ))}
+        </ScrollView>
+      ) : (
+
+        <View>
+          {isPending ? <Text>Pobieranie</Text> : <Text>nie zapisano jeszcze żadnego pytania</Text>}
+        </View>
+      )}
     </View>
   )
 }

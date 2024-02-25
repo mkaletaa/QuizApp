@@ -35,8 +35,8 @@ const MyStack = () => {
         }}
       >
         {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
-        <View style={{ flexDirection: 'row',  gap: 3}}>
-          <Text style={{fontSize: 18, marginTop: -2}}>500</Text>
+        <View style={{ flexDirection: 'row',  gap: 1}}>
+          <Text style={{fontSize: 18, marginTop: -2}}>10</Text>
           <Octicons name="flame" size={26} color="orange" />
         </View>
         {/* <AntDesign name="star" size={28} color="black" /> */}
