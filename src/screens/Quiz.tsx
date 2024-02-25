@@ -36,9 +36,9 @@ export default function Quiz({ route }) {
     countItemsInTopics,
     importRandomItem,
     importRandomItemAllItemsMode,
-    importSavedItem,
+    // importSavedItem,
   } = useQuizData()
-  const {storeStat, storeFinishedQuizStat} = useAsyncStorage()
+  const { storeStat, storeFinishedQuizStat } = useAsyncStorage()
 
   const [whichObject, setWhichObject] = useState({
     whichItem: 0,
@@ -84,7 +84,7 @@ export default function Quiz({ route }) {
       return
     }
 
-    if (catName === '__All__') {
+    if (allItemsCount === Infinity) {
       item = importRandomItemAllItemsMode()
     } else if (shuffle) item = importRandomItem(catName, topArray)
     else
@@ -107,13 +107,10 @@ export default function Quiz({ route }) {
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
     // if allItemsMode
-    if (catName === '__All__') {
-      getNextItem()
-      return
-    }
 
     if (catName === '__Saved__') {
-      if (whichObject.whichItem === allItemsCount-1) {
+      //tutaj sprawdzić czy Infinity
+      if (whichObject.whichItem === allItemsCount - 1) {
         //redundancja
         // return
         setItem(null)
@@ -130,6 +127,11 @@ export default function Quiz({ route }) {
         whichItem: prev.whichItem + 1,
       }))
 
+      return
+    }
+
+    if (allItemsCount === Infinity) {
+      getNextItem()
       return
     }
 
@@ -214,8 +216,12 @@ export default function Quiz({ route }) {
     )
 
     storeStat(item.id, thisQuestionResult)
-    console.log("🚀 ~ setResults ~ item.id, thisQuestionResult:", item.id, thisQuestionResult)
-    
+    console.log(
+      '🚀 ~ setResults ~ item.id, thisQuestionResult:',
+      item.id,
+      thisQuestionResult
+    )
+
     let result: Result
     if (allItemsCount !== Infinity) {
       result = {

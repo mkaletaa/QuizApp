@@ -14,7 +14,7 @@ import {
 import { categories } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'
-import ModalComponent from '../components/ModalComponent'
+// import ModalComponent from '../components/ModalComponent'
 import useQuizData from '../hooks/useQuizData'
 import Stats from '../components/Stats'
 import { AntDesign } from '@expo/vector-icons'
@@ -51,10 +51,9 @@ export default function Categories() {
         alignItems: 'center',
       }}
     >
-        <RandomQuestion />
+      <RandomQuestion />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         <StatusBar style="auto" />
-
 
         {categories?.map(category => (
           <Card

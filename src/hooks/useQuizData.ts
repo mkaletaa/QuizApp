@@ -80,49 +80,49 @@ const useQuizData = () => {
     return item
   }
 
-  function importSavedItem(): Item {
-    //retrieve items
-    //setItemsArray()
-    //zwróc itema i usuń go z itemsArray
-    const fetchSavedItems = async () => {
-      try {
-        const jsonValue = await AsyncStorage.getItem('savedItems')
-        if (jsonValue !== null) {
-          const parsedItems = JSON.parse(jsonValue)
-          let itemsH = []
+  // function importSavedItem(): Item {
+  //   //retrieve items
+  //   //setItemsArray()
+  //   //zwróc itema i usuń go z itemsArray
+  //   const fetchSavedItems = async () => {
+  //     try {
+  //       const jsonValue = await AsyncStorage.getItem('savedItems')
+  //       if (jsonValue !== null) {
+  //         const parsedItems = JSON.parse(jsonValue)
+  //         let itemsH = []
 
-          // Użyj Promise.all do równoczesnego pobierania elementów asynchronicznie
-          await Promise.all(
-            parsedItems.map(async id => {
-              const item = await importItemById(id)
-              itemsH.push(item)
-            })
-          )
+  //         // Użyj Promise.all do równoczesnego pobierania elementów asynchronicznie
+  //         await Promise.all(
+  //           parsedItems.map(async id => {
+  //             const item = await importItemById(id)
+  //             itemsH.push(item)
+  //           })
+  //         )
 
-          setItemsArray(itemsH)
+  //         setItemsArray(itemsH)
 
-          // Dodaj warunek sprawdzający, czy istnieją elementy przed zwróceniem
-          if (itemsH.length > 0) {
-            console.log("🚀 ~ fetchSavedItems ~ itemsH kurwaa:", itemsH[0])
-            return itemsH[0]
-          }
-        }
-      } catch (error) {
-        console.error('Błąd podczas pobierania danych z AsyncStorage:', error)
-      }
+  //         // Dodaj warunek sprawdzający, czy istnieją elementy przed zwróceniem
+  //         if (itemsH.length > 0) {
+  //           console.log("🚀 ~ fetchSavedItems ~ itemsH kurwaa:", itemsH[0])
+  //           return itemsH[0]
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.error('Błąd podczas pobierania danych z AsyncStorage:', error)
+  //     }
 
-      // Zwróć domyślną wartość w przypadku braku danych lub błędu
-      return null // lub pusta tablica, obiekt, itp., w zależności od potrzeb
-    }
+  //     // Zwróć domyślną wartość w przypadku braku danych lub błędu
+  //     return null // lub pusta tablica, obiekt, itp., w zależności od potrzeb
+  //   }
 
-    // Wywołaj funkcję pobierającą dane przy mountowaniu komponentu
-    if (itemsArray.length === 0) fetchSavedItems()
-    else {
-      const itemToReturn = itemsArray.shift()
-      setItemsArray(itemsArray)
-      return itemToReturn
-    }
-  }
+  //   // Wywołaj funkcję pobierającą dane przy mountowaniu komponentu
+  //   if (itemsArray.length === 0) fetchSavedItems()
+  //   else {
+  //     const itemToReturn = itemsArray.shift()
+  //     setItemsArray(itemsArray)
+  //     return itemToReturn
+  //   }
+  // }
 
   function countItemsInTopics(topArray: string[], catName: string): number {
     // console.log('🚀 ~ countItems ~ catName:', catName)
@@ -162,7 +162,7 @@ const useQuizData = () => {
     importRandomItemAllItemsMode,
     getAllTopics,
     importItemById,
-    importSavedItem,
+    // importSavedItem,
   }
 }
 

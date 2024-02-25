@@ -8,7 +8,8 @@ const utilStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 10,
-    paddingBottom: 30,
+    paddingBottom: 90,
+    // marginBottom: 90,
   },
 })
 

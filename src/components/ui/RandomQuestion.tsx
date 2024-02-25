@@ -23,10 +23,10 @@ export default function RandomQuestion(){
         onPress={instantQuestion}
         style={{
           width: 150,
-          backgroundColor: 'lightblue',
+          backgroundColor: 'gold',
           alignItems: 'center',
           elevation: 3,
-          borderRadius: 3,
+          borderRadius: 6,
           height: 40,
           justifyContent: 'center',
           bottom: 40,
