@@ -3,13 +3,62 @@ export const categories = [
   {
     name: 'cat_1',
     image: 'https://reactjs.org/logo-og.png',
-    des: 'short descirtption of a cat_1'
+    des: 'short descirtption of a cat_1',
   },
   {
     name: 'cat_2',
     image: 'https://reactjs.org/logo-og.png',
-    des: 'short descirtption of a cat_2'
-  }
+    des: 'short descirtption of a cat_2',
+  },
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+  ,
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+  ,
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+
+  ,
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+  ,
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+  ,
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+  ,
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+  ,
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  },
+  
 ]
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories

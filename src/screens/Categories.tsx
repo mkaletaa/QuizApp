@@ -18,6 +18,7 @@ import ModalComponent from '../components/ModalComponent'
 import useQuizData from '../hooks/useQuizData'
 import Stats from '../components/Stats'
 import { AntDesign } from '@expo/vector-icons'
+import RandomQuestion from '../components/ui/RandomQuestion'
 
 export default function Categories() {
   const [categoriesToShow, setCategoriesToShow] = useState([])
@@ -43,78 +44,36 @@ export default function Categories() {
     navigation.navigate('Topics', { categoryName: catName })
   }
 
-  const screenWidth = Dimensions.get('window').width
-  function instantQuestion() {
-    //@ts-ignore
-    navigation.navigate('Quiz', {
-      catName: '__All__',
-      topArray: [],
-      howManyItems: Infinity,
-      shuffle: true,
-    })
-    setShowStats(false)
-    return
-  }
+
   return (
-    <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
-      <StatusBar style="auto" />
-      <Pressable
-        onPress={instantQuestion}
-        style={{
-          width: screenWidth / 2.4,
-          backgroundColor: 'lightblue',
-          alignItems: 'center',
-          elevation: 3,
-          borderRadius: 3,
-          height: 40,
-          justifyContent: 'center',
-          marginTop: 40,
-          marginRight: 15
-          // backgroundColor: 'blue'
-        }}
-      >
-        <Text style={{ fontSize: 15 }}>random question</Text>
-      </Pressable>
+    <View
+      style={{
+        alignItems: 'center',
+      }}
+    >
+        <RandomQuestion />
+      <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
+        <StatusBar style="auto" />
 
-      <Text style={{ fontSize: 30 }}> </Text>
-      <Pressable
-        //@ts-ignore
-        onPress={() => navigation.navigate('Saved')}
-        style={{
-          width: screenWidth / 2.4,
-          backgroundColor: 'lightblue',
-          alignItems: 'center',
-          elevation: 3,
-          borderRadius: 3,
-          // padding: 5,
-          height: 40,
-          flexDirection: 'row',
-          justifyContent: 'center',
-          gap: 10,
-          // backgroundColor: 'blue'
-        }}
-      >
-        <AntDesign name="star" size={24} color="black" />
-        <Text style={{ fontSize: 18 }}>saved</Text>
-      </Pressable>
 
-      {categories?.map(category => (
-        <Card
-          catOrTop={'cat'}
-          key={category.name}
-          data={category}
-          onCardPress={goToTopics}
-          onCardLongPress={() => setShowStats(true)}
-        />
-      ))}
+        {categories?.map(category => (
+          <Card
+            catOrTop={'cat'}
+            key={category.name}
+            data={category}
+            onCardPress={goToTopics}
+            onCardLongPress={() => setShowStats(true)}
+          />
+        ))}
 
-      {showStats && (
-        <Stats //todo: dokończyć
-          key_={'cat_1'}
-          catOrTop={'cat'}
-          onClose={() => setShowStats(false)}
-        />
-      )}
-    </ScrollView>
+        {showStats && (
+          <Stats //todo: dokończyć
+            key_={'cat_1'}
+            catOrTop={'cat'}
+            onClose={() => setShowStats(false)}
+          />
+        )}
+      </ScrollView>
+    </View>
   )
 }

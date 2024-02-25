@@ -1,12 +1,13 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { ScrollView, View } from 'react-native'
+import { Pressable, ScrollView, View, Text } from 'react-native'
 import { topics } from '../../data/data'
 import Card from '../components/Card'
 import ModalComponent from '../components/ModalComponent'
 import useQuizData from '../hooks/useQuizData'
 import utilStyles from '../utils/styles'
 import Stats from '../components/Stats'
+import RandomQuestion from '../components/ui/RandomQuestion'
 
 export default function Topics({ route }) {
   const [categoryName, setCategoryName] = useState('')
@@ -121,12 +122,10 @@ export default function Topics({ route }) {
 
   const [pressedTopic, setPressedTopic] = useState<string>()
   function handleLongPress(pressedTopicName: string) {
-    console.log("🚀 ~ handleLongPress ~ pressedTopicName:", pressedTopicName)
+    console.log('🚀 ~ handleLongPress ~ pressedTopicName:', pressedTopicName)
     setPressedTopic(pressedTopicName)
     setShowStats(true)
   }
-  
-
 
   return (
     <View
@@ -134,6 +133,7 @@ export default function Topics({ route }) {
         alignItems: 'center',
       }}
     >
+      <RandomQuestion />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         {topicsToShow.map(topic => (
           <Card

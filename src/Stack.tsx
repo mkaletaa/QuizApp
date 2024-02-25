@@ -11,6 +11,11 @@ import Theory from './screens/Theory'
 import Topics from './screens/Topics'
 import { removeUnderscores } from './utils/functions'
 import Saved from './screens/Saved'
+import { AntDesign } from '@expo/vector-icons'
+import { View, Text } from 'react-native'
+import { Feather } from '@expo/vector-icons'
+import { FontAwesome6 } from '@expo/vector-icons'
+import { Octicons } from '@expo/vector-icons'
 
 const Stack = createStackNavigator()
 
@@ -19,29 +24,47 @@ const MyStack = () => {
 
   const header = {
     headerRight: () => (
-      <Entypo
-        //@ts-ignore
-        onPress={() => navigation.navigate('Options')}
-        name="dots-three-vertical"
-        size={28}
-        color="black"
+      <View
         style={{
-          marginRight: 15,
+          flexDirection: 'row',
+          // backgroundColor: 'red',
+          gap: 20,
+          marginRight: 20,
+          alignItems: 'center',
+          // justifyContent: 'center',
         }}
-      />
-
-      // <Feather
-      //   name="sliders"
-      //   size={28}
-      //   color="black"
-      //   onPress={() => navigation.navigate('Options')}
-
-      //     style={{
-      //       marginRight: 15,
-      //       borderRadius: 3,
-
-      //     }}
-      // />
+      >
+        {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
+        <View style={{ flexDirection: 'row',  gap: 3}}>
+          <Text style={{fontSize: 18, marginTop: -2}}>500</Text>
+          <Octicons name="flame" size={26} color="orange" />
+        </View>
+        {/* <AntDesign name="star" size={28} color="black" /> */}
+        <AntDesign
+          name="staro"
+          size={30}
+          color="black"
+          //@ts-ignore
+          onPress={() => navigation.navigate('Saved')}
+        />
+        {/* <Entypo
+          //@ts-ignore
+          onPress={() => navigation.navigate('Options')}
+          name="dots-three-vertical"
+          size={28}
+          color="black"
+          style={{
+            // marginRight: 15,
+          }}
+          /> */}
+        <Feather
+          name="sliders"
+          size={28}
+          color="black"
+          //@ts-ignore
+          onPress={() => navigation.navigate('Options')}
+        />
+      </View>
     ),
   }
 
@@ -89,7 +112,16 @@ const MyStack = () => {
         component={Saved}
         options={({ route }) => ({
           ...header,
-          title: "Saved questions",
+          title: 'Saved questions',
+          headerStyle: {
+            // backgroundColor: 'lightblue',
+          },
+          headerTitleStyle: {
+            // color: 'darkblue',
+            fontSize: 18,
+            marginLeft: -20
+            // fontWeight: 'bold',
+          },
         })}
       />
 
