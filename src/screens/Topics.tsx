@@ -46,7 +46,7 @@ export default function Topics({ route }) {
       topName: topicName,
       catName: categoryName,
       howManyItems: countItemsInTopics(topicName, categoryName),
-      shuffle: true,
+      shuffle: false,
     })
 
     // setHowManyItems(null)

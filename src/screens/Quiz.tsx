@@ -36,7 +36,7 @@ export default function Quiz({ route }) {
     importRandomItemAllItemsMode,
   } = useQuizData()
 
-  const { storeStat, storeFinishedQuizStat } = useAsyncStorage()
+  const { storeItemStat, storeFinishedQuizStat } = useAsyncStorage()
 
   const [whichItem, setWhichItem] = useState(0)
 
@@ -106,6 +106,7 @@ export default function Quiz({ route }) {
 
 
     if (resultsArray.length === allItemsCount) {
+      storeFinishedQuizStat(topName, catName, resultsArray)
       setItem(null)
       setTimeout(() => {
         setShowGeneralResults(true)
@@ -175,7 +176,8 @@ export default function Quiz({ route }) {
       chosenOptions
     )
 
-    storeStat(item.id, thisQuestionResult)
+    //nie wiem czy to zapisywać
+    storeItemStat(item.id, thisQuestionResult)
     console.log(
       '🚀 ~ setResults ~ item.id, thisQuestionResult:',
       item.id,
