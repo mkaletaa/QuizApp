@@ -24,7 +24,18 @@ const renderComponent = (dataComponent: Component) => {
       return (
         <Text key={value} style={styles.text}>
           {value}
+          {props && renderComponent(props)}
         </Text>
+      )
+    
+    case 'BoldText':
+      return (<Text key={value} style={{fontSize: 35}} >{value}</Text>)
+
+    case 'Block':
+      return (
+        <View style={{ backgroundColor: value==='alert' ? 'orange' : null }}>
+          {props && renderComponent(props)}
+        </View>
       )
 
     case 'Image':
@@ -76,7 +87,7 @@ const renderComponent = (dataComponent: Component) => {
 
         </View>
       )
-    case 'Youtube':
+    case 'YouTube':
       const screenWidth = Dimensions.get('window').width
 
           return(
