@@ -36,7 +36,7 @@ export default function Quiz({ route }) {
     importRandomItemAllItemsMode,
   } = useQuizData()
 
-  const { storeItemStat, storeFinishedQuizStat } = useAsyncStorage()
+  const { storeFinishedQuizStat } = useAsyncStorage()
 
   const [whichItem, setWhichItem] = useState(0)
 
@@ -50,7 +50,7 @@ export default function Quiz({ route }) {
     let item: Item
     if (catName === '__Saved__') {
       //* tu jeszcze sprawdzenie czy infinityMode
-      
+
       setItem(itemsArray[whichItem])
       // return
       setShowResultModal(false)
@@ -58,24 +58,17 @@ export default function Quiz({ route }) {
       return
     }
     console.log('getNextItem')
-    console.log("🚀 ~ getNextItem ~ allItemsCount:", allItemsCount)
+    console.log('🚀 ~ getNextItem ~ allItemsCount:', allItemsCount)
 
     if (allItemsCount === Infinity) {
       item = importRandomItemAllItemsMode(catName)
-   
     } else if (shuffle) item = importRandomItem(catName, topName)
-    else
-      item = importItem(
-        catName,
-        topName,
-        whichItem
-      )
+    else item = importItem(catName, topName, whichItem)
 
     setItem(item)
     setShowResultModal(false)
     setChosenOptions([])
   }
-
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
@@ -98,12 +91,10 @@ export default function Quiz({ route }) {
         return
       }
 
-      setWhichItem(prev => prev+1)
+      setWhichItem(prev => prev + 1)
 
       return
     }
-
-
 
     if (resultsArray.length === allItemsCount) {
       storeFinishedQuizStat(topName, resultsArray)
@@ -116,30 +107,25 @@ export default function Quiz({ route }) {
       return
     }
 
-    let topicItemsNr = countItemsInTopics(
-      topName,
-      catName
-    )
+    let topicItemsNr = countItemsInTopics(topName, catName)
 
     //jeśli liczba itemów w topicu dobiegła końca
     if (
       whichItem === topicItemsNr - 1 &&
       allItemsCount !== Infinity //tego w zasadzie nie musze pisać
     ) {
+      setItem(null)
+      setTimeout(() => {
+        setShowGeneralResults(true)
+      }, 0)
 
-        setItem(null)
-        setTimeout(() => {
-          setShowGeneralResults(true)
-        }, 0)
-
-        setShowResultModal(false)
+      setShowResultModal(false)
 
       return
     }
 
-    setWhichItem(prev=>prev+1)
+    setWhichItem(prev => prev + 1)
     // return
-
   }
 
   function closeModalAndGoBack(): void {
@@ -177,7 +163,7 @@ export default function Quiz({ route }) {
     )
 
     //nie wiem czy to zapisywać
-    storeItemStat(item.id, thisQuestionResult)
+    // storeItemStat(item.id, thisQuestionResult)
     console.log(
       '🚀 ~ setResults ~ item.id, thisQuestionResult:',
       item.id,

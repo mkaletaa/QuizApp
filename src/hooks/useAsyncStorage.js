@@ -1,46 +1,32 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
+//todo: zmienić to na util fn a nie hook
 export default function useAsyncStorage() {
   //do zapisywania w storage po udzieleniu odpowiedzi na pytanie
 
-  async function storeItemStat(id, result) {
-    const [category, topic] = id.split('|')
+  // async function storeItemStat(id, result) {
+  //   const [category, topic] = id.split('|')
 
-    try {
-      const existingTopicStat = await AsyncStorage.getItem(topic)
-      const existingCategoryStat = await AsyncStorage.getItem(category)
+  //   try {
+  //     const existingTopicStat = await AsyncStorage.getItem(topic)
+  //     const existingCategoryStat = await AsyncStorage.getItem(category)
 
-      let savedTopicStat = existingTopicStat
-        ? JSON.parse(existingTopicStat)
-        : {}
-      let savedCategoryStat = existingCategoryStat
-        ? JSON.parse(existingCategoryStat)
-        : {}
+  //     let savedTopicStat = existingTopicStat
+  //       ? JSON.parse(existingTopicStat)
+  //       : {}
+  //     let savedCategoryStat = existingCategoryStat
+  //       ? JSON.parse(existingCategoryStat)
+  //       : {}
 
-      savedTopicStat.answers = (savedTopicStat.answers || 0) + 1
-      savedCategoryStat.answers = (savedCategoryStat.answers || 0) + 1
+  //     savedTopicStat.answers = (savedTopicStat.answers || 0) + 1
+  //     savedCategoryStat.answers = (savedCategoryStat.answers || 0) + 1
 
-      //  if (result === 'correct') {
-      //    savedTopicStat.correctAnswers = (savedTopicStat.correctAnswers || 0) + 1
-      //    savedCategoryStat.correctAnswers =
-      //      (savedCategoryStat.correctAnswers || 0) + 1
-      //  } else if (result === 'incorrect') {
-      //    savedTopicStat.incorrectAnswers =
-      //      (savedTopicStat.incorrectAnswers || 0) + 1
-      //    savedCategoryStat.incorrectAnswers =
-      //      (savedCategoryStat.incorrectAnswers || 0) + 1
-      //  } else if (result === 'kindof') {
-      //    savedTopicStat.kindOfAnswers = (savedTopicStat.kindOfAnswers || 0) + 1
-      //    savedCategoryStat.kindOfAnswers =
-      //      (savedCategoryStat.kindOfAnswers || 0) + 1
-      //  }
 
-      await AsyncStorage.setItem(topic, JSON.stringify(savedTopicStat))
-      await AsyncStorage.setItem(category, JSON.stringify(savedCategoryStat))
-    } catch (error) {
-      console.error('Could not store stat:', error)
-    }
-  }
+  //     await AsyncStorage.setItem(topic, JSON.stringify(savedTopicStat))
+  //     await AsyncStorage.setItem(category, JSON.stringify(savedCategoryStat))
+  //   } catch (error) {
+  //     console.error('Could not store stat:', error)
+  //   }
+  // }
 
   // import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -97,5 +83,5 @@ export default function useAsyncStorage() {
     }
   }
 
-  return { storeItemStat, storeFinishedQuizStat, getValue }
+  return {  storeFinishedQuizStat, getValue }
 }

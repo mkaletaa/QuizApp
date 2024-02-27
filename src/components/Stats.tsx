@@ -6,14 +6,14 @@ import useAsyncStorage from '../hooks/useAsyncStorage'
 export default function Stats({ onClose, catOrTop, key_: itemKey }) {
   const { getValue } = useAsyncStorage()
   const [stats, setStats] = useState<any>()
-  console.log("keyy: ", itemKey) //key jest undefined
+  console.log('keyy: ', itemKey) //key jest undefined
 
   useEffect(() => {
-    console.log("key: ", itemKey) //key jest undefined
+    console.log('key: ', itemKey) //key jest undefined
     getValue(itemKey).then(retrievedStats => {
       if (retrievedStats !== undefined) {
         setStats(retrievedStats)
-        console.log("🚀 ~ getValue ~ retrievedStats:", retrievedStats) //null
+        console.log('🚀 ~ getValue ~ retrievedStats:', retrievedStats) //null
       }
     })
   }, [])
@@ -38,7 +38,8 @@ export default function Stats({ onClose, catOrTop, key_: itemKey }) {
         color="black"
       />
 
-       {stats && <React.Fragment>
+      {stats && (
+        <React.Fragment>
           <Text>Ile topików:</Text>
           <Text>ile pytań:</Text>
           {/* <Text>ile odpowiedzainych {stats.answers}</Text>
@@ -49,8 +50,8 @@ export default function Stats({ onClose, catOrTop, key_: itemKey }) {
           <Text>kiedy ostatnio ukończony {stats.lastFinished}</Text>
           <Text>ile razy ukończony na fulla {stats.allCorrect}</Text>
           <Text>najlepszy wynik {stats.bestResult}</Text>
-        </React.Fragment>}
- 
+        </React.Fragment>
+      )}
     </View>
   )
 }
