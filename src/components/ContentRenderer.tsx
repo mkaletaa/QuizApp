@@ -18,13 +18,25 @@ import YoutubePlayer from 'react-native-youtube-iframe'
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 const renderComponent = (dataComponent: Component) => {
   const { componentType, props, value } = dataComponent
+//ogarnąć style
 
   switch (componentType) {
     case 'Text':
       return (
         <Text key={value} style={styles.text}>
           {value}
+          {props && renderComponent(props)}
         </Text>
+      )
+    
+    case 'BoldText':
+      return (<Text key={value} style={{fontSize: 35}} >{value}</Text>)
+
+    case 'Block':
+      return (
+        <View style={{ backgroundColor: value==='alert' ? 'orange' : null }}>
+          {props && renderComponent(props)}
+        </View>
       )
 
     case 'Image':
@@ -66,7 +78,7 @@ const renderComponent = (dataComponent: Component) => {
           <CodeHighlighter
             hljsStyle={atomOneDarkReasonable}
             textStyle={{ fontSize: 16 }}
-            language="typescript"
+            language={props.language}
             //@ts-ignore
             customStyle={{  padding: 6, borderRadius: 7 , backgroundColor: 'dimgrey', elevation: 10}}
             containerStyle={styles.codeContainer}
@@ -76,7 +88,7 @@ const renderComponent = (dataComponent: Component) => {
 
         </View>
       )
-    case 'Youtube':
+    case 'YouTube':
       const screenWidth = Dimensions.get('window').width
 
           return(

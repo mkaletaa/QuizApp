@@ -1,7 +1,19 @@
 [
   {
     "componentType": "Text",
-    "value": "text"
+    "value": "textt",
+    "props":{
+      "componentType": "BoldText",
+      "value": " bold text"
+    }
+  },
+  {
+    "componentType": "Block",
+    "value": "alert",
+    "props":{
+      "componentType": "Text",
+      "value": "textt"
+    }
   },
   {
     "componentType": "Image",

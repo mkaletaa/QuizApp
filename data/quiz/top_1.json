@@ -75,7 +75,7 @@
       {
         "componentType": "Code",
         "value": "https://legacy.ffffffffffffffffffffffffffffffffffffreactjs.org/logo-og.png\ndefrvfvfvdfv\n\n\ndfvhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdfvdfv",
-        "props": { "height": 200 }
+        "props": { "height": 200, "language": "typescript" }
       }
     ],
     "options": [
