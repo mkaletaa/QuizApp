@@ -1,64 +1,34 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { Modal, Pressable, ScrollView, Switch, Text, View } from 'react-native'
+import { Modal, ScrollView, Text, View } from 'react-native'
 import Explanation from '../components/Explanation'
-import Tile from '../components/Tile'
-import useQuizData from '../hooks/useQuizData'
-import { Item } from '../utils/types'
 import SavedOptions from '../components/SavedOptions'
+import Tile from '../components/Tile'
+import useFetchSavedItems from '../hooks/useFetchSavedItems'
+import { Item } from '../utils/types'
 
 //todo: util styles, refresh on scrollup, message if empty, loader if loading
 export default function Saved() {
-  const [savedItems, setSavedItems] = useState([])
-  const [isPending, setIsPending] = useState(true)
+  const {fetchSavedItems, savedItems, isPending} = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
-  const { importItemById } = useQuizData()
   const navigation = useNavigation()
 
-  useEffect(() => {
-    console.log('first saved')
-    // Funkcja pobierająca dane z AsyncStorage
-    const fetchSavedItems = async () => {
-      try {
-        const jsonValue = await AsyncStorage.getItem('savedItems')
-        if (jsonValue !== null) {
-          // Parsuj wartość JSON i przypisz do stanu savedItems
-          const parsedItems: string[] = JSON.parse(jsonValue)
-          console.log('🚀 ~ fetchSavedItems ~ parsedItems:', parsedItems)
-          let itemsH: Item[] = []
-
-          // Wywołaj funkcję z hooka wewnątrz useEffect
-          for (const id of parsedItems) {
-            console.log('🚀 ~ fetchSavedItems ~ id:', id)
-            itemsH.push(importItemById(id))
-          }
-          console.log('🚀 ~ fetchSavedItems ~ itemsH:', itemsH)
-
-          setSavedItems(itemsH)
-        }
-        setIsPending(false)
-      } catch (error) {
-        console.error('Błąd podczas pobierania danych z AsyncStorage:', error)
-      }
-    }
-
-    // Wywołaj funkcję pobierającą dane przy mountowaniu komponentu
-    fetchSavedItems()
-  }, [])
 
   function seeFullQuestion(item: Item): void {
     setModalItem(item)
     setShowModal(true)
-    console.log('preswsed')
   }
+
+  useEffect(() => {
+    fetchSavedItems()
+  }, []);
+
   const [isEnabled, setIsEnabled] = useState(false)
 
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState)
-    let savedItemsH = savedItems.reverse()
-    setSavedItems(savedItemsH)
+    savedItems.reverse()
   }
 
   return (

@@ -9,21 +9,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function IconPrompt({ item }: { item: Item }) {
   const [showPrompt, setShowPrompt] = useState(false)
-  // const [showMessage, setShowMessage] = useState(false)
   const [saved, setSaved] = useState(false)
   const navigation = useNavigation()
-  // const [message, setMessage] = useState<string>()
 
-  // ...
   useEffect(() => {
-    console.log('useEfefct')
     checkIfSaved() // Sprawdzenie stanu zapisanego po każdej zmianie 'saved'
   }, [saved, item.id])
 
   const checkIfSaved = async () => {
     try {
-      console.log('sprawdzanko')
-
       const savedItems = await AsyncStorage.getItem('savedItems')
       const parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
       if (parsedSavedItems.some(savedItem => savedItem === item.id))
@@ -37,7 +31,6 @@ export default function IconPrompt({ item }: { item: Item }) {
 
   const removeItem = async () => {
     try {
-      console.log('usuwanko')
       const savedItems = await AsyncStorage.getItem('savedItems')
       let parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
 
@@ -47,24 +40,15 @@ export default function IconPrompt({ item }: { item: Item }) {
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(parsedSavedItems))
       setSaved(false)
-
-      // setMessage('The question has been removed!')
     } catch (error) {
-      // setMessage('Something went wrong while removing the question')
       console.error('Error removing item:', error)
     }
   }
 
-  // ...
-
   async function saveItem() {
-    
-
     const value = item.id
-    console.log("🚀 ~ saveItem ~ item.id:", item.id)
 
     try {
-      console.log('dodawanko')
       const existingItems = await AsyncStorage.getItem('savedItems')
       let savedItems = []
 
@@ -73,32 +57,13 @@ export default function IconPrompt({ item }: { item: Item }) {
       }
 
       savedItems.push(value)
-      console.log("🚀 ~ saveItem ~ savedItems:", savedItems)
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
       setSaved(true)
-      // setMessage('The question has been saved!')
     } catch (error) {
-      // setMessage('Something went wrong')
+      console.error('Error saving item:', error)
     }
   }
-
-// useEffect(() => {
-//   handleMessageFn()
-//   console.log('handleFn')
-// }, [message])
-
-// function handleMessageFn() {
-//   setTimeout(() => {
-//     setShowMessage(true)
-
-//     setTimeout(() => {
-//       setShowMessage(false)
-//     }, 3000)
-//   }, 100) // Dodane opóźnienie 100ms
-//   console.log('first')
-// }
-
 
   return (
     <View
@@ -137,9 +102,7 @@ export default function IconPrompt({ item }: { item: Item }) {
             backgroundColor: 'white',
             padding: 10,
             borderRadius: 6,
-            // gap: 15,
             alignItems: 'center',
-            // justifyContent: 'space-around',
             zIndex: 1,
           }}
         >
@@ -176,30 +139,6 @@ export default function IconPrompt({ item }: { item: Item }) {
           )}
         </View>
       )}
-
-      {/*      {showMessage && (
-        <View
-          style={{
-            position: 'absolute',
-            width: '100%',
-            top: 95,
-            alignItems: 'center',
-          }}
-        >
-          <Text
-            style={{
-              textAlign: 'center',
-              backgroundColor: 'lightblue',
-              opacity: 0.9,
-              padding: 5,
-              borderRadius: 10,
-              zIndex: 2,
-            }}
-          >
-            {message}
-          </Text>
-        </View>
-      )}*/}
     </View>
   )
 }
