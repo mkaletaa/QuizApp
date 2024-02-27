@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import {
-  View,
-  Text,
-  ScrollView,
-  Pressable,
-  Modal,
-  Switch,
-  Button,
-} from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import useQuizData from '../hooks/useQuizData'
-import ContentRenderer from '../components/ContentRenderer'
-import Question from '../components/Question'
-import { Item } from '../utils/types'
-import { LinearGradient } from 'expo-linear-gradient'
-import Explanation from '../components/Explanation'
 import { useNavigation } from '@react-navigation/native'
+import React, { useEffect, useState } from 'react'
+import { Modal, Pressable, ScrollView, Switch, Text, View } from 'react-native'
+import Explanation from '../components/Explanation'
+import Tile from '../components/Tile'
+import useQuizData from '../hooks/useQuizData'
+import { Item } from '../utils/types'
 
 //todo: util styles, refresh on scrollup, message if empty, loader if loading
 export default function Saved() {
@@ -121,53 +111,18 @@ export default function Saved() {
           </Pressable>
 
           <Switch onValueChange={toggleSwitch} value={isEnabled} />
-          {/* <View style={{}}></View> */}
+
           {savedItems.map((item, index) => (
-            <Pressable
-              style={{
-                // backgroundColor: 'red',
-                alignItems: 'center',
-              }}
-              onPress={() => {
-                seeFullQuestion(item)
-              }}
-            >
-              <View
-                style={[
-                  {
-                    backgroundColor: 'white',
-                    width: '68%',
-                    // maxWidth: 400,
-                    height: 80, //100
-                    overflow: 'hidden',
-                    alignItems: 'center',
-                    marginTop: 16,
-
-                    borderRadius: 10,
-                    elevation: 3,
-                  },
-                ]}
-              >
-                <Question question={item.question} />
-
-                <LinearGradient
-                  // Button Linear Gradient
-                  colors={['transparent', 'white']}
-                  style={{
-                    width: '100%',
-                    height: 50,
-                    position: 'absolute',
-                    bottom: 0,
-                  }}
-                ></LinearGradient>
-              </View>
-            </Pressable>
+            <Tile item={item} handlePress={seeFullQuestion} />
           ))}
         </ScrollView>
       ) : (
-
         <View>
-          {isPending ? <Text>Pobieranie</Text> : <Text>nie zapisano jeszcze żadnego pytania</Text>}
+          {isPending ? (
+            <Text>Pobieranie</Text>
+          ) : (
+            <Text>nie zapisano jeszcze żadnego pytania</Text>
+          )}
         </View>
       )}
     </View>
