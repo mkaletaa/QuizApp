@@ -32,7 +32,7 @@ export default function Quiz({ route }) {
   const {
     importItem,
     countItemsInTopics,
-    importRandomItem,
+    // importRandomItem,
     importRandomItemAllItemsMode,
   } = useQuizData()
 
@@ -62,7 +62,7 @@ export default function Quiz({ route }) {
 
     if (allItemsCount === Infinity) {
       item = importRandomItemAllItemsMode(catName)
-    } else if (shuffle) item = importRandomItem(catName, topName)
+    } else if (shuffle) item = null // zmienić
     else item = importItem(catName, topName, whichItem)
 
     setItem(item)

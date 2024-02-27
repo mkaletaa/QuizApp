@@ -30,43 +30,43 @@ const useQuizData = () => {
     return quiz[category][topic][itemIndex]
   }
 
-  const [itemsArray, setItemsArray] = useState([])
-  // [{ name: 'nazwa topica', nr, 1 }]
-  function importRandomItem(catName: string, topName: string) {
-    let itemsH = [] //pojemnik na obiekty {name, items}
-    let randomItem: Item
+  // const [itemsArray, setItemsArray] = useState([])
+  // // [{ name: 'nazwa topica', nr, 1 }]
+  // function importRandomItem(catName: string, topName: string) {
+  //   let itemsH = [] //pojemnik na obiekty {name, items}
+  //   let randomItem: Item
 
-    if (itemsArray.length === 0) {
-      //jeśli itemsMatric jest puste, zapełnij je
-      // for (let i = 0; i < topArray.length; i++) {
-        let itemsArray: Array<Item> = quiz[catName][topName]
+  //   if (itemsArray.length === 0) {
+  //     //jeśli itemsMatric jest puste, zapełnij je
+  //     // for (let i = 0; i < topArray.length; i++) {
+  //       let itemsArray: Array<Item> = quiz[catName][topName]
 
-        for (let j = 0; j < itemsArray.length; j++) {
-          itemsH.push({ topName, nr: j })
-        }
-      // }
-      setItemsArray(itemsH)
-      return returnItem(itemsH)
-    }
+  //       for (let j = 0; j < itemsArray.length; j++) {
+  //         itemsH.push({ topName, nr: j })
+  //       }
+  //     // }
+  //     setItemsArray(itemsH)
+  //     return returnItem(itemsH)
+  //   }
 
-    function returnItem(itemsM2) {
-      let itemsM = itemsM2
-      let randomNr = Math.floor(Math.random() * itemsM.length)
+  //   function returnItem(itemsM2) {
+  //     let itemsM = itemsM2
+  //     let randomNr = Math.floor(Math.random() * itemsM.length)
 
-      let topicName = itemsM[randomNr].topName
-      let randomItemNr = itemsM[randomNr].nr
+  //     let topicName = itemsM[randomNr].topName
+  //     let randomItemNr = itemsM[randomNr].nr
 
-      //usuwanie
-      itemsM.splice(randomNr, 1)
-      setItemsArray(itemsM)
+  //     //usuwanie
+  //     itemsM.splice(randomNr, 1)
+  //     setItemsArray(itemsM)
 
-      return quiz[catName][topicName][randomItemNr]
-    }
+  //     return quiz[catName][topicName][randomItemNr]
+  //   }
 
-    randomItem = returnItem(itemsArray)
+  //   randomItem = returnItem(itemsArray)
 
-    return randomItem
-  }
+  //   return randomItem
+  // }
 
   function importRandomItemAllItemsMode(categoryName: string): Item {
     let catNr: number
@@ -156,7 +156,7 @@ const useQuizData = () => {
   return {
     importItem,
     countItemsInTopics,
-    importRandomItem,
+    // importRandomItem,
     countTopics,
     getTopicsForCategory,
     importRandomItemAllItemsMode,
