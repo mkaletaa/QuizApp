@@ -6,6 +6,7 @@ import Explanation from '../components/Explanation'
 import Tile from '../components/Tile'
 import useQuizData from '../hooks/useQuizData'
 import { Item } from '../utils/types'
+import SavedOptions from '../components/SavedOptions'
 
 //todo: util styles, refresh on scrollup, message if empty, loader if loading
 export default function Saved() {
@@ -88,15 +89,8 @@ export default function Saved() {
             // height: '100%',
           }}
         >
-          <Pressable
-            style={{
-              backgroundColor: 'rgb(0, 150, 255)',
-              width: 100,
-              padding: 10,
-              elevation: 5,
-              borderRadius: 3,
-            }}
-            onPress={() => {
+          <SavedOptions
+            onPressQuiz={() => {
               //@ts-ignore
               navigation.navigate('Quiz', {
                 catName: '__Saved__',
@@ -106,11 +100,9 @@ export default function Saved() {
                 shuffle: false,
               })
             }}
-          >
-            <Text>TAKE A QUIZ</Text>
-          </Pressable>
-
-          <Switch onValueChange={toggleSwitch} value={isEnabled} />
+            onToggleSwitch={toggleSwitch}
+            isEnabled={isEnabled}
+          />
 
           {savedItems.map((item, index) => (
             <Tile item={item} handlePress={seeFullQuestion} />
