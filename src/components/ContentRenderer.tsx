@@ -91,16 +91,16 @@ const renderComponent = (dataComponent: Component) => {
     case 'YouTube':
       const screenWidth = Dimensions.get('window').width
 
-          return(
+          return (
             <YoutubePlayer
-            height={screenWidth*0.9*9/16}
-            // style={{aspctRatio: 16/9}}
-            width={screenWidth*0.9}
-            play={true}
-            videoId={value}
-            onChangeState={()=>{}}
-          />
-        )
+              height={(screenWidth * 0.9 * 9) / 16}
+              // style={{aspctRatio: 16/9}}
+              width={screenWidth * 0.9}
+              play={false}
+              videoId={value}
+              onChangeState={() => {}}
+            />
+          )
       case 'Link':
         return (
           <TouchableOpacity onPress={()=>Linking.openURL(value)}>

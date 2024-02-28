@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import { removeUnderscores } from '../utils/functions'
+import React from 'react'
 import {
+  Dimensions,
   Image,
   Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  useWindowDimensions,
-  Dimensions,
-  Modal,
+  View
 } from 'react-native'
-import useQuizData from '../hooks/useQuizData'
+import { removeUnderscores } from '../utils/functions'
+
 
 const screenWidthDim = Dimensions.get('window').width
 
@@ -41,8 +39,6 @@ export default function Card({
     }
   }
 
-
-
   return (
     <Pressable
       onPress={handlePress}
@@ -52,8 +48,6 @@ export default function Card({
       //     pressed && styles.cardPressablePressed,
       //   ]}
     >
-
-
       <View style={[styles.cardContainer, cardSize]} key={data.name}>
         <Image
           style={[
