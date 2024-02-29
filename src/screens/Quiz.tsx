@@ -10,6 +10,7 @@ import Line from '../components/ui/Line'
 import useQuizData from '../hooks/useQuizData'
 import { Item, Option, Result } from '../utils/types'
 import useAsyncStorage from '../hooks/useAsyncStorage'
+import { returnIsCorrect } from '../utils/functions'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -157,7 +158,7 @@ export default function Quiz({ route }) {
 
   //activated after pressing zatwierdź button
   function setResults() {
-    let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' = checkTheResult(
+    let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' = returnIsCorrect(
       item,
       chosenOptions
     )
@@ -185,35 +186,35 @@ export default function Quiz({ route }) {
   }
 
   //sprawdza czy na to pytanie udzielono dobrej(dobrych) odpowiedzi
-  function checkTheResult(
-    item: Item,
-    chosenOptions: Option[]
-  ): 'correct' | 'incorrect' | 'kindof' {
-    //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
-    //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
-    //zwróć w każdym innym przypadku
-    // return
-    let nrOfCorrectUserOptions = 0
-    let nrOfCorrectOptions = 0
+  // function checkTheResult(
+  //   item: Item,
+  //   chosenOptions: Option[]
+  // ): 'correct' | 'incorrect' | 'kindof' {
+  //   //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
+  //   //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
+  //   //zwróć w każdym innym przypadku
+  //   // return
+  //   let nrOfCorrectUserOptions = 0
+  //   let nrOfCorrectOptions = 0
 
-    for (const chosenOption of chosenOptions) {
-      if (chosenOption?.correct) nrOfCorrectUserOptions++
-    }
+  //   for (const chosenOption of chosenOptions) {
+  //     if (chosenOption?.correct) nrOfCorrectUserOptions++
+  //   }
 
-    if (nrOfCorrectUserOptions === 0) return 'incorrect'
+  //   if (nrOfCorrectUserOptions === 0) return 'incorrect'
 
-    for (const option of item?.options) {
-      if (option.correct) nrOfCorrectOptions++
-    }
+  //   for (const option of item?.options) {
+  //     if (option.correct) nrOfCorrectOptions++
+  //   }
 
-    if (
-      nrOfCorrectUserOptions === nrOfCorrectOptions &&
-      nrOfCorrectOptions === chosenOptions.length
-    )
-      return 'correct'
+  //   if (
+  //     nrOfCorrectUserOptions === nrOfCorrectOptions &&
+  //     nrOfCorrectOptions === chosenOptions.length
+  //   )
+  //     return 'correct'
 
-    return 'kindof'
-  }
+  //   return 'kindof'
+  // }
 
   return (
     <SafeAreaView>
