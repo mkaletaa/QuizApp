@@ -32,7 +32,7 @@ export default function Stats({ onClose, catOrTop, key_: itemKey }) {
         }}
       >
         <AntDesign
-        style={{right: 5, top: 5, position: 'absolute'}}
+        style={{right: 5, top: 5, position: 'absolute', zIndex: 1}}
           onPress={() => onClose()}
           name="closesquare"
           size={34}
