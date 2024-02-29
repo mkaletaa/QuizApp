@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { ScrollView, View } from 'react-native'
+import { Modal, ScrollView, View, StyleSheet } from 'react-native'
 import { topics } from '../../data/data'
 import Card from '../components/Card'
 import Stats from '../components/Stats'
@@ -79,13 +79,18 @@ export default function Topics({ route }) {
         ))}
       </ScrollView>
 
-      {showStats && (
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={showStats}
+        onRequestClose={() => setShowStats(false)}
+      >
         <Stats
           key_={pressedTopic}
           onClose={() => setShowStats(false)}
           catOrTop={'top'}
         />
-      )}
+      </Modal>
     </View>
   )
 }
