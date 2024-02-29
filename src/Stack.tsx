@@ -16,6 +16,8 @@ import { View, Text } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import { FontAwesome6 } from '@expo/vector-icons'
 import { Octicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
+
 
 const Stack = createStackNavigator()
 
@@ -40,8 +42,16 @@ const MyStack = () => {
           <Octicons name="flame" size={26} color="orange" />
         </View>
         {/* <AntDesign name="star" size={28} color="black" /> */}
-        <AntDesign
+        {/* <AntDesign
           name="staro"
+          size={30}
+          color="black"
+          //@ts-ignore
+          onPress={() => navigation.navigate('Saved')}
+        /> */}
+
+        <Ionicons
+          name="bookmark-outline"
           size={30}
           color="black"
           //@ts-ignore

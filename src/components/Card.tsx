@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   readTouchable: {
     borderRadius: 10,
     borderTopWidth: 1,
-    borderColor: 'grey',
+    borderColor: 'lightgrey',
   },
   read: {
     opacity: 0.6,

@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 import sendAnEmail from '../../utils/functions'
 import { Item } from '../../utils/types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { Ionicons } from '@expo/vector-icons'
 
 export default function IconPrompt({ item }: { item: Item }) {
   const [showPrompt, setShowPrompt] = useState(false)
@@ -123,18 +124,31 @@ export default function IconPrompt({ item }: { item: Item }) {
             }}
           />
           {saved ? (
-            <AntDesign
-              onPress={() => removeItem()}
-              name="star"
+            // <AntDesign
+            //   onPress={() => removeItem()}
+            //   name="star"
+            //   size={35}
+            //   color="gold"
+            // />
+            <Ionicons
+              name="bookmark"
               size={35}
-              color="gold"
+              color="orange"
+              onPress={() => removeItem()}
             />
           ) : (
-            <AntDesign
-              onPress={() => saveItem()}
-              name="staro"
+            // <AntDesign
+            //   onPress={() => saveItem()}
+            //   name="staro"
+            //   size={35}
+            //   color="black"
+            // />
+
+            <Ionicons
+              name="bookmark-outline"
               size={35}
               color="black"
+              onPress={() => saveItem()}
             />
           )}
         </View>
