@@ -4,12 +4,12 @@ import RenderHtml from 'react-native-render-html'
 
 const source = {
   html: `
-<p style='text-align:center;'>
+<p style='text-align:center; font-size: 30px'>
   <b>Hello World!</b>d
 </p>`,
 }
 export default function Settings() {
-    const { width } = useWindowDimensions()
+  const { width } = useWindowDimensions()
   return <RenderHtml contentWidth={width} source={source} />
 }
 
