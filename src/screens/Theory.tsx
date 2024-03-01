@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer'
-import sendAnEmail, { removeUnderscores } from '../utils/functions'
+import {sendAnEmail, removeUnderscores } from '../utils/functions'
 
 export default function Theory({ route }) {
   const [topicName, setTopicName] = useState('')

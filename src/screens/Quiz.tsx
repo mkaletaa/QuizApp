@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
-import { Button, Dimensions, Modal, ScrollView, StyleSheet } from 'react-native'
+import { Button, Dimensions, Modal, ScrollView, StyleSheet, View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Explanation from '../components/Explanation'
 import GeneralResults from '../components/GeneralResults'
@@ -11,11 +11,14 @@ import useQuizData from '../hooks/useQuizData'
 import { Item, Option, Result } from '../utils/types'
 import useAsyncStorage from '../hooks/useAsyncStorage'
 import { returnIsCorrect } from '../utils/functions'
+import { BackHandler } from 'react-native'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
-  const [showModal, setShowModal] = useState(false)
+  // const [showModal, setShowModal] = useState(false)
+  const [showExitModal, setShowExitModal] = useState(false)
+
   const navigation = useNavigation()
   const catName: string = route.params.catName
   const topName: string = route.params.topName
@@ -129,10 +132,6 @@ export default function Quiz({ route }) {
     // return
   }
 
-  function closeModalAndGoBack(): void {
-    setShowModal(false)
-    navigation.goBack() // powrót do poprzedniego ekranu
-  }
 
   function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
     // return
@@ -215,13 +214,43 @@ export default function Quiz({ route }) {
 
   //   return 'kindof'
   // }
+  
+  function closeModalAndGoBack(): void {
+    setShowExitModal(false)
+    navigation.goBack() // powrót do poprzedniego ekranu
+  }
 
+useEffect(() => {
+  const backHandler = BackHandler.addEventListener(
+    'hardwareBackPress',
+    handleBackPress
+  )
+
+  return () => backHandler.remove() // Cleanup the event listener on unmount
+}, [showExitModal, showGeneralResults, navigation])
+
+const handleBackPress = () => {
+  if (showExitModal || showGeneralResults) {
+    // If the exit modal or general results are already visible, close them
+    setShowExitModal(false)
+    setShowGeneralResults(false)
+    navigation.goBack() // powrót do poprzedniego ek
+  } else {
+    // Otherwise, show the exit modal
+    setShowExitModal(true)
+  }
+
+  // Prevent default behavior of the back button
+  return true
+}
+
+
+  
   return (
     <SafeAreaView>
       {item && allItemsCount !== Infinity && (
         <Line resultsArray={resultsArray} allItemsCount={allItemsCount} />
       )}
-
       <ScrollView
         contentContainerStyle={[
           styles.screen,
@@ -249,12 +278,11 @@ export default function Quiz({ route }) {
 
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
       </ScrollView>
-
       <Modal
         animationType="fade"
         transparent={true}
         visible={showResultModal}
-        onRequestClose={() => setShowResultModal(false)}
+        onRequestClose={() => nextBtnPress()}
       >
         <Explanation
           showQuestion={false}
@@ -267,11 +295,11 @@ export default function Quiz({ route }) {
         />
       </Modal>
 
-      {/* <Modal
+      <Modal
         animationType="slide"
         transparent={true}
-        visible={false} //showModal
-        onRequestClose={() => setShowModal(false)}
+        visible={showExitModal} //showModal
+        onRequestClose={() => setShowExitModal(false)}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
@@ -288,12 +316,12 @@ export default function Quiz({ route }) {
               />
               <Button
                 title="nah, I want to stay here"
-                onPress={() => setShowModal(false)}
+                onPress={() => setShowExitModal(false)}
               />
             </View>
           </View>
         </View>
-      </Modal> */}
+      </Modal>
     </SafeAreaView>
   )
 }

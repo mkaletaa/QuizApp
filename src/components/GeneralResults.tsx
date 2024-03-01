@@ -1,17 +1,18 @@
-import { View, Text, Dimensions, Modal, Pressable } from 'react-native'
+import { View, Text, Dimensions, Modal, Pressable, Button } from 'react-native'
 import ContentRenderer from './ContentRenderer'
 import { Item, Result, Option } from '../utils/types'
 import Explanation from './Explanation'
 import { useEffect, useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import Question from './Question'
-
+import { useNavigation } from '@react-navigation/native'
 
 export default function GneralResults({
   resultsArray,
 }: {
   resultsArray: Result[]
 }) {
+  const navigation = useNavigation()
 
   const [correctNr, setCorrectNr] = useState(0)
   useEffect(() =>{
@@ -93,6 +94,8 @@ export default function GneralResults({
           </View>
         </Pressable>
       ))}
+
+      <Button title='go back' onPress={() => navigation.goBack()} />
 
       <Modal
         // duration={1000}
