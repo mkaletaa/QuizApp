@@ -1,18 +1,16 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import YoutubePlayer from 'react-native-youtube-iframe'
-import { LinearGradient } from 'expo-linear-gradient'
+import { StyleSheet, useWindowDimensions } from 'react-native'
+import RenderHtml from 'react-native-render-html'
 
+const source = {
+  html: `
+<p style='text-align:center;'>
+  <b>Hello World!</b>d
+</p>`,
+}
 export default function Settings() {
-  return (
-    // <View style={styles.container}>
-    <LinearGradient
-      // Button Linear Gradient
-      colors={['transparent', '#3b5998', 'transparent']}
-      style={{ width: 50, height: 50 }}
-    ></LinearGradient>
-    // </View>
-  )
+    const { width } = useWindowDimensions()
+  return <RenderHtml contentWidth={width} source={source} />
 }
 
 const styles = StyleSheet.create({

@@ -7,34 +7,41 @@ import {
   SectionList,
   StyleSheet,
   Text,
-  View, Dimensions, TouchableOpacity, Linking
+  View,
+  Dimensions,
+  TouchableOpacity,
+  Linking,
+  useWindowDimensions,
 } from 'react-native'
 import { Component } from '../utils/types'
 import MathJax from 'react-native-mathjax'
 import CodeHighlighter from 'react-native-code-highlighter'
 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import YoutubePlayer from 'react-native-youtube-iframe'
+import RenderHtml from 'react-native-render-html'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 const renderComponent = (dataComponent: Component) => {
   const { componentType, props, value } = dataComponent
-//ogarnąć style
+  //ogarnąć style
 
   switch (componentType) {
+    // case 'Text':
+    //   return (
+    //     <Text key={value} style={styles.text}>
+    //       {value}
+    //       {props && renderComponent(props)}
+    //     </Text>
+    //   )
+
     case 'Text':
-      return (
-        <Text key={value} style={styles.text}>
-          {value}
-          {props && renderComponent(props)}
-        </Text>
-      )
-    
-    case 'BoldText':
-      return (<Text key={value} style={{fontSize: 35}} >{value}</Text>)
+      const { width } = useWindowDimensions()
+
+      return <RenderHtml contentWidth={width} source={{ html: value }} />
 
     case 'Block':
       return (
-        <View style={{ backgroundColor: value==='alert' ? 'orange' : null }}>
+        <View style={{ backgroundColor: value === 'alert' ? 'orange' : null }}>
           {props && renderComponent(props)}
         </View>
       )
@@ -60,7 +67,7 @@ const renderComponent = (dataComponent: Component) => {
               width: 360,
             }} //TODO: change 360 to screen width
             html={value}
-            size={props?.fontSize? props.fontSize : 18}
+            size={props?.fontSize ? props.fontSize : 18}
           />
         </Pressable>
       )
@@ -72,44 +79,48 @@ const renderComponent = (dataComponent: Component) => {
       }
       return (
         <View
-          style={{  width: '90%'}} //można jeszcze określić maxWidth dla większych ekranów
+          style={{ width: '90%' }} //można jeszcze określić maxWidth dla większych ekranów
         >
-
           <CodeHighlighter
             hljsStyle={atomOneDarkReasonable}
             textStyle={{ fontSize: 16 }}
             language={props.language}
             //@ts-ignore
-            customStyle={{  padding: 6, borderRadius: 7 , backgroundColor: 'dimgrey', elevation: 10}}
+            customStyle={{
+              padding: 6,
+              borderRadius: 7,
+              backgroundColor: 'dimgrey',
+              //@ts-ignore
+              elevation: 10,
+            }}
             containerStyle={styles.codeContainer}
           >
             {value}
           </CodeHighlighter>
-
         </View>
       )
     case 'YouTube':
       const screenWidth = Dimensions.get('window').width
 
-          return (
-            <YoutubePlayer
-              height={(screenWidth * 0.9 * 9) / 16}
-              // style={{aspctRatio: 16/9}}
-              width={screenWidth * 0.9}
-              play={false}
-              videoId={value}
-              onChangeState={() => {}}
-            />
-          )
-      case 'Link':
-        return (
-          <TouchableOpacity onPress={()=>Linking.openURL(value)}>
-            <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
-             {props.text}
-            </Text>
-          </TouchableOpacity>
-        )
-  // default:
+      return (
+        <YoutubePlayer
+          height={(screenWidth * 0.9 * 9) / 16}
+          // style={{aspctRatio: 16/9}}
+          width={screenWidth * 0.9}
+          play={false}
+          videoId={value}
+          onChangeState={() => {}}
+        />
+      )
+    case 'Link':
+      return (
+        <TouchableOpacity onPress={() => Linking.openURL(value)}>
+          <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
+            {props.text}
+          </Text>
+        </TouchableOpacity>
+      )
+    // default:
     //   return (
     //     <Text style={styles.text} key={value}>
     //       {dataComponent}
@@ -120,7 +131,6 @@ const renderComponent = (dataComponent: Component) => {
 
 //tutaj trafia question, explanation i theory
 export default function ContentRenderer({ content }) {
-
   // if a question is text only, turn it into one element array
   const contentArray = Array.isArray(content)
     ? content
@@ -138,7 +148,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: 20,
     paddingRight: 20,
-    gap: 10
+    gap: 10,
     // backgroundColor: 'white',
   },
   text: {

@@ -5,7 +5,7 @@
   },
   {
     "componentType": "Text",
-    "value": "another text"
+    "value": "<b>another text</b> <a href='https://www.youtube.com/watch?v=2qCmRJz3NOE' >test</a>"
   },
   {
     "componentType": "Link",
