@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, useWindowDimensions } from 'react-native'
 import RenderHtml from 'react-native-render-html'
+import { WebView } from 'react-native-webview'
 
 const source = {
   html: `
@@ -9,8 +10,9 @@ const source = {
 </p>`,
 }
 export default function Settings() {
-  const { width } = useWindowDimensions()
-  return <RenderHtml contentWidth={width} source={source} />
+ const htmlContent = '<p style="font-size: 60px">Hello, <b>World</b></p>'
+
+ return <RenderHtml contentWidth={360} source={source} />
 }
 
 const styles = StyleSheet.create({
