@@ -21,7 +21,8 @@ import YoutubePlayer from 'react-native-youtube-iframe'
 import RenderHtml from 'react-native-render-html'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
-const renderComponent = (dataComponent: Component) => {
+const renderComponent = (dataComponent: Component, width:number) => {
+  // const { width } = useWindowDimensions()
   const { componentType, props, value } = dataComponent
   //ogarnąć style
 
@@ -35,14 +36,13 @@ const renderComponent = (dataComponent: Component) => {
     //   )
 
     case 'Text':
-      const { width } = useWindowDimensions()
 
       return <RenderHtml contentWidth={width} source={{ html: value }} />
 
     case 'Block':
       return (
         <View style={{ backgroundColor: value === 'alert' ? 'orange' : null }}>
-          {props && renderComponent(props)}
+          {props && renderComponent(props, width)}
         </View>
       )
 
@@ -136,9 +136,11 @@ export default function ContentRenderer({ content }) {
     ? content
     : [{ componentType: 'Text', value: content }]
 
+  const { width } = useWindowDimensions()
+
   return (
     <View style={styles.container}>
-      {contentArray.map(component => renderComponent(component))}
+      {contentArray.map(component => renderComponent(component, width))}
     </View>
   )
 }
