@@ -36,8 +36,13 @@ const renderComponent = (dataComponent: Component, width:number) => {
     //   )
 
     case 'Text':
-
-      return <RenderHtml contentWidth={width} source={{ html: value }} />
+      let modifiedValue = value.replace(
+        /<p\s?/g,
+        '<p style="margin-bottom: 0px;" '
+      )
+      return (
+        <RenderHtml contentWidth={width} source={{ html: modifiedValue }} />
+      )
 
     case 'Block':
       return (
@@ -105,7 +110,7 @@ const renderComponent = (dataComponent: Component, width:number) => {
       return (
         <YoutubePlayer
           height={(screenWidth * 0.9 * 9) / 16}
-          // style={{aspctRatio: 16/9}}
+          // style={{marginTop: 200}}
           width={screenWidth * 0.9}
           play={false}
           videoId={value}

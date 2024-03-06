@@ -133,6 +133,10 @@ const useQuizData = () => {
   // }
 
   function countItemsInTopics(topName: string, catName: string): number {
+    console.log("🚀 ~ countItemsInTopics ~ catName:", catName)
+    console.log("🚀 ~ countItemsInTopics ~ topName:", topName)
+    
+    console.log('🚀 ~ countItemsInTopics ~ itemsArray:', quiz)
     let itemsArray: Array<Item> = quiz[catName][topName]
     return itemsArray.length
   }

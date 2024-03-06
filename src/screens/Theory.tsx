@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer'
-import {sendAnEmail, removeUnderscores } from '../utils/functions'
+import { sendAnEmail, removeUnderscores } from '../utils/functions'
 
 export default function Theory({ route }) {
   const [topicName, setTopicName] = useState('')
@@ -35,7 +35,7 @@ export default function Theory({ route }) {
           backgroundColor: 'green',
           position: 'absolute',
           top: 0,
-          zIndex: 2
+          zIndex: 2,
         }}
       />
       <ScrollView
@@ -46,9 +46,11 @@ export default function Theory({ route }) {
         scrollEventThrottle={16}
       >
         <View style={styles.progressBarContainer}>
-        <StatusBar style="auto" />
+          <StatusBar style="auto" />
         </View>
-        <Text style={{ marginTop: 20 }}>theory for {topicName}:</Text>
+        <Text style={{ marginTop: 20, fontSize: 20 }}>
+          {removeUnderscores(topicName, true)}
+        </Text>
         <View style={{ marginBottom: 50 }}>
           <ContentRenderer
             content={theory[route.params.categoryName][route.params.topicName]}
