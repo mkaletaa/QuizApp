@@ -1,10 +1,6 @@
 [
   {
     "componentType": "Text",
-    "value": "text"
-  },
-  {
-    "componentType": "Image",
-    "value": "icon"
+    "value": "<p>text</p>"
   }
 ]

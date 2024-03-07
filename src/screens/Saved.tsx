@@ -8,6 +8,7 @@ import {
   Text,
   View,
   Dimensions,
+  ActivityIndicator,
 } from 'react-native'
 import Explanation from '../components/Explanation'
 import SavedOptions from '../components/SavedOptions'
@@ -15,10 +16,12 @@ import Tile from '../components/Tile'
 import useFetchSavedItems from '../hooks/useFetchSavedItems'
 import { Item } from '../utils/types'
 import { Ionicons } from '@expo/vector-icons'
+import { useHeaderHeight } from '@react-navigation/elements'
 
 //todo: util styles, refresh on scrollup, message if empty, loader if loading
 export default function Saved() {
   const screenHeight = Dimensions.get('window').height
+  const headerHeight = useHeaderHeight()
 
   const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
@@ -76,7 +79,7 @@ export default function Saved() {
         />
       </Modal>
 
-      {savedItems.length > 0 ? (
+      {savedItems.length>0 ? (
         <FlatList
           data={savedItems}
           renderItem={({ item }) => (
@@ -111,7 +114,15 @@ export default function Saved() {
       ) : (
         <View>
           {isPending ? (
-            <Text>Pobieranie</Text>
+            <View
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: screenHeight - headerHeight,
+              }}
+            >
+              <ActivityIndicator size="large" color="#0000ff" />
+            </View>
           ) : (
             <View
               style={{
@@ -121,10 +132,10 @@ export default function Saved() {
                 // top: 100
                 gap: 20,
                 // backgroundColor: 'red',
-                height: screenHeight,
+                height: screenHeight - headerHeight,
               }}
             >
-              <Text>You don't have any saved questions</Text>
+              <Text style={{opacity: .7}}>You don't have any saved questions</Text>
               <Ionicons
                 style={{
                   opacity: 0.1,

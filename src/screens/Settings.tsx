@@ -1,8 +1,14 @@
 import React from 'react'
-import { StyleSheet, useWindowDimensions } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  useWindowDimensions,
+  ActivityIndicator,
+} from 'react-native'
 import RenderHtml from 'react-native-render-html'
 import { WebView } from 'react-native-webview'
-
+// import { ActivityIndicator } from 'react-native-paper'
+// import { ActivityIndicator } from 'react-native-elements'
 const source = {
   html: `
 <p style='text-align:center; font-size: 30px'>
@@ -10,9 +16,13 @@ const source = {
 </p>`,
 }
 export default function Settings() {
- const htmlContent = '<p style="font-size: 60px">Hello, <b>World</b></p>'
+  const htmlContent = '<p style="font-size: 60px">Hello, <b>World</b></p>'
 
- return <RenderHtml contentWidth={360} source={source} />
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size="large" color="#0000ff" />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({

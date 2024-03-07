@@ -95,7 +95,7 @@ export default function GneralResults({
         </Pressable>
       ))}
 
-      <Button title='go back' onPress={() => navigation.goBack()} />
+      {/* <Button title='go back' onPress={() => navigation.goBack()} /> */}
 
       <Modal
         // duration={1000}

@@ -272,21 +272,24 @@ export default function Quiz({ route }) {
           size={34}
           color="orange"
         /> */}
-        <TouchableOpacity
-          style={{
-            backgroundColor: 'orange',
-            borderRadius: 5,
-            elevation: 3,
-            paddingVertical: 5,
-            paddingHorizontal: 10,
-            position: 'absolute',
-            left: 20,
-            top: 10,
-          }}
-          onPress={() => handleBackPress()}
-        >
-          <AntDesign name="arrowleft" size={24} color="black" />
-        </TouchableOpacity>
+
+        {  (
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'rgba(0, 150, 255, 0)',
+              borderRadius: 5,
+              // elevation: 3,
+              paddingVertical: 5,
+              paddingHorizontal: 10,
+              position: 'absolute',
+              left: 20,
+              top: 10,
+            }}
+            onPress={() => handleBackPress()}
+          >
+            <AntDesign name="arrowleft" size={27} color="black" />
+          </TouchableOpacity>
+        )}
         {/* </Pressable> */}
 
         {item && (
