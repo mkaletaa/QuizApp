@@ -1,6 +1,16 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
-import { Button, Dimensions, Modal, ScrollView, StyleSheet, View, Text } from 'react-native'
+import {
+  Button,
+  Dimensions,
+  Modal,
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  TouchableOpacity,
+} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Explanation from '../components/Explanation'
 import GeneralResults from '../components/GeneralResults'
@@ -12,6 +22,8 @@ import { Item, Option, Result } from '../utils/types'
 import useAsyncStorage from '../hooks/useAsyncStorage'
 import { returnIsCorrect } from '../utils/functions'
 import { BackHandler } from 'react-native'
+import { Entypo } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -132,7 +144,6 @@ export default function Quiz({ route }) {
     // return
   }
 
-
   function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
     // return
     //jeśli opcja została zaznaczona i jest multichoice
@@ -157,10 +168,8 @@ export default function Quiz({ route }) {
 
   //activated after pressing zatwierdź button
   function setResults() {
-    let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' = returnIsCorrect(
-      item,
-      chosenOptions
-    )
+    let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' =
+      returnIsCorrect(item, chosenOptions)
 
     //nie wiem czy to zapisywać
     // storeItemStat(item.id, thisQuestionResult)
@@ -214,41 +223,39 @@ export default function Quiz({ route }) {
 
   //   return 'kindof'
   // }
-  
+
   function closeModalAndGoBack(): void {
     setShowExitModal(false)
     navigation.goBack() // powrót do poprzedniego ekranu
   }
 
-useEffect(() => {
-  const backHandler = BackHandler.addEventListener(
-    'hardwareBackPress',
-    handleBackPress
-  )
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      handleBackPress
+    )
 
-  return () => backHandler.remove() // Cleanup the event listener on unmount
-}, [showExitModal, showGeneralResults, navigation])
+    return () => backHandler.remove() // Cleanup the event listener on unmount
+  }, [showExitModal, showGeneralResults, navigation])
 
-const handleBackPress = () => {
-  if (showExitModal || showGeneralResults) {
-    // If the exit modal or general results are already visible, close them
-    setShowExitModal(false)
-    setShowGeneralResults(false)
-    navigation.goBack() // powrót do poprzedniego ek
-  } else {
-    // Otherwise, show the exit modal
-    setShowExitModal(true)
+  const handleBackPress = () => {
+    if (showExitModal || showGeneralResults) {
+      // If the exit modal or general results are already visible, close them
+      setShowExitModal(false)
+      setShowGeneralResults(false)
+      navigation.goBack() // powrót do poprzedniego ek
+    } else {
+      // Otherwise, show the exit modal
+      setShowExitModal(true)
+    }
+
+    // Prevent default behavior of the back button
+    return true
   }
 
-  // Prevent default behavior of the back button
-  return true
-}
-
-
-  
   return (
     <SafeAreaView>
-      {item && allItemsCount !== Infinity && (
+      {item && allItemsCount !== Infinity && whichItem !== 0 && (
         <Line resultsArray={resultsArray} allItemsCount={allItemsCount} />
       )}
       <ScrollView
@@ -257,6 +264,31 @@ const handleBackPress = () => {
           { width: screenWidth, minHeight: screenHeight - 25 }, //height of the pagination is 45
         ]}
       >
+        {/* <Pressable style={{ position: 'absolute', left: 20, top: 10 }}> */}
+        {/* <Entypo
+          style={{ position: 'absolute', left: 20, top: 10 }}
+          onPress={() => handleBackPress()}
+          name="arrow-bold-left"
+          size={34}
+          color="orange"
+        /> */}
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'orange',
+            borderRadius: 5,
+            elevation: 3,
+            paddingVertical: 5,
+            paddingHorizontal: 10,
+            position: 'absolute',
+            left: 20,
+            top: 10,
+          }}
+          onPress={() => handleBackPress()}
+        >
+          <AntDesign name="arrowleft" size={24} color="black" />
+        </TouchableOpacity>
+        {/* </Pressable> */}
+
         {item && (
           <React.Fragment>
             <Question question={item?.question} />
@@ -267,7 +299,7 @@ const handleBackPress = () => {
               multiChoice={item.multiChoice}
             />
             <Button
-              title="zatwierdź"
+              title="submit"
               onPress={() => {
                 setResults()
               }} //jak Infinity mode to nie ustawiaj rezultów
@@ -338,7 +370,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,1)',
+    backgroundColor: 'rgba(255,255,255,.8)',
   },
   modalText: {
     textAlign: 'center',
@@ -363,7 +395,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 15,
+    elevation: 9,
   },
   button: {
     fontSize: 10,

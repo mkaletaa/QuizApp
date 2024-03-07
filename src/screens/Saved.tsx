@@ -1,19 +1,29 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { Modal, ScrollView, Text, View } from 'react-native'
+import {
+  FlatList,
+  Modal,
+  RefreshControl,
+  ScrollView,
+  Text,
+  View,
+  Dimensions,
+} from 'react-native'
 import Explanation from '../components/Explanation'
 import SavedOptions from '../components/SavedOptions'
 import Tile from '../components/Tile'
 import useFetchSavedItems from '../hooks/useFetchSavedItems'
 import { Item } from '../utils/types'
+import { Ionicons } from '@expo/vector-icons'
 
 //todo: util styles, refresh on scrollup, message if empty, loader if loading
 export default function Saved() {
-  const {fetchSavedItems, savedItems, isPending} = useFetchSavedItems()
+  const screenHeight = Dimensions.get('window').height
+
+  const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
   const navigation = useNavigation()
-
 
   function seeFullQuestion(item: Item): void {
     setModalItem(item)
@@ -22,13 +32,28 @@ export default function Saved() {
 
   useEffect(() => {
     fetchSavedItems()
-  }, []);
+  }, [])
+
+  useEffect(() => {
+    setRefreshing(false)
+  }, [savedItems])
 
   const [isEnabled, setIsEnabled] = useState(false)
 
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState)
     savedItems.reverse()
+  }
+
+  const [refreshing, setRefreshing] = useState(false)
+
+  const handleRefresh = () => {
+    // Tutaj dodaj logikę odświeżania (np. pobranie nowych danych z serwera).
+    // Następnie ustaw refreshing na false, aby zakończyć animację odświeżania.
+    setRefreshing(true)
+    fetchSavedItems()
+    // Wywołaj funkcję do odświeżenia danych, a potem:
+    // setRefreshing(false);
   }
 
   return (
@@ -52,38 +77,63 @@ export default function Saved() {
       </Modal>
 
       {savedItems.length > 0 ? (
-        <ScrollView
+        <FlatList
+          data={savedItems}
+          renderItem={({ item }) => (
+            <Tile item={item} handlePress={seeFullQuestion} />
+          )}
+          keyExtractor={item => item.id.toString()}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+          }
+          ListHeaderComponent={() => (
+            <SavedOptions
+              itemsCount={savedItems.length}
+              onPressQuiz={() => {
+                //@ts-ignore
+                navigation.navigate('Quiz', {
+                  catName: '__Saved__',
+                  topArray: [],
+                  itemsArray: savedItems,
+                  howManyItems: savedItems.length,
+                  shuffle: false,
+                })
+              }}
+              onToggleSwitch={toggleSwitch}
+              isEnabled={isEnabled}
+            />
+          )}
           contentContainerStyle={{
             paddingBottom: 40,
-            paddingTop: 20,
-            // height: '100%',
+            paddingTop: 10,
           }}
-        >
-          <SavedOptions
-            onPressQuiz={() => {
-              //@ts-ignore
-              navigation.navigate('Quiz', {
-                catName: '__Saved__',
-                topArray: [],
-                itemsArray: savedItems,
-                howManyItems: savedItems.length,
-                shuffle: false,
-              })
-            }}
-            onToggleSwitch={toggleSwitch}
-            isEnabled={isEnabled}
-          />
-
-          {savedItems.map((item, index) => (
-            <Tile item={item} handlePress={seeFullQuestion} />
-          ))}
-        </ScrollView>
+        />
       ) : (
         <View>
           {isPending ? (
             <Text>Pobieranie</Text>
           ) : (
-            <Text>nie zapisano jeszcze żadnego pytania</Text>
+            <View
+              style={{
+                flexGrow: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+                // top: 100
+                gap: 20,
+                // backgroundColor: 'red',
+                height: screenHeight,
+              }}
+            >
+              <Text>You don't have any saved questions</Text>
+              <Ionicons
+                style={{
+                  opacity: 0.1,
+                }}
+                name="bookmarks"
+                size={264}
+                color="black"
+              />
+            </View>
           )}
         </View>
       )}

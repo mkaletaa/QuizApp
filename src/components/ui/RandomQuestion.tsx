@@ -23,7 +23,7 @@ export default function RandomQuestion({catName}){
         onPress={instantQuestion}
         style={{
           width: 150,
-          backgroundColor: 'gold',
+          backgroundColor: 'orange',
           alignItems: 'center',
           elevation: 3,
           borderRadius: 6,
@@ -38,7 +38,7 @@ export default function RandomQuestion({catName}){
           // backgroundColor: 'blue'
         }}
       >
-        <Text style={{ fontSize: 15 }}>Random question</Text>
+        <Text style={{ fontSize: 15, color: 'white' }}>Random question</Text>
       </Pressable>
     )
 }
