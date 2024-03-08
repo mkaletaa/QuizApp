@@ -18,7 +18,7 @@ export default function Theory({ route }) {
   const [scrollPercentage, setScrollPercentage] = useState(0)
   const [data, setData] = useState<any>([])
   // const scrollViewRef = useRef(null)
-
+console.log('rerender')
 
   useEffect(() => {
     setTopicName(route.params.topicName)
