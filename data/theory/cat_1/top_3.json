@@ -2,5 +2,9 @@
   {
     "componentType": "Text",
     "value": "<p>text</p>"
-  }
+  },
+  {
+    "componentType": "Text",
+    "value": "<p>text</p>"
+  } 
 ]
