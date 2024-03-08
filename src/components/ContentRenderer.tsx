@@ -21,7 +21,7 @@ import YoutubePlayer from 'react-native-youtube-iframe'
 import RenderHtml from 'react-native-render-html'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
-const renderComponent = (dataComponent: Component, width:number) => {
+const renderComponent = (dataComponent: Component, width: number) => {
   // const { width } = useWindowDimensions()
   const { componentType, props, value } = dataComponent
   //ogarnąć style
@@ -44,22 +44,62 @@ const renderComponent = (dataComponent: Component, width:number) => {
         <RenderHtml contentWidth={width} source={{ html: modifiedValue }} />
       )
 
-    case 'Block':
+    case 'Header':
       return (
-        <View style={{ backgroundColor: value === 'alert' ? 'orange' : null }}>
-          {props && renderComponent(props, width)}
+        <Text
+          style={{ fontSize: 35, fontWeight: 'bold', backgroundColor: 'red' }}
+        >
+          {value}
+        </Text>
+      )
+
+    case 'Block':
+      console.log(value)
+      return (
+        <View
+          style={{
+            width: '100%',
+            backgroundColor: props.type === 'alert' ? 'orange' : 'lightblue',
+          }}
+        >
+          {
+            //@ts-ignore
+            value.map(item => renderComponent(item, width))
+          }
+        </View>
+      )
+
+    case 'Quote':
+      return (
+        <View
+          style={{
+            width: '100%',
+            backgroundColor: props.type === 'alert' ? 'orange' : 'lightblue',
+          }}
+        >
+          {
+            //@ts-ignore
+            value.map(item => renderComponent(item, width))
+          }
         </View>
       )
 
     case 'Image':
       return (
-        <Image
-          key={value}
-          style={styles.image}
-          source={{
-            uri: value,
-          }}
-        />
+        <React.Fragment>
+          <Image
+            key={value}
+            style={styles.image}
+            source={{
+              uri: value,
+            }}
+          />
+          {props?.description && (
+            <Text style={{ opacity: 0.5, marginTop: -10 }}>
+              {props.description}
+            </Text>
+          )}
+        </React.Fragment>
       )
     case 'Math':
       return (
@@ -142,10 +182,12 @@ export default function ContentRenderer({ content }) {
     : [{ componentType: 'Text', value: content }]
 
   const { width } = useWindowDimensions()
-
+  //TODO: dodać index jako key
   return (
     <View style={styles.container}>
-      {contentArray.map(component => renderComponent(component, width))}
+      {contentArray.map((component, index) =>
+        renderComponent(component, width)
+      )}
     </View>
   )
 }
@@ -156,7 +198,8 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     gap: 10,
-    // backgroundColor: 'white',
+    backgroundColor: 'yellow',
+    width: 360 //TODO: zmienić 
   },
   text: {
     fontSize: 18,

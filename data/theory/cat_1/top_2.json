@@ -1,18 +1,22 @@
 [
   {
     "componentType": "Text",
-    "value": "textt",
-    "props":{
-      "componentType": "BoldText",
-      "value": " bold text"
-    }
+    "value": "textt"
+  },
+  {
+    "componentType": "Header",
+    "value": "Dupa"
   },
   {
     "componentType": "Block",
-    "value": "alert",
-    "props":{
-      "componentType": "Text",
-      "value": "textt"
+    "value": [
+      {
+        "componentType": "Text",
+        "value": "textty"
+      }
+    ],
+    "props": {
+      "type": "info"
     }
   },
   {

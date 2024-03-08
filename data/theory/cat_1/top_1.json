@@ -10,7 +10,7 @@
   {
     "componentType": "Link",
     "value": "https://www.youtube.com/watch?v=2qCmRJz3NOE",
-    "props": {"text": "otworz se linka"}
+    "props": { "text": "otworz se linka" }
   },
   {
     "componentType": "YouTube",
@@ -30,6 +30,7 @@
   },
   {
     "componentType": "Image",
-    "value": "https://legacy.reactjs.org/logo-og.png"
+    "value": "https://legacy.reactjs.org/logo-og.png",
+    "props": { "description": "des" }
   }
 ]
