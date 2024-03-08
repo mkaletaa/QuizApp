@@ -18,7 +18,7 @@ export type Item = {
   multiChoice: boolean
   question: string | Array<Component>
   options: Array<Option>
-  explanation: string | Array<Component>
+  explanation?: string | Array<Component>
 } 
 
 

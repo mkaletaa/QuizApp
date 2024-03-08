@@ -28,8 +28,6 @@ export default function Explanation({
   btnTitle: string
   showQuestion: boolean
 }) {
-
-
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
       <IconPrompt item={item}></IconPrompt>
@@ -66,8 +64,12 @@ export default function Explanation({
           </React.Fragment>
         )}
 
-        <Text style={styles.heading}>Explanation:</Text>
-        <ContentRenderer content={item?.explanation} />
+        {item?.explanation && (
+          <React.Fragment>
+            <Text style={styles.heading}>Explanation:</Text>
+            <ContentRenderer content={item?.explanation} />
+          </React.Fragment>
+        )}
 
         <View style={styles.nextItem}>
           <Button title={btnTitle} onPress={() => handleBtnPress()} />

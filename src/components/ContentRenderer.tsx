@@ -17,6 +17,7 @@ import { Component } from '../utils/types'
 import MathJax from 'react-native-mathjax'
 import CodeHighlighter from 'react-native-code-highlighter'
 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import YoutubePlayer from 'react-native-youtube-iframe'
 import RenderHtml from 'react-native-render-html'
 
@@ -127,16 +128,16 @@ const renderComponent = (dataComponent: Component, width: number) => {
           style={{ width: '90%' }} //można jeszcze określić maxWidth dla większych ekranów
         >
           <CodeHighlighter
-            hljsStyle={atomOneDarkReasonable}
+            hljsStyle={nightOwl}
             textStyle={{ fontSize: 16 }}
             language={props.language}
             //@ts-ignore
             customStyle={{
               padding: 6,
               borderRadius: 7,
-              backgroundColor: 'dimgrey',
+              backgroundColor: '#111133',
               //@ts-ignore
-              elevation: 10,
+              elevation: 20,
             }}
             containerStyle={styles.codeContainer}
           >
@@ -198,7 +199,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     gap: 10,
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
     width: 360 //TODO: zmienić 
   },
   text: {
