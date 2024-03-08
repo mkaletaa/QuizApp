@@ -1,36 +1,80 @@
 [
   {
-    "componentType": "Text",
-    "value": "text"
+    "title": "Header",
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "text"
+      },
+      {
+        "componentType": "Text",
+        "value": "<b>another text</b> <a href='https://www.youtube.com/watch?v=2qCmRJz3NOE' >test</a>"
+      },
+      {
+        "componentType": "Link",
+        "value": "https://www.youtube.com/watch?v=2qCmRJz3NOE",
+        "props": { "text": "otworz se linka" }
+      },
+      {
+        "componentType": "YouTube",
+        "value": "2qCmRJz3NOE"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png",
+        "props": { "description": "des" }
+      }
+    ]
   },
   {
-    "componentType": "Text",
-    "value": "<b>another text</b> <a href='https://www.youtube.com/watch?v=2qCmRJz3NOE' >test</a>"
-  },
-  {
-    "componentType": "Link",
-    "value": "https://www.youtube.com/watch?v=2qCmRJz3NOE",
-    "props": { "text": "otworz se linka" }
-  },
-  {
-    "componentType": "YouTube",
-    "value": "2qCmRJz3NOE"
-  },
-  {
-    "componentType": "Image",
-    "value": "https://legacy.reactjs.org/logo-og.png"
-  },
-  {
-    "componentType": "Image",
-    "value": "https://legacy.reactjs.org/logo-og.png"
-  },
-  {
-    "componentType": "Image",
-    "value": "https://legacy.reactjs.org/logo-og.png"
-  },
-  {
-    "componentType": "Image",
-    "value": "https://legacy.reactjs.org/logo-og.png",
-    "props": { "description": "des" }
+    "title": "Header",
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "text"
+      },
+      {
+        "componentType": "Text",
+        "value": "<b>another text</b> <a href='https://www.youtube.com/watch?v=2qCmRJz3NOE' >test</a>"
+      },
+      {
+        "componentType": "Link",
+        "value": "https://www.youtube.com/watch?v=2qCmRJz3NOE",
+        "props": { "text": "otworz se linka" }
+      },
+      {
+        "componentType": "YouTube",
+        "value": "2qCmRJz3NOE"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png",
+        "props": { "description": "des" }
+      }
+    ]
   }
 ]

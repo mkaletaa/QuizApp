@@ -1,26 +1,30 @@
 [
   {
-    "componentType": "Text",
-    "value": "textt"
-  },
-  {
-    "componentType": "Header",
-    "value": "Dupa"
-  },
-  {
-    "componentType": "Block",
-    "value": [
+    "data": [
       {
         "componentType": "Text",
-        "value": "textty"
+        "value": "textt"
+      },
+      {
+        "componentType": "Header",
+        "value": "Dupa"
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "textty"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "componentType": "Image",
+        "value": "icon"
       }
-    ],
-    "props": {
-      "type": "info"
-    }
-  },
-  {
-    "componentType": "Image",
-    "value": "icon"
+    ]
   }
 ]

@@ -6,7 +6,7 @@ const MySectionList = () => {
 
   const data = [
     {
-      title: 'Section 1',
+      // title: 'Section 1',
       data: ['Item 1.1', 'Item 1.2', 'Item 1.3'],
     },
     {
@@ -38,18 +38,23 @@ const MySectionList = () => {
     </View>
   )
 
-  const renderSectionHeader = ({ section: { title } }) => (
-    <View style={styles.sectionHeader}>
-      <Text style={styles.sectionHeaderText}>{title}</Text>
-    </View>
-  )
+  const renderSectionHeader = ({ section }) => {
+    if (section.title) {
+      return (
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionHeaderText}>{section.title}</Text>
+        </View>
+      )
+    }
+    return null // Brak nagłówka dla sekcji bez tytułu
+  }
 
   const scrollToSection = sectionIndex => {
     if (sectionListRef.current) {
       //@ts-ignore
       sectionListRef.current.scrollToLocation({
         animated: true,
-        itemIndex: 1, //for some reason I have to set 1 instead of 0 if using stickySectionHeadersEnabled
+        itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
         sectionIndex,
       })
     }
