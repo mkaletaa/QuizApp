@@ -20,21 +20,14 @@ import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import YoutubePlayer from 'react-native-youtube-iframe'
 import RenderHtml from 'react-native-render-html'
-import { AntDesign } from '@expo/vector-icons'
+
+import Block from './ContentRenderer/Block'
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
-const renderComponent = (dataComponent: Component, width: number) => {
+export const renderComponent = (dataComponent: Component, width: number) => {
   // const { width } = useWindowDimensions()
   const { componentType, props, value } = dataComponent
-  //ogarnąć style
 
   switch (componentType) {
-    // case 'Text':
-    //   return (
-    //     <Text key={value} style={styles.text}>
-    //       {value}
-    //       {props && renderComponent(props)}
-    //     </Text>
-    //   )
 
     case 'Text':
       let modifiedValue = value.replace(
@@ -55,78 +48,14 @@ const renderComponent = (dataComponent: Component, width: number) => {
       )
 
     case 'Block':
-      function setBgColor(
-        type: 'info' | 'warning' | 'important' | 'task'
-      ): string {
-        if (type === 'info') return 'lightblue'
-        else if (type === 'warning') return 'orange'
-        else if (type === 'important') return 'tomato'
-        else if (type === 'task') return 'green'
-      }
-      function setBorderColor(
-        type: 'info' | 'warning' | 'important' | 'task'
-      ): string {
-        if (type === 'info') return 'lightblue'
-        else if (type === 'warning') return 'brown'
-        else if (type === 'important') return 'red'
-        else if (type === 'task') return 'green'
-      }
-      return (
-        <View
-          style={{
-            width: '100%',
-            padding: 5,
-            borderRadius: 3,
-            borderWidth: 2,
-            borderColor: setBorderColor(props.type),
-            backgroundColor: setBgColor(props.type),
-            flexDirection: 'row',
-            // flexGrow: 1,
-            // gap: 5,
-          }}
-        >
-          {
-            <React.Fragment>
-              <AntDesign
-                name="exclamationcircleo"
-                style={{
-                  width: '10%',
-                  backgroundColor: 'tomato',
-                  justifyContent: 'center',
-                  // textAlign: 'center',
-                }}
-                size={24}
-                color="black"
-              />
-              <View
-                style={{
-                  flexWrap: 'wrap',
-                  backgroundColor: 'tomato',
-                  width: '90%',
-                }}
-              >
-                {
-                  //@ts-ignore
-                  value.map(item => renderComponent(item, width))
-                }
-              </View>
-            </React.Fragment>
-          }
-        </View>
-      )
+      return <Block value={value} type={props.type}/>
+      
+      
 
     case 'Quote':
       return (
         <View
-          style={{
-            // width: '100%',
-            // height: 20,
-            borderRadius: 3,
-            backgroundColor: '#FFF5B5',
-            borderLeftWidth: 3,
-            borderColor: '#CBA724',
-            padding: 5,
-          }}
+          style={styles.quote}
         >
           {
             //@ts-ignore
@@ -159,7 +88,6 @@ const renderComponent = (dataComponent: Component, width: number) => {
           <MathJax
             style={{
               backgroundColor: 'transparent',
-              // color: 'red',
               width: 360,
             }} //TODO: change 360 to screen width
             html={value}
@@ -182,13 +110,7 @@ const renderComponent = (dataComponent: Component, width: number) => {
             textStyle={{ fontSize: 16 }}
             language={props.language}
             //@ts-ignore
-            customStyle={{
-              padding: 6,
-              borderRadius: 7,
-              backgroundColor: '#111133',
-              //@ts-ignore
-              elevation: 20,
-            }}
+            customStyle={styles.code}
             containerStyle={styles.codeContainer}
           >
             {value}
@@ -201,7 +123,6 @@ const renderComponent = (dataComponent: Component, width: number) => {
       return (
         <YoutubePlayer
           height={(screenWidth * 0.9 * 9) / 16}
-          // style={{marginTop: 200}}
           width={screenWidth * 0.9}
           play={false}
           videoId={value}
@@ -216,12 +137,7 @@ const renderComponent = (dataComponent: Component, width: number) => {
           </Text>
         </TouchableOpacity>
       )
-    // default:
-    //   return (
-    //     <Text style={styles.text}>
-    //       {value}
-    //     </Text>
-    //   )
+
   }
 }
 
@@ -272,5 +188,21 @@ const styles = StyleSheet.create({
     //minWidth: '100%',
     // height: 40,
     // maxHeight: '100%',
+  },
+  code: {
+    padding: 6,
+    borderRadius: 7,
+    backgroundColor: '#111133',
+    //@ts-ignore
+    elevation: 20,
+  },
+  quote: {
+    // width: '100%',
+    // height: 20,
+    borderRadius: 3,
+    backgroundColor: '#FFF5B5',
+    borderLeftWidth: 3,
+    borderColor: '#CBA724',
+    padding: 5,
   },
 })

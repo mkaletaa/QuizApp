@@ -24,7 +24,43 @@
           }
         ],
         "props": {
+          "type": "warning"
+        }
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+          }
+        ],
+        "props": {
           "type": "important"
+        }
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+          }
+        ],
+        "props": {
+          "type": "task"
         }
       },
       {

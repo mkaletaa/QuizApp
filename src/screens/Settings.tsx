@@ -78,7 +78,7 @@ const YourComponent = () => {
         animated: true,
       })
     }
-  }
+  
   const [scrollPercentage, setScrollPercentage] = useState(0)
 
     const handleScroll = event => {
