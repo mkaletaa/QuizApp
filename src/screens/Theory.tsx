@@ -16,9 +16,9 @@ export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [scrollPercentage, setScrollPercentage] = useState(0)
-  const [data, setData] = useState<any>([])
+  // const [data, setData] = useState<any>([])
   // const scrollViewRef = useRef(null)
-console.log('rerender')
+  console.log('rerender')
 
   useEffect(() => {
     setTopicName(route.params.topicName)
@@ -31,15 +31,25 @@ console.log('rerender')
     setScrollPercentage(percent)
   }
 
-  const handleContentSizeChange = (contentWidth, contentHeight) => {
-    //@ts-ignore
-    sectionListRef.current.scrollTo({ x: 0, y: 0, animated: false })
-    setScrollPercentage(0)
-  }
+  // const handleContentSizeChange = (contentWidth, contentHeight) => {
+  //   //@ts-ignore
+  //   sectionListRef.current.scrollTo({ x: 0, y: 0, animated: false })
+  //   setScrollPercentage(0)
+  // }
 
-  const renderItem = ({ item }) => (
-    <View style={styles.item}>
-      <ContentRenderer content={[item]} />
+
+  const renderHeader = () => (
+    <View style={styles.listHeader}>
+      <Text style={{ marginBottom: 20, fontSize: 20 }}>
+        {removeUnderscores(topicName, true)}
+      </Text>
+      {theory[route.params.categoryName][route.params.topicName].map(
+        (a, i) =>
+          a.title && (
+            <Button title={a.title} onPress={() => scrollToSection(i)} />
+          )
+      )}
+      {/* <Text style={styles.listHeaderText}>List Header</Text> */}
     </View>
   )
 
@@ -54,13 +64,9 @@ console.log('rerender')
     return null // Brak nagłówka dla sekcji bez tytułu
   }
 
-  const renderHeader = () => (
-    <View style={styles.listHeader}>
-      <Button title="Przewiń do Section 2" onPress={() => scrollToSection(1)} />
-      <Text style={styles.listHeaderText}>List Header</Text>
-      <Text style={{ marginTop: 20, fontSize: 20 }}>
-        {removeUnderscores(topicName, true)}
-      </Text>
+  const renderItem = ({ item }) => (
+    <View style={styles.item}>
+      <ContentRenderer content={[item]} />
     </View>
   )
 
@@ -87,7 +93,6 @@ console.log('rerender')
           zIndex: 2,
         }}
       />
-
 
       <SectionList
         onScroll={handleScroll}
@@ -147,7 +152,8 @@ const styles = StyleSheet.create({
   },
   listHeader: {
     padding: 20,
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
+    borderBottomWidth: 1,
     alignItems: 'center',
   },
   listHeaderText: {
