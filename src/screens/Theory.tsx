@@ -95,7 +95,7 @@ console.log('rerender')
         sections={theory[route.params.categoryName][route.params.topicName]}
         // contentContainerStyle={styles.container}
         // onContentSizeChange={handleContentSizeChange}
-        scrollEventThrottle={16}
+        scrollEventThrottle={15}
         ListHeaderComponent={renderHeader}
         stickySectionHeadersEnabled
         renderItem={renderItem}

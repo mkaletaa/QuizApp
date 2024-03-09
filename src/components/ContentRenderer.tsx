@@ -20,7 +20,7 @@ import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import YoutubePlayer from 'react-native-youtube-iframe'
 import RenderHtml from 'react-native-render-html'
-
+import { AntDesign } from '@expo/vector-icons'
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 const renderComponent = (dataComponent: Component, width: number) => {
   // const { width } = useWindowDimensions()
@@ -55,17 +55,62 @@ const renderComponent = (dataComponent: Component, width: number) => {
       )
 
     case 'Block':
-      console.log(value)
+      function setBgColor(
+        type: 'info' | 'warning' | 'important' | 'task'
+      ): string {
+        if (type === 'info') return 'lightblue'
+        else if (type === 'warning') return 'orange'
+        else if (type === 'important') return 'tomato'
+        else if (type === 'task') return 'green'
+      }
+      function setBorderColor(
+        type: 'info' | 'warning' | 'important' | 'task'
+      ): string {
+        if (type === 'info') return 'lightblue'
+        else if (type === 'warning') return 'brown'
+        else if (type === 'important') return 'red'
+        else if (type === 'task') return 'green'
+      }
       return (
         <View
           style={{
             width: '100%',
-            backgroundColor: props.type === 'alert' ? 'orange' : 'lightblue',
+            padding: 5,
+            borderRadius: 3,
+            borderWidth: 2,
+            borderColor: setBorderColor(props.type),
+            backgroundColor: setBgColor(props.type),
+            flexDirection: 'row',
+            // flexGrow: 1,
+            // gap: 5,
           }}
         >
           {
-            //@ts-ignore
-            value.map(item => renderComponent(item, width))
+            <React.Fragment>
+              <AntDesign
+                name="exclamationcircleo"
+                style={{
+                  width: '10%',
+                  backgroundColor: 'tomato',
+                  justifyContent: 'center',
+                  // textAlign: 'center',
+                }}
+                size={24}
+                color="black"
+              />
+              <View
+                style={{
+                  flexWrap: 'wrap',
+                  backgroundColor: 'tomato',
+                  width: '90%',
+                }}
+              >
+                {
+                  //@ts-ignore
+                  value.map(item => renderComponent(item, width))
+                }
+              </View>
+            </React.Fragment>
           }
         </View>
       )
@@ -74,8 +119,13 @@ const renderComponent = (dataComponent: Component, width: number) => {
       return (
         <View
           style={{
-            width: '100%',
-            backgroundColor: props.type === 'alert' ? 'orange' : 'lightblue',
+            // width: '100%',
+            // height: 20,
+            borderRadius: 3,
+            backgroundColor: '#FFF5B5',
+            borderLeftWidth: 3,
+            borderColor: '#CBA724',
+            padding: 5,
           }}
         >
           {
@@ -168,8 +218,8 @@ const renderComponent = (dataComponent: Component, width: number) => {
       )
     // default:
     //   return (
-    //     <Text style={styles.text} key={value}>
-    //       {dataComponent}
+    //     <Text style={styles.text}>
+    //       {value}
     //     </Text>
     //   )
   }
@@ -200,7 +250,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     gap: 10,
     // backgroundColor: 'yellow',
-    width: 360 //TODO: zmienić 
+    width: 360, //TODO: zmienić
   },
   text: {
     fontSize: 18,

@@ -2,10 +2,6 @@
   {
     "data": [
       {
-        "componentType": "Text",
-        "value": "textt"
-      },
-      {
         "componentType": "Header",
         "value": "Dupa"
       },
