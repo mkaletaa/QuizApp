@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StyleSheet } from 'react-native'
+import { Modal, Pressable, StyleSheet, View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import 'react-native-gesture-handler'
 import MyStack from './src/Stack'
@@ -7,7 +7,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import NetInfo from '@react-native-community/netinfo'
 
 export default function App() {
-  const [isConnected, setIsConnected] = useState(true)
+  // const [isConnected, setIsConnected] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   async function clearAsyncStorage() {
     try {
@@ -21,7 +22,8 @@ export default function App() {
   useEffect(() => {
     // Subskrybuj zmiany w stanie połączenia
     const unsubscribe = NetInfo.addEventListener(state => {
-      setIsConnected(state.isConnected)
+      // setIsConnected(state.isConnected)
+      setShowModal(!state.isConnected)
       console.log('Is connected?', state.isConnected)
     })
 
@@ -37,6 +39,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <MyStack />
+
+      <Modal animationType="slide" transparent={true} visible={showModal}>
+        <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+          <View style={{ backgroundColor: 'white', padding: 20 }}>
+            <Text>Brak połączenia z internetem!</Text>
+            <Pressable onPress={() => setShowModal(false)}>
+              <Text>Zamknij</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      
     </NavigationContainer>
   )
 }
