@@ -50,7 +50,7 @@ export default function Theory({ route }) {
               style={{
                 alignItems: 'flex-start',
                 width: '100%',
-             }}
+              }}
             >
               <Pressable onPress={() => scrollToSection(i)}>
                 <Text
@@ -97,6 +97,7 @@ export default function Theory({ route }) {
       })
     }
   }
+
   return (
     <View>
       <StatusBar style="auto" />
@@ -111,26 +112,31 @@ export default function Theory({ route }) {
         }}
       />
 
-      <SectionList
-        onScroll={handleScroll}
-        ref={sectionListRef}
-        sections={theory[route.params.categoryName][route.params.topicName]}
-        // contentContainerStyle={styles.container}
-        // onContentSizeChange={handleContentSizeChange}
-        scrollEventThrottle={15}
-        ListHeaderComponent={renderHeader}
-        stickySectionHeadersEnabled
-        renderItem={renderItem}
-        renderSectionHeader={renderSectionHeader}
-        keyExtractor={(item, index) => index.toString()}
-      />
-      <Button
-        title="report a mistake"
-        color="red"
-        onPress={() => {
-          sendAnEmail('Topic name: ' + removeUnderscores(topicName))
-        }}
-      />
+      {/* if there is data, render it. if not, show a message */}
+      {theory[route.params.categoryName][route.params.topicName] ? (
+        <React.Fragment>
+          <SectionList
+            onScroll={handleScroll}
+            ref={sectionListRef}
+            sections={theory[route.params.categoryName][route.params.topicName]}
+            scrollEventThrottle={15}
+            ListHeaderComponent={renderHeader}
+            stickySectionHeadersEnabled
+            renderItem={renderItem}
+            renderSectionHeader={renderSectionHeader}
+            keyExtractor={(item, index) => index.toString()}
+          />
+          <Button
+            title="report a mistake"
+            color="red"
+            onPress={() => {
+              sendAnEmail('Topic name: ' + removeUnderscores(topicName))
+            }}
+          />
+        </React.Fragment>
+      ) : (
+        <Text>nie dalo sie otworzyc, elo</Text>
+      )}
     </View>
   )
 }
