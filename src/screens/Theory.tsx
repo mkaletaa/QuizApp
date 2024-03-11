@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useRef, useState } from 'react'
 import {
   Button,
+  Pressable,
   ScrollView,
   SectionList,
   StyleSheet,
@@ -37,7 +38,6 @@ export default function Theory({ route }) {
   //   setScrollPercentage(0)
   // }
 
-
   const renderHeader = () => (
     <View style={styles.listHeader}>
       <Text style={{ marginBottom: 20, fontSize: 20 }}>
@@ -46,7 +46,24 @@ export default function Theory({ route }) {
       {theory[route.params.categoryName][route.params.topicName].map(
         (a, i) =>
           a.title && (
-            <Button title={a.title} onPress={() => scrollToSection(i)} />
+            <View
+              style={{
+                alignItems: 'flex-start',
+                width: '100%',
+             }}
+            >
+              <Pressable onPress={() => scrollToSection(i)}>
+                <Text
+                  style={{
+                    fontSize: 25,
+                    textDecorationLine: 'underline',
+                    // backgroundColor: 'red',
+                  }}
+                >
+                  {a.title}
+                </Text>
+              </Pressable>
+            </View>
           )
       )}
       {/* <Text style={styles.listHeaderText}>List Header</Text> */}

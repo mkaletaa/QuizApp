@@ -39,14 +39,14 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         <RenderHtml contentWidth={width} source={{ html: modifiedValue }} />
       )
 
-    case 'Header':
-      return (
-        <Text
-          style={{ fontSize: 35, fontWeight: 'bold', backgroundColor: 'red' }}
-        >
-          {value}
-        </Text>
-      )
+    // case 'Header':
+    //   return (
+    //     <Text
+    //       style={{ fontSize: 35, fontWeight: 'bold', backgroundColor: 'red' }}
+    //     >
+    //       {value}
+    //     </Text>
+    //   )
 
     case 'Block':
       return <Block value={value} type={props.type} />
