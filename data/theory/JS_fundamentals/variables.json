@@ -1,0 +1,152 @@
+[
+  {
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "In programming, variables are containers or symbolic names that represent values stored in computer memory. These values can be numbers, text, arrays, objects, functions, or other data types. Variables provide a way to label and reference data in a program, making it easier for developers to manipulate and work with information."
+      }
+    ]
+  },
+  {
+    "title": "Why use variables",
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "Using variables becomes particularly advantageous when you need to update a value in multiple places within your code. Let’s say you want to consol.log sum of numbers, when one of them is 20:"
+      },
+      {
+        "componentType": "Code",
+        "value": "console.log(20+1)\nconsole.log(20+2)\nconsole.log(20+3)\n //more console.logs\nconsole.log(20+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "But then you decide you want to change 20 to 10. You could do it manually one by one, but this is harsh(inne słowo) method. Better idea is to store your number in a variable and then change it in just one place."
+      },
+      {
+        "componentType": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "Another use case for using variables is to maintain code readability. Consider a program that utilizes the number of months in a year, the number of hours on a clock, and the age of a 12-year-old person. As it is easy to imagine, without using variables, the number 12 would be repeated throughout the code. You could use comments to indicate what each instance of twelve represents, but the issue with comments is that we may forget to include them. Therefore, a better idea is to create three variables: nrOfMonths, hoursOnClock, and age, to avoid later mistakes. "
+      }
+    ]
+  },
+  {
+    "title": "Variables names",
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "To ensure that a variable name is correct, it must meet all of the following conditions: <p>&bull; The variable name must not be a reserved keyword. Keywords are specific words in a programming language that have predefined meanings and cannot be used for other purposes, such as defining variables.</p>"
+      },
+      {
+        "componentType": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "&bull; The variable name must not contain certain special characters like space, period, comma, or hyphen."
+      },
+      {
+        "componentType": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "&bull; The variable name should not start with a digit (0-9). It's a standard rule in most programming languages that a variable name must begin with a letter."
+      },
+      {
+        "componentType": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "In addition, there are other rules for naming variables, which are not strictly necessary for the program to function but are good practice to maintain code cleanliness. Here are the most important ones:<p><b>Descriptive and meaningful:</b></p>"
+      },
+      {
+        "componentType": "Text",
+        "value": "<ul><li>The variable name should not start with a digit (0-9). It's a standard rule in most programming languages that a variable name must begin with a letter.</li><li>Aim for clarity and avoid ambiguous or overly short names.</li></ul>"
+      },
+      {
+        "componentType": "Code",
+        "value": "let totalAmount = 100;   // Avoid let x = 100; ",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "<p><b>Camel Case:</b></p>"
+      },
+      {
+        "componentType": "Text",
+        "value": "<ul><li>Use camel case for multi-word variable names. Start with a lowercase letter, and capitalize the first letter of each subsequent concatenated word.</li></ul>"
+      },
+      {
+        "componentType": "Code",
+        "value": "let userName = \"JohnDoe\"; ",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "<p><b>Consistency:</b></p>"
+      },
+      {
+        "componentType": "Text",
+        "value": "<ul><li>Maintain a consistent naming style throughout your codebase. If you start with camel case, stick to it.</li></ul>"
+      },
+      {
+        "componentType": "Code",
+        "value": "let firstName = \"John\"; \nlet lastName = \"Doe\";",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "<p><b>Avoid Single-Letter Names:</b></p>"
+      },
+      {
+        "componentType": "Text",
+        "value": "<ul><li>Except for loop counters or very short programms, avoid single-letter variable names. Use names that convey meaning.</li></ul>"
+      },
+      {
+        "componentType": "Code",
+        "value": "// Good (in a loop)\nfor (let i = 0; i < 10; i++) console.log(i); \n// Avoid \nlet x = 10;",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          { "componentType": "Text", "value": "wielkość liter ma znaczenie" }
+        ],
+        "props": {
+          "type": "warning"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Keywords",
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "Consider following code:"
+      },
+      {
+        "componentType": "Code",
+        "value": "name = \"some name\" ",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "Unless you don’t use strict mode this code is correct, however it is highly advisable to poprzedzić variable name with a keyword. In JS there are 3 of them:"
+      },
+      {
+        "componentType": "Text",
+        "value": "<ul><li><b>var</b> is the oldest of these keywords and can be found in older JavaScript sources. However, since ES6 was introduced in 2015, it is not advisable to use var anymore. The reasons for this recommendation will be explained later.</li><li><b>let</b> is a newer keyword introduced in ES6 and is generally preferred over var. It offers more predictable scoping behavior and is considered an improvement in terms of variable declaration.</li><li><b>const</b> was also introduced in ES6. It is an abbreviation for \"constant\", signifying that variables declared with this keyword cannot be reassigned after their initial assignment in the code. This helps enforce immutability and is particularly useful when you want to ensure that a variable remains constant throughout the program.</li></ul>"
+      }
+    ]
+  }
+]

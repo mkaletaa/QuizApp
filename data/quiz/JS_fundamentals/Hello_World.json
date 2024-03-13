@@ -1,0 +1,136 @@
+[
+  {
+    "id": "JS_fundamentals|Hello_World|1",
+    "multiChoice": false,
+    "question": "Who said: <i>”Any application that can be written in JavaScript, will eventually be written in JavaScript”?</i>",
+    "options": [
+      { "id": 1, "answer": "Thomas Dohmke", "correct": false },
+      { "id": 2, "answer": "Jeff Atwood", "correct": true },
+      { "id": 3, "answer": "Brendan Eich", "correct": false },
+      { "id": 4, "answer": "Bill Gates", "correct": false }
+    ],
+    "explanation": []
+  },
+  {
+    "id": "JS_fundamentals|Hello_World|2",
+    "multiChoice": true,
+    "question": "What can be built using JavaScript?",
+    "options": [
+      { "id": 21, "answer": "frontend apps", "correct": true },
+      { "id": 22, "answer": "backend apps", "correct": true },
+      { "id": 23, "answer": "mobile apps", "correct": true },
+      { "id": 24, "answer": "desktop apps", "correct": true },
+      { "id": 25, "answer": "TV apps", "correct": true }
+    ],
+    "explanation": "JavaScript was originally designed for use in frontend applications, but with the help of runtimes like Node, it can also be employed as a backend language. Utilizing frameworks such as Electron or Tauri allows you to develop desktop applications, while React Native enables the creation of mobile and TV apps."
+  },
+  {
+    "id": "JS_fundamentals|Hello_World|3",
+    "multiChoice": false,
+    "question": "JS is a single-threaded language",
+    "options": [
+      {
+        "id": 31,
+        "answer": "true",
+        "correct": true
+      },
+      {
+        "id": 32,
+        "answer": "false",
+        "correct": false
+      }
+    ],
+    "explanation": "JS is a single-threaded language; however, its event-driven, non-blocking concurrency model enables efficient handling of asynchronous tasks without blocking the main execution thread."
+  },
+  {
+    "id": "JS_fundamentals|Hello_World|4",
+    "multiChoice": false,
+    "question": "JS is a statically typed language",
+    "options": [
+      {
+        "id": 31,
+        "answer": "true",
+        "correct": false
+      },
+      {
+        "id": 32,
+        "answer": "false",
+        "correct": true
+      }
+    ],
+    "explanation": "JavaScript is a dynamically typed language, in contrast to TypeScript, which is statically typed."
+  },
+  {
+    "id": "JS_fundamentals|Hello_World|5",
+    "multiChoice": false,
+    "question": "JS is an interpreted language",
+    "options": [
+      {
+        "id": 31,
+        "answer": "true",
+        "correct": true
+      },
+      {
+        "id": 32,
+        "answer": "false",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|Hello_World|6",
+    "multiChoice": false,
+    "question": "JS is a weakly typed language",
+    "options": [
+      {
+        "id": 31,
+        "answer": "true",
+        "correct": true
+      },
+      {
+        "id": 32,
+        "answer": "false",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|Hello_World|7",
+    "multiChoice": false,
+    "question": "JS is a weakly typed language",
+    "options": [
+      {
+        "id": 31,
+        "answer": "true",
+        "correct": true
+      },
+      {
+        "id": 32,
+        "answer": "false",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|Hello_World|8",
+    "multiChoice": true,
+    "question": "Which of these paradigms can be used for coding in JavaScript?",
+    "options": [
+      {
+        "id": 31,
+        "answer": "imperative",
+        "correct": true
+      },
+      {
+        "id": 32,
+        "answer": "object-oriented",
+        "correct": true
+      },
+      {
+        "id": 33,
+        "answer": "functional",
+        "correct": true
+      }
+    ]
+  }
+]
