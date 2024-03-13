@@ -141,11 +141,42 @@
       },
       {
         "componentType": "Text",
-        "value": "Unless you don’t use strict mode this code is correct, however it is highly advisable to poprzedzić variable name with a keyword. In JS there are 3 of them:"
+        "value": "Unless you don’t use strict mode this code is correct, however it is highly advisable to precede variable name with a keyword. In JS there are 3 of them:"
       },
       {
         "componentType": "Text",
         "value": "<ul><li><b>var</b> is the oldest of these keywords and can be found in older JavaScript sources. However, since ES6 was introduced in 2015, it is not advisable to use var anymore. The reasons for this recommendation will be explained later.</li><li><b>let</b> is a newer keyword introduced in ES6 and is generally preferred over var. It offers more predictable scoping behavior and is considered an improvement in terms of variable declaration.</li><li><b>const</b> was also introduced in ES6. It is an abbreviation for \"constant\", signifying that variables declared with this keyword cannot be reassigned after their initial assignment in the code. This helps enforce immutability and is particularly useful when you want to ensure that a variable remains constant throughout the program.</li></ul>"
+      },
+      {
+        "componentType": "Text",
+        "value": "<b>Differences</b>"
+      },
+      {
+        "componentType": "Text",
+        "value": "<p>1. Zakres</p><p>var ma zakres funkcyjny (function scope). Oznacza to, że zmienna zdeklarowana przy użyciu var jest widoczna w całej funkcji, nawet jeśli została zadeklarowana wewnątrz bloku. let ma zakres blokowy (block scope). Zmienna zadeklarowana za pomocą let jest widoczna tylko wewnątrz najbliższego bloku.</p>"
+      },
+      {
+        "componentType": "Code",
+        "value": "function example() {\n\t\t\t{\n\t\t\t\t\t\tvar x = 5; // widoczna w całej funkcji\n\t\t\t\t\t\tlet y = 10; // widoczna tylko wewnątrz bloku\n\t\t\t}\n\t\t\tconsole.log(x); // 5\n\t\t\tconsole.log(y); // Error: y is not defined\n}",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "<p>2. Hoisting</p><p>var jest poddawane hoistingowi, co oznacza, że zmienna jest podnoszona do góry zakresu i może być używana przed jej deklaracją.let również jest hoistowane, ale jest w stanie \"temporal dead zone\" (TDZ), co oznacza, że nie może być używane przed deklaracją, nawet jeśli jest podniesione.</p>"
+      },
+      {
+        "componentType": "Code",
+        "value": "console.log(a); // undefined (hoisting)\nvar a = 5;\nconsole.log(b); // Error: b is not defined (TDZ)\nlet b = 10;",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "Text",
+        "value": "<p>3. Powtórna deklaracja</p><p>var pozwala na wielokrotne deklarowanie tej samej zmiennej w jednym zakresie. Nowa deklaracja nadpisuje poprzednią.let nie pozwala na wielokrotne deklaracje w tym samym zakresie. Wystąpi błąd, jeśli próbujesz ponownie zadeklarować zmienną.</p>"
+      },
+      {
+        "componentType": "Code",
+        "value": "var x = 5\nvar x = 10; // OK\nlet y = 5;\nlet y = 10; // Error: Identifier 'y' has already been declared",
+        "props": { "height": 200, "language": "javascript" }
       }
     ]
   }

@@ -59,5 +59,6 @@ export const topics = {
     { name: 'Hello_World', image: 'https://reactjs.org/logo-og.png' },
     { name: 'comments', image: 'https://reactjs.org/logo-og.png' },
     { name: 'variables', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'conditionals', image: 'https://reactjs.org/logo-og.png' },
   ],
 }
