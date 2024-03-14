@@ -1,8 +1,6 @@
 import { quiz } from '../../data/quiz/quizModule'
 import { Item } from '../utils/types'
 import { topics, categories } from '../../data/data'
-import { useState } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 //* UWAGA: można rozważyć włożenie do obiektów items i categories klucz z ilością topików/itemów żeby przyspieszyć działanie aplikacji
 
@@ -21,52 +19,12 @@ const useQuizData = () => {
   function importItemById(id: string): Item {
     const [category, topic] = id.split('|')
 
-    // const topicIndex: number = quiz[category].findIndex(item => item.id === id)
     const itemIndex: number = quiz[category][topic].findIndex(
       item => item.id === id
     )
-    // console.log("🚀 ~ importItemById ~ index:", index)
 
     return quiz[category][topic][itemIndex]
   }
-
-  // const [itemsArray, setItemsArray] = useState([])
-  // // [{ name: 'nazwa topica', nr, 1 }]
-  // function importRandomItem(catName: string, topName: string) {
-  //   let itemsH = [] //pojemnik na obiekty {name, items}
-  //   let randomItem: Item
-
-  //   if (itemsArray.length === 0) {
-  //     //jeśli itemsMatric jest puste, zapełnij je
-  //     // for (let i = 0; i < topArray.length; i++) {
-  //       let itemsArray: Array<Item> = quiz[catName][topName]
-
-  //       for (let j = 0; j < itemsArray.length; j++) {
-  //         itemsH.push({ topName, nr: j })
-  //       }
-  //     // }
-  //     setItemsArray(itemsH)
-  //     return returnItem(itemsH)
-  //   }
-
-  //   function returnItem(itemsM2) {
-  //     let itemsM = itemsM2
-  //     let randomNr = Math.floor(Math.random() * itemsM.length)
-
-  //     let topicName = itemsM[randomNr].topName
-  //     let randomItemNr = itemsM[randomNr].nr
-
-  //     //usuwanie
-  //     itemsM.splice(randomNr, 1)
-  //     setItemsArray(itemsM)
-
-  //     return quiz[catName][topicName][randomItemNr]
-  //   }
-
-  //   randomItem = returnItem(itemsArray)
-
-  //   return randomItem
-  // }
 
   function importRandomItemAllItemsMode(categoryName: string): Item {
     let catNr: number
@@ -88,55 +46,8 @@ const useQuizData = () => {
     return item
   }
 
-  // function importSavedItem(): Item {
-  //   //retrieve items
-  //   //setItemsArray()
-  //   //zwróc itema i usuń go z itemsArray
-  //   const fetchSavedItems = async () => {
-  //     try {
-  //       const jsonValue = await AsyncStorage.getItem('savedItems')
-  //       if (jsonValue !== null) {
-  //         const parsedItems = JSON.parse(jsonValue)
-  //         let itemsH = []
-
-  //         // Użyj Promise.all do równoczesnego pobierania elementów asynchronicznie
-  //         await Promise.all(
-  //           parsedItems.map(async id => {
-  //             const item = await importItemById(id)
-  //             itemsH.push(item)
-  //           })
-  //         )
-
-  //         setItemsArray(itemsH)
-
-  //         // Dodaj warunek sprawdzający, czy istnieją elementy przed zwróceniem
-  //         if (itemsH.length > 0) {
-  //           console.log("🚀 ~ fetchSavedItems ~ itemsH kurwaa:", itemsH[0])
-  //           return itemsH[0]
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error('Błąd podczas pobierania danych z AsyncStorage:', error)
-  //     }
-
-  //     // Zwróć domyślną wartość w przypadku braku danych lub błędu
-  //     return null // lub pusta tablica, obiekt, itp., w zależności od potrzeb
-  //   }
-
-  //   // Wywołaj funkcję pobierającą dane przy mountowaniu komponentu
-  //   if (itemsArray.length === 0) fetchSavedItems()
-  //   else {
-  //     const itemToReturn = itemsArray.shift()
-  //     setItemsArray(itemsArray)
-  //     return itemToReturn
-  //   }
-  // }
 
   function countItemsInTopics(topName: string, catName: string): number {
-    console.log("🚀 ~ countItemsInTopics ~ catName:", catName)
-    console.log("🚀 ~ countItemsInTopics ~ topName:", topName)
-    
-    console.log('🚀 ~ countItemsInTopics ~ itemsArray:', quiz)
     let itemsArray: Array<Item> = quiz[catName][topName]
     return itemsArray.length
   }
@@ -159,14 +70,12 @@ const useQuizData = () => {
 
   return {
     importItem,
+    importItemById,
+    importRandomItemAllItemsMode,
     countItemsInTopics,
-    // importRandomItem,
     countTopics,
     getTopicsForCategory,
-    importRandomItemAllItemsMode,
     getAllTopics,
-    importItemById,
-    // importSavedItem,
   }
 }
 

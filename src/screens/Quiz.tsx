@@ -1,30 +1,27 @@
+import { AntDesign } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
+  BackHandler,
   Button,
   Dimensions,
   Modal,
   ScrollView,
   StyleSheet,
-  View,
-  Text,
-  Pressable,
   TouchableOpacity,
+  View
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import CustomModal from '../components/CustomModal'
 import Explanation from '../components/Explanation'
 import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
 import Question from '../components/Question'
 import Line from '../components/ui/Line'
-import useQuizData from '../hooks/useQuizData'
-import { Item, Option, Result } from '../utils/types'
 import useAsyncStorage from '../hooks/useAsyncStorage'
+import useQuizData from '../hooks/useQuizData'
 import { returnIsCorrect } from '../utils/functions'
-import { BackHandler } from 'react-native'
-import { Entypo } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
-import CustomModal from '../components/CustomModal'
+import { Item, Option, Result } from '../utils/types'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -49,7 +46,6 @@ export default function Quiz({ route }) {
   const {
     importItem,
     countItemsInTopics,
-    // importRandomItem,
     importRandomItemAllItemsMode,
   } = useQuizData()
 
@@ -74,8 +70,6 @@ export default function Quiz({ route }) {
       setChosenOptions([])
       return
     }
-    console.log('getNextItem')
-    console.log('🚀 ~ getNextItem ~ allItemsCount:', allItemsCount)
 
     if (allItemsCount === Infinity) {
       item = importRandomItemAllItemsMode(catName)
@@ -146,10 +140,8 @@ export default function Quiz({ route }) {
   }
 
   function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
-    // return
     //jeśli opcja została zaznaczona i jest multichoice
     if (whatToDo === 'add' && item.multiChoice) {
-      // console.log('1')
       setChosenOptions(prev => [...prev, option])
       return
     }
