@@ -5,9 +5,9 @@ import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import Question from './Question'
 
-export default function Tile({ item, handlePress }: { item: Item, handlePress: any }) {
-  const [isEnabled, setIsEnabled] = useState(false)
-  const navigation = useNavigation()
+export default function Tile({ item, handlePress, color="white" }: { item: Item, handlePress: any, color?: any}) {
+  // const [isEnabled, setIsEnabled] = useState(false)
+  // const navigation = useNavigation()
 
   return (
     <Pressable
@@ -22,8 +22,8 @@ export default function Tile({ item, handlePress }: { item: Item, handlePress: a
       <View
         style={[
           {
-            backgroundColor: 'white',
-            width: '68%',
+            backgroundColor: color,
+            width: '78%',
             // maxWidth: 400,
             height: 80, //100
             overflow: 'hidden',
@@ -40,7 +40,7 @@ export default function Tile({ item, handlePress }: { item: Item, handlePress: a
 
         <LinearGradient
           // Button Linear Gradient
-          colors={['transparent', 'white']}
+          colors={['transparent', color]}
           style={{
             width: '100%',
             height: 50,
