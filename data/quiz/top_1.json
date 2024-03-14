@@ -2,7 +2,16 @@
   {
     "id": "cat_1|top_1|1",
     "multiChoice": true,
-    "question": "1How old are you? How old are you? How old are you? How old are you? How old are you? How old are you? How old are you? How old are you? How old are you? How old are you? How old are you? How old are you? How old are you?How old are you? How old are you? How old are you?How old are you? How old are you? How old are you?",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "1 How old are you? How old are you? How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?How old are you?"
+      },
+      {
+        "componentType": "Text",
+        "value": "1?"
+      }
+    ],
     "options": [
       { "id": 1, "answer": "18", "correct": false },
       { "id": 2, "answer": "19", "correct": true },

@@ -1,11 +1,19 @@
-import { Pressable, View, Text, Switch } from 'react-native'
+import { Pressable, View, Text, Switch, ScrollView } from 'react-native'
 import { Item } from '../utils/types'
 import { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import Question from './Question'
 
-export default function Tile({ item, handlePress, color="white" }: { item: Item, handlePress: any, color?: any}) {
+export default function Tile({
+  item,
+  handlePress,
+  color = 'white',
+}: {
+  item: Item
+  handlePress: any
+  color?: any
+}) {
   // const [isEnabled, setIsEnabled] = useState(false)
   // const navigation = useNavigation()
 
@@ -24,24 +32,23 @@ export default function Tile({ item, handlePress, color="white" }: { item: Item,
           {
             backgroundColor: color,
             width: '78%',
-            // flex:1,
-            // maxWidth: 400,
             height: 80, //100
             overflow: 'hidden',
             alignItems: 'center',
             marginTop: 16,
-            justifyContent:'center',
+            paddingTop: 20,
+            // justifyContent: 'center',
+
             borderRadius: 10,
             elevation: 3,
           },
         ]}
       >
-        
         <Question question={item.question} />
 
         <LinearGradient
           // Button Linear Gradient
-          colors={['transparent', color]}
+          colors={['transparent', "lightgray"]}
           style={{
             width: '100%',
             height: 50,

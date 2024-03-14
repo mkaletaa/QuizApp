@@ -220,7 +220,7 @@ export default function Quiz({ route }) {
       <ScrollView
         contentContainerStyle={[
           styles.screen,
-          { width: screenWidth, minHeight: screenHeight - 25 }, //height of the pagination is 45
+          { width: screenWidth, minHeight: screenHeight  }, //height of the pagination is 45
         ]}
       >
         {
