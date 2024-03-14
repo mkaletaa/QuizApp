@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useEffect, useState } from 'react'
 import { Dimensions, Modal, Text, View } from 'react-native'
 import { Item, Option, Result } from '../utils/types'
+import { setColor } from '../utils/functions'
 import Explanation from './Explanation'
 import Tile from './Tile'
 
@@ -10,7 +11,7 @@ export default function GneralResults({
 }: {
   resultsArray: Result[]
 }) {
-  const navigation = useNavigation()
+  // const navigation = useNavigation()
 
   const [correctNr, setCorrectNr] = useState(0)
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function GneralResults({
     setCorrectNr(correct)
   }, [])
 
-  const screenWidth = Dimensions.get('window').width
+  // const screenWidth = Dimensions.get('window').width
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState<Item>()
   const [modalChoices, setModalChoices] = useState<Option[]>()
@@ -32,12 +33,6 @@ export default function GneralResults({
     setModalChoices(choices)
   }
 
-  function setColor(result: Result): 'green' | 'red' | 'orange' {
-    //TODO: make a util out of this function
-    if (result.isCorrect === 'correct') return 'green'
-    if (result.isCorrect === 'incorrect') return 'red'
-    if (result.isCorrect === 'kindof') return 'orange'
-  }
 
   return (
     <View>

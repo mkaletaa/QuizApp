@@ -1,5 +1,5 @@
 import { Linking } from 'react-native'
-import { Item, Option } from './types'
+import { Item, Option, Result } from './types'
 
 export function removeUnderscores(
   str: string,
@@ -32,7 +32,13 @@ export function removeUnderscores(
   }
 
 
+  export function setColor(result: Result): 'green' | 'red' | 'orange' {
+    if (result.isCorrect === 'correct') return 'green'
+    if (result.isCorrect === 'incorrect') return 'red'
+    if (result.isCorrect === 'kindof') return 'orange'
+  }
 
+  
   export function returnIsCorrect(
     item: Item,
     chosenOptions: Option[]

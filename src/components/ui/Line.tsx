@@ -1,5 +1,6 @@
 import { View, Dimensions } from 'react-native'
 import { Result } from '../../utils/types'
+import {setColor} from '../../utils/functions'
 
 export default function Line({
   resultsArray,
@@ -10,11 +11,7 @@ export default function Line({
 }) {
   const screenWidth = Dimensions.get('window').width
 
-  function setColor(result: Result): 'green' | 'red' | 'orange' {
-    if (result.isCorrect === 'correct') return 'green'
-    if (result.isCorrect === 'incorrect') return 'red'
-    if (result.isCorrect === 'kindof') return 'orange'
-  }
+
 
   return (
     <View
