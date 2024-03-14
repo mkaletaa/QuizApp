@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { Modal, Pressable, StyleSheet, View, Text } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import 'react-native-gesture-handler'
-import MyStack from './src/Stack'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import NetInfo from '@react-native-community/netinfo'
+import { NavigationContainer } from '@react-navigation/native'
+import React, { useEffect, useState } from 'react'
+import { Button } from 'react-native'
+import 'react-native-gesture-handler'
+import MyStack from './src/Stack'
+import CustomModal from './src/components/CustomModal'
 
 export default function App() {
-  // const [isConnected, setIsConnected] = useState(true)
   const [showModal, setShowModal] = useState(false)
 
+  /*dev mode */
   async function clearAsyncStorage() {
     try {
       await AsyncStorage.clear()
@@ -20,17 +21,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    // Subskrybuj zmiany w stanie połączenia
     const unsubscribe = NetInfo.addEventListener(state => {
-      // setIsConnected(state.isConnected)
       setShowModal(!state.isConnected)
       console.log('Is connected?', state.isConnected)
     })
-
-    // Wywołaj funkcję, aby wyczyścić AsyncStorage
     // clearAsyncStorage();
 
-    // Zwróć funkcję czyszczącą dla odsubskrybowania, gdy komponent jest odmontowywany
     return () => {
       unsubscribe()
     }
@@ -40,28 +36,14 @@ export default function App() {
     <NavigationContainer>
       <MyStack />
 
-      <Modal animationType="slide" transparent={true} visible={showModal}>
-        <View
-          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-        >
-          <View style={{ backgroundColor: 'white', padding: 20 }}>
-            <Text>Brak połączenia z internetem!</Text>
-            <Pressable onPress={() => setShowModal(false)}>
-              <Text>Zamknij</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-      
+      <CustomModal
+        showModal={showModal}
+        modalText={'You have no Internet connection. Some sources like images may not load properly'}
+        onRequestClose={() => setShowModal(false)}
+      >
+
+        <Button title="OK" onPress={() => setShowModal(false)}/>
+      </CustomModal>
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fffbbb',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
