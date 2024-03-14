@@ -24,12 +24,13 @@ export default function Tile({ item, handlePress, color="white" }: { item: Item,
           {
             backgroundColor: color,
             width: '78%',
+            // flex:1,
             // maxWidth: 400,
             height: 80, //100
             overflow: 'hidden',
             alignItems: 'center',
             marginTop: 16,
-
+            justifyContent:'center',
             borderRadius: 10,
             elevation: 3,
           },

@@ -156,6 +156,8 @@ const styles = StyleSheet.create({
   item: {
     // padding: 10,
     marginBottom: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
     // backgroundColor: 'white',
     // borderBottomWidth: 1,
     // borderBottomColor: 'lightgray',

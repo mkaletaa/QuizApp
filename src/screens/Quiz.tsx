@@ -9,7 +9,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomModal from '../components/CustomModal'
@@ -43,11 +43,8 @@ export default function Quiz({ route }) {
   const [allItemsCount, setAllItemsCount] = useState<number>(howManyItems)
   // const [itemsToShow, setItemsToShow] = useState<Item[]>()
 
-  const {
-    importItem,
-    countItemsInTopics,
-    importRandomItemAllItemsMode,
-  } = useQuizData()
+  const { importItem, countItemsInTopics, importRandomItemAllItemsMode } =
+    useQuizData()
 
   const { storeFinishedQuizStat } = useAsyncStorage()
 
@@ -226,8 +223,6 @@ export default function Quiz({ route }) {
           { width: screenWidth, minHeight: screenHeight - 25 }, //height of the pagination is 45
         ]}
       >
- 
-
         {
           <TouchableOpacity
             style={{
@@ -249,7 +244,9 @@ export default function Quiz({ route }) {
 
         {item && (
           <React.Fragment>
-            <Question question={item?.question} />
+            <View style={{ marginTop: 30 }}>
+              <Question question={item?.question} />
+            </View>
             <Options
               item={item}
               chosenOptions={chosenOptions}
@@ -287,7 +284,7 @@ export default function Quiz({ route }) {
 
       <CustomModal
         showModal={showExitModal}
-        onRequestClose={()=>setShowResultModal(false)}
+        onRequestClose={() => setShowResultModal(false)}
         modalText={
           "Are you sure you want to go back? Your progress won't be saved"
         }
@@ -306,7 +303,6 @@ export default function Quiz({ route }) {
           </View>
         </React.Fragment>
       </CustomModal>
-
     </SafeAreaView>
   )
 }

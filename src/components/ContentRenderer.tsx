@@ -145,11 +145,10 @@ export default function ContentRenderer({ content }) {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingLeft: 20,
-    paddingRight: 20,
+
     gap: 10,
     // backgroundColor: 'yellow',
-    width: 360, //TODO: zmienić
+    width: "100%", //TODO: zmienić
   },
   text: {
     fontSize: 18,

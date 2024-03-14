@@ -31,7 +31,11 @@ export default function Explanation({
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
       <IconPrompt item={item}></IconPrompt>
-      {showQuestion && <Question question={item.question}></Question>}
+      {showQuestion && (
+        <View style={{  backgroundColor: 'red', alignItems: "center", marginTop: 20 }}>
+          <Question question={item.question}></Question>
+        </View>
+      )}
       <View style={styles.contentContainer}>
         {returnIsCorrect(item, chosenOptions) === 'correct' && (
           <Foundation name="check" size={54} color="green" />
