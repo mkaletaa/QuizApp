@@ -1,22 +1,20 @@
-import { Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 import Categories from './screens/Categories'
 import Settings from './screens/Settings'
-// import Quiz from './screens/Quiz'
-import Quiz2 from './screens/Quiz'
-// import Summary from './screens/Summary'
+import Quiz from './screens/Quiz'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
-import { removeUnderscores } from './utils/functions'
 import Saved from './screens/Saved'
-import { AntDesign } from '@expo/vector-icons'
+import { removeUnderscores } from './utils/functions'
 import { View, Text } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import { FontAwesome6 } from '@expo/vector-icons'
 import { Octicons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
+import { FontAwesome6 } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
 
 
 const Stack = createStackNavigator()
@@ -113,7 +111,7 @@ const MyStack = () => {
 
       <Stack.Screen
         name="Quiz"
-        component={Quiz2}
+        component={Quiz}
         options={{ headerShown: false }}
       />
 
@@ -134,17 +132,6 @@ const MyStack = () => {
           },
         })}
       />
-
-      {/* <Stack.Screen
-        name="Summary"
-        component={Summary}
-        options={({ route }) => ({
-          ...header, 
-          title: //@ts-ignore
-            `${route.params?.categoryName}` + ' - quiz summary' || 'topic name',
-            
-        })}
-      /> */}
 
       <Stack.Screen name="Options" component={Settings} />
     </Stack.Navigator>

@@ -194,37 +194,6 @@ export default function Quiz({ route }) {
     setShowResultModal(true)
   }
 
-  //sprawdza czy na to pytanie udzielono dobrej(dobrych) odpowiedzi
-  // function checkTheResult(
-  //   item: Item,
-  //   chosenOptions: Option[]
-  // ): 'correct' | 'incorrect' | 'kindof' {
-  //   //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
-  //   //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
-  //   //zwróć w każdym innym przypadku
-  //   // return
-  //   let nrOfCorrectUserOptions = 0
-  //   let nrOfCorrectOptions = 0
-
-  //   for (const chosenOption of chosenOptions) {
-  //     if (chosenOption?.correct) nrOfCorrectUserOptions++
-  //   }
-
-  //   if (nrOfCorrectUserOptions === 0) return 'incorrect'
-
-  //   for (const option of item?.options) {
-  //     if (option.correct) nrOfCorrectOptions++
-  //   }
-
-  //   if (
-  //     nrOfCorrectUserOptions === nrOfCorrectOptions &&
-  //     nrOfCorrectOptions === chosenOptions.length
-  //   )
-  //     return 'correct'
-
-  //   return 'kindof'
-  // }
-
   function closeModalAndGoBack(): void {
     setShowExitModal(false)
     navigation.goBack() // powrót do poprzedniego ekranu
@@ -265,14 +234,7 @@ export default function Quiz({ route }) {
           { width: screenWidth, minHeight: screenHeight - 25 }, //height of the pagination is 45
         ]}
       >
-        {/* <Pressable style={{ position: 'absolute', left: 20, top: 10 }}> */}
-        {/* <Entypo
-          style={{ position: 'absolute', left: 20, top: 10 }}
-          onPress={() => handleBackPress()}
-          name="arrow-bold-left"
-          size={34}
-          color="orange"
-        /> */}
+ 
 
         {
           <TouchableOpacity
