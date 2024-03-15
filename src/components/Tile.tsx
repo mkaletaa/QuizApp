@@ -51,7 +51,7 @@ export default function Tile({
           colors={['transparent', "lightgray"]}
           style={{
             width: '100%',
-            height: 50,
+            height: 30,//used to be 50
             position: 'absolute',
             bottom: 0,
           }}

@@ -15,7 +15,7 @@ export type Option = {
 
 export type Item = {
   id: string
-  multiChoice: boolean
+  multiChoice?: boolean
   question: string | Array<Component>
   options: Array<Option>
   explanation?: string | Array<Component>
