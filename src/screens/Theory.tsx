@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native'
 import { theory } from '../../data/theory/theory'
-import ContentRenderer from '../components/ContentRenderer'
+import ContentRenderer, { renderComponent } from '../components/ContentRenderer'
 import { sendAnEmail, removeUnderscores } from '../utils/functions'
 
 export default function Theory({ route }) {
@@ -84,6 +84,7 @@ export default function Theory({ route }) {
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
+      {/* {renderComponent(component, width)} */}
       <ContentRenderer content={[item]} />
     </View>
   )

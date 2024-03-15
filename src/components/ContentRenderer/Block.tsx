@@ -89,7 +89,7 @@ export default function Block({
             style={{
               flexWrap: 'wrap',
               //   backgroundColor: 'tomato',
-              width: '90%',
+              maxWidth: '90%',
             }}
           >
             {
@@ -107,7 +107,7 @@ export default function Block({
 
 const styles = StyleSheet.create({
   block: {
-    width: '100%',
+    maxWidth: '100%',
     padding: 5,
     borderRadius: 3,
     borderWidth: 2,

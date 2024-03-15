@@ -21,7 +21,7 @@ export default function Question({
       ))} */}
 
       <ContentRenderer content={question} />
-      </View>
+    </View>
     // </View>
   )
 }
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     ////////////////
     // backgroundColor: 'lightblue',
     width: '90%',
-    
+
     // height: 100,
   },
 })

@@ -24,11 +24,10 @@ import RenderHtml from 'react-native-render-html'
 import ImageComponent from './ContentRenderer/ImageComponent'
 import { v4 as uuidv4 } from 'uuid'
 import Block from './ContentRenderer/Block'
+import { Entypo } from '@expo/vector-icons'
+
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
-export const renderComponent = (
-  dataComponent: Component,
-  width: number,
-) => {
+export const renderComponent = (dataComponent: Component, width: number) => {
   // console.log('🚀 ~ dataComponent:', JSON.stringify(dataComponent))
   // console.log('🚀 ~ index:', index)
   // const { width } = useWindowDimensions()
@@ -37,32 +36,88 @@ export const renderComponent = (
   // const key = uuidv4()
 
   //key is stringified object itself (20 first characters)
-const key: string = JSON.stringify(value).slice(0, 20)
+  const key: string = JSON.stringify(value).slice(0, 20)
 
-  console.log("🚀 ~ key:", key)
+  console.log('🚀 ~ key:', key)
 
   switch (componentType) {
     case 'Text':
-      let modifiedValue = value.replace(
-        /<p\s?/g,
-        '<p style="margin-bottom: 0px;" '
-      )
+      // let modifiedValue = value.replace(
+      //   /<p>\s?/g,
+      //   '<p style="margin-bottom: 0px;  font-size: 18px" >&nbsp;&nbsp;&nbsp;&nbsp;'
+      // )
+        let modifiedValue = "<span style=\"margin-bottom: 0px;  font-size: 18px\">"+value+"</span>"
+      // modifiedValue = modifiedValue.replace(
+      //   /<p>\s?/g,
+      //   '<p style="margin-bottom: 0px; background-color: red" >&nbsp;&nbsp;&nbsp;&nbsp;'
+      // )
       return (
+        // <View
+        //   style={{
+        //     // backgroundColor: 'yellow',
+        //     width: '100%', maxWidth: 300,
+        //     alignItems: 'center'
+        //   }}
+        // >
         <RenderHtml
           key={key}
           contentWidth={width}
           source={{ html: modifiedValue }}
         />
+        // {/* </View> */}
       )
 
-    // case 'Header':
-    //   return (
-    //     <Text
-    //       style={{ fontSize: 35, fontWeight: 'bold', backgroundColor: 'red' }}
-    //     >
-    //       {value}
-    //     </Text>
-    //   )
+    case 'Header':
+      return (
+        <View style={{ width: '100%', paddingLeft: 10 }}>
+          <Text
+            style={{ fontSize: 20, fontWeight: 'bold' }}
+          >
+            {value}
+          </Text>
+        </View>
+      )
+
+    case 'List':
+      console.warn(value)
+      return (
+        <React.Fragment>
+          <View
+            style={{
+              backgroundColor: 'lightblue',
+              maxWidth: '100%',
+              gap: 5
+              //
+            }}
+          >
+            {
+              //@ts-ignore
+              value.map((item, index) => renderComponent(item, width))
+            }
+          </View>
+        </React.Fragment>
+      )
+
+    case 'ListElement':
+      // console.warn(value)
+        let modifiedValue2 =
+          '<span style="margin-bottom: 0px;  font-size: 18px">' +
+          value +
+          '</span>'
+
+      return (
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '90%',
+          }}
+        >
+          <View style={{ width: '10%', backgroundColor: 'orange', alignItems:'center', }}>
+            <Entypo name="dot-single" size={26} color="black" />
+          </View>
+          <RenderHtml key={key} contentWidth={width} source={{ html: modifiedValue2 }} />
+        </View>
+      )
 
     case 'Block':
       return <Block value={value} type={props.type} key={key} />
@@ -72,9 +127,7 @@ const key: string = JSON.stringify(value).slice(0, 20)
         <View style={styles.quote} key={key}>
           {
             //@ts-ignore
-            value.map((item, index) =>
-              renderComponent(item, width)
-            )
+            value.map((item, index) => renderComponent(item, width))
           }
         </View>
       )
@@ -177,7 +230,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     gap: 10,
-    // backgroundColor: 'yellow',
+    backgroundColor: 'yellow',
     width: '100%', //TODO: zmienić
   },
   text: {

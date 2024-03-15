@@ -12,7 +12,7 @@
     "data": [
       {
         "componentType": "Text",
-        "value": "Using variables becomes particularly advantageous when you need to update a value in multiple places within your code. Let’s say you want to consol.log sum of numbers, when one of them is 20:"
+        "value": "Using variables becomes particularly advantageous when you need to update a value in multiple places within your code. Let’s say you want to consol.log sum of numbers, when one of them is 20: lol gf jh fjgf<br></br> Using variables becomes particularly advantageous when you need to update a value in multiple places within your code. Let’s say you want to consol.log sum of numbers, when one of them is 20:"
       },
       {
         "componentType": "Code",
@@ -39,7 +39,44 @@
     "data": [
       {
         "componentType": "Text",
-        "value": "To ensure that a variable name is correct, it must meet all of the following conditions: <p>&bull; The variable name must not be a reserved keyword. Keywords are specific words in a programming language that have predefined meanings and cannot be used for other purposes, such as defining variables.</p>"
+        "value": "To ensure that a variable name is correct, it must meet all of the following conditions: "
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "The variable name must not be a reserved keyword. Keywords are specific words in a programming language that have predefined meanings and cannot be used for other purposes, such as defining variables."
+          }
+        ]
+      },
+      {
+        "componentType": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "The variable name must not contain certain special characters like space, period, comma, or hyphen."
+          }
+        ]
+      },
+      {
+        "componentType": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "The variable name should not start with a digit (0-9). It's a standard rule in most programming languages that a variable name must begin with a letter."
+          }
+        ]
       },
       {
         "componentType": "Code",
@@ -48,25 +85,18 @@
       },
       {
         "componentType": "Text",
-        "value": "&bull; The variable name must not contain certain special characters like space, period, comma, or hyphen."
+        "value": "In addition, there are other rules for naming variables, which are not strictly necessary for the program to function but are good practice to maintain code cleanliness. Here are the most important ones:"
       },
+      { "componentType": "Header", "value": "Descriptive and meaningful:" },
       {
-        "componentType": "Code",
-        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
-        "props": { "height": 200, "language": "javascript" }
-      },
-      {
-        "componentType": "Text",
-        "value": "&bull; The variable name should not start with a digit (0-9). It's a standard rule in most programming languages that a variable name must begin with a letter."
-      },
-      {
-        "componentType": "Code",
-        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
-        "props": { "height": 200, "language": "javascript" }
-      },
-      {
-        "componentType": "Text",
-        "value": "In addition, there are other rules for naming variables, which are not strictly necessary for the program to function but are good practice to maintain code cleanliness. Here are the most important ones:<p><b>Descriptive and meaningful:</b></p>"
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "To jest jeszcze inny h h fvh fhhhhhhhhh hhhhhhhhhhhhhhh hhhhhhhhhhhhhhh hhhhhhhhhhhh element listy o dłuższym value"
+          },
+          { "componentType": "ListElement", "value": "To jest element listy" }
+        ]
       },
       {
         "componentType": "Text",
@@ -119,7 +149,10 @@
       {
         "componentType": "Block",
         "value": [
-          { "componentType": "Text", "value": "wielkość liter ma znaczenie" }
+          {
+            "componentType": "Text",
+            "value": "wielkość liter ma znaczenie wielkość liter ma znaczenie wielkość liter ma znaczenie wielkość liter ma znaczenie wielkość liter ma znaczenie wielkość liter ma znaczenie"
+          }
         ],
         "props": {
           "type": "warning"
