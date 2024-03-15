@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
   icon: {
     width: '10%',
     justifyContent: 'center',
+    marginTop: 1
     // textAlign: 'center',
   },
 })

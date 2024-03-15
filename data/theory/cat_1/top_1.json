@@ -7,6 +7,67 @@
         "value": "text"
       },
       {
+        "componentType": "Header",
+        "value": "To jest header"
+      },
+      {
+        "componentType": "Text",
+        "value": "text"
+      },
+      {
+        "componentType": "Header",
+        "value": "To też jest header"
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "The variable name must not contain certain special characters like space, period, comma, or hyphen."
+          },
+          {
+            "componentType": "ListElement",
+            "value": "The variable name must not contain certain special characters like space, period, comma, or hyphen."
+          }
+        ]
+      },
+
+      {
+        "componentType": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "tutaj beda cyferki"
+          },
+          {
+            "componentType": "ListElement",
+            "value": "cyferki + wyś. lista."
+          }
+        ]
+      },
+      {
+        "componentType": "Header",
+        "value": "To jest bardzo bardzo długi header"
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "tutaj beda cyferki"
+          },
+          {
+            "componentType": "ListElement",
+            "value": "cyferki + po lewej. lista."
+          }
+        ]
+      },
+      {
         "componentType": "Quote",
         "value": [
           {
@@ -20,7 +81,7 @@
         "value": [
           {
             "componentType": "Text",
-            "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+            "value": "po <b>lewej</b>"
           }
         ],
         "props": {
@@ -32,7 +93,7 @@
         "value": [
           {
             "componentType": "Text",
-            "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+            "value": "wyśrodkowane, wąskie"
           }
         ],
         "props": {
@@ -44,7 +105,7 @@
         "value": [
           {
             "componentType": "Text",
-            "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+            "value": "wyśr., szerokie"
           }
         ],
         "props": {
@@ -57,6 +118,14 @@
           {
             "componentType": "Text",
             "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+          },
+          {
+            "componentType": "YouTube",
+            "value": "2qCmRJz3NOE"
+          },
+          {
+            "componentType": "Image",
+            "value": "https://legacy.reactjs.org/logo-og.png"
           }
         ],
         "props": {
@@ -82,7 +151,8 @@
       },
       {
         "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
+        "value": "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+        "props": { "description": "des" }
       },
       {
         "componentType": "Image",

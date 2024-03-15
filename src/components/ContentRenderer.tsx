@@ -79,12 +79,12 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       )
 
     case 'List':
-      console.warn(value)
+      // console.warn(value)
       return (
         <React.Fragment>
           <View
             style={{
-              backgroundColor: 'lightblue',
+              // backgroundColor: 'lightblue',
               maxWidth: '100%',
               gap: 5
               //
@@ -112,7 +112,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             width: '90%',
           }}
         >
-          <View style={{ width: '10%', backgroundColor: 'orange', alignItems:'center', }}>
+          <View style={{ width: '10%', alignItems:'center', }}>
             <Entypo name="dot-single" size={26} color="black" />
           </View>
           <RenderHtml key={key} contentWidth={width} source={{ html: modifiedValue2 }} />
@@ -190,14 +190,14 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           onChangeState={() => {}}
         />
       )
-    case 'Link':
-      return (
-        <TouchableOpacity onPress={() => Linking.openURL(value)} key={key}>
-          <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
-            {props.text}
-          </Text>
-        </TouchableOpacity>
-      )
+    // case 'Link':
+    //   return (
+    //     <TouchableOpacity onPress={() => Linking.openURL(value)} key={key}>
+    //       <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
+    //         {props.text}
+    //       </Text>
+    //     </TouchableOpacity>
+    //   )
   }
 }
 
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     gap: 10,
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
     width: '100%', //TODO: zmienić
   },
   text: {

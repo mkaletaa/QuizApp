@@ -75,8 +75,8 @@ const ImageComponent = ({ description, value }) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: 200,
-    height: 100,
+    width: 300,
+    height: 150,
     backgroundColor: 'red',
   },
   modalContainer: {
