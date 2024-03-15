@@ -22,12 +22,24 @@ import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import YoutubePlayer from 'react-native-youtube-iframe'
 import RenderHtml from 'react-native-render-html'
 import ImageComponent from './ContentRenderer/ImageComponent'
-
+import { v4 as uuidv4 } from 'uuid'
 import Block from './ContentRenderer/Block'
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
-export const renderComponent = (dataComponent: Component, width: number) => {
+export const renderComponent = (
+  dataComponent: Component,
+  width: number,
+) => {
+  // console.log('🚀 ~ dataComponent:', JSON.stringify(dataComponent))
+  // console.log('🚀 ~ index:', index)
   // const { width } = useWindowDimensions()
+
   const { componentType, props, value } = dataComponent
+  // const key = uuidv4()
+
+  //key is stringified object itself (20 first characters)
+const key: string = JSON.stringify(value).slice(0, 20)
+
+  console.log("🚀 ~ key:", key)
 
   switch (componentType) {
     case 'Text':
@@ -36,7 +48,11 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         '<p style="margin-bottom: 0px;" '
       )
       return (
-        <RenderHtml contentWidth={width} source={{ html: modifiedValue }} />
+        <RenderHtml
+          key={key}
+          contentWidth={width}
+          source={{ html: modifiedValue }}
+        />
       )
 
     // case 'Header':
@@ -49,25 +65,31 @@ export const renderComponent = (dataComponent: Component, width: number) => {
     //   )
 
     case 'Block':
-      return <Block value={value} type={props.type} />
+      return <Block value={value} type={props.type} key={key} />
 
     case 'Quote':
       return (
-        <View style={styles.quote}>
+        <View style={styles.quote} key={key}>
           {
             //@ts-ignore
-            value.map(item => renderComponent(item, width))
+            value.map((item, index) =>
+              renderComponent(item, width)
+            )
           }
         </View>
       )
 
     case 'Image':
       return (
-        <ImageComponent description={props?.description || null} value={value}/>
+        <ImageComponent
+          key={key}
+          description={props?.description || null}
+          value={value}
+        />
       )
     case 'Math':
       return (
-        <Pressable>
+        <Pressable key={key}>
           {/* to prevent the menu showing up, wrap MathJax with Pressable */}
           <MathJax
             style={{
@@ -87,6 +109,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       }
       return (
         <View
+          key={key}
           style={{ width: '90%' }} //można jeszcze określić maxWidth dla większych ekranów
         >
           <CodeHighlighter
@@ -106,6 +129,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
       return (
         <YoutubePlayer
+          key={key}
           height={(screenWidth * 0.9 * 9) / 16}
           width={screenWidth * 0.9}
           play={false}
@@ -115,7 +139,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       )
     case 'Link':
       return (
-        <TouchableOpacity onPress={() => Linking.openURL(value)}>
+        <TouchableOpacity onPress={() => Linking.openURL(value)} key={key}>
           <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
             {props.text}
           </Text>
@@ -125,12 +149,18 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 }
 
 //tutaj trafia question, explanation i theory
-export default function ContentRenderer({ content }) {
+export default function ContentRenderer({
+  content,
+}: {
+  content: string | Component[]
+}) {
   // if a question is text only, turn it into one element array
-  const contentArray = Array.isArray(content)
+  const contentArray: Component[] = Array.isArray(content)
     ? content
     : [{ componentType: 'Text', value: content }]
 
+  // console.log('🚀 ~ ContentRenderer ~ contentArray:', JSON.stringify(contentArray))
+  // console.log('🚀 ~ ContentRenderer ~ contentArray Length:', contentArray.length)
   const { width } = useWindowDimensions()
   //TODO: dodać index jako key
   return (
@@ -148,7 +178,7 @@ const styles = StyleSheet.create({
 
     gap: 10,
     // backgroundColor: 'yellow',
-    width: "100%", //TODO: zmienić
+    width: '100%', //TODO: zmienić
   },
   text: {
     fontSize: 18,

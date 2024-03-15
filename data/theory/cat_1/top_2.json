@@ -1,8 +1,9 @@
 [
   {
+    "title": "ddd",
     "data": [
       {
-        "componentType": "Header",
+        "componentType": "Text",
         "value": "Dupa"
       },
       {

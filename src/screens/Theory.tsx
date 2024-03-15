@@ -47,6 +47,7 @@ export default function Theory({ route }) {
         (a, i) =>
           a.title && (
             <View
+            key={i.toString()}
               style={{
                 alignItems: 'flex-start',
                 width: '100%',
@@ -124,7 +125,10 @@ export default function Theory({ route }) {
             stickySectionHeadersEnabled
             renderItem={renderItem}
             renderSectionHeader={renderSectionHeader}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(item, index) => {
+              // console.log('Index of item in keyExtractor:', index, " ",JSON.stringify(item))
+              return index.toString()
+            }}
           />
           <Button
             title="report a mistake"

@@ -94,7 +94,9 @@ export default function Block({
           >
             {
               //@ts-ignore
-              value.map(item => renderComponent(item, width))
+              value.map((item, index) =>
+                renderComponent(item, width)
+              )
             }
           </View>
         </React.Fragment>
