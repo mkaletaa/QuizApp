@@ -48,10 +48,10 @@ export default function Tile({
 
         <LinearGradient
           // Button Linear Gradient
-          colors={['transparent', "lightgray"]}
+          colors={['transparent', 'transparent', "lightgray"]}
           style={{
             width: '100%',
-            height: 30,//used to be 50
+            height: '100%',//has to be 100% cuz if Math component, Tile cannot be pressed
             position: 'absolute',
             bottom: 0,
           }}

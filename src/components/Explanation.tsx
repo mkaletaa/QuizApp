@@ -32,7 +32,13 @@ export default function Explanation({
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
       <IconPrompt item={item}></IconPrompt>
       {showQuestion && (
-        <View style={{  backgroundColor: 'red', alignItems: "center", marginTop: 20 }}>
+        <View
+          style={{
+            backgroundColor: 'red',
+            alignItems: 'center',
+            marginTop: 20,
+          }}
+        >
           <Question question={item.question}></Question>
         </View>
       )}
@@ -56,14 +62,17 @@ export default function Explanation({
         {item?.options
           .filter(option => option.correct === true)
           .map((option, index) => (
-            <ContentRenderer content={option.answer} key={index} />
+            <ContentRenderer content={option.answer} key={option.id} />
           ))}
 
         {chosenOptions && chosenOptions.length > 0 && (
           <React.Fragment>
             <Text style={styles.heading}>Your answer(s):</Text>
             {chosenOptions.map((option, index) => (
-              <ContentRenderer content={option.answer} key={index} />
+              <ContentRenderer
+                content={option.answer}
+                key={'chosen_' + option.id}
+              />
             ))}
           </React.Fragment>
         )}
