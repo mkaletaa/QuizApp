@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
   Button,
   Pressable,
@@ -47,7 +47,7 @@ export default function Theory({ route }) {
         (a, i) =>
           a.title && (
             <View
-            key={i.toString()}
+              key={i.toString()}
               style={{
                 alignItems: 'flex-start',
                 width: '100%',
@@ -99,22 +99,9 @@ export default function Theory({ route }) {
     }
   }
 
-  return (
-    <View>
-      <StatusBar style="auto" />
-      <View
-        style={{
-          width: `${scrollPercentage}%`,
-          height: 5,
-          backgroundColor: 'green',
-          position: 'absolute',
-          top: 0,
-          zIndex: 2,
-        }}
-      />
-
-      {/* if there is data, render it. if not, show a message */}
-      {theory[route.params.categoryName][route.params.topicName] ? (
+  const memoizedComponents = useMemo(()=>{
+    
+      return theory[route.params.categoryName][route.params.topicName] ? (
         <React.Fragment>
           <SectionList
             onScroll={handleScroll}
@@ -138,9 +125,26 @@ export default function Theory({ route }) {
             }}
           />
         </React.Fragment>
-      ) : (
-        <Text>nie dalo sie otworzyc, elo</Text>
-      )}
+      ) : (  <Text>nie dalo sie otworzyc, elo</Text>
+      )
+    
+  }, [])
+
+  return (
+    <View>
+      <StatusBar style="auto" />
+      <View
+        style={{
+          width: `${scrollPercentage}%`,
+          height: 5,
+          backgroundColor: 'green',
+          position: 'absolute',
+          top: 0,
+          zIndex: 2,
+        }}
+      />
+
+      {memoizedComponents}
     </View>
   )
 }
