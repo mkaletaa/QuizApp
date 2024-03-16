@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import ContentRenderer from './ContentRenderer'
 import { Item, Option } from '../utils/types'
-import Question from './Question'
+// import Question from './Question'
 import { Foundation } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import React from 'react'
@@ -39,7 +39,8 @@ export default function Explanation({
             marginTop: 20,
           }}
         >
-          <Question question={item.question}></Question>
+          {/* <Question question={item.question}></Question> */}
+          <ContentRenderer content={item?.question} />
         </View>
       )}
       <View style={styles.contentContainer}>

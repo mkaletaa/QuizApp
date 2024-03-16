@@ -16,12 +16,13 @@ import CustomModal from '../components/CustomModal'
 import Explanation from '../components/Explanation'
 import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
-import Question from '../components/Question'
+// import Question from '../components/Question'
 import Line from '../components/ui/Line'
 import useAsyncStorage from '../hooks/useAsyncStorage'
 import useQuizData from '../hooks/useQuizData'
 import { returnIsCorrect } from '../utils/functions'
 import { Item, Option, Result } from '../utils/types'
+import ContentRenderer from '../components/ContentRenderer'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -220,7 +221,7 @@ export default function Quiz({ route }) {
       <ScrollView
         contentContainerStyle={[
           styles.screen,
-          { width: screenWidth, minHeight: screenHeight  }, //height of the pagination is 45
+          { width: screenWidth, minHeight: screenHeight }, //height of the pagination is 45
         ]}
       >
         {
@@ -245,7 +246,8 @@ export default function Quiz({ route }) {
         {item && (
           <React.Fragment>
             <View style={{ marginTop: 30, width: '90%' }}>
-              <Question question={item?.question} />
+              {/* <Question question={item?.question} /> */}
+              <ContentRenderer content={item?.question} />
             </View>
             <Options
               item={item}

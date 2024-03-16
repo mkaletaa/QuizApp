@@ -3,7 +3,8 @@ import { Item } from '../utils/types'
 import { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
-import Question from './Question'
+// import Question from './Question'
+import ContentRenderer from './ContentRenderer'
 
 export default function Tile({
   item,
@@ -44,12 +45,13 @@ export default function Tile({
           },
         ]}
       >
-        <View style={{width: '90%'}}>
-        <Question question={item.question} />
+        <View style={{ width: '90%' }}>
+          {/* <Question question={item.question} /> */}
+          <ContentRenderer content={item.question} />
+
           {/* {questionData.map(questionComponent => (
         <ContentRenderer data={questionComponent}></ContentRenderer>
       ))} */}
-
         </View>
         <LinearGradient
           // Button Linear Gradient
