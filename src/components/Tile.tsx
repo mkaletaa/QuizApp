@@ -44,14 +44,19 @@ export default function Tile({
           },
         ]}
       >
+        <View style={{width: '90%'}}>
         <Question question={item.question} />
+          {/* {questionData.map(questionComponent => (
+        <ContentRenderer data={questionComponent}></ContentRenderer>
+      ))} */}
 
+        </View>
         <LinearGradient
           // Button Linear Gradient
-          colors={['transparent', 'transparent', "lightgray"]}
+          colors={['transparent', 'transparent', 'lightgray']}
           style={{
             width: '100%',
-            height: '100%',//has to be 100% cuz if Math component, Tile cannot be pressed
+            height: '100%', //has to be 100% cuz if Math component, Tile cannot be pressed
             position: 'absolute',
             bottom: 0,
           }}

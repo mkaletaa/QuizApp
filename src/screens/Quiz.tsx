@@ -244,7 +244,7 @@ export default function Quiz({ route }) {
 
         {item && (
           <React.Fragment>
-            <View style={{ marginTop: 30 }}>
+            <View style={{ marginTop: 30, width: '90%' }}>
               <Question question={item?.question} />
             </View>
             <Options

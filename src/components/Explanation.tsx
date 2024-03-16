@@ -97,14 +97,15 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     backgroundColor: 'rgba(255, 255, 255, 1)',
+    paddingHorizontal: 20
   },
   contentContainer: {
     alignItems: 'center',
-    padding: 50,
-    // backgroundColor: 'red',
+    // paddingHorizontal: 10,
+    backgroundColor: 'lightblue',
     gap: 10,
     // marginTop:10
-    // paddingBottom: 50
+    paddingBottom: 50
   },
   heading: {
     fontSize: 18,

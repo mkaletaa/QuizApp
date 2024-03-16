@@ -15,13 +15,13 @@ export default function Question({
   return (
     // <View style={{marginTop: 0}}>
 
-    <View style={styles.container}>
-      {/* {questionData.map(questionComponent => (
-        <ContentRenderer data={questionComponent}></ContentRenderer>
-      ))} */}
+    // <View style={styles.container}>
+      // {/* {questionData.map(questionComponent => (
+      //   <ContentRenderer data={questionComponent}></ContentRenderer>
+      // ))} */}
 
       <ContentRenderer content={question} />
-    </View>
+    // </View>
     // </View>
   )
 }
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     // marginTop: 20,
     ////////////////
     // backgroundColor: 'lightblue',
-    width: '90%',
+    // width: '90%',
 
     // height: 100,
   },

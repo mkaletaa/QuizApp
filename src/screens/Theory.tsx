@@ -1,46 +1,29 @@
-import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { StatusBar } from 'expo-status-bar'
 import {
   Button,
   Pressable,
-  ScrollView,
   SectionList,
   StyleSheet,
   Text,
   View,
 } from 'react-native'
 import { theory } from '../../data/theory/theory'
-import ContentRenderer, { renderComponent } from '../components/ContentRenderer'
-import { sendAnEmail, removeUnderscores } from '../utils/functions'
+import ContentRenderer from '../components/ContentRenderer'
+import { removeUnderscores, sendAnEmail } from '../utils/functions'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [scrollPercentage, setScrollPercentage] = useState(0)
-  // const [data, setData] = useState<any>([])
-  // const scrollViewRef = useRef(null)
-  console.log('rerender')
 
   useEffect(() => {
     setTopicName(route.params.topicName)
   }, [route.params])
 
-  const handleScroll = event => {
-    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
-    const percent =
-      (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
-    setScrollPercentage(percent)
-  }
-
-  // const handleContentSizeChange = (contentWidth, contentHeight) => {
-  //   //@ts-ignore
-  //   sectionListRef.current.scrollTo({ x: 0, y: 0, animated: false })
-  //   setScrollPercentage(0)
-  // }
-
   const renderHeader = () => (
-    <View style={styles.listHeader}>
-      <Text style={{ marginBottom: 20, fontSize: 20 }}>
+    <View style={styles.header}>
+      <Text style={{ marginBottom: 10, fontSize: 30 }}>
         {removeUnderscores(topicName, true)}
       </Text>
       {theory[route.params.categoryName][route.params.topicName].map(
@@ -51,14 +34,16 @@ export default function Theory({ route }) {
               style={{
                 alignItems: 'flex-start',
                 width: '100%',
+                paddingHorizontal: 20,
+                // backgroundColor: 'red',
               }}
             >
               <Pressable onPress={() => scrollToSection(i)}>
                 <Text
                   style={{
-                    fontSize: 25,
+                    fontSize: 23,
                     textDecorationLine: 'underline',
-                    // backgroundColor: 'red',
+                    // backgroundColor: 'blue',
                   }}
                 >
                   {a.title}
@@ -74,7 +59,7 @@ export default function Theory({ route }) {
   const renderSectionHeader = ({ section }) => {
     if (section.title) {
       return (
-        <View style={styles.sectionHeader}>
+        <View style={{ padding: 10, backgroundColor: 'lightgray' }}>
           <Text style={styles.sectionHeaderText}>{section.title}</Text>
         </View>
       )
@@ -89,6 +74,18 @@ export default function Theory({ route }) {
     </View>
   )
 
+  const renderFooter = () => (
+    <View style={styles.footer}>
+      <Button
+        title="report a mistake"
+        color="red"
+        onPress={() => {
+          sendAnEmail('Topic name: ' + removeUnderscores(topicName))
+        }}
+      />
+    </View>
+  )
+
   const scrollToSection = sectionIndex => {
     if (sectionListRef.current) {
       //@ts-ignore
@@ -100,49 +97,43 @@ export default function Theory({ route }) {
     }
   }
 
-  const memoizedComponents = useMemo(()=>{
-    
-      return theory[route.params.categoryName][route.params.topicName] ? (
-        <React.Fragment>
-          <SectionList
-            onScroll={handleScroll}
-            ref={sectionListRef}
-            sections={theory[route.params.categoryName][route.params.topicName]}
-            scrollEventThrottle={15}
-            ListHeaderComponent={renderHeader}
-            stickySectionHeadersEnabled
-            renderItem={renderItem}
-            renderSectionHeader={renderSectionHeader}
-            keyExtractor={(item, index) => {
-              // console.log('Index of item in keyExtractor:', index, " ",JSON.stringify(item))
-              return index.toString()
-            }}
-          />
-          <Button
-            title="report a mistake"
-            color="red"
-            onPress={() => {
-              sendAnEmail('Topic name: ' + removeUnderscores(topicName))
-            }}
-          />
-        </React.Fragment>
-      ) : (  <Text>nie dalo sie otworzyc, elo</Text>
-      )
-    
-  }, [])
+  const handleScroll = event => {
+    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
+    const percent =
+      (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
+    setScrollPercentage(percent)
+  }
+
+  const memoizedComponents = useMemo(() => {
+    return theory[route.params.categoryName][route.params.topicName] ? (
+        <SectionList
+          // contentContainerStyle={{ paddingBottom: 20 }}
+          onScroll={handleScroll}
+          ref={sectionListRef}
+          sections={theory[route.params.categoryName][route.params.topicName]}
+          scrollEventThrottle={15}
+          ListHeaderComponent={renderHeader}
+          stickySectionHeadersEnabled
+          renderItem={renderItem}
+          renderSectionHeader={renderSectionHeader}
+          ListFooterComponent={renderFooter}
+          keyExtractor={(item, index) => index.toString()}
+        />
+    ) : (
+      <Text>nie dalo sie otworzyc, elo</Text>
+    )
+  }, [topicName])
 
   return (
     <View>
       <StatusBar style="auto" />
       <View
-        style={{
-          width: `${scrollPercentage}%`,
-          height: 5,
-          backgroundColor: 'green',
-          position: 'absolute',
-          top: 0,
-          zIndex: 2,
-        }}
+        style={[
+          {
+            width: `${scrollPercentage}%`,
+          },
+          styles.progressBarContainer,
+        ]}
       />
 
       {memoizedComponents}
@@ -160,38 +151,29 @@ const styles = StyleSheet.create({
   },
   progressBarContainer: {
     height: 5,
-    backgroundColor: 'lightgray',
+    backgroundColor: 'green',
+    position: 'absolute',
+    top: 0,
+    zIndex: 2,
   },
-  item: {
-    // padding: 10,
-    marginBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    // backgroundColor: 'white',
-    // borderBottomWidth: 1,
-    // borderBottomColor: 'lightgray',
-  },
-  itemText: {
-    fontSize: 16,
-    color: 'black',
-  },
-  sectionHeader: {
+  header: {
     padding: 10,
-    backgroundColor: 'lightgray',
+    borderBottomWidth: 1,
+    alignItems: 'center',
   },
   sectionHeaderText: {
     fontSize: 18,
     fontWeight: 'bold',
     color: 'black',
   },
-  listHeader: {
-    padding: 20,
-    // backgroundColor: 'blue',
-    borderBottomWidth: 1,
-    alignItems: 'center',
+  item: {
+    marginTop: 10,
+    paddingHorizontal: 20,//* 
+    // backgroundColor: 'white',
   },
-  listHeaderText: {
-    fontSize: 20,
-    color: 'white',
+  footer: {
+    backgroundColor: 'lightgray',
+    padding: 10,
+    alignItems: 'center',
   },
 })

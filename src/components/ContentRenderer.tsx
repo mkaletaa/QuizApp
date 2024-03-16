@@ -1,30 +1,22 @@
-import React, { useState } from 'react'
+import { Entypo } from '@expo/vector-icons'
+import React from 'react'
 import {
-  FlatList,
+  Dimensions,
   // Image,
   Pressable,
-  ScrollView,
-  SectionList,
   StyleSheet,
   Text,
   View,
-  Dimensions,
-  TouchableOpacity,
-  Linking,
   useWindowDimensions,
-  Modal,
 } from 'react-native'
-import { Component } from '../utils/types'
-import MathJax from 'react-native-mathjax'
 import CodeHighlighter from 'react-native-code-highlighter'
-import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import YoutubePlayer from 'react-native-youtube-iframe'
+import MathJax from 'react-native-mathjax'
 import RenderHtml from 'react-native-render-html'
-import ImageComponent from './ContentRenderer/ImageComponent'
-import { v4 as uuidv4 } from 'uuid'
+import YoutubePlayer from 'react-native-youtube-iframe'
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { Component } from '../utils/types'
 import Block from './ContentRenderer/Block'
-import { Entypo } from '@expo/vector-icons'
+import ImageComponent from './ContentRenderer/ImageComponent'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
@@ -46,7 +38,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       //   /<p>\s?/g,
       //   '<p style="margin-bottom: 0px;  font-size: 18px" >&nbsp;&nbsp;&nbsp;&nbsp;'
       // )
-        let modifiedValue = "<span style=\"margin-bottom: 0px;  font-size: 18px\">"+value+"</span>"
+      let modifiedValue = '<span style=" font-size: 18px">' + value + '</span>'
       // modifiedValue = modifiedValue.replace(
       //   /<p>\s?/g,
       //   '<p style="margin-bottom: 0px; background-color: red" >&nbsp;&nbsp;&nbsp;&nbsp;'
@@ -69,12 +61,14 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'Header':
       return (
-        <View style={{ width: '100%', paddingLeft: 10 }}>
-          <Text
-            style={{ fontSize: 20, fontWeight: 'bold' }}
-          >
-            {value}
-          </Text>
+        <View
+          style={{
+            width: '100%',
+            paddingBottom: 10,
+            // backgroundColor: 'lightblue',
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{value}</Text>
         </View>
       )
 
@@ -86,7 +80,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             style={{
               // backgroundColor: 'lightblue',
               maxWidth: '100%',
-              gap: 5
+              gap: 5,
               //
             }}
           >
@@ -100,22 +94,33 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'ListElement':
       // console.warn(value)
-        let modifiedValue2 =
-          '<span style="margin-bottom: 0px;  font-size: 18px">' +
-          value +
-          '</span>'
+      let modifiedValue2 =
+        '<span style="margin-bottom: 0px;  font-size: 18px">' +
+        value +
+        '</span>'
 
       return (
         <View
           style={{
             flexDirection: 'row',
-            width: '90%',
+            width: '85%',
+            // backgroundColor: 'blue',
           }}
         >
-          <View style={{ width: '10%', alignItems:'center', }}>
+          <View
+            style={{
+              width: '10%',
+              alignItems: 'center',
+              // backgroundColor: 'red',
+            }}
+          >
             <Entypo name="dot-single" size={26} color="black" />
           </View>
-          <RenderHtml key={key} contentWidth={width} source={{ html: modifiedValue2 }} />
+          <RenderHtml
+            key={key}
+            contentWidth={width}
+            source={{ html: modifiedValue2 }}
+          />
         </View>
       )
 
@@ -163,7 +168,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       return (
         <View
           key={key}
-          style={{ width: '90%' }} //można jeszcze określić maxWidth dla większych ekranów
+          style={{ width: '90%', paddingBottom: 10 }} //można jeszcze określić maxWidth dla większych ekranów
         >
           <CodeHighlighter
             hljsStyle={nightOwl}
@@ -231,7 +236,7 @@ const styles = StyleSheet.create({
 
     gap: 10,
     // backgroundColor: 'yellow',
-    width: '100%', //TODO: zmienić
+    width: '100%', //TODO: zmienić albo i nie
   },
   text: {
     fontSize: 18,
@@ -252,7 +257,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     backgroundColor: '#111133',
     //@ts-ignore
-    elevation: 20,
+    elevation: 10,
   },
   quote: {
     // width: '100%',
