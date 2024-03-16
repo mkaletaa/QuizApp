@@ -9,7 +9,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  View,
+  View, StatusBar
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomModal from '../components/CustomModal'
@@ -212,7 +212,7 @@ export default function Quiz({ route }) {
     // Prevent default behavior of the back button
     return true
   }
-
+// StatusBar.setHidden(false)
   return (
     <SafeAreaView>
       {item && allItemsCount !== Infinity && whichItem !== 0 && (
@@ -221,7 +221,10 @@ export default function Quiz({ route }) {
       <ScrollView
         contentContainerStyle={[
           styles.screen,
-          { width: screenWidth, minHeight: screenHeight }, //height of the pagination is 45
+          {
+            width: screenWidth,
+            minHeight: screenHeight - StatusBar.currentHeight,
+          }, 
         ]}
       >
         {
