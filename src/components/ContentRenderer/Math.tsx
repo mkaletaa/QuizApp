@@ -1,7 +1,7 @@
 import React from 'react'
 import MathJax from 'react-native-mathjax'
 
-
+//todo to z powrotem do ContentRenderer
 export default function Math({width, value, props}) {
   return (
     <MathJax
