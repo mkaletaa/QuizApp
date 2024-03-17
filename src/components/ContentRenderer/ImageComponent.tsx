@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
 
-const ImageComponent = ({ description, value }) => {
+const ImageComponent = ({ width, description, value, orientation=null }) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [scale, setScale] = useState(1)
 
@@ -27,12 +27,25 @@ const ImageComponent = ({ description, value }) => {
     setScale(event.nativeEvent.scale)
   }
 
+  function setHeight(orientation: 'vertical' | 'horizontal' | 'square' | null):number {
+//TODO: pobrać szerokość w pixelach i na tej podstawie ustalić wysokość
+    switch(orientation) {
+      case 'vertical':
+        return width*1.2 //16/9 czy jakoś tak 
+      case 'horizontal':
+        return width*.5
+      case 'square': width*3
+      default: return width 
+    }
+    // return 
+  }
+
   return (
     <React.Fragment>
       <TouchableOpacity onPress={openModal}>
         <Image
           key={value}
-          style={styles.image}
+          style={[styles.image, { height: setHeight(orientation) }]}
           source={{
             uri: value,
           }}
@@ -49,7 +62,6 @@ const ImageComponent = ({ description, value }) => {
         onRequestClose={closeModal}
       >
         <View style={styles.modalContainer}>
-
           <PinchGestureHandler
             onGestureEvent={onPinchGestureEvent}
             onHandlerStateChange={event =>
@@ -76,8 +88,9 @@ const ImageComponent = ({ description, value }) => {
 const styles = StyleSheet.create({
   image: {
     width: 300,
-    height: 150,
+    // height: 250,
     backgroundColor: 'red',
+    borderRadius: 8,
   },
   modalContainer: {
     flex: 1,

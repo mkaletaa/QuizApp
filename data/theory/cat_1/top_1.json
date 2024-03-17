@@ -12,7 +12,10 @@
       },
       {
         "componentType": "Image",
-        "value": "https://i.postimg.cc/hP6dG3vS/code.png"
+        "value": "https://images.pexels.com/photos/1459505/pexels-photo-1459505.jpeg?cs=srgb&dl=pexels-felix-mittermeier-1459505.jpg&fm=jpg",
+        "props":{
+          "orientation": "horizontal"
+        }
       },
       {
         "componentType": "Header",

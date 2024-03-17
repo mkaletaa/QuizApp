@@ -142,8 +142,10 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       return (
         <ImageComponent
           key={key}
+          width={width}
           description={props?.description || null}
           value={value}
+          orientation={props?.orientation}
         />
       )
     case 'Math':
