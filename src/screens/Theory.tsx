@@ -16,6 +16,7 @@ export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [scrollPercentage, setScrollPercentage] = useState(0)
+  const [showGoUp, setShowGoUp] = useState(false)
 
   useEffect(() => {
     setTopicName(route.params.topicName)
@@ -97,28 +98,43 @@ export default function Theory({ route }) {
     }
   }
 
+  const scrollToTop = () => {
+    // Przewiń do nagłówka listy
+    if (sectionListRef.current) {
+      //@ts-ignore
+      sectionListRef.current.scrollToLocation({
+        animated: true,
+        sectionIndex: 0,
+        itemIndex: 0, // Dla nagłówka listy itemIndex powinien być ustawiony na 0
+        viewOffset: 0, // Opcjonalne: Offset od góry widoku
+      })
+    }
+  }
+
   const handleScroll = event => {
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
     const percent =
       (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
     setScrollPercentage(percent)
+    if (contentOffset.y > 100) setShowGoUp(true)
+    else setShowGoUp(false)
   }
 
   const memoizedComponents = useMemo(() => {
     return theory[route.params.categoryName][route.params.topicName] ? (
-        <SectionList
-          // contentContainerStyle={{ paddingBottom: 20 }}
-          onScroll={handleScroll}
-          ref={sectionListRef}
-          sections={theory[route.params.categoryName][route.params.topicName]}
-          scrollEventThrottle={15}
-          ListHeaderComponent={renderHeader}
-          stickySectionHeadersEnabled
-          renderItem={renderItem}
-          renderSectionHeader={renderSectionHeader}
-          ListFooterComponent={renderFooter}
-          keyExtractor={(item, index) => index.toString()}
-        />
+      <SectionList
+        // contentContainerStyle={{ paddingBottom: 20 }}
+        onScroll={handleScroll}
+        ref={sectionListRef}
+        sections={theory[route.params.categoryName][route.params.topicName]}
+        scrollEventThrottle={15}
+        ListHeaderComponent={renderHeader}
+        stickySectionHeadersEnabled
+        renderItem={renderItem}
+        renderSectionHeader={renderSectionHeader}
+        ListFooterComponent={renderFooter}
+        keyExtractor={(item, index) => index.toString()}
+      />
     ) : (
       <Text>nie dalo sie otworzyc, elo</Text>
     )
@@ -135,6 +151,16 @@ export default function Theory({ route }) {
           styles.progressBarContainer,
         ]}
       />
+
+      <Pressable
+        style={[
+          styles.goUp,
+          { bottom: showGoUp ? 20 : -50 }, // Dynamiczne style
+        ]}
+        onPress={() => scrollToTop()}
+      >
+        <View></View>
+      </Pressable>
 
       {memoizedComponents}
     </View>
@@ -168,12 +194,21 @@ const styles = StyleSheet.create({
   },
   item: {
     marginTop: 20,
-    paddingHorizontal: 20,//* 
+    paddingHorizontal: 20, //*
     // backgroundColor: 'white',
   },
   footer: {
     backgroundColor: 'lightgray',
     padding: 10,
     alignItems: 'center',
+  },
+  goUp: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'green',
+    position: 'absolute',
+    bottom: 20,
+    left: 30,
+    zIndex: 1,
   },
 })
