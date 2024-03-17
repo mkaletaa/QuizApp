@@ -11,12 +11,12 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import CodeHighlighter from 'react-native-code-highlighter'
-import MathJax from 'react-native-mathjax'
 import RenderHtml from 'react-native-render-html'
 import YoutubePlayer from 'react-native-youtube-iframe'
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { Component } from '../utils/types'
 import Block from './ContentRenderer/Block'
+import Math from './ContentRenderer/Math'
 import ImageComponent from './ContentRenderer/ImageComponent'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
@@ -95,7 +95,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'ListElement':
       // console.warn(value)
-      let modifiedValue2 =
+      let listValue =
         '<span style="margin-bottom: 0px;  font-size: 18px">' +
         value +
         '</span>'
@@ -120,7 +120,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           <RenderHtml
             key={key}
             contentWidth={width}
-            source={{ html: modifiedValue2 }}
+            source={{ html: listValue }}
           />
         </View>
       )
@@ -142,29 +142,14 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       return (
         <ImageComponent
           key={key}
-          width={width}
+          width={width} //tutaj już przygotować odpowiednio width
           description={props?.description || null}
           value={value}
           orientation={props?.orientation}
         />
       )
-    case 'Math':
-      return (
-        // <Pressable>
-
-        <MathJax
-          style={{
-            backgroundColor: 'transparent',
-            width: width - 30,
-            // marginLeft: 20
-            // height: 200,
-          }} //TODO: change 324 to screen width
-          html={'<span>' + value + '</span>'}
-          size={props?.fontSize ? props.fontSize : 18}
-        />
-
-        // </Pressable>
-      )
+    case 'Math': //tutaj już przygotować odpowiednio width
+      return <Math width={width} value={value} props={props} />
 
     case 'Code':
       const codeContainerStyle = {
@@ -176,7 +161,6 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           key={key}
           style={{ width: '100%', paddingBottom: 10 }} //można jeszcze określić maxWidth dla większych ekranów
         >
-
           <CodeHighlighter
             hljsStyle={nightOwl}
             textStyle={{ fontSize: 16 }}

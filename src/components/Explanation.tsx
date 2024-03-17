@@ -14,6 +14,7 @@ import { FontAwesome } from '@expo/vector-icons'
 import React from 'react'
 import IconPrompt from './ui/IconPrompt'
 import { returnIsCorrect } from '../utils/functions'
+import Math from './ContentRenderer/Math'
 
 export default function Explanation({
   item,
@@ -71,7 +72,11 @@ export default function Explanation({
             <Text style={styles.heading}>Your answer(s):</Text>
             {chosenOptions.map((option, index) => (
               <ContentRenderer
-                content={option.answer}
+                content={
+                  // option.componentType === 'Text'
+                     option.answer
+                    // : [{ value: option.answer, componentType: 'Math', props:{fontSize:20} }]
+                }
                 key={'chosen_' + option.id}
               />
             ))}
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     backgroundColor: 'rgba(255, 255, 255, 1)',
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   contentContainer: {
     alignItems: 'center',
@@ -106,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightblue',
     gap: 10,
     // marginTop:10
-    paddingBottom: 50
+    paddingBottom: 50,
   },
   heading: {
     fontSize: 18,
