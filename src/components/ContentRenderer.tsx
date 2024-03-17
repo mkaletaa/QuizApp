@@ -1,14 +1,10 @@
-import { Entypo } from '@expo/vector-icons'
 import React from 'react'
 import {
   Dimensions,
-  // Image,
-  Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
-  useWindowDimensions,
+  useWindowDimensions
 } from 'react-native'
 import CodeHighlighter from 'react-native-code-highlighter'
 import RenderHtml from 'react-native-render-html'
@@ -16,17 +12,15 @@ import YoutubePlayer from 'react-native-youtube-iframe'
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { Component } from '../utils/types'
 import Block from './ContentRenderer/Block'
-import Math from './ContentRenderer/Math'
 import ImageComponent from './ContentRenderer/ImageComponent'
+import { List, ListElement } from './ContentRenderer/List'
+import Math from './ContentRenderer/Math'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
-  // console.log('🚀 ~ dataComponent:', JSON.stringify(dataComponent))
-  // console.log('🚀 ~ index:', index)
-  // const { width } = useWindowDimensions()
+
 
   const { componentType, props, value } = dataComponent
-  // const key = uuidv4()
 
   //key is stringified object itself (20 first characters)
   const key: string = JSON.stringify(value).slice(0, 20)
@@ -35,34 +29,21 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
   switch (componentType) {
     case 'Text':
-      // let modifiedValue = value.replace(
-      //   /<p>\s?/g,
-      //   '<p style="margin-bottom: 0px;  font-size: 18px" >&nbsp;&nbsp;&nbsp;&nbsp;'
-      // )
+
       let modifiedValue = '<span style=" font-size: 18px">' + value + '</span>'
-      // modifiedValue = modifiedValue.replace(
-      //   /<p>\s?/g,
-      //   '<p style="margin-bottom: 0px; background-color: red" >&nbsp;&nbsp;&nbsp;&nbsp;'
-      // )
+
       return (
-        // <View
-        //   style={{
-        //     // backgroundColor: 'yellow',
-        //     width: '100%', maxWidth: 300,
-        //     alignItems: 'center'
-        //   }}
-        // >
         <RenderHtml
           key={key}
           contentWidth={width}
           source={{ html: modifiedValue }}
         />
-        // {/* </View> */}
       )
 
     case 'Header':
       return (
         <View
+          key={key}
           style={{
             width: '100%',
             paddingBottom: 10,
@@ -74,56 +55,10 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       )
 
     case 'List':
-      // console.warn(value)
-      return (
-        <React.Fragment>
-          <View
-            style={{
-              // backgroundColor: 'lightblue',
-              maxWidth: '100%',
-              gap: 5,
-              //
-            }}
-          >
-            {
-              //@ts-ignore
-              value.map((item, index) => renderComponent(item, width))
-            }
-          </View>
-        </React.Fragment>
-      )
+      return <List value={value} width={width} key={key} />
 
     case 'ListElement':
-      // console.warn(value)
-      let listValue =
-        '<span style="margin-bottom: 0px;  font-size: 18px">' +
-        value +
-        '</span>'
-
-      return (
-        <View
-          style={{
-            flexDirection: 'row',
-            width: '85%',
-            // backgroundColor: 'blue',
-          }}
-        >
-          <View
-            style={{
-              width: '10%',
-              alignItems: 'center',
-              // backgroundColor: 'red',
-            }}
-          >
-            <Entypo name="dot-single" size={26} color="black" />
-          </View>
-          <RenderHtml
-            key={key}
-            contentWidth={width}
-            source={{ html: listValue }}
-          />
-        </View>
-      )
+      return <ListElement value={value} width={width} key={key} />
 
     case 'Block':
       return <Block value={value} type={props.type} key={key} />
@@ -186,14 +121,6 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           onChangeState={() => {}}
         />
       )
-    // case 'Link':
-    //   return (
-    //     <TouchableOpacity onPress={() => Linking.openURL(value)} key={key}>
-    //       <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
-    //         {props.text}
-    //       </Text>
-    //     </TouchableOpacity>
-    //   )
   }
 }
 

@@ -70,16 +70,19 @@ export default function Explanation({
         {chosenOptions && chosenOptions.length > 0 && (
           <React.Fragment>
             <Text style={styles.heading}>Your answer(s):</Text>
-            {chosenOptions.map((option, index) => (
-              <ContentRenderer
-                content={
-                  // option.componentType === 'Text'
-                     option.answer
-                    // : [{ value: option.answer, componentType: 'Math', props:{fontSize:20} }]
-                }
-                key={'chosen_' + option.id}
-              />
-            ))}
+            {chosenOptions.map((option, index) =>
+              option.componentType === 'Math' ? (
+                <ContentRenderer
+                  content={[{ value: option.answer, componentType: 'Math' }]}
+                  key={'chosen_' + option.id}
+                />
+              ) : (
+                <ContentRenderer
+                  content={option.answer}
+                  key={'chosen_' + option.id}
+                />
+              )
+            )}
           </React.Fragment>
         )}
 
