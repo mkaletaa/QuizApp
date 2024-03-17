@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   item: {
-    marginTop: 10,
+    marginTop: 20,
     paddingHorizontal: 20,//* 
     // backgroundColor: 'white',
   },

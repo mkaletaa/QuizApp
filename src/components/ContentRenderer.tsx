@@ -147,26 +147,20 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         />
       )
     case 'Math':
-      
       return (
         // <Pressable>
-        <View style={{
-          // backgroundColor: 'red',
-          width: '100%',
-          
-        }}>
-          <MathJax
-            style={{
-              backgroundColor: 'transparent',
-              width: width-30,
-              // marginLeft: 20
-              // height: 200,
-            }} //TODO: change 324 to screen width
-            html={"<span>"+value+"</span>"}
-            size={props?.fontSize ? props.fontSize : 18}
-            
-          />
-        </View>
+
+        <MathJax
+          style={{
+            backgroundColor: 'transparent',
+            width: width - 30,
+            // marginLeft: 20
+            // height: 200,
+          }} //TODO: change 324 to screen width
+          html={'<span>' + value + '</span>'}
+          size={props?.fontSize ? props.fontSize : 18}
+        />
+
         // </Pressable>
       )
 
@@ -178,8 +172,9 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       return (
         <View
           key={key}
-          style={{ width: '90%', paddingBottom: 10 }} //można jeszcze określić maxWidth dla większych ekranów
+          style={{ width: '100%', paddingBottom: 10 }} //można jeszcze określić maxWidth dla większych ekranów
         >
+
           <CodeHighlighter
             hljsStyle={nightOwl}
             textStyle={{ fontSize: 16 }}
@@ -268,6 +263,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#111133',
     //@ts-ignore
     elevation: 10,
+    // overflowX: 'auto',
   },
   quote: {
     // width: '100%',
