@@ -150,14 +150,19 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       
       return (
         // <Pressable>
-        <View>
+        <View style={{
+          // backgroundColor: 'red',
+          width: '100%',
+          
+        }}>
           <MathJax
             style={{
               backgroundColor: 'transparent',
-              width: 354,
-              height: 200,
-            }} //TODO: change 360 to screen width
-            html={value}
+              width: width-30,
+              // marginLeft: 20
+              // height: 200,
+            }} //TODO: change 324 to screen width
+            html={"<span>"+value+"</span>"}
             size={props?.fontSize ? props.fontSize : 18}
             
           />
