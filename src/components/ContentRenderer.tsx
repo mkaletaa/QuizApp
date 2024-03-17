@@ -4,6 +4,7 @@ import {
   Dimensions,
   // Image,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -65,7 +66,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           style={{
             width: '100%',
             paddingBottom: 10,
-            // backgroundColor: 'lightblue',
+            backgroundColor: 'lightblue',
           }}
         >
           <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{value}</Text>
@@ -146,18 +147,22 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         />
       )
     case 'Math':
+      
       return (
-        <Pressable key={key}>
-          {/* to prevent the menu showing up, wrap MathJax with Pressable */}
+        // <Pressable>
+        <View>
           <MathJax
             style={{
               backgroundColor: 'transparent',
-              width: 360,
+              width: 354,
+              height: 200,
             }} //TODO: change 360 to screen width
             html={value}
             size={props?.fontSize ? props.fontSize : 18}
+            
           />
-        </Pressable>
+        </View>
+        // </Pressable>
       )
 
     case 'Code':

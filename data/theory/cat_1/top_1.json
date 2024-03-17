@@ -15,6 +15,11 @@
         "value": "text"
       },
       {
+        "componentType": "Math",
+        "value": "$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1))(2n+1))(2n+1))(2n+1))(2n+1)}{6}$",
+        "props": { "fontSize": 20 }
+      },
+      {
         "componentType": "Header",
         "value": "To też jest header"
       },
