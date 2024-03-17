@@ -2,14 +2,14 @@ import { Dimensions, Pressable, Text } from "react-native";
 import { useNavigation } from '@react-navigation/native'
 
 
-export default function RandomQuestion({catName}){
+export default function RandomQuestion({chapName}){
   const navigation = useNavigation()
 
       const screenWidth = Dimensions.get('window').width
       function instantQuestion() {
         //@ts-ignore
         navigation.navigate('Quiz', {
-          catName: catName,
+          chapName,
           topName: '',
           howManyItems: Infinity,
           shuffle: true,

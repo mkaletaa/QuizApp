@@ -9,7 +9,7 @@ import useQuizData from '../hooks/useQuizData'
 import utilStyles from '../utils/styles'
 
 export default function Topics({ route }) {
-  const [categoryName, setCategoryName] = useState('')
+  const [chapterName, setChapterName] = useState('')
   // const [howManyItems, setHowManyItems] = useState<number | null>(null)
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const navigation = useNavigation()
@@ -19,33 +19,33 @@ export default function Topics({ route }) {
 
   useEffect(() => {
     //Here a dummy topic is added
-    const categoryName: string = route.params.categoryName
-    const categoryDescription: string = route.params.categoryDescription
-    if (categoryName && topics[categoryName]) {
-      setCategoryName(categoryName)
+    const chapterName: string = route.params.chapterName
+    const chapterDescription: string = route.params.chapterDescription
+    if (chapterName && topics[chapterName]) {
+      setChapterName(chapterName)
       // let name: string = categoryName + '__All__'
-      setTopicsToShow([...topics[categoryName]])
+      setTopicsToShow([...topics[chapterName]])
     }
-    console.log('🚀 ~ useEffect ~ topics:', [...topics[categoryName]])
+    console.log('🚀 ~ useEffect ~ topics:', [...topics[chapterName]])
   }, [route.params])
 
-  const showTheory = (topicName, categoryName) => {
+  const showTheory = (topicName, chapterName) => {
     //@ts-ignore
-    navigation.navigate('Theory', { topicName, categoryName })
+    navigation.navigate('Theory', { topicName, chapterName })
   }
 
   //this function calls importQuiz and gives it an array of chosen topics
   const showQuiz = (
     topicName: string,
-    categoryName: string
+    chapterName: string
     // howManyItems: number | null = null
   ): void => {
     //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
     //@ts-ignore
     navigation.navigate('Quiz', {
       topName: topicName,
-      catName: categoryName,
-      howManyItems: countItemsInTopics(topicName, categoryName),
+      chapName: chapterName,
+      howManyItems: countItemsInTopics(topicName, chapterName),
       shuffle: false,
     })
 
@@ -65,15 +65,15 @@ export default function Topics({ route }) {
         alignItems: 'center',
       }}
     >
-      <RandomQuestion catName={categoryName} />
+      <RandomQuestion chapName={chapterName} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         {topicsToShow.map(topic => (
           <Card
-            catOrTop={'top'}
+            chapOrTop={'top'}
             key={topic.name}
             data={topic}
-            onCardPress={() => showQuiz(topic.name, categoryName)}
-            showTheory={() => showTheory(topic.name, categoryName)}
+            onCardPress={() => showQuiz(topic.name, chapterName)}
+            showTheory={() => showTheory(topic.name, chapterName)}
             onCardLongPress={() => handleLongPress(topic.name)}
           ></Card>
         ))}
@@ -88,7 +88,7 @@ export default function Topics({ route }) {
         <Stats
           key_={pressedTopic}
           onClose={() => setShowStats(false)}
-          catOrTop={'top'}
+          chapOrTop={'top'}
         />
       </Modal>
     </View>

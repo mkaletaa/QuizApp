@@ -3,7 +3,7 @@ import { AntDesign } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
 import useAsyncStorage from '../hooks/useAsyncStorage'
 
-export default function Stats({ onClose, catOrTop, key_: itemKey }) {
+export default function Stats({ onClose, chapOrTop, key_: itemKey }) {
   const { getValue } = useAsyncStorage()
   const [stats, setStats] = useState<any>()
   console.log('keyy: ', itemKey) //key jest undefined

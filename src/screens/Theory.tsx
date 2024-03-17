@@ -27,7 +27,7 @@ export default function Theory({ route }) {
       <Text style={{ marginBottom: 10, fontSize: 30 }}>
         {removeUnderscores(topicName, true)}
       </Text>
-      {theory[route.params.categoryName][route.params.topicName].map(
+      {theory[route.params.chapterName][route.params.topicName].map(
         (a, i) =>
           a.title && (
             <View
@@ -121,12 +121,12 @@ export default function Theory({ route }) {
   }
 
   const memoizedComponents = useMemo(() => {
-    return theory[route.params.categoryName][route.params.topicName] ? (
+    return theory[route.params.chapterName][route.params.topicName] ? (
       <SectionList
         // contentContainerStyle={{ paddingBottom: 20 }}
         onScroll={handleScroll}
         ref={sectionListRef}
-        sections={theory[route.params.categoryName][route.params.topicName]}
+        sections={theory[route.params.chapterName][route.params.topicName]}
         scrollEventThrottle={15}
         ListHeaderComponent={renderHeader}
         stickySectionHeadersEnabled

@@ -1,5 +1,5 @@
 //if a name consists of more than one words, separate them with underscore
-export const categories = [
+export const chapters = [
   {
     name: 'cat_1',
     image: 'https://reactjs.org/logo-og.png',

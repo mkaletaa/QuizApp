@@ -1,21 +1,18 @@
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import {
-  ScrollView,
-  View
-} from 'react-native'
-import { categories } from '../../data/data'
+import { ScrollView, View } from 'react-native'
+import { chapters } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'
 import RandomQuestion from '../components/ui/RandomQuestion'
 
-export default function Categories() {
+export default function Chapters() {
   const navigation = useNavigation()
 
-  const goToTopics = catName => {
+  const goToTopics = chapName => {
     // @ts-ignore
-    navigation.navigate('Topics', { categoryName: catName })
+    navigation.navigate('Topics', { chapterName: chapName })
   }
 
   return (
@@ -24,20 +21,19 @@ export default function Categories() {
         alignItems: 'center',
       }}
     >
-      <RandomQuestion catName={"__All__"} />
+      <RandomQuestion chapName={'__All__'} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         <StatusBar style="auto" />
 
-        {categories?.map(category => (
+        {chapters?.map(chapter => (
           <Card
-            catOrTop={'cat'}
-            key={category.name}
-            data={category}
+            chapOrTop={'cat'}
+            key={chapter.name}
+            data={chapter}
             onCardPress={goToTopics}
             onCardLongPress={() => {}}
           />
         ))}
-
       </ScrollView>
     </View>
   )

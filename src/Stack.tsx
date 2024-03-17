@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import Categories from './screens/Categories'
+import Chapters from './screens/Chapters'
 import Settings from './screens/Settings'
 import Quiz from './screens/Quiz'
 import Theory from './screens/Theory'
@@ -15,7 +15,6 @@ import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome6 } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
-
 
 const Stack = createStackNavigator()
 
@@ -79,8 +78,8 @@ const MyStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Categories"
-        component={Categories}
+        name="Chapters"
+        component={Chapters}
         options={{ ...header }}
       />
 
@@ -91,8 +90,8 @@ const MyStack = () => {
           ...header,
           title:
             //@ts-ignore
-            `${removeUnderscores(route.params?.categoryName, true)}` ||
-            'category name',
+            `${removeUnderscores(route.params?.chapterName, true)}` ||
+            'chapter name',
         })}
       />
 
@@ -104,7 +103,7 @@ const MyStack = () => {
 
           title:
             //@ts-ignore
-            `${removeUnderscores(route.params?.categoryName, true)}` +
+            `${removeUnderscores(route.params?.chapterName, true)}` +
               ' - theory' || 'topic name',
         })}
       />

@@ -31,7 +31,7 @@ export default function Quiz({ route }) {
   const [showExitModal, setShowExitModal] = useState(false)
 
   const navigation = useNavigation()
-  const catName: string = route.params.catName
+  const chapName: string = route.params.chapName
   const topName: string = route.params.topName
   const itemsArray: Array<Item> = route.params.itemsArray
   const howManyItems: number = route.params.howManyItems
@@ -59,7 +59,7 @@ export default function Quiz({ route }) {
 
   function getNextItem() {
     let item: Item
-    if (catName === '__Saved__') {
+    if (chapName === '__Saved__') {
       //* tu jeszcze sprawdzenie czy infinityMode
 
       setItem(itemsArray[whichItem])
@@ -70,9 +70,9 @@ export default function Quiz({ route }) {
     }
 
     if (allItemsCount === Infinity) {
-      item = importRandomItemAllItemsMode(catName)
+      item = importRandomItemAllItemsMode(chapName)
     } else if (shuffle) item = null // zmienić
-    else item = importItem(catName, topName, whichItem)
+    else item = importItem(chapName, topName, whichItem)
 
     setItem(item)
     setShowResultModal(false)
@@ -87,7 +87,7 @@ export default function Quiz({ route }) {
       return
     }
 
-    if (catName === '__Saved__') {
+    if (chapName === '__Saved__') {
       //tutaj sprawdzić czy Infinity
       if (whichItem === allItemsCount - 1) {
         //redundancja
@@ -116,7 +116,7 @@ export default function Quiz({ route }) {
       return
     }
 
-    let topicItemsNr = countItemsInTopics(topName, catName)
+    let topicItemsNr = countItemsInTopics(topName, chapName)
 
     //jeśli liczba itemów w topicu dobiegła końca
     if (

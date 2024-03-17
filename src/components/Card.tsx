@@ -26,16 +26,16 @@ const cardSize = calculateCardSize()
 
 export default function Card({
   data,
-  catOrTop, //does this card represent topic or category
+  chapOrTop, //does this card represent topic or category
   onCardPress,
   onCardLongPress,
   showTheory = null,
 }) {
   const handlePress = () => {
     if (data.name.endsWith('__All__')) {
-      catOrTop === 'top' ? onCardPress() : onCardPress(data.name)
+      chapOrTop === 'top' ? onCardPress() : onCardPress(data.name)
     } else {
-      catOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
+      chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
     }
   }
 
@@ -68,7 +68,7 @@ export default function Card({
             {removeUnderscores(data.name, true)}
           </Text>
 
-          {!data.name.endsWith('__All__') && catOrTop === 'top' ? (
+          {!data.name.endsWith('__All__') && chapOrTop === 'top' ? (
             <TouchableOpacity
               activeOpacity={0.75}
               style={styles.readTouchable}
