@@ -14,7 +14,7 @@
         "componentType": "Image",
         "value": "https://images.pexels.com/photos/1459505/pexels-photo-1459505.jpeg?cs=srgb&dl=pexels-felix-mittermeier-1459505.jpg&fm=jpg",
         "props":{
-          "orientation": "horizontal"
+          "orientation": "vertical"
         }
       },
       {
@@ -39,7 +39,7 @@
         "value": [
           {
             "componentType": "ListElement",
-            "value": "The variable name must not contain certain special characters like space, period, comma, or hyphen."
+            "value": "The Variable name must not contain certain special characters like space, period, comma, or hyphen."
           },
           {
             "componentType": "ListElement",
@@ -50,7 +50,7 @@
 
       {
         "componentType": "Code",
-        "value": "\tlet nr= 1656666666666666666666666666666666666666\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "value": "let nr= 165666666666666666\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
         "props": { "height": 200, "language": "javascript" }
       },
       {
@@ -58,7 +58,7 @@
         "value": [
           {
             "componentType": "ListElement",
-            "value": "tutaj beda cyferki"
+            "value": "tutaj Beda cyferki"
           },
           {
             "componentType": "ListElement",
@@ -153,24 +153,14 @@
         "value": "https://www.youtube.com/watch?v=2qCmRJz3NOE",
         "props": { "text": "otworz se linka" }
       },
-      {
-        "componentType": "YouTube",
-        "value": "2qCmRJz3NOE"
-      },
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png"
-      },
+
+
       {
         "componentType": "Image",
         "value": "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
         "props": { "description": "des" }
-      },
-      {
-        "componentType": "Image",
-        "value": "https://legacy.reactjs.org/logo-og.png",
-        "props": { "description": "des" }
       }
+
     ]
   },
   {

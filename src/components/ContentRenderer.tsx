@@ -1,10 +1,11 @@
 import React from 'react'
 import {
   Dimensions,
+  ScrollView,
   StyleSheet,
   Text,
   View,
-  useWindowDimensions
+  useWindowDimensions,
 } from 'react-native'
 import CodeHighlighter from 'react-native-code-highlighter'
 import RenderHtml from 'react-native-render-html'
@@ -18,18 +19,15 @@ import Math from './ContentRenderer/Math'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
-
-
   const { componentType, props, value } = dataComponent
 
   //key is stringified object itself (20 first characters)
-  const key: string = JSON.stringify(value).slice(0, 20)
+  const key: string = JSON.stringify(value).slice(0, 50)
 
   console.log('🚀 ~ key:', key)
 
   switch (componentType) {
     case 'Text':
-
       let modifiedValue = '<span style=" font-size: 18px">' + value + '</span>'
 
       return (
@@ -92,21 +90,23 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         ...props,
       }
       return (
-        <View
-          key={key}
-          style={{ width: '100%', paddingBottom: 10 }} //można jeszcze określić maxWidth dla większych ekranów
-        >
-          <CodeHighlighter
-            hljsStyle={nightOwl}
-            textStyle={{ fontSize: 16 }}
-            language={props.language}
-            //@ts-ignore
-            customStyle={styles.code}
-            containerStyle={styles.codeContainer}
+        // <ScrollView horizontal={true} contentContainerStyle={{overflow: 'auto', elevation: 10, backgroundColor: 'transparent', width: 320}}>
+          <View
+            key={key}
+            style={{ width: '100%', paddingBottom: 0}} //można jeszcze określić maxWidth dla większych ekranów
           >
-            {value}
-          </CodeHighlighter>
-        </View>
+            <CodeHighlighter
+              hljsStyle={nightOwl}
+              textStyle={{ fontSize: 16 }}
+              language={props.language}
+              //@ts-ignore
+              customStyle={styles.code}
+              containerStyle={styles.codeContainer}
+            >
+              {value}
+            </CodeHighlighter>
+          </View>
+        // </ScrollView>
       )
     case 'YouTube':
       const screenWidth = Dimensions.get('window').width
