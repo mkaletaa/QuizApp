@@ -39,7 +39,7 @@
 
       {
         "componentType": "Code",
-        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "value": "\tlet nr= 1656666666666666666666666666666666666666\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
         "props": { "height": 200, "language": "javascript" }
       },
       {
