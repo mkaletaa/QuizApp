@@ -13,18 +13,23 @@ import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer'
 import { removeUnderscores, sendAnEmail } from '../utils/functions'
 import { useHeaderHeight } from '@react-navigation/elements'
-
+import { useNavigation } from '@react-navigation/native'
+import useQuizData from '../hooks/useQuizData'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
+  const [chapterName, setChapterName] = useState('')
   const [scrollPercentage, setScrollPercentage] = useState(0)
   const [showGoUp, setShowGoUp] = useState(false)
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-  
+  const navigation = useNavigation()
+  const { countItemsInTopics } = useQuizData()
+
   useEffect(() => {
     setTopicName(route.params.topicName)
+    setChapterName(route.params.chapterName)
   }, [route.params])
 
   const renderHeader = () => (
@@ -89,8 +94,30 @@ export default function Theory({ route }) {
           sendAnEmail('Topic name: ' + removeUnderscores(topicName))
         }}
       />
+      <Button
+        title="take a quiz"
+        color="rgb(0, 150, 255)"
+        onPress={() => showQuiz(topicName, chapterName)}
+      />
     </View>
   )
+
+  const showQuiz = (
+    topicName: string,
+    chapterName: string
+    // howManyItems: number | null = null
+  ): void => {
+    //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
+    //@ts-ignore
+    navigation.navigate('Quiz', {
+      topName: topicName,
+      chapName: chapterName,
+      howManyItems: countItemsInTopics(topicName, chapterName),
+      shuffle: false,
+    })
+
+    // setHowManyItems(null)
+  }
 
   const scrollToSection = sectionIndex => {
     if (sectionListRef.current) {
@@ -148,8 +175,10 @@ export default function Theory({ route }) {
           height: screenHeight - headerHeight,
         }}
       >
-        <Text>There is nothing here ;{"("}</Text>
-        <Text style={{fontWeight: 'bold', fontSize: 150, opacity: .1}}>404</Text>
+        <Text>There is nothing here ;{'('}</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 150, opacity: 0.1 }}>
+          404
+        </Text>
       </View>
     )
   }, [topicName])
@@ -172,9 +201,7 @@ export default function Theory({ route }) {
           { bottom: showGoUp ? 20 : -50 }, // Dynamiczne style
         ]}
         onPress={() => scrollToTop()}
-      >
-        <View></View>
-      </Pressable>
+      ></Pressable>
 
       {memoizedComponents}
     </View>
