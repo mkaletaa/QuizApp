@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import {
   Button,
+  Dimensions,
   Pressable,
   SectionList,
   StyleSheet,
@@ -11,13 +12,17 @@ import {
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer'
 import { removeUnderscores, sendAnEmail } from '../utils/functions'
+import { useHeaderHeight } from '@react-navigation/elements'
+
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [scrollPercentage, setScrollPercentage] = useState(0)
   const [showGoUp, setShowGoUp] = useState(false)
-
+  const screenHeight = Dimensions.get('window').height
+  const headerHeight = useHeaderHeight()
+  
   useEffect(() => {
     setTopicName(route.params.topicName)
   }, [route.params])
@@ -136,7 +141,16 @@ export default function Theory({ route }) {
         keyExtractor={(item, index) => index.toString()}
       />
     ) : (
-      <Text>nie dalo sie otworzyc, elo</Text>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: screenHeight - headerHeight,
+        }}
+      >
+        <Text>There is nothing here ;{"("}</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 150, opacity: .1}}>404</Text>
+      </View>
     )
   }, [topicName])
 

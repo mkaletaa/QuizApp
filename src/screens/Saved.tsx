@@ -95,7 +95,7 @@ export default function Saved() {
               onPressQuiz={() => {
                 //@ts-ignore
                 navigation.navigate('Quiz', {
-                  catName: '__Saved__',
+                  chapName: '__Saved__',
                   topArray: [],
                   itemsArray: savedItems,
                   howManyItems: savedItems.length,
