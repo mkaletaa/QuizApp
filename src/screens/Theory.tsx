@@ -15,6 +15,8 @@ import { removeUnderscores, sendAnEmail } from '../utils/functions'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { useNavigation } from '@react-navigation/native'
 import useQuizData from '../hooks/useQuizData'
+import TheoryPrompt from '../components/ui/TheoryPrompt'
+import QuizButton from '../components/ui/QuizButton'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -24,8 +26,8 @@ export default function Theory({ route }) {
   const [showGoUp, setShowGoUp] = useState(false)
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-  const navigation = useNavigation()
-  const { countItemsInTopics } = useQuizData()
+  // const navigation = useNavigation()
+  // const { countItemsInTopics } = useQuizData()
 
   useEffect(() => {
     setTopicName(route.params.topicName)
@@ -87,37 +89,26 @@ export default function Theory({ route }) {
 
   const renderFooter = () => (
     <View style={styles.footer}>
-      <Button
-        title="report a mistake"
-        color="red"
-        onPress={() => {
-          sendAnEmail('Topic name: ' + removeUnderscores(topicName))
-        }}
-      />
-      <Button
-        title="take a quiz"
-        color="rgb(0, 150, 255)"
-        onPress={() => showQuiz(topicName, chapterName)}
-      />
+      <QuizButton chapterName={chapterName} topicName={topicName}/>
     </View>
   )
 
-  const showQuiz = (
-    topicName: string,
-    chapterName: string
-    // howManyItems: number | null = null
-  ): void => {
-    //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
-    //@ts-ignore
-    navigation.navigate('Quiz', {
-      topName: topicName,
-      chapName: chapterName,
-      howManyItems: countItemsInTopics(topicName, chapterName),
-      shuffle: false,
-    })
+  // const showQuiz = (
+  //   topicName: string,
+  //   chapterName: string
+  //   // howManyItems: number | null = null
+  // ): void => {
+  //   //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
+  //   //@ts-ignore
+  //   navigation.navigate('Quiz', {
+  //     topName: topicName,
+  //     chapName: chapterName,
+  //     howManyItems: countItemsInTopics(topicName, chapterName),
+  //     shuffle: false,
+  //   })
 
-    // setHowManyItems(null)
-  }
+  //   // setHowManyItems(null)
+  // }
 
   const scrollToSection = sectionIndex => {
     if (sectionListRef.current) {
@@ -154,19 +145,21 @@ export default function Theory({ route }) {
 
   const memoizedComponents = useMemo(() => {
     return theory[route.params.chapterName][route.params.topicName] ? (
-      <SectionList
-        // contentContainerStyle={{ paddingBottom: 20 }}
-        onScroll={handleScroll}
-        ref={sectionListRef}
-        sections={theory[route.params.chapterName][route.params.topicName]}
-        scrollEventThrottle={15}
-        ListHeaderComponent={renderHeader}
-        stickySectionHeadersEnabled
-        renderItem={renderItem}
-        renderSectionHeader={renderSectionHeader}
-        ListFooterComponent={renderFooter}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      <React.Fragment>
+        <SectionList
+          // contentContainerStyle={{ paddingBottom: 20 }}
+          onScroll={handleScroll}
+          ref={sectionListRef}
+          sections={theory[route.params.chapterName][route.params.topicName]}
+          scrollEventThrottle={15}
+          ListHeaderComponent={renderHeader}
+          stickySectionHeadersEnabled
+          renderItem={renderItem}
+          renderSectionHeader={renderSectionHeader}
+          ListFooterComponent={renderFooter}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </React.Fragment>
     ) : (
       <View
         style={{
@@ -203,6 +196,7 @@ export default function Theory({ route }) {
         onPress={() => scrollToTop()}
       ></Pressable>
 
+      <TheoryPrompt topicName={topicName} chapterName={chapterName}/>
       {memoizedComponents}
     </View>
   )

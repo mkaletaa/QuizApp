@@ -12,7 +12,7 @@ import { Item, Option } from '../utils/types'
 import { Foundation } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import React from 'react'
-import IconPrompt from './ui/IconPrompt'
+import ExplanationPrompt from './ui/ExplanationPrompt'
 import { returnIsCorrect } from '../utils/functions'
 import Math from './ContentRenderer/Math'
 
@@ -31,7 +31,7 @@ export default function Explanation({
 }) {
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-      <IconPrompt item={item}></IconPrompt>
+      <ExplanationPrompt item={item}></ExplanationPrompt>
       {showQuestion && (
         <View
           style={{

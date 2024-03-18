@@ -3,12 +3,12 @@ import { AntDesign, Entypo } from '@expo/vector-icons'
 import { useEffect, useState } from 'react'
 import { Button, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import {sendAnEmail} from '../../utils/functions'
+import { sendAnEmail } from '../../utils/functions'
 import { Item } from '../../utils/types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Ionicons } from '@expo/vector-icons'
 
-export default function IconPrompt({ item }: { item: Item }) {
+export default function ExplanationPrompt({ item }: { item: Item }) {
   const [showPrompt, setShowPrompt] = useState(false)
   const [saved, setSaved] = useState(false)
   const navigation = useNavigation()
