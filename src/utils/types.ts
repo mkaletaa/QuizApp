@@ -1,7 +1,8 @@
 export type Component = {
   componentType: string
   value: string
-  props?:any
+  props?:any,
+  id?:string
 }
 
 export type Option = {

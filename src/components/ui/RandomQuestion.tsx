@@ -1,19 +1,23 @@
 import { Dimensions, Pressable, Text } from "react-native";
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import useOpenQuiz from '../../hooks/useOpenQuiz'
 
 export default function RandomQuestion({chapName}){
   const navigation = useNavigation()
+const openQuiz = useOpenQuiz()
 
       const screenWidth = Dimensions.get('window').width
       function instantQuestion() {
+
+        openQuiz("", chapName, Infinity)
         //@ts-ignore
-        navigation.navigate('Quiz', {
-          chapName,
-          topName: '',
-          howManyItems: Infinity,
-          shuffle: true,
-        })
+        // navigation.navigate('Quiz', {
+        //   topName: '',
+        //   chapName,
+        //   howManyItems: Infinity,
+        //   shuffle: true,
+        // })
         // setShowStats(false)
         return
       }
@@ -42,7 +46,7 @@ export default function RandomQuestion({chapName}){
         }}
       >
         <FontAwesome5 name="dice" size={24} color="white" />
-        <Text style={{ fontSize: 15, color: 'white' }}>Random Question</Text>
+        <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold' }}>Random Question</Text>
       </Pressable>
     )
 }

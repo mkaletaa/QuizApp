@@ -7,6 +7,7 @@ import Stats from '../components/Stats'
 import RandomQuestion from '../components/ui/RandomQuestion'
 import useQuizData from '../hooks/useQuizData'
 import utilStyles from '../utils/styles'
+import useOpenQuiz from '../hooks/useOpenQuiz'
 
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
@@ -14,6 +15,7 @@ export default function Topics({ route }) {
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const navigation = useNavigation()
   const [showStats, setShowStats] = useState(false)
+  const openQuiz = useOpenQuiz()
 
   const { countItemsInTopics } = useQuizData()
 
@@ -40,14 +42,16 @@ export default function Topics({ route }) {
     chapterName: string
     // howManyItems: number | null = null
   ): void => {
-    //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
-    //@ts-ignore
-    navigation.navigate('Quiz', {
-      topName: topicName,
-      chapName: chapterName,
-      howManyItems: countItemsInTopics(topicName, chapterName),
-      shuffle: false,
-    })
+
+    openQuiz(topicName, chapterName)
+    // //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
+    // //@ts-ignore
+    // navigation.navigate('Quiz', {
+    //   topName: topicName,
+    //   chapName: chapterName,
+    //   howManyItems: countItemsInTopics(topicName, chapterName),
+    //   shuffle: false,
+    // })
 
     // setHowManyItems(null)
   }

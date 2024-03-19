@@ -17,11 +17,13 @@ import useFetchSavedItems from '../hooks/useFetchSavedItems'
 import { Item } from '../utils/types'
 import { Ionicons } from '@expo/vector-icons'
 import { useHeaderHeight } from '@react-navigation/elements'
+import useOpenQuiz from '../hooks/useOpenQuiz'
 
-//todo: util styles, refresh on scrollup, message if empty, loader if loading
+
 export default function Saved() {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
+  const openQuiz = useOpenQuiz()
 
   const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
