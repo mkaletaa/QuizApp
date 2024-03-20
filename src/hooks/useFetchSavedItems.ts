@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import useQuizData from './useQuizData'
+import useQuizData from '../utils/useQuizData'
 
 const useFetchSavedItems = () => {
   const [savedItems, setSavedItems] = useState([])

@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import   useQuizData from './useQuizData'
+import useQuizData from '../utils/useQuizData'
 import { useState } from 'react'
 
 const useOpenQuiz = () => {
@@ -7,7 +7,7 @@ const useOpenQuiz = () => {
   const { countItemsInTopics } = useQuizData()
   const [noQuestion, setNoQuestions] = useState(false)
   //tutaj trzeba użyć zustand to otwierania modala
-  
+
   const openQuiz = (
     topicName: string,
     chapterName: string,

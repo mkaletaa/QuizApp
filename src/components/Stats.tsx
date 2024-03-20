@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
-import useAsyncStorage from '../hooks/useAsyncStorage'
+import useAsyncStorage from '../utils/useAsyncStorage'
 
 export default function Stats({ onClose, chapOrTop, key_: itemKey }) {
   const { getValue } = useAsyncStorage()
@@ -28,11 +28,11 @@ export default function Stats({ onClose, chapOrTop, key_: itemKey }) {
           borderWidth: 2,
           borderColor: 'lightgrey',
           padding: 10,
-          gap: 8
+          gap: 8,
         }}
       >
         <AntDesign
-        style={{right: 5, top: 5, position: 'absolute', zIndex: 1}}
+          style={{ right: 5, top: 5, position: 'absolute', zIndex: 1 }}
           onPress={() => onClose()}
           name="closesquare"
           size={34}
@@ -47,9 +47,15 @@ export default function Stats({ onClose, chapOrTop, key_: itemKey }) {
           <Text>ile odpowiedzainych dobzre {stats.correctAnswers}</Text>
           <Text>ile odpowiedzainych źle {stats.incorrectAnswers}</Text>
           <Text>ile odpowiedzainych prawie dobrze {stats.kindOfAnswers}</Text> */}
-            <Text style={styles.text}>ile razy ukończony {stats.nrOfFinished}</Text>
-            <Text style={styles.text}>kiedy ostatnio ukończony {stats.lastFinished}</Text>
-            <Text style={styles.text}>ile razy ukończony na fulla {stats.allCorrect}</Text>
+            <Text style={styles.text}>
+              ile razy ukończony {stats.nrOfFinished}
+            </Text>
+            <Text style={styles.text}>
+              kiedy ostatnio ukończony {stats.lastFinished}
+            </Text>
+            <Text style={styles.text}>
+              ile razy ukończony na fulla {stats.allCorrect}
+            </Text>
             <Text style={styles.text}>najlepszy wynik {stats.bestResult}</Text>
           </React.Fragment>
         )}
@@ -65,7 +71,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.8)', // Przeźroczyste tło modalu
   },
-  text:{
-    fontSize: 18
-  }
+  text: {
+    fontSize: 18,
+  },
 })

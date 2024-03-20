@@ -14,7 +14,7 @@ import ContentRenderer from '../components/ContentRenderer'
 import { removeUnderscores, sendAnEmail } from '../utils/functions'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { useNavigation } from '@react-navigation/native'
-import useQuizData from '../hooks/useQuizData'
+import useQuizData from '../utils/useQuizData'
 import TheoryPrompt from '../components/ui/TheoryPrompt'
 import QuizButton from '../components/ui/QuizButton'
 
@@ -89,7 +89,7 @@ export default function Theory({ route }) {
 
   const renderFooter = () => (
     <View style={styles.footer}>
-      <QuizButton chapterName={chapterName} topicName={topicName}/>
+      <QuizButton chapterName={chapterName} topicName={topicName} />
     </View>
   )
 
@@ -196,7 +196,7 @@ export default function Theory({ route }) {
         onPress={() => scrollToTop()}
       ></Pressable>
 
-      <TheoryPrompt topicName={topicName} chapterName={chapterName}/>
+      <TheoryPrompt topicName={topicName} chapterName={chapterName} />
       {memoizedComponents}
     </View>
   )

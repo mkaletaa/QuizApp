@@ -9,7 +9,8 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  View, StatusBar
+  View,
+  StatusBar,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomModal from '../components/CustomModal'
@@ -18,11 +19,12 @@ import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
 // import Question from '../components/Question'
 import Line from '../components/ui/Line'
-import useAsyncStorage from '../hooks/useAsyncStorage'
-import useQuizData from '../hooks/useQuizData'
+import useAsyncStorage from '../utils/useAsyncStorage'
+import useQuizData from '../utils/useQuizData'
 import { returnIsCorrect } from '../utils/functions'
 import { Item, Option, Result } from '../utils/types'
 import ContentRenderer from '../components/ContentRenderer'
+import useNextQuestion from '../hooks/useNextQuestion'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -34,14 +36,34 @@ export default function Quiz({ route }) {
   const chapName: string = route.params.chapName
   const topName: string = route.params.topName
   const itemsArray: Array<Item> = route.params.itemsArray
-  const howManyItems: number = route.params.howManyItems
+  // const howManyItems: number = route.params.howManyItems
   const shuffle: boolean = route.params.shuffle
-  const [item, setItem] = useState<Item>()
-  const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
-  const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
+  // const [item, setItem] = useState<Item>()
+  // const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
+  // const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
-  const [allItemsCount, setAllItemsCount] = useState<number>(howManyItems)
+  const [itemsCount, setItemsCount] = useState<number>(
+    route.params.howManyItems
+  )
+
+  const {
+    item,
+    setItem,
+    getNextItem,
+    whichItem,
+    setWhichItem,
+    showResultModal,
+    setShowResultModal,
+    chosenOptions,
+    setChosenOptions,
+  } = useNextQuestion({
+    chapName: route.params.chapName,
+    topName: route.params.topName,
+    itemsArray: route.params.itemsArray,
+    itemsCount: route.params.howManyItems,
+    shuffle: route.params.shuffle,
+  })
   // const [itemsToShow, setItemsToShow] = useState<Item[]>()
 
   const { importItem, countItemsInTopics, importRandomItemAllItemsMode } =
@@ -49,7 +71,7 @@ export default function Quiz({ route }) {
 
   const { storeFinishedQuizStat } = useAsyncStorage()
 
-  const [whichItem, setWhichItem] = useState(0)
+  // const [whichItem, setWhichItem] = useState(0)
 
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
@@ -57,39 +79,39 @@ export default function Quiz({ route }) {
     getNextItem()
   }, [whichItem])
 
-  function getNextItem() {
-    let item: Item
-    if (chapName === '__Saved__') {
-      //* tu jeszcze sprawdzenie czy infinityMode
+  // function getNextItem() {
+  //   let item: Item
+  //   if (chapName === '__Saved__') {
+  //     //* tu jeszcze sprawdzenie czy infinityMode
 
-      setItem(itemsArray[whichItem])
-      // return
-      setShowResultModal(false)
-      setChosenOptions([])
-      return
-    }
+  //     setItem(itemsArray[whichItem])
+  //     // return
+  //     setShowResultModal(false)
+  //     setChosenOptions([])
+  //     return
+  //   }
 
-    if (allItemsCount === Infinity) {
-      item = importRandomItemAllItemsMode(chapName)
-    } else if (shuffle) item = null // zmienić
-    else item = importItem(chapName, topName, whichItem)
+  //   if (itemsCount === Infinity) {
+  //     item = importRandomItemAllItemsMode(chapName)
+  //   } else if (shuffle) item = null // zmienić
+  //   else item = importItem(chapName, topName, whichItem)
 
-    setItem(item)
-    setShowResultModal(false)
-    setChosenOptions([])
-  }
+  //   setItem(item)
+  //   setShowResultModal(false)
+  //   setChosenOptions([])
+  // }
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
     // if allItemsMode
-    if (allItemsCount === Infinity) {
+    if (itemsCount === Infinity) {
       getNextItem()
       return
     }
 
     if (chapName === '__Saved__') {
       //tutaj sprawdzić czy Infinity
-      if (whichItem === allItemsCount - 1) {
+      if (whichItem === itemsCount - 1) {
         //redundancja
         setItem(null)
         setTimeout(() => {
@@ -105,7 +127,7 @@ export default function Quiz({ route }) {
       return
     }
 
-    if (resultsArray.length === allItemsCount) {
+    if (resultsArray.length === itemsCount) {
       storeFinishedQuizStat(topName, resultsArray)
       setItem(null)
       setTimeout(() => {
@@ -121,7 +143,7 @@ export default function Quiz({ route }) {
     //jeśli liczba itemów w topicu dobiegła końca
     if (
       whichItem === topicItemsNr - 1 &&
-      allItemsCount !== Infinity //tego w zasadzie nie musze pisać
+      itemsCount !== Infinity //tego w zasadzie nie musze pisać
     ) {
       setItem(null)
       setTimeout(() => {
@@ -171,7 +193,7 @@ export default function Quiz({ route }) {
     )
 
     let result: Result
-    if (allItemsCount !== Infinity) {
+    if (itemsCount !== Infinity) {
       result = {
         id: item.id,
         item: item,
@@ -212,11 +234,11 @@ export default function Quiz({ route }) {
     // Prevent default behavior of the back button
     return true
   }
-// StatusBar.setHidden(false)
+  // StatusBar.setHidden(false)
   return (
     <SafeAreaView>
-      {item && allItemsCount !== Infinity && whichItem !== 0 && (
-        <Line resultsArray={resultsArray} allItemsCount={allItemsCount} />
+      {item && itemsCount !== Infinity && whichItem !== 0 && (
+        <Line resultsArray={resultsArray} allItemsCount={itemsCount} />
       )}
       <ScrollView
         contentContainerStyle={[
@@ -224,7 +246,7 @@ export default function Quiz({ route }) {
           {
             width: screenWidth,
             minHeight: screenHeight - StatusBar.currentHeight,
-          }, 
+          },
         ]}
       >
         {
@@ -282,7 +304,7 @@ export default function Quiz({ route }) {
           chosenOptions={chosenOptions}
           handleBtnPress={nextBtnPress}
           btnTitle={
-            resultsArray.length === allItemsCount ? 'summary' : 'next question'
+            resultsArray.length === itemsCount ? 'summary' : 'next question'
           }
         />
       </Modal>

@@ -1,7 +1,7 @@
 import { quiz } from '../../data/quiz/quizModule'
-import { Item } from '../utils/types'
+import { Item } from './types'
 import { topics, chapters } from '../../data/data'
-
+//todo: zamienić ten hook na zbiór util fn
 //* UWAGA: można rozważyć włożenie do obiektów items i chapters klucz z ilością topików/itemów żeby przyspieszyć działanie aplikacji
 
 const useQuizData = () => {
@@ -71,7 +71,7 @@ const useQuizData = () => {
     importRandomItemAllItemsMode,
     countItemsInTopics,
     countTopics,
-    getTopicsForCategory: getTopicsForChapter,
+    getTopicsForChapter,
     getAllTopics,
   }
 }

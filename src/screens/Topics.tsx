@@ -5,7 +5,7 @@ import { topics } from '../../data/data'
 import Card from '../components/Card'
 import Stats from '../components/Stats'
 import RandomQuestion from '../components/ui/RandomQuestion'
-import useQuizData from '../hooks/useQuizData'
+import useQuizData from '../utils/useQuizData'
 import utilStyles from '../utils/styles'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 
@@ -42,7 +42,6 @@ export default function Topics({ route }) {
     chapterName: string
     // howManyItems: number | null = null
   ): void => {
-
     openQuiz(topicName, chapterName)
     // //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
     // //@ts-ignore
