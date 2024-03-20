@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Item, Option, Result } from '../utils/types'
 import useQuizData from '../utils/useQuizData'
 
 const useNextQuestion = ({
-  chapName,
+  chapName, 
   topName,
-  itemsArray,
-  itemsCount,
+  itemsArray, //prepared list of items (currently used only when saved items)
+  itemsCount, //number of questions 
   shuffle,
 }: {
   chapName: string
   topName: string
   itemsArray: Item[]
-  itemsCount: number,
+  itemsCount: number
   shuffle: boolean
 }) => {
   const [item, setItem] = useState<Item>()
@@ -23,12 +23,18 @@ const useNextQuestion = ({
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
+//   const [topicItemsNr, setTopicItemsNr] = useState(0)
+//   useEffect(() => {
+//     if(!itemsArray && itemsCount!==Infinity)
+//     setTopicItemsNr(countItemsInTopics(topName, chapName))
+//   }, [])
 
   function getNextItem() {
     let newItem: Item
 
     if (chapName === '__Saved__') {
-      //* tu jeszcze sprawdzenie czy infinityMode
+      //może zmienić warunek na if itemsArray
+      //* tu jeszcze sprawdzenie czy shuffleMode
 
       newItem = itemsArray[whichItem]
       setShowResultModal(false)
@@ -59,15 +65,11 @@ const useNextQuestion = ({
     }
 
     if (chapName === '__Saved__') {
+      //może zmienić warunek na if itemsArray
       //tutaj sprawdzić czy Infinity
       if (whichItem === itemsCount - 1) {
-        //redundancja
-        setItem(null)
-        setTimeout(() => {
-          setShowGeneralResults(true)
-        }, 0)
+        redundancyKiller()
 
-        setShowResultModal(false)
         return
       }
 
@@ -76,36 +78,24 @@ const useNextQuestion = ({
       return
     }
 
+    //jeśli już wszystkie itemy zostały odpowiedziane
     if (resultsArray.length === itemsCount) {
-    //   storeFinishedQuizStat(topName, resultsArray)
-      setItem(null)
-      setTimeout(() => {
-        setShowGeneralResults(true)
-      }, 0)
-
-      setShowResultModal(false)
-      return
-    }
-
-    let topicItemsNr = countItemsInTopics(topName, chapName)
-
-    //jeśli liczba itemów w topicu dobiegła końca
-    if (
-      whichItem === topicItemsNr - 1 &&
-      itemsCount !== Infinity //tego w zasadzie nie musze pisać
-    ) {
-      setItem(null)
-      setTimeout(() => {
-        setShowGeneralResults(true)
-      }, 0)
-
-      setShowResultModal(false)
+      //   storeFinishedQuizStat(topName, resultsArray)
+      redundancyKiller()
 
       return
     }
 
     setWhichItem(prev => prev + 1)
-    // return
+  }
+
+  function redundancyKiller() {
+    setItem(null)
+    setTimeout(() => {
+      setShowGeneralResults(true)
+    }, 0)
+
+    setShowResultModal(false)
   }
 
   return {

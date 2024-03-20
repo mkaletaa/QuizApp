@@ -98,7 +98,7 @@ export default function Saved() {
                 //@ts-ignore
                 navigation.navigate('Quiz', {
                   chapName: '__Saved__',
-                  topArray: [],
+                  // topArray: [],
                   itemsArray: savedItems,
                   howManyItems: savedItems.length,
                   shuffle: false,
