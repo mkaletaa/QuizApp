@@ -45,7 +45,7 @@ const openQuiz = useOpenQuiz()
           // backgroundColor: 'blue'
         }}
       >
-        <FontAwesome5 name="dice" size={24} color="white" />
+        <FontAwesome5 name="dice" size={20} color="white" />
         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold' }}>Random Question</Text>
       </Pressable>
     )

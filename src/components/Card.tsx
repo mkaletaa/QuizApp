@@ -32,11 +32,11 @@ export default function Card({
   showTheory = null,
 }) {
   const handlePress = () => {
-    if (data.name.endsWith('__All__')) {
-      chapOrTop === 'top' ? onCardPress() : onCardPress(data.name)
-    } else {
+    // if (data.name.endsWith('__All__')) {
+    //   chapOrTop === 'top' ? onCardPress() : onCardPress(data.name)
+    // } else {
       chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
-    }
+    // }
   }
 
   return (

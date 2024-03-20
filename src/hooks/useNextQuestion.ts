@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Item, Option } from '../utils/types'
+import { Item, Option, Result } from '../utils/types'
 import useQuizData from '../utils/useQuizData'
 
 const useNextQuestion = ({
@@ -21,6 +21,8 @@ const useNextQuestion = ({
     useQuizData()
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
+  const [resultsArray, setResultsArray] = useState<Result[]>([])
+  const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
 
   function getNextItem() {
     let newItem: Item
@@ -48,7 +50,80 @@ const useNextQuestion = ({
     setItem(newItem)
   }
 
-  return { item, setItem, getNextItem, whichItem, setWhichItem, showResultModal, setShowResultModal, chosenOptions, setChosenOptions };
+  //uruchamia się po naciśnięciu przycisku w modalu
+  function nextBtnPress(): void {
+    // if allItemsMode
+    if (itemsCount === Infinity) {
+      getNextItem()
+      return
+    }
+
+    if (chapName === '__Saved__') {
+      //tutaj sprawdzić czy Infinity
+      if (whichItem === itemsCount - 1) {
+        //redundancja
+        setItem(null)
+        setTimeout(() => {
+          setShowGeneralResults(true)
+        }, 0)
+
+        setShowResultModal(false)
+        return
+      }
+
+      setWhichItem(prev => prev + 1)
+
+      return
+    }
+
+    if (resultsArray.length === itemsCount) {
+    //   storeFinishedQuizStat(topName, resultsArray)
+      setItem(null)
+      setTimeout(() => {
+        setShowGeneralResults(true)
+      }, 0)
+
+      setShowResultModal(false)
+      return
+    }
+
+    let topicItemsNr = countItemsInTopics(topName, chapName)
+
+    //jeśli liczba itemów w topicu dobiegła końca
+    if (
+      whichItem === topicItemsNr - 1 &&
+      itemsCount !== Infinity //tego w zasadzie nie musze pisać
+    ) {
+      setItem(null)
+      setTimeout(() => {
+        setShowGeneralResults(true)
+      }, 0)
+
+      setShowResultModal(false)
+
+      return
+    }
+
+    setWhichItem(prev => prev + 1)
+    // return
+  }
+
+  return {
+    item,
+    setItem,
+    getNextItem,
+    nextBtnPress,
+    whichItem,
+    setWhichItem,
+    showResultModal,
+    setShowResultModal,
+    chosenOptions,
+    setChosenOptions,
+    resultsArray,
+    setResultsArray,
+    showGeneralResults,
+    setShowGeneralResults,
+  }
 }
 
 export default useNextQuestion

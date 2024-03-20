@@ -7,42 +7,28 @@ import {
   Dimensions,
   Modal,
   ScrollView,
+  StatusBar,
   StyleSheet,
   TouchableOpacity,
   View,
-  StatusBar,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import ContentRenderer from '../components/ContentRenderer'
 import CustomModal from '../components/CustomModal'
 import Explanation from '../components/Explanation'
 import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
-// import Question from '../components/Question'
 import Line from '../components/ui/Line'
-import useAsyncStorage from '../utils/useAsyncStorage'
-import useQuizData from '../utils/useQuizData'
-import { returnIsCorrect } from '../utils/functions'
-import { Item, Option, Result } from '../utils/types'
-import ContentRenderer from '../components/ContentRenderer'
 import useNextQuestion from '../hooks/useNextQuestion'
+import { returnIsCorrect } from '../utils/functions'
+import { Option, Result } from '../utils/types'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
-  // const [showModal, setShowModal] = useState(false)
   const [showExitModal, setShowExitModal] = useState(false)
 
   const navigation = useNavigation()
-  const chapName: string = route.params.chapName
-  const topName: string = route.params.topName
-  const itemsArray: Array<Item> = route.params.itemsArray
-  // const howManyItems: number = route.params.howManyItems
-  const shuffle: boolean = route.params.shuffle
-  // const [item, setItem] = useState<Item>()
-  // const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
-  // const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
-  const [resultsArray, setResultsArray] = useState<Result[]>([])
-  const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [itemsCount, setItemsCount] = useState<number>(
     route.params.howManyItems
   )
@@ -51,12 +37,17 @@ export default function Quiz({ route }) {
     item,
     setItem,
     getNextItem,
+    nextBtnPress,
     whichItem,
     setWhichItem,
     showResultModal,
     setShowResultModal,
     chosenOptions,
     setChosenOptions,
+    resultsArray,
+    setResultsArray,
+    showGeneralResults,
+    setShowGeneralResults,
   } = useNextQuestion({
     chapName: route.params.chapName,
     topName: route.params.topName,
@@ -64,14 +55,6 @@ export default function Quiz({ route }) {
     itemsCount: route.params.howManyItems,
     shuffle: route.params.shuffle,
   })
-  // const [itemsToShow, setItemsToShow] = useState<Item[]>()
-
-  const { importItem, countItemsInTopics, importRandomItemAllItemsMode } =
-    useQuizData()
-
-  const { storeFinishedQuizStat } = useAsyncStorage()
-
-  // const [whichItem, setWhichItem] = useState(0)
 
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
@@ -79,85 +62,14 @@ export default function Quiz({ route }) {
     getNextItem()
   }, [whichItem])
 
-  // function getNextItem() {
-  //   let item: Item
-  //   if (chapName === '__Saved__') {
-  //     //* tu jeszcze sprawdzenie czy infinityMode
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      handleBackPress
+    )
 
-  //     setItem(itemsArray[whichItem])
-  //     // return
-  //     setShowResultModal(false)
-  //     setChosenOptions([])
-  //     return
-  //   }
-
-  //   if (itemsCount === Infinity) {
-  //     item = importRandomItemAllItemsMode(chapName)
-  //   } else if (shuffle) item = null // zmienić
-  //   else item = importItem(chapName, topName, whichItem)
-
-  //   setItem(item)
-  //   setShowResultModal(false)
-  //   setChosenOptions([])
-  // }
-
-  //uruchamia się po naciśnięciu przycisku w modalu
-  function nextBtnPress(): void {
-    // if allItemsMode
-    if (itemsCount === Infinity) {
-      getNextItem()
-      return
-    }
-
-    if (chapName === '__Saved__') {
-      //tutaj sprawdzić czy Infinity
-      if (whichItem === itemsCount - 1) {
-        //redundancja
-        setItem(null)
-        setTimeout(() => {
-          setShowGeneralResults(true)
-        }, 0)
-
-        setShowResultModal(false)
-        return
-      }
-
-      setWhichItem(prev => prev + 1)
-
-      return
-    }
-
-    if (resultsArray.length === itemsCount) {
-      storeFinishedQuizStat(topName, resultsArray)
-      setItem(null)
-      setTimeout(() => {
-        setShowGeneralResults(true)
-      }, 0)
-
-      setShowResultModal(false)
-      return
-    }
-
-    let topicItemsNr = countItemsInTopics(topName, chapName)
-
-    //jeśli liczba itemów w topicu dobiegła końca
-    if (
-      whichItem === topicItemsNr - 1 &&
-      itemsCount !== Infinity //tego w zasadzie nie musze pisać
-    ) {
-      setItem(null)
-      setTimeout(() => {
-        setShowGeneralResults(true)
-      }, 0)
-
-      setShowResultModal(false)
-
-      return
-    }
-
-    setWhichItem(prev => prev + 1)
-    // return
-  }
+    return () => backHandler.remove() // Cleanup the event listener on unmount
+  }, [showExitModal, showGeneralResults, navigation])
 
   function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
     //jeśli opcja została zaznaczona i jest multichoice
@@ -184,14 +96,6 @@ export default function Quiz({ route }) {
     let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' =
       returnIsCorrect(item, chosenOptions)
 
-    //nie wiem czy to zapisywać
-    // storeItemStat(item.id, thisQuestionResult)
-    console.log(
-      '🚀 ~ setResults ~ item.id, thisQuestionResult:',
-      item.id,
-      thisQuestionResult
-    )
-
     let result: Result
     if (itemsCount !== Infinity) {
       result = {
@@ -210,15 +114,6 @@ export default function Quiz({ route }) {
     setShowExitModal(false)
     navigation.goBack() // powrót do poprzedniego ekranu
   }
-
-  useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      handleBackPress
-    )
-
-    return () => backHandler.remove() // Cleanup the event listener on unmount
-  }, [showExitModal, showGeneralResults, navigation])
 
   const handleBackPress = () => {
     if (showExitModal || showGeneralResults) {
@@ -254,7 +149,6 @@ export default function Quiz({ route }) {
             style={{
               backgroundColor: 'rgba(0, 150, 255, 0)',
               borderRadius: 5,
-              // elevation: 3,
               paddingVertical: 5,
               paddingHorizontal: 10,
               position: 'absolute',
@@ -266,7 +160,6 @@ export default function Quiz({ route }) {
             <AntDesign name="arrowleft" size={27} color="black" />
           </TouchableOpacity>
         }
-        {/* </Pressable> */}
 
         {item && (
           <React.Fragment>
@@ -342,18 +235,9 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     paddingTop: 20,
   },
-  modalText: {
-    textAlign: 'center',
-    marginBottom: 20,
-    paddingHorizontal: 20,
-    fontSize: 18,
-  },
   buttonsContainer: {
     justifyContent: 'space-between',
     gap: 12,
     width: '100%',
-  },
-  button: {
-    fontSize: 10,
-  },
+  }
 })
