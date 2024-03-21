@@ -101,7 +101,7 @@ export default function Saved() {
                   // topArray: [],
                   itemsArray: savedItems,
                   howManyItems: savedItems.length,
-                  shuffle: false,
+                  shuffle: true,
                 })
               }}
               onToggleSwitch={toggleSwitch}

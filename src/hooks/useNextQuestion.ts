@@ -23,13 +23,14 @@ const useNextQuestion = ({
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [randomNrArray, setRandomNrArray] = useState([]) //
+  //* zapisane pytania mają chapName ==='__Saved__'
 
   useEffect(() => {
-    //tworzenie tablicy losowych niepowtarzajacych się indeksów
     if (shuffle && itemsCount !== Infinity) {
       let arr = []
       let usedNumbers = [] // Tablica przechowująca już użyte liczby
 
+      //tworzenie tablicy losowych niepowtarzajacych się indeksów
       for (let i = 0; i < itemsCount; i++) {
         let randomNumber
 
@@ -41,24 +42,22 @@ const useNextQuestion = ({
         arr.push(randomNumber) // Dodanie liczby do głównej tablicy
       }
 
-      if (itemsArray === undefined) getNextRandomItem(arr, 0)
-      else getRandomItemFromList(arr, 0)
+      if (itemsArray === undefined) getFirstRandomItem(arr, 0)
+      else getFirstRandomItemFromList(arr, 0)
 
       setRandomNrArray(arr)
     }
+    console.log('itemsArray: ', !itemsArray)
   }, [])
 
-
-
-  
   //jak nie ma itemsArray
-  function getNextRandomItem(array: Array<number>, index: number) {
+  function getFirstRandomItem(array: Array<number>, index: number) {
     let newItem = importItem(chapName, topName, array[index])
     setItem(newItem)
   }
 
   //to jak jest itemsArray
-  function getRandomItemFromList(array: Array<number>, index: number) {
+  function getFirstRandomItemFromList(array: Array<number>, index: number) {
     let newItem = itemsArray[array[index]]
     setItem(newItem)
   }
@@ -66,30 +65,40 @@ const useNextQuestion = ({
   function getNextItem() {
     let newItem: Item
 
-    if (chapName === '__Saved__') {
-      //może zmienić warunek na if itemsArray
-
-      if (shuffle) {
-        if (whichItem > 0) {
-        } else return
-      } else newItem = itemsArray[whichItem]
-
-      //
-    } else {
-      if (itemsCount === Infinity) {
-        newItem = importRandomItemAllItemsMode(chapName)
-      } else if (shuffle) {
-        console.log('🚀 ~ getNextItem ~ randomNrArray:', randomNrArray)
-        if (whichItem > 0)
-          //React jest zjebany. Mimo że getNextItem wykonuje sie po mountingu to randomNrArray nadal jest niezapełnione bo jest kurwa asycnchroniczne
-          // getNextRandomItem(randomNrArray, whichItem)
-          newItem = importItem(chapName, topName, randomNrArray[whichItem])
-        else return
-      } else {
-        newItem = importItem(chapName, topName, whichItem)
-      }
+    if (itemsCount === Infinity) {
+      newItem = importRandomItemAllItemsMode(chapName)
+      prepareForTheNextItem(newItem)
+      return
     }
 
+    //React jest zjebany. Mimo że getNextItem wykonuje sie po mountingu to randomNrArray nadal jest niezapełnione bo jest kurwa asycnchroniczne
+    if (shuffle && whichItem === 0) return
+
+    if (itemsArray && shuffle) {
+      newItem = itemsArray[randomNrArray[whichItem]]
+      prepareForTheNextItem(newItem)
+      return
+    }
+
+    if (itemsArray && !shuffle) {
+      newItem = itemsArray[whichItem]
+      prepareForTheNextItem(newItem)
+      return
+    }
+
+    if (!itemsArray && shuffle) {
+      console.log('🚀 ~ getNextItem ~ randomNrArray:', randomNrArray)
+      // getNextRandomItem(randomNrArray, whichItem)
+      newItem = importItem(chapName, topName, randomNrArray[whichItem])
+    }
+
+    if (!itemsArray && !shuffle)
+      newItem = importItem(chapName, topName, whichItem)
+
+    prepareForTheNextItem(newItem)
+  }
+
+  function prepareForTheNextItem(newItem) {
     setShowResultModal(false)
     setChosenOptions([])
 
@@ -98,7 +107,6 @@ const useNextQuestion = ({
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
-
     // if allItemsMode. działa tylko po naciśnięciu przycisku Random Question
     if (itemsCount === Infinity) {
       getNextItem()
@@ -107,23 +115,22 @@ const useNextQuestion = ({
 
     //jeśli już wcześniej przygotowana lista pytań
     // if (itemsArray !== undefined) {
-      //wcześniej było if chapName==='__Saved__'
+    //wcześniej było if chapName==='__Saved__'
 
-      // if (shuffle) {
-      //   //dokończyć
-      // }
-
-      //jeśli już wykorzystano wszystkie itemy z listy
-      // if (whichItem === itemsCount - 1) {
-      //   prepareForGeneralResults()
-      //   return
-      // }
-
-      // setWhichItem(prev => prev + 1)
-
-      // return
+    // if (shuffle) {
+    //   //dokończyć
     // }
 
+    //jeśli już wykorzystano wszystkie itemy z listy
+    // if (whichItem === itemsCount - 1) {
+    //   prepareForGeneralResults()
+    //   return
+    // }
+
+    // setWhichItem(prev => prev + 1)
+
+    // return
+    // }
 
     //jeśli już wszystkie itemy zostały wykorzystane
     if (resultsArray.length === itemsCount) {

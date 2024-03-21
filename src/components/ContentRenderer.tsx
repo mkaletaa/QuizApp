@@ -24,7 +24,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
   //key is stringified object itself (20 first characters)
   const key: string = JSON.stringify(value).slice(0, 50)
 
-  console.log('🚀 ~ key:', key)
+  // console.log('🚀 ~ key:', key)
 
   switch (componentType) {
     case 'Text':
