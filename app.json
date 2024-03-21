@@ -11,15 +11,12 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-
         "backgroundColor": "#ffffff"
       },
       "package": "com.mkaleta.QuizApp"
@@ -32,5 +29,8 @@
         "projectId": "191fa6b4-fe87-4762-b84b-a71caf03250f"
       }
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-8755010348178299~4784433482"
   }
 }

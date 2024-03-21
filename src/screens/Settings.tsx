@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
-import { ScrollView, Text, View, StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
 
 const StickyHeaderScrollView = () => {
   const scrollViewRef = useRef()
@@ -13,58 +14,19 @@ const StickyHeaderScrollView = () => {
     setScrollPercentage(percent)
   }
 
+  // const adUnitId = __DEV__
+  //   ? TestIds.BANNER
+  //   : 'ca-app-pub-8755010348178299~4784433482'
+    
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          width: `${scrollPercentage}%`,
-          height: 5,
-          backgroundColor: 'green',
-          position: 'absolute',
-          top: 0,
-          zIndex: 2,
+      {/* <BannerAd
+        unitId={'ca-app-pub-8755010348178299~4784433482'}
+        size={BannerAdSize.FULL_BANNER}
+        requestOptions={{
+          requestNonPersonalizedAdsOnly: true,
         }}
-      />
-      <ScrollView
-        ref={scrollViewRef}
-        onScroll={handleScroll}
-        scrollEventThrottle={16}
-        stickyHeaderIndices={[0]}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* {stickyHeader} */}
-        {/* Reszta zawartości ScrollView */}
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-        <View style={styles.content}>
-          <Text>deded</Text>
-        </View>
-      </ScrollView>
+      /> */}
     </View>
   )
 }

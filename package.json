@@ -29,6 +29,7 @@
     "react-native-code-highlighter": "^1.2.2",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.14.0",
+    "react-native-google-mobile-ads": "^13.0.2",
     "react-native-image-zoom-viewer": "^3.0.1",
     "react-native-mathjax": "^2.1.2",
     "react-native-paper": "^5.12.3",
