@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Item, Option, Result } from '../utils/types'
 import useQuizData from '../utils/useQuizData'
 
@@ -23,7 +23,7 @@ const useNextQuestion = ({
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [randomNrArray, setRandomNrArray] = useState([]) //
-  //   const [topicItemsNr, setTopicItemsNr] = useState(0)
+
   useEffect(() => {
     //tworzenie tablicy losowych niepowtarzajacych się indeksów
     if (shuffle && itemsCount !== Infinity) {
@@ -40,7 +40,6 @@ const useNextQuestion = ({
         usedNumbers.push(randomNumber) // Dodanie liczby do tablicy użytych liczb
         arr.push(randomNumber) // Dodanie liczby do głównej tablicy
       }
-      console.log('🚀 ~ useEffect ~ arr:', arr)
 
       if (itemsArray === undefined) getNextRandomItem(arr, 0)
       else getRandomItemFromList(arr, 0)
@@ -49,26 +48,19 @@ const useNextQuestion = ({
     }
   }, [])
 
-  useEffect(() => {
-    console.log('🚀 ~ useEffect ~ randomNrArray:', randomNrArray)
-  }, [randomNrArray])
-
+  //jak nie ma itemsArray
   function getNextRandomItem(array: Array<number>, index: number) {
-    console.log('🚀 ~ getNextRandomItem ~ getNextRandomItem:')
     let newItem = importItem(chapName, topName, array[index])
     setItem(newItem)
   }
 
-  //to jak itemsArray jest
+  //to jak jest itemsArray
   function getRandomItemFromList(array: Array<number>, index: number) {
-    console.log('🚀 ~ getNextRandomItem ~ getNextRandomItem:')
-    // let newItem = importItem(chapName, topName, array[index])
     let newItem = itemsArray[array[index]]
     setItem(newItem)
   }
 
   function getNextItem() {
-    console.log('🚀 ~ getNextItem ~ getNextItem:')
     let newItem: Item
 
     if (chapName === '__Saved__') {
@@ -119,7 +111,7 @@ const useNextQuestion = ({
       }
 
       if (whichItem === itemsCount - 1) {
-        redundancyKiller()
+        prepareForGeneralResults()
         return
       }
 
@@ -131,7 +123,7 @@ const useNextQuestion = ({
     //jeśli już wszystkie itemy zostały odpowiedziane
     if (resultsArray.length === itemsCount) {
       //   storeFinishedQuizStat(topName, resultsArray)
-      redundancyKiller()
+      prepareForGeneralResults()
 
       return
     }
@@ -139,12 +131,11 @@ const useNextQuestion = ({
     setWhichItem(prev => prev + 1)
   }
 
-  function redundancyKiller() {
+  function prepareForGeneralResults() {
     setItem(null)
     setTimeout(() => {
       setShowGeneralResults(true)
     }, 0)
-
     setShowResultModal(false)
   }
 

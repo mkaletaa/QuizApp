@@ -10,7 +10,7 @@ import {
   StatusBar,
   StyleSheet,
   TouchableOpacity,
-  View,
+  View, Text, ActivityIndicator
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ContentRenderer from '../components/ContentRenderer'
@@ -59,6 +59,9 @@ export default function Quiz({ route }) {
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
   useEffect(() => {
+    // setTimeout(() => {
+// console.log('quiz wywołanie')
+    // }, 2000)
     getNextItem()// pobranie pierwszego itema
   }, [whichItem])
 
@@ -161,7 +164,7 @@ export default function Quiz({ route }) {
           </TouchableOpacity>
         }
 
-        {item && (
+        {item ? (
           <React.Fragment>
             <View style={{ marginTop: 30, width: '90%' }}>
               {/* <Question question={item?.question} /> */}
@@ -181,6 +184,8 @@ export default function Quiz({ route }) {
               disabled={chosenOptions.length === 0}
             />
           </React.Fragment>
+        ) : (
+          <ActivityIndicator size="large" color="#0000ff" />
         )}
 
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}

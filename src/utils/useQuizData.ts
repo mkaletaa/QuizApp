@@ -27,12 +27,12 @@ const useQuizData = () => {
   }
 
   function importRandomItemAllItemsMode(chapterName: string): Item {
-    let chapNr: number
+    let randomChapNr: number
     let chapName: string
 
     if (chapterName === '__All__') {
-      chapNr = Math.floor(Math.random() * chapters.length)
-      chapName = chapters[chapNr].name
+      randomChapNr = Math.floor(Math.random() * chapters.length)
+      chapName = chapters[randomChapNr].name
     } else chapName = chapterName
 
     let topNr: number = Math.floor(Math.random() * topics[chapName].length) //można tez użyc funkcji countTopics
@@ -40,8 +40,10 @@ const useQuizData = () => {
     let itemNr: number = Math.floor(
       Math.random() * countItemsInTopics(topName, chapName)
     )
-    let item: Item = quiz[chapName][topName][itemNr]
-    return item
+
+    //może się zdarzyć, że dla danego topika nie ma żadnych pytań, ale nw czy to działa i tak
+    if (quiz[chapName][topName][itemNr]) return quiz[chapName][topName][itemNr]
+    else importRandomItemAllItemsMode(chapterName)
   }
 
   function countItemsInTopics(topName: string, chapName: string): number {
