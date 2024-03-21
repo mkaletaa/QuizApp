@@ -15,7 +15,7 @@ const useNextQuestion = ({
   itemsCount: number
   shuffle: boolean
 }) => {
-  const [item, setItem] = useState<Item>()
+  const [item, setItem] = useState<Item>(null)
   const [whichItem, setWhichItem] = useState(0)
   const { importItem, importRandomItemAllItemsMode } = useQuizData()
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
@@ -26,6 +26,8 @@ const useNextQuestion = ({
   //* zapisane pytania mają chapName ==='__Saved__'
 
   useEffect(() => {
+    // let n = countItemsInTopics(topName, chapName)
+    
     if (shuffle && itemsCount !== Infinity) {
       let arr = []
       let usedNumbers = [] // Tablica przechowująca już użyte liczby
@@ -42,8 +44,11 @@ const useNextQuestion = ({
         arr.push(randomNumber) // Dodanie liczby do głównej tablicy
       }
 
-      if (itemsArray === undefined) getFirstRandomItem(arr, 0)
-      else getFirstRandomItemFromList(arr, 0)
+      //! symulacja długiego ładowania pytania
+      setTimeout(() => {
+        if (itemsArray === undefined) getFirstRandomItem(arr, 0)
+        else getFirstRandomItemFromList(arr, 0)
+      }, 2000)
 
       setRandomNrArray(arr)
     }
@@ -65,6 +70,7 @@ const useNextQuestion = ({
   function getNextItem() {
     let newItem: Item
 
+    //być może można dać tutaj if (shuffle && whichItem === 0) return
     if (itemsCount === Infinity) {
       newItem = importRandomItemAllItemsMode(chapName)
       prepareForTheNextItem(newItem)
@@ -76,14 +82,14 @@ const useNextQuestion = ({
 
     if (itemsArray && shuffle) {
       newItem = itemsArray[randomNrArray[whichItem]]
-      prepareForTheNextItem(newItem)
-      return
+      // prepareForTheNextItem(newItem)
+      // return
     }
 
     if (itemsArray && !shuffle) {
       newItem = itemsArray[whichItem]
-      prepareForTheNextItem(newItem)
-      return
+      // prepareForTheNextItem(newItem)
+      // return
     }
 
     if (!itemsArray && shuffle) {
@@ -101,8 +107,12 @@ const useNextQuestion = ({
   function prepareForTheNextItem(newItem) {
     setShowResultModal(false)
     setChosenOptions([])
+    setItem(null)
 
-    setItem(newItem)
+    //! symulacja długiego ładowania pytania
+    setTimeout(() => {
+      setItem(newItem)
+    }, 2000)
   }
 
   //uruchamia się po naciśnięciu przycisku w modalu
@@ -112,25 +122,6 @@ const useNextQuestion = ({
       getNextItem()
       return
     }
-
-    //jeśli już wcześniej przygotowana lista pytań
-    // if (itemsArray !== undefined) {
-    //wcześniej było if chapName==='__Saved__'
-
-    // if (shuffle) {
-    //   //dokończyć
-    // }
-
-    //jeśli już wykorzystano wszystkie itemy z listy
-    // if (whichItem === itemsCount - 1) {
-    //   prepareForGeneralResults()
-    //   return
-    // }
-
-    // setWhichItem(prev => prev + 1)
-
-    // return
-    // }
 
     //jeśli już wszystkie itemy zostały wykorzystane
     if (resultsArray.length === itemsCount) {
