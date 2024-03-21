@@ -48,6 +48,9 @@ const useNextQuestion = ({
     }
   }, [])
 
+
+
+  
   //jak nie ma itemsArray
   function getNextRandomItem(array: Array<number>, index: number) {
     let newItem = importItem(chapName, topName, array[index])
@@ -70,8 +73,8 @@ const useNextQuestion = ({
         if (whichItem > 0) {
         } else return
       } else newItem = itemsArray[whichItem]
-      // setShowResultModal(false)
-      // setChosenOptions([])
+
+      //
     } else {
       if (itemsCount === Infinity) {
         newItem = importRandomItemAllItemsMode(chapName)
@@ -95,39 +98,41 @@ const useNextQuestion = ({
 
   //uruchamia się po naciśnięciu przycisku w modalu
   function nextBtnPress(): void {
-    //   console.log(itemsArray)
+
     // if allItemsMode. działa tylko po naciśnięciu przycisku Random Question
     if (itemsCount === Infinity) {
       getNextItem()
       return
     }
 
-    if (itemsArray !== undefined) {
-      //jeśli już wcześniej przsygotowana lista pytań
-      //może zmienić warunek na if itemsArray, wcześniej było if chapName==='__Saved__'
+    //jeśli już wcześniej przygotowana lista pytań
+    // if (itemsArray !== undefined) {
+      //wcześniej było if chapName==='__Saved__'
 
-      if (shuffle) {
-        //dokończyć
-      }
+      // if (shuffle) {
+      //   //dokończyć
+      // }
 
-      if (whichItem === itemsCount - 1) {
-        prepareForGeneralResults()
-        return
-      }
+      //jeśli już wykorzystano wszystkie itemy z listy
+      // if (whichItem === itemsCount - 1) {
+      //   prepareForGeneralResults()
+      //   return
+      // }
 
-      setWhichItem(prev => prev + 1)
+      // setWhichItem(prev => prev + 1)
 
-      return
-    }
+      // return
+    // }
 
-    //jeśli już wszystkie itemy zostały odpowiedziane
+
+    //jeśli już wszystkie itemy zostały wykorzystane
     if (resultsArray.length === itemsCount) {
       //   storeFinishedQuizStat(topName, resultsArray)
       prepareForGeneralResults()
-
       return
     }
 
+    //setWhichItem truggeruje useEffect w Quizie, a tam wywoływany jest getNextItem()
     setWhichItem(prev => prev + 1)
   }
 
