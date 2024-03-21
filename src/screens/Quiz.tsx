@@ -10,7 +10,9 @@ import {
   StatusBar,
   StyleSheet,
   TouchableOpacity,
-  View, Text, ActivityIndicator
+  View,
+  Text,
+  ActivityIndicator,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ContentRenderer from '../components/ContentRenderer'
@@ -22,15 +24,19 @@ import Line from '../components/ui/Line'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { returnIsCorrect } from '../utils/functions'
 import { Option, Result } from '../utils/types'
+import useQuizData from '../utils/useQuizData'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
+  const { countItemsInTopics } = useQuizData()
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
     route.params.howManyItems
+      ? route.params.howManyItems
+      : countItemsInTopics(route.params.topName, route.params.chapName)
   )
 
   const {
@@ -52,7 +58,7 @@ export default function Quiz({ route }) {
     chapName: route.params.chapName,
     topName: route.params.topName,
     itemsArray: route.params.itemsArray,
-    itemsCount: route.params.howManyItems,
+    itemsCount,
     shuffle: route.params.shuffle,
   })
 
@@ -60,9 +66,9 @@ export default function Quiz({ route }) {
   //it also is triggered after next Btn press, because it is updated there
   useEffect(() => {
     // setTimeout(() => {
-// console.log('quiz wywołanie')
+    // console.log('quiz wywołanie')
     // }, 2000)
-    getNextItem()// pobranie pierwszego itema
+    getNextItem() // pobranie pierwszego itema
   }, [whichItem])
 
   useEffect(() => {
@@ -164,7 +170,7 @@ export default function Quiz({ route }) {
           </TouchableOpacity>
         }
 
-        {item ? (
+        {item && (
           <React.Fragment>
             <View style={{ marginTop: 30, width: '90%' }}>
               {/* <Question question={item?.question} /> */}
@@ -184,10 +190,12 @@ export default function Quiz({ route }) {
               disabled={chosenOptions.length === 0}
             />
           </React.Fragment>
-        ) : (
-          <ActivityIndicator size="large" color="#0000ff" />
         )}
 
+        {!item && !showGeneralResults && (
+          <ActivityIndicator size="large" color="#0000ff" />
+        )}
+        
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
       </ScrollView>
       <Modal
@@ -244,5 +252,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: 12,
     width: '100%',
-  }
+  },
 })

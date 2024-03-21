@@ -26,6 +26,7 @@ const useNextQuestion = ({
   //* zapisane pytania mają chapName ==='__Saved__'
 
   useEffect(() => {
+    console.log("🚀 ~ useNextQuestion ~ useEffect:", itemsCount)
     // let n = countItemsInTopics(topName, chapName)
     
     if (shuffle && itemsCount !== Infinity) {
@@ -45,10 +46,10 @@ const useNextQuestion = ({
       }
 
       //! symulacja długiego ładowania pytania
-      setTimeout(() => {
+      // setTimeout(() => {
         if (itemsArray === undefined) getFirstRandomItem(arr, 0)
         else getFirstRandomItemFromList(arr, 0)
-      }, 2000)
+      // }, 2000)
 
       setRandomNrArray(arr)
     }
@@ -69,6 +70,7 @@ const useNextQuestion = ({
 
   function getNextItem() {
     let newItem: Item
+    console.log('🚀 ~ useNextItem:')
 
     //być może można dać tutaj if (shuffle && whichItem === 0) return
     if (itemsCount === Infinity) {
@@ -110,9 +112,9 @@ const useNextQuestion = ({
     setItem(null)
 
     //! symulacja długiego ładowania pytania
-    setTimeout(() => {
+    // setTimeout(() => {
       setItem(newItem)
-    }, 2000)
+    // }, 2000)
   }
 
   //uruchamia się po naciśnięciu przycisku w modalu

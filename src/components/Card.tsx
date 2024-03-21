@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { removeUnderscores } from '../utils/functions'
 
-
+console.log("card")
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {

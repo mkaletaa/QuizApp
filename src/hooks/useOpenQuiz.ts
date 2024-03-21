@@ -21,7 +21,7 @@ const useOpenQuiz = () => {
       navigation.navigate('Quiz', {
         topName: topicName,
         chapName: chapterName,
-        howManyItems: howManyItems === Infinity ? Infinity :  countItemsInTopics(topicName, chapterName),//todo: przenieść liczenie itemów do Quizu lub useNextQuestion żeby nie trzeba było czekać z przjeściem po dotknięciu Card
+        howManyItems: howManyItems,// === Infinity ? Infinity :  countItemsInTopics(topicName, chapterName),//todo: przenieść liczenie itemów do Quizu lub useNextQuestion żeby nie trzeba było czekać z przjeściem po dotknięciu Card
         shuffle,
         itemsArray,
       })
