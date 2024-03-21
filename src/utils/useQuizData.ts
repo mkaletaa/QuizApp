@@ -1,8 +1,6 @@
 import { quiz } from '../../data/quiz/quizModule'
 import { Item } from './types'
-import { topics, chapters } from '../../data/data'
-//todo: zamienić ten hook na zbiór util fn
-//* UWAGA: można rozważyć włożenie do obiektów items i chapters klucz z ilością topików/itemów żeby przyspieszyć działanie aplikacji
+
 
 const useQuizData = () => {
 
@@ -27,30 +25,31 @@ const useQuizData = () => {
     return quiz[chapter][topic][itemIndex]
   }
 
-  //! prawdopodobnie gdzies w tej funkcji znajduje się błąd
+
+  //* note: some topics may have only theory but not the questions. This is why we can't use objects from data.ts
   function importRandomItemAllItemsMode(chapterName: string): Item {
-    try{
-    let randomChapNr: number
-    let chapName: string
+      let randomChapNr: number
+      let chapName: string
 
-    if (chapterName === '__All__') {
-      randomChapNr = Math.floor(Math.random() * chapters.length)
-      chapName = chapters[randomChapNr].name
-    } else chapName = chapterName
+      // jeśli __All__ to znaczy że ma pobierać itemy z całej aplikacji a nie tylko jednego chaptera
+      if (chapterName === '__All__') {
+        randomChapNr = Math.floor(Math.random() * Object.keys(quiz).length) //Object.keys(quiz).length - ile jest chapterów w obiekcie quiz
+        const chaptersArray = Object.keys(quiz) // Pobiera wszystkie klucze obiektu i zapisuje je w tablicy
+        chapName = chaptersArray[randomChapNr] // nazwa n-tego klucza będąca jednocześnie nazwą kategorii
+      } else chapName = chapterName
 
-    let topNr: number = Math.floor(Math.random() * topics[chapName].length) //można tez użyc funkcji countTopics
-    let topName: string = topics[chapName][topNr].name
-    let itemNr: number = Math.floor(
-      Math.random() * countItemsInTopic(topName, chapName)
-    )
+      let topNr: number = Math.floor(
+        Math.random() * Object.keys(quiz[chapName]).length //Object.keys(quiz[chapName]).length - liczba topików w określonym chapterze obiektu quiz
+      ) 
 
-    //todo uprościć
-    //może się zdarzyć, że dla danego topika nie ma żadnych pytań, ale nw czy to działa i tak
-    if (quiz[chapName][topName][itemNr]) return quiz[chapName][topName][itemNr]
-    else importRandomItemAllItemsMode(chapterName)
-    }catch(e){
-      console.warn("Error")
-    }
+      const topicsArray = Object.keys(quiz[chapName]) // Pobiera wszystkie klucze chaptera i zapisuje je w tablicy
+      let topName: string = topicsArray[topNr]
+      let itemNr: number = Math.floor(
+        Math.random() * countItemsInTopic(topName, chapName)
+      )
+
+        return quiz[chapName][topName][itemNr]
+    
   }
 
   function countItemsInTopic(topName: string, chapName: string): number {
