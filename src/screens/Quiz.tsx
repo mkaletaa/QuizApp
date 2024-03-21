@@ -59,7 +59,7 @@ export default function Quiz({ route }) {
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
   useEffect(() => {
-    getNextItem()
+    getNextItem()// pobranie pierwszego itema
   }, [whichItem])
 
   useEffect(() => {
