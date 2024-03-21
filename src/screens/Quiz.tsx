@@ -30,13 +30,13 @@ export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
-  const { countItemsInTopics } = useQuizData()
+  const { countItemsInTopic } = useQuizData()
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
     route.params.howManyItems
       ? route.params.howManyItems
-      : countItemsInTopics(route.params.topName, route.params.chapName)
+      : countItemsInTopic(route.params.topName, route.params.chapName)
   )
 
   const {
@@ -195,7 +195,7 @@ export default function Quiz({ route }) {
         {!item && !showGeneralResults && (
           <ActivityIndicator size="large" color="#0000ff" />
         )}
-        
+
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
       </ScrollView>
       <Modal

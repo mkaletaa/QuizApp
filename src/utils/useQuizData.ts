@@ -5,6 +5,7 @@ import { topics, chapters } from '../../data/data'
 //* UWAGA: można rozważyć włożenie do obiektów items i chapters klucz z ilością topików/itemów żeby przyspieszyć działanie aplikacji
 
 const useQuizData = () => {
+
   function importItem(
     chap: string,
     top: string,
@@ -26,7 +27,9 @@ const useQuizData = () => {
     return quiz[chapter][topic][itemIndex]
   }
 
+  //! prawdopodobnie gdzies w tej funkcji znajduje się błąd
   function importRandomItemAllItemsMode(chapterName: string): Item {
+    try{
     let randomChapNr: number
     let chapName: string
 
@@ -38,43 +41,51 @@ const useQuizData = () => {
     let topNr: number = Math.floor(Math.random() * topics[chapName].length) //można tez użyc funkcji countTopics
     let topName: string = topics[chapName][topNr].name
     let itemNr: number = Math.floor(
-      Math.random() * countItemsInTopics(topName, chapName)
+      Math.random() * countItemsInTopic(topName, chapName)
     )
 
+    //todo uprościć
     //może się zdarzyć, że dla danego topika nie ma żadnych pytań, ale nw czy to działa i tak
     if (quiz[chapName][topName][itemNr]) return quiz[chapName][topName][itemNr]
     else importRandomItemAllItemsMode(chapterName)
-  }
-
-  function countItemsInTopics(topName: string, chapName: string): number {
-    let itemsArray: Array<Item> = quiz[chapName][topName]
-    return itemsArray.length
-  }
-
-  function countTopics(chapName): number {
-    return topics[chapName].length
-  }
-
-  function getTopicsForChapter(chapName): Array<string> {
-    return topics[chapName].map(topic => topic.name)
-  }
-
-  function getAllTopics(): string[] {
-    let topics: Array<string> = []
-    for (const chapName in Object.keys(topics)) {
-      topics.push(...getTopicsForChapter(chapName))
+    }catch(e){
+      console.warn("Error")
     }
-    return topics
   }
+
+  function countItemsInTopic(topName: string, chapName: string): number {
+
+      let itemsArray: Array<Item> = quiz[chapName][topName] //|| []
+      // console.log("🚀 ~ countItemsInTopic ~ itemsArray:", itemsArray)
+      // if (!itemsArray) return 0
+      return  itemsArray.length
+
+  }
+
+  // function countTopics(chapName): number {
+  //   return topics[chapName].length
+  // }
+
+  // function getTopicsForChapter(chapName): Array<string> {
+  //   return topics[chapName].map(topic => topic.name)
+  // }
+
+  // function getAllTopics(): string[] {
+  //   let topics: Array<string> = []
+  //   for (const chapName in Object.keys(topics)) {
+  //     topics.push(...getTopicsForChapter(chapName))
+  //   }
+  //   return topics
+  // }
 
   return {
     importItem,
     importItemById,
     importRandomItemAllItemsMode,
-    countItemsInTopics,
-    countTopics,
-    getTopicsForChapter,
-    getAllTopics,
+    countItemsInTopic,
+    // countTopics,
+    // getTopicsForChapter,
+    // getAllTopics,
   }
 }
 

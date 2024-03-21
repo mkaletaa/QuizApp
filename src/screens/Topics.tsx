@@ -17,7 +17,7 @@ export default function Topics({ route }) {
   const [showStats, setShowStats] = useState(false)
   const openQuiz = useOpenQuiz()
 
-  const { countItemsInTopics } = useQuizData()
+  // const { countItemsInTopics } = useQuizData()
 
   useEffect(() => {
     //Here a dummy topic is added
