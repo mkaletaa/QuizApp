@@ -15,11 +15,31 @@ import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome6 } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { Foundation } from '@expo/vector-icons'
+
 
 const Stack = createStackNavigator()
 
 const MyStack = () => {
   const navigation = useNavigation()
+
+  // Ustawienie słuchacza na otrzymywanie powiadomień
+// Notifications.addNotificationReceivedListener(notification => {
+//   console.log(notification)
+// })
+
+// Ustawienie powiadomienia
+// Notifications.scheduleNotificationAsync({
+//   content: {
+//     title: 'Powiadomienie',
+//     body: 'Nowe powiadomienie!',
+//   },
+//   trigger: {
+//     seconds: 5, // Po jakim czasie ma zostać wysłane powiadomienie
+//   },
+// })
+
 
   const header = {
     headerRight: () => (
@@ -38,6 +58,15 @@ const MyStack = () => {
           <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
           <Octicons name="flame" size={26} color="orange" />
         </View>
+
+        <FontAwesome6 name="hand-holding-dollar" size={24} color="green" />
+        <MaterialCommunityIcons
+          name="hand-coin-outline"
+          size={24}
+          color="black"
+        />
+        <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" />
+        <Foundation name="dollar" size={34} color="black" />
         {/* <AntDesign name="star" size={28} color="black" /> */}
         {/* <AntDesign
           name="staro"

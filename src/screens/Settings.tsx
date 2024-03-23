@@ -1,32 +1,63 @@
-import React, { useRef, useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
+import { StyleSheet, View, Text, Button } from 'react-native'
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
+import Constants from 'expo-constants'
+import * as Notifications from 'expo-notifications'
 
 const StickyHeaderScrollView = () => {
-  const scrollViewRef = useRef()
-  const [stickyHeader, setStickyHeader] = useState(null)
-  const [scrollPercentage, setScrollPercentage] = useState(0)
-
-  const handleScroll = event => {
-    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
-    const percent =
-      (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
-    setScrollPercentage(percent)
-  }
-
   // const adUnitId = __DEV__
   //   ? TestIds.BANNER
   //   : 'ca-app-pub-8755010348178299~4784433482'
-    
+  // Pobierz niestandardowe wartości zdefiniowane w app.json
+  const ads = JSON.stringify(Constants.manifest2.extra.expoClient.extra.ads)
+  console.log(ads) // Wyświetli wartość customConfig z app.json
+
+  const handleButtonPress = async () => {
+    try {
+      await sendNotification()
+      console.log('Notification sent successfully')
+    } catch (error) {
+      console.error('Error sending notification:', error)
+    }
+  }
+
+  const sendNotification = async () => {
+    console.log('dede')
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: 'Nowa notyfikacja',
+        body: 'To jest treść nowej notyfikacji.',
+      },
+      trigger: null, // Notyfikacja zostanie natychmiast wyświetlona
+    })
+  }
+
+  useEffect(() => {
+    handleButtonPress()
+  }, [])
+
   return (
     <View style={styles.container}>
-      {/* <BannerAd
-        unitId={'ca-app-pub-8755010348178299~4784433482'}
-        size={BannerAdSize.FULL_BANNER}
-        requestOptions={{
-          requestNonPersonalizedAdsOnly: true,
-        }}
-      /> */}
+      <Button title="Wyślij notyfikację" onPress={handleButtonPress} />
+      {true &&
+        <BannerAd
+          unitId={'ca-app-pub-8755010348178299~4784433482'}
+          size={BannerAdSize.FULL_BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: true,
+          }}
+        />
+        }
+      <Text>Test</Text>
+      {true &&
+        <BannerAd
+          unitId={TestIds.BANNER}
+          size={BannerAdSize.FULL_BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: true,
+          }}
+        />
+        }
     </View>
   )
 }
