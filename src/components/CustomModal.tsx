@@ -4,7 +4,7 @@ export default function CustomModal({
   children,
   showModal,
   onRequestClose,
-  modalText,
+  modalText=null,
 }) {
   return (
     <Modal
@@ -15,9 +15,9 @@ export default function CustomModal({
     >
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <Text style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}>
+          {modalText && <Text style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}>
             {modalText}
-          </Text>
+          </Text>}
           {children}
         </View>
       </View>

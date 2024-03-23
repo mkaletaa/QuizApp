@@ -3,7 +3,7 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import MathJax from 'react-native-mathjax'
 import { Option } from '../utils/types'
-
+import Math from './ContentRenderer/Math'
 const OptionComponent = ({ option }: { option: Option }) => {
   const { componentType, answer: answerValue } = option
 
@@ -11,21 +11,13 @@ const OptionComponent = ({ option }: { option: Option }) => {
     case 'Text':
       return <Text style={styles.buttonText}>{answerValue} dddg</Text>
     case 'Math':
-      return (
-        <MathJax
-          style={{ backgroundColor: 'transparent' }}
-          // mathJaxOptions={mmlOptions}
-          html={answerValue}
-          // config={{ 'HTML-CSS': {  scale: 20 } }}
-        />
-      )
+      return <Math />
     default:
       return <Text style={styles.buttonText}>{answerValue}</Text>
   }
 }
 
 const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
-
   function setButtonBackground(pressedOption: Option) {
     let isChosen = chosenOptions.some(el => el.id === pressedOption.id)
     const updatedOption = { ...pressedOption }

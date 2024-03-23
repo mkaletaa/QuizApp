@@ -5,16 +5,18 @@ import {
   Text,
   ScrollView,
   StatusBar,
+  Pressable,
 } from 'react-native'
 import ContentRenderer from './ContentRenderer'
 import { Item, Option } from '../utils/types'
 // import Question from './Question'
 import { Foundation } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
-import React from 'react'
+import React, { useState } from 'react'
 import ExplanationPrompt from './ui/ExplanationPrompt'
 import { returnIsCorrect } from '../utils/functions'
 import Math from './ContentRenderer/Math'
+import CustomModal from './CustomModal'
 
 export default function Explanation({
   item,
@@ -29,6 +31,8 @@ export default function Explanation({
   btnTitle: string
   showQuestion: boolean
 }) {
+
+  const[showQuestionModal, setShowQuestionModal] = useState(false)
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
       <ExplanationPrompt item={item}></ExplanationPrompt>
@@ -44,59 +48,68 @@ export default function Explanation({
           <ContentRenderer content={item?.question} />
         </View>
       )}
-      <View style={styles.contentContainer}>
-        {returnIsCorrect(item, chosenOptions) === 'correct' && (
-          <Foundation name="check" size={54} color="green" />
-        )}
+      <CustomModal
+        showModal={showQuestionModal}
+        onRequestClose={() => setShowQuestionModal(false)}
+      >
+        <ContentRenderer content={item?.question} />
+      </CustomModal>
 
-        {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
-          <FontAwesome name="remove" size={54} color="red" />
-        )}
+      <Pressable onLongPress={() => {!showQuestion && setShowQuestionModal(true)}}>
+        <View style={styles.contentContainer}>
+          {returnIsCorrect(item, chosenOptions) === 'correct' && (
+            <Foundation name="check" size={54} color="green" />
+          )}
 
-        {returnIsCorrect(item, chosenOptions) === 'kindof' && (
-          <View style={{ flexDirection: 'row' }}>
-            <Foundation name="check" size={54} color="orange" />
-            <FontAwesome name="remove" size={54} color="orange" />
+          {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
+            <FontAwesome name="remove" size={54} color="red" />
+          )}
+
+          {returnIsCorrect(item, chosenOptions) === 'kindof' && (
+            <View style={{ flexDirection: 'row' }}>
+              <Foundation name="check" size={54} color="orange" />
+              <FontAwesome name="remove" size={54} color="orange" />
+            </View>
+          )}
+
+          <Text style={styles.heading}>Correct answer(s):</Text>
+          {item?.options
+            .filter(option => option.correct === true)
+            .map((option, index) => (
+              <ContentRenderer content={option.answer} key={option.id} />
+            ))}
+
+          {chosenOptions && chosenOptions.length > 0 && (
+            <React.Fragment>
+              <Text style={styles.heading}>Your answer(s):</Text>
+              {chosenOptions.map((option, index) =>
+                option.componentType === 'Math' ? (
+                  <ContentRenderer
+                    content={[{ value: option.answer, componentType: 'Math' }]}
+                    key={'chosen_' + option.id}
+                  />
+                ) : (
+                  <ContentRenderer
+                    content={option.answer}
+                    key={'chosen_' + option.id}
+                  />
+                )
+              )}
+            </React.Fragment>
+          )}
+
+          {item?.explanation && (
+            <React.Fragment>
+              <Text style={styles.heading}>Explanation:</Text>
+              <ContentRenderer content={item?.explanation} />
+            </React.Fragment>
+          )}
+
+          <View style={styles.nextItem}>
+            <Button title={btnTitle} onPress={() => handleBtnPress()} />
           </View>
-        )}
-
-        <Text style={styles.heading}>Correct answer(s):</Text>
-        {item?.options
-          .filter(option => option.correct === true)
-          .map((option, index) => (
-            <ContentRenderer content={option.answer} key={option.id} />
-          ))}
-
-        {chosenOptions && chosenOptions.length > 0 && (
-          <React.Fragment>
-            <Text style={styles.heading}>Your answer(s):</Text>
-            {chosenOptions.map((option, index) =>
-              option.componentType === 'Math' ? (
-                <ContentRenderer
-                  content={[{ value: option.answer, componentType: 'Math' }]}
-                  key={'chosen_' + option.id}
-                />
-              ) : (
-                <ContentRenderer
-                  content={option.answer}
-                  key={'chosen_' + option.id}
-                />
-              )
-            )}
-          </React.Fragment>
-        )}
-
-        {item?.explanation && (
-          <React.Fragment>
-            <Text style={styles.heading}>Explanation:</Text>
-            <ContentRenderer content={item?.explanation} />
-          </React.Fragment>
-        )}
-
-        <View style={styles.nextItem}>
-          <Button title={btnTitle} onPress={() => handleBtnPress()} />
         </View>
-      </View>
+      </Pressable>
     </ScrollView>
   )
 }

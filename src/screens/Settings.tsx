@@ -14,23 +14,23 @@ const StickyHeaderScrollView = () => {
 
   const handleButtonPress = async () => {
     try {
-      await sendNotification()
+      // await sendNotification()
       console.log('Notification sent successfully')
     } catch (error) {
       console.error('Error sending notification:', error)
     }
   }
 
-  const sendNotification = async () => {
-    console.log('dede')
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: 'Nowa notyfikacja',
-        body: 'To jest treść nowej notyfikacji.',
-      },
-      trigger: null, // Notyfikacja zostanie natychmiast wyświetlona
-    })
-  }
+  // const sendNotification = async () => {
+  //   console.log('dede')
+  //   await Notifications.scheduleNotificationAsync({
+  //     content: {
+  //       title: 'Nowa notyfikacja',
+  //       body: 'To jest treść nowej notyfikacji.',
+  //     },
+  //     trigger: null, // Notyfikacja zostanie natychmiast wyświetlona
+  //   })
+  // }
 
   useEffect(() => {
     handleButtonPress()
@@ -40,23 +40,25 @@ const StickyHeaderScrollView = () => {
     <View style={styles.container}>
       <Button title="Wyślij notyfikację" onPress={handleButtonPress} />
       {true &&
-        <BannerAd
-          unitId={'ca-app-pub-8755010348178299~4784433482'}
-          size={BannerAdSize.FULL_BANNER}
-          requestOptions={{
-            requestNonPersonalizedAdsOnly: true,
-          }}
-        />
+        // <BannerAd
+        //   unitId={'ca-app-pub-8755010348178299~4784433482'}
+        //   size={BannerAdSize.FULL_BANNER}
+        //   requestOptions={{
+        //     requestNonPersonalizedAdsOnly: true,
+        //   }}
+        // />
+        null
         }
       <Text>Test</Text>
       {true &&
-        <BannerAd
-          unitId={TestIds.BANNER}
-          size={BannerAdSize.FULL_BANNER}
-          requestOptions={{
-            requestNonPersonalizedAdsOnly: true,
-          }}
-        />
+        // <BannerAd
+        //   unitId={TestIds.BANNER}
+        //   size={BannerAdSize.FULL_BANNER}
+        //   requestOptions={{
+        //     requestNonPersonalizedAdsOnly: true,
+        //   }}
+        // />
+        null
         }
     </View>
   )
