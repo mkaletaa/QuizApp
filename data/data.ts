@@ -1,6 +1,12 @@
 //if a name consists of more than one words, separate them with underscore
 export const chapters = [
   {
+    name: 'elektronika',
+    image:
+      'https://i.postimg.cc/cLqQPLB8/66583146-processore-del-computer-e-chip-di-sistema-della-scheda-madre-chip-della-cpu-circuito-elettr.jpg',
+    des: '',
+  },
+  {
     name: 'cat_1',
     image: 'https://reactjs.org/logo-og.png',
     des: 'short descirtption of a cat_1',
@@ -26,6 +32,12 @@ export const chapters = [
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
 export const topics = {
+  elektronika: [
+    {
+      name: 'wzmacniacz_operacyjny',
+      image: 'https://i.postimg.cc/hjH8LLMh/WO.png',
+    },
+  ],
   cat_1: [
     {
       name: 'top_1',
