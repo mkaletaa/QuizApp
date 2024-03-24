@@ -54,27 +54,14 @@ const MyStack = () => {
         }}
       >
         {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
-        <View style={{ flexDirection: 'row', gap: 1 }}>
+        {/* <View style={{ flexDirection: 'row', gap: 1 }}>
           <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
           <Octicons name="flame" size={26} color="orange" />
-        </View>
+        </View> */}
 
-        <FontAwesome6 name="hand-holding-dollar" size={24} color="green" />
-        <MaterialCommunityIcons
-          name="hand-coin-outline"
-          size={24}
-          color="black"
-        />
-        <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" />
-        <Foundation name="dollar" size={34} color="black" />
-        {/* <AntDesign name="star" size={28} color="black" /> */}
-        {/* <AntDesign
-          name="staro"
-          size={30}
-          color="black"
-          //@ts-ignore
-          onPress={() => navigation.navigate('Saved')}
-        /> */}
+ 
+        {/* <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" /> */}
+     
 
         <Ionicons
           name="bookmark-outline"
@@ -83,23 +70,14 @@ const MyStack = () => {
           //@ts-ignore
           onPress={() => navigation.navigate('Saved')}
         />
-        {/* <Entypo
-          //@ts-ignore
-          onPress={() => navigation.navigate('Options')}
-          name="dots-three-vertical"
-          size={28}
-          color="black"
-          style={{
-            // marginRight: 15,
-          }}
-          /> */}
-        <Feather
+    
+        {/* <Feather
           name="sliders"
           size={28}
           color="black"
           //@ts-ignore
           onPress={() => navigation.navigate('Options')}
-        />
+        /> */}
       </View>
     ),
   }

@@ -6,18 +6,18 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native'
 import { removeUnderscores } from '../utils/functions'
 
-console.log("card")
+console.log('card')
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
   //Adjust the size of the card based on the screen width
   const screenWidth = screenWidthDim
   const cardWidth = screenWidth >= 600 ? screenWidth / 3.5 : screenWidth / 2.25
-  const cardHeight = cardWidth * 1.2
+  const cardHeight = cardWidth * 1.3
 
   return { width: cardWidth, height: cardHeight }
 }
@@ -35,7 +35,7 @@ export default function Card({
     // if (data.name.endsWith('__All__')) {
     //   chapOrTop === 'top' ? onCardPress() : onCardPress(data.name)
     // } else {
-      chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
+    chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
     // }
   }
 
@@ -49,19 +49,27 @@ export default function Card({
       //   ]}
     >
       <View style={[styles.cardContainer, cardSize]} key={data.name}>
-        <Image
-          style={[
-            styles.cardImage,
-            {
-              alignSelf: 'center',
-              height: cardSize.height * 0.6,
-              backgroundColor: 'blue',
-            },
-          ]}
-          source={{
-            uri: data.image,
+        {/* <View
+          style={{
+            width: '90%',
+            marginTop: 10,
           }}
-        />
+        > */}
+          <Image
+            style={[
+              styles.cardImage,
+              {
+                alignSelf: 'center',
+                height: cardSize.height * 0.6,
+                backgroundColor: 'blue',
+                marginTop: 15,
+              },
+            ]}
+            source={{
+              uri: data.image,
+            }}
+          />
+        {/* </View> */}
 
         <View style={styles.textContainer}>
           <Text numberOfLines={1} style={styles.cardTitle}>
@@ -90,7 +98,8 @@ const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: '#fff',
     borderRadius: 10,
-    padding: 10,
+    // paddingHorizontal: 10,
+    // paddingTop: 10,
     margin: 10,
     shadowColor: '#000',
     shadowOffset: {
@@ -113,7 +122,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   cardImage: {
-    width: '90%',
+    width: '80%',
     resizeMode: 'cover',
     borderRadius: 10,
   },
@@ -121,13 +130,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 5,
     marginTop: 5,
-    width: '90%',
-    height: cardSize.height - cardSize.width * 0.9,
+    width: '100%',
+    // alignItems: 'center',
+    // height: cardSize.height - cardSize.width * 0.9,
+    // height: '30%',
+    // backgroundColor: 'green',
+    flex: 1,
   },
   readTouchable: {
     borderRadius: 10,
     borderTopWidth: 1,
     borderColor: 'lightgrey',
+    // backgroundColor: 'red',
+    flex: 1,
   },
   read: {
     opacity: 0.6,

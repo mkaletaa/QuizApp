@@ -17,6 +17,8 @@ import { useNavigation } from '@react-navigation/native'
 import useQuizData from '../utils/useQuizData'
 import TheoryPrompt from '../components/ui/TheoryPrompt'
 import QuizButton from '../components/ui/QuizButton'
+import { FontAwesome5 } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -188,13 +190,19 @@ export default function Theory({ route }) {
         ]}
       />
 
-      <Pressable
+
+
+      <Entypo
+        name="arrow-up"
+        size={40}
+        color="black"
         style={[
           styles.goUp,
-          { bottom: showGoUp ? 20 : -50 }, // Dynamiczne style
+          { bottom: showGoUp ? 20 : -70 }, // Dynamiczne style
         ]}
         onPress={() => scrollToTop()}
-      ></Pressable>
+      />
+
 
       <TheoryPrompt topicName={topicName} chapterName={chapterName} />
       {memoizedComponents}
@@ -238,12 +246,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   goUp: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'green',
+    // width: 40,
+    // height: 40,
+    padding:8,
+    backgroundColor: '#FFFFF0',
     position: 'absolute',
     bottom: 20,
     left: 30,
     zIndex: 1,
+    borderRadius:15,
+    elevation: 3
   },
 })
