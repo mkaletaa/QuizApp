@@ -130,6 +130,7 @@ export default function ContentRenderer({
 }: {
   content: string | Component[]
 }) {
+  console.log(content)
   // if a question is text only, turn it into one element array
   const contentArray: Component[] = Array.isArray(content)
     ? content

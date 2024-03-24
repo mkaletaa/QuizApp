@@ -4,7 +4,7 @@ export const chapters = [
     name: 'elektronika',
     image:
       'https://i.postimg.cc/cLqQPLB8/66583146-processore-del-computer-e-chip-di-sistema-della-scheda-madre-chip-della-cpu-circuito-elettr.jpg',
-    des: '',
+    des: 'Wszystkie informacje z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a>. Notatki nie są moje więc jak coś jest źle to pretensje nie do mnie',
   },
   {
     name: 'cat_1',

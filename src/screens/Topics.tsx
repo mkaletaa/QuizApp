@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { Modal, ScrollView, View, StyleSheet } from 'react-native'
+import { Modal, ScrollView, View, StyleSheet, Text } from 'react-native'
 import { topics } from '../../data/data'
 import Card from '../components/Card'
 import Stats from '../components/Stats'
@@ -8,9 +8,11 @@ import RandomQuestion from '../components/ui/RandomQuestion'
 import useQuizData from '../utils/useQuizData'
 import utilStyles from '../utils/styles'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-
+import {chapters} from '../../data/data'
+import ContentRenderer from '../components/ContentRenderer'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
+  const [chapterDes, setChapterDes] = useState('')
   // const [howManyItems, setHowManyItems] = useState<number | null>(null)
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const navigation = useNavigation()
@@ -22,7 +24,8 @@ export default function Topics({ route }) {
   useEffect(() => {
     //Here a dummy topic is added
     const chapterName: string = route.params.chapterName
-    const chapterDescription: string = route.params.chapterDescription
+// const chapter = chapters.find(chapter => chapter.name === chapterName)
+    setChapterDes(chapters.find(chapter => chapter.name === chapterName).des)
     if (chapterName && topics[chapterName]) {
       setChapterName(chapterName)
       // let name: string = categoryName + '__All__'
@@ -61,7 +64,6 @@ export default function Topics({ route }) {
     setPressedTopic(pressedTopicName)
     setShowStats(true)
   }
-
   return (
     <View
       style={{
@@ -70,6 +72,11 @@ export default function Topics({ route }) {
     >
       <RandomQuestion chapName={chapterName} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
+        {/* <Text style={{ width: '80%', textAlign: 'center' }}>
+          {chapter?.des}
+        </Text> */}
+        <ContentRenderer content={chapterDes} />
+
         {topicsToShow.map(topic => (
           <Card
             chapOrTop={'top'}

@@ -6,7 +6,7 @@ import WebView from 'react-native-webview'
 //todo to z powrotem do ContentRenderer
 export default function Math({ width = 300, value = null, props = null }) {
   let html =
-    '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"><div style="display: flex;justify-content: center;align-items: center; overflow-x:auto; "><div style="max-width: 100%;margin: 0 auto;font-size:20px">'
+    '<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><div style="display: flex;justify-content: center;align-items: center; overflow-x:auto; "><div style="max-width: 100%;margin: 0 auto;font-size:15px">'
   html += value
   html += '</div></div>'
 

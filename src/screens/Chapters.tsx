@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 import { chapters } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'

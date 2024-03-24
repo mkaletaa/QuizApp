@@ -123,6 +123,44 @@
     ]
   },
   {
+    "title": "charakterystyki przejściowe",
+    "data": [
+      {
+        "componentType": "Header",
+        "value": "Dla WO nieodwracającego:"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/SKfYNjZ2/image.png",
+        "props": {
+          "orientation": "square"
+        }
+      },
+      {
+        "componentType": "Header",
+        "value": "Dla WO odwracającego:"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/mk7g8gPN/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      },
+      {
+        "componentType": "Header",
+        "value": "Przykładowa charakterystyka częstotliwościowa wzmacniacza odwracającego o wzmocnieniu 10:"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/VNtpSrpR/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
     "title": "parametry idealnego WO",
     "data": [
       {
@@ -252,7 +290,7 @@
       { "componentType": "Header", "value": "Wzmacniacz odwracający" },
       {
         "componentType": "Math",
-        "value": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"> <mfrac><msub><mi>R</mi><mn>1</mn></msub>+<msub><mi>R</mi><mn>1</mn></msub></mfrac> </math>"
+        "value": "`U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
         "componentType": "Image",
@@ -264,7 +302,7 @@
       { "componentType": "Header", "value": "Wzmacniacz nieodwracający" },
       {
         "componentType": "Math",
-        "value": ""
+        "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
         "componentType": "Image",
@@ -276,7 +314,7 @@
       { "componentType": "Header", "value": "Wzmacniacz całkujący" },
       {
         "componentType": "Math",
-        "value": ""
+        "value": "`U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
       },
       {
         "componentType": "Image",
@@ -288,7 +326,7 @@
       { "componentType": "Header", "value": "Wzmacniacz różniczkujący" },
       {
         "componentType": "Math",
-        "value": ""
+        "value": "`U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
         "componentType": "Image",
@@ -300,19 +338,19 @@
       { "componentType": "Header", "value": "Wzmacniacz sumujący" },
       {
         "componentType": "Math",
-        "value": ""
+        "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       },
       {
         "componentType": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props":{
-            "orientation": "horizontal"
+        "props": {
+          "orientation": "horizontal"
         }
       },
       { "componentType": "Header", "value": "Wzmacniacz różnicowy" },
       {
         "componentType": "Math",
-        "value": ""
+        "value": "`U_{wy}= R_1/R_2(U_{we1}-U_{we2})`"
       },
       {
         "componentType": "Image",
