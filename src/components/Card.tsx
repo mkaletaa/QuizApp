@@ -42,7 +42,7 @@ export default function Card({
   return (
     <Pressable
       onPress={handlePress}
-      onLongPress={() => onCardLongPress()}
+      // onLongPress={() => onCardLongPress()}
       //   style={({ pressed }) => [
       //     styles.cardPressable,
       //     pressed && styles.cardPressablePressed,
