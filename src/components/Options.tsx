@@ -11,7 +11,7 @@ const OptionComponent = ({ option }: { option: Option }) => {
     case 'Text':
       return <Text style={styles.buttonText}>{answerValue} dddg</Text>
     case 'Math':
-      return <Math />
+      return <Math value={answerValue} width={230} />//todo zmienić width
     default:
       return <Text style={styles.buttonText}>{answerValue}</Text>
   }

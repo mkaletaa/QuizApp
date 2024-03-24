@@ -61,7 +61,7 @@ export default function Card({
               {
                 alignSelf: 'center',
                 height: cardSize.height * 0.6,
-                backgroundColor: 'blue',
+                // backgroundColor: 'blue',
                 marginTop: 15,
               },
             ]}
@@ -116,6 +116,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
+    // width: '90%'
+    paddingHorizontal: 15
   },
   cardDes: {
     fontSize: 12,

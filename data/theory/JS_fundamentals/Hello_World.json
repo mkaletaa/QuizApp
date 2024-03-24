@@ -3,7 +3,7 @@
     "data": [
       {
         "componentType": "Text",
-        "value": "It’s time to write your very first JavaScript code. You can do it on many ways. Read about them below and choose your favourite."
+        "value": "<p>It’s time to write your very first JavaScript code. You can do it on many ways. Read about them below and choose your favourite.</p>"
       }
     ]
   },

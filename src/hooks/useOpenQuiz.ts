@@ -13,7 +13,7 @@ const useOpenQuiz = () => {
     topicName: string,
     chapterName: string,
     howManyItems?: number,
-    shuffle: boolean = false,
+    shuffle: boolean = true,
     itemsArray?: string[] //nie wiem czy nie trzeba Item[]
   ): void => {
     // quiz[chapterName][topicName]

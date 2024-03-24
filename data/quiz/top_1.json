@@ -60,7 +60,7 @@
     "question": [
       {
         "componentType": "Math",
-        "value": "$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1))(2n+1))(2n+1))(2n+1))(2n+1)}{6}$",
+        "value": "`sum_(i=1)^n i^3=((n(n+1))/2)^2`",
         "props": { "fontSize": 20 }
       },
 
@@ -73,7 +73,7 @@
     "options": [
       {
         "id": 31,
-        "answer": "$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$",
+        "answer": "`sum_(i=1)^n i^3=((n(n+1))/2)^2`",
         "correct": false,
         "componentType": "Math",
         "props": {}

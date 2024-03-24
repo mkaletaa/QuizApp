@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   image: {
     width: 300,
     // height: 250,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     borderRadius: 8,
   },
   modalContainer: {

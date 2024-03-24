@@ -44,8 +44,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           key={key}
           style={{
             width: '100%',
-            paddingBottom: 10,
-            backgroundColor: 'lightblue',
+            paddingTop: 10,
+            // backgroundColor: 'lightblue',
           }}
         >
           <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{value}</Text>

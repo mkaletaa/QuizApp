@@ -50,17 +50,23 @@ export default function Theory({ route }) {
                 alignItems: 'flex-start',
                 width: '100%',
                 paddingHorizontal: 20,
+                gap: 20,
                 // backgroundColor: 'red',
               }}
             >
               <Pressable onPress={() => scrollToSection(i)}>
                 <Text
                   style={{
-                    fontSize: 23,
+                    fontSize: 21,
                     textDecorationLine: 'underline',
                     // backgroundColor: 'blue',
                   }}
                 >
+                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecysuj od którego numery rozpocząć indeksowanie */}
+                  {theory[route.params.chapterName][route.params.topicName][0]
+                    .title
+                    ? i + 1
+                    : i}{' '}
                   {a.title}
                 </Text>
               </Pressable>
@@ -74,7 +80,13 @@ export default function Theory({ route }) {
   const renderSectionHeader = ({ section }) => {
     if (section.title) {
       return (
-        <View style={{ padding: 10, backgroundColor: 'lightgray' }}>
+        <View
+          style={{
+            padding: 10,
+            backgroundColor: 'lightgray',
+            marginBottom: 10,
+          }}
+        >
           <Text style={styles.sectionHeaderText}>{section.title}</Text>
         </View>
       )
@@ -190,8 +202,6 @@ export default function Theory({ route }) {
         ]}
       />
 
-
-
       <Entypo
         name="arrow-up"
         size={40}
@@ -202,7 +212,6 @@ export default function Theory({ route }) {
         ]}
         onPress={() => scrollToTop()}
       />
-
 
       <TheoryPrompt topicName={topicName} chapterName={chapterName} />
       {memoizedComponents}
@@ -229,6 +238,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: 1,
     alignItems: 'center',
+    gap: 5,
   },
   sectionHeaderText: {
     fontSize: 18,
@@ -236,25 +246,25 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   item: {
-    marginTop: 20,
+    marginBottom: 20,
     paddingHorizontal: 20, //*
     // backgroundColor: 'white',
   },
   footer: {
-    backgroundColor: 'lightgray',
-    padding: 10,
+    // backgroundColor: 'lightgray',
+    padding: 30,
     alignItems: 'center',
   },
   goUp: {
     // width: 40,
     // height: 40,
-    padding:8,
+    padding: 8,
     backgroundColor: '#FFFFF0',
     position: 'absolute',
     bottom: 20,
     left: 30,
     zIndex: 1,
-    borderRadius:15,
-    elevation: 3
+    borderRadius: 15,
+    elevation: 3,
   },
 })
