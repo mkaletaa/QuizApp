@@ -35,6 +35,7 @@ export default function Explanation({
   const[showQuestionModal, setShowQuestionModal] = useState(false)
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
+      <Pressable onLongPress={() => {!showQuestion && setShowQuestionModal(true)}}>
       <ExplanationPrompt item={item}></ExplanationPrompt>
       {showQuestion && (
         <View
@@ -55,7 +56,6 @@ export default function Explanation({
         <ContentRenderer content={item?.question} />
       </CustomModal>
 
-      <Pressable onLongPress={() => {!showQuestion && setShowQuestionModal(true)}}>
         <View style={styles.contentContainer}>
           {returnIsCorrect(item, chosenOptions) === 'correct' && (
             <Foundation name="check" size={54} color="green" />

@@ -11,10 +11,8 @@ export default function Math({ width = 325, value = null, props = null }) {
   html += '</div></div>'
 
   return (
-    <View style={{ height: 70, width: '100%', backgroundColor: 'blue' }}>
-      {/* <Pressable
-        style={{ width: 320, height: 60, backgroundColor: 'red', flex: 1 }}
-      > */}
+    // <View style={{ height: 70, width: '100%', backgroundColor: 'blue' }}>
+ 
       <WebView
         scrollEnabled={false}
         // onMessage={this.handleMessage.bind(this)}
@@ -22,14 +20,13 @@ export default function Math({ width = 325, value = null, props = null }) {
         // {...props}
         //todo: zmienić 320 na jakiś inny width
         style={{
-          width,
+          width:300,
           height: 70,
-          backgroundColor: 'red',
+          // backgroundColor: 'red',
           flex: 1,
         }}
         //scalesPageToFit={true}
       />
-      {/* </Pressable> */}
-    </View>
+    //</View>
   )
 }
