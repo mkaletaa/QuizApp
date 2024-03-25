@@ -12,21 +12,21 @@ export default function Math({ width = 325, value = null, props = null }) {
 
   return (
     // <View style={{ height: 70, width: '100%', backgroundColor: 'blue' }}>
- 
-      <WebView
-        scrollEnabled={false}
-        // onMessage={this.handleMessage.bind(this)}
-        source={{ html }}
-        // {...props}
-        //todo: zmienić 320 na jakiś inny width
-        style={{
-          width:300,
-          height: 70,
-          // backgroundColor: 'red',
-          flex: 1,
-        }}
-        //scalesPageToFit={true}
-      />
+
+    <WebView
+      scrollEnabled={false}
+      // onMessage={this.handleMessage.bind(this)}
+      source={{ html }}
+      // {...props}
+      //todo: zmienić 320 na jakiś inny width
+      style={{
+        width: 300,
+        height: 70,
+        backgroundColor: 'transparent',
+    
+      }}
+      //scalesPageToFit={true}
+    />
     //</View>
   )
 }
