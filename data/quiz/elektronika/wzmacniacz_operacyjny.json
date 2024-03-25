@@ -211,7 +211,7 @@
       { "id": 2, "answer": "B", "correct": true },
       { "id": 3, "answer": "C", "correct": false },
       { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": true }
+      { "id": 5, "answer": "E", "correct": false }
     ],
     "explanation": [
       {
@@ -371,25 +371,6 @@
     ]
   },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   {
     "id": "elektronika|wzmacniacz_operacyjny|11",
     "multiChoice": false,
@@ -411,88 +392,655 @@
       { "id": 5, "answer": "sumującego", "correct": false }
     ]
   },
-    {
-      "id": "elektronika|wzmacniacz_operacyjny|12",
-      "multiChoice": false,
-      "question": [
-        {
-          "componentType": "Text",
-          "value": "Jakiego wzmacniacza jest to zależność?"
-        },
-        {
-          "componentType": "Math",
-          "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
-        }
-      ],
-      "options": [
-        { "id": 1, "answer": "odwracającego", "correct": false },
-        { "id": 2, "answer": "nieodwracającego", "correct": true },
-        { "id": 3, "answer": "całkującego", "correct": false },
-        { "id": 4, "answer": "różniczkującego", "correct": false },
-        { "id": 5, "answer": "sumującego", "correct": false }
-      ]
-    },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|12",
+    "multiChoice": false,
+    "question": [
       {
-        "id": "elektronika|wzmacniacz_operacyjny|13",
-        "multiChoice": false,
-        "question": [
-          {
-            "componentType": "Text",
-            "value": "Jakiego wzmacniacza jest to zależność?"
-          },
-          {
-            "componentType": "Math",
-            "value": "`U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
-          }
-        ],
-        "options": [
-          { "id": 1, "answer": "odwracającego", "correct": false },
-          { "id": 2, "answer": "nieodwracającego", "correct": false },
-          { "id": 3, "answer": "całkującego", "correct": true },
-          { "id": 4, "answer": "różniczkującego", "correct": false },
-          { "id": 5, "answer": "sumującego", "correct": false }
-        ]
+        "componentType": "Text",
+        "value": "Jakiego wzmacniacza jest to zależność?"
       },
-        {
-          "id": "elektronika|wzmacniacz_operacyjny|14",
-          "multiChoice": false,
-          "question": [
-            {
-              "componentType": "Text",
-              "value": "Jakiego wzmacniacza jest to zależność?"
-            },
-            {
-              "componentType": "Math",
-              "value": "`U_{wy}=-R_2*C*(dU_{we})/dt`"
-            }
-          ],
-          "options": [
-            { "id": 1, "answer": "odwracającego", "correct": false },
-            { "id": 2, "answer": "nieodwracającego", "correct": false },
-            { "id": 3, "answer": "całkującego", "correct": false },
-            { "id": 4, "answer": "różniczkującego", "correct": true },
-            { "id": 5, "answer": "sumującego", "correct": false }
-          ]
-        },
-          {
-            "id": "elektronika|wzmacniacz_operacyjny|15",
-            "multiChoice": false,
-            "question": [
-              {
-                "componentType": "Text",
-                "value": "Jakiego wzmacniacza jest to zależność?"
-              },
-              {
-                "componentType": "Math",
-                "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
-              }
-            ],
-            "options": [
-              { "id": 1, "answer": "odwracającego", "correct": false },
-              { "id": 2, "answer": "nieodwracającego", "correct": false },
-              { "id": 3, "answer": "całkującego", "correct": false },
-              { "id": 4, "answer": "różniczkującego", "correct": false },
-              { "id": 5, "answer": "sumującego", "correct": true }
-            ]
-          }
+      {
+        "componentType": "Math",
+        "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "odwracającego", "correct": false },
+      { "id": 2, "answer": "nieodwracającego", "correct": true },
+      { "id": 3, "answer": "całkującego", "correct": false },
+      { "id": 4, "answer": "różniczkującego", "correct": false },
+      { "id": 5, "answer": "sumującego", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|13",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jakiego wzmacniacza jest to zależność?"
+      },
+      {
+        "componentType": "Math",
+        "value": "`U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "odwracającego", "correct": false },
+      { "id": 2, "answer": "nieodwracającego", "correct": false },
+      { "id": 3, "answer": "całkującego", "correct": true },
+      { "id": 4, "answer": "różniczkującego", "correct": false },
+      { "id": 5, "answer": "sumującego", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|14",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jakiego wzmacniacza jest to zależność?"
+      },
+      {
+        "componentType": "Math",
+        "value": "`U_{wy}=-R_2*C*(dU_{we})/dt`"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "odwracającego", "correct": false },
+      { "id": 2, "answer": "nieodwracającego", "correct": false },
+      { "id": 3, "answer": "całkującego", "correct": false },
+      { "id": 4, "answer": "różniczkującego", "correct": true },
+      { "id": 5, "answer": "sumującego", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|15",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jakiego wzmacniacza jest to zależność?"
+      },
+      {
+        "componentType": "Math",
+        "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "odwracającego", "correct": false },
+      { "id": 2, "answer": "nieodwracającego", "correct": false },
+      { "id": 3, "answer": "całkującego", "correct": false },
+      { "id": 4, "answer": "różniczkującego", "correct": false },
+      { "id": 5, "answer": "sumującego", "correct": true }
+    ]
+  },
+
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|16",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza odwracającego?"
+      }
+    ],
+    "options": [
+      {
+        "id": 1,
+        "answer": "`U_{wy}=-R_1/R_2*U_{we}`",
+        "correct": false,
+        "componentType": "Math"
+      },
+      {
+        "id": 2,
+        "answer": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`",
+        "correct": false,
+        "componentType": "Math"
+      },
+      {
+        "id": 3,
+        "answer": "`U_{wy}=-R_2/R_1*U_{we}`",
+        "correct": true,
+        "componentType": "Math"
+      },
+      {
+        "id": 4,
+        "answer": "`U_{wy}=((R_1+R_2)/R_2)*U_{we}`",
+        "correct": false,
+        "componentType": "Math"
+      },
+      {
+        "id": 5,
+        "answer": "Żadne z powyższych",
+        "correct": false,
+        "componentType": "Math"
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|17",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza nieodwracającego?"
+      }
+    ],
+    "options": [
+      {
+        "id": 1,
+        "answer": "`U_{wy}=-R_1/R_2*U_{we}`",
+        "correct": false,
+        "componentType": "Math"
+      },
+      {
+        "id": 2,
+        "answer": "`U_{wy}=((R_1-R_2)/R_1)*U_{we}`",
+        "correct": false,
+        "componentType": "Math"
+      },
+      {
+        "id": 3,
+        "answer": "`U_{wy}=-R_2/R_1*U_{we}`",
+        "correct": false,
+        "componentType": "Math"
+      },
+      {
+        "id": 4,
+        "answer": "`U_{wy}=((R_1+R_2)/R_2)*U_{we}`",
+        "correct": false,
+        "componentType": "Math"
+      },
+      { "id": 5, "answer": "Żadne z powyższych", "correct": true }
+    ],
+    "explanation": [
+      {
+        "componentType": "Text",
+        "value": "Poprawny wzór to:"
+      },
+      {
+        "componentType": "Math",
+        "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
+      }
+    ]
+  },
+
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|18",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza całkującego?"
+      },
+      {
+        "componentType": "Math",
+        "value": "A) `U_{wy}=1/(R_2*C)*int U_{we} dt + U_{wy}`"
+      },
+      {
+        "componentType": "Math",
+        "value": "B) `U_{wy}=1/(R_2*C)+int U_{we} dt + U_{wy}`"
+      },
+      {
+        "componentType": "Math",
+        "value": "C) `U_{wy}=-1/(R_2*C)*int U_{we} dt + U_{wy}`"
+      },
+      {
+        "componentType": "Math",
+        "value": "D) `U_{wy}=-1/(R_2*C)+int U_{we} dt + U_{wy}`"
+      },
+      {
+        "componentType": "Math",
+        "value": "E) `U_{wy}=1/(R_1*C)*int U_{we} dt + U_{wy}`"
+      },
+      {
+        "componentType": "Math",
+        "value": "F) `U_{wy}=1/(R_1*C)+int U_{we} dt + U_{wy}`"
+      },
+      {
+        "componentType": "Math",
+        "value": "G) `U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+      },
+      {
+        "componentType": "Math",
+        "value": "H) `U_{wy}=-1/(R_1*C)+int U_{we} dt + U_{wy}`"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "A", "correct": false },
+      { "id": 2, "answer": "B", "correct": false },
+      { "id": 3, "answer": "C", "correct": false },
+      { "id": 4, "answer": "D", "correct": false },
+      { "id": 5, "answer": "E", "correct": false },
+      { "id": 6, "answer": "F", "correct": false },
+      { "id": 7, "answer": "G", "correct": true },
+      { "id": 8, "answer": "H", "correct": false },
+      { "id": 9, "answer": "Żadne z powyższych", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|19",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza różniczkującego?"
+      },
+      {
+        "componentType": "Math",
+        "value": "A) `U_{wy}=R_2*C*(dU_{we})/dt`"
+      },
+      {
+        "componentType": "Math",
+        "value": "B) `U_{wy}=-R_2*C*(dU_{we})/dt`"
+      },
+      {
+        "componentType": "Math",
+        "value": "C) `U_{wy}=R_1*C*(dU_{we})/dt`"
+      },
+      {
+        "componentType": "Math",
+        "value": "D) `U_{wy}=-R_1*C*(dU_{we})/dt`"
+      },
+      {
+        "componentType": "Math",
+        "value": "E) `U_{wy}=R_2*C+(dU_{we})/dt`"
+      },
+      {
+        "componentType": "Math",
+        "value": "F) `U_{wy}=-R_2*C+(dU_{we})/dt`"
+      },
+      {
+        "componentType": "Math",
+        "value": "G) `U_{wy}=R_1*C+(dU_{we})/dt`"
+      },
+      {
+        "componentType": "Math",
+        "value": "H) `U_{wy}=-R_1+C*(dU_{we})/dt`"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "A", "correct": false },
+      { "id": 2, "answer": "B", "correct": true },
+      { "id": 3, "answer": "C", "correct": false },
+      { "id": 4, "answer": "D", "correct": false },
+      { "id": 5, "answer": "E", "correct": false },
+      { "id": 6, "answer": "F", "correct": false },
+      { "id": 7, "answer": "G", "correct": false },
+      { "id": 8, "answer": "H", "correct": false },
+      { "id": 9, "answer": "Żadne z powyższych", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|20",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza sumującego?"
+      },
+      {
+        "componentType": "Math",
+        "value": "A) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+      },
+      {
+        "componentType": "Math",
+        "value": "B) `U_{wy}=R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+      },
+      {
+        "componentType": "Math",
+        "value": "C) `U_{wy}=-R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
+      },
+      {
+        "componentType": "Math",
+        "value": "D) `U_{wy}=R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "A", "correct": true },
+      { "id": 2, "answer": "B", "correct": false },
+      { "id": 3, "answer": "C", "correct": false },
+      { "id": 4, "answer": "D", "correct": false },
+      { "id": 5, "answer": "Żadne z powyższych", "correct": false }
+    ]
+  },
+
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|21",
+    "multiChoice": false,
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Który z tych schematów przedstawia wzmacniacz odwracający?"
+      },
+      {
+        "componentType": "Text",
+        "value": "A)"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      },
+      {
+        "componentType": "Text",
+        "value": "B)"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/t49x0qgr/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      },
+      {
+        "componentType": "Text",
+        "value": "C)"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      },
+      {
+        "componentType": "Text",
+        "value": "D)"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/Y94341TD/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      },
+      {
+        "componentType": "Text",
+        "value": "E)"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "A", "correct": false },
+      { "id": 2, "answer": "B", "correct": true },
+      { "id": 3, "answer": "C", "correct": false },
+      { "id": 4, "answer": "D", "correct": false },
+      { "id": 5, "answer": "E", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|22",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile rezystorów znajduje się we wtórniku napięciowym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": false },
+      { "id": 2, "answer": "1", "correct": true },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/7YF2K1vy/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|23",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile kondensatorów znajduje się we wtórniku napięciowym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": true },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/7YF2K1vy/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|24",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile rezystorów znajduje się we wzmacniaczu odwracającym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": false },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": true }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/t49x0qgr/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|25",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile kondensatorów znajduje się we wzmacniaczu odwracającym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": true },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/t49x0qgr/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|26",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile rezystorów znajduje się we wzmacniaczu nieodwracającym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": false },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": true },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|27",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile kondensatorów znajduje się we wzmacniaczu nieodwracającym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": true },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|28",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile rezystorów znajduje się we wzmacniaczu całkującym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": false },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": true },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|29",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile kondensatorów znajduje się we wzmacniaczu całkującym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": false },
+      { "id": 2, "answer": "1", "correct": true },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|30",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile kondensatorów znajduje się we wzmacniaczu różniczkującym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": false },
+      { "id": 2, "answer": "1", "correct": true },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|31",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile rezystorów znajduje się we wzmacniaczu różniczkującym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": false },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": true },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|32",
+    "question": [
+      {
+        "componentType": "Text",
+        "value": "Ile kondensatorów znajduje się we wzmacniaczu sumującym?"
+      }
+    ],
+    "options": [
+      { "id": 1, "answer": "0", "correct": true },
+      { "id": 2, "answer": "1", "correct": false },
+      { "id": 3, "answer": "2", "correct": false },
+      { "id": 4, "answer": "3", "correct": false }
+    ],
+    "explanation": [
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/Y94341TD/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ]
+  }
 ]
