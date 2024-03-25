@@ -83,8 +83,16 @@ export default function Theory({ route }) {
         <View
           style={{
             padding: 10,
-            backgroundColor: 'lightgray',
-            marginBottom: 10,
+            paddingLeft:30,
+            backgroundColor: 'rgb(243, 243, 243)',
+            // marginBottom: 10,
+            borderTopWidth: 1,
+            borderTopColor: 'rgb(243, 243, 243)',
+            elevation: 3,
+            shadowColor: '#000', // Kolor cienia
+            shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
+            shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
+            shadowRadius: 3, // Promień cienia
           }}
         >
           <Text style={styles.sectionHeaderText}>{section.title}</Text>
@@ -94,8 +102,8 @@ export default function Theory({ route }) {
     return null // Brak nagłówka dla sekcji bez tytułu
   }
 
-  const renderItem = ({ item }) => (
-    <View style={styles.item}>
+  const renderItem = ({ item, index }) => (
+    <View style={[styles.item, index===0&& {marginTop: 10}]}>
       {/* {renderComponent(component, width)} */}
       <ContentRenderer content={[item]} />
     </View>
@@ -168,7 +176,7 @@ export default function Theory({ route }) {
           scrollEventThrottle={15}
           ListHeaderComponent={renderHeader}
           stickySectionHeadersEnabled
-          renderItem={renderItem}
+          renderItem={({ item, index }) => renderItem({item, index})}
           renderSectionHeader={renderSectionHeader}
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
@@ -259,7 +267,7 @@ const styles = StyleSheet.create({
     // width: 40,
     // height: 40,
     padding: 8,
-    backgroundColor: '#FFFFF0',
+    backgroundColor: '#FFFFF8',
     position: 'absolute',
     bottom: 20,
     left: 30,

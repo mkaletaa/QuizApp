@@ -31,30 +31,35 @@ export default function Explanation({
   btnTitle: string
   showQuestion: boolean
 }) {
-
-  const[showQuestionModal, setShowQuestionModal] = useState(false)
+  const [showQuestionModal, setShowQuestionModal] = useState(false)
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-      <Pressable onLongPress={() => {!showQuestion && setShowQuestionModal(true)}}>
-      <ExplanationPrompt item={item}></ExplanationPrompt>
-      {showQuestion && (
-        <View
-          style={{
-            backgroundColor: 'red',
-            alignItems: 'center',
-            marginTop: 20,
-          }}
-        >
-          {/* <Question question={item.question}></Question> */}
-          <ContentRenderer content={item?.question} />
-        </View>
-      )}
-      <CustomModal
-        showModal={showQuestionModal}
-        onRequestClose={() => setShowQuestionModal(false)}
+      <Pressable
+        onLongPress={() => {
+          !showQuestion && setShowQuestionModal(true)
+        }}
       >
-        <ContentRenderer content={item?.question} />
-      </CustomModal>
+        <ExplanationPrompt item={item}></ExplanationPrompt>
+        {showQuestion && (
+          <View
+            style={{
+              backgroundColor: 'red',
+              alignItems: 'center',
+              marginTop: 20,
+            }}
+          >
+            {/* <Question question={item.question}></Question> */}
+            <ContentRenderer content={item?.question} />
+          </View>
+        )}
+        <CustomModal
+          showModal={showQuestionModal}
+          onRequestClose={() => setShowQuestionModal(false)}
+        >
+          <ScrollView>
+            <ContentRenderer content={item?.question} />
+          </ScrollView>
+        </CustomModal>
 
         <View style={styles.contentContainer}>
           {returnIsCorrect(item, chosenOptions) === 'correct' && (
@@ -82,19 +87,12 @@ export default function Explanation({
           {chosenOptions && chosenOptions.length > 0 && (
             <React.Fragment>
               <Text style={styles.heading}>Your answer(s):</Text>
-              {chosenOptions.map((option, index) =>
-                option.componentType === 'Math' ? (
-                  <ContentRenderer
-                    content={[{ value: option.answer, componentType: 'Math' }]}
-                    key={'chosen_' + option.id}
-                  />
-                ) : (
-                  <ContentRenderer
-                    content={option.answer}
-                    key={'chosen_' + option.id}
-                  />
-                )
-              )}
+              {chosenOptions.map((option, index) => (
+                <ContentRenderer
+                  content={option.answer}
+                  key={'chosen_' + option.id}
+                />
+              ))}
             </React.Fragment>
           )}
 
