@@ -739,7 +739,7 @@
   },
 
   {
-    "id": "elektronika|wzmacniacz_operacyjny|22",
+    "id": "elektronika|wzmacniacz_operacyjny|21",
     "question": [
       {
         "componentType": "Text",
@@ -763,7 +763,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|23",
+    "id": "elektronika|wzmacniacz_operacyjny|22",
     "question": [
       {
         "componentType": "Text",
@@ -787,31 +787,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|24",
-    "question": [
-      {
-        "componentType": "Text",
-        "value": "Ile rezystorów znajduje się we wzmacniaczu odwracającym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "answer": "0", "correct": false },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": true }
-    ],
-    "explanation": [
-      {
-        "componentType": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|25",
+    "id": "elektronika|wzmacniacz_operacyjny|23",
     "question": [
       {
         "componentType": "Text",
@@ -835,31 +811,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|26",
-    "question": [
-      {
-        "componentType": "Text",
-        "value": "Ile rezystorów znajduje się we wzmacniaczu nieodwracającym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "answer": "0", "correct": false },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": true },
-      { "id": 4, "answer": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "componentType": "Image",
-        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|27",
+    "id": "elektronika|wzmacniacz_operacyjny|24",
     "question": [
       {
         "componentType": "Text",
@@ -883,31 +835,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|28",
-    "question": [
-      {
-        "componentType": "Text",
-        "value": "Ile rezystorów znajduje się we wzmacniaczu całkującym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "answer": "0", "correct": false },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": true },
-      { "id": 4, "answer": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "componentType": "Image",
-        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|29",
+    "id": "elektronika|wzmacniacz_operacyjny|25",
     "question": [
       {
         "componentType": "Text",
@@ -931,7 +859,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|30",
+    "id": "elektronika|wzmacniacz_operacyjny|26",
     "question": [
       {
         "componentType": "Text",
@@ -955,31 +883,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|31",
-    "question": [
-      {
-        "componentType": "Text",
-        "value": "Ile rezystorów znajduje się we wzmacniaczu różniczkującym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "answer": "0", "correct": false },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": true },
-      { "id": 4, "answer": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "componentType": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|32",
+    "id": "elektronika|wzmacniacz_operacyjny|27",
     "question": [
       {
         "componentType": "Text",
@@ -1003,7 +907,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|33",
+    "id": "elektronika|wzmacniacz_operacyjny|28",
     "multiChoice": false,
     "question": [
       {
@@ -1079,7 +983,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|34",
+    "id": "elektronika|wzmacniacz_operacyjny|29",
     "multiChoice": false,
     "question": [
       {
@@ -1155,7 +1059,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|35",
+    "id": "elektronika|wzmacniacz_operacyjny|30",
     "multiChoice": false,
     "question": [
       {
@@ -1231,7 +1135,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|36",
+    "id": "elektronika|wzmacniacz_operacyjny|31",
     "multiChoice": false,
     "question": [
       {
@@ -1307,7 +1211,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|37",
+    "id": "elektronika|wzmacniacz_operacyjny|32",
     "multiChoice": false,
     "question": [
       {
@@ -1383,7 +1287,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|38",
+    "id": "elektronika|wzmacniacz_operacyjny|33",
     "multiChoice": false,
     "question": [
       {
@@ -1455,7 +1359,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|38",
+    "id": "elektronika|wzmacniacz_operacyjny|34",
     "multiChoice": false,
     "question": [
       {
@@ -1527,7 +1431,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|39",
+    "id": "elektronika|wzmacniacz_operacyjny|35",
     "multiChoice": false,
     "question": [
       {
@@ -1599,7 +1503,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|40",
+    "id": "elektronika|wzmacniacz_operacyjny|36",
     "multiChoice": false,
     "question": [
       {
@@ -1671,7 +1575,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|41",
+    "id": "elektronika|wzmacniacz_operacyjny|37",
     "multiChoice": false,
     "question": [
       {
@@ -1740,6 +1644,170 @@
       { "id": 3, "answer": "C", "correct": false },
       { "id": 4, "answer": "D", "correct": true },
       { "id": 5, "answer": "E", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|38",
+    "multiChoice": true,
+    "question": "Wybierz wszystkie cechy idealnego wzmacniacza",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Nieskończenie duża impedancja wejściowa",
+        "correct": true
+      },
+      {
+        "id": 2,
+        "answer": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "answer": "Zerowe wejściowe napięcie niezrównoważenia",
+        "correct": true
+      },
+      {
+        "id": 4,
+        "answer": "Skończone wzmocnienie napięciowe sygnału różnicowego",
+        "correct": false
+      },
+      {
+        "id": 5,
+        "answer": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
+        "correct": true
+      },
+      {
+        "id": 6,
+        "answer": "Skończona impedancja wejściowa",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|39",
+    "multiChoice": true,
+    "question": "Wybierz wszystkie cechy idealnego wzmacniacza",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Impedancja wyjściowa równa zero",
+        "correct": true
+      },
+      {
+        "id": 2,
+        "answer": "Impedancja wyjściowa jest niewielka",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "answer": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
+        "correct": true
+      },
+      {
+        "id": 4,
+        "answer": "Nieskończenie duży zakres dynamiczny sygnału",
+        "correct": true
+      },
+      {
+        "id": 5,
+        "answer": "Pasmo przenoszenia sygnałów jest ograniczone",
+        "correct": false
+      },
+      {
+        "id": 6,
+        "answer": "Wejścia wzmacniacza nie są symetryczne",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|40",
+    "multiChoice": true,
+    "question": "Wybierz wszystkie cechy rzeczywistego wzmacniacza",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Nieskończenie duża impedancja wejściowa",
+        "correct": false
+      },
+      {
+        "id": 2,
+        "answer": "Zerowe wejściowe napięcie niezrównoważenia",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "answer": "Skończone wzmocnienie napięciowe sygnału różnicowego",
+        "correct": true
+      },
+      {
+        "id": 4,
+        "answer": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
+        "correct": false
+      },
+      {
+        "id": 5,
+        "answer": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
+        "correct": true
+      },
+      {
+        "id": 6,
+        "answer": "Skończona impedancja wejściowa",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|41",
+    "multiChoice": true,
+    "question": "Wybierz wszystkie cechy rzeczywistego wzmacniacza",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Impedancja wyjściowa równa zero",
+        "correct": false
+      },
+      {
+        "id": 2,
+        "answer": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "answer": "Nieskończenie duży zakres dynamiczny sygnału",
+        "correct": false
+      },
+      {
+        "id": 4,
+        "answer": "Impedancja wyjściowa jest niewielka",
+        "correct": true
+      },
+      {
+        "id": 5,
+        "answer": "Pasmo przenoszenia sygnałów jest ograniczone",
+        "correct": true
+      },
+      {
+        "id": 6,
+        "answer": "Wejścia wzmacniacza nie są symetryczne",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|42",
+    "question": "Zerowe wejściowe napięcie niezrównoważenia to cecha:",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Idealnego WO",
+        "correct": true
+      },
+      {
+        "id": 2,
+        "answer": "Rzeczywistego WO",
+        "correct": true
+      }
     ]
   }
 ]

@@ -15,7 +15,10 @@ const useFetchSavedItems = () => {
         let items_ = []
 
         for (const id of parsedItems) {
-          items_.push(importItemById(id))
+          const item = importItemById(id)
+          if (item !== null) items_.push(item)
+          else {
+          } //todo: usuń z pamięci id
         }
 
         setSavedItems(items_)
