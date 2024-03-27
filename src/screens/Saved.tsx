@@ -18,7 +18,7 @@ import { Item } from '../utils/types'
 import { Ionicons } from '@expo/vector-icons'
 import { useHeaderHeight } from '@react-navigation/elements'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-
+import { youDontHaveAnySavedQuestions } from '../../data/texts'
 
 export default function Saved() {
   const screenHeight = Dimensions.get('window').height
@@ -81,7 +81,7 @@ export default function Saved() {
         />
       </Modal>
 
-      {savedItems.length>0 ? (
+      {savedItems.length > 0 ? (
         <FlatList
           data={savedItems}
           renderItem={({ item }) => (
@@ -137,7 +137,9 @@ export default function Saved() {
                 height: screenHeight - headerHeight,
               }}
             >
-              <Text style={{opacity: .7}}>You don't have any saved questions</Text>
+              <Text style={{ opacity: 0.7 }}>
+                {youDontHaveAnySavedQuestions}
+              </Text>
               <Ionicons
                 style={{
                   opacity: 0.1,

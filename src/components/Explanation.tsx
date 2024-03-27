@@ -17,6 +17,7 @@ import ExplanationPrompt from './ui/ExplanationPrompt'
 import { returnIsCorrect } from '../utils/functions'
 import Math from './ContentRenderer/Math'
 import CustomModal from './CustomModal'
+import { correctAnswers, explanation, yourAnswers } from '../../data/texts'
 
 export default function Explanation({
   item,
@@ -77,7 +78,7 @@ export default function Explanation({
             </View>
           )}
 
-          <Text style={styles.heading}>Correct answer(s):</Text>
+          <Text style={styles.heading}>{correctAnswers}:</Text>
           {item?.options
             .filter(option => option.correct === true)
             .map((option, index) => (
@@ -86,7 +87,7 @@ export default function Explanation({
 
           {chosenOptions && chosenOptions.length > 0 && (
             <React.Fragment>
-              <Text style={styles.heading}>Your answer(s):</Text>
+              <Text style={styles.heading}>{yourAnswers}:</Text>
               {chosenOptions.map((option, index) => (
                 <ContentRenderer
                   content={option.answer}
@@ -98,7 +99,7 @@ export default function Explanation({
 
           {item?.explanation && (
             <React.Fragment>
-              <Text style={styles.heading}>Explanation:</Text>
+              <Text style={styles.heading}>{explanation}:</Text>
               <ContentRenderer content={item?.explanation} />
             </React.Fragment>
           )}

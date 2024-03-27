@@ -2,6 +2,7 @@ import { Dimensions, Pressable, Text } from "react-native";
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import useOpenQuiz from '../../hooks/useOpenQuiz'
+import { randomQuestion } from "../../../data/texts";
 
 export default function RandomQuestion({chapName}){
   const navigation = useNavigation()
@@ -46,7 +47,7 @@ const openQuiz = useOpenQuiz()
         }}
       >
         <FontAwesome5 name="dice" size={20} color="white" />
-        <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold' }}>Random Question</Text>
+        <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold' }}>{randomQuestion}</Text>
       </Pressable>
     )
 }

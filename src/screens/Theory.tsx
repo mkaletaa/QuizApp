@@ -19,6 +19,7 @@ import TheoryPrompt from '../components/ui/TheoryPrompt'
 import QuizButton from '../components/ui/QuizButton'
 import { FontAwesome5 } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
+import { thereIsNothingHere } from '../../data/texts'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -190,7 +191,7 @@ export default function Theory({ route }) {
           height: screenHeight - headerHeight,
         }}
       >
-        <Text>There is nothing here ;{'('}</Text>
+        <Text>{thereIsNothingHere}</Text>
         <Text style={{ fontWeight: 'bold', fontSize: 150, opacity: 0.1 }}>
           404
         </Text>

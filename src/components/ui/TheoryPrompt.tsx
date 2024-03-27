@@ -3,8 +3,8 @@ import { Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { Button, View } from 'react-native'
+import { reportAMistake } from '../../../data/texts'
 import { removeUnderscores, sendAnEmail } from '../../utils/functions'
-import { Item } from '../../utils/types'
 import QuizButton from './QuizButton'
 
 export default function TheoryPrompt({ topicName, chapterName }) {
@@ -56,7 +56,7 @@ export default function TheoryPrompt({ topicName, chapterName }) {
           }}
         >
           <Button
-            title="report a mistake"
+            title={reportAMistake}
             color="red"
             onPress={() => {
               sendAnEmail('Topic name: ' + removeUnderscores(topicName))

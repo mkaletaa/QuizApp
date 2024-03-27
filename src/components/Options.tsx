@@ -4,6 +4,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import MathJax from 'react-native-mathjax'
 import { Option } from '../utils/types'
 import Math from './ContentRenderer/Math'
+import { multiChoice as multiChoiceText } from '../../data/texts'
+
 const OptionComponent = ({ option }: { option: Option }) => {
   const { componentType, answer: answerValue } = option
 
@@ -51,7 +53,7 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
             style={{ marginRight: 5 }}
           />
           <Text style={{ textAlign: 'center', fontSize: 15 }}>
-            This is a multi-choice question
+            {multiChoiceText}
           </Text>
         </View>
       ) : null}

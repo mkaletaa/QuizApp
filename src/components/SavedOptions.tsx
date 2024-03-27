@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Pressable, Switch, Text, View } from 'react-native'
+import { takeAQuiz, reverseTheOrder } from '../../data/texts'
 
 export default function SavedOptions({
   itemsCount,
@@ -28,7 +29,7 @@ export default function SavedOptions({
         }}
         onPress={onPressQuiz}
       >
-        <Text>TAKE A QUIZ</Text>
+        <Text>{takeAQuiz}</Text>
       </Pressable>
 
       {itemsCount > 1 && (
@@ -45,7 +46,7 @@ export default function SavedOptions({
           }}
         >
           <Switch onValueChange={onToggleSwitch} value={isEnabled} />
-          <Text>reverse the order</Text>
+          <Text>{reverseTheOrder}</Text>
         </Pressable>
       )}
     </View>

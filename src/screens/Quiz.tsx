@@ -25,6 +25,7 @@ import useNextQuestion from '../hooks/useNextQuestion'
 import { returnIsCorrect } from '../utils/functions'
 import { Option, Result } from '../utils/types'
 import useQuizData from '../utils/useQuizData'
+import { yesQuit, nah, areYouSure, submit, nextQuestion, summary } from '../../data/texts'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -183,7 +184,7 @@ export default function Quiz({ route }) {
               multiChoice={item.multiChoice}
             />
             <Button
-              title="submit"
+              title={submit}
               onPress={() => {
                 setResults()
               }} //jak Infinity mode to nie ustawiaj rezultów
@@ -210,7 +211,7 @@ export default function Quiz({ route }) {
           chosenOptions={chosenOptions}
           handleBtnPress={nextBtnPress}
           btnTitle={
-            resultsArray.length === itemsCount ? 'summary' : 'next question'
+            resultsArray.length === itemsCount ? summary : nextQuestion
           }
         />
       </Modal>
@@ -219,18 +220,18 @@ export default function Quiz({ route }) {
         showModal={showExitModal}
         onRequestClose={() => setShowResultModal(false)}
         modalText={
-          "Are you sure you want to go back? Your progress won't be saved"
+          areYouSure
         }
       >
         <React.Fragment>
           <View style={styles.buttonsContainer}>
             <Button
-              title="yes, quit the quiz"
+              title={yesQuit}
               color="red"
               onPress={closeModalAndGoBack}
             />
             <Button
-              title="nah, I want to stay here"
+              title={nah}
               onPress={() => setShowExitModal(false)}
             />
           </View>

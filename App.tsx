@@ -6,6 +6,7 @@ import { Button } from 'react-native'
 import 'react-native-gesture-handler'
 import MyStack from './src/Stack'
 import CustomModal from './src/components/CustomModal'
+import { noInternetMessage } from './data/texts'
 
 export default function App() {
   const [showModal, setShowModal] = useState(false)
@@ -38,7 +39,7 @@ export default function App() {
 
       <CustomModal
         showModal={showModal}
-        modalText={'You have no Internet connection. Some sources like images may not load properly'}
+        modalText={noInternetMessage}
         onRequestClose={() => setShowModal(false)}
       >
 

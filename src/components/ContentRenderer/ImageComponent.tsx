@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
 import ImageViewer from 'react-native-image-zoom-viewer';
+import { close } from '../../../data/texts';
 
 const ImageComponent = ({ width, description, value, orientation = null }) => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -95,7 +96,7 @@ const handlePinch = Animated.event(
             <ImageViewer imageUrls={[{url:value}]} style={{width: '100%'}} renderIndicator={() => null} />
           {/* </PinchGestureHandler> */}
           <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-            <Text style={{ color: 'white' }}>Close</Text>
+            <Text style={{ color: 'white' }}>{close}</Text>
           </TouchableOpacity>
         </View>
       </Modal>

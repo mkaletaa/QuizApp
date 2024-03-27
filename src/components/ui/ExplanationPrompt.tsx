@@ -7,6 +7,7 @@ import { sendAnEmail } from '../../utils/functions'
 import { Item } from '../../utils/types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Ionicons } from '@expo/vector-icons'
+import { reportAMistake } from '../../../data/texts'
 
 export default function ExplanationPrompt({ item }: { item: Item }) {
   const [showPrompt, setShowPrompt] = useState(false)
@@ -108,7 +109,7 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
           }}
         >
           <Button
-            title="report a mistake"
+            title={reportAMistake}
             color="red"
             //@ts-ignore
             onPress={() => {

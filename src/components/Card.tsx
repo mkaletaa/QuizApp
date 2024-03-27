@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native'
 import { removeUnderscores } from '../utils/functions'
+import {read} from '../../data/texts'
 
 console.log('card')
 const screenWidthDim = Dimensions.get('window').width
@@ -82,7 +83,7 @@ export default function Card({
               style={styles.readTouchable}
               onPress={() => showTheory()}
             >
-              <Text style={styles.read}>Read</Text>
+              <Text style={styles.read}>{read}</Text>
             </TouchableOpacity>
           ) : null}
         </View>
