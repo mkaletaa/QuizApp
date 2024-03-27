@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Pressable, Switch, Text, View } from 'react-native'
+import { Button, Pressable, Switch, Text, View } from 'react-native'
 import { takeAQuiz, reverseTheOrder } from '../../data/texts'
 
 export default function SavedOptions({
@@ -19,7 +19,7 @@ export default function SavedOptions({
         // backgroundColor: 'red',
       }}
     >
-      <Pressable
+      {/* <Pressable
         style={{
           backgroundColor: 'rgb(0, 150, 255)',
           width: 100,
@@ -30,8 +30,8 @@ export default function SavedOptions({
         onPress={onPressQuiz}
       >
         <Text>{takeAQuiz}</Text>
-      </Pressable>
-
+      </Pressable> */}
+      <Button onPress={onPressQuiz} title={takeAQuiz} />
       {itemsCount > 1 && (
         <Pressable
           onPress={() => onToggleSwitch()}

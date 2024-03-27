@@ -15,8 +15,18 @@ export default function Tile({
   handlePress: any
   color?: any
 }) {
-  // const [isEnabled, setIsEnabled] = useState(false)
-  // const navigation = useNavigation()
+  function setGradientColor(color: string): string {
+    switch (color) {
+      case 'red':
+        return 'rgb(190, 0, 0)'
+      case 'orange':
+        return 'rgb(215, 132, 0)'
+      case 'green':
+        return 'rgb(0, 90, 0)'
+      default:
+        return 'rgb(233, 233, 233)'
+    }
+  }
 
   return (
     <Pressable
@@ -55,7 +65,7 @@ export default function Tile({
         </View>
         <LinearGradient
           // Button Linear Gradient
-          colors={['transparent', 'transparent', color]}
+          colors={['transparent', 'transparent', setGradientColor(color)]}
           style={{
             width: '100%',
             height: '100%', //has to be 100% cuz if Math component, Tile cannot be pressed

@@ -13,7 +13,7 @@ const OptionComponent = ({ option }: { option: Option }) => {
     case 'Text':
       return <Text style={styles.buttonText}>{answerValue} dddg</Text>
     case 'Math':
-      return <Math value={answerValue} width={230} />//todo zmienić width
+      return <Math value={answerValue} width={230} /> //todo zmienić width
     default:
       return <Text style={styles.buttonText}>{answerValue}</Text>
   }
@@ -69,12 +69,10 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
                 backgroundColor: chosenOptions.some(el => el.id === option.id)
                   ? 'lightblue'
                   : 'silver',
+                borderColor: chosenOptions.some(el => el.id === option.id)
+                  ? 'rgb(50, 200, 255)'
+                  : 'rgb(160, 160, 160)',
               },
-              // {
-              //   borderWidth: chosenOptions.some(el => el.id === option.id)
-              //     ? 2
-              //     : 1,
-              // },
             ]}
             onPress={() => {
               setButtonBackground(option)
@@ -99,8 +97,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginVertical: 5,
-    borderWidth: 1,
-    borderColor: 'dimgrey',
+    borderWidth: 3,
+    // borderColor: 'grey',
     width: '50%',
     minWidth: 250, //
   },
