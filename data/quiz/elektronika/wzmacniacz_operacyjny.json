@@ -145,7 +145,7 @@
       },
       {
         "componentType": "Math",
-        "value": "C) `U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Math",
@@ -195,7 +195,7 @@
       },
       {
         "componentType": "Math",
-        "value": "C) `U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Math",
@@ -245,7 +245,7 @@
       },
       {
         "componentType": "Math",
-        "value": "C) `U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Math",
@@ -295,7 +295,7 @@
       },
       {
         "componentType": "Math",
-        "value": "C) `U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Math",
@@ -345,7 +345,7 @@
       },
       {
         "componentType": "Math",
-        "value": "C) `U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Math",
@@ -423,7 +423,7 @@
       },
       {
         "componentType": "Math",
-        "value": "`U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "`U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       }
     ],
     "options": [
@@ -510,26 +510,22 @@
       {
         "id": 1,
         "answer": "A",
-        "correct": false,
-        "componentType": "Math"
+        "correct": false
       },
       {
         "id": 2,
         "answer": "B",
-        "correct": false,
-        "componentType": "Math"
+        "correct": false
       },
       {
         "id": 3,
         "answer": "C",
-        "correct": true,
-        "componentType": "Math"
+        "correct": true
       },
       {
         "id": 4,
         "answer": "D",
-        "correct": false,
-        "componentType": "Math"
+        "correct": false
       },
       {
         "id": 5,
@@ -636,7 +632,7 @@
       },
       {
         "componentType": "Math",
-        "value": "G) `U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "G) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Math",
@@ -1092,7 +1088,7 @@
       },
       {
         "componentType": "Math",
-        "value": "`U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "`U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Text",

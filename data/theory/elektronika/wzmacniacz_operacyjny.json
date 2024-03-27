@@ -8,7 +8,7 @@
       },
       {
         "componentType": "Text",
-        "value": "To różnicowy wzmacniacz prądu stałego o bardzo dużym wzmocnieniu. Przeznaczony z reguły do pracy z zewnętrznym obwodem ujemnego sprzężenia zwrotnego, którego właściwości decydują o właściwościach całego układu"
+        "value": "Wzmacniacz operacyjny to wielostopniowy, wzmacniacz różnicowy prądu stałego, charakteryzujący się bardzo dużym różnicowym wzmocnieniem napięciowym rzędu stu kilkudziesięciu decybeli i przeznaczony zwykle do pracy z zewnętrznym obwodem sprzężenia zwrotnego, który decyduje o głównych właściwościach całego układu.<br/><br/> Wzmacniacz operacyjny jest najbardziej rozpowszechnionym analogowym układem elektronicznym, realizowanym obecnie w postaci monolitycznych układów scalonych. Wielka uniwersalnośd, przy jednoczesnym wykorzystaniu istotnych właściwości układów scalonych, daje możliwośd stosowania go w rozmaitych układach, urządzeniach i systemach elektronicznych, zapewniając masową produkcję, niską cenę i bardzo dobre parametry użytkowe."
       },
       {
         "componentType": "Header",
@@ -119,6 +119,17 @@
             "value": "<b>CMRR</b> - współczynnik tłumienia sygnału współbieżnego. Jest to stosunek wzmocnienia sygnału różnicowego do wzmocnienia sygnału współbieżnego."
           }
         ]
+      },
+      {
+        "componentType": "Header",
+        "value": "Ogólny symbol wzmacniacza operacyjnego z uwzględnieniem linii zasilających:"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://i.postimg.cc/kgwTCCmX/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
       }
     ]
   },
@@ -161,26 +172,26 @@
     ]
   },
   {
-    "title": "parametry idealnego WO",
+    "title": "parametry WO",
     "data": [
+      {
+        "componentType": "Header",
+        "value": "Parametry idealnego WO:"
+      },
       {
         "componentType": "List",
         "value": [
           {
             "componentType": "ListElement",
-            "value": "Nieskończenie duże wzmocnienie przy otwartej pętli sprzężenia zwrotnego (Ku->∞)"
+            "value": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe"
           },
           {
             "componentType": "ListElement",
-            "value": "Nieskończenie szerokie pasmo przenoszonych częstotliwośći"
+            "value": "Zerowe wejściowye napięcie niezrównoważenia"
           },
           {
             "componentType": "ListElement",
-            "value": "Nieskończenie duża impedancja wejściowa, zarówno między wejściami, jak i między każdym z wejść i masą"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Wejścia wzmacniacza nie pobierają żadnego prądu z obwodów zewnętrznych"
+            "value": "Nieskończenie duża impedancja wejściowa"
           },
           {
             "componentType": "ListElement",
@@ -188,89 +199,45 @@
           },
           {
             "componentType": "ListElement",
-            "value": "Napięcie wyjściowe równe zero przy równości napięć wejściowych (tzn. Uwy=0 gdy ...)"
+            "value": "Nieskończenie szerokie pasmo przenoszonych częstotliwości"
           },
           {
             "componentType": "ListElement",
-            "value": "Nieskończenie duży dopuszczalny prad wejściowy"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Zerowy prąd wejściowy"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Wzmocnienie idealnie różnicowe tzn. nieskończenie duży współczynnik tłumienia (tutaj nie mogę się rozczytać)"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Niezależność parametrów od temperatury"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Nieskończenie duży dopuszczalny prąd wyjściowy"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Nieograniczony zakres zmian napięcia wyjściowego"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Brak efektów starzenia"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Brak szumów własnych"
+            "value": "Nieskończenie duży zakres dynamiczny sygnału"
           }
         ]
-      }
-    ]
-  },
-  {
-    "title": "parametry rzeczywistego WO",
-    "data": [
+      },
+
+      {
+        "componentType": "Header",
+        "value": "Parametry rzeczywistego WO:"
+      },
       {
         "componentType": "List",
         "value": [
           {
             "componentType": "ListElement",
-            "value": "Współczynnik wzmocnienia przy otwartej pętli sprzężenia zwrotnego osiąga bardzo duże, ale określone skończone watrości"
+            "value": "Wzmocnienie napięciowe sygnału różnicowego nie jest nieskończenie wielkie, choć bardzo duże"
           },
           {
             "componentType": "ListElement",
-            "value": "Górną granicą pasma przenoszonych częstotliwości są wartości kilkudziesięciu MHz"
+            "value": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru"
           },
           {
             "componentType": "ListElement",
-            "value": "Impedancja wejściowa może posiadać wartości z przedziału 10^4 do 10^13 ohmów"
+            "value": "Impedancja wejściowa nie jest nieskończona, choć bardzo duża"
           },
           {
             "componentType": "ListElement",
-            "value": "Impedancja wejściowa jest niewielka, z reguły kilkadziesiąt ohmó"
+            "value": "Impedancja wyjściowa jest niewielka, z reguły kilkadziesiąt ohmów"
           },
           {
             "componentType": "ListElement",
-            "value": "Prąd wejściowy jest niezerowy (to tzw. prąd polaryzacji) może on przyjmować wartości rzędu 10^-4 do 10^-15 A"
+            "value": "Pasmo przenoszenia sygnałów jest ograniczone"
           },
           {
             "componentType": "ListElement",
-            "value": "Wzmocnienie rzeczywistego wzmacniacza operacyjnego nie jest idealnie różnicowe"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Szybkość narastania napiecia wyjściowego w typowych wzmacniaczach jest rzędu kilku, kilkudziesięciu V/μs"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Napięcie wyjściowe jest ograniczone - zwykle mniejsze o 1-2 V od napięcia zasilania"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Właściwości wzmaczniaczy zależne są od temperatury, zmieniają się wraz z czasem użytkowania"
-          },
-          {
-            "componentType": "ListElement",
-            "value": "Wzmacniacze wytwarzają zakłocenia własne"
+            "value": "Wejścia wzmacniacza nie są idealnie symetryczne"
           }
         ]
       }
@@ -314,7 +281,7 @@
       { "componentType": "Header", "value": "Wzmacniacz całkujący" },
       {
         "componentType": "Math",
-        "value": "`U_{wy}=-1/(R_1*C)*int U_{we} dt + U_{wy}`"
+        "value": "`U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
         "componentType": "Image",
@@ -350,7 +317,7 @@
       { "componentType": "Header", "value": "Wzmacniacz różnicowy" },
       {
         "componentType": "Math",
-        "value": "`U_{wy}= R_1/R_2(U_{we1}-U_{we2}wwwwwwwwwwwwwwwwwwwww111)`"
+        "value": "`U_{wy}= R_1/R_2(U_{we1}-U_{we2})`"
       },
       {
         "componentType": "Image",

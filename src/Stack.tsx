@@ -87,7 +87,7 @@ const MyStack = () => {
       <Stack.Screen
         name="Chapters"
         component={Chapters}
-        options={{ ...header }}
+        options={{ ...header, title:"" }}
       />
 
       <Stack.Screen
@@ -110,8 +110,7 @@ const MyStack = () => {
 
           title:
             //@ts-ignore
-            `${removeUnderscores(route.params?.chapterName, true)}` +
-              ' - theory' || 'topic name',
+            `${removeUnderscores(route.params?.topicName, true)}` || 'topic name',
         })}
       />
 
@@ -132,8 +131,8 @@ const MyStack = () => {
           },
           headerTitleStyle: {
             // color: 'darkblue',
-            fontSize: 18,
-            marginLeft: -20,
+            // fontSize: 18,
+            // marginLeft: -20,
             // fontWeight: 'bold',
           },
         })}
