@@ -1,5 +1,4 @@
 import { useNavigation } from '@react-navigation/native'
-import useQuizData from '../utils/useQuizData'
 import { useState } from 'react'
 import { quiz } from '../../data/quiz/quizModule'
 
@@ -16,25 +15,14 @@ const useOpenQuiz = () => {
     shuffle: boolean = true,
     itemsArray?: string[] //nie wiem czy nie trzeba Item[]
   ): void => {
-    // quiz[chapterName][topicName]
-    //TODO: prawdopodobnie będzie trzeba z powrotem countItems dać tutaj
 
-      
-      // countItemsInTopic(route.params.topName, route.params.chapName)
-
-    console.log("🚀 ~ useOpenQuiz ~ quiz[chapterName]:", quiz[chapterName])
-    try {
-      if (quiz[chapterName] && howManyItems === Infinity) {
-        console.log('first')
-        //@ts-ignore
-        navigation.navigate('Quiz', {
-          topName: topicName,
-          chapName: chapterName,
-          howManyItems: howManyItems,
-          shuffle,
-          itemsArray,
-        })
-      } else if (quiz[chapterName][topicName] || howManyItems === Infinity) {
+      //jeśli nie ma żadnego quizu w tej kategorii
+      if (!quiz[chapterName]) {
+        console.warn('brak quizu')
+      }
+      //jeśli jest rozdział i dany topik ma quiz lub wybrano infinity mode
+      //? kiedy jest infinityMode to nazwa topika jest równa ""
+      else if (quiz[chapterName][topicName] || howManyItems === Infinity) {
         console.log('second')
         //@ts-ignore
         navigation.navigate('Quiz', {
@@ -45,13 +33,11 @@ const useOpenQuiz = () => {
           itemsArray,
         })
       } else {
-        console.log('third')
+        //jeśli kliknięty topik nie ma quizu
 
         //zrób coś jeśli nie ma quizu dla tego topika
       }
-    } catch (e) {
-      // console.warn(e)
-    }
+
   }
 
   return openQuiz
