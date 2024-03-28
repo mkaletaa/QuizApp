@@ -16,7 +16,7 @@ import ImageViewer from 'react-native-image-zoom-viewer'
 import { close } from '../../../data/texts'
 import { StatusBar } from 'expo-status-bar'
 
-const ImageComponent = ({ width, description, value, orientation = null }) => {
+const ImageComponent = ({ width: containerWidth, description, value, orientation = null }) => {
   const [modalVisible, setModalVisible] = useState(false)
 
   const openModal = () => {
@@ -39,13 +39,13 @@ const ImageComponent = ({ width, description, value, orientation = null }) => {
     //TODO: pobrać szerokość w pixelach i na tej podstawie ustalić wysokość
     switch (orientation) {
       case 'vertical':
-        return width * 1.2 //16/9 czy jakoś tak
+        return containerWidth*.9 * 1.3 //16/9 czy jakoś tak
       case 'horizontal':
-        return width * 0.5
+        return containerWidth * 0.9 * 0.6
       case 'square':
-        width * 3
+        containerWidth * .9
       default:
-        return width
+        return containerWidth
     }
     // return
   }
@@ -55,7 +55,7 @@ const ImageComponent = ({ width, description, value, orientation = null }) => {
       <TouchableOpacity onPress={openModal}>
         <Image
           key={value}
-          style={[styles.image, { height: setHeight(orientation) }]}
+          style={[styles.image, {width:containerWidth*.9,  height: setHeight(orientation) }]}
           source={{
             uri: value,
           }}
@@ -143,9 +143,11 @@ const ImageComponent = ({ width, description, value, orientation = null }) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: 300,
+    // width: "50%",
     // height: 250,
     // backgroundColor: '#fffff8',
+    // backgroundColor: 'rgba(255, 255, 240, 1)',
+
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, .1)',
     borderRadius: 8,

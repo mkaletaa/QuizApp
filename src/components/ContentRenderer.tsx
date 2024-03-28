@@ -91,31 +91,32 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       }
       return (
         // <ScrollView horizontal={true} contentContainerStyle={{overflow: 'auto', elevation: 10, backgroundColor: 'transparent', width: 320}}>
-          <View
-            key={key}
-            style={{ width: '100%', paddingBottom: 0}} //można jeszcze określić maxWidth dla większych ekranów
+        <View
+          key={key}
+          style={{ width: '100%', paddingBottom: 0 }} //można jeszcze określić maxWidth dla większych ekranów
+        >
+          <CodeHighlighter
+            hljsStyle={nightOwl}
+            textStyle={{ fontSize: 16 }}
+            language={props.language}
+            //@ts-ignore
+            customStyle={styles.code}
+            containerStyle={styles.codeContainer}
           >
-            <CodeHighlighter
-              hljsStyle={nightOwl}
-              textStyle={{ fontSize: 16 }}
-              language={props.language}
-              //@ts-ignore
-              customStyle={styles.code}
-              containerStyle={styles.codeContainer}
-            >
-              {value}
-            </CodeHighlighter>
-          </View>
+            {value}
+          </CodeHighlighter>
+        </View>
         // </ScrollView>
       )
     case 'YouTube':
       const screenWidth = Dimensions.get('window').width
-
+      console.log('🚀 ~ renderComponent ~ screenWidth:', screenWidth)
+      //inny wymiar (600)
       return (
         <YoutubePlayer
           key={key}
-          height={(screenWidth * 0.9 * 9) / 16}
-          width={screenWidth * 0.9}
+          height={(width * 0.9 * 9) / 16}
+          width={width * 0.9}
           play={false}
           videoId={value}
           onChangeState={() => {}}
@@ -127,8 +128,10 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 //tutaj trafia question, explanation i theory
 export default function ContentRenderer({
   content,
+  width
 }: {
   content: string | Component[]
+  width?:number
 }) {
   // console.log(content)
   // if a question is text only, turn it into one element array
@@ -138,7 +141,12 @@ export default function ContentRenderer({
 
   // console.log('🚀 ~ ContentRenderer ~ contentArray:', JSON.stringify(contentArray))
   // console.log('🚀 ~ ContentRenderer ~ contentArray Length:', contentArray.length)
-  const { width } = useWindowDimensions()
+  // const { width } = useWindowDimensions()
+  if(!width)
+  width = Dimensions.get('window').width
+  console.log("🚀 ~ width:", width) //inny wymiar (926)
+
+
   //TODO: dodać index jako key
   return (
     <View style={styles.container}>

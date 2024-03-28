@@ -158,7 +158,7 @@
       {
         "componentType": "Image",
         "value": "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-        "props": { "description": "des" }
+        "props": { "description": "des", "orientation": "horizontal" }
       }
 
     ]
@@ -173,6 +173,10 @@
       {
         "componentType": "Text",
         "value": "<b>another text</b> <a href='https://www.youtube.com/watch?v=2qCmRJz3NOE' >test</a>"
+      },
+      {
+        "componentType": "YouTube",
+        "value": "2qCmRJz3NOE"
       }
     ]
   }

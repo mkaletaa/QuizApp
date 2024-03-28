@@ -95,7 +95,7 @@ export default function Block({
             {
               //@ts-ignore
               value.map((item, index) =>
-                renderComponent(item, width)
+                renderComponent(item, width*.9)
               )
             }
           </View>
@@ -107,7 +107,7 @@ export default function Block({
 
 const styles = StyleSheet.create({
   block: {
-    maxWidth: '100%',
+    width: '100%', //maxWidth
     padding: 5,
     borderRadius: 3,
     borderWidth: 2,
