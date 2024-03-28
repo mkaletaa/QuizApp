@@ -19,6 +19,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { useHeaderHeight } from '@react-navigation/elements'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { youDontHaveAnySavedQuestions } from '../../data/texts'
+import { close } from '../../data/texts'
 
 export default function Saved() {
   const screenHeight = Dimensions.get('window').height
@@ -74,7 +75,7 @@ export default function Saved() {
           handleBtnPress={() => {
             setShowModal(false)
           }}
-          btnTitle={'close'}
+          btnTitle={close}
         />
       </Modal>
 

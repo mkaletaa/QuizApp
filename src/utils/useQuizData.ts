@@ -16,6 +16,7 @@ const useQuizData = () => {
   function importItemById(id: string): Item {
     const [chapter, topic] = id.split('|')
 
+    if (!quiz[chapter][topic]) return null
     const itemIndex: number = quiz[chapter][topic].findIndex(
       item => item.id === id
     )

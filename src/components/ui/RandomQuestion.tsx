@@ -6,7 +6,7 @@ import { randomQuestion } from '../../../data/texts'
 
 export default function RandomQuestion({ chapName }) {
   const navigation = useNavigation()
-  const openQuiz = useOpenQuiz()
+  const {openQuiz} = useOpenQuiz()
 
   const screenWidth = Dimensions.get('window').width
   function instantQuestion() {

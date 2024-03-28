@@ -4,7 +4,7 @@ import { takeAQuiz } from '../../../data/texts'
 
 export default function QuizButton({ topicName, chapterName }) {
 
-const openQuiz = useOpenQuiz()
+const {openQuiz} = useOpenQuiz()
 
 
   return (

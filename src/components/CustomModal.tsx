@@ -1,7 +1,7 @@
 import { Modal, View, StyleSheet, Text } from 'react-native'
 
 export default function CustomModal({
-  children,
+  children=null,
   showModal,
   onRequestClose,
   modalText=null,

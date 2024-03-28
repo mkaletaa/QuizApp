@@ -10,6 +10,7 @@ import utilStyles from '../utils/styles'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import {chapters} from '../../data/data'
 import ContentRenderer from '../components/ContentRenderer'
+import CustomModal from '../components/CustomModal'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
@@ -17,7 +18,8 @@ export default function Topics({ route }) {
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const navigation = useNavigation()
   const [showStats, setShowStats] = useState(false)
-  const openQuiz = useOpenQuiz()
+  const { openQuiz, showNoQuestionsModal, setShowNoQuestionsModal } =
+    useOpenQuiz()
 
   // const { countItemsInTopics } = useQuizData()
 
@@ -101,6 +103,13 @@ export default function Topics({ route }) {
           chapOrTop={'top'}
         />
       </Modal>
+
+      <CustomModal
+        showModal={showNoQuestionsModal}
+        onRequestClose={()=>setShowNoQuestionsModal(false)}
+        
+        modalText={"Brak pytań do wyświetlenia"}
+      ></CustomModal>
     </View>
   )
 }
