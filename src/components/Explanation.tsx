@@ -35,24 +35,6 @@ export default function Explanation({
   const [showQuestionModal, setShowQuestionModal] = useState(false)
   return (
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-      <Pressable
-        onLongPress={() => {
-          !showQuestion && setShowQuestionModal(true)
-        }}
-      >
-        <ExplanationPrompt item={item}></ExplanationPrompt>
-        {showQuestion && (
-          <View
-            style={{
-              backgroundColor: 'red',
-              alignItems: 'center',
-              marginTop: 20,
-            }}
-          >
-            {/* <Question question={item.question}></Question> */}
-            <ContentRenderer content={item?.question} />
-          </View>
-        )}
         <CustomModal
           showModal={showQuestionModal}
           onRequestClose={() => setShowQuestionModal(false)}
@@ -62,7 +44,27 @@ export default function Explanation({
           </ScrollView>
         </CustomModal>
 
+      <Pressable
+        onLongPress={() => {
+          !showQuestion && setShowQuestionModal(true)
+        }}
+      >
         <View style={styles.contentContainer}>
+          <ExplanationPrompt item={item}></ExplanationPrompt>
+
+          {showQuestion && (
+            <View
+              style={{
+                // backgroundColor: 'red',
+                alignItems: 'center',
+                marginTop: 20,
+              }}
+            >
+              {/* <Question question={item.question}></Question> */}
+              <ContentRenderer content={item?.question} />
+            </View>
+          )}
+
           {returnIsCorrect(item, chosenOptions) === 'correct' && (
             <Foundation name="check" size={54} color="green" />
           )}
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems: 'center',
     // paddingHorizontal: 10,
-    backgroundColor: 'lightblue',
+    // backgroundColor: 'lightblue',
     gap: 10,
     // marginTop:10
     paddingBottom: 50,

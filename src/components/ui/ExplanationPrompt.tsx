@@ -74,6 +74,10 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
         flexDirection: 'row',
         marginBottom: 30,
         paddingRight: 10,
+        width: '100%',
+        backgroundColor: 'transparent',
+       height: 1,
+       zIndex:1
       }}
     >
       <Entypo
@@ -82,11 +86,12 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
         color="black"
         style={{
           position: 'absolute',
-          top: 10,
+          top: 30,
           right: 20,
         }}
         onPress={() => {
-          setShowPrompt(prev => !prev)
+          setShowPrompt(prev => !prev);
+          console.log("pressdd")
         }}
       />
 
@@ -94,7 +99,7 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
         <View
           style={{
             position: 'absolute',
-            top: 25,
+            top: 75,
             right: 60,
             flexDirection: 'row',
             elevation: 5,
@@ -105,7 +110,9 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
             padding: 10,
             borderRadius: 6,
             alignItems: 'center',
-            zIndex: 1,
+            // zIndex: 999,
+            // width: 100,
+            // height:200
           }}
         >
           <Button
