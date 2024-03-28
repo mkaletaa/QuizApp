@@ -20,7 +20,6 @@ export default function useAsyncStorage() {
   //     savedTopicStat.answers = (savedTopicStat.answers || 0) + 1
   //     savedCategoryStat.answers = (savedCategoryStat.answers || 0) + 1
 
-
   //     await AsyncStorage.setItem(topic, JSON.stringify(savedTopicStat))
   //     await AsyncStorage.setItem(category, JSON.stringify(savedCategoryStat))
   //   } catch (error) {
@@ -83,5 +82,7 @@ export default function useAsyncStorage() {
     }
   }
 
-  return {  storeFinishedQuizStat, getValue }
+
+
+  return { storeFinishedQuizStat, getValue }
 }

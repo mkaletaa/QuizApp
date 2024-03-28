@@ -8,9 +8,10 @@ import RandomQuestion from '../components/ui/RandomQuestion'
 import useQuizData from '../utils/useQuizData'
 import utilStyles from '../utils/styles'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import {chapters} from '../../data/data'
+import { chapters } from '../../data/data'
 import ContentRenderer from '../components/ContentRenderer'
 import CustomModal from '../components/CustomModal'
+import { noQuestions } from '../../data/texts'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
@@ -20,13 +21,13 @@ export default function Topics({ route }) {
   const [showStats, setShowStats] = useState(false)
   const { openQuiz, showNoQuestionsModal, setShowNoQuestionsModal } =
     useOpenQuiz()
-
+  const [lineWidth, setLineWidth] = useState(0)
   // const { countItemsInTopics } = useQuizData()
 
   useEffect(() => {
     //Here a dummy topic is added
     const chapterName: string = route.params.chapterName
-// const chapter = chapters.find(chapter => chapter.name === chapterName)
+    // const chapter = chapters.find(chapter => chapter.name === chapterName)
     setChapterDes(chapters.find(chapter => chapter.name === chapterName).des)
     if (chapterName && topics[chapterName]) {
       setChapterName(chapterName)
@@ -91,7 +92,7 @@ export default function Topics({ route }) {
         ))}
       </ScrollView>
 
-      <Modal
+      {/* <Modal
         animationType="fade"
         transparent={true}
         visible={showStats}
@@ -102,13 +103,12 @@ export default function Topics({ route }) {
           onClose={() => setShowStats(false)}
           chapOrTop={'top'}
         />
-      </Modal>
+      </Modal> */}
 
       <CustomModal
         showModal={showNoQuestionsModal}
-        onRequestClose={()=>setShowNoQuestionsModal(false)}
-        
-        modalText={"Brak pytań do wyświetlenia"}
+        onRequestClose={() => setShowNoQuestionsModal(false)}
+        modalText={noQuestions}
       ></CustomModal>
     </View>
   )

@@ -1,25 +1,23 @@
+import { Ionicons } from '@expo/vector-icons'
+import { useHeaderHeight } from '@react-navigation/elements'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import {
+  ActivityIndicator,
+  Dimensions,
   FlatList,
   Modal,
   RefreshControl,
-  ScrollView,
   Text,
-  View,
-  Dimensions,
-  ActivityIndicator,
+  View
 } from 'react-native'
+import { close, youDontHaveAnySavedQuestions } from '../../data/texts'
 import Explanation from '../components/Explanation'
 import SavedOptions from '../components/SavedOptions'
 import Tile from '../components/Tile'
 import useFetchSavedItems from '../hooks/useFetchSavedItems'
-import { Item } from '../utils/types'
-import { Ionicons } from '@expo/vector-icons'
-import { useHeaderHeight } from '@react-navigation/elements'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import { youDontHaveAnySavedQuestions } from '../../data/texts'
-import { close } from '../../data/texts'
+import { Item } from '../utils/types'
 
 export default function Saved() {
   const screenHeight = Dimensions.get('window').height
@@ -59,6 +57,7 @@ export default function Saved() {
     setIsEnabled(false)
   }
 
+  
   return (
     <View>
       <Modal
