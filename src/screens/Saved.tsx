@@ -46,19 +46,16 @@ export default function Saved() {
   const [isEnabled, setIsEnabled] = useState(false)
 
   const toggleSwitch = () => {
-    setIsEnabled(previousState => !previousState)
-    savedItems.reverse()
+      setIsEnabled(previousState => !previousState)
+      savedItems.reverse()
   }
 
   const [refreshing, setRefreshing] = useState(false)
 
   const handleRefresh = () => {
-    // Tutaj dodaj logikę odświeżania (np. pobranie nowych danych z serwera).
-    // Następnie ustaw refreshing na false, aby zakończyć animację odświeżania.
     setRefreshing(true)
     fetchSavedItems()
-    // Wywołaj funkcję do odświeżenia danych, a potem:
-    // setRefreshing(false);
+    setIsEnabled(false)
   }
 
   return (

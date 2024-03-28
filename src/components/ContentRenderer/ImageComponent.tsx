@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import {
   Animated,
+  Button,
   Image,
   Modal,
+  Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native'
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
-import ImageViewer from 'react-native-image-zoom-viewer';
-import { close } from '../../../data/texts';
+import ImageViewer from 'react-native-image-zoom-viewer'
+import { close } from '../../../data/texts'
+import { StatusBar } from 'expo-status-bar'
 
 const ImageComponent = ({ width, description, value, orientation = null }) => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -24,11 +27,10 @@ const ImageComponent = ({ width, description, value, orientation = null }) => {
   }
 
   const scale = React.useRef(new Animated.Value(1)).current
-const handlePinch = Animated.event(
-  [{ nativeEvent: { scale } }],
-  { useNativeDriver: true } // Specify options as an empty object
-)
-
+  const handlePinch = Animated.event(
+    [{ nativeEvent: { scale } }],
+    { useNativeDriver: true } // Specify options as an empty object
+  )
 
   function setHeight(
     orientation: 'vertical' | 'horizontal' | 'square' | null
@@ -61,14 +63,15 @@ const handlePinch = Animated.event(
       {description && (
         <Text style={{ opacity: 0.5, marginTop: -10 }}>{description}</Text>
       )}
+      {/* <StatusBar backgroundColor="rgba(255, 0, 0, 1)" hidden translucent /> */}
 
       <Modal
         visible={modalVisible}
         animationType="slide"
         transparent={true}
         onRequestClose={closeModal}
+        statusBarTranslucent={true}
       >
-        
         <View style={styles.modalContainer}>
           {/* <PinchGestureHandler
             onGestureEvent={handlePinch}
@@ -81,7 +84,7 @@ const handlePinch = Animated.event(
               }
             }}
           > */}
-            {/* <Animated.Image
+          {/* <Animated.Image
               key={value}
               style={[
                 styles.modalImage,
@@ -93,11 +96,44 @@ const handlePinch = Animated.event(
                 uri: value,
               }}
             /> */}
-            <ImageViewer imageUrls={[{url:value}]} style={{width: '100%'}} renderIndicator={() => null} />
+          {/* <TouchableOpacity> */}
+          <ImageViewer
+            imageUrls={[{ url: value }]}
+            style={{ width: '100%' }}
+            renderIndicator={() => null}
+          />
+          {/* </TouchableOpacity> */}
           {/* </PinchGestureHandler> */}
           <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-            <Text style={{ color: 'white' }}>{close}</Text>
+            <Text
+              style={{
+                color: 'white',
+                textShadowColor: 'rgba(0, 0, 0, .9)', // kolor cienia
+                // textShadowOffset: { width: 2, height: 2 }, // przesunięcie cienia
+                textShadowRadius: 5, // promień cienia
+              }}
+            >
+              {close}
+            </Text>
           </TouchableOpacity>
+
+          {/* <Button title = "Zamknij" color = "transparent"></Button> */}
+          {description && (
+            <Text
+              style={{
+                color: 'white',
+                position: 'absolute',
+                bottom: 0,
+                paddingBottom: 20,
+                backgroundColor: 'rgba(0, 0, 0, .5)',
+                width: '100%',
+                textAlign: 'center',
+                paddingHorizontal: 10,
+              }}
+            >
+              {description}
+            </Text>
+          )}
         </View>
       </Modal>
     </React.Fragment>

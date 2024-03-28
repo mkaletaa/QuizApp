@@ -39,7 +39,7 @@ export default function SavedOptions({
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: -15,
+            gap: -10, //used to be -15
             marginBottom: 10,
 
             // backgroundColor: 'blue',
