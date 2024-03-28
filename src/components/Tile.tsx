@@ -42,7 +42,7 @@ export default function Tile({
         style={[
           {
             backgroundColor: color,
-            width: '78%',
+            width: '60%',
             height: 80, //100
             overflow: 'hidden',
             alignItems: 'center',

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {
   Animated,
   Button,
+  Dimensions,
   Image,
   Modal,
   Pressable,
@@ -144,13 +145,16 @@ const styles = StyleSheet.create({
   image: {
     width: 300,
     // height: 250,
-    // backgroundColor: 'red',
+    // backgroundColor: '#fffff8',
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, .1)',
     borderRadius: 8,
   },
   modalContainer: {
-    flex: 1,
+    // flex: 1,
     // width: 100,
-    // height: 200,
+
+    height: Dimensions.get('window').height,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, .8)',

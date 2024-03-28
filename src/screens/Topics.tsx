@@ -78,7 +78,14 @@ export default function Topics({ route }) {
         {/* <Text style={{ width: '80%', textAlign: 'center' }}>
           {chapter?.des}
         </Text> */}
-        <ContentRenderer content={chapterDes} />
+
+        <View
+          style={{
+            width: '80%',
+          }}
+        >
+          <ContentRenderer content={chapterDes} />
+        </View>
 
         {topicsToShow.map(topic => (
           <Card

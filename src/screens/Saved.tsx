@@ -107,6 +107,7 @@ export default function Saved() {
           contentContainerStyle={{
             paddingBottom: 40,
             paddingTop: 10,
+            //todo: zmienić szerokość lub padding
           }}
           ListFooterComponent={
             showLoadingMoreSpinner && <ActivityIndicator size="large" color="#0000ff" style={{marginTop: 10}} />

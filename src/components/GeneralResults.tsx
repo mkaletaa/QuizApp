@@ -33,7 +33,7 @@ export default function GneralResults({
   }
 
   return (
-    <View>
+    <View style={{backgroundColor: 'yellow', width:'100%'}}>
       <View
         style={{
           alignItems: 'center',
