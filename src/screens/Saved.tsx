@@ -9,7 +9,7 @@ import {
   Modal,
   RefreshControl,
   Text,
-  View
+  View,
 } from 'react-native'
 import { close, youDontHaveAnySavedQuestions } from '../../data/texts'
 import Explanation from '../components/Explanation'
@@ -23,7 +23,7 @@ export default function Saved() {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
   const openQuiz = useOpenQuiz()
-
+  const [showLoadingMoreSpinner, setShowLoadingMoreSpinner] = useState(true)
   const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
@@ -45,8 +45,8 @@ export default function Saved() {
   const [isEnabled, setIsEnabled] = useState(false)
 
   const toggleSwitch = () => {
-      setIsEnabled(previousState => !previousState)
-      savedItems.reverse()
+    setIsEnabled(previousState => !previousState)
+    savedItems.reverse()
   }
 
   const [refreshing, setRefreshing] = useState(false)
@@ -57,7 +57,6 @@ export default function Saved() {
     setIsEnabled(false)
   }
 
-  
   return (
     <View>
       <Modal
@@ -109,6 +108,10 @@ export default function Saved() {
             paddingBottom: 40,
             paddingTop: 10,
           }}
+          ListFooterComponent={
+            showLoadingMoreSpinner && <ActivityIndicator size="large" color="#0000ff" style={{marginTop: 10}} />
+          }
+          onEndReached={()=>setShowLoadingMoreSpinner(false)} 
         />
       ) : (
         <View>

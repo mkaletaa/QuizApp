@@ -1,6 +1,6 @@
 import { AntDesign } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   BackHandler,
   Button,
@@ -25,7 +25,14 @@ import useNextQuestion from '../hooks/useNextQuestion'
 import { returnIsCorrect } from '../utils/functions'
 import { Option, Result } from '../utils/types'
 import useQuizData from '../utils/useQuizData'
-import { yesQuit, nah, areYouSure, submit, nextQuestion, summary } from '../../data/texts'
+import {
+  yesQuit,
+  nah,
+  areYouSure,
+  submit,
+  nextQuestion,
+  summary,
+} from '../../data/texts'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -140,12 +147,20 @@ export default function Quiz({ route }) {
     return true
   }
   // StatusBar.setHidden(false)
+  const scrollViewRef = useRef(null)
+
+  useEffect(() => {
+    if (showResultModal === false)
+      scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false })
+  }, [showResultModal])
+
   return (
     <SafeAreaView>
       {item && itemsCount !== Infinity && whichItem !== 0 && (
         <Line resultsArray={resultsArray} allItemsCount={itemsCount} />
       )}
       <ScrollView
+        ref={scrollViewRef}
         contentContainerStyle={[
           styles.screen,
           {
@@ -210,30 +225,19 @@ export default function Quiz({ route }) {
           item={item}
           chosenOptions={chosenOptions}
           handleBtnPress={nextBtnPress}
-          btnTitle={
-            resultsArray.length === itemsCount ? summary : nextQuestion
-          }
+          btnTitle={resultsArray.length === itemsCount ? summary : nextQuestion}
         />
       </Modal>
 
       <CustomModal
         showModal={showExitModal}
         onRequestClose={() => setShowResultModal(false)}
-        modalText={
-          areYouSure
-        }
+        modalText={areYouSure}
       >
         <React.Fragment>
           <View style={styles.buttonsContainer}>
-            <Button
-              title={yesQuit}
-              color="red"
-              onPress={closeModalAndGoBack}
-            />
-            <Button
-              title={nah}
-              onPress={() => setShowExitModal(false)}
-            />
+            <Button title={yesQuit} color="red" onPress={closeModalAndGoBack} />
+            <Button title={nah} onPress={() => setShowExitModal(false)} />
           </View>
         </React.Fragment>
       </CustomModal>
