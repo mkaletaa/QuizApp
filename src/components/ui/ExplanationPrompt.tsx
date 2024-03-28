@@ -113,7 +113,7 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
             color="red"
             //@ts-ignore
             onPress={() => {
-              sendAnEmail('question id: ' + item.id)
+              sendAnEmail('id: ' + item.id)
             }}
           />
           <View

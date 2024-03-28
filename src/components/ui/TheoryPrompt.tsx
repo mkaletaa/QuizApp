@@ -59,7 +59,7 @@ export default function TheoryPrompt({ topicName, chapterName }) {
             title={reportAMistake}
             color="red"
             onPress={() => {
-              sendAnEmail('Topic name: ' + removeUnderscores(topicName))
+              sendAnEmail(removeUnderscores(topicName))
             }}
           />
           {/* <View

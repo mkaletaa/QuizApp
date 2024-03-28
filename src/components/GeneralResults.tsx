@@ -4,6 +4,7 @@ import { setColor } from '../utils/functions'
 import { Item, Option, Result } from '../utils/types'
 import Explanation from './Explanation'
 import Tile from './Tile'
+import { close } from '../../data/texts'
 
 export default function GneralResults({
   resultsArray,
@@ -67,7 +68,7 @@ export default function GneralResults({
           handleBtnPress={() => {
             setShowModal(false)
           }}
-          btnTitle={'close'}
+          btnTitle={close}
         />
       </Modal>
     </View>

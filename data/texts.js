@@ -23,3 +23,5 @@ export const thereIsNothingHere = 'Nic tu nie ma ;('
 
 export const noInternetMessage =
   'Nie masz połączenia z internetem. Niektóre źródła, jak obrazki mogą się nie załadować poprawnie.'
+export const mailSubject = ' - błąd'
+export const mailBody = '\n\nNawet najlepsi popełniają błędy. Opisz co jest nie tak, a ja to naprawię. \n(możesz usunąć ciało maila z wyjątkiem pierwszej linii)'

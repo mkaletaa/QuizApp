@@ -28,7 +28,8 @@
       "eas": {
         "projectId": "191fa6b4-fe87-4762-b84b-a71caf03250f"
       },
-      "ads": false
+      "ads": false,
+      "appName": "IwIK - niezbędnik studenta"
     }
   },
   "react-native-google-mobile-ads": {
