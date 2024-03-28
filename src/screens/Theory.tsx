@@ -84,7 +84,7 @@ export default function Theory({ route }) {
         <View
           style={{
             padding: 10,
-            paddingLeft:30,
+            paddingLeft: 30,
             backgroundColor: 'rgb(243, 243, 243)',
             // marginBottom: 10,
             borderTopWidth: 1,
@@ -104,7 +104,7 @@ export default function Theory({ route }) {
   }
 
   const renderItem = ({ item, index }) => (
-    <View style={[styles.item, index===0&& {marginTop: 10}]}>
+    <View style={[styles.item, index === 0 && { marginTop: 10 }]}>
       {/* {renderComponent(component, width)} */}
       <ContentRenderer content={[item]} />
     </View>
@@ -177,7 +177,7 @@ export default function Theory({ route }) {
           scrollEventThrottle={15}
           ListHeaderComponent={renderHeader}
           stickySectionHeadersEnabled
-          renderItem={({ item, index }) => renderItem({item, index})}
+          renderItem={({ item, index }) => renderItem({ item, index })}
           renderSectionHeader={renderSectionHeader}
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
@@ -222,7 +222,9 @@ export default function Theory({ route }) {
         onPress={() => scrollToTop()}
       />
 
-      <TheoryPrompt topicName={topicName} chapterName={chapterName} />
+      {theory[route.params.chapterName][route.params.topicName] && (
+        <TheoryPrompt topicName={topicName} chapterName={chapterName} />
+      )}
       {memoizedComponents}
     </View>
   )
