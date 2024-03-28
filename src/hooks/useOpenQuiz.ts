@@ -18,27 +18,39 @@ const useOpenQuiz = () => {
   ): void => {
     // quiz[chapterName][topicName]
     //TODO: prawdopodobnie będzie trzeba z powrotem countItems dać tutaj
-    
-    if (howManyItems === Infinity) {
-      //@ts-ignore
-      navigation.navigate('Quiz', {
-        topName: topicName,
-        chapName: chapterName,
-        howManyItems: howManyItems,
-        shuffle,
-        itemsArray,
-      })
-    } else if (quiz[chapterName][topicName] || howManyItems === Infinity)
-      //@ts-ignore
-      navigation.navigate('Quiz', {
-        topName: topicName,
-        chapName: chapterName,
-        howManyItems: howManyItems,
-        shuffle,
-        itemsArray,
-      })
-    else {
-      //zrób coś jeśli nie ma quizu dla tego topika
+
+      
+      // countItemsInTopic(route.params.topName, route.params.chapName)
+
+    console.log("🚀 ~ useOpenQuiz ~ quiz[chapterName]:", quiz[chapterName])
+    try {
+      if (quiz[chapterName] && howManyItems === Infinity) {
+        console.log('first')
+        //@ts-ignore
+        navigation.navigate('Quiz', {
+          topName: topicName,
+          chapName: chapterName,
+          howManyItems: howManyItems,
+          shuffle,
+          itemsArray,
+        })
+      } else if (quiz[chapterName][topicName] || howManyItems === Infinity) {
+        console.log('second')
+        //@ts-ignore
+        navigation.navigate('Quiz', {
+          topName: topicName,
+          chapName: chapterName,
+          howManyItems: howManyItems,
+          shuffle,
+          itemsArray,
+        })
+      } else {
+        console.log('third')
+
+        //zrób coś jeśli nie ma quizu dla tego topika
+      }
+    } catch (e) {
+      // console.warn(e)
     }
   }
 
