@@ -11,7 +11,7 @@ import { noInternetMessage } from './data/texts'
 export default function App() {
   const [showModal, setShowModal] = useState(false)
 
-  /*dev mode */
+  //* dev mode *//
   async function clearAsyncStorage() {
     try {
       await AsyncStorage.clear()
@@ -21,7 +21,7 @@ export default function App() {
     }
   }
 
-  /*dev mode */
+  //* dev mode *//
   async function testSaveItems(index) {
     const value = 'elektronika|wzmacniacz_operacyjny|' + index
 
@@ -42,28 +42,27 @@ export default function App() {
     }
   }
 
-useEffect(() => {
-  const unsubscribe = NetInfo.addEventListener(state => {
-    setShowModal(!state.isConnected)
-    console.log('Is connected?', state.isConnected)
-  })
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setShowModal(!state.isConnected)
+      console.log('Is connected?', state.isConnected)
+    })
 
-  // Funkcja do rekurencyjnego zapisywania danych do AsyncStorage
-  const saveItemsRecursively = async index => {
-    if (index < 42) {
-      await testSaveItems(index)
-      await saveItemsRecursively(index + 1) // Wywołanie rekurencyjne dla kolejnego indeksu
+    // Funkcja do rekurencyjnego zapisywania danych do AsyncStorage
+    const saveItemsRecursively = async index => {
+      if (index < 42) {
+        await testSaveItems(index)
+        await saveItemsRecursively(index + 1) // Wywołanie rekurencyjne dla kolejnego indeksu
+      }
     }
-  }
 
-  // Uruchomienie rekurencyjnego zapisywania danych
-  // saveItemsRecursively(0)
+    // Uruchomienie rekurencyjnego zapisywania danych
+    // saveItemsRecursively(0)
 
-  return () => {
-    unsubscribe()
-  }
-}, [])
-
+    return () => {
+      unsubscribe()
+    }
+  }, [])
 
   return (
     <NavigationContainer>

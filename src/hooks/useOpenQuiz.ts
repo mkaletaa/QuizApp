@@ -15,34 +15,32 @@ const useOpenQuiz = () => {
     shuffle: boolean = true,
     itemsArray?: string[] //nie wiem czy nie trzeba Item[]
   ): void => {
+    //jeśli nie ma żadnego quizu w tej kategorii
+    if (!quiz[chapterName] && chapterName !== '__All__') {
+      console.warn('brak quizu', chapterName)
+      setShowNoQuestionsModal(true)
+    }
+    //jeśli jest rozdział i dany topik ma quiz lub wybrano infinity mode
+    //? kiedy jest infinityMode to nazwa topika jest równa ""
+    else if (howManyItems === Infinity || quiz[chapterName][topicName] ) {
+      console.log('second')
+      //@ts-ignore
+      navigation.navigate('Quiz', {
+        topName: topicName,
+        chapName: chapterName,
+        howManyItems: howManyItems,
+        shuffle,
+        itemsArray,
+      })
+    } else {
+      //jeśli kliknięty topik nie ma quizu
+      setShowNoQuestionsModal(true)
 
-      //jeśli nie ma żadnego quizu w tej kategorii
-      if (!quiz[chapterName]) {
-        console.warn('brak quizu')
-        setShowNoQuestionsModal(true)
-      }
-      //jeśli jest rozdział i dany topik ma quiz lub wybrano infinity mode
-      //? kiedy jest infinityMode to nazwa topika jest równa ""
-      else if (quiz[chapterName][topicName] || howManyItems === Infinity) {
-        console.log('second')
-        //@ts-ignore
-        navigation.navigate('Quiz', {
-          topName: topicName,
-          chapName: chapterName,
-          howManyItems: howManyItems,
-          shuffle,
-          itemsArray,
-        })
-      } else {
-        //jeśli kliknięty topik nie ma quizu
-        setShowNoQuestionsModal(true)
-
-        //zrób coś jeśli nie ma quizu dla tego topika
-      }
-
+      //zrób coś jeśli nie ma quizu dla tego topika
+    }
   }
 
-  return {openQuiz, showNoQuestionsModal, setShowNoQuestionsModal}
+  return { openQuiz, showNoQuestionsModal, setShowNoQuestionsModal }
 }
 
 export default useOpenQuiz
