@@ -89,7 +89,7 @@ export default function Block({
             style={{
               flexWrap: 'wrap',
               //   backgroundColor: 'tomato',
-              maxWidth: '90%',
+              width: '90%', //maxWidth
             }}
           >
             {

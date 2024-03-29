@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "QuizApp",
-    "slug": "QuizApp",
+    "name": "IwIK - niezbędnik studenta",
+    "slug": "iwik-niezbednik-studenta",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -22,15 +24,16 @@
       "package": "com.mkaleta.QuizApp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "191fa6b4-fe87-4762-b84b-a71caf03250f"
+        "projectId": "69bb6743-1782-4108-bf6b-4c87b15031fb"
       },
       "ads": false,
       "appName": "IwIK - niezbędnik studenta"
-    }
+    },
+    "owner": "mkaleta"
   },
   "react-native-google-mobile-ads": {
     "android_app_id": "ca-app-pub-8755010348178299~4784433482"

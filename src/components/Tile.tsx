@@ -43,6 +43,7 @@ export default function Tile({
           {
             backgroundColor: color,
             width: '60%',
+            minWidth: 260,
             height: 80, //100
             overflow: 'hidden',
             alignItems: 'center',
