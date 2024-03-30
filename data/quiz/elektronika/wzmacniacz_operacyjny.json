@@ -500,10 +500,6 @@
       {
         "componentType": "Math",
         "value": "D) `U_{wy}=((R_1+R_2)/R_2)*U_{we}`"
-      },
-      {
-        "componentType": "Math",
-        "value": "E) `U_{wy}=((R_1+R_2)/R_2)*U_{we}`"
       }
     ],
     "options": [
@@ -557,10 +553,6 @@
       {
         "componentType": "Math",
         "value": "D) `U_{wy}=((R_1+R_2)/R_2)*U_{we}`"
-      },
-      {
-        "componentType": "Math",
-        "value": "E) `U_{wy}=((R_1+R_2)/R_2)*U_{we}`"
       }
     ],
     "options": [
@@ -1806,7 +1798,7 @@
       {
         "id": 2,
         "answer": "Rzeczywistego WO",
-        "correct": true
+        "correct": false
       }
     ]
   }
