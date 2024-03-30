@@ -1,0 +1,188 @@
+[
+  {
+    "title": "some title",
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. <br></br> Lorem Ipsum has survived not only five centuries, but also<br><code>let x=5</code>"
+      },
+      {
+        "componentType": "Text",
+        "value": "text"
+      },
+      {
+        "componentType": "Image",
+        "value": "https://images.pexels.com/photos/1459505/pexels-photo-1459505.jpeg?cs=srgb&dl=pexels-felix-mittermeier-1459505.jpg&fm=jpg",
+        "props":{
+          "orientation": "vertical"
+        }
+      },
+      {
+        "componentType": "Header",
+        "value": "To jest header"
+      },
+      {
+        "componentType": "Text",
+        "value": "text"
+      },
+      {
+        "componentType": "Math",
+        "value": "$sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1))(2n+1))(2n+1))(2n+1))(2n+1)}{6}$",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "componentType": "Header",
+        "value": "To też jest header"
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "The Variable name must not contain certain special characters like space, period, comma, or hyphen."
+          },
+          {
+            "componentType": "ListElement",
+            "value": "The variable name must not contain certain special characters like space, period, comma, or hyphen."
+          }
+        ]
+      },
+
+      {
+        "componentType": "Code",
+        "value": "let nr= 165666666666666666\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "tutaj Beda cyferki"
+          },
+          {
+            "componentType": "ListElement",
+            "value": "cyferki + wyś. lista."
+          }
+        ]
+      },
+      {
+        "componentType": "Header",
+        "value": "To jest bardzo bardzo długi header"
+      },
+      {
+        "componentType": "List",
+        "value": [
+          {
+            "componentType": "ListElement",
+            "value": "tutaj beda cyferki"
+          },
+          {
+            "componentType": "ListElement",
+            "value": "cyferki + po lewej. lista."
+          }
+        ]
+      },
+      {
+        "componentType": "Quote",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "<b>another text</b> <a href='https://www.youtube.com/watch?v=2qCmRJz3NOE' >test</a>"
+          }
+        ]
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "po <b>lewej</b>"
+          }
+        ],
+        "props": {
+          "type": "warning"
+        }
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "wyśrodkowane, wąskie"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "wyśr., szerokie"
+          }
+        ],
+        "props": {
+          "type": "important"
+        }
+      },
+      {
+        "componentType": "Block",
+        "value": [
+          {
+            "componentType": "Text",
+            "value": "texttywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwd"
+          },
+          {
+            "componentType": "YouTube",
+            "value": "2qCmRJz3NOE"
+          },
+          {
+            "componentType": "Image",
+            "value": "https://legacy.reactjs.org/logo-og.png"
+          }
+        ],
+        "props": {
+          "type": "task"
+        }
+      },
+      {
+        "componentType": "Link",
+        "value": "https://www.youtube.com/watch?v=2qCmRJz3NOE",
+        "props": { "text": "otworz se linka" }
+      },
+
+
+      {
+        "componentType": "Image",
+        "value": "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+        "props": { "description": "des", "orientation": "horizontal" }
+      },
+      {
+        "componentType": "Image",
+        "value": "",
+        "props": { "description": "des", "orientation": "horizontal" }
+      }
+
+    ]
+  },
+  {
+    "title": "ss",
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "super super super super super super super super super super super super super super super super super super"
+      },
+      {
+        "componentType": "Text",
+        "value": "<b>another text</b> <a href='https://www.youtube.com/watch?v=2qCmRJz3NOE' >test</a>"
+      },
+      {
+        "componentType": "YouTube",
+        "value": "2qCmRJz3NOE"
+      }
+    ]
+  }
+]

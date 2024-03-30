@@ -110,7 +110,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       )
     case 'YouTube':
       const screenWidth = Dimensions.get('window').width
-      console.log('🚀 ~ renderComponent ~ screenWidth:', screenWidth)
+      // console.log('🚀 ~ renderComponent ~ screenWidth:', screenWidth)
       //inny wymiar (600)
       return (
         <YoutubePlayer
@@ -144,7 +144,7 @@ export default function ContentRenderer({
   // const { width } = useWindowDimensions()
   if(!width)
   width = Dimensions.get('window').width
-  console.log("🚀 ~ width:", width) //inny wymiar (926)
+  // console.log("🚀 ~ width:", width) //inny wymiar (926)
 
 
   //TODO: dodać index jako key

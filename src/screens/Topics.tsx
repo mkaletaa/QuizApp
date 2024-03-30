@@ -34,7 +34,7 @@ export default function Topics({ route }) {
       // let name: string = categoryName + '__All__'
       setTopicsToShow([...topics[chapterName]])
     }
-    console.log('🚀 ~ useEffect ~ topics:', [...topics[chapterName]])
+    // console.log('🚀 ~ useEffect ~ topics:', [...topics[chapterName]])
   }, [route.params])
 
   const showTheory = (topicName, chapterName) => {
@@ -63,7 +63,7 @@ export default function Topics({ route }) {
 
   const [pressedTopic, setPressedTopic] = useState<string>()
   function handleLongPress(pressedTopicName: string) {
-    console.log('🚀 ~ handleLongPress ~ pressedTopicName:', pressedTopicName)
+    // console.log('🚀 ~ handleLongPress ~ pressedTopicName:', pressedTopicName)
     setPressedTopic(pressedTopicName)
     setShowStats(true)
   }

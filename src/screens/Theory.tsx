@@ -1,7 +1,9 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { Entypo } from '@expo/vector-icons'
+import { useHeaderHeight } from '@react-navigation/elements'
 import { StatusBar } from 'expo-status-bar'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
-  Button,
+  ActivityIndicator,
   Dimensions,
   Pressable,
   SectionList,
@@ -9,32 +11,32 @@ import {
   Text,
   View,
 } from 'react-native'
+import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer'
-import { removeUnderscores, sendAnEmail } from '../utils/functions'
-import { useHeaderHeight } from '@react-navigation/elements'
-import { useNavigation } from '@react-navigation/native'
-import useQuizData from '../utils/useQuizData'
-import TheoryPrompt from '../components/ui/TheoryPrompt'
 import QuizButton from '../components/ui/QuizButton'
-import { FontAwesome5 } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
-import { thereIsNothingHere } from '../../data/texts'
+import TheoryPrompt from '../components/ui/TheoryPrompt'
+import { removeUnderscores } from '../utils/functions'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [chapterName, setChapterName] = useState('')
+  const [theoryData, setTheoryData] = useState([])
   const [scrollPercentage, setScrollPercentage] = useState(0)
   const [showGoUp, setShowGoUp] = useState(false)
+  const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-  // const navigation = useNavigation()
-  // const { countItemsInTopics } = useQuizData()
+
 
   useEffect(() => {
+    setTheoryData(theory[route.params.chapterName][route.params.topicName])
     setTopicName(route.params.topicName)
     setChapterName(route.params.chapterName)
+    setTimeout(() => {
+      setShouldMemoize(true)
+    }, 0)
   }, [route.params])
 
   const renderHeader = () => (
@@ -42,7 +44,7 @@ export default function Theory({ route }) {
       <Text style={{ marginBottom: 10, fontSize: 30 }}>
         {removeUnderscores(topicName, true)}
       </Text>
-      {theory[route.params.chapterName][route.params.topicName].map(
+      {theoryData.map(
         (a, i) =>
           a.title && (
             <View
@@ -63,18 +65,13 @@ export default function Theory({ route }) {
                     // backgroundColor: 'blue',
                   }}
                 >
-                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecysuj od którego numery rozpocząć indeksowanie */}
-                  {theory[route.params.chapterName][route.params.topicName][0]
-                    .title
-                    ? i + 1
-                    : i}{' '}
-                  {a.title}
+                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
+                  {theoryData[0]?.title ? i + 1 : i} {a.title}
                 </Text>
               </Pressable>
             </View>
           )
       )}
-      {/* <Text style={styles.listHeaderText}>List Header</Text> */}
     </View>
   )
 
@@ -86,7 +83,6 @@ export default function Theory({ route }) {
             padding: 10,
             paddingLeft: 30,
             backgroundColor: 'rgb(243, 243, 243)',
-            // marginBottom: 10,
             borderTopWidth: 1,
             borderTopColor: 'rgb(243, 243, 243)',
             elevation: 3,
@@ -104,34 +100,23 @@ export default function Theory({ route }) {
   }
 
   const renderItem = ({ item, index }) => (
-    <View style={[styles.item, index === 0 && { marginTop: 10 }]}>
+    <View
+      style={{
+        marginBottom: 20,
+        paddingHorizontal: 20,
+        marginTop: index === 0 && 10, //set marginTop for the forst element from a segment
+      }}
+    >
       {/* {renderComponent(component, width)} */}
       <ContentRenderer content={[item]} />
     </View>
   )
 
   const renderFooter = () => (
-    <View style={styles.footer}>
+    <View style={{ padding: 30, alignItems: 'center' }}>
       <QuizButton chapterName={chapterName} topicName={topicName} />
     </View>
   )
-
-  // const showQuiz = (
-  //   topicName: string,
-  //   chapterName: string
-  //   // howManyItems: number | null = null
-  // ): void => {
-  //   //* można tez zrobić że tutaj się pobierają pytania, i przekazywane w formie topArray lub przez zustand
-  //   //@ts-ignore
-  //   navigation.navigate('Quiz', {
-  //     topName: topicName,
-  //     chapName: chapterName,
-  //     howManyItems: countItemsInTopics(topicName, chapterName),
-  //     shuffle: false,
-  //   })
-
-  //   // setHowManyItems(null)
-  // }
 
   const scrollToSection = sectionIndex => {
     if (sectionListRef.current) {
@@ -167,13 +152,13 @@ export default function Theory({ route }) {
   }
 
   const memoizedComponents = useMemo(() => {
-    return theory[route.params.chapterName][route.params.topicName] ? (
+    return theoryData ? (
       <React.Fragment>
         <SectionList
           // contentContainerStyle={{ paddingBottom: 20 }}
           onScroll={handleScroll}
           ref={sectionListRef}
-          sections={theory[route.params.chapterName][route.params.topicName]}
+          sections={theoryData}
           scrollEventThrottle={15}
           ListHeaderComponent={renderHeader}
           stickySectionHeadersEnabled
@@ -200,7 +185,7 @@ export default function Theory({ route }) {
   }, [topicName])
 
   return (
-    <View>
+    <View style={{ minHeight: screenHeight }}>
       <StatusBar style="auto" />
       <View
         style={[
@@ -217,15 +202,23 @@ export default function Theory({ route }) {
         color="black"
         style={[
           styles.goUp,
-          { bottom: showGoUp ? 20 : -70 }, // Dynamiczne style
+          { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
         ]}
         onPress={() => scrollToTop()}
       />
 
-      {theory[route.params.chapterName][route.params.topicName] && (
+      {theoryData && shouldMemoize && (
         <TheoryPrompt topicName={topicName} chapterName={chapterName} />
       )}
-      {memoizedComponents}
+      {shouldMemoize ? (
+        memoizedComponents
+      ) : (
+        <ActivityIndicator
+          size="large"
+          color="#0000ff"
+          style={{ top: screenHeight / 2 - 50 }}
+        />
+      )}
     </View>
   )
 }
@@ -256,19 +249,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
   },
-  item: {
-    marginBottom: 20,
-    paddingHorizontal: 20, //*
-    // backgroundColor: 'white',
-  },
-  footer: {
-    // backgroundColor: 'lightgray',
-    padding: 30,
-    alignItems: 'center',
-  },
   goUp: {
-    // width: 40,
-    // height: 40,
     padding: 8,
     backgroundColor: '#FFFFF8',
     position: 'absolute',

@@ -1,0 +1,10 @@
+[
+  {
+    "data": [
+      {
+        "componentType": "Text",
+        "value": "<p>JS is a highly popular programming language with a vast ecosystem and a thriving community. It is easy to learn and provides a high-level structure that ensures a pleasant developer experience. Many GitHub repositories with the highest number of stars are associated with JS. It is a multi-paradigm language, which means you can write imperative, object-oriented, or functional code if you wish.</p>                                                                                <p>In 2007, a co-founder of StackOverflow, Jeff Atwood uttered a statement now known as Atwood’s Law: <span><i>”Any application that can be written in JavaScript, will eventually be written in JavaScript.”</i></span></p>                                    <p>This statement holds a lot of truth. Initially created for building frontend web applications, JS has evolved to become versatile, used for developing backend servers, mobile, desktop or even TV applications on all major platforms.</p>    <p>This language is interpreted, meaning that the source code is executed directly by the interpreter, facilitating development and testing of applications. It is a dynamic language, which means that many decisions regarding data types are made during program execution. While this flexibility enhances adaptability, it may pose challenges related to type control in larger projects. Fortunately, as you'll soon discover, TypeScript can easily help address this issue.</p>                    <p>JavaScript is also a weakly typed language, eliminating the need for precise type declarations during variable declaration. This characteristic makes it more flexible but can lead to errors that are challenging to identify before program execution.</p><p>JavaScript is a single-threaded language, meaning that it does not inherently support multithreading directly. However, thanks to the mechanism of asynchronous programming, JavaScript can efficiently handle multiple operations simultaneously without the need for utilizing multiple threads.</p>"
+      }
+    ]
+  }
+]

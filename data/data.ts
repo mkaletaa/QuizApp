@@ -13,7 +13,7 @@ export const topics = {
   elektronika: [
     {
       name: 'wzmacniacz_operacyjny',
-      image: 'https://i.postimg.cc/hjH8LLMh/WO.png',
-    }
-  ]
+      image: 'https://i.postimg.cc/nhGsgQML/wxmacniaczc.png',
+    },
+  ],
 }
