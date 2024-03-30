@@ -107,7 +107,6 @@ export default function Theory({ route }) {
         marginTop: index === 0 && 10, //set marginTop for the forst element from a segment
       }}
     >
-      {/* {renderComponent(component, width)} */}
       <ContentRenderer content={[item]} />
     </View>
   )

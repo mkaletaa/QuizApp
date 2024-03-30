@@ -9,8 +9,8 @@ const StickyHeaderScrollView = () => {
   //   ? TestIds.BANNER
   //   : 'ca-app-pub-8755010348178299~4784433482'
   // Pobierz niestandardowe wartości zdefiniowane w app.json
-  const ads = JSON.stringify(Constants.manifest2.extra.expoClient.extra.ads)
-  console.log(ads) // Wyświetli wartość customConfig z app.json
+  // const ads = JSON.stringify(Constants.manifest2.extra.expoClient.extra.ads)
+  // console.log(ads) // Wyświetli wartość customConfig z app.json
 
   const handleButtonPress = async () => {
     try {
