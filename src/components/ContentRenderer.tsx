@@ -1,11 +1,9 @@
 import React from 'react'
 import {
   Dimensions,
-  ScrollView,
   StyleSheet,
   Text,
-  View,
-  useWindowDimensions,
+  View
 } from 'react-native'
 import CodeHighlighter from 'react-native-code-highlighter'
 import RenderHtml from 'react-native-render-html'
@@ -86,7 +84,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'Code':
       const codeContainerStyle = {
-        ...styles.codeContainer,
+        // ...styles.codeContainer,
         ...props,
       }
       return (
@@ -101,7 +99,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             language={props.language}
             //@ts-ignore
             customStyle={styles.code}
-            containerStyle={styles.codeContainer}
+            containerStyle={{ padding: 10, width: '100%' }}
           >
             {value}
           </CodeHighlighter>
@@ -110,8 +108,6 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       )
     case 'YouTube':
       const screenWidth = Dimensions.get('window').width
-      // console.log('🚀 ~ renderComponent ~ screenWidth:', screenWidth)
-      //inny wymiar (600)
       return (
         <YoutubePlayer
           key={key}
@@ -128,24 +124,17 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 //tutaj trafia question, explanation i theory
 export default function ContentRenderer({
   content,
-  width
+  width,
 }: {
   content: string | Component[]
-  width?:number
+  width?: number
 }) {
-  // console.log(content)
   // if a question is text only, turn it into one element array
   const contentArray: Component[] = Array.isArray(content)
     ? content
     : [{ componentType: 'Text', value: content }]
 
-  // console.log('🚀 ~ ContentRenderer ~ contentArray:', JSON.stringify(contentArray))
-  // console.log('🚀 ~ ContentRenderer ~ contentArray Length:', contentArray.length)
-  // const { width } = useWindowDimensions()
-  if(!width)
-  width = Dimensions.get('window').width
-  // console.log("🚀 ~ width:", width) //inny wymiar (926)
-
+  if (!width) width = Dimensions.get('window').width
 
   //TODO: dodać index jako key
   return (
@@ -160,36 +149,17 @@ export default function ContentRenderer({
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-
     gap: 10,
-    // backgroundColor: 'yellow',
     width: '100%', //TODO: zmienić albo i nie
   },
-  text: {
-    fontSize: 18,
-  },
-  codeContainer: {
-    padding: 10,
-    width: '100%',
-    // borderRadius: 100,
-    // marginLeft: 20,
-    // marginRight: 20
-    // backgroundColor: 'blue',
-    //minWidth: '100%',
-    // height: 40,
-    // maxHeight: '100%',
-  },
+
   code: {
     padding: 6,
     borderRadius: 7,
     backgroundColor: '#111133',
-    //@ts-ignore
     elevation: 10,
-    // overflowX: 'auto',
   },
   quote: {
-    // width: '100%',
-    // height: 20,
     borderRadius: 3,
     backgroundColor: '#FFF5B5',
     borderLeftWidth: 3,

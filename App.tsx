@@ -28,6 +28,8 @@ export default function App() {
     // Uruchomienie rekurencyjnego zapisywania danych
     // saveItemsRecursively(0)
 
+    // clearAsyncStorage()
+
     return () => {
       unsubscribe()
     }
