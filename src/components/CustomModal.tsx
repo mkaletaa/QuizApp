@@ -1,26 +1,30 @@
 import { Modal, View, StyleSheet, Text } from 'react-native'
 
 export default function CustomModal({
-  children=null,
+  children = null,
   showModal,
   onRequestClose,
-  modalText=null,
+  modalText = null,
 }) {
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       transparent={true}
       visible={showModal} //showModal
       onRequestClose={() => onRequestClose()}
     >
-      <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
-          {modalText && <Text style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}>
-            {modalText}
-          </Text>}
-          {children}
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            {modalText && (
+              <Text
+                style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}
+              >
+                {modalText}
+              </Text>
+            )}
+            {children}
+          </View>
         </View>
-      </View>
     </Modal>
   )
 }

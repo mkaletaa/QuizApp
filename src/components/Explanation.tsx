@@ -6,6 +6,8 @@ import {
   ScrollView,
   StatusBar,
   Pressable,
+  Modal,
+  Dimensions,
 } from 'react-native'
 import ContentRenderer from './ContentRenderer'
 import { Item, Option } from '../utils/types'
@@ -17,7 +19,13 @@ import ExplanationPrompt from './ui/ExplanationPrompt'
 import { returnIsCorrect } from '../utils/functions'
 import Math from './ContentRenderer/Math'
 import CustomModal from './CustomModal'
-import { correctAnswers, explanation, yourAnswers } from '../../data/texts'
+import {
+  correctAnswers,
+  explanation,
+  longPress,
+  yourAnswers,
+  close,
+} from '../../data/texts'
 
 export default function Explanation({
   item,
@@ -34,21 +42,47 @@ export default function Explanation({
 }) {
   const [showQuestionModal, setShowQuestionModal] = useState(false)
   return (
-    <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-        <CustomModal
-          showModal={showQuestionModal}
+    <Pressable
+      onLongPress={() => {
+        !showQuestion && setShowQuestionModal(true)
+      }}
+      style={{
+        // width: '100%',
+        // height: '100%',
+        backgroundColor: 'red',
+      }}
+    >
+      <ScrollView contentContainerStyle={[styles.scrollContainer]}>
+        <Modal
+          visible={showQuestionModal}
           onRequestClose={() => setShowQuestionModal(false)}
+          statusBarTranslucent={true}
+          transparent={true}
         >
-          <ScrollView>
-            <ContentRenderer content={item?.question} />
-          </ScrollView>
-        </CustomModal>
+          <ScrollView
+            contentContainerStyle={{
+              flexGrow: 1,
+              justifyContent: 'center',
+              backgroundColor: 'rgba(255, 255, 255, .9)',
+              paddingVertical: 40,
+              minHeight: '100%',
+              gap: 30,
+              // marginHorizontal: 10
+            }}
+          >
+            <View>
+              <ContentRenderer content={item?.question} />
+            </View>
 
-      <Pressable
-        onLongPress={() => {
-          !showQuestion && setShowQuestionModal(true)
-        }}
-      >
+            <View style={{}}>
+              <Button
+                title={close}
+                onPress={() => setShowQuestionModal(false)}
+              ></Button>
+            </View>
+          </ScrollView>
+        </Modal>
+
         <View style={styles.contentContainer}>
           <ExplanationPrompt item={item}></ExplanationPrompt>
 
@@ -110,8 +144,24 @@ export default function Explanation({
             <Button title={btnTitle} onPress={() => handleBtnPress()} />
           </View>
         </View>
-      </Pressable>
-    </ScrollView>
+
+        {!showQuestion && (
+          <Text
+            style={{
+              color: 'grey',
+              fontSize: 11,
+              textAlign: 'center',
+              position: 'absolute',
+              bottom: 10,
+              width: Dimensions.get('window').width,
+              // backgroundColor: 'rgba(0, 0, 0, 1)',
+            }}
+          >
+            {longPress}
+          </Text>
+        )}
+      </ScrollView>
+    </Pressable>
   )
 }
 
@@ -121,6 +171,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'rgba(255, 255, 255, 1)',
     paddingHorizontal: 20,
+    minHeight: Dimensions.get('window').height,
   },
   contentContainer: {
     alignItems: 'center',

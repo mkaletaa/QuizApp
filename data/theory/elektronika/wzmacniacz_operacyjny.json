@@ -128,7 +128,7 @@
         "componentType": "Image",
         "value": "https://i.postimg.cc/kgwTCCmX/image.png",
         "props": {
-          "orientation": "horizontal"
+          "orientation": "landscape"
         }
       }
     ]

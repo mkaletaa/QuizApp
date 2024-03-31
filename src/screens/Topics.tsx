@@ -18,7 +18,7 @@ export default function Topics({ route }) {
   useEffect(() => {
     const chapterName: string = route.params.chapterName
     // const chapter = chapters.find(chapter => chapter.name === chapterName)
-    setChapterDes(chapters.find(chapter => chapter.name === chapterName).des)
+    setChapterDes("<span style='font-size:15`px'>"+chapters.find(chapter => chapter.name === chapterName).des+"</span>")
     if (chapterName && topics[chapterName]) {
       setChapterName(chapterName)
       setTopicsToShow([...topics[chapterName]])

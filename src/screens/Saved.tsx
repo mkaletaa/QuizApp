@@ -110,9 +110,15 @@ export default function Saved() {
             //todo: zmienić szerokość lub padding
           }}
           ListFooterComponent={
-            showLoadingMoreSpinner && <ActivityIndicator size="large" color="#0000ff" style={{marginTop: 10}} />
+            showLoadingMoreSpinner && (
+              <ActivityIndicator
+                size="large"
+                color="#0000ff"
+                style={{ marginTop: 10 }}
+              />
+            )
           }
-          onEndReached={()=>setShowLoadingMoreSpinner(false)} 
+          onEndReached={() => setShowLoadingMoreSpinner(false)}
         />
       ) : (
         <View>

@@ -11,7 +11,6 @@ export default function GneralResults({
 }: {
   resultsArray: Result[]
 }) {
-
   const [correctNr, setCorrectNr] = useState(0)
   useEffect(() => {
     let correct = 0
@@ -33,7 +32,7 @@ export default function GneralResults({
   }
 
   return (
-    <View style={{backgroundColor: 'transparent', width:'100%'}}>
+    <View style={{ backgroundColor: 'transparent', width: '100%' }}>
       <View
         style={{
           alignItems: 'center',
@@ -51,9 +50,7 @@ export default function GneralResults({
           }}
           color={setColor(result)}
         />
-     
       ))}
-
 
       <Modal
         animationType="fade"

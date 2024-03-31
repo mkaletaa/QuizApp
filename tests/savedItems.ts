@@ -11,6 +11,14 @@ export async function clearAsyncStorage() {
 }
 
 //* dev mode *//
+ export const saveItemsRecursively = async index => {
+     if (index < 42) {
+       await testSaveItems(index)
+       await saveItemsRecursively(index + 1) // Wywołanie rekurencyjne dla kolejnego indeksu
+     }
+   }
+
+//* dev mode *//
 export async function testSaveItems(index) {
   const value = 'elektronika|wzmacniacz_operacyjny|' + index
 

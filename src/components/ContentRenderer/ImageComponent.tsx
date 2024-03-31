@@ -15,8 +15,14 @@ import { PinchGestureHandler, State } from 'react-native-gesture-handler'
 import ImageViewer from 'react-native-image-zoom-viewer'
 import { close } from '../../../data/texts'
 import { StatusBar } from 'expo-status-bar'
+import { AntDesign } from '@expo/vector-icons'
 
-const ImageComponent = ({ width: containerWidth, description, value, orientation = null }) => {
+const ImageComponent = ({
+  width: containerWidth,
+  description,
+  value,
+  orientation = null,
+}) => {
   const [modalVisible, setModalVisible] = useState(false)
 
   const openModal = () => {
@@ -34,28 +40,40 @@ const ImageComponent = ({ width: containerWidth, description, value, orientation
   )
 
   function setHeight(
-    orientation: 'vertical' | 'horizontal' | 'square' | null
+    orientation:
+      | 'vertical'
+      | 'horizontal'
+      | 'square'
+      | null
+      | 'portrait'
+      | 'landscape'
   ): number {
-    //TODO: pobrać szerokość w pixelach i na tej podstawie ustalić wysokość
+    console.log('🚀 ~ orientation:', orientation)
     switch (orientation) {
+      case 'portrait':
       case 'vertical':
-        return containerWidth*.9 * 1.3 //16/9 czy jakoś tak
+        return containerWidth * ratio * 1.3 //16/9 czy jakoś tak
       case 'horizontal':
-        return containerWidth * 0.9 * 0.6
+      case 'landscape':
+        return containerWidth * ratio * 0.6
       case 'square':
-        containerWidth * .9
+        containerWidth * ratio
       default:
-        return containerWidth
+        return containerWidth * ratio
     }
-    // return
   }
+
+  const ratio = 0.9 //ratio between width of the image to screen (or container) width
 
   return (
     <React.Fragment>
-      <TouchableOpacity onPress={openModal} activeOpacity={.7}>
+      <TouchableOpacity onPress={openModal} activeOpacity={0.7}>
         <Image
           key={value}
-          style={[styles.image, {width:containerWidth*.9,  height: setHeight(orientation) }]}
+          style={[
+            styles.image,
+            { width: containerWidth * ratio, height: setHeight(orientation) },
+          ]}
           source={{
             uri: value,
           }}
@@ -68,7 +86,7 @@ const ImageComponent = ({ width: containerWidth, description, value, orientation
 
       <Modal
         visible={modalVisible}
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         onRequestClose={closeModal}
         statusBarTranslucent={true}
@@ -105,18 +123,15 @@ const ImageComponent = ({ width: containerWidth, description, value, orientation
           />
           {/* </TouchableOpacity> */}
           {/* </PinchGestureHandler> */}
-          <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-            <Text
-              style={{
-                color: 'white',
-                textShadowColor: 'rgba(0, 0, 0, .9)', // kolor cienia
-                // textShadowOffset: { width: 2, height: 2 }, // przesunięcie cienia
-                textShadowRadius: 5, // promień cienia
-              }}
-            >
-              {close}
-            </Text>
-          </TouchableOpacity>
+
+
+          <AntDesign
+            onPress={closeModal}
+            name="arrowleft"
+            size={24}
+            color="white"
+            style={styles.closeButton}
+          />
 
           {/* <Button title = "Zamknij" color = "transparent"></Button> */}
           {description && (
@@ -169,9 +184,10 @@ const styles = StyleSheet.create({
   closeButton: {
     position: 'absolute',
     top: 40,
-    right: 20,
-    // backgroundColor:'red',
-    padding: 5
+    left: 20,
+    padding: 5,
+    textShadowColor: 'rgba(0, 0, 0, .9)', // kolor cienia
+    textShadowRadius: 7, // promień cienia
   },
 })
 
