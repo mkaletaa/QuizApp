@@ -3,7 +3,7 @@
         "title": "qq",
         "data": [
             {
-                "componentType": "Text",
+                "type": "Text",
                 "value": "Textddd"
             }
         ]

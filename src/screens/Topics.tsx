@@ -67,7 +67,6 @@ export default function Topics({ route }) {
             onCardLongPress={() => handleLongPress(topic.name)}
           ></Card>
         ))}
-        {/* <Text>dfcd</Text> */}
         {noQuestionModal()}
       </ScrollView>
 

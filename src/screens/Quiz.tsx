@@ -88,21 +88,21 @@ export default function Quiz({ route }) {
     return () => backHandler.remove() // Cleanup the event listener on unmount
   }, [showExitModal, showGeneralResults, navigation])
 
-  function handleOptionPress(option: Option, whatToDo: 'add' | 'remove'): void {
+  function handleOptionPress(option: Option, action: 'add' | 'remove'): void {
     //jeśli opcja została zaznaczona i jest multichoice
-    if (whatToDo === 'add' && item.multiChoice) {
+    if (action === 'add' && item.multiChoice) {
       setChosenOptions(prev => [...prev, option])
       return
     }
 
     //jeśli opcja została zaznaczona i nie jest multichoice
-    if (whatToDo === 'add' && !item.multiChoice) {
+    if (action === 'add' && !item.multiChoice) {
       setChosenOptions([option])
       return
     }
 
     //jeśli opcja została odznaczona
-    if (whatToDo === 'remove') {
+    if (action === 'remove') {
       let chosenOptions2 = chosenOptions.filter(el => el.id !== option.id)
       setChosenOptions(chosenOptions2)
     }

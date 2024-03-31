@@ -3,129 +3,129 @@
     "title": "podstawowe informacje",
     "data": [
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Czym jest WO?"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Wzmacniacz operacyjny to wielostopniowy, wzmacniacz różnicowy prądu stałego, charakteryzujący się bardzo dużym różnicowym wzmocnieniem napięciowym rzędu stu kilkudziesięciu decybeli i przeznaczony zwykle do pracy z zewnętrznym obwodem sprzężenia zwrotnego, który decyduje o głównych właściwościach całego układu.<br/><br/> Wzmacniacz operacyjny jest najbardziej rozpowszechnionym analogowym układem elektronicznym, realizowanym obecnie w postaci monolitycznych układów scalonych. Wielka uniwersalnośd, przy jednoczesnym wykorzystaniu istotnych właściwości układów scalonych, daje możliwośd stosowania go w rozmaitych układach, urządzeniach i systemach elektronicznych, zapewniając masową produkcję, niską cenę i bardzo dobre parametry użytkowe."
       },
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Zastosowania"
       },
       {
-        "componentType": "List",
+        "type": "List",
         "value": [
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "układy rozszerzające możliwości pracy wzmacniacza"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "wzmacniacze o wzmocnieniu regulowanym napięciem stałym"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "wzmacniacze o sprzężeniu pojemnościowym"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "wzmacniacze całkujące"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "wzmacniacze różniczkujące"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "źródła napięcia o dużej stabilności"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "źródła prądu stałego"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "konwertery napięcie-prąd i prąd-napięcie"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "ograniczniki napięcia"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "diodowe generatory funkcujne"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "układy mnożące i dzielące"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "generatory przebiegów"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "filtry aktywne"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "układy aktywne RC jako indukcyjności"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "wydłużacze impulsów"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "detektory szczytowe"
           }
         ]
       },
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Definicje podstawowych właściwości"
       },
       {
-        "componentType": "List",
+        "type": "List",
         "value": [
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "<b>częstotliwość graniczna</b> - największa częstotliwość przy której wzmocnienie napięciowe spada o 3dB w stosunku do wzmocnienia wzmocnienia dla częstotliwości środkowej"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "<b>Współczynnik CMRR</b> - współczynnik tłumienia sygnału współbieżnego, określa o ile mniejsze jest wzmocnienie sygnału wspólnego od wzmocnienia(?) różnicowego"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "<b>wejściowe napięcie niezrównoważenia</b> - napięcie różnicowe (od 1μV do kilku mV) jakie trzeba podać na wejścia aby agby napiecie wyjściowe było równe zero. Napięcie to pojawia się ponieważ wejścia wzmacniacza nie są symetryczne"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "<b>wejściowe prądy polaryzacyjne</b> - prądy wpływajace lub wypływające z wejść wzmacniacza operacyjnego"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "<b>różnicowe wzmocnienie napięciowe (Ku)</b> - stosunek napięcia wyjściowego do różnicowego napięcia na wejściu przy otwartej pętli sprzężenia zwrotnego"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "<b>wyjściowe napiecie niezrównoważenia</b> - napięcie na wyjsćiu wzmacniacza gdy na obu wejściach napięcie jest równje zero"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "<b>CMRR</b> - współczynnik tłumienia sygnału współbieżnego. Jest to stosunek wzmocnienia sygnału różnicowego do wzmocnienia sygnału współbieżnego."
           }
         ]
       },
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Ogólny symbol wzmacniacza operacyjnego z uwzględnieniem linii zasilających:"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/kgwTCCmX/image.png",
         "props": {
           "orientation": "landscape"
@@ -137,36 +137,36 @@
     "title": "charakterystyki przejściowe",
     "data": [
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Dla WO nieodwracającego:",
         "props": {
           "size": "md"
         }
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/SKfYNjZ2/image.png",
         "props": {
           "orientation": "square"
         }
       },
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Dla WO odwracającego:"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/mk7g8gPN/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Przykładowa charakterystyka częstotliwościowa wzmacniacza odwracającego o wzmocnieniu 10:"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/VNtpSrpR/image.png",
         "props": {
           "orientation": "horizontal"
@@ -178,68 +178,68 @@
     "title": "parametry WO",
     "data": [
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Parametry idealnego WO:"
       },
       {
-        "componentType": "List",
+        "type": "List",
         "value": [
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Zerowe wejściowe napięcie niezrównoważenia"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Nieskończenie duża impedancja wejściowa"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Impedancja wyjściowa równa zero"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Nieskończenie szerokie pasmo przenoszonych częstotliwości"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Nieskończenie duży zakres dynamiczny sygnału"
           }
         ]
       },
 
       {
-        "componentType": "Header",
+        "type": "Header",
         "value": "Parametry rzeczywistego WO:"
       },
       {
-        "componentType": "List",
+        "type": "List",
         "value": [
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Wzmocnienie napięciowe sygnału różnicowego nie jest nieskończenie wielkie, choć bardzo duże"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Impedancja wejściowa nie jest nieskończona, choć bardzo duża"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Impedancja wyjściowa jest niewielka, z reguły kilkadziesiąt ohmów"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Pasmo przenoszenia sygnałów jest ograniczone"
           },
           {
-            "componentType": "ListElement",
+            "type": "ListElement",
             "value": "Wejścia wzmacniacza nie są idealnie symetryczne"
           }
         ]
@@ -249,81 +249,81 @@
   {
     "title": "schematy",
     "data": [
-      { "componentType": "Header", "value": "Wtórnik napięciowy" },
+      { "type": "Header", "value": "Wtórnik napięciowy" },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/7YF2K1vy/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
-      { "componentType": "Header", "value": "Wzmacniacz odwracający" },
+      { "type": "Header", "value": "Wzmacniacz odwracający" },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
-      { "componentType": "Header", "value": "Wzmacniacz nieodwracający" },
+      { "type": "Header", "value": "Wzmacniacz nieodwracający" },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
-      { "componentType": "Header", "value": "Wzmacniacz całkujący" },
+      { "type": "Header", "value": "Wzmacniacz całkujący" },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
-      { "componentType": "Header", "value": "Wzmacniacz różniczkujący" },
+      { "type": "Header", "value": "Wzmacniacz różniczkujący" },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
-      { "componentType": "Header", "value": "Wzmacniacz sumujący" },
+      { "type": "Header", "value": "Wzmacniacz sumujący" },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
-      { "componentType": "Header", "value": "Wzmacniacz różnicowy" },
+      { "type": "Header", "value": "Wzmacniacz różnicowy" },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}= R_1/R_2(U_{we1}-U_{we2})`"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/MT6Pv2tt/image.png",
         "props": {
           "orientation": "horizontal"

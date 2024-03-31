@@ -1,17 +1,28 @@
+type Type =
+  | 'Text'
+  | 'Block'
+  | 'Header'
+  | 'List'
+  | 'ListElement'
+  | 'Image'
+  | 'Math'
+  | 'YouTube'
+  | 'Code'
+  | 'Quote'
+
 export type Component = {
-  componentType: string
+  type: Type
   value: string
-  props?:any,
-  id?:string
+  props?: any
+  id?: string
 }
 
 export type Option = {
   id: string
   answer: string
   correct: boolean
-  componentType?: 'Text' | 'Math' 
-  props?: {} 
-  isMarked?: boolean 
+  props?: {}
+  isMarked?: boolean
 }
 
 export type Item = {
@@ -20,8 +31,7 @@ export type Item = {
   question: string | Array<Component>
   options: Array<Option>
   explanation?: string | Array<Component>
-} 
-
+}
 
 export type Topic = {
   name: string
@@ -33,10 +43,10 @@ export type Topics = {
 }
 
 export type Result = {
-    id: string
-    userChoices?: Option[]
-    item: Item
-    isCorrect: 'correct' | 'incorrect' | 'kindof'
+  id: string
+  userChoices?: Option[]
+  item: Item
+  isCorrect: 'correct' | 'incorrect' | 'kindof'
 }
 
-    //   setResults(prev => [...prev, { id: item.id, userChoices: [], item }])
+//   setResults(prev => [...prev, { id: item.id, userChoices: [], item }])

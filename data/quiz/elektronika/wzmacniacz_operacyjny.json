@@ -4,11 +4,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Co to za schemat?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
@@ -28,11 +28,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Co to za schemat?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
@@ -52,11 +52,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Co to za schemat?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -76,11 +76,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Co to za schemat?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
@@ -100,11 +100,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Co to za schemat?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
@@ -125,34 +125,34 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "E) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       }
     ],
@@ -165,7 +165,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "To wzmacniacz odwracający"
       }
     ]
@@ -175,34 +175,34 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "E) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       }
     ],
@@ -215,7 +215,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "To wzmacniacz nieodwracający"
       }
     ]
@@ -225,34 +225,34 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "E) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       }
     ],
@@ -265,7 +265,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "To wzmacniacz całkujący"
       }
     ]
@@ -275,34 +275,34 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "E) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       }
     ],
@@ -315,7 +315,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "To wzmacniacz różniczkujący"
       }
     ]
@@ -325,34 +325,34 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "E) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       }
     ],
@@ -365,7 +365,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "To wzmacniacz sumujący"
       }
     ]
@@ -376,11 +376,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R_2/R_1*U_{we}`"
       }
     ],
@@ -397,11 +397,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       }
     ],
@@ -418,11 +418,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       }
     ],
@@ -439,11 +439,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R_2*C*(dU_{we})/dt`"
       }
     ],
@@ -460,11 +460,11 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       }
     ],
@@ -482,23 +482,23 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza odwracającego?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R_1/R_2*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=((R_1+R_2)/R_2)*U_{we}`"
       }
     ],
@@ -535,23 +535,23 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza nieodwracającego?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R_1/R_2*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=((R_1-R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=((R_1+R_2)/R_2)*U_{we}`"
       }
     ],
@@ -580,11 +580,11 @@
     ],
     "explanation": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Poprawny wzór to:"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       }
     ]
@@ -595,39 +595,39 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza całkującego?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=1/(R_2*C)*int U_{we} dt + U_{wy}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=1/(R_2*C)+int U_{we} dt + U_{wy}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-1/(R_2*C)*int U_{we} dt + U_{wy}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=-1/(R_2*C)+int U_{we} dt + U_{wy}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "E) `U_{wy}=1/(R_1*C)*int U_{we} dt + U_{wy}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "F) `U_{wy}=1/(R_1*C)+int U_{we} dt + U_{wy}`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "G) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "H) `U_{wy}=-1/(R_1*C)+int U_{we} dt + U_{wy}`"
       }
     ],
@@ -648,39 +648,39 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza różniczkującego?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=R_1*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=-R_1*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "E) `U_{wy}=R_2*C+(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "F) `U_{wy}=-R_2*C+(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "G) `U_{wy}=R_1*C+(dU_{we})/dt`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "H) `U_{wy}=-R_1+C*(dU_{we})/dt`"
       }
     ],
@@ -701,23 +701,23 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza sumującego?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "A) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "B) `U_{wy}=R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "C) `U_{wy}=-R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "D) `U_{wy}=R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
       }
     ],
@@ -734,7 +734,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|21",
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Ile rezystorów znajduje się we wtórniku napięciowym?"
       }
     ],
@@ -746,7 +746,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/7YF2K1vy/image.png",
         "props": {
           "orientation": "horizontal"
@@ -758,7 +758,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|22",
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Ile kondensatorów znajduje się we wtórniku napięciowym?"
       }
     ],
@@ -770,7 +770,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/7YF2K1vy/image.png",
         "props": {
           "orientation": "horizontal"
@@ -782,7 +782,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|23",
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Ile kondensatorów znajduje się we wzmacniaczu odwracającym?"
       }
     ],
@@ -794,7 +794,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
@@ -806,7 +806,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|24",
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Ile kondensatorów znajduje się we wzmacniaczu nieodwracającym?"
       }
     ],
@@ -818,7 +818,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
@@ -830,7 +830,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|25",
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Ile kondensatorów znajduje się we wzmacniaczu całkującym?"
       }
     ],
@@ -842,7 +842,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -854,7 +854,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|26",
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Ile kondensatorów znajduje się we wzmacniaczu różniczkującym?"
       }
     ],
@@ -866,7 +866,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
@@ -878,7 +878,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|27",
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Ile kondensatorów znajduje się we wzmacniaczu sumującym?"
       }
     ],
@@ -890,7 +890,7 @@
     ],
     "explanation": [
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
@@ -903,63 +903,63 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Do którego z tych schematów neleży ten wzór?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -979,63 +979,63 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Do którego z tych schematów neleży ten wzór?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1055,63 +1055,63 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Do którego z tych schematów neleży ten wzór?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R_2*C*(dU_{we})/dt`"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1131,63 +1131,63 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Do którego z tych schematów neleży ten wzór?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1207,63 +1207,63 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Do którego z tych schematów neleży ten wzór?"
       },
       {
-        "componentType": "Math",
+        "type": "Math",
         "value": "`U_{wy}=-R_2/R_1*U_{we}`"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1283,59 +1283,59 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Który z tych schematów przedstawia wzmacniacz odwracający?"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1355,59 +1355,59 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Który z tych schematów przedstawia wzmacniacz nieodwracający?"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1427,59 +1427,59 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Który z tych schematów przedstawia wzmacniacz całkujący?"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1499,59 +1499,59 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Który z tych schematów przedstawia wzmacniacz różniczkujący?"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
@@ -1571,59 +1571,59 @@
     "multiChoice": false,
     "question": [
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "Który z tych schematów przedstawia wzmacniacz sumujący?"
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "A)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "B)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "C)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "D)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/Y94341TD/image.png",
         "props": {
           "orientation": "horizontal"
         }
       },
       {
-        "componentType": "Text",
+        "type": "Text",
         "value": "E)"
       },
       {
-        "componentType": "Image",
+        "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
           "orientation": "horizontal"
