@@ -54,7 +54,7 @@ export default function Topics({ route }) {
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         <View
           style={{
-            width: '80%',
+            width: '90%',
           }}
         >
           <ContentRenderer content={chapterDes} />

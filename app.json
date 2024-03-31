@@ -29,11 +29,15 @@
     "extra": {
       "eas": {
         "projectId": "69bb6743-1782-4108-bf6b-4c87b15031fb"
-      },
-      "ads": false,
-      "appName": "IwIK - niezbędnik studenta"
+      }
     },
-    "owner": "mkaleta"
+    "owner": "mkaleta",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/69bb6743-1782-4108-bf6b-4c87b15031fb"
+    }
   },
   "react-native-google-mobile-ads": {
     "android_app_id": "ca-app-pub-8755010348178299~4784433482"
