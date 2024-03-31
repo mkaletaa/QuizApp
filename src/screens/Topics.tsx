@@ -2,10 +2,8 @@ import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { ScrollView, View } from 'react-native'
 import { chapters, topics } from '../../data/data'
-import { noQuestions } from '../../data/texts'
 import Card from '../components/Card'
 import ContentRenderer from '../components/ContentRenderer'
-import CustomModal from '../components/CustomModal'
 import RandomQuestion from '../components/ui/RandomQuestion'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import utilStyles from '../utils/styles'
@@ -15,8 +13,7 @@ export default function Topics({ route }) {
   const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
   const navigation = useNavigation()
   const [showStats, setShowStats] = useState(false)
-  const { openQuiz, showNoQuestionsModal, setShowNoQuestionsModal } =
-    useOpenQuiz()
+  const { openQuiz, noQuestionModal } = useOpenQuiz()
 
   useEffect(() => {
     const chapterName: string = route.params.chapterName
@@ -70,6 +67,8 @@ export default function Topics({ route }) {
             onCardLongPress={() => handleLongPress(topic.name)}
           ></Card>
         ))}
+        {/* <Text>dfcd</Text> */}
+        {noQuestionModal()}
       </ScrollView>
 
       {/* <Modal
@@ -85,11 +84,11 @@ export default function Topics({ route }) {
         />
       </Modal> */}
 
-      <CustomModal
+      {/* <CustomModal
         showModal={showNoQuestionsModal}
         onRequestClose={() => setShowNoQuestionsModal(false)}
         modalText={noQuestions}
-      ></CustomModal>
+      ></CustomModal> */}
     </View>
   )
 }

@@ -1,6 +1,9 @@
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { quiz } from '../../data/quiz/quizModule'
+import { Button, Modal, Text } from 'react-native'
+import CustomModal from '../components/CustomModal'
+import { noQuestions } from '../../data/texts'
 
 const useOpenQuiz = () => {
   const navigation = useNavigation()
@@ -40,7 +43,23 @@ const useOpenQuiz = () => {
     }
   }
 
-  return { openQuiz, showNoQuestionsModal, setShowNoQuestionsModal }
+  const noQuestionModal =()=>{
+    return (
+      // null
+      <CustomModal
+        showModal={showNoQuestionsModal}
+        onRequestClose={() => setShowNoQuestionsModal(false)}
+        modalText={noQuestions}
+      >
+        <Button
+          title="ok"
+          onPress={() => setShowNoQuestionsModal(false)}
+        ></Button>
+      </CustomModal>
+    )
+  }
+
+  return { openQuiz, showNoQuestionsModal, setShowNoQuestionsModal, noQuestionModal }
 }
 
 export default useOpenQuiz

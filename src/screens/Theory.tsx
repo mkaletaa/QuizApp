@@ -29,7 +29,6 @@ export default function Theory({ route }) {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
 
-
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
     setTopicName(route.params.topicName)
