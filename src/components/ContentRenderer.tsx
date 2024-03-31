@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
+import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import CodeHighlighter from 'react-native-code-highlighter'
 import RenderHtml from 'react-native-render-html'
 import YoutubePlayer from 'react-native-youtube-iframe'
@@ -37,6 +32,19 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       )
 
     case 'Header':
+      function setFontSize(): number {
+        const size = props?.size
+        switch (size) {
+          case 'lg':
+            return 23
+          case 'md':
+            return 20
+          case 'sm':
+            return 17
+          default:
+            return 20 
+        }
+      }
       return (
         <View
           key={key}
@@ -46,7 +54,9 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             // backgroundColor: 'lightblue',
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{value}</Text>
+          <Text style={{ fontSize: setFontSize(), fontWeight: 'bold' }}>
+            {value}
+          </Text>
         </View>
       )
 

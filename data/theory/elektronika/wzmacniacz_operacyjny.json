@@ -138,7 +138,10 @@
     "data": [
       {
         "componentType": "Header",
-        "value": "Dla WO nieodwracającego:"
+        "value": "Dla WO nieodwracającego:",
+        "props": {
+          "size": "md"
+        }
       },
       {
         "componentType": "Image",
