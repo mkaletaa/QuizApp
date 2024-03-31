@@ -111,7 +111,7 @@ export default function Theory({ route }) {
   )
 
   const renderFooter = () => (
-    <View style={{ padding: 30, alignItems: 'center' }}>
+    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
       <QuizButton chapterName={chapterName} topicName={topicName} />
     </View>
   )

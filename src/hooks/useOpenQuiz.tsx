@@ -7,9 +7,7 @@ import { noQuestions } from '../../data/texts'
 
 const useOpenQuiz = () => {
   const navigation = useNavigation()
-  // const { countItemsInTopics } = useQuizData()
   const [showNoQuestionsModal, setShowNoQuestionsModal] = useState(false)
-  //tutaj trzeba użyć zustand to otwierania modala
 
   const openQuiz = (
     topicName: string,
@@ -59,7 +57,7 @@ const useOpenQuiz = () => {
     )
   }
 
-  return { openQuiz, showNoQuestionsModal, setShowNoQuestionsModal, noQuestionModal }
+  return { openQuiz, noQuestionModal }
 }
 
 export default useOpenQuiz

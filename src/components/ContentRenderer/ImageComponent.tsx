@@ -52,7 +52,7 @@ const ImageComponent = ({ width: containerWidth, description, value, orientation
 
   return (
     <React.Fragment>
-      <TouchableOpacity onPress={openModal}>
+      <TouchableOpacity onPress={openModal} activeOpacity={.7}>
         <Image
           key={value}
           style={[styles.image, {width:containerWidth*.9,  height: setHeight(orientation) }]}
@@ -168,8 +168,10 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    top: 20,
+    top: 40,
     right: 20,
+    // backgroundColor:'red',
+    padding: 5
   },
 })
 
