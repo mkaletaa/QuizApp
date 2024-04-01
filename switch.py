@@ -62,17 +62,17 @@ settings_path = './data/settings.json'
 if os.path.exists(settings_path):
     with open(settings_path, 'r') as settings_file:
         settings = json.load(settings_file)
-        language = settings.get('language')
+        lang = settings.get('lang')
 
         # Kopiowanie pliku tekstowego w zależności od ustawień języka
-        if language:
-            texts_source_path = f'./_modules/texts-{language}.js'
+        if lang:
+            texts_source_path = f'./_modules/texts-{lang}.js'
             texts_destination_path = './data/texts.js'
             try:
                 shutil.copyfile(texts_source_path, texts_destination_path)
-                print(f'Texts file copied successfully for language: {language}')
+                print(f'Texts file copied successfully for lang: {lang}')
             except FileNotFoundError:
-                print(f'Texts file for language {language} does not exist')
+                print(f'Texts file for lang {lang} does not exist')
                 sys.exit(1)
 else:
     print('File settings.json does not exist')
