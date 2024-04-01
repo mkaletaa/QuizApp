@@ -1,74 +1,68 @@
 import os
 import shutil
 import sys
+import argparse
 
-# Pobranie argumentów z wiersza poleceń
-args = sys.argv[1:]
+# Analiza argumentów wiersza poleceń
+parser = argparse.ArgumentParser(description='CLI for exporting and importing data folders')
+parser.add_argument('export_module', metavar='export_module', type=str,
+                    help='Module you want to export')
+parser.add_argument('import_module', metavar='import_module', type=str,
+                    help='Module you want to import')
+parser.add_argument('--lang', dest='language', choices=['pl', 'en'],
+                    help='Language flag: pl or en')
+args = parser.parse_args()
 
-# Sprawdzenie, czy użytkownik podał poprawnie argumenty
-if len(args) != 2:
-    print('Usage: python switch.py <module you want to export> <module you want to import>')
-    sys.exit(1)
+expArg = args.export_module
+impArg = args.import_module
+language = args.language
 
-# Pobranie nazwy folderu, do którego mają zostać przeniesione (wyeksportowane) zasoby
-expArg = args[0]
-
-# Pobranie nazwy folderu, z którego mają zostać wyciągnięte (zaimportowane) zasoby
-impArg = args[1]
-
-# Ścieżka do folderu ./data
+# Ścieżki folderów
 exp_source_path = './data'
-
-# Ścieżka do folderu źródłowego (./_modules/impArg)
-imp_source_path = f'./_modules/{impArg}'
-
-# Ścieżka do folderu docelowego (./_modules/expArg)
 exp_destination_path = f'./_modules/{expArg}'
-
-# Ścieżka do folderu docelowego (./data)
+imp_source_path = f'./_modules/{impArg}'
 imp_destination_path = './data'
 
-# Sprawdzenie, czy folder ./data istnieje
+# Sprawdzenie istnienia folderów
 if not os.path.exists(exp_source_path):
     print('Folder ./data does not exist')
     sys.exit(1)
 
-# Sprawdzenie, czy folder docelowy (./_modules/expArg) istnieje
 if not os.path.exists(exp_destination_path):
     print(f'Folder ./_modules/{expArg} does not exist')
     sys.exit(1)
 
-# Sprawdzenie, czy folder docelowy zawiera już podfolder 'data'
 data_folder_path = os.path.join(exp_destination_path, 'data')
 if os.path.exists(data_folder_path):
     print(f'The destination folder already contains a data subfolder')
     sys.exit(1)
 
-# Sprawdzenie, czy folder ./_modules/<impArg> istnieje
 if not os.path.exists(imp_source_path):
     print(f'Folder ./_modules/{impArg} does not exist')
     sys.exit(1)
 
-
-#*############################### moving folders #################################
-
+# Przeniesienie folderów
 try:
-    # Przeniesienie folderu ./data do folderu docelowego
     shutil.move(exp_source_path, os.path.join(exp_destination_path, 'data'))
-    print('Folder ./data exported successfully')
+    print('Folder ./data exported successfully to', exp_destination_path)
 except Exception as err:
-    print('Error moving folder:', err)
+    print('Error exporting folder:', err)
     sys.exit(1)
 
 try:
-    # Przeniesienie folderu ./_modules/<impArg>/data do folderu docelowego
     shutil.move(os.path.join(imp_source_path, 'data'), imp_destination_path)
-    print('Folder data from ./_modules imported successfully')
+    print('Folder data from ./_modules/',imp_source_path,' imported successfully')
 except Exception as err:
-    print('Error moving folder:', err)
-
+    print('Error importing folder:', err)
     sys.exit(1)
 
-
-
-
+# Kopiowanie pliku tekstowego w zależności od wartości flagi --lang
+if language:
+    texts_source_path = f'./_modules/texts-{language}.js'
+    texts_destination_path = './data/texts.js'
+    try:
+        shutil.copyfile(texts_source_path, texts_destination_path)
+        print(f'Texts file copied successfully for language: {language}')
+    except FileNotFoundError:
+        print(f'Texts file for language {language} does not exist')
+        sys.exit(1)
