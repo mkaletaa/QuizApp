@@ -1,7 +1,8 @@
 import { Linking } from 'react-native'
 import { Item, Option, Result } from './types'
-import Constants from 'expo-constants'
+// import Constants from 'expo-constants'
 import { mailSubject, mailBody } from '../../data/texts'
+import settings from "../../data/settings.json"
 
 export function removeUnderscores(
   str: string,
@@ -25,9 +26,7 @@ export function removeUnderscores(
 
 //arg is the id of an item or the name of a topic
 export function sendAnEmail(arg) {
-  const appName = JSON.stringify(
-    Constants.manifest2.extra.expoClient.extra.appName
-  )
+  const appName = settings.name
   const email = 'kaleta222@gmail.com'
   const subject = appName + mailSubject
   const body = arg + mailBody

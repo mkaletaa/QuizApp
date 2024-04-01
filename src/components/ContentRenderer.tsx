@@ -13,6 +13,7 @@ import Math from './ContentRenderer/Math'
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
   const { type:componentType, props, value } = dataComponent
+  console.log("🚀 ~ renderComponent ~ dataComponent:", JSON.stringify(dataComponent))
 
   //key is stringified object itself (20 first characters)
   const key: string = JSON.stringify(value).slice(0, 50)

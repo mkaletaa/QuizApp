@@ -118,7 +118,7 @@ export default function Explanation({
           {item?.options
             .filter(option => option.correct === true)
             .map((option, index) => (
-              <ContentRenderer content={option.answer} key={option.id} />
+              <ContentRenderer content={option.val} key={option.id} />
             ))}
 
           {chosenOptions && chosenOptions.length > 0 && (
@@ -126,7 +126,7 @@ export default function Explanation({
               <Text style={styles.heading}>{yourAnswers}:</Text>
               {chosenOptions.map((option, index) => (
                 <ContentRenderer
-                  content={option.answer}
+                  content={option.val}
                   key={'chosen_' + option.id}
                 />
               ))}

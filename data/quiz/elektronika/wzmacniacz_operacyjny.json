@@ -16,11 +16,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "wzmacniacz odwracający", "correct": true },
-      { "id": 2, "answer": "wzmacniacz nieodwracający", "correct": false },
-      { "id": 3, "answer": "wzmacniacz całkujący", "correct": false },
-      { "id": 4, "answer": "wzmacniacz różniczkujący", "correct": false },
-      { "id": 5, "answer": "wzmacniacz sumujący", "correct": false }
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": true },
+      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
+      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
+      { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
     ]
   },
   {
@@ -40,11 +40,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "wzmacniacz odwracający", "correct": false },
-      { "id": 2, "answer": "wzmacniacz nieodwracający", "correct": true },
-      { "id": 3, "answer": "wzmacniacz całkujący", "correct": false },
-      { "id": 4, "answer": "wzmacniacz różniczkujący", "correct": false },
-      { "id": 5, "answer": "wzmacniacz sumujący", "correct": false }
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
+      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": true },
+      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
+      { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
     ]
   },
   {
@@ -64,11 +64,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "wzmacniacz odwracający", "correct": false },
-      { "id": 2, "answer": "wzmacniacz nieodwracający", "correct": false },
-      { "id": 3, "answer": "wzmacniacz całkujący", "correct": true },
-      { "id": 4, "answer": "wzmacniacz różniczkujący", "correct": false },
-      { "id": 5, "answer": "wzmacniacz sumujący", "correct": false }
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
+      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
+      { "id": 3, "val": "wzmacniacz całkujący", "correct": true },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
+      { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
     ]
   },
   {
@@ -88,11 +88,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "wzmacniacz odwracający", "correct": false },
-      { "id": 2, "answer": "wzmacniacz nieodwracający", "correct": false },
-      { "id": 3, "answer": "wzmacniacz całkujący", "correct": false },
-      { "id": 4, "answer": "wzmacniacz różniczkujący", "correct": true },
-      { "id": 5, "answer": "wzmacniacz sumujący", "correct": false }
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
+      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
+      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": true },
+      { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
     ]
   },
   {
@@ -112,11 +112,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "wzmacniacz odwracający", "correct": false },
-      { "id": 2, "answer": "wzmacniacz nieodwracający", "correct": false },
-      { "id": 3, "answer": "wzmacniacz całkujący", "correct": false },
-      { "id": 4, "answer": "wzmacniacz różniczkujący", "correct": false },
-      { "id": 5, "answer": "wzmacniacz sumujący", "correct": true }
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
+      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
+      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
+      { "id": 5, "val": "wzmacniacz sumujący", "correct": true }
     ]
   },
 
@@ -157,11 +157,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": true },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": true },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ],
     "explanation": [
       {
@@ -207,11 +207,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": true },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": true },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ],
     "explanation": [
       {
@@ -257,11 +257,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": true },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": true },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ],
     "explanation": [
       {
@@ -307,11 +307,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": true },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": true },
+      { "id": 5, "val": "E", "correct": false }
     ],
     "explanation": [
       {
@@ -357,11 +357,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": true }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": true }
     ],
     "explanation": [
       {
@@ -385,11 +385,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "odwracającego", "correct": true },
-      { "id": 2, "answer": "nieodwracającego", "correct": false },
-      { "id": 3, "answer": "całkującego", "correct": false },
-      { "id": 4, "answer": "różniczkującego", "correct": false },
-      { "id": 5, "answer": "sumującego", "correct": false }
+      { "id": 1, "val": "odwracającego", "correct": true },
+      { "id": 2, "val": "nieodwracającego", "correct": false },
+      { "id": 3, "val": "całkującego", "correct": false },
+      { "id": 4, "val": "różniczkującego", "correct": false },
+      { "id": 5, "val": "sumującego", "correct": false }
     ]
   },
   {
@@ -406,11 +406,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "odwracającego", "correct": false },
-      { "id": 2, "answer": "nieodwracającego", "correct": true },
-      { "id": 3, "answer": "całkującego", "correct": false },
-      { "id": 4, "answer": "różniczkującego", "correct": false },
-      { "id": 5, "answer": "sumującego", "correct": false }
+      { "id": 1, "val": "odwracającego", "correct": false },
+      { "id": 2, "val": "nieodwracającego", "correct": true },
+      { "id": 3, "val": "całkującego", "correct": false },
+      { "id": 4, "val": "różniczkującego", "correct": false },
+      { "id": 5, "val": "sumującego", "correct": false }
     ]
   },
   {
@@ -427,11 +427,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "odwracającego", "correct": false },
-      { "id": 2, "answer": "nieodwracającego", "correct": false },
-      { "id": 3, "answer": "całkującego", "correct": true },
-      { "id": 4, "answer": "różniczkującego", "correct": false },
-      { "id": 5, "answer": "sumującego", "correct": false }
+      { "id": 1, "val": "odwracającego", "correct": false },
+      { "id": 2, "val": "nieodwracającego", "correct": false },
+      { "id": 3, "val": "całkującego", "correct": true },
+      { "id": 4, "val": "różniczkującego", "correct": false },
+      { "id": 5, "val": "sumującego", "correct": false }
     ]
   },
   {
@@ -448,11 +448,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "odwracającego", "correct": false },
-      { "id": 2, "answer": "nieodwracającego", "correct": false },
-      { "id": 3, "answer": "całkującego", "correct": false },
-      { "id": 4, "answer": "różniczkującego", "correct": true },
-      { "id": 5, "answer": "sumującego", "correct": false }
+      { "id": 1, "val": "odwracającego", "correct": false },
+      { "id": 2, "val": "nieodwracającego", "correct": false },
+      { "id": 3, "val": "całkującego", "correct": false },
+      { "id": 4, "val": "różniczkującego", "correct": true },
+      { "id": 5, "val": "sumującego", "correct": false }
     ]
   },
   {
@@ -469,11 +469,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "odwracającego", "correct": false },
-      { "id": 2, "answer": "nieodwracającego", "correct": false },
-      { "id": 3, "answer": "całkującego", "correct": false },
-      { "id": 4, "answer": "różniczkującego", "correct": false },
-      { "id": 5, "answer": "sumującego", "correct": true }
+      { "id": 1, "val": "odwracającego", "correct": false },
+      { "id": 2, "val": "nieodwracającego", "correct": false },
+      { "id": 3, "val": "całkującego", "correct": false },
+      { "id": 4, "val": "różniczkującego", "correct": false },
+      { "id": 5, "val": "sumującego", "correct": true }
     ]
   },
 
@@ -505,27 +505,27 @@
     "options": [
       {
         "id": 1,
-        "answer": "A",
+        "val": "A",
         "correct": false
       },
       {
         "id": 2,
-        "answer": "B",
+        "val": "B",
         "correct": false
       },
       {
         "id": 3,
-        "answer": "C",
+        "val": "C",
         "correct": true
       },
       {
         "id": 4,
-        "answer": "D",
+        "val": "D",
         "correct": false
       },
       {
         "id": 5,
-        "answer": "Żadne z powyższych",
+        "val": "Żadne z powyższych",
         "correct": false
       }
     ]
@@ -558,25 +558,25 @@
     "options": [
       {
         "id": 1,
-        "answer": "A",
+        "val": "A",
         "correct": false
       },
       {
         "id": 2,
-        "answer": "B",
+        "val": "B",
         "correct": false
       },
       {
         "id": 3,
-        "answer": "C",
+        "val": "C",
         "correct": false
       },
       {
         "id": 4,
-        "answer": "D",
+        "val": "D",
         "correct": false
       },
-      { "id": 5, "answer": "Żadne z powyższych", "correct": true }
+      { "id": 5, "val": "Żadne z powyższych", "correct": true }
     ],
     "explanation": [
       {
@@ -632,15 +632,15 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false },
-      { "id": 6, "answer": "F", "correct": false },
-      { "id": 7, "answer": "G", "correct": true },
-      { "id": 8, "answer": "H", "correct": false },
-      { "id": 9, "answer": "Żadne z powyższych", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false },
+      { "id": 6, "val": "F", "correct": false },
+      { "id": 7, "val": "G", "correct": true },
+      { "id": 8, "val": "H", "correct": false },
+      { "id": 9, "val": "Żadne z powyższych", "correct": false }
     ]
   },
   {
@@ -685,15 +685,15 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": true },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false },
-      { "id": 6, "answer": "F", "correct": false },
-      { "id": 7, "answer": "G", "correct": false },
-      { "id": 8, "answer": "H", "correct": false },
-      { "id": 9, "answer": "Żadne z powyższych", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": true },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false },
+      { "id": 6, "val": "F", "correct": false },
+      { "id": 7, "val": "G", "correct": false },
+      { "id": 8, "val": "H", "correct": false },
+      { "id": 9, "val": "Żadne z powyższych", "correct": false }
     ]
   },
   {
@@ -722,11 +722,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": true },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "Żadne z powyższych", "correct": false }
+      { "id": 1, "val": "A", "correct": true },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "Żadne z powyższych", "correct": false }
     ]
   },
 
@@ -739,10 +739,10 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "0", "correct": false },
-      { "id": 2, "answer": "1", "correct": true },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": false }
+      { "id": 1, "val": "0", "correct": false },
+      { "id": 2, "val": "1", "correct": true },
+      { "id": 3, "val": "2", "correct": false },
+      { "id": 4, "val": "3", "correct": false }
     ],
     "explanation": [
       {
@@ -763,10 +763,10 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "0", "correct": true },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": false }
+      { "id": 1, "val": "0", "correct": true },
+      { "id": 2, "val": "1", "correct": false },
+      { "id": 3, "val": "2", "correct": false },
+      { "id": 4, "val": "3", "correct": false }
     ],
     "explanation": [
       {
@@ -787,10 +787,10 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "0", "correct": true },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": false }
+      { "id": 1, "val": "0", "correct": true },
+      { "id": 2, "val": "1", "correct": false },
+      { "id": 3, "val": "2", "correct": false },
+      { "id": 4, "val": "3", "correct": false }
     ],
     "explanation": [
       {
@@ -811,10 +811,10 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "0", "correct": true },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": false }
+      { "id": 1, "val": "0", "correct": true },
+      { "id": 2, "val": "1", "correct": false },
+      { "id": 3, "val": "2", "correct": false },
+      { "id": 4, "val": "3", "correct": false }
     ],
     "explanation": [
       {
@@ -835,10 +835,10 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "0", "correct": false },
-      { "id": 2, "answer": "1", "correct": true },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": false }
+      { "id": 1, "val": "0", "correct": false },
+      { "id": 2, "val": "1", "correct": true },
+      { "id": 3, "val": "2", "correct": false },
+      { "id": 4, "val": "3", "correct": false }
     ],
     "explanation": [
       {
@@ -859,10 +859,10 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "0", "correct": false },
-      { "id": 2, "answer": "1", "correct": true },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": false }
+      { "id": 1, "val": "0", "correct": false },
+      { "id": 2, "val": "1", "correct": true },
+      { "id": 3, "val": "2", "correct": false },
+      { "id": 4, "val": "3", "correct": false }
     ],
     "explanation": [
       {
@@ -883,10 +883,10 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "0", "correct": true },
-      { "id": 2, "answer": "1", "correct": false },
-      { "id": 3, "answer": "2", "correct": false },
-      { "id": 4, "answer": "3", "correct": false }
+      { "id": 1, "val": "0", "correct": true },
+      { "id": 2, "val": "1", "correct": false },
+      { "id": 3, "val": "2", "correct": false },
+      { "id": 4, "val": "3", "correct": false }
     ],
     "explanation": [
       {
@@ -967,11 +967,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": true },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": true },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1043,11 +1043,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": true }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": true }
     ]
   },
   {
@@ -1119,11 +1119,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": true },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": true },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1195,11 +1195,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": true },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": true },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1271,11 +1271,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": true },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": true },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1343,11 +1343,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": true },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": true },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1415,11 +1415,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": true },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": true },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1487,11 +1487,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": true }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": true }
     ]
   },
   {
@@ -1559,11 +1559,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": true },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": false },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": true },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1631,11 +1631,11 @@
       }
     ],
     "options": [
-      { "id": 1, "answer": "A", "correct": false },
-      { "id": 2, "answer": "B", "correct": false },
-      { "id": 3, "answer": "C", "correct": false },
-      { "id": 4, "answer": "D", "correct": true },
-      { "id": 5, "answer": "E", "correct": false }
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": true },
+      { "id": 5, "val": "E", "correct": false }
     ]
   },
   {
@@ -1645,32 +1645,32 @@
     "options": [
       {
         "id": 1,
-        "answer": "Nieskończenie duża impedancja wejściowa",
+        "val": "Nieskończenie duża impedancja wejściowa",
         "correct": true
       },
       {
         "id": 2,
-        "answer": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
+        "val": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
         "correct": false
       },
       {
         "id": 3,
-        "answer": "Zerowe wejściowe napięcie niezrównoważenia",
+        "val": "Zerowe wejściowe napięcie niezrównoważenia",
         "correct": true
       },
       {
         "id": 4,
-        "answer": "Skończone wzmocnienie napięciowe sygnału różnicowego",
+        "val": "Skończone wzmocnienie napięciowe sygnału różnicowego",
         "correct": false
       },
       {
         "id": 5,
-        "answer": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
+        "val": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
         "correct": true
       },
       {
         "id": 6,
-        "answer": "Skończona impedancja wejściowa",
+        "val": "Skończona impedancja wejściowa",
         "correct": false
       }
     ]
@@ -1682,32 +1682,32 @@
     "options": [
       {
         "id": 1,
-        "answer": "Impedancja wyjściowa równa zero",
+        "val": "Impedancja wyjściowa równa zero",
         "correct": true
       },
       {
         "id": 2,
-        "answer": "Impedancja wyjściowa jest niewielka",
+        "val": "Impedancja wyjściowa jest niewielka",
         "correct": false
       },
       {
         "id": 3,
-        "answer": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
+        "val": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
         "correct": true
       },
       {
         "id": 4,
-        "answer": "Nieskończenie duży zakres dynamiczny sygnału",
+        "val": "Nieskończenie duży zakres dynamiczny sygnału",
         "correct": true
       },
       {
         "id": 5,
-        "answer": "Pasmo przenoszenia sygnałów jest ograniczone",
+        "val": "Pasmo przenoszenia sygnałów jest ograniczone",
         "correct": false
       },
       {
         "id": 6,
-        "answer": "Wejścia wzmacniacza nie są symetryczne",
+        "val": "Wejścia wzmacniacza nie są symetryczne",
         "correct": false
       }
     ]
@@ -1719,32 +1719,32 @@
     "options": [
       {
         "id": 1,
-        "answer": "Nieskończenie duża impedancja wejściowa",
+        "val": "Nieskończenie duża impedancja wejściowa",
         "correct": false
       },
       {
         "id": 2,
-        "answer": "Zerowe wejściowe napięcie niezrównoważenia",
+        "val": "Zerowe wejściowe napięcie niezrównoważenia",
         "correct": false
       },
       {
         "id": 3,
-        "answer": "Skończone wzmocnienie napięciowe sygnału różnicowego",
+        "val": "Skończone wzmocnienie napięciowe sygnału różnicowego",
         "correct": true
       },
       {
         "id": 4,
-        "answer": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
+        "val": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
         "correct": false
       },
       {
         "id": 5,
-        "answer": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
+        "val": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
         "correct": true
       },
       {
         "id": 6,
-        "answer": "Skończona impedancja wejściowa",
+        "val": "Skończona impedancja wejściowa",
         "correct": true
       }
     ]
@@ -1756,32 +1756,32 @@
     "options": [
       {
         "id": 1,
-        "answer": "Impedancja wyjściowa równa zero",
+        "val": "Impedancja wyjściowa równa zero",
         "correct": false
       },
       {
         "id": 2,
-        "answer": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
+        "val": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
         "correct": false
       },
       {
         "id": 3,
-        "answer": "Nieskończenie duży zakres dynamiczny sygnału",
+        "val": "Nieskończenie duży zakres dynamiczny sygnału",
         "correct": false
       },
       {
         "id": 4,
-        "answer": "Impedancja wyjściowa jest niewielka",
+        "val": "Impedancja wyjściowa jest niewielka",
         "correct": true
       },
       {
         "id": 5,
-        "answer": "Pasmo przenoszenia sygnałów jest ograniczone",
+        "val": "Pasmo przenoszenia sygnałów jest ograniczone",
         "correct": true
       },
       {
         "id": 6,
-        "answer": "Wejścia wzmacniacza nie są symetryczne",
+        "val": "Wejścia wzmacniacza nie są symetryczne",
         "correct": true
       }
     ]
@@ -1792,12 +1792,12 @@
     "options": [
       {
         "id": 1,
-        "answer": "Idealnego WO",
+        "val": "Idealnego WO",
         "correct": true
       },
       {
         "id": 2,
-        "answer": "Rzeczywistego WO",
+        "val": "Rzeczywistego WO",
         "correct": false
       }
     ]

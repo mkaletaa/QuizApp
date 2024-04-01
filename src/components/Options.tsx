@@ -1,28 +1,19 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import MathJax from 'react-native-mathjax'
-import { Option } from '../utils/types'
-import Math from './ContentRenderer/Math'
 import { multiChoice as multiChoiceText } from '../../data/texts'
+import { Option } from '../utils/types'
 
 const OptionComponent = ({ option }: { option: Option }) => {
-  const { componentType, answer: answerValue } = option
+  const { val: answerValue } = option
 
-  switch (componentType) {
-    case 'Text':
-      return <Text style={styles.buttonText}>{answerValue} dddg</Text>
-    case 'Math':
-      return <Math value={answerValue} width={230} /> //todo zmienić width
-    default:
-      return <Text style={styles.buttonText}>{answerValue}</Text>
-  }
+  return <Text style={styles.buttonText}>{answerValue}</Text>
 }
 
 const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
   function setButtonBackground(pressedOption: Option) {
     let isChosen = chosenOptions.some(el => el.id === pressedOption.id)
-    const updatedOption = { ...pressedOption }
+    // const updatedOption = { ...pressedOption }
 
     //if this option has already been chosen, unchoose it
     if (isChosen) {
