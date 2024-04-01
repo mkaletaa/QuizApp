@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { StyleSheet, View, Text, Button } from 'react-native'
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
-// import Constants from 'expo-constants'
+import Constants from 'expo-constants'
 import * as Notifications from 'expo-notifications'
 
 const StickyHeaderScrollView = () => {
@@ -9,28 +9,29 @@ const StickyHeaderScrollView = () => {
   //   ? TestIds.BANNER
   //   : 'ca-app-pub-8755010348178299~4784433482'
   // Pobierz niestandardowe wartości zdefiniowane w app.json
-  // const ads = JSON.stringify(Constants.manifest2.extra.expoClient.extra.ads)
   // console.log(ads) // Wyświetli wartość customConfig z app.json
-
+  
   const handleButtonPress = async () => {
+    const ads = JSON.stringify(Constants.manifest2.extra.expoClient.name)
+    console.log("🚀 ~ StickyHeaderScrollView ~ ads:", ads)
     try {
-      await sendNotification()
+      // await sendNotification()
       console.log('Notification sent successfully')
     } catch (error) {
       console.error('Error sending notification:', error)
     }
   }
 
-  const sendNotification = async () => {
-    console.log('dede')
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: 'Nowa notyfikacja',
-        body: 'To jest treść nowej notyfikacji.',
-      },
-      trigger: null, // Notyfikacja zostanie natychmiast wyświetlona
-    })
-  }
+  // const sendNotification = async () => {
+  //   console.log('dede')
+  //   await Notifications.scheduleNotificationAsync({
+  //     content: {
+  //       title: 'Nowa notyfikacja',
+  //       body: 'To jest treść nowej notyfikacji.',
+  //     },
+  //     trigger: null, // Notyfikacja zostanie natychmiast wyświetlona
+  //   })
+  // }
 
   useEffect(() => {
     handleButtonPress()
@@ -49,7 +50,7 @@ const StickyHeaderScrollView = () => {
         // />
         null
         }
-      <Text>Test</Text>
+      <Text></Text>
       {true &&
         // <BannerAd
         //   unitId={TestIds.BANNER}

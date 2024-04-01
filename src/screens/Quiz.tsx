@@ -213,6 +213,8 @@ export default function Quiz({ route }) {
         )}
 
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
+
+        {/* <View style={{height: 100, width: 100, backgroundColor: 'red'}}></View> */}
       </ScrollView>
       <Modal
         animationType="fade"

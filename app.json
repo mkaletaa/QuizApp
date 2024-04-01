@@ -1,45 +1,53 @@
 {
-    "expo": {
-        "name": "IwIK - niezbednik studenta",
-        "slug": "iwik-niezbednik-studenta",
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": ".data/assets/icon.png",
-        "userInterfaceStyle": "light",
-        "splash": {
-            "image": ".data/assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
-        },
-        "assetBundlePatterns": [
-            "**/*"
-        ],
-        "ios": {
-            "supportsTablet": true
-        },
-        "android": {
-            "adaptiveIcon": {
-                "backgroundColor": "#ffffff"
-            },
-            "package": "com.mkaleta.QuizApp"
-        },
-        "web": {
-            "favicon": ".data/assets/icon.png"
-        },
-        "extra": {
-            "eas": {
-                "projectId": "69bb6743-1782-4108-bf6b-4c87b15031fb"
-            }
-        },
-        "owner": "mkaleta",
-        "runtimeVersion": {
-            "policy": "appVersion"
-        },
-        "updates": {
-            "url": "https://u.expo.dev/69bb6743-1782-4108-bf6b-4c87b15031fb"
-        }
+  "expo": {
+    "name": "QuizApp",
+    "slug": "QuizApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
-    "react-native-google-mobile-ads": {
-        "android_app_id": "ca-app-pub-8755010348178299~4784433482"
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.mkaleta.Test"
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "191fa6b4-fe87-4762-b84b-a71caf03250f"
+      }
+    },
+    "plugins": [
+      [
+        "expo-updates",
+        {
+          "username": "mkaleta"
+        }
+      ]
+    ],
+    "owner": "mkaleta",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/191fa6b4-fe87-4762-b84b-a71caf03250f"
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-8755010348178299~4784433482"
+  }
 }

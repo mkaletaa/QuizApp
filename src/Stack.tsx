@@ -9,6 +9,8 @@ import Settings from './screens/Settings'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
 import { removeUnderscores } from './utils/functions'
+import Settings2 from './screens/Settings2'
+import Settings3 from './screens/Settings3'
 
 const Stack = createStackNavigator()
 
@@ -75,7 +77,9 @@ const MyStack = () => {
         })}
       />
 
-      <Stack.Screen name="Options" component={Settings} />
+      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="Settings2" component={Settings2} />
+      <Stack.Screen name="Settings3" component={Settings3} />
     </Stack.Navigator>
   )
 }
