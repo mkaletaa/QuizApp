@@ -4,10 +4,10 @@
     "slug": "iwik-niezbednik-studenta",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": ".data/assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": ".data/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,7 +24,7 @@
       "package": "com.mkaleta.QuizApp"
     },
     "web": {
-      "favicon": "./assets/icon.png"
+      "favicon": ".data/assets/icon.png"
     },
     "extra": {
       "eas": {
