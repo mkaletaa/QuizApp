@@ -60,7 +60,7 @@ except Exception as err:
 # Wczytywanie ustawień języka z pliku settings.json
 settings_path = './data/settings.json'
 # Ścieżka do pliku package.json
-package_path = './package.json'
+package_path = './app.json'
 
 if os.path.exists(settings_path):
     with open(settings_path, 'r') as settings_file:
@@ -80,7 +80,7 @@ if os.path.exists(settings_path):
 
         # Pobranie wartości klucza name z pliku settings.json
         name = settings.get('name')
-        if name:
+        if False:
             # Wczytanie zawartości pliku package.json
             with open(package_path, 'r') as package_file:
                 package_data = json.load(package_file)
