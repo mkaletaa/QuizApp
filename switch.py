@@ -59,6 +59,9 @@ except Exception as err:
 
 # Wczytywanie ustawień języka z pliku settings.json
 settings_path = './data/settings.json'
+# Ścieżka do pliku package.json
+package_path = './package.json'
+
 if os.path.exists(settings_path):
     with open(settings_path, 'r') as settings_file:
         settings = json.load(settings_file)
@@ -73,7 +76,26 @@ if os.path.exists(settings_path):
                 print(f'Texts file copied successfully for lang: {lang}')
             except FileNotFoundError:
                 print(f'Texts file for lang {lang} does not exist')
-                sys.exit(1)
+                # sys.exit(1)
+
+        # Pobranie wartości klucza name z pliku settings.json
+        name = settings.get('name')
+        if name:
+            # Wczytanie zawartości pliku package.json
+            with open(package_path, 'r') as package_file:
+                package_data = json.load(package_file)
+                
+                # Aktualizacja wartości klucza name w pliku package.json
+                package_data['name'] = name
+                
+                # Zapisanie zmian w pliku package.json
+                with open(package_path, 'w') as package_file_updated:
+                    json.dump(package_data, package_file_updated, indent=4)
+                
+                print('Value of "name" key from settings.json successfully copied to package.json')
+        else:
+            print('Key "name" not found in settings.json')
+
 else:
     print('File settings.json does not exist')
     sys.exit(1)
