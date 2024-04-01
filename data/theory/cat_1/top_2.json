@@ -1,0 +1,26 @@
+[
+  {
+    "data": [
+      {
+        "type": "Header",
+        "value": "Dupa"
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "textty"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "type": "Image",
+        "value": "icon"
+      }
+    ]
+  }
+]

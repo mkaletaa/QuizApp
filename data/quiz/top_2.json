@@ -1,0 +1,67 @@
+[
+  {
+    "id": "cat_1|top_2|1",
+    "multiChoice": false,
+    "question": "What is the capital of France?",
+    "options": [
+      { "id": 11, "val": "Paris", "correct": true },
+      { "id": 21, "val": "Rome", "correct": false },
+      { "id": 31, "val": "Berlin", "correct": false },
+      { "id": 41, "val": "Madrid", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Text", 
+        "value": "French capital"
+      },
+      {
+        "type": "Text", 
+        "value": " is definitely Paris"
+      },
+      {
+        "type": "Image", 
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      }
+    ]
+  },
+  {
+    "id": "cat_1|top_2|2",
+    "multiChoice": true,
+    "question": "React CLI?",
+    "options": [
+      { "id": 11, "val": "create react app", "correct": false },
+      { "id": 21, "val": "create next app", "correct": true },
+      { "id": 31, "val": "create vite app", "correct": true }
+    ],
+    "explanation": "CRA is outdated"
+  },
+  {
+    "id": "cat_1|top_2|3",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text", 
+        "value": "What can be put on pizza"
+      },
+      {
+        "type": "Text", 
+        "value": "Except pineapple ofc"
+      },
+      {
+        "type": "Image", 
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      }
+    ],
+    "options": [
+      {
+        "id": 11,
+        "val": "chocolate",
+        "correct": false,
+        "type": "Text",
+        "props": {}
+      },
+      { "id": 21, "val": "cheese", "correct": true }
+    ],
+    "explanation": "..."
+  }
+]
