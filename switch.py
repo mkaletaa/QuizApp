@@ -2,20 +2,19 @@ import os
 import shutil
 import sys
 import argparse
+import json
 
 # Analiza argumentów wiersza poleceń
 parser = argparse.ArgumentParser(description='CLI for exporting and importing data folders')
-parser.add_argument('export_module', metavar='export_module', type=str,
+parser.add_argument('export_module', metavar='export_module', type=str, nargs='?',
                     help='Module you want to export')
-parser.add_argument('import_module', metavar='import_module', type=str,
+parser.add_argument('import_module', metavar='import_module', type=str, nargs='?',
                     help='Module you want to import')
-parser.add_argument('--lang', dest='language', choices=['pl', 'en'],
-                    help='Language flag: pl or en')
 args = parser.parse_args()
 
 expArg = args.export_module
+print("🚀 ~ expArg:", expArg)
 impArg = args.import_module
-language = args.language
 
 # Ścieżki folderów
 exp_source_path = './data'
@@ -41,7 +40,9 @@ if not os.path.exists(imp_source_path):
     print(f'Folder ./_modules/{impArg} does not exist')
     sys.exit(1)
 
-# Przeniesienie folderów
+
+#*################ Przenoszenie folderów #################
+
 try:
     shutil.move(exp_source_path, os.path.join(exp_destination_path, 'data'))
     print('Folder ./data exported successfully to', exp_destination_path)
@@ -51,18 +52,28 @@ except Exception as err:
 
 try:
     shutil.move(os.path.join(imp_source_path, 'data'), imp_destination_path)
-    print('Folder data from ./_modules/',imp_source_path,' imported successfully')
+    print('Folder data from',imp_source_path,' imported successfully')
 except Exception as err:
     print('Error importing folder:', err)
     sys.exit(1)
 
-# Kopiowanie pliku tekstowego w zależności od wartości flagi --lang
-if language:
-    texts_source_path = f'./_modules/texts-{language}.js'
-    texts_destination_path = './data/texts.js'
-    try:
-        shutil.copyfile(texts_source_path, texts_destination_path)
-        print(f'Texts file copied successfully for language: {language}')
-    except FileNotFoundError:
-        print(f'Texts file for language {language} does not exist')
-        sys.exit(1)
+# Wczytywanie ustawień języka z pliku settings.json
+settings_path = './data/settings.json'
+if os.path.exists(settings_path):
+    with open(settings_path, 'r') as settings_file:
+        settings = json.load(settings_file)
+        language = settings.get('language')
+
+        # Kopiowanie pliku tekstowego w zależności od ustawień języka
+        if language:
+            texts_source_path = f'./_modules/texts-{language}.js'
+            texts_destination_path = './data/texts.js'
+            try:
+                shutil.copyfile(texts_source_path, texts_destination_path)
+                print(f'Texts file copied successfully for language: {language}')
+            except FileNotFoundError:
+                print(f'Texts file for language {language} does not exist')
+                sys.exit(1)
+else:
+    print('File settings.json does not exist')
+    sys.exit(1)
