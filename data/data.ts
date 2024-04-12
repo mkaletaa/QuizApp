@@ -17,7 +17,8 @@ export const topics = {
     },
     {
       name: '_55',
-      image: 'h',
+      image:
+        'https://i.postimg.cc/V6bQ7dc6/20231004-angel-Number-555-1080-X1080-300x300.webp',
     },
   ],
 }
