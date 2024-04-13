@@ -27,7 +27,7 @@ export function removeUnderscores(
 //arg is the id of an item or the name of a topic
 export function sendAnEmail(arg) {
   const appName = settings.name
-  const email = 'kaleta222@gmail.com'
+  const email = 'learn.everything.app@proton.me'
   const subject = appName + mailSubject
   const body = arg + mailBody
 
