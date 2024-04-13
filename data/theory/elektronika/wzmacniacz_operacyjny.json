@@ -96,7 +96,7 @@
           },
           {
             "type": "ListElement",
-            "value": "<b>Współczynnik CMRR</b> - współczynnik tłumienia sygnału współbieżnego, określa o ile mniejsze jest wzmocnienie sygnału wspólnego od wzmocnienia(?) różnicowego"
+            "value": "<b>Współczynnik CMRR</b> - współczynnik tłumienia sygnału współbieżnego, określa o ile mniejsze jest wzmocnienie sygnału wspólnego od wzmocnienia różnicowego"
           },
           {
             "type": "ListElement",
