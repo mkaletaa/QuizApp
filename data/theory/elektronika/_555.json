@@ -63,7 +63,8 @@
     "data": [
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/YC48wLbf/image.png"
+        "value": "https://i.postimg.cc/YC48wLbf/image.png",
+        "props": {"orientation": "landscape"}
       },
       {
         "type": "Image",
