@@ -21,7 +21,7 @@
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
-      "package": "com.mkaleta.Test"
+      "package": "com.mkaleta.QuizApp.Test"
     },
     "web": {
       "favicon": "./assets/icon.png"
