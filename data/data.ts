@@ -1,24 +1,42 @@
 //if a name consists of more than one words, separate them with underscore
 export const chapters = [
   {
-    name: 'elektronika',
-    image:
-      'https://i.postimg.cc/cLqQPLB8/66583146-processore-del-computer-e-chip-di-sistema-della-scheda-madre-chip-della-cpu-circuito-elettr.jpg',
-    des: 'Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Te źródła nie są moje, więc jak coś jest źle to pretensje nie do mnie.',
+    name: 'cat_1',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_1',
   },
+  {
+    name: 'cat_2',
+    image: 'https://reactjs.org/logo-og.png',
+    des: 'short descirtption of a cat_2',
+  }
 ]
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
 export const topics = {
-  elektronika: [
+  cat_1: [
     {
-      name: 'wzmacniacz_operacyjny',
-      image: 'https://i.postimg.cc/nhGsgQML/wxmacniaczc.png',
-    },
-    {
-      name: '_55',
+      name: 'top_1',
       image:
-        'https://i.postimg.cc/V6bQ7dc6/20231004-angel-Number-555-1080-X1080-300x300.webp',
+        'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg',
     },
+    { name: 'top_2', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_3', image: 'https://reactjs.org/logo-og.png' },
   ],
+  cat_2: [
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+
+    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
+  ]
 }

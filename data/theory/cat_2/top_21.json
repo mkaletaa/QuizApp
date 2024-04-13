@@ -1,0 +1,10 @@
+[
+  {
+    "type": "Text",
+    "value": "text"
+  },
+   {
+     "type": "Text",
+     "value": "another text"
+   }
+]

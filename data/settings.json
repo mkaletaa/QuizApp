@@ -1,8 +1,6 @@
 {
   "lang": "pl",
-  "name":"IwIK - niezbędnik studenta",
-  "slug":"iwik-niezbednik-studenta",
-  "package": "com.mkaleta.IwIK",
-  "projectId": "69bb6743-1782-4108-bf6b-4c87b15031fb",
-  "updates_url":"https://u.expo.dev/69bb6743-1782-4108-bf6b-4c87b15031fb"
+  "name": "Test",
+  "slug": "test",
+  "package": "com.mkaleta.QuizApp.Test"
 }
