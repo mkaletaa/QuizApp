@@ -42,14 +42,13 @@ export default function Header(){
           onPress={() => navigation.navigate('Saved')}
         />
 
-        <Feather
+        {/* <Feather
           name="sliders"
           size={28}
           color="black"
           //@ts-ignore
           onPress={() => navigation.navigate('Settings')}
         />
-
         <Feather
           name="sliders"
           size={28}
@@ -63,7 +62,7 @@ export default function Header(){
           color="black"
           //@ts-ignore
           onPress={() => navigation.navigate('Settings3')}
-        />
+        /> */}
       </View>
     )
 }

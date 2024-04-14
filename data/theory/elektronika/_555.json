@@ -63,12 +63,13 @@
     "data": [
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/YC48wLbf/image.png",
-        "props": {"orientation": "landscape"}
+        "value": "https://i.postimg.cc/JzD9Jwrg/image.png",
+        "props": { "description": "Schemat aplikacyjny oraz zasada działania układu monostabilnego opartego na 555", "orientation": "horizontal" }
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/qM37qY83/image.png"
+        "value": "https://i.postimg.cc/qM37qY83/image.png",
+        "props": { "description": "Schemat aplikacyjny oraz zasada działania układu astabilnego opartego na 555"}
       }
     ]
   }

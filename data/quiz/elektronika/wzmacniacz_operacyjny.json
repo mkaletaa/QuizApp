@@ -1,6 +1,6 @@
 [
   {
-    "id": "elektronika|wzmacniacz_operacyjny|1",
+    "id": "elektronika|wzmacniacz_operacyjny|4",
     "multiChoice": false,
     "question": [
       {
@@ -9,17 +9,17 @@
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
+        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
       }
     ],
     "options": [
-      { "id": 1, "val": "wzmacniacz odwracający", "correct": true },
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
       { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
       { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
-      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": true },
       { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
     ]
   },
@@ -42,6 +42,54 @@
     "options": [
       { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
       { "id": 2, "val": "wzmacniacz nieodwracający", "correct": true },
+      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
+      { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|5",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Co to za schemat?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/Y94341TD/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ],
+    "options": [
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
+      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
+      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
+      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
+      { "id": 5, "val": "wzmacniacz sumujący", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|1",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Co to za schemat?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/t49x0qgr/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      }
+    ],
+    "options": [
+      { "id": 1, "val": "wzmacniacz odwracający", "correct": true },
+      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
       { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
       { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
       { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
@@ -72,56 +120,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|4",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Co to za schemat?"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
-      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
-      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
-      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": true },
-      { "id": 5, "val": "wzmacniacz sumujący", "correct": false }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|5",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Co to za schemat?"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "wzmacniacz odwracający", "correct": false },
-      { "id": 2, "val": "wzmacniacz nieodwracający", "correct": false },
-      { "id": 3, "val": "wzmacniacz całkujący", "correct": false },
-      { "id": 4, "val": "wzmacniacz różniczkujący", "correct": false },
-      { "id": 5, "val": "wzmacniacz sumujący", "correct": true }
-    ]
-  },
-
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|6",
+    "id": "elektronika|wzmacniacz_operacyjny|9",
     "multiChoice": false,
     "question": [
       {
@@ -130,7 +129,7 @@
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
+        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
           "orientation": "horizontal"
         }
@@ -157,16 +156,16 @@
       }
     ],
     "options": [
-      { "id": 1, "val": "A", "correct": true },
+      { "id": 1, "val": "A", "correct": false },
       { "id": 2, "val": "B", "correct": false },
       { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": false },
+      { "id": 4, "val": "D", "correct": true },
       { "id": 5, "val": "E", "correct": false }
     ],
     "explanation": [
       {
         "type": "Text",
-        "value": "To wzmacniacz odwracający"
+        "value": "To wzmacniacz różniczkujący"
       }
     ]
   },
@@ -221,6 +220,56 @@
     ]
   },
   {
+    "id": "elektronika|wzmacniacz_operacyjny|6",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/t49x0qgr/image.png",
+        "props": {
+          "orientation": "horizontal"
+        }
+      },
+      {
+        "type": "Math",
+        "value": "A) `U_{wy}=-R_2/R_1*U_{we}`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `U_{wy}=-R_2*C*(dU_{we})/dt`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+      }
+    ],
+    "options": [
+      { "id": 1, "val": "A", "correct": true },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": "To wzmacniacz odwracający"
+      }
+    ]
+  },
+  {
     "id": "elektronika|wzmacniacz_operacyjny|8",
     "multiChoice": false,
     "question": [
@@ -267,56 +316,6 @@
       {
         "type": "Text",
         "value": "To wzmacniacz całkujący"
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|9",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Math",
-        "value": "A) `U_{wy}=-R_2/R_1*U_{we}`"
-      },
-      {
-        "type": "Math",
-        "value": "B) `U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
-      },
-      {
-        "type": "Math",
-        "value": "C) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
-      },
-      {
-        "type": "Math",
-        "value": "D) `U_{wy}=-R_2*C*(dU_{we})/dt`"
-      },
-      {
-        "type": "Math",
-        "value": "E) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": false },
-      { "id": 2, "val": "B", "correct": false },
-      { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": true },
-      { "id": 5, "val": "E", "correct": false }
-    ],
-    "explanation": [
-      {
-        "type": "Text",
-        "value": "To wzmacniacz różniczkujący"
       }
     ]
   },
@@ -372,27 +371,6 @@
   },
 
   {
-    "id": "elektronika|wzmacniacz_operacyjny|11",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Jakiego wzmacniacza jest to zależność?"
-      },
-      {
-        "type": "Math",
-        "value": "`U_{wy}=-R_2/R_1*U_{we}`"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "odwracającego", "correct": true },
-      { "id": 2, "val": "nieodwracającego", "correct": false },
-      { "id": 3, "val": "całkującego", "correct": false },
-      { "id": 4, "val": "różniczkującego", "correct": false },
-      { "id": 5, "val": "sumującego", "correct": false }
-    ]
-  },
-  {
     "id": "elektronika|wzmacniacz_operacyjny|12",
     "multiChoice": false,
     "question": [
@@ -434,6 +412,28 @@
       { "id": 5, "val": "sumującego", "correct": false }
     ]
   },
+
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|15",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jakiego wzmacniacza jest to zależność?"
+      },
+      {
+        "type": "Math",
+        "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+      }
+    ],
+    "options": [
+      { "id": 1, "val": "odwracającego", "correct": false },
+      { "id": 2, "val": "nieodwracającego", "correct": false },
+      { "id": 3, "val": "całkującego", "correct": false },
+      { "id": 4, "val": "różniczkującego", "correct": false },
+      { "id": 5, "val": "sumującego", "correct": true }
+    ]
+  },
   {
     "id": "elektronika|wzmacniacz_operacyjny|14",
     "multiChoice": false,
@@ -456,7 +456,7 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|15",
+    "id": "elektronika|wzmacniacz_operacyjny|11",
     "multiChoice": false,
     "question": [
       {
@@ -465,18 +465,104 @@
       },
       {
         "type": "Math",
-        "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+        "value": "`U_{wy}=-R_2/R_1*U_{we}`"
       }
     ],
     "options": [
-      { "id": 1, "val": "odwracającego", "correct": false },
+      { "id": 1, "val": "odwracającego", "correct": true },
       { "id": 2, "val": "nieodwracającego", "correct": false },
       { "id": 3, "val": "całkującego", "correct": false },
       { "id": 4, "val": "różniczkującego", "correct": false },
-      { "id": 5, "val": "sumującego", "correct": true }
+      { "id": 5, "val": "sumującego", "correct": false }
     ]
   },
 
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|18",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza całkującego?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `U_{wy}=1/(R_2*C)*int U_{we} dt + U_{wy}`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `U_{wy}=1/(R_2*C)+int U_{we} dt + U_{wy}`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `U_{wy}=-1/(R_2*C)*int U_{we} dt + U_{wy}`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `U_{wy}=-1/(R_2*C)+int U_{we} dt + U_{wy}`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `U_{wy}=1/(R_1*C)*int U_{we} dt + U_{wy}`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `U_{wy}=1/(R_1*C)+int U_{we} dt + U_{wy}`"
+      },
+      {
+        "type": "Math",
+        "value": "G) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
+      },
+      {
+        "type": "Math",
+        "value": "H) `U_{wy}=-1/(R_1*C)+int U_{we} dt + U_{wy}`"
+      }
+    ],
+    "options": [
+      { "id": 1, "val": "A", "correct": false },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "E", "correct": false },
+      { "id": 6, "val": "F", "correct": false },
+      { "id": 7, "val": "G", "correct": true },
+      { "id": 8, "val": "H", "correct": false },
+      { "id": 9, "val": "Żadne z powyższych", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|wzmacniacz_operacyjny|20",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza sumującego?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `U_{wy}=R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `U_{wy}=-R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `U_{wy}=R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
+      }
+    ],
+    "options": [
+      { "id": 1, "val": "A", "correct": true },
+      { "id": 2, "val": "B", "correct": false },
+      { "id": 3, "val": "C", "correct": false },
+      { "id": 4, "val": "D", "correct": false },
+      { "id": 5, "val": "Żadne z powyższych", "correct": false }
+    ]
+  },
   {
     "id": "elektronika|wzmacniacz_operacyjny|16",
     "multiChoice": false,
@@ -591,59 +677,6 @@
   },
 
   {
-    "id": "elektronika|wzmacniacz_operacyjny|18",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza całkującego?"
-      },
-      {
-        "type": "Math",
-        "value": "A) `U_{wy}=1/(R_2*C)*int U_{we} dt + U_{wy}`"
-      },
-      {
-        "type": "Math",
-        "value": "B) `U_{wy}=1/(R_2*C)+int U_{we} dt + U_{wy}`"
-      },
-      {
-        "type": "Math",
-        "value": "C) `U_{wy}=-1/(R_2*C)*int U_{we} dt + U_{wy}`"
-      },
-      {
-        "type": "Math",
-        "value": "D) `U_{wy}=-1/(R_2*C)+int U_{we} dt + U_{wy}`"
-      },
-      {
-        "type": "Math",
-        "value": "E) `U_{wy}=1/(R_1*C)*int U_{we} dt + U_{wy}`"
-      },
-      {
-        "type": "Math",
-        "value": "F) `U_{wy}=1/(R_1*C)+int U_{we} dt + U_{wy}`"
-      },
-      {
-        "type": "Math",
-        "value": "G) `U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
-      },
-      {
-        "type": "Math",
-        "value": "H) `U_{wy}=-1/(R_1*C)+int U_{we} dt + U_{wy}`"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": false },
-      { "id": 2, "val": "B", "correct": false },
-      { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": false },
-      { "id": 5, "val": "E", "correct": false },
-      { "id": 6, "val": "F", "correct": false },
-      { "id": 7, "val": "G", "correct": true },
-      { "id": 8, "val": "H", "correct": false },
-      { "id": 9, "val": "Żadne z powyższych", "correct": false }
-    ]
-  },
-  {
     "id": "elektronika|wzmacniacz_operacyjny|19",
     "multiChoice": false,
     "question": [
@@ -694,39 +727,6 @@
       { "id": 7, "val": "G", "correct": false },
       { "id": 8, "val": "H", "correct": false },
       { "id": 9, "val": "Żadne z powyższych", "correct": false }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|20",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza sumującego?"
-      },
-      {
-        "type": "Math",
-        "value": "A) `U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
-      },
-      {
-        "type": "Math",
-        "value": "B) `U_{wy}=R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
-      },
-      {
-        "type": "Math",
-        "value": "C) `U_{wy}=-R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
-      },
-      {
-        "type": "Math",
-        "value": "D) `U_{wy}=R(R_1/U_{we1} + R_2/U_{we2} + ... + R_n/U_{wen})`"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": true },
-      { "id": 2, "val": "B", "correct": false },
-      { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": false },
-      { "id": 5, "val": "Żadne z powyższych", "correct": false }
     ]
   },
 
@@ -898,6 +898,10 @@
       }
     ]
   },
+
+
+
+  
   {
     "id": "elektronika|wzmacniacz_operacyjny|28",
     "multiChoice": false,
