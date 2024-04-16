@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
-import useAsyncStorage from '../utils/useAsyncStorage'
+import useAsyncStorage from '../utils/utilStorage'
 
 export default function Stats({ onClose, chapOrTop, key_: itemKey }) {
   const { getValue } = useAsyncStorage()
