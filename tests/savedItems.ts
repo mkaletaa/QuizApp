@@ -12,7 +12,7 @@ export async function clearAsyncStorage() {
 
 //* dev mode *//
  export const saveItemsRecursively = async index => {
-     if (index < 42) {
+     if (index < 100) {
        await testSaveItems(index)
        await saveItemsRecursively(index + 1) // Wywołanie rekurencyjne dla kolejnego indeksu
      }

@@ -1,5 +1,6 @@
 import { quiz } from '../../data/quiz/quizModule'
 import { Item } from './types'
+import { removeItem } from './utilStorage'
 
 const useQuizData = () => {
   function importItem(
@@ -16,7 +17,11 @@ const useQuizData = () => {
   function importItemById(id: string): Item {
     const [chapter, topic] = id.split('|')
 
-    if (!quiz[chapter][topic]) return null
+    if (!quiz[chapter] || !quiz[chapter][topic]) {
+      console.log("usuwanie itema: ", id)
+      removeItem(id) //usuwanie z pamięci nieistniejacego pytania
+      return null
+    }
     const itemIndex: number = quiz[chapter][topic].findIndex(
       item => item.id === id
     )

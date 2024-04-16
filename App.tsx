@@ -8,6 +8,7 @@ import CustomModal from './src/components/CustomModal'
 import { noInternetMessage } from './data/texts'
 import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
 import * as Updates from 'expo-updates'
+import { setValue } from './src/utils/utilStorage'
 export default function App() {
   const [showModal, setShowModal] = useState(false)
 
@@ -32,8 +33,9 @@ export default function App() {
     })
 
     onFetchUpdateAsync()
-    // saveItemsRecursively(0)
 
+    //*dev mode
+    // saveItemsRecursively(0)
     // clearAsyncStorage()
 
     return () => {
