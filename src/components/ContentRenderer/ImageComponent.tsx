@@ -13,6 +13,7 @@ import {
 } from 'react-native'
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
 import ImageViewer from 'react-native-image-zoom-viewer'
+import ImageView from 'react-native-image-viewing'
 import { close } from '../../../data/texts'
 import { StatusBar } from 'expo-status-bar'
 import { AntDesign } from '@expo/vector-icons'
@@ -24,12 +25,26 @@ const ImageComponent = ({
   orientation = null,
 }) => {
   const [modalVisible, setModalVisible] = useState(false)
+  const [indexState, setIndexState] = useState(0)
   const images = useStore(state => state.images)
 
   useEffect(() => {
     // console.log('images loaded', images)
-    useStore.getState().addImage(value)
+    // const index = images.length
+    // console.log('index: ', images.length)
+    useStore.getState().addImage(value, description)
+    // console.log('images: ', useStore.getState().images.length)
+    setIndexState(useStore.getState().images.length - 1)
+
   }, [])
+
+
+  const [des, setDes] = useState<string | undefined>(undefined)
+  useEffect(() => {
+    // console.log('onImageIndexChange', indexState)
+    console.log('images', images)
+    setDes(images[indexState]?.des)
+  }, [modalVisible, indexState])
 
   const openModal = () => {
     setModalVisible(true)
@@ -70,6 +85,33 @@ const ImageComponent = ({
   }
 
   const ratio = 0.9 //ratio between width of the image to screen (or container) width
+  // const images1 = [
+  //   {
+  //     uri: value,
+  //     description: 'dedede',
+  //   },
+  //   {
+  //     uri: 'https://images.unsplash.com/photo-1573273787173-0eb81a833b34',
+  //   },
+  //   {
+  //     uri: 'https://images.unsplash.com/photo-1569569970363-df7b6160d111',
+  //   },
+  // ]
+const images1 = [
+  {
+    // Simplest usage.
+    url: 'https://i.postimg.cc/vHL8D75v/image.png',
+
+    // width: number
+    // height: number
+    // Optional, if you know the image size, you can set the optimization performance
+
+    // You can pass props to <Image />.
+    props: {
+      // headers: ...
+    },
+  },
+]
 
   return (
     <React.Fragment>
@@ -89,6 +131,38 @@ const ImageComponent = ({
         <Text style={{ opacity: 0.5, marginTop: -10 }}>{description}</Text>
       )}
       {/* <StatusBar backgroundColor="rgba(255, 0, 0, 1)" hidden translucent /> */}
+{/* 
+      <ImageView
+        images={images}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+        imageIndex={indexState}
+        // style={{ width: '100%' }}
+        // renderIndicator={() => null}
+        presentationStyle={'pageSheet'}
+        onImageIndexChange={i => setDes(images[i]?.des)}
+        //@ts-ignore
+        FooterComponent={i => {
+          return (
+            des && (
+              <Text
+                style={{
+                  color: 'white',
+                  position: 'absolute',
+                  bottom: 0,
+                  paddingBottom: 20,
+                  backgroundColor: 'rgba(0, 0, 0, .5)',
+                  width: '100%',
+                  textAlign: 'center',
+                  paddingHorizontal: 10,
+                }}
+              >
+                {des}
+              </Text>
+            )
+          )
+        }}
+      /> */}
 
       <Modal
         visible={modalVisible}
@@ -98,42 +172,6 @@ const ImageComponent = ({
         statusBarTranslucent={true}
       >
         <View style={styles.modalContainer}>
-          {/* <PinchGestureHandler
-            onGestureEvent={handlePinch}
-            onHandlerStateChange={event => {
-              if (event.nativeEvent.state === State.END) {
-                Animated.spring(scale, {
-                  toValue: 1,
-                  useNativeDriver: true,
-                }).start()
-              }
-            }}
-          > */}
-          {/* <Animated.Image
-              key={value}
-              style={[
-                styles.modalImage,
-                {
-                  transform: [{ scale }],
-                },
-              ]}
-              source={{
-                uri: value,
-              }}
-            /> */}
-          {/* <TouchableOpacity> */}
-          <ImageViewer
-            imageUrls={images}
-            style={{ width: '100%' }}
-            renderIndicator={() => null}
-            // FooterComponent={() => <Text>dwdw</Text>}
-            // onImageIndexChange={
-            //   ()=>console.log('first')
-            // }
-          />
-          {/* </TouchableOpacity> */}
-          {/* </PinchGestureHandler> */}
-
           <AntDesign
             onPress={closeModal}
             name="arrowleft"
@@ -141,8 +179,7 @@ const ImageComponent = ({
             color="white"
             style={styles.closeButton}
           />
-
-          {/* <Button title = "Zamknij" color = "transparent"></Button> */}
+          <ImageViewer imageUrls={images1}/>
           {description && (
             <Text
               style={{
