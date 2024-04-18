@@ -17,6 +17,7 @@ import ContentRenderer from '../components/ContentRenderer'
 import QuizButton from '../components/ui/QuizButton'
 import TheoryPrompt from '../components/ui/TheoryPrompt'
 import { removeUnderscores } from '../utils/functions'
+import useStore from '../utils/store'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -28,6 +29,7 @@ export default function Theory({ route }) {
   const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
+  // const { images, addImage, removeImage } = useStore()
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
@@ -37,6 +39,27 @@ export default function Theory({ route }) {
       setShouldMemoize(true)
     }, 0)
   }, [route.params])
+
+  // useEffect(() => {
+  //   // Przetwarzanie danych i dodawanie wartości obrazów do stanu `images`
+  //   theoryData.forEach(segment => {
+  //     if (segment.data) {
+  //       segment.data.forEach(item => {
+  //         if (item.type === 'Image') {
+  //           const imageUrl = item.value
+  //           useStore.getState().addImage(imageUrl)
+  //         }
+  //       })
+  //     }
+  //   })
+  // }, [theoryData])
+
+  useEffect(() => {
+    return () => {
+      const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
+      clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
+    }
+  }, [])
 
   const renderHeader = () => (
     <View style={styles.header}>

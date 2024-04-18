@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Animated,
   Button,
@@ -16,7 +16,7 @@ import ImageViewer from 'react-native-image-zoom-viewer'
 import { close } from '../../../data/texts'
 import { StatusBar } from 'expo-status-bar'
 import { AntDesign } from '@expo/vector-icons'
-
+import useStore from '../../utils/store'
 const ImageComponent = ({
   width: containerWidth,
   description,
@@ -24,6 +24,12 @@ const ImageComponent = ({
   orientation = null,
 }) => {
   const [modalVisible, setModalVisible] = useState(false)
+  const images = useStore(state => state.images)
+
+  useEffect(() => {
+    // console.log('images loaded', images)
+    useStore.getState().addImage(value)
+  }, [])
 
   const openModal = () => {
     setModalVisible(true)
@@ -75,7 +81,7 @@ const ImageComponent = ({
             { width: containerWidth * ratio, height: setHeight(orientation) },
           ]}
           source={{
-            uri: value,
+            uri: value, //
           }}
         />
       </TouchableOpacity>
@@ -117,13 +123,16 @@ const ImageComponent = ({
             /> */}
           {/* <TouchableOpacity> */}
           <ImageViewer
-            imageUrls={[{ url: value }]}
+            imageUrls={images}
             style={{ width: '100%' }}
             renderIndicator={() => null}
+            // FooterComponent={() => <Text>dwdw</Text>}
+            // onImageIndexChange={
+            //   ()=>console.log('first')
+            // }
           />
           {/* </TouchableOpacity> */}
           {/* </PinchGestureHandler> */}
-
 
           <AntDesign
             onPress={closeModal}
