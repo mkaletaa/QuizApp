@@ -42,7 +42,7 @@ const ImageComponent = ({
   const [des, setDes] = useState<string | undefined>(undefined)
   useEffect(() => {
     // console.log('onImageIndexChange', indexState)
-    console.log('images', images)
+    // console.log('images', images)
     setDes(images[indexState]?.des)
   }, [modalVisible, indexState])
 
@@ -85,33 +85,6 @@ const ImageComponent = ({
   }
 
   const ratio = 0.9 //ratio between width of the image to screen (or container) width
-  // const images1 = [
-  //   {
-  //     uri: value,
-  //     description: 'dedede',
-  //   },
-  //   {
-  //     uri: 'https://images.unsplash.com/photo-1573273787173-0eb81a833b34',
-  //   },
-  //   {
-  //     uri: 'https://images.unsplash.com/photo-1569569970363-df7b6160d111',
-  //   },
-  // ]
-const images1 = [
-  {
-    // Simplest usage.
-    url: 'https://i.postimg.cc/vHL8D75v/image.png',
-
-    // width: number
-    // height: number
-    // Optional, if you know the image size, you can set the optimization performance
-
-    // You can pass props to <Image />.
-    props: {
-      // headers: ...
-    },
-  },
-]
 
   return (
     <React.Fragment>
@@ -131,7 +104,7 @@ const images1 = [
         <Text style={{ opacity: 0.5, marginTop: -10 }}>{description}</Text>
       )}
       {/* <StatusBar backgroundColor="rgba(255, 0, 0, 1)" hidden translucent /> */}
-{/* 
+      {/* 
       <ImageView
         images={images}
         visible={modalVisible}
@@ -179,8 +152,14 @@ const images1 = [
             color="white"
             style={styles.closeButton}
           />
-          <ImageViewer imageUrls={images1}/>
-          {description && (
+          <ImageViewer
+            onChange={i => setDes(images[i]?.des)}
+            imageUrls={images}
+            style={{ width: '100%' }}
+            renderIndicator={() => null}
+            index={indexState}
+          />
+          {des && (
             <Text
               style={{
                 color: 'white',
@@ -193,7 +172,7 @@ const images1 = [
                 paddingHorizontal: 10,
               }}
             >
-              {description}
+              {des}
             </Text>
           )}
         </View>
