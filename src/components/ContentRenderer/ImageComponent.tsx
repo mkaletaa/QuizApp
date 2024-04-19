@@ -18,6 +18,7 @@ import { close } from '../../../data/texts'
 import { StatusBar } from 'expo-status-bar'
 import { AntDesign } from '@expo/vector-icons'
 import useStore from '../../utils/store'
+import { LinearGradient } from 'expo-linear-gradient'
 const ImageComponent = ({
   width: containerWidth,
   description,
@@ -38,9 +39,9 @@ const ImageComponent = ({
     }
   }, [])
 
-  useEffect(() => {
-    console.log('images loaded', images)
-  }, [modalVisible])
+  // useEffect(() => {
+  //   console.log('images loaded', images)
+  // }, [modalVisible])
 
   const [des, setDes] = useState<string | undefined>(undefined)
   useEffect(() => {
@@ -57,11 +58,11 @@ const ImageComponent = ({
     setModalVisible(false)
   }
 
-  const scale = React.useRef(new Animated.Value(1)).current
-  const handlePinch = Animated.event(
-    [{ nativeEvent: { scale } }],
-    { useNativeDriver: true } // Specify options as an empty object
-  )
+  // const scale = React.useRef(new Animated.Value(1)).current
+  // const handlePinch = Animated.event(
+  //   [{ nativeEvent: { scale } }],
+  //   { useNativeDriver: true } // Specify options as an empty object
+  // )
 
   function setHeight(
     orientation:
@@ -107,38 +108,6 @@ const ImageComponent = ({
         <Text style={{ opacity: 0.5, marginTop: -10 }}>{description}</Text>
       )}
       {/* <StatusBar backgroundColor="rgba(255, 0, 0, 1)" hidden translucent /> */}
-      {/* 
-      <ImageView
-        images={images}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-        imageIndex={indexState}
-        // style={{ width: '100%' }}
-        // renderIndicator={() => null}
-        presentationStyle={'pageSheet'}
-        onImageIndexChange={i => setDes(images[i]?.des)}
-        //@ts-ignore
-        FooterComponent={i => {
-          return (
-            des && (
-              <Text
-                style={{
-                  color: 'white',
-                  position: 'absolute',
-                  bottom: 0,
-                  paddingBottom: 20,
-                  backgroundColor: 'rgba(0, 0, 0, .5)',
-                  width: '100%',
-                  textAlign: 'center',
-                  paddingHorizontal: 10,
-                }}
-              >
-                {des}
-              </Text>
-            )
-          )
-        }}
-      /> */}
 
       <Modal
         visible={modalVisible}
@@ -154,10 +123,12 @@ const ImageComponent = ({
             size={24}
             color="white"
             style={styles.closeButton}
-          /> 
+          />
           <ImageViewer
-            onChange={i => setDes(images[i]?.des ? images[i]?.des : description)}
-            imageUrls={images.length!==0 ? images : [{url: value}]}
+            onChange={i =>
+              setDes(images[i]?.des ? images[i]?.des : description)
+            }
+            imageUrls={images.length !== 0 ? images : [{ url: value }]}
             style={{ width: '100%' }}
             renderIndicator={() => null}
             index={indexState}
@@ -167,20 +138,44 @@ const ImageComponent = ({
             }}
           />
           {des && (
-            <Text
+            <View
               style={{
-                color: 'white',
-                position: 'absolute',
-                bottom: 0,
-                paddingBottom: 20,
-                backgroundColor: 'rgba(0, 0, 0, .5)',
                 width: '100%',
-                textAlign: 'center',
-                paddingHorizontal: 10,
+                flexDirection: 'column',
+                position: 'absolute',
+
+                bottom: 0,
               }}
             >
-              {des}
-            </Text>
+              <LinearGradient
+                // Button Linear Gradient
+                colors={[
+                  'transparent',
+                  'rgba(0, 0, 0, .5)',
+                  // 'rgba(0, 0, 0, .5)',
+                ]}
+                style={{
+                  width: '100%',
+                  height: 20, 
+                  // position: 'absolute',
+                  // bottom: 0,
+                }}
+              ></LinearGradient>
+              <Text
+                style={{
+                  color: 'white',
+                  // position: 'absolute',
+                  // bottom: 0,
+                  paddingBottom: 20,
+                  backgroundColor: 'rgba(0, 0, 0, .5)',
+                  width: '100%',
+                  textAlign: 'center',
+                  paddingHorizontal: 10,
+                }}
+              >
+                {des}
+              </Text>
+            </View>
           )}
         </View>
       </Modal>
@@ -218,6 +213,7 @@ const styles = StyleSheet.create({
     top: 40,
     left: 20,
     padding: 5,
+    zIndex: 1,
     textShadowColor: 'rgba(0, 0, 0, .9)', // kolor cienia
     textShadowRadius: 7, // promień cienia
   },
