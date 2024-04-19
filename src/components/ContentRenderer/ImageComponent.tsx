@@ -1,24 +1,17 @@
+import { AntDesign } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 import React, { useEffect, useState } from 'react'
 import {
-  Animated,
-  Button,
   Dimensions,
   Image,
   Modal,
-  Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native'
-import { PinchGestureHandler, State } from 'react-native-gesture-handler'
 import ImageViewer from 'react-native-image-zoom-viewer'
-import ImageView from 'react-native-image-viewing'
-import { close } from '../../../data/texts'
-import { StatusBar } from 'expo-status-bar'
-import { AntDesign } from '@expo/vector-icons'
 import useStore from '../../utils/store'
-import { LinearGradient } from 'expo-linear-gradient'
 const ImageComponent = ({
   width: containerWidth,
   description,
@@ -30,24 +23,22 @@ const ImageComponent = ({
   const images = useStore(state => state.images)
 
   useEffect(() => {
-    // const index = images.length
-    // console.log('index: ', images.length)
-    // console.log('images: ', useStore.getState().images.length)
+    // console.log('images: ', useStore.getState().images.length)\
+
+    // karuzela odpala się tylko gdy zdjęcie jest w Theory
     if (useStore.getState().carousel) {
-      useStore.getState().addImage(value, description)
-      setIndexState(useStore.getState().images.length - 1)
+      useStore.getState().addImage(value, description) //dodaj image do zustand
+      setIndexState(useStore.getState().images.length - 1) //ustaw indeks na podstawie tego ile zdjęć znajduje się w zustand w momencie mountingu
     }
   }, [])
 
-  // useEffect(() => {
-  //   console.log('images loaded', images)
-  // }, [modalVisible])
+  const [descriptionState, setDescriptionState] = useState<string | undefined>(
+    undefined
+  )
 
-  const [des, setDes] = useState<string | undefined>(undefined)
   useEffect(() => {
-    // console.log('onImageIndexChange', indexState)
     // console.log('images', images)
-    setDes(images[indexState]?.des)
+    setDescriptionState(images[indexState]?.des)
   }, [modalVisible, indexState])
 
   const openModal = () => {
@@ -57,12 +48,6 @@ const ImageComponent = ({
   const closeModal = () => {
     setModalVisible(false)
   }
-
-  // const scale = React.useRef(new Animated.Value(1)).current
-  // const handlePinch = Animated.event(
-  //   [{ nativeEvent: { scale } }],
-  //   { useNativeDriver: true } // Specify options as an empty object
-  // )
 
   function setHeight(
     orientation:
@@ -125,10 +110,14 @@ const ImageComponent = ({
             style={styles.closeButton}
           />
           <ImageViewer
-            onChange={i =>
-              setDes(images[i]?.des ? images[i]?.des : description)
-            }
+            //jeśli w zustandzie są jakieś zdjęcia to ich użyj, a jak nie to użyj propsa
             imageUrls={images.length !== 0 ? images : [{ url: value }]}
+            onChange={i =>
+              setDescriptionState(
+                //to samo co wyżej
+                images.length !== 0 ? images[i]?.des : description
+              )
+            }
             style={{ width: '100%' }}
             renderIndicator={() => null}
             index={indexState}
@@ -137,35 +126,22 @@ const ImageComponent = ({
               setModalVisible(false)
             }}
           />
-          {des && (
+          {descriptionState && (
             <View
               style={{
                 width: '100%',
                 flexDirection: 'column',
                 position: 'absolute',
-
                 bottom: 0,
               }}
             >
               <LinearGradient
-                // Button Linear Gradient
-                colors={[
-                  'transparent',
-                  'rgba(0, 0, 0, .5)',
-                  // 'rgba(0, 0, 0, .5)',
-                ]}
-                style={{
-                  width: '100%',
-                  height: 20, 
-                  // position: 'absolute',
-                  // bottom: 0,
-                }}
+                colors={['transparent', 'rgba(0, 0, 0, .5)']}
+                style={{ width: '100%', height: 20 }}
               ></LinearGradient>
               <Text
                 style={{
                   color: 'white',
-                  // position: 'absolute',
-                  // bottom: 0,
                   paddingBottom: 20,
                   backgroundColor: 'rgba(0, 0, 0, .5)',
                   width: '100%',
@@ -173,7 +149,7 @@ const ImageComponent = ({
                   paddingHorizontal: 10,
                 }}
               >
-                {des}
+                {descriptionState}
               </Text>
             </View>
           )}
@@ -185,19 +161,11 @@ const ImageComponent = ({
 
 const styles = StyleSheet.create({
   image: {
-    // width: "50%",
-    // height: 250,
-    // backgroundColor: '#fffff8',
-    // backgroundColor: 'rgba(255, 255, 240, 1)',
-
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, .1)',
     borderRadius: 8,
   },
   modalContainer: {
-    // flex: 1,
-    // width: 100,
-
     height: Dimensions.get('window').height,
     justifyContent: 'center',
     alignItems: 'center',
