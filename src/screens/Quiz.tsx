@@ -71,18 +71,15 @@ export default function Quiz({ route }) {
     shuffle: route.params.shuffle,
   })
 
-  useEffect(() => {
-        return () => {
-          const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
-          clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
-        }
-  }, []);
+  // useEffect(() => {
+  //       return () => {
+  //         const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
+  //         clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
+  //       }
+  // }, []);
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
   useEffect(() => {
-    // setTimeout(() => {
-    // console.log('quiz wywołanie')
-    // }, 2000)
     getNextItem() // pobranie pierwszego itema
   }, [whichItem])
 

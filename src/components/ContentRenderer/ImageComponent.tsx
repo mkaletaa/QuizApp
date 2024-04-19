@@ -29,15 +29,18 @@ const ImageComponent = ({
   const images = useStore(state => state.images)
 
   useEffect(() => {
-    // console.log('images loaded', images)
     // const index = images.length
     // console.log('index: ', images.length)
-    useStore.getState().addImage(value, description)
     // console.log('images: ', useStore.getState().images.length)
-    setIndexState(useStore.getState().images.length - 1)
-
+    if (useStore.getState().carousel) {
+      useStore.getState().addImage(value, description)
+      setIndexState(useStore.getState().images.length - 1)
+    }
   }, [])
 
+  useEffect(() => {
+    console.log('images loaded', images)
+  }, [modalVisible])
 
   const [des, setDes] = useState<string | undefined>(undefined)
   useEffect(() => {
@@ -151,13 +154,17 @@ const ImageComponent = ({
             size={24}
             color="white"
             style={styles.closeButton}
-          />
+          /> 
           <ImageViewer
-            onChange={i => setDes(images[i]?.des)}
-            imageUrls={images}
+            onChange={i => setDes(images[i]?.des ? images[i]?.des : description)}
+            imageUrls={images.length!==0 ? images : [{url: value}]}
             style={{ width: '100%' }}
             renderIndicator={() => null}
             index={indexState}
+            enableSwipeDown
+            onCancel={() => {
+              setModalVisible(false)
+            }}
           />
           {des && (
             <Text

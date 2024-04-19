@@ -2,7 +2,17 @@
   {
     "id": "cat_1|top_2|1",
     "multiChoice": false,
-    "question": "What is the capital of France?",
+    "question": [
+      {
+        "type": "Image",
+        "value": "https://legacy.reactjs.org/logo-og.png"
+      },
+      {
+        "type": "Text",
+        "value": "What's the capital of France"
+      }
+    ],
+
     "options": [
       { "id": 11, "val": "Paris", "correct": true },
       { "id": 21, "val": "Rome", "correct": false },
@@ -11,15 +21,15 @@
     ],
     "explanation": [
       {
-        "type": "Text", 
+        "type": "Text",
         "value": "French capital"
       },
       {
-        "type": "Text", 
+        "type": "Text",
         "value": " is definitely Paris"
       },
       {
-        "type": "Image", 
+        "type": "Image",
         "value": "https://legacy.reactjs.org/logo-og.png"
       }
     ]
@@ -40,15 +50,15 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text", 
+        "type": "Text",
         "value": "What can be put on pizza"
       },
       {
-        "type": "Text", 
+        "type": "Text",
         "value": "Except pineapple ofc"
       },
       {
-        "type": "Image", 
+        "type": "Image",
         "value": "https://legacy.reactjs.org/logo-og.png"
       }
     ],

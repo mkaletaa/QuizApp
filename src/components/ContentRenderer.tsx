@@ -135,7 +135,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 //tutaj trafia question, explanation i theory
 export default function ContentRenderer({
   content,
-  width,
+  width
 }: {
   content: string | Component[]
   width?: number

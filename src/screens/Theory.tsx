@@ -55,9 +55,13 @@ export default function Theory({ route }) {
   // }, [theoryData])
 
   useEffect(() => {
+    //todo: dodaj do store carousel=true
+    useStore.getState().enableCarousel()
+
     return () => {
-      const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
-      clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
+      useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
+      // clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
+      useStore.getState().disableCarousel()
     }
   }, [])
 
