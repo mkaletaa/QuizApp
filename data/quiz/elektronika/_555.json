@@ -74,9 +74,9 @@
       {
         "id": "2",
         "val": "Posiada dwa stany kwazistabilne",
-        "correct": true
+        "correct": false
       },
-      { "id": "3", "val": "Posiada dwa stany stabilne", "correct": false },
+      { "id": "3", "val": "Posiada dwa stany stabilne", "correct": true },
       {
         "id": "6",
         "val": "Stosowany jako 1-bitowa komórka pamięci",
