@@ -1,0 +1,346 @@
+[
+  {
+    "id": "elektronika|_555|1",
+    "multiChoice": true,
+    "question": "Zaznacz wszystkie prawdziwe informacje dotyczące multiwibratora monostabilnego",
+    "options": [
+      {
+        "id": "1",
+        "val": "Posiada jeden stan stabilny i jeden kwazistabilny",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Posiada dwa stany kwazistabilne",
+        "correct": false
+      },
+      { "id": "3", "val": "Posiada dwa stany stabilne", "correct": false },
+      {
+        "id": "5",
+        "val": "Stosowany jako generator taktujący (zegarowy)",
+        "correct": false
+      },
+      { "id": "4", "val": "Stosowany w technice cyfrowej", "correct": true },
+      {
+        "id": "6",
+        "val": "Stosowany jako 1-bitowa komórka pamięci",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|_555|2",
+    "multiChoice": true,
+    "question": "Zaznacz wszystkie prawdziwe informacje dotyczące multiwibratora astabilnego",
+    "options": [
+      {
+        "id": "1",
+        "val": "Posiada jeden stan stabilny i jeden kwazistabilny",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "Posiada dwa stany kwazistabilne",
+        "correct": true
+      },
+      { "id": "3", "val": "Posiada dwa stany stabilne", "correct": false },
+      {
+        "id": "4",
+        "val": "Stosowany w technice cyfrowej",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "Stosowany jako 1-bitowa komórka pamięci",
+        "correct": false
+      },
+      {
+        "id": "5",
+        "val": "Stosowany jako generator taktujący (zegarowy)",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "elektronika|_555|3",
+    "multiChoice": true,
+    "question": "Zaznacz wszystkie prawdziwe informacje dotyczące multiwibratora bistabilnego",
+    "options": [
+      {
+        "id": "1",
+        "val": "Posiada jeden stan stabilny i jeden kwazistabilny",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "Posiada dwa stany kwazistabilne",
+        "correct": true
+      },
+      { "id": "3", "val": "Posiada dwa stany stabilne", "correct": false },
+      {
+        "id": "6",
+        "val": "Stosowany jako 1-bitowa komórka pamięci",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "Stosowany w technice cyfrowej",
+        "correct": false
+      },
+      {
+        "id": "5",
+        "val": "Stosowany jako generator taktujący (zegarowy)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|_555|4",
+    "multiChoice": false,
+    "question": "W jaki sposób odbywa się przełączanie między stanami w multiwibratorze bistabilnym?",
+    "options": [
+      { "id": "1", "val": "Samoczynnie", "correct": false },
+      {
+        "id": "2",
+        "val": "Pod wpływem zewnętrznego impulsu",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Ze stabilnego do kwazistabilnego pod wpływem zewnętrznego impulsu, a z kwazistabilnego do stabilnego samoczynnie",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "Ze stabilnego do kwazistabilnego samoczynnie, a z kwazistabilnego do stabilnego pod wpływem zewnętrznego impulsu",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|_555|5",
+    "multiChoice": false,
+    "question": "W jaki sposób odbywa się przełączanie między stanami w multiwibratorze monostabilnym?",
+    "options": [
+      { "id": "1", "val": "Samoczynnie", "correct": false },
+      {
+        "id": "2",
+        "val": "Pod wpływem zewnętrznego impulsu",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "Ze stabilnego do kwazistabilnego pod wpływem zewnętrznego impulsu, a z kwazistabilnego do stabilnego samoczynnie",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "Ze stabilnego do kwazistabilnego samoczynnie, a z kwazistabilnego do stabilnego pod wpływem zewnętrznego impulsu",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|_555|6",
+    "multiChoice": false,
+    "question": "W jaki sposób odbywa się przełączanie między stanami w multiwibratorze astabilnym?",
+    "options": [
+      { "id": "1", "val": "Samoczynnie", "correct": true },
+      {
+        "id": "2",
+        "val": "Pod wpływem zewnętrznego impulsu",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "Ze stabilnego do kwazistabilnego pod wpływem zewnętrznego impulsu, a z kwazistabilnego do stabilnego samoczynnie",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "Ze stabilnego do kwazistabilnego samoczynnie, a z kwazistabilnego do stabilnego pod wpływem zewnętrznego impulsu",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|_555|7",
+    "multiChoice": false,
+    "question": "Ile wynosi maksymalne napięcie zasilania w układzie 555?",
+    "options": [
+      { "id": "1", "val": "+14 VDC", "correct": false },
+      { "id": "2", "val": "+16 VDC", "correct": false },
+      { "id": "3", "val": "+18 VDC", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|_555|8",
+    "multiChoice": false,
+    "question": "Ile wynosi maksymalna moc rozpraszania w układzie 555?",
+    "options": [
+      { "id": "1", "val": "100 mW", "correct": false },
+      { "id": "2", "val": "200 mW", "correct": false },
+      { "id": "3", "val": "300 mW", "correct": false },
+      { "id": "4", "val": "400 mW", "correct": false },
+      { "id": "5", "val": "500 mW", "correct": false },
+      { "id": "6", "val": "600 mW", "correct": true },
+      { "id": "7", "val": "700 mW", "correct": false },
+      { "id": "8", "val": "800 mW", "correct": false },
+      { "id": "9", "val": "900 mW", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|9",
+    "multiChoice": false,
+    "question": "Ile wynosi maksymalny prąd na wyjściu w układzie 555?",
+    "options": [
+      { "id": "1", "val": "100 mA", "correct": true },
+      { "id": "2", "val": "200 mA", "correct": false },
+      { "id": "3", "val": "300 mA", "correct": false },
+      { "id": "4", "val": "400 mA", "correct": false },
+      { "id": "5", "val": "500 mA", "correct": false },
+      { "id": "6", "val": "600 mA", "correct": false },
+      { "id": "7", "val": "700 mA", "correct": false },
+      { "id": "8", "val": "800 mA", "correct": false },
+      { "id": "9", "val": "900 mA", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|10",
+    "multiChoice": false,
+    "question": "Ile wynosi dopuszczalny zakres temperatury otoczenia w układzie 555?",
+    "options": [
+      { "id": "1", "val": "0-50*C", "correct": false },
+      { "id": "2", "val": "0-60*C", "correct": false },
+      { "id": "3", "val": "0-70*C", "correct": true },
+      { "id": "4", "val": "0-80*C", "correct": false },
+      { "id": "5", "val": "0-90*C", "correct": false },
+      { "id": "6", "val": "0-100*C", "correct": false },
+      { "id": "7", "val": "0-200*C", "correct": false },
+      { "id": "8", "val": "0-300*C", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|11",
+    "multiChoice": false,
+    "question": "Ile wynosi maksymalna temperatura lutowania (10 s) w układzie 555?",
+    "options": [
+      { "id": "1", "val": "50*C", "correct": false },
+      { "id": "2", "val": "60*C", "correct": false },
+      { "id": "3", "val": "70*C", "correct": false },
+      { "id": "4", "val": "80*C", "correct": false },
+      { "id": "5", "val": "90*C", "correct": false },
+      { "id": "6", "val": "100*C", "correct": false },
+      { "id": "7", "val": "200*C", "correct": false },
+      { "id": "8", "val": "300*C", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|_555|12",
+    "multiChoice": false,
+    "question": "Ile wynosi napięcie zasilania w układzie 555?",
+    "options": [
+      { "id": "1", "val": "4,5 - 16 V", "correct": true },
+      { "id": "2", "val": "4 - 18 V", "correct": false },
+      { "id": "3", "val": "4,5 - 18 V", "correct": false },
+      { "id": "4", "val": "4 - 16 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|13",
+    "multiChoice": false,
+    "question": "Ile wynosi prąd zasilania (stan niski na wyjściu) przy 5V w układzie 555?",
+    "options": [
+      { "id": "1", "val": "3 A", "correct": false },
+      { "id": "2", "val": "3 mA", "correct": true },
+      { "id": "3", "val": "10 A", "correct": false },
+      { "id": "4", "val": "10 mA", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|14",
+    "multiChoice": false,
+    "question": "Ile wynosi prąd zasilania (stan niski na wyjściu) przy 15V w układzie 555?",
+    "options": [
+      { "id": "1", "val": "3 A", "correct": false },
+      { "id": "2", "val": "3 mA", "correct": false },
+      { "id": "3", "val": "10 A", "correct": false },
+      { "id": "4", "val": "10 mA", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|_555|15",
+    "multiChoice": false,
+    "question": "Ile wynosi napięcie wyjścia w stanie niskim przy prądzie wpływającym 10 mA w układzie 555?",
+    "options": [
+      { "id": "1", "val": "0,1 V", "correct": true },
+      { "id": "2", "val": "0,5 V", "correct": false },
+      { "id": "3", "val": "2 V", "correct": false },
+      { "id": "4", "val": "2,5 V", "correct": false },
+      { "id": "5", "val": "5 V", "correct": false },
+      { "id": "6", "val": "12 V", "correct": false },
+      { "id": "7", "val": "12, 5 V", "correct": false },
+      { "id": "8", "val": "13, 5 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|16",
+    "multiChoice": false,
+    "question": "Ile wynosi napięcie wyjścia w stanie niskim przy prądzie wpływającym 100 mA w układzie 555?",
+    "options": [
+      { "id": "1", "val": "0,1 V", "correct": false },
+      { "id": "2", "val": "0,5 V", "correct": false },
+      { "id": "3", "val": "2 V", "correct": true },
+      { "id": "4", "val": "2,5 V", "correct": false },
+      { "id": "5", "val": "5 V", "correct": false },
+      { "id": "6", "val": "12 V", "correct": false },
+      { "id": "7", "val": "12, 5 V", "correct": false },
+      { "id": "8", "val": "13, 5 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|17",
+    "multiChoice": false,
+    "question": "Ile wynosi napięcie wyjścia w stanie niskim przy prądzie wpływającym 200 mA w układzie 555?",
+    "options": [
+      { "id": "1", "val": "0,1 V", "correct": false },
+      { "id": "2", "val": "0,5 V", "correct": false },
+      { "id": "3", "val": "2 V", "correct": false },
+      { "id": "4", "val": "2,5 V", "correct": true },
+      { "id": "5", "val": "5 V", "correct": false },
+      { "id": "6", "val": "12 V", "correct": false },
+      { "id": "7", "val": "12, 5 V", "correct": false },
+      { "id": "8", "val": "13, 5 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|_555|18",
+    "multiChoice": false,
+    "question": "Ile wynosi napięcie wyjścia w stanie wysokim przy prądzie wypływającym 100 mA w układzie 555?",
+    "options": [
+      { "id": "1", "val": "0,1 V", "correct": false },
+      { "id": "2", "val": "0,5 V", "correct": false },
+      { "id": "3", "val": "2 V", "correct": false },
+      { "id": "4", "val": "2,5 V", "correct": false },
+      { "id": "5", "val": "5 V", "correct": false },
+      { "id": "6", "val": "12 V", "correct": false },
+      { "id": "7", "val": "12, 5 V", "correct": false },
+      { "id": "8", "val": "13, 5 V", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|_555|19",
+    "multiChoice": false,
+    "question": "Ile wynosi napięcie wyjścia w stanie wysokim przy prądzie wypływającym 200 mA w układzie 555?",
+    "options": [
+      { "id": "1", "val": "0,1 V", "correct": false },
+      { "id": "2", "val": "0,5 V", "correct": false },
+      { "id": "3", "val": "2 V", "correct": false },
+      { "id": "4", "val": "2,5 V", "correct": false },
+      { "id": "5", "val": "5 V", "correct": false },
+      { "id": "6", "val": "12 V", "correct": false },
+      { "id": "7", "val": "12, 5 V", "correct": true },
+      { "id": "8", "val": "13, 5 V", "correct": false }
+    ]
+  }
+]

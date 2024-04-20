@@ -16,7 +16,7 @@
       },
       {
         "type": "Text",
-        "value": "Multiwibrator o dwóch stanach: stabilnym i kwazistabilnym; przełaczanue ze stanu stabilnego do kwazistabilnego zachodzi pod wpływem zewnętrznego impulsu wyzwalającego, zaś powrót - samoczynnie. Stosowany w technice cyfrowej."
+        "value": "Multiwibrator o dwóch stanach: stabilnym i kwazistabilnym; przełaczanie ze stanu stabilnego do kwazistabilnego zachodzi pod wpływem zewnętrznego impulsu wyzwalającego, zaś powrót - samoczynnie. Stosowany w technice cyfrowej."
       },
       {
         "type": "Header",
@@ -37,7 +37,7 @@
     ]
   },
   {
-    "title": "Struktura i parametry",
+    "title": "struktura i parametry",
     "data": [
       {
         "type": "Image",
@@ -47,6 +47,11 @@
       {
         "type": "Text",
         "value": "W strukturze układu znajdują się dwa komparatory, przerzutnik RS, dzielnik napięcia w stosunku 1:3 oraz układ (tranzystor i rezystor) służący do rozładowywania zewnętrznego układu RC decydującego o czasie trwania impulsu. Układ charakteryzuje się dużą obciążalnością +/- 200mA. Oznacza to, że zarówno w stanie wysokim jak i niskim prąd wyjściowy może mieć wartość równą 200mA. Umożliwia to bezpośrednie sterowanie np. przekaźnikiem lub urządzeniem wykonawczym o niewielkiej mocy. Zastosowanie elementów zewnętrznych o dużej stałości parametrów zapewnia uzyskanie stabilnych czasów (niezależnych od temperatury i zmian napięcia zasilania). Czas trwania impulsu może być ustawiany w bardzo szerokim zakresie od μs do kilkudzisięciu minut."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/hj0914Lj/image.png",
+        "props": { "description": "Notatka z wykładu (nie moja)", "orientation": "vertical" }
       },
       {
         "type": "Header",
@@ -64,12 +69,25 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/JzD9Jwrg/image.png",
-        "props": { "description": "Schemat aplikacyjny oraz zasada działania układu monostabilnego opartego na 555", "orientation": "horizontal" }
+        "props": {
+          "description": "Schemat aplikacyjny oraz zasada działania układu monostabilnego opartego na 555",
+          "orientation": "horizontal"
+        }
       },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/qM37qY83/image.png",
-        "props": { "description": "Schemat aplikacyjny oraz zasada działania układu astabilnego opartego na 555"}
+        "props": {
+          "description": "Schemat aplikacyjny oraz zasada działania układu astabilnego opartego na 555"
+        }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/C5QncRzF/image.png",
+        "props": {
+          "description": "Notatka z wykładu (nie moja)",
+          "orientation": "vertical"
+        }
       }
     ]
   }
