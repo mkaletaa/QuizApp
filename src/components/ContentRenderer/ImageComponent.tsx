@@ -3,15 +3,19 @@ import { LinearGradient } from 'expo-linear-gradient'
 import React, { useEffect, useState } from 'react'
 import {
   Dimensions,
-  Image,
+  // Image,
   Modal,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  ActivityIndicator,
+  ImageBackground,
 } from 'react-native'
+import { Image } from 'expo-image'
 import ImageViewer from 'react-native-image-zoom-viewer'
 import useStore from '../../utils/store'
+
 const ImageComponent = ({
   width: containerWidth,
   description,
@@ -21,6 +25,7 @@ const ImageComponent = ({
   const [modalVisible, setModalVisible] = useState(false)
   const [indexState, setIndexState] = useState(0)
   const images = useStore(state => state.images)
+  // const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     // console.log('images: ', useStore.getState().images.length)\
@@ -78,16 +83,29 @@ const ImageComponent = ({
   return (
     <React.Fragment>
       <TouchableOpacity onPress={openModal} activeOpacity={0.7}>
-        <Image
-          key={value}
-          style={[
-            styles.image,
-            { width: containerWidth * ratio, height: setHeight(orientation) },
-          ]}
-          source={{
-            uri: value, //
-          }}
-        />
+        {/* <View style={{}}> */}
+        {/* <ActivityIndicator size="large" color="#0000ff" /> */}
+        <View style={{ backgroundColor: '#FFFFFF', borderRadius: 8 }}>
+          <Image
+            key={value}
+            style={[
+              styles.image,
+              { width: containerWidth * ratio, height: setHeight(orientation) },
+            ]}
+            source={{
+              uri: value
+            }}
+            // placeholder={
+            //   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['
+            // }
+            placeholder={require('../../../assets/failImage.jpg')}
+            //todo: spróbowac require placeholdera i ogarnąć border w View, onError
+            contentFit="cover"
+            // placeholderContentFit="cover"
+          />
+        </View>
+
+        {/* </View> */}
       </TouchableOpacity>
       {description && (
         <Text style={{ opacity: 0.5, marginTop: -10 }}>{description}</Text>
@@ -125,6 +143,12 @@ const ImageComponent = ({
             onCancel={() => {
               setModalVisible(false)
             }}
+            loadingRender={() => {
+              return <Text>...</Text>
+            }}
+            // menus={e => null}
+
+            // onLongPress={null}
           />
           {descriptionState && (
             <View
@@ -164,6 +188,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, .1)',
     borderRadius: 8,
+    // flex: 1
   },
   modalContainer: {
     height: Dimensions.get('window').height,
