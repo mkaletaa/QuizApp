@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Switch, View, Text, Pressable } from 'react-native'
 import { getValue, setValue } from '../utils/utilStorage'
+import { useNavigation } from '@react-navigation/native'
+
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
     useState<boolean>()
@@ -17,6 +19,7 @@ const StickyHeaderScrollView = () => {
     setIsShuffleSwitchEnabled(prev => !prev)
   }
 
+  //tutaj niepotrzebnie się wywołuje podczas każdego mountingu
   useEffect(() => {
     try {
       setValue("shuffle", isShuffleSwitchEnabled)
@@ -25,17 +28,21 @@ const StickyHeaderScrollView = () => {
     }
   }, [isShuffleSwitchEnabled])
 
+  const navigation = useNavigation()
+
+
   return (
     <View style={styles.container}>
       <Pressable
         onPress={() => setShuffleStorage()}
         style={{
-          flexDirection: 'column',
+          flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'center',
-          gap: -10, //used to be -15
+          justifyContent: 'flex-start',
+          gap: 15, //used to be -15
           marginBottom: 10,
-
+          paddingHorizontal: 15,
+          // fontSize: 20
           // backgroundColor: 'blue',
         }}
       >
@@ -45,6 +52,27 @@ const StickyHeaderScrollView = () => {
         />
         <Text>Losowa kolejność pytań</Text>
       </Pressable>
+
+      <Pressable
+      //@ts-ignore
+        onPress={() => navigation.navigate('About')}
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          gap: 15, //used to be -15
+          marginBottom: 10,
+          paddingHorizontal: 15,
+          elevation: 5,
+          height: 50,
+          // fontSize: 20
+          backgroundColor: 'blue',
+        }}
+      >
+        <Text>O aplikacji</Text>
+      </Pressable>
+
+      <Text>Kontakt: <Text>ddddd</Text></Text>
     </View>
   )
 }

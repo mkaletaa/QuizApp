@@ -43,7 +43,7 @@ const ImageComponent = ({
 
   useEffect(() => {
     // console.log('images', images)
-    setDescriptionState(images[indexState]?.des)
+    setDescriptionState(description || images[indexState]?.des)
   }, [modalVisible, indexState])
 
   const openModal = () => {
@@ -93,7 +93,7 @@ const ImageComponent = ({
               { width: containerWidth * ratio, height: setHeight(orientation) },
             ]}
             source={{
-              uri: value
+              uri: value,
             }}
             // placeholder={
             //   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['
@@ -160,7 +160,19 @@ const ImageComponent = ({
               }}
             >
               <LinearGradient
-                colors={['transparent', 'rgba(0, 0, 0, .5)']}
+                colors={[
+                  'rgba(0, 0, 0, 0)',
+                  // 'rgba(0, 0, 0, .05)',
+                  // 'rgba(0, 0, 0, .10)',
+                  // 'rgba(0, 0, 0, .15)',
+                  // 'rgba(0, 0, 0, .20)',
+                  // 'rgba(0, 0, 0, .25)',
+                  // 'rgba(0, 0, 0, .30)',
+                  // 'rgba(0, 0, 0, .35)',
+                  // 'rgba(0, 0, 0, .40)',
+                  // 'rgba(0, 0, 0, .45)',
+                  'rgba(0, 0, 0, .5)',
+                ]}
                 style={{ width: '100%', height: 20 }}
               ></LinearGradient>
               <Text

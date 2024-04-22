@@ -11,6 +11,7 @@ import Topics from './screens/Topics'
 import { removeUnderscores } from './utils/functions'
 import Settings2 from './screens/Settings2'
 import Settings3 from './screens/Settings3'
+import About from './screens/About'
 
 const Stack = createStackNavigator()
 
@@ -74,6 +75,16 @@ const MyStack = () => {
             // marginLeft: -20,
             // fontWeight: 'bold',
           },
+        })}
+      />
+
+      <Stack.Screen
+        name="About"
+        component={About}
+        options={({ route }) => ({
+          ...header,
+          title: "About the App",
+
         })}
       />
 
