@@ -33,7 +33,7 @@ export async function removeKey(key) {
 // Ustawianie nowego klucza
 export async function setValue(key, value) {
   try {
-    await AsyncStorage.setItem(key, value);
+    await AsyncStorage.setItem(key, JSON.stringify(value));
     console.log('Nowy klucz został pomyślnie ustawiony!');
   } catch (e) {
     console.log('Wystąpił błąd podczas ustawiania nowego klucza:', e);

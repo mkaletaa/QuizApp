@@ -18,17 +18,18 @@ import Tile from '../components/Tile'
 import useFetchSavedItems from '../hooks/useFetchSavedItems'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { Item } from '../utils/types'
+import { getValue } from '../utils/utilStorage'
 
 export default function Saved() {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-  const openQuiz = useOpenQuiz()
+  const {openQuiz} = useOpenQuiz()
   const [showLoadingMoreSpinner, setShowLoadingMoreSpinner] = useState(true)
   const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
   const navigation = useNavigation()
-
+  const [shuffle, setShuffle] = useState<boolean>()
   function seeFullQuestion(item: Item): void {
     setModalItem(item)
     setShowModal(true)
@@ -36,6 +37,11 @@ export default function Saved() {
 
   useEffect(() => {
     fetchSavedItems()
+    // async function getShuffle(){
+    //   const val = await getValue("shuffle")
+    //   setShuffle(val)
+    // }
+    // getShuffle()
   }, [])
 
   useEffect(() => {
@@ -91,14 +97,19 @@ export default function Saved() {
             <SavedOptions
               itemsCount={savedItems.length}
               onPressQuiz={() => {
+                openQuiz({
+                chapterName: '__Saved__',
+                itemsArray: savedItems,
+                howManyItems: savedItems.length,
+              })
                 //@ts-ignore
-                navigation.navigate('Quiz', {
-                  chapName: '__Saved__',
-                  // topArray: [],
-                  itemsArray: savedItems,
-                  howManyItems: savedItems.length,
-                  shuffle: false,
-                })
+                // navigation.navigate('Quiz', {
+                //   chapName: '__Saved__',
+                //   // topArray: [],
+                //   itemsArray: savedItems,
+                //   howManyItems: savedItems.length,  
+                //   shuffle,
+                // })
               }}
               onToggleSwitch={toggleSwitch}
               isEnabled={isEnabled}

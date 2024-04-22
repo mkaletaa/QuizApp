@@ -32,7 +32,7 @@ export default function Topics({ route }) {
 
   //this function calls importQuiz and gives it an array of chosen topics
   const showQuiz = (topicName: string, chapterName: string): void => {
-    openQuiz(topicName, chapterName)
+    openQuiz({topicName, chapterName})
   }
 
   const [pressedTopic, setPressedTopic] = useState<string>()

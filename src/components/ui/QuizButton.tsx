@@ -14,7 +14,7 @@ const {openQuiz, noQuestionModal} = useOpenQuiz()
     <Button
       title={takeAQuiz}
       color="rgb(0, 150, 255)"
-      onPress={() => openQuiz(topicName, chapterName)}
+      onPress={() => openQuiz({topicName, chapterName})}
       />
       {noQuestionModal()}
       </React.Fragment>

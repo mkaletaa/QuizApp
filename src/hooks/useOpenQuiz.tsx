@@ -4,27 +4,47 @@ import { quiz } from '../../data/quiz/quizModule'
 import { Button, Modal, Text } from 'react-native'
 import CustomModal from '../components/CustomModal'
 import { noQuestions } from '../../data/texts'
+import { getValue } from '../utils/utilStorage'
 
 const useOpenQuiz = () => {
   const navigation = useNavigation()
   const [showNoQuestionsModal, setShowNoQuestionsModal] = useState(false)
 
+  type openQuizPropType = {
+    topicName?: string
+    chapterName: string
+    howManyItems?: number
+    shuffle?: boolean
+    itemsArray?: string[]
+  }
+
   const openQuiz = (
-    topicName: string,
-    chapterName: string,
-    howManyItems?: number,
-    shuffle: boolean = true,
-    itemsArray?: string[] //nie wiem czy nie trzeba Item[]
+    {
+      topicName,
+      chapterName,
+      howManyItems,
+      shuffle,
+      itemsArray,
+    }: openQuizPropType //nie wiem czy nie trzeba Item[]
   ): void => {
-    //jeśli nie ma żadnego quizu w tej kategorii
-    if (!quiz[chapterName] && chapterName !== '__All__') {
-      console.warn('brak quizu', chapterName)
+    //jeśli jest rozdział i wybrano infinity mode
+    //? kiedy jest infinityMode to nazwa topika jest równa ""
+    if (howManyItems === Infinity) {
+      shuffle = true
+      navigate()
+      //jeśli jest pytania z saved lub rozdział i dany topik ma quiz
+    } else if (itemsArray || quiz[chapterName][topicName]) {
+      console.log(itemsArray)
+      ;(async function gV() {
+        shuffle = await getValue('shuffle')
+        navigate()
+      })()
+    } else {
+      //jeśli kliknięty topik nie ma quizu
       setShowNoQuestionsModal(true)
     }
-    //jeśli jest rozdział i dany topik ma quiz lub wybrano infinity mode
-    //? kiedy jest infinityMode to nazwa topika jest równa ""
-    else if (howManyItems === Infinity || quiz[chapterName][topicName] ) {
-      console.log('second')
+
+    function navigate() {
       //@ts-ignore
       navigation.navigate('Quiz', {
         topName: topicName,
@@ -33,15 +53,10 @@ const useOpenQuiz = () => {
         shuffle,
         itemsArray,
       })
-    } else {
-      //jeśli kliknięty topik nie ma quizu
-      setShowNoQuestionsModal(true)
-
-      //zrób coś jeśli nie ma quizu dla tego topika
     }
   }
 
-  const noQuestionModal =()=>{
+  const noQuestionModal = () => {
     return (
       // null
       <CustomModal

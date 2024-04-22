@@ -8,10 +8,10 @@ export default function RandomQuestion({ chapName }) {
   const navigation = useNavigation()
   const {openQuiz} = useOpenQuiz()
 
-  const screenWidth = Dimensions.get('window').width
+  const screenWidth = Dimensions.get('window').width 
   function instantQuestion() {
     // try {
-      openQuiz('', chapName, Infinity)
+      openQuiz({topicName:'', chapterName: chapName, howManyItems:Infinity, shuffle:true})
       //@ts-ignore
       // navigation.navigate('Quiz', {
       //   topName: '',
