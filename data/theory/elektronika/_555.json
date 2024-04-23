@@ -1,10 +1,11 @@
 [
   {
-    "title": "pojęcia",
+    "title": "pojęcia i przebiegi",
     "data": [
       {
         "type": "Header",
-        "value": "Multiwibrator"
+        "value": "Multiwibrator",
+        "props": { "size": "lg" }
       },
       {
         "type": "Text",
@@ -33,6 +34,16 @@
       {
         "type": "Text",
         "value": "Inaczej przerzutnik bistabilny. Posiada dwa stany stabilne. Przełączanie między stanami odbywa się pod wpływem zewnętrznego impulsu wyzwalającego. Stosowany głównie jako pamięć (1-bitowa komórka pamięci)."
+      },
+      {
+        "type": "Header",
+        "value": "Przebiegi",
+        "props": { "size": "lg" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/8k9L6RKM/image.png",
+        "props": { "orientation": "vertical" }
       }
     ]
   },

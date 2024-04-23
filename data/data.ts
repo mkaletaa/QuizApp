@@ -20,5 +20,9 @@ export const topics = {
       image:
         'https://i.postimg.cc/V6bQ7dc6/20231004-angel-Number-555-1080-X1080-300x300.webp',
     },
+    {
+      name: 'układy_logiczne',
+      image: 'https://i.postimg.cc/x1XtLjYF/image.png',
+    },
   ],
 }

@@ -1,6 +1,6 @@
 [
   {
-    "title": "podstawowe informacje",
+    "title": "definicja, symbol, cha-ka",
     "data": [
       {
         "type": "Header",
@@ -12,117 +12,8 @@
       },
       {
         "type": "Header",
-        "value": "Zastosowania"
-      },
-      {
-        "type": "List",
-        "value": [
-          {
-            "type": "ListElement",
-            "value": "układy rozszerzające możliwości pracy wzmacniacza"
-          },
-          {
-            "type": "ListElement",
-            "value": "wzmacniacze o wzmocnieniu regulowanym napięciem stałym"
-          },
-          {
-            "type": "ListElement",
-            "value": "wzmacniacze o sprzężeniu pojemnościowym"
-          },
-          {
-            "type": "ListElement",
-            "value": "wzmacniacze całkujące"
-          },
-          {
-            "type": "ListElement",
-            "value": "wzmacniacze różniczkujące"
-          },
-          {
-            "type": "ListElement",
-            "value": "źródła napięcia o dużej stabilności"
-          },
-          {
-            "type": "ListElement",
-            "value": "źródła prądu stałego"
-          },
-          {
-            "type": "ListElement",
-            "value": "konwertery napięcie-prąd i prąd-napięcie"
-          },
-          {
-            "type": "ListElement",
-            "value": "ograniczniki napięcia"
-          },
-          {
-            "type": "ListElement",
-            "value": "diodowe generatory funkcujne"
-          },
-          {
-            "type": "ListElement",
-            "value": "układy mnożące i dzielące"
-          },
-          {
-            "type": "ListElement",
-            "value": "generatory przebiegów"
-          },
-          {
-            "type": "ListElement",
-            "value": "filtry aktywne"
-          },
-          {
-            "type": "ListElement",
-            "value": "układy aktywne RC jako indukcyjności"
-          },
-          {
-            "type": "ListElement",
-            "value": "wydłużacze impulsów"
-          },
-          {
-            "type": "ListElement",
-            "value": "detektory szczytowe"
-          }
-        ]
-      },
-      {
-        "type": "Header",
-        "value": "Definicje podstawowych właściwości"
-      },
-      {
-        "type": "List",
-        "value": [
-          {
-            "type": "ListElement",
-            "value": "<b>częstotliwość graniczna</b> - największa częstotliwość przy której wzmocnienie napięciowe spada o 3dB w stosunku do wzmocnienia wzmocnienia dla częstotliwości środkowej"
-          },
-          {
-            "type": "ListElement",
-            "value": "<b>Współczynnik CMRR</b> - współczynnik tłumienia sygnału współbieżnego, określa o ile mniejsze jest wzmocnienie sygnału wspólnego od wzmocnienia różnicowego"
-          },
-          {
-            "type": "ListElement",
-            "value": "<b>wejściowe napięcie niezrównoważenia</b> - napięcie różnicowe (od 1μV do kilku mV) jakie trzeba podać na wejścia aby agby napiecie wyjściowe było równe zero. Napięcie to pojawia się ponieważ wejścia wzmacniacza nie są symetryczne"
-          },
-          {
-            "type": "ListElement",
-            "value": "<b>wejściowe prądy polaryzacyjne</b> - prądy wpływajace lub wypływające z wejść wzmacniacza operacyjnego"
-          },
-          {
-            "type": "ListElement",
-            "value": "<b>różnicowe wzmocnienie napięciowe (Ku)</b> - stosunek napięcia wyjściowego do różnicowego napięcia na wejściu przy otwartej pętli sprzężenia zwrotnego"
-          },
-          {
-            "type": "ListElement",
-            "value": "<b>wyjściowe napiecie niezrównoważenia</b> - napięcie na wyjsćiu wzmacniacza gdy na obu wejściach napięcie jest równje zero"
-          },
-          {
-            "type": "ListElement",
-            "value": "<b>CMRR</b> - współczynnik tłumienia sygnału współbieżnego. Jest to stosunek wzmocnienia sygnału różnicowego do wzmocnienia sygnału współbieżnego."
-          }
-        ]
-      },
-      {
-        "type": "Header",
-        "value": "Ogólny symbol wzmacniacza operacyjnego z uwzględnieniem linii zasilających:"
+        "value": "Ogólny symbol wzmacniacza operacyjnego z uwzględnieniem linii zasilających:",
+        "props": { "size": "sm" }
       },
       {
         "type": "Image",
@@ -130,47 +21,15 @@
         "props": {
           "orientation": "landscape"
         }
-      }
-    ]
-  },
-  {
-    "title": "charakterystyki przejściowe",
-    "data": [
-      {
-        "type": "Header",
-        "value": "Dla WO nieodwracającego:",
-        "props": {
-          "size": "md"
-        }
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/SKfYNjZ2/image.png",
-        "props": {
-          "orientation": "square"
-        }
       },
       {
         "type": "Header",
-        "value": "Dla WO odwracającego:"
+        "value": "Charakterystyka przejściowa"
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/mk7g8gPN/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Header",
-        "value": "Przykładowa charakterystyka częstotliwościowa wzmacniacza odwracającego o wzmocnieniu 10:"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/VNtpSrpR/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
+        "value": "https://i.postimg.cc/CxrJJS8X/image.png",
+        "props": { "description": "notatka z wykładu żabsona" }
       }
     ]
   },
@@ -207,20 +66,24 @@
           {
             "type": "ListElement",
             "value": "Nieskończenie duży zakres dynamiczny sygnału"
+          },
+          {
+            "type": "ListElement",
+            "value": "Zerowy prąd wejściowy"
           }
         ]
       },
 
       {
         "type": "Header",
-        "value": "Parametry rzeczywistego WO:"
+        "value": "Parametry rzeczywistego (współczesnego) WO:"
       },
       {
         "type": "List",
         "value": [
           {
             "type": "ListElement",
-            "value": "Wzmocnienie napięciowe sygnału różnicowego nie jest nieskończenie wielkie, choć bardzo duże"
+            "value": "Wzmocnienie napięciowe 10^4 - 10^6 V/V lub 80 - 120 dB"
           },
           {
             "type": "ListElement",
@@ -228,33 +91,57 @@
           },
           {
             "type": "ListElement",
-            "value": "Impedancja wejściowa nie jest nieskończona, choć bardzo duża"
+            "value": "Impedancja wejściowa 10^7 - 10^13 ohmów"
           },
           {
             "type": "ListElement",
-            "value": "Impedancja wyjściowa jest niewielka, z reguły kilkadziesiąt ohmów"
+            "value": "Impedancja wyjściowa z reguły kilkadziesiąt ohmów"
           },
           {
             "type": "ListElement",
-            "value": "Pasmo przenoszenia sygnałów jest ograniczone"
+            "value": "Pasmo przenoszonych częstotliwości kilkadziesiąt mega herców"
           },
           {
             "type": "ListElement",
             "value": "Wejścia wzmacniacza nie są idealnie symetryczne"
+          },
+          {
+            "type": "ListElement",
+            "value": "Prąd wejściowy z zakresu 10^(-14) - 10^(-4) A"
           }
         ]
       }
     ]
   },
   {
-    "title": "schematy",
+    "title": "schematy, wzory i wykresy",
     "data": [
+      {
+        "type": "Text",
+        "value": "Nie ma wyprowadzeń, ale one wynikają z 1 prawa Kirchhoffa i prawa Ohma. Jak masz dobrze wyprowadzone to pisz maila. "
+      },
       { "type": "Header", "value": "Wtórnik napięciowy" },
+      {
+        "type": "Math",
+        "value": "`U_{wy}=U_{we}`"
+      },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/7YF2K1vy/image.png",
         "props": {
           "orientation": "horizontal"
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Wykres Uwy jest <b>dokładnie</b> taki sam jak Uwe, np:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/vmzKyHQ3/image.png",
+        "props": {
+          "orientation": "horizontal",
+          "description": "wtórnik napięciowy"
         }
       },
       { "type": "Header", "value": "Wzmacniacz odwracający" },
@@ -266,8 +153,14 @@
         "type": "Image",
         "value": "https://i.postimg.cc/t49x0qgr/image.png",
         "props": {
-          "orientation": "horizontal"
+          "orientation": "horizontal",
+          "description": "odwracający"
         }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/nhVKGHhN/image.png",
+        "props": { "description": "odwracający" }
       },
       { "type": "Header", "value": "Wzmacniacz nieodwracający" },
       {
@@ -278,8 +171,14 @@
         "type": "Image",
         "value": "https://i.postimg.cc/wv5zdpMV/image.png",
         "props": {
-          "orientation": "horizontal"
+          "orientation": "horizontal",
+          "description": "nieodwracający"
         }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/pV6z7bt8/image.png",
+        "props": { "description": "nieodwracający" }
       },
       { "type": "Header", "value": "Wzmacniacz całkujący" },
       {
@@ -290,8 +189,17 @@
         "type": "Image",
         "value": "https://i.postimg.cc/CK1JgHK6/image.png",
         "props": {
-          "orientation": "horizontal"
+          "orientation": "horizontal", "description":"całkujący"
         }
+      },
+      {
+        "type": "Text",
+        "value": "Wykres to całka z sygnału wejściowego"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/vHVv3Qfm/image.png",
+        "props": { "description": "całkujący" }
       },
       { "type": "Header", "value": "Wzmacniacz różniczkujący" },
       {
@@ -302,8 +210,17 @@
         "type": "Image",
         "value": "https://i.postimg.cc/tTF6QYFM/image.png",
         "props": {
-          "orientation": "horizontal"
+          "orientation": "horizontal", "description":"różniczkujący"
         }
+      },
+      {
+        "type": "Text",
+        "value": "wykres to po prostu pochodna z sygnału wejściowego"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/bJk57Q2Z/image.png",
+        "props": { "description": "różniczkujący", "orientation": "portrait" }
       },
       { "type": "Header", "value": "Wzmacniacz sumujący" },
       {
@@ -316,6 +233,10 @@
         "props": {
           "orientation": "horizontal"
         }
+      },
+      {
+        "type": "Text",
+        "value": "Wykres WE to suma sygnałów wejściowych, czyli jak masz dwa wejścia i na obu są sinusoidy, to output też będzie sinusoidą tylko rozciągniętą względem osi czasu."
       },
       { "type": "Header", "value": "Wzmacniacz różnicowy" },
       {
