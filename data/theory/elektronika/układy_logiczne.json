@@ -1,8 +1,85 @@
 [
-    {
-        "title": "",
-        "data": [
-            
-        ]
-    }
+  {
+    "title": "algebra Boole'a, zależności logiczne, parametry TTL",
+    "data": []
+  },
+  {
+    "title": "bramki logiczne, tablice prawdy, wzory, symbole, działanie",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/8cbL9NSf/bramki.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/KzdRtJ1q/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>AND</b> (I) realizuje funkcję iloczynu logicznego zmiennych wejściowych. Wyjście jest w stanie wysokim tylko jeśli oba wejścia są w stanie wysokim."
+      },
+      {
+        "type": "Math",
+        "value": "`Y=A*B`"
+      },
+      {
+        "type": "Text",
+        "value": "<b>OR</b> (LUB) realizuje funkcję sumy logicznej zmiennych wejściowych. Wyjście jest w stanie wysokim jeśli któreś z wejśćia (lub oba) jest w stanie wysokim."
+      },
+      {
+        "type": "Math",
+        "value": "`Y=A+B`"
+      },
+      {
+        "type": "Text",
+        "value": "<b>NOT</b> (NIE) układ o jednym wejściu, realizuje funkcję negacji zmiennej wejściowej. Gdy na wejściu jest 1, to na wyjściu jest 0; a gdy na wejściu jest 0, to na wyjściu jest 1."
+      },
+      {
+        "type": "Math",
+        "value": "`Y=overline A`"
+      },
+      {
+        "type": "Text",
+        "value": "<b>NAND</b> realizuje funkcję negacji iloczynu zmiennych wejściowych. Zero logiczne na wyjściu jest ustawiane tylko gdy na obu wejściach jest 1. W pozostałych przypadkach na wyjściu jest zawsze 1."
+      },
+      {
+        "type": "Math",
+        "value": "`Y=overline (A*B)`"
+      },
+      {
+        "type": "Text",
+        "value": "<b>NOR</b> realizuje negację sumy sygnałów wejściowych. Zero na wyjściu pojawia się zawsze wtedy, gdy na przynajmniej jednym z wejść pojawia się jedynka logiczna. Tylko wtedy gdy wszystkie wejścia ustawione są na 0, na wyjściu pojawia się jedynka."
+      },
+      {
+        "type": "Math",
+        "value": "`Y=overline (A+B)`"
+      },
+      {
+        "type": "Text",
+        "value": "<b>EXOR/XOR</b> (ALBO) wyjście jest w stanie wysokim (1) jeśli stany wejść są różne."
+      },
+      {
+        "type": "Math",
+        "value": "`Y=Ao+B`"
+      },
+      {
+        "type": "Text",
+        "value": "<b>EXNOR/XNOR</b> (NIE ALBO) wyjście jest w stanie wysokim (1) jeśli stany wejść są równe."
+      },
+      {
+        "type": "Math",
+        "value": "`Y=overline (Ao+B)`"
+      }
+    ]
+  },
+  {
+    "title": "budowa bramki NAND TTL, cha-ka przełączenia",
+    "data": []
+  },
+  {
+    "title": "Realizacja funkcji logicznych na dowolnych 2-WE bramkach",
+    "data": []
+  }
 ]
