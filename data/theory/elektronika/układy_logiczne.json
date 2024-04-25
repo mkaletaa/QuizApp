@@ -1,7 +1,22 @@
 [
   {
     "title": "algebra Boole'a, zależności logiczne, parametry TTL",
-    "data": []
+    "data": [
+      {
+        "type": "Text",
+        "value": "Teoria algebr Boole’a to dział matematyki z pogranicza algebry abstrakcyjnej, teorii porządku i logiki. Jest stosowana w różnych działach matematyki jak topologia, w informatyce teoretycznej i elektronice cyfrowej."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/3wm9jQDv/image.png",
+        "props": { "description": "zależności", "orientation": "horizontal" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/hGLycJVf/image.png",
+        "props": { "orientation": "horizontal" }
+      }
+    ]
   },
   {
     "title": "bramki logiczne, tablice prawdy, wzory, symbole, działanie",
@@ -76,10 +91,20 @@
   },
   {
     "title": "budowa bramki NAND TTL, cha-ka przełączenia",
-    "data": []
+    "data": [
+      {
+        "type": "Text",
+        "value": "kiedyś będzie"
+      }
+    ]
   },
   {
-    "title": "Realizacja funkcji logicznych na dowolnych 2-WE bramkach",
-    "data": []
+    "title": "realizacja funkcji logicznych na dowolnych 2-WE bramkach",
+    "data": [
+      {
+        "type": "Text",
+        "value": "kiedyś będzie"
+      }
+    ]
   }
 ]
