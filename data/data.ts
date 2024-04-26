@@ -3,7 +3,7 @@ export const chapters = [
   {
     name: 'cat_1',
     image: 'https://reactjs.org/logo-og.png',
-    des: 'short descirtption of a cat_1',
+    des: 'short descirtption of a cat_1. Lorem ipsum dolor sit amet. Większość wziąłem sta i stad. Jak coś to pretensje nie do mnie. Powowdzeni ade iue duoe ydi ',
   },
   {
     name: 'cat_2',
