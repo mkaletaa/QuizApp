@@ -41,68 +41,49 @@ export default function Card({
   }
 
   return (
-    <Pressable
-      onPress={handlePress}
-      // onLongPress={() => onCardLongPress()}
-      //   style={({ pressed }) => [
-      //     styles.cardPressable,
-      //     pressed && styles.cardPressablePressed,
-      //   ]}
-    >
-      <View style={[styles.cardContainer, cardSize]} key={data.name}>
-        {/* <View
-          style={{
-            width: '90%',
-            marginTop: 10,
-          }}
-        > */}
-        <Image
-          style={[
-            styles.cardImage,
-            {
-              height: cardSize.height * 0.6,
-              // backgroundColor: 'blue',
-            },
-          ]}
-          source={{
-            uri: data.image,
-          }}
-        />
-        {/* </View> */}
+    <View style={[styles.card, cardSize]} key={data.name}>
+      <Pressable
+        onPress={handlePress}
+        style={{ width: '100%', height: '100%' }}
+      >
+          <Image
+            style={[
+              styles.image,
+              {
+                height: cardSize.height * 0.6,
+              },
+            ]}
+            source={{
+              uri: data.image,
+            }}
+          />
 
-        <View style={styles.textContainer}>
-          <Text numberOfLines={1} style={styles.cardTitle}>
+        <View style={styles.footer}>
+          <Text numberOfLines={1} style={styles.title}>
             {removeUnderscores(data.name, true)}
           </Text>
 
-          {!data.name.endsWith('__All__') && chapOrTop === 'top' ? (
+          {chapOrTop === 'top' ? (
             <TouchableOpacity
               activeOpacity={0.75}
-              style={styles.readTouchable}
+              style={{ alignItems: 'center', flex: 1 }}
               onPress={() => showTheory()}
             >
               <View style={styles.separator}></View>
-              <Text style={styles.read}>{read}</Text>
+              <Text style={styles.readText}>{read}</Text>
             </TouchableOpacity>
           ) : null}
         </View>
-      </View>
-    </Pressable>
+      </Pressable>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  cardPressable: {
-    borderRadius: 10,
-  },
-
-  cardContainer: {
+  card: {
     overflow: 'hidden',
-
     backgroundColor: '#fff',
     borderRadius: 10,
-    // paddingHorizontal: 10,
-    // paddingTop: 10,
     margin: 10,
     shadowColor: '#000',
     shadowOffset: {
@@ -115,61 +96,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 5,
   },
-  cardTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    // width: '90%'
-    paddingHorizontal: 15,
-  },
-  cardDes: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  cardImage: {
+  image: {
     width: '80%',
     resizeMode: 'cover',
     borderRadius: 8,
     alignSelf: 'center',
     marginTop: 15,
   },
-  textContainer: {
+  footer: {
     justifyContent: 'center',
     gap: 5,
     marginTop: 5,
     width: '100%',
-
-    // alignItems: 'center',
-    // height: cardSize.height - cardSize.width * 0.9,
-    // height: '30%',
-    // backgroundColor: 'green',
     flex: 1,
   },
-  readTouchable: {
-    // borderRadius: 10,
-    // borderTopWidth: 1,
-    // borderColor: 'lightgrey',
-    // backgroundColor: 'red',
-    // justifyContent: 'center',
-
-    alignItems: 'center',
-    // overflow: 'hidden',
-    flex: 1,
+  title: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingHorizontal: 15,
   },
   separator: {
     borderRadius: 10,
     borderTopWidth: 1,
     borderColor: 'lightgrey',
     width: '70%',
-    backgroundColor: 'red',
-    // height: 1
   },
-  read: {
+  readText: {
     opacity: 0.6,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-    // backgroundColor: 'red',
     width: '100%',
     height: '100%',
   },
