@@ -63,7 +63,7 @@ const ImageComponent = ({
       | 'portrait'
       | 'landscape'
   ): number {
-    console.log('🚀 ~ orientation:', orientation)
+    // console.log('🚀 ~ orientation:', orientation)
     switch (orientation) {
       case 'portrait':
       case 'vertical':

@@ -268,6 +268,23 @@
           {
             "type": "Text",
             "value": "Otwórz plik xxx i zacznij tworzyć"
+          },
+          {
+            "type": "List",
+            "value": [
+              {
+                "type": "ListElement",
+                "value": "służy do wyświetlania list"
+              },
+              {
+                "type": "ListElement",
+                "value": "wartością ListElement może być tylko tekst, włączając w to <u>znaczniki htmla</u>"
+              },
+              {
+                "type": "ListElement",
+                "value": "Nie powinno tu być żadnych obrazów itp. Jeśli chcesz żeby element listy zawierał obraz wstaw go pod komponentem ListElement"
+              }
+            ]
           }
         ],
         "props": {

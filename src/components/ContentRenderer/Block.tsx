@@ -81,7 +81,7 @@ export default function Block({
         setViewWidth(width)
       })
     }
-  }, []) // Wywołaj ponownie efekt po zmianie chapterDes
+  }, []) 
   
   return (
     <View
