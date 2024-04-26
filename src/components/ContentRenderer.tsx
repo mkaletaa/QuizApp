@@ -22,7 +22,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
   switch (componentType) {
     case 'Text':
-      let modifiedValue = '<span style=" font-size: 18px">' + value + '</span>'
+      let modifiedValue = '<span style=" font-size: 18px; color: rgb(50, 50, 60); line-height: 25px">' + value + '</span>'
 
       return (
         <RenderHtml
@@ -55,7 +55,13 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             // backgroundColor: 'lightblue',
           }}
         >
-          <Text style={{ fontSize: setFontSize(), fontWeight: 'bold' }}>
+          <Text
+            style={{
+              fontSize: setFontSize(),
+              fontWeight: 'bold',
+              color: 'rgb(20, 20, 60)',
+            }}
+          >
             {value}
           </Text>
         </View>

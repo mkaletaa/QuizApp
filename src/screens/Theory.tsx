@@ -108,6 +108,9 @@ export default function Theory({ route }) {
           style={{
             padding: 10,
             paddingLeft: 30,
+            paddingRight: 30,
+            
+            // backgroundColor: 'red',
             backgroundColor: 'rgb(243, 243, 243)',
             borderTopWidth: 1,
             borderTopColor: 'rgb(243, 243, 243)',
@@ -272,7 +275,10 @@ const styles = StyleSheet.create({
   sectionHeaderText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'black',
+    // color: 'black',
+    color: "rgb(20, 20, 60)",
+    textAlign: "center",
+    // paddingRight:10
   },
   goUp: {
     padding: 8,
