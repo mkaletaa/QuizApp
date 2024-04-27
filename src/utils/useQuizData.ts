@@ -18,7 +18,7 @@ const useQuizData = () => {
     const [chapter, topic] = id.split('|')
 
     if (!quiz[chapter] || !quiz[chapter][topic]) {
-      console.log("usuwanie itema: ", id)
+      console.log('usuwanie itema: ', id)
       removeItem(id) //usuwanie z pamięci nieistniejacego pytania
       return null
     }
@@ -60,6 +60,7 @@ const useQuizData = () => {
     let itemsArray: Array<Item> = quiz[chapName][topName] //|| []
     // // console.log("🚀 ~ countItemsInTopic ~ itemsArray:", itemsArray)
     // if (!itemsArray) return 0
+    if (!quiz[chapName] || !quiz[chapName][topName]) return 0
     return itemsArray.length
   }
 

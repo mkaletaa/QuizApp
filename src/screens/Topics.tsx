@@ -41,8 +41,10 @@ export default function Topics({ route }) {
 
   const [pressedTopic, setPressedTopic] = useState<string>()
   function handleLongPress(pressedTopicName: string) {
-    setPressedTopic(pressedTopicName)
-    setShowStats(true)
+    // setPressedTopic(pressedTopicName)
+    // setShowStats(true)
+    //@ts-ignore
+    navigation.navigate('Questions', { topicName: pressedTopicName, chapterName: chapterName})
   }
 
   return (

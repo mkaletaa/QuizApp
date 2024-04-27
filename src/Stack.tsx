@@ -12,13 +12,13 @@ import { removeUnderscores } from './utils/functions'
 import Settings2 from './screens/Settings2'
 import Settings3 from './screens/Settings3'
 import About from './screens/About'
+import Questions from './screens/Questions'
 
 const Stack = createStackNavigator()
 
 const MyStack = () => {
-
   const header = {
-    headerRight: () => <Header />
+    headerRight: () => <Header />,
   }
 
   return (
@@ -95,6 +95,17 @@ const MyStack = () => {
           title: settings,
         })}
       />
+
+      <Stack.Screen
+        name="Questions"
+        component={Questions}
+        options={({ route }) => ({
+          ...header,
+          //@ts-ignore
+          title: `${removeUnderscores(route.params?.topicName, true)}`,
+        })}
+      />
+
       <Stack.Screen name="Settings2" component={Settings2} />
       <Stack.Screen name="Settings3" component={Settings3} />
     </Stack.Navigator>

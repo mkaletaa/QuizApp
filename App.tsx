@@ -71,5 +71,6 @@ const  App = ()=> {
     </NavigationContainer>
   )
 }
-
-export default Sentry.wrap(App)
+//!prod
+// export default Sentry.wrap(App)
+export default App

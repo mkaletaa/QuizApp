@@ -10,8 +10,9 @@ import {
 } from 'react-native'
 import { removeUnderscores } from '../utils/functions'
 import { read } from '../../data/texts'
+import { useNavigation } from '@react-navigation/native'
 
-console.log('card')
+
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -39,11 +40,16 @@ export default function Card({
     chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
     // }
   }
+  const navigation=useNavigation()
+  const handleLongPress = ()=>{
+    chapOrTop === 'top' ? onCardLongPress() : null
+  }
 
   return (
     <View style={[styles.card, cardSize]} key={data.name}>
       <Pressable
         onPress={handlePress}
+        onLongPress={handleLongPress}
         style={{ width: '100%', height: '100%' }}
       >
           <Image
