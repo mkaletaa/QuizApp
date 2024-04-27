@@ -1,6 +1,6 @@
 import { Pressable, View, Text, Switch, ScrollView } from 'react-native'
 import { Item } from '../utils/types'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 // import Question from './Question'
@@ -15,6 +15,18 @@ export default function Tile({
   handlePress: any
   color?: any
 }) {
+
+    const viewRef = useRef(null)
+    const [viewWidth, setViewWidth] = useState(0)
+
+     useEffect(() => {
+       if (viewRef.current) {
+         viewRef.current.measure((x, y, width, height, pageX, pageY) => {
+           setViewWidth(width)
+         })
+       }
+     }, []) 
+
   function setGradientColor(color: string): string {
     switch (color) {
       case 'red':
@@ -39,6 +51,7 @@ export default function Tile({
       }}
     >
       <View
+        ref={viewRef}
         style={[
           {
             backgroundColor: color,
@@ -58,7 +71,7 @@ export default function Tile({
       >
         <View style={{ width: '90%' }}>
           {/* <Question question={item.question} /> */}
-          <ContentRenderer content={item.question} />
+          <ContentRenderer content={item.question} width={viewWidth} />
 
           {/* {questionData.map(questionComponent => (
         <ContentRenderer data={questionComponent}></ContentRenderer>
