@@ -9,7 +9,21 @@ import { noInternetMessage } from './data/texts'
 import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
 import * as Updates from 'expo-updates'
 import { setValue } from './src/utils/utilStorage'
-export default function App() {
+import * as Sentry from "@sentry/react-native";
+
+Sentry.init({
+  dsn: "https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640",
+  // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+  // We recommend adjusting this value in production.
+  tracesSampleRate: 1.0,
+  _experiments: {
+    // profilesSampleRate is relative to tracesSampleRate.
+    // Here, we'll capture profiles for 100% of transactions.
+    profilesSampleRate: 1.0,
+  },
+});
+
+const  App = ()=> {
   const [showModal, setShowModal] = useState(false)
 
 
@@ -57,3 +71,5 @@ export default function App() {
     </NavigationContainer>
   )
 }
+
+export default Sentry.wrap(App)
