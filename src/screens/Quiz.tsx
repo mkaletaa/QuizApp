@@ -17,7 +17,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ContentRenderer from '../components/ContentRenderer'
 import CustomModal from '../components/CustomModal'
-import Explanation from '../components/Explanation'
+import ItemResult from '../components/ItemResult'
 import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
 import Line from '../components/ui/Line'
@@ -227,7 +227,7 @@ export default function Quiz({ route }) {
         onRequestClose={() => nextBtnPress()}
         statusBarTranslucent={true}
       >
-        <Explanation
+        <ItemResult
           showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}

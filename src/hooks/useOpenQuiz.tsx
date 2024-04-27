@@ -34,7 +34,7 @@ const useOpenQuiz = () => {
       navigate()
       //jeśli jest pytania z saved lub rozdział i dany topik ma quiz
     } else if (itemsArray || quiz[chapterName][topicName]) {
-      console.log(itemsArray)
+      // console.log(itemsArray)
       ;(async function gV() {
         shuffle = await getValue('shuffle')
         navigate()

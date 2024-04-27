@@ -16,6 +16,124 @@
       }
     ]
   },
+    {
+    "title": "Block",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Ten komponent może przybrać jedną z czterech form:"
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "info"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "warning"
+          }
+        ],
+        "props": {
+          "type": "warning"
+        }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "important"
+          }
+        ],
+        "props": {
+          "type": "important"
+        }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "task"
+          }
+        ],
+        "props": {
+          "type": "task"
+        }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "To jedyny komponent, w którym props jest zawsze wymagane. "
+          }
+        ],
+        "props": {
+          "type": "warning"
+        }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Wewnątrz niego można wyświetlać dosłownie wszystkie inne komponenty. i i i i i i i i i  i i i i i i i i"
+          },
+          {
+            "type": "Header",
+            "value": "Header wewnątrz block"
+          },
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/vHL8D75v/image.png"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Otwórz plik xxx i zacznij tworzyć"
+          },
+          {
+            "type": "List",
+            "value": [
+              {
+                "type": "ListElement",
+                "value": "służy do wyświetlania list"
+              },
+              {
+                "type": "ListElement",
+                "value": "wartością ListElement może być tylko tekst, włączając w to <u>znaczniki htmla</u>"
+              },
+              {
+                "type": "ListElement",
+                "value": "Nie powinno tu być żadnych obrazów itp. Jeśli chcesz żeby element listy zawierał obraz wstaw go pod komponentem ListElement"
+              }
+            ]
+          }
+        ],
+        "props": {
+          "type": "task"
+        }
+      }
+    ]
+  },
   {
     "title": "Text",
     "data": [
@@ -172,124 +290,6 @@
         "type": "Code",
         "value": "let str1 = 'Hello' \nlet str2 = 'World' \nconsole.log(str1+str2) //Hello World",
         "props": { "height": 200, "language": "" }
-      }
-    ]
-  },
-  {
-    "title": "Block",
-    "data": [
-      {
-        "type": "Text",
-        "value": "Ten komponent może przybrać jedną z czterech form:"
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "info"
-          }
-        ],
-        "props": {
-          "type": "info"
-        }
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "warning"
-          }
-        ],
-        "props": {
-          "type": "warning"
-        }
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "important"
-          }
-        ],
-        "props": {
-          "type": "important"
-        }
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "task"
-          }
-        ],
-        "props": {
-          "type": "task"
-        }
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "To jedyny komponent, w którym props jest zawsze wymagane. "
-          }
-        ],
-        "props": {
-          "type": "warning"
-        }
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "Wewnątrz niego można wyświetlać dosłownie wszystkie inne komponenty. i i i i i i i i i  i i i i i i i i"
-          },
-          {
-            "type": "Header",
-            "value": "Header wewnątrz block"
-          },
-          {
-            "type": "Image",
-            "value": "https://i.postimg.cc/vHL8D75v/image.png"
-          }
-        ],
-        "props": {
-          "type": "info"
-        }
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "Otwórz plik xxx i zacznij tworzyć"
-          },
-          {
-            "type": "List",
-            "value": [
-              {
-                "type": "ListElement",
-                "value": "służy do wyświetlania list"
-              },
-              {
-                "type": "ListElement",
-                "value": "wartością ListElement może być tylko tekst, włączając w to <u>znaczniki htmla</u>"
-              },
-              {
-                "type": "ListElement",
-                "value": "Nie powinno tu być żadnych obrazów itp. Jeśli chcesz żeby element listy zawierał obraz wstaw go pod komponentem ListElement"
-              }
-            ]
-          }
-        ],
-        "props": {
-          "type": "task"
-        }
       }
     ]
   }

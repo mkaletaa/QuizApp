@@ -1,6 +1,6 @@
 import { Pressable, View, Text, Switch, ScrollView } from 'react-native'
 import { Item } from '../utils/types'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 // import Question from './Question'
@@ -19,13 +19,18 @@ export default function Tile({
     const viewRef = useRef(null)
     const [viewWidth, setViewWidth] = useState(0)
 
-     useEffect(() => {
+     useLayoutEffect(() => {
        if (viewRef.current) {
          viewRef.current.measure((x, y, width, height, pageX, pageY) => {
            setViewWidth(width)
+          //  console.log('wysokość: ', width) //nadal 0 po onmount
          })
        }
      }, []) 
+
+     useEffect(() => {
+       console.log('szerokość: ', viewWidth) //nadal 0 po onmount
+     }, [viewWidth]);
 
   function setGradientColor(color: string): string {
     switch (color) {

@@ -79,6 +79,7 @@ export default function Block({
     if (viewRef.current) {
       viewRef.current.measure((x, y, width, height, pageX, pageY) => {
         setViewWidth(width)
+        console.log("szerokość bloku: ", width)
       })
     }
   }, []) 

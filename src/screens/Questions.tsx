@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import useQuizData from '../utils/useQuizData'
 import { Item } from '../utils/types'
-import Explanation from '../components/Explanation'
+import ItemResult from '../components/ItemResult'
 import Tile from '../components/Tile'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { useNavigation } from '@react-navigation/native'
@@ -76,7 +76,7 @@ export default function Questions({ route }) {
         visible={showModal}
         onRequestClose={() => setShowModal(false)}
       >
-        <Explanation
+        <ItemResult
           showQuestion={true}
           item={modalItem}
           chosenOptions={null}

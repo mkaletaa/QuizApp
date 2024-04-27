@@ -12,7 +12,7 @@ import {
   View,
 } from 'react-native'
 import { close, youDontHaveAnySavedQuestions } from '../../data/texts'
-import Explanation from '../components/Explanation'
+import ItemResult from '../components/ItemResult'
 import SavedOptions from '../components/SavedOptions'
 import Tile from '../components/Tile'
 import useFetchSavedItems from '../hooks/useFetchSavedItems'
@@ -23,7 +23,7 @@ import { getValue } from '../utils/utilStorage'
 export default function Saved() {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-  const {openQuiz} = useOpenQuiz()
+  const { openQuiz } = useOpenQuiz()
   const [showLoadingMoreSpinner, setShowLoadingMoreSpinner] = useState(true)
   const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
@@ -72,7 +72,7 @@ export default function Saved() {
         visible={showModal}
         onRequestClose={() => setShowModal(false)}
       >
-        <Explanation
+        <ItemResult
           showQuestion={true}
           item={modalItem}
           chosenOptions={null}
