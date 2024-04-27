@@ -29,3 +29,7 @@ export const mailBody =
 export const noQuestions = 'Brak pytań do wyświetlenia'
 export const longPress =
   'Przytrzymaj palec na ekranie, by zobaczyć jeszcze raz pytanie'
+export const randomOrder = "losowa kolejność pytań"
+export const contact = 'Kontakt'
+export const aboutTheApp = 'O aplikacji'
+export const settings = 'Ustawienia'

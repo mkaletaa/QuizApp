@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Switch, View, Text, Pressable } from 'react-native'
 import { getValue, setValue } from '../utils/utilStorage'
 import { useNavigation } from '@react-navigation/native'
+import { randomOrder, contact, aboutTheApp } from '../../data/texts'
 
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
@@ -50,11 +51,11 @@ const StickyHeaderScrollView = () => {
           onValueChange={() => setShuffleStorage()}
           value={isShuffleSwitchEnabled}
         />
-        <Text>Losowa kolejność pytań</Text>
+        <Text>{randomOrder}</Text>
       </Pressable>
 
       <Pressable
-      //@ts-ignore
+        //@ts-ignore
         onPress={() => navigation.navigate('About')}
         style={{
           flexDirection: 'row',
@@ -69,10 +70,12 @@ const StickyHeaderScrollView = () => {
           backgroundColor: 'blue',
         }}
       >
-        <Text>O aplikacji</Text>
+        <Text>{aboutTheApp}</Text>
       </Pressable>
 
-      <Text>Kontakt: <Text>ddddd</Text></Text>
+      <Text>
+        {contact}: <Text>learn.everything.app@proton.me</Text>
+      </Text>
     </View>
   )
 }

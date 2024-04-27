@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { savedQuestions } from '../data/texts'
+import { savedQuestions, aboutTheApp, settings } from '../data/texts'
 import Header from './components/Header'
 import Chapters from './screens/Chapters'
 import Quiz from './screens/Quiz'
@@ -83,12 +83,18 @@ const MyStack = () => {
         component={About}
         options={({ route }) => ({
           ...header,
-          title: "About the App",
-
+          title: aboutTheApp,
         })}
       />
 
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={({ route }) => ({
+          ...header,
+          title: settings,
+        })}
+      />
       <Stack.Screen name="Settings2" component={Settings2} />
       <Stack.Screen name="Settings3" component={Settings3} />
     </Stack.Navigator>
