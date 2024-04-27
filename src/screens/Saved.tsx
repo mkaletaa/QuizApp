@@ -73,7 +73,7 @@ export default function Saved() {
         onRequestClose={() => setShowModal(false)}
       >
         <ItemResult
-          showQuestion={true}
+          // showQuestion={true}
           item={modalItem}
           chosenOptions={null}
           handleBtnPress={() => {

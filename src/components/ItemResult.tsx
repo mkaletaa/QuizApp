@@ -27,35 +27,35 @@ import {
   close,
 } from '../../data/texts'
 import { LinearGradient } from 'expo-linear-gradient'
-import Explanation from './Explanation'
+import ExpandableView from './ExpandableView'
 
 export default function ItemResult({
   item,
   chosenOptions,
   handleBtnPress,
   btnTitle,
-  showQuestion = false,
-}: {
+}: // showQuestion = false,
+{
   item: Item
   chosenOptions: Option[]
   handleBtnPress: () => void
   btnTitle: string
-  showQuestion: boolean
+  // showQuestion: boolean
 }) {
   const [showQuestionModal, setShowQuestionModal] = useState(false)
   return (
-    <Pressable
-      onLongPress={() => {
-        !showQuestion && setShowQuestionModal(true)
-      }}
-      style={{
-        // width: '100%',
-        // height: '100%',
-        backgroundColor: 'red',
-      }}
-    >
-      <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-        <Modal
+    // <Pressable
+    //   onLongPress={() => {
+    //     !showQuestion && setShowQuestionModal(true)
+    //   }}
+    //   style={{
+    //     // width: '100%',
+    //     // height: '100%',
+    //     backgroundColor: 'red',
+    //   }}
+    // >
+    <ScrollView contentContainerStyle={[styles.scrollContainer]}>
+      {/* <Modal
           visible={showQuestionModal}
           onRequestClose={() => setShowQuestionModal(false)}
           statusBarTranslucent={true}
@@ -83,66 +83,65 @@ export default function ItemResult({
               ></Button>
             </View>
           </ScrollView>
-        </Modal>
+        </Modal> */}
 
-        <View style={styles.contentContainer}>
-          <ExplanationPrompt item={item}></ExplanationPrompt>
+      <View style={styles.contentContainer}>
+        <ExplanationPrompt item={item}></ExplanationPrompt>
 
-          {showQuestion && (
-            <View
-              style={{
-                // backgroundColor: 'red',
-                alignItems: 'center',
-                marginTop: 20,
-              }}
-            >
-              {/* <Question question={item.question}></Question> */}
-              <ContentRenderer content={item?.question} />
-            </View>
-          )}
+        {returnIsCorrect(item, chosenOptions) === 'correct' && (
+          <Foundation name="check" size={54} color="green" />
+        )}
 
-          {returnIsCorrect(item, chosenOptions) === 'correct' && (
-            <Foundation name="check" size={54} color="green" />
-          )}
+        {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
+          <FontAwesome name="remove" size={54} color="red" />
+        )}
 
-          {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
-            <FontAwesome name="remove" size={54} color="red" />
-          )}
-
-          {returnIsCorrect(item, chosenOptions) === 'kindof' && (
-            <View style={{ flexDirection: 'row' }}>
-              <Foundation name="check" size={54} color="orange" />
-              <FontAwesome name="remove" size={54} color="orange" />
-            </View>
-          )}
-
-          <Text style={styles.heading}>{correctAnswers}:</Text>
-          {item?.options
-            .filter(option => option.correct === true)
-            .map((option, index) => (
-              <ContentRenderer content={option.val} key={option.id} />
-            ))}
-
-          {chosenOptions && chosenOptions.length > 0 && (
-            <React.Fragment>
-              <Text style={styles.heading}>{yourAnswers}:</Text>
-              {chosenOptions.map((option, index) => (
-                <ContentRenderer
-                  content={option.val}
-                  key={'chosen_' + option.id}
-                />
-              ))}
-            </React.Fragment>
-          )}
-
-          {item?.explanation && <Explanation explanation={item.explanation} />}
-
-          <View style={styles.nextItem}>
-            <Button title={btnTitle} onPress={() => handleBtnPress()} />
+        {returnIsCorrect(item, chosenOptions) === 'kindof' && (
+          <View style={{ flexDirection: 'row' }}>
+            <Foundation name="check" size={54} color="orange" />
+            <FontAwesome name="remove" size={54} color="orange" />
           </View>
+        )}
+
+        <View
+          style={{
+            // backgroundColor: 'red',
+            alignItems: 'center',
+            marginTop: 20,
+          }}
+        >
+          {/* <Question question={item.question}></Question> */}
+          <ExpandableView data={item.question} />
+          {/* <ContentRenderer content={item?.question} /> */}
         </View>
 
-        {!showQuestion && (
+        <Text style={styles.heading}>{correctAnswers}:</Text>
+        {item?.options
+          .filter(option => option.correct === true)
+          .map((option, index) => (
+            <ContentRenderer content={option.val} key={option.id} />
+          ))}
+
+        {chosenOptions && chosenOptions.length > 0 && (
+          <React.Fragment>
+            <Text style={styles.heading}>{yourAnswers}:</Text>
+            {chosenOptions.map((option, index) => (
+              <ContentRenderer
+                content={option.val}
+                key={'chosen_' + option.id}
+              />
+            ))}
+          </React.Fragment>
+        )}
+
+        {item?.explanation && <ExpandableView data={item.explanation} showHeader={true} />}
+
+        <View style={styles.nextItem}>
+          <Button title={btnTitle} onPress={() => handleBtnPress()} />
+        </View>
+      </View>
+
+      {/* {!showQuestion && (
           <Text
             style={{
               color: 'grey',
@@ -156,9 +155,9 @@ export default function ItemResult({
           >
             {longPress}
           </Text>
-        )}
-      </ScrollView>
-    </Pressable>
+        )} */}
+    </ScrollView>
+    // </Pressable>
   )
 }
 

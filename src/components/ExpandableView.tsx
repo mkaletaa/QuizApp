@@ -4,7 +4,7 @@ import ContentRenderer from './ContentRenderer'
 import { LinearGradient } from 'expo-linear-gradient'
 import { explanation as explText } from '../../data/texts'
 import { AntDesign } from '@expo/vector-icons'
-export default function Explanation({ explanation }) {
+export default function ExpandableView({ data, showHeader=false }) {
   const [viewHeight, setViewHeight] = useState(0)
   const [max, setMax] = useState(150)
 
@@ -16,12 +16,12 @@ export default function Explanation({ explanation }) {
 
   return (
     <React.Fragment>
-      <Text style={styles.heading}>{explText}:</Text>
+      {showHeader && <Text style={styles.heading}>{explText}:</Text>}
       <View
         style={{ maxHeight: max, overflow: 'hidden', alignItems: 'center' }}
         onLayout={handleLayout}
       >
-        <ContentRenderer content={explanation} />
+        <ContentRenderer content={data} />
 
         {max !== null && viewHeight > 50 && (
           <LinearGradient

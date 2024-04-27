@@ -77,7 +77,7 @@ export default function Questions({ route }) {
         onRequestClose={() => setShowModal(false)}
       >
         <ItemResult
-          showQuestion={true}
+        //   showQuestion={true}
           item={modalItem}
           chosenOptions={null}
           handleBtnPress={() => {

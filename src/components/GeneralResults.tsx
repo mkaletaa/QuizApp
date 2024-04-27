@@ -72,7 +72,7 @@ export default function GneralResults({
         onRequestClose={() => setShowModal(false)}
       >
         <ItemResult
-          showQuestion={true}
+          // showQuestion={true}
           item={modalItem}
           chosenOptions={modalChoices}
           handleBtnPress={() => {
