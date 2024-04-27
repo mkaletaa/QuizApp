@@ -41,34 +41,36 @@ export default function Tile({
   }
 
   return (
+    <View
+      ref={viewRef}
+      style={[
+        {
+          backgroundColor: color,
+          width: '60%',
+          minWidth: 260,
+          height: 80, //100
+          overflow: 'hidden',
+          alignItems: 'center',
+          marginTop: 16,
+          // justifyContent: 'center',
+          
+          borderRadius: 10,
+          elevation: 3,
+        },
+      ]}
+      >
     <Pressable
       style={{
+        paddingTop: 20,
         // backgroundColor: 'red',
         alignItems: 'center',
+        width:'100%',
+        height: '100%',
       }}
       onPress={() => {
         handlePress(item)
       }}
     >
-      <View
-        ref={viewRef}
-        style={[
-          {
-            backgroundColor: color,
-            width: '60%',
-            minWidth: 260,
-            height: 80, //100
-            overflow: 'hidden',
-            alignItems: 'center',
-            marginTop: 16,
-            paddingTop: 20,
-            // justifyContent: 'center',
-
-            borderRadius: 10,
-            elevation: 3,
-          },
-        ]}
-      >
         <View style={{ width: '90%' }}>
           {/* <Question question={item.question} /> */}
           <ContentRenderer content={item.question} width={viewWidth} />
@@ -87,7 +89,7 @@ export default function Tile({
             bottom: 0,
           }}
         ></LinearGradient>
-      </View>
     </Pressable>
+      </View>
   )
 }

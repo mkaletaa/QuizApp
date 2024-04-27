@@ -87,7 +87,14 @@ export default function Saved() {
         <FlatList
           data={savedItems}
           renderItem={({ item }) => (
-            <Tile item={item} handlePress={seeFullQuestion} />
+            <View
+              style={{
+                width: '100%',
+                alignItems: 'center',
+              }}
+            >
+              <Tile item={item} handlePress={seeFullQuestion} />
+            </View>
           )}
           keyExtractor={item => item.id.toString()}
           refreshControl={
@@ -98,16 +105,16 @@ export default function Saved() {
               itemsCount={savedItems.length}
               onPressQuiz={() => {
                 openQuiz({
-                chapterName: '__Saved__',
-                itemsArray: savedItems,
-                howManyItems: savedItems.length,
-              })
+                  chapterName: '__Saved__',
+                  itemsArray: savedItems,
+                  howManyItems: savedItems.length,
+                })
                 //@ts-ignore
                 // navigation.navigate('Quiz', {
                 //   chapName: '__Saved__',
                 //   // topArray: [],
                 //   itemsArray: savedItems,
-                //   howManyItems: savedItems.length,  
+                //   howManyItems: savedItems.length,
                 //   shuffle,
                 // })
               }}
@@ -118,6 +125,11 @@ export default function Saved() {
           contentContainerStyle={{
             paddingBottom: 40,
             paddingTop: 10,
+            // alignItems: 'center',
+            // justifyContent: 'flex-end',
+            // backgroundColor: 'red',
+            // width: '100%'
+
             //todo: zmienić szerokość lub padding
           }}
           ListFooterComponent={

@@ -32,7 +32,13 @@ export default function GneralResults({
   }
 
   return (
-    <View style={{ backgroundColor: 'transparent', width: '100%' }}>
+    <View
+      style={{
+        backgroundColor: 'transparent',
+        width: '100%',
+        alignItems: 'center',
+      }}
+    >
       <View
         style={{
           alignItems: 'center',
@@ -43,13 +49,20 @@ export default function GneralResults({
         </Text> */}
       </View>
       {resultsArray.map((result, index) => (
-        <Tile
-          item={result.item}
-          handlePress={() => {
-            handlePress(result.item, result.userChoices)
+        <View
+          style={{
+            width: '100%',
+            alignItems: 'center',
           }}
-          color={setColor(result)}
-        />
+        >
+          <Tile
+            item={result.item}
+            handlePress={() => {
+              handlePress(result.item, result.userChoices)
+            }}
+            color={setColor(result)}
+          />
+        </View>
       ))}
 
       <Modal

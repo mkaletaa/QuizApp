@@ -48,12 +48,12 @@ export default function Questions({ route }) {
 
     let itemsArray: Item[] = []
     for (let i = 0; i < n_items; i++) {
-        const item: Item = importItem(
-            route.params.chapterName,
-            route.params.topicName,
-            i
-        )
-        // console.log('item: ', item)
+      const item: Item = importItem(
+        route.params.chapterName,
+        route.params.topicName,
+        i
+      )
+      // console.log('item: ', item)
       itemsArray.push(item)
     }
     setItems(itemsArray)
@@ -91,7 +91,14 @@ export default function Questions({ route }) {
         <FlatList
           data={items}
           renderItem={({ item }) => (
-            <Tile item={item} handlePress={seeFullQuestion} />
+            <View
+              style={{
+                width: '100%',
+                alignItems: 'center',
+              }}
+            >
+              <Tile item={item} handlePress={seeFullQuestion} />
+            </View>
           )}
           keyExtractor={item => item.id.toString()}
           ListHeaderComponent={() => (
