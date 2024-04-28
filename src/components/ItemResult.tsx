@@ -1,163 +1,116 @@
 import {
-  View,
   Button,
+  Dimensions,
+  Pressable,
+  ScrollView,
   StyleSheet,
   Text,
-  ScrollView,
-  StatusBar,
-  Pressable,
-  Modal,
-  Dimensions,
+  View,
+  TouchableWithoutFeedback,
 } from 'react-native'
-import ContentRenderer from './ContentRenderer'
 import { Item, Option } from '../utils/types'
+import ContentRenderer from './ContentRenderer'
 // import Question from './Question'
-import { Foundation } from '@expo/vector-icons'
-import { FontAwesome } from '@expo/vector-icons'
-import React, { useState } from 'react'
-import ExplanationPrompt from './ui/ExplanationPrompt'
+import { FontAwesome, Foundation } from '@expo/vector-icons'
+import React, { useEffect, useState } from 'react'
+// import {  } from 'react-native-gesture-handler'
+// import { TouchableOpacity } from 'react-native-gesture-handler'
+import { correctAnswers, yourAnswers } from '../../data/texts'
 import { returnIsCorrect } from '../utils/functions'
-import Math from './ContentRenderer/Math'
-import CustomModal from './CustomModal'
-import {
-  correctAnswers,
-  explanation,
-  longPress,
-  yourAnswers,
-  close,
-} from '../../data/texts'
-import { LinearGradient } from 'expo-linear-gradient'
 import ExpandableView from './ExpandableView'
+import ExplanationPrompt from './ui/ExplanationPrompt'
+import useStore from '../utils/store'
 
 export default function ItemResult({
   item,
   chosenOptions,
   handleBtnPress,
   btnTitle,
-}: // showQuestion = false,
-{
+}: {
   item: Item
   chosenOptions: Option[]
   handleBtnPress: () => void
   btnTitle: string
-  // showQuestion: boolean
 }) {
-  const [showQuestionModal, setShowQuestionModal] = useState(false)
+  // const [showPrompt, setShowPrompt] = useState(false)
+  // const [rerender, setRerender] = useState(true)
+  // Pobranie wartości showPrompt
+  // const showPrompt = useStore(state => state.showPrompt)
+
+  // Ustawienie wartości showPrompt
+  const setShowPrompt = useStore(state => state.setShowPrompt)
+
+
   return (
-    // <Pressable
-    //   onLongPress={() => {
-    //     !showQuestion && setShowQuestionModal(true)
-    //   }}
-    //   style={{
-    //     // width: '100%',
-    //     // height: '100%',
-    //     backgroundColor: 'red',
-    //   }}
-    // >
     <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-      {/* <Modal
-          visible={showQuestionModal}
-          onRequestClose={() => setShowQuestionModal(false)}
-          statusBarTranslucent={true}
-          transparent={true}
-        >
-          <ScrollView
-            contentContainerStyle={{
-              flexGrow: 1,
-              justifyContent: 'center',
-              backgroundColor: 'rgba(255, 255, 255, .9)',
-              paddingVertical: 40,
-              minHeight: '100%',
-              gap: 30,
-              // marginHorizontal: 10
-            }}
-          >
-            <View>
-              <ContentRenderer content={item?.question} />
+      <TouchableWithoutFeedback
+        style={{ backgroundColor: 'red', width: '100%', height: '100%' }}
+        onPress={() => {
+          setShowPrompt(false)
+        }}
+      >
+        <View style={styles.contentContainer}>
+          {/* <Pressable onPress={()=>setShowPrompt(true)}> */}
+
+            <ExplanationPrompt
+              item={item}
+            ></ExplanationPrompt>
+        
+          {/* </Pressable> */}
+          {returnIsCorrect(item, chosenOptions) === 'correct' && (
+            <Foundation name="check" size={54} color="green" />
+          )}
+
+          {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
+            <FontAwesome name="remove" size={54} color="red" />
+          )}
+
+          {returnIsCorrect(item, chosenOptions) === 'kindof' && (
+            <View style={{ flexDirection: 'row' }}>
+              <Foundation name="check" size={54} color="orange" />
+              <FontAwesome name="remove" size={54} color="orange" />
             </View>
+          )}
 
-            <View style={{}}>
-              <Button
-                title={close}
-                onPress={() => setShowQuestionModal(false)}
-              ></Button>
-            </View>
-          </ScrollView>
-        </Modal> */}
-
-      <View style={styles.contentContainer}>
-        <ExplanationPrompt item={item}></ExplanationPrompt>
-
-        {returnIsCorrect(item, chosenOptions) === 'correct' && (
-          <Foundation name="check" size={54} color="green" />
-        )}
-
-        {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
-          <FontAwesome name="remove" size={54} color="red" />
-        )}
-
-        {returnIsCorrect(item, chosenOptions) === 'kindof' && (
-          <View style={{ flexDirection: 'row' }}>
-            <Foundation name="check" size={54} color="orange" />
-            <FontAwesome name="remove" size={54} color="orange" />
-          </View>
-        )}
-
-        <View
-          style={{
-            // backgroundColor: 'red',
-            alignItems: 'center',
-            marginTop: 20,
-          }}
-        >
-          {/* <Question question={item.question}></Question> */}
-          <ExpandableView data={item.question} />
-          {/* <ContentRenderer content={item?.question} /> */}
-        </View>
-
-        <Text style={styles.heading}>{correctAnswers}:</Text>
-        {item?.options
-          .filter(option => option.correct === true)
-          .map((option, index) => (
-            <ContentRenderer content={option.val} key={option.id} />
-          ))}
-
-        {chosenOptions && chosenOptions.length > 0 && (
-          <React.Fragment>
-            <Text style={styles.heading}>{yourAnswers}:</Text>
-            {chosenOptions.map((option, index) => (
-              <ContentRenderer
-                content={option.val}
-                key={'chosen_' + option.id}
-              />
-            ))}
-          </React.Fragment>
-        )}
-
-        {item?.explanation && <ExpandableView data={item.explanation} showHeader={true} />}
-
-        <View style={styles.nextItem}>
-          <Button title={btnTitle} onPress={() => handleBtnPress()} />
-        </View>
-      </View>
-
-      {/* {!showQuestion && (
-          <Text
+          <View
             style={{
-              color: 'grey',
-              fontSize: 11,
-              textAlign: 'center',
-              position: 'absolute',
-              bottom: 10,
-              width: Dimensions.get('window').width,
-              // backgroundColor: 'rgba(0, 0, 0, 1)',
+              // backgroundColor: 'red',
+              alignItems: 'center',
+              marginTop: 20,
             }}
           >
-            {longPress}
-          </Text>
-        )} */}
+            <ExpandableView data={item.question} />
+          </View>
+
+          <Text style={styles.heading}>{correctAnswers}:</Text>
+          {item?.options
+            .filter(option => option.correct === true)
+            .map((option, index) => (
+              <ContentRenderer content={option.val} key={option.id} />
+            ))}
+
+          {chosenOptions && chosenOptions.length > 0 && (
+            <React.Fragment>
+              <Text style={styles.heading}>{yourAnswers}:</Text>
+              {chosenOptions.map((option, index) => (
+                <ContentRenderer
+                  content={option.val}
+                  key={'chosen_' + option.id}
+                />
+              ))}
+            </React.Fragment>
+          )}
+
+          {item?.explanation && (
+            <ExpandableView data={item.explanation} showHeader={true} />
+          )}
+
+          <View style={styles.nextItem}>
+            <Button title={btnTitle} onPress={() => handleBtnPress()} />
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
     </ScrollView>
-    // </Pressable>
   )
 }
 

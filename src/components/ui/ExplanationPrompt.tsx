@@ -8,11 +8,29 @@ import { Item } from '../../utils/types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Ionicons } from '@expo/vector-icons'
 import { reportAMistake } from '../../../data/texts'
+import useStore from '../../utils/store'
+
 
 export default function ExplanationPrompt({ item }: { item: Item }) {
-  const [showPrompt, setShowPrompt] = useState(false)
+  // const [showPrompt2, setShowPrompt] = useState(false)
   const [saved, setSaved] = useState(false)
-  const navigation = useNavigation()
+
+  // Pobranie wartości showPrompt
+  const showPrompt = useStore(state => state.showPrompt)
+
+  // Ustawienie wartości showPrompt
+  const setShowPrompt = useStore(state => state.setShowPrompt)
+
+  // Użycie showPrompt w komponencie
+  // if (showPrompt) {
+  //   // Wyświetlanie jakiegoś elementu na podstawie showPrompt
+  // }
+
+  useEffect(() => {
+    console.log('first')
+    setShowPrompt(showPrompt)
+  }, [])
+
 
   useEffect(() => {
     checkIfSaved() // Sprawdzenie stanu zapisanego po każdej zmianie 'saved'
@@ -76,8 +94,8 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
         paddingRight: 10,
         width: '100%',
         backgroundColor: 'transparent',
-       height: 1,
-       zIndex:1
+        height: 1,
+        zIndex: 1,
       }}
     >
       <Entypo
@@ -90,8 +108,8 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
           right: 20,
         }}
         onPress={() => {
-          setShowPrompt(prev => !prev);
-          console.log("pressdd")
+          setShowPrompt(!showPrompt)
+          console.log('pressdd')
         }}
       />
 
