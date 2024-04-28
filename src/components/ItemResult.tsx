@@ -40,19 +40,26 @@ export default function ItemResult({
 
   // Ustawienie wartości showPrompt
   const setShowPrompt = useStore(state => state.setShowPrompt)
-
+  useEffect(() => {
+    return () => {
+      setShowPrompt(false)
+    }
+  }, [])
   return (
     // <SafeAreaView>
     <ScrollView
       contentContainerStyle={[styles.scrollContainer]}
       // onStartShouldSetResponder={() => true}
+      onScroll={() => setShowPrompt(false)}
     >
       <TouchableWithoutFeedback
-        style={{
-          // backgroundColor: 'red',
-          // width: '100%',
-          // height: '100%',
-        }}
+        style={
+          {
+            // backgroundColor: 'red',
+            // width: '100%',
+            // height: '100%',
+          }
+        }
         onPress={() => {
           setShowPrompt(false)
         }}
@@ -115,7 +122,13 @@ export default function ItemResult({
           )}
 
           <View style={styles.nextItem}>
-            <Button title={btnTitle} onPress={() => handleBtnPress()} />
+            <Button
+              title={btnTitle}
+              onPress={() => {
+                handleBtnPress()
+                setShowPrompt(false)
+              }}
+            />
           </View>
         </View>
       </TouchableWithoutFeedback>

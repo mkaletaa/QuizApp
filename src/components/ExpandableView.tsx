@@ -4,9 +4,11 @@ import ContentRenderer from './ContentRenderer'
 import { LinearGradient } from 'expo-linear-gradient'
 import { explanation as explText } from '../../data/texts'
 import { AntDesign } from '@expo/vector-icons'
+import useStore from "../utils/store"
 export default function ExpandableView({ data, showHeader=false }) {
   const [viewHeight, setViewHeight] = useState(0)
   const [max, setMax] = useState(150)
+  const setShowPrompt = useStore(state => state.setShowPrompt)
 
   const handleLayout = event => {
     const { height } = event.nativeEvent.layout
@@ -37,7 +39,10 @@ export default function ExpandableView({ data, showHeader=false }) {
         )}
         {max !== null && viewHeight > 50 && (
           <AntDesign
-            onPress={() => setMax(null)}
+            onPress={() => {setMax(null); 
+          setShowPrompt(false)}
+
+            }
             name="down"
             size={34}
             color="black"
