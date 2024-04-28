@@ -9,6 +9,7 @@ import {
   SectionList,
   StyleSheet,
   Text,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native'
 import { thereIsNothingHere } from '../../data/texts'
@@ -30,6 +31,8 @@ export default function Theory({ route }) {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
   // const { images, addImage, removeImage } = useStore()
+
+  const setShowPrompt = useStore(state => state.setShowPrompt)
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
@@ -62,88 +65,115 @@ export default function Theory({ route }) {
       useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
       // clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
       useStore.getState().disableCarousel()
+      useStore.getState().setShowPrompt(false) //todo : naprawić bo ta linia nie działa
+
     }
   }, [])
 
   const renderHeader = () => (
-    <View style={styles.header}>
-      <Text style={{ marginBottom: 10, fontSize: 30 }}>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        setShowPrompt(false)
+      }}
+    >
+      <View style={styles.header}>
+        {/* <Text style={{ marginBottom: 10, fontSize: 30 }}>
         {removeUnderscores(topicName, true)}
-      </Text>
-      {theoryData.map(
-        (a, i) =>
-          a.title && (
-            <View
-              key={i.toString()}
-              style={{
-                alignItems: 'flex-start',
-                width: '100%',
-                paddingHorizontal: 20,
-                gap: 20,
-                // backgroundColor: 'red',
-              }}
-            >
-              <Pressable onPress={() => scrollToSection(i)}>
-                <Text
-                  style={{
-                    fontSize: 21,
-                    textDecorationLine: 'underline',
-                    // backgroundColor: 'blue',
-                  }}
-                >
-                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
-                  {theoryData[0]?.title ? i + 1 : i} {a.title}
-                </Text>
-              </Pressable>
-            </View>
-          )
-      )}
-    </View>
+      </Text> */}
+
+        {theoryData.map(
+          (a, i) =>
+            a.title && (
+              <View
+                key={i.toString()}
+                style={{
+                  alignItems: 'flex-start',
+                  width: '100%',
+                  paddingHorizontal: 20,
+                  gap: 20,
+                  // backgroundColor: 'red',
+                }}
+              >
+                <Pressable onPress={() => {scrollToSection(i); setShowPrompt(false)}}>
+                  <Text
+                    style={{
+                      fontSize: 21,
+                      textDecorationLine: 'underline',
+                      // backgroundColor: 'blue',
+                    }}
+                  >
+                    {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
+                    {theoryData[0]?.title ? i + 1 : i} {a.title}
+                  </Text>
+                </Pressable>
+              </View>
+            )
+        )}
+      </View>
+    </TouchableWithoutFeedback>
   )
 
   const renderSectionHeader = ({ section }) => {
     if (section.title) {
       return (
-        <View
-          style={{
-            padding: 10,
-            paddingLeft: 30,
-            paddingRight: 30,
-            
-            // backgroundColor: 'red',
-            backgroundColor: 'rgb(243, 243, 243)',
-            borderTopWidth: 1,
-            borderTopColor: 'rgb(243, 243, 243)',
-            elevation: 3,
-            shadowColor: '#000', // Kolor cienia
-            shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
-            shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
-            shadowRadius: 3, // Promień cienia
+        <TouchableWithoutFeedback
+          onPress={() => {
+            setShowPrompt(false)
           }}
         >
-          <Text style={styles.sectionHeaderText}>{section.title}</Text>
-        </View>
+          <View
+            style={{
+              padding: 10,
+              paddingLeft: 30,
+              paddingRight: 30,
+
+              // backgroundColor: 'red',
+              backgroundColor: 'rgb(243, 243, 243)',
+              borderTopWidth: 1,
+              borderTopColor: 'rgb(243, 243, 243)',
+              elevation: 3,
+              shadowColor: '#000', // Kolor cienia
+              shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
+              shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
+              shadowRadius: 3, // Promień cienia
+            }}
+          >
+            <Text style={styles.sectionHeaderText}>{section.title}</Text>
+          </View>
+        </TouchableWithoutFeedback>
       )
     }
     return null // Brak nagłówka dla sekcji bez tytułu
   }
 
   const renderItem = ({ item, index }) => (
-    <View
-      style={{
-        marginBottom: 20,
-        paddingHorizontal: 20,
-        marginTop: index === 0 && 10, //set marginTop for the forst element from a segment
+    <TouchableWithoutFeedback
+      onPress={() => {
+        setShowPrompt(false)
       }}
     >
-      <ContentRenderer content={[item]} />
-    </View>
+      <View
+        style={{
+          paddingBottom: 20,
+          paddingHorizontal: 20,
+          paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
+        }}
+      >
+        <ContentRenderer content={[item]} />
+      </View>
+    </TouchableWithoutFeedback>
   )
 
   const renderFooter = () => (
-    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
-      <QuizButton chapterName={chapterName} topicName={topicName} />
-    </View>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        setShowPrompt(false)
+      }}
+    >
+      <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
+        <QuizButton chapterName={chapterName} topicName={topicName} />
+      </View>
+    </TouchableWithoutFeedback>
   )
 
   const scrollToSection = sectionIndex => {
@@ -171,6 +201,8 @@ export default function Theory({ route }) {
   }
 
   const handleScroll = event => {
+        setShowPrompt(false)
+
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
     const percent =
       (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
@@ -183,6 +215,7 @@ export default function Theory({ route }) {
     return theoryData ? (
       <React.Fragment>
         <SectionList
+          onStartShouldSetResponder={() => true}
           // contentContainerStyle={{ paddingBottom: 20 }}
           onScroll={handleScroll}
           ref={sectionListRef}
@@ -224,16 +257,22 @@ export default function Theory({ route }) {
         ]}
       />
 
-      <Entypo
-        name="arrow-up"
-        size={40}
-        color="black"
-        style={[
-          styles.goUp,
-          { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
-        ]}
-        onPress={() => scrollToTop()}
-      />
+      <TouchableWithoutFeedback
+        onPress={() => {
+          setShowPrompt(false)
+        }}
+      >
+        <Entypo
+          name="arrow-up"
+          size={40}
+          color="black"
+          style={[
+            styles.goUp,
+            { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
+          ]}
+          onPress={() => scrollToTop()}
+        />
+      </TouchableWithoutFeedback>
 
       {theoryData && shouldMemoize && (
         <TheoryPrompt topicName={topicName} chapterName={chapterName} />
@@ -276,8 +315,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     // color: 'black',
-    color: "rgb(20, 20, 60)",
-    textAlign: "center",
+    color: 'rgb(20, 20, 60)',
+    textAlign: 'center',
     // paddingRight:10
   },
   goUp: {

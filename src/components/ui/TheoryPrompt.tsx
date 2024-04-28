@@ -6,10 +6,16 @@ import { Button, View } from 'react-native'
 import { reportAMistake } from '../../../data/texts'
 import { removeUnderscores, sendAnEmail } from '../../utils/functions'
 import QuizButton from './QuizButton'
-
+import useStore from "../../utils/store" 
 export default function TheoryPrompt({ topicName, chapterName }) {
-  const [showPrompt, setShowPrompt] = useState(false)
+  // const [showPrompt, setShowPrompt] = useState(false)
   const navigation = useNavigation()
+
+  // Pobranie wartości showPrompt
+  const showPrompt = useStore(state => state.showPrompt)
+
+  // Ustawienie wartości showPrompt
+  const setShowPrompt = useStore(state => state.setShowPrompt)
 
   return (
     <View
@@ -32,7 +38,7 @@ export default function TheoryPrompt({ topicName, chapterName }) {
           // backgroundColor: 'white'
         }}
         onPress={() => {
-          setShowPrompt(prev => !prev)
+          setShowPrompt(!showPrompt);
         }}
       />
 
