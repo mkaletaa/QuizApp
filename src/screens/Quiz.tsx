@@ -228,7 +228,7 @@ export default function Quiz({ route }) {
         statusBarTranslucent={true}
       >
         <ItemResult
-          showQuestion={false}
+          // showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}
           handleBtnPress={nextBtnPress}

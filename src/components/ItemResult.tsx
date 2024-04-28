@@ -20,6 +20,7 @@ import { returnIsCorrect } from '../utils/functions'
 import ExpandableView from './ExpandableView'
 import ExplanationPrompt from './ui/ExplanationPrompt'
 import useStore from '../utils/store'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function ItemResult({
   item,
@@ -40,22 +41,30 @@ export default function ItemResult({
   // Ustawienie wartości showPrompt
   const setShowPrompt = useStore(state => state.setShowPrompt)
 
-
   return (
-    <ScrollView contentContainerStyle={[styles.scrollContainer]}>
+    // <SafeAreaView>
+    <ScrollView
+      contentContainerStyle={[styles.scrollContainer]}
+      // onStartShouldSetResponder={() => true}
+    >
       <TouchableWithoutFeedback
-        style={{ backgroundColor: 'red', width: '100%', height: '100%' }}
+        style={{
+          // backgroundColor: 'red',
+          // width: '100%',
+          // height: '100%',
+        }}
         onPress={() => {
           setShowPrompt(false)
         }}
       >
-        <View style={styles.contentContainer}>
+        <View
+          style={styles.contentContainer}
+          // onStartShouldSetResponder={() => true}
+        >
           {/* <Pressable onPress={()=>setShowPrompt(true)}> */}
 
-            <ExplanationPrompt
-              item={item}
-            ></ExplanationPrompt>
-        
+          <ExplanationPrompt item={item}></ExplanationPrompt>
+
           {/* </Pressable> */}
           {returnIsCorrect(item, chosenOptions) === 'correct' && (
             <Foundation name="check" size={54} color="green" />
@@ -111,23 +120,29 @@ export default function ItemResult({
         </View>
       </TouchableWithoutFeedback>
     </ScrollView>
+    // </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    flexGrow: 1,
     justifyContent: 'center',
+    // backgroundColor: 'red',
     backgroundColor: 'rgba(255, 255, 255, 1)',
-    paddingHorizontal: 20,
     minHeight: Dimensions.get('window').height,
+    flexGrow: 1,
   },
   contentContainer: {
     alignItems: 'center',
+    justifyContent: 'center',
+
     // paddingHorizontal: 10,
+    paddingHorizontal: 20,
     // backgroundColor: 'lightblue',
     gap: 10,
     // marginTop:10
+    height: '100%',
+    width: '100%',
     paddingBottom: 50,
   },
   heading: {
