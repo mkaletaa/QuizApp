@@ -55,7 +55,7 @@ export default function Header(){
             size={30}
             color="black"
             //@ts-ignore
-            onPress={() => navigation.navigate('Saved')}
+            onPress={() => {navigation.navigate('Saved'); setShowPrompt(false)}}
           />
 
           <Feather
@@ -63,7 +63,7 @@ export default function Header(){
             size={28}
             color="black"
             //@ts-ignore
-            onPress={() => navigation.navigate('Settings')}
+            onPress={() => {navigation.navigate('Settings'); setShowPrompt(false)}}
           />
           {/*
         <Feather

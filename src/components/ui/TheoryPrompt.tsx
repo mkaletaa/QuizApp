@@ -74,7 +74,8 @@ export default function TheoryPrompt({ topicName, chapterName }) {
           title={reportAMistake}
           color="red"
           onPress={() => {
-            sendAnEmail(removeUnderscores(topicName))
+            sendAnEmail(removeUnderscores(topicName));
+            setShowPrompt(false)
           }}
         />
         <QuizButton chapterName={chapterName} topicName={topicName} />
