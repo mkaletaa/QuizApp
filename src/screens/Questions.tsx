@@ -15,7 +15,7 @@ import Tile from '../components/Tile'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { useNavigation } from '@react-navigation/native'
 import { useHeaderHeight } from '@react-navigation/elements'
-import { youDontHaveAnySavedQuestions } from '../../data/texts'
+import { youDontHaveAnySavedQuestions, close } from '../../data/texts'
 import { Ionicons } from '@expo/vector-icons'
 import SavedOptions from '../components/SavedOptions'
 
@@ -83,7 +83,7 @@ export default function Questions({ route }) {
           handleBtnPress={() => {
             setShowModal(false)
           }}
-          btnTitle={'close'}
+          btnTitle={close}
         />
       </Modal>
 
@@ -107,6 +107,7 @@ export default function Questions({ route }) {
               onPressQuiz={() => {
                 openQuiz({
                   chapterName: route.params.chapterName,
+                  //@ts-ignore
                   itemsArray: items,
                   howManyItems: itemsCount,
                 })

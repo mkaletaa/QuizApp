@@ -1,7 +1,7 @@
 import { AntDesign, Entypo } from '@expo/vector-icons'
 // import { AntDesign as staro } from '@expo/vector-icons'
 import { useEffect, useState } from 'react'
-import { Button, Text, View } from 'react-native'
+import { Animated, Button, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { sendAnEmail } from '../../utils/functions'
 import { Item } from '../../utils/types'
@@ -9,7 +9,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Ionicons } from '@expo/vector-icons'
 import { reportAMistake } from '../../../data/texts'
 import useStore from '../../utils/store'
-
 
 export default function ExplanationPrompt({ item }: { item: Item }) {
   // const [showPrompt2, setShowPrompt] = useState(false)
@@ -21,6 +20,15 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
   // Ustawienie wartości showPrompt
   const setShowPrompt = useStore(state => state.setShowPrompt)
 
+  const promptScale = useState(new Animated.Value(0))[0]
+
+  useEffect(() => {
+    Animated.timing(promptScale, {
+      toValue: showPrompt ? 1 : 0,
+      duration: 100,
+      useNativeDriver: true,
+    }).start()
+  }, [showPrompt])
   // Użycie showPrompt w komponencie
   // if (showPrompt) {
   //   // Wyświetlanie jakiegoś elementu na podstawie showPrompt
@@ -30,7 +38,6 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
     console.log('first')
     setShowPrompt(showPrompt)
   }, [])
-
 
   useEffect(() => {
     checkIfSaved() // Sprawdzenie stanu zapisanego po każdej zmianie 'saved'
@@ -113,72 +120,64 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
         }}
       />
 
-      {showPrompt && (
+      <Animated.View
+        style={{
+          opacity: promptScale,
+          transform: [
+            {
+              scale: promptScale.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 1],
+              }),
+            },
+          ],
+          position: 'absolute',
+          top: 75,
+          right: 60,
+          flexDirection: 'row',
+          elevation: 5,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 2 },
+          shadowRadius: 4,
+          backgroundColor: 'white',
+          padding: 10,
+          borderRadius: 6,
+          alignItems: 'center',
+        }}
+      >
+        <Button
+          title={reportAMistake}
+          color="red"
+          //@ts-ignore
+          onPress={() => {
+            sendAnEmail('id: ' + item.id)
+            setShowPrompt(false)
+          }}
+        />
         <View
           style={{
-            position: 'absolute',
-            top: 75,
-            right: 60,
-            flexDirection: 'row',
-            elevation: 5,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowRadius: 4,
-            backgroundColor: 'white',
-            padding: 10,
-            borderRadius: 6,
-            alignItems: 'center',
-            // zIndex: 999,
-            // width: 100,
-            // height:200
+            height: '100%',
+            width: 1,
+            backgroundColor: '#ccc',
+            marginHorizontal: 10,
           }}
-        >
-          <Button
-            title={reportAMistake}
-            color="red"
-            //@ts-ignore
-            onPress={() => {
-              sendAnEmail('id: ' + item.id)
-            }}
+        />
+        {saved ? (
+          <Ionicons
+            name="bookmark"
+            size={35}
+            color="orange"
+            onPress={() => removeItem()}
           />
-          <View
-            style={{
-              height: '100%',
-              width: 1,
-              backgroundColor: '#ccc',
-              marginHorizontal: 10,
-            }}
+        ) : (
+          <Ionicons
+            name="bookmark-outline"
+            size={35}
+            color="black"
+            onPress={() => saveItem()}
           />
-          {saved ? (
-            // <AntDesign
-            //   onPress={() => removeItem()}
-            //   name="star"
-            //   size={35}
-            //   color="gold"
-            // />
-            <Ionicons
-              name="bookmark"
-              size={35}
-              color="orange"
-              onPress={() => removeItem()}
-            />
-          ) : (
-            // <AntDesign
-            //   onPress={() => saveItem()}
-            //   name="staro"
-            //   size={35}
-            //   color="black"
-            // />
-
-            <Ionicons
-              name="bookmark-outline"
-              size={35}
-              color="black"
-              onPress={() => saveItem()}
-            />
-          )}
-        </View>
-      )}
+        )}
+      </Animated.View>
     </View>
   )
 }
