@@ -1,21 +1,25 @@
 import { Entypo } from '@expo/vector-icons'
-// import { AntDesign as staro } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import { useState } from 'react'
-import { Button, View } from 'react-native'
+import { useState, useEffect } from 'react'
+import { Button, View, Animated } from 'react-native'
 import { reportAMistake } from '../../../data/texts'
 import { removeUnderscores, sendAnEmail } from '../../utils/functions'
 import QuizButton from './QuizButton'
-import useStore from "../../utils/store" 
+import useStore from '../../utils/store'
+
 export default function TheoryPrompt({ topicName, chapterName }) {
-  // const [showPrompt, setShowPrompt] = useState(false)
   const navigation = useNavigation()
-
-  // Pobranie wartości showPrompt
   const showPrompt = useStore(state => state.showPrompt)
-
-  // Ustawienie wartości showPrompt
   const setShowPrompt = useStore(state => state.setShowPrompt)
+  const promptScale = useState(new Animated.Value(0))[0]
+
+  useEffect(() => {
+    Animated.timing(promptScale, {
+      toValue: showPrompt ? 1 : 0,
+      duration: 100,
+      useNativeDriver: true,
+    }).start()
+  }, [showPrompt])
 
   return (
     <View
@@ -35,50 +39,46 @@ export default function TheoryPrompt({ topicName, chapterName }) {
         style={{
           width: 35,
           textAlign: 'center',
-          // backgroundColor: 'white'
         }}
-        onPress={() => {
-          setShowPrompt(!showPrompt);
-        }}
+        onPress={() => setShowPrompt(!showPrompt)}
       />
 
-      {showPrompt && (
-        <View
-          style={{
-            position: 'absolute',
-            top: 25,
-            right: 60,
-            flexDirection: 'column',
-            gap: 10,
-            elevation: 5,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowRadius: 4,
-            backgroundColor: 'white',
-            padding: 10,
-            borderRadius: 6,
-            alignItems: 'center',
-            zIndex: 1,
+      <Animated.View
+        style={{
+          opacity: promptScale,
+          transform: [
+            {
+              scale: promptScale.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 1],
+              }),
+            },
+          ],
+          position: 'absolute',
+          top: 25,
+          right: 60,
+          flexDirection: 'column',
+          gap: 10,
+          elevation: 5,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 2 },
+          shadowRadius: 4,
+          backgroundColor: 'white',
+          padding: 10,
+          borderRadius: 6,
+          alignItems: 'center',
+          zIndex: 1,
+        }}
+      >
+        <Button
+          title={reportAMistake}
+          color="red"
+          onPress={() => {
+            sendAnEmail(removeUnderscores(topicName))
           }}
-        >
-          <Button
-            title={reportAMistake}
-            color="red"
-            onPress={() => {
-              sendAnEmail(removeUnderscores(topicName))
-            }}
-          />
-          {/* <View
-            style={{
-              height: '100%',
-              width: 1,
-              backgroundColor: '#ccc',
-              marginHorizontal: 10,
-            }}
-          /> */}
-          <QuizButton chapterName={chapterName} topicName={topicName} />
-        </View>
-      )}
+        />
+        <QuizButton chapterName={chapterName} topicName={topicName} />
+      </Animated.View>
     </View>
   )
 }
