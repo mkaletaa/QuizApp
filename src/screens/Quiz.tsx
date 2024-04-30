@@ -15,7 +15,7 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import ContentRenderer from '../components/ContentRenderer'
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
 import GeneralResults from '../components/GeneralResults'
@@ -24,7 +24,8 @@ import Line from '../components/ui/Line'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { returnIsCorrect } from '../utils/functions'
 import { Option, Result } from '../utils/types'
-import useQuizData from '../utils/useQuizData'
+// import useQuizData from '../utils/useQuizData'
+import { countItemsInTopic } from '../utils/getQuizData'
 import {
   yesQuit,
   nah,
@@ -39,7 +40,7 @@ export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
-  const { countItemsInTopic } = useQuizData()
+  // const { countItemsInTopic } = useQuizData()
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(

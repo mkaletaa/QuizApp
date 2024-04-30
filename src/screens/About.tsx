@@ -1,4 +1,4 @@
-import ContentRenderer from '../components/ContentRenderer'
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import about from '../../data/about.json'
 import { useEffect, useState } from 'react'
 import { Component } from '../utils/types'
@@ -11,7 +11,7 @@ export default function About() {
     console.log(about)
   }, [])
   return (
-    <ScrollView contentContainerStyle={{padding: 20}}>
+    <ScrollView contentContainerStyle={{ padding: 20 }}>
       <ContentRenderer content={content} />
     </ScrollView>
   )

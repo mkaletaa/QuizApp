@@ -11,6 +11,18 @@ const utilStyles = StyleSheet.create({
     paddingBottom: 90,
     // marginBottom: 90,
   },
+  popup: {
+    position: 'absolute',
+    right: 60,
+    alignItems: 'center',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 6,
+  },
 })
 
 

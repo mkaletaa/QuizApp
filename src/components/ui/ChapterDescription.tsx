@@ -1,5 +1,5 @@
 import { View } from 'react-native'
-import ContentRenderer from '../ContentRenderer'
+import ContentRenderer from '../ContentRenderer/_ContentRenderer'
 import { LinearGradient } from 'expo-linear-gradient'
 
 export default function ChapterDescription({

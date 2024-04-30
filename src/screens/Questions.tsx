@@ -1,38 +1,26 @@
-import { useEffect, useState } from 'react'
-import {
-  View,
-  Text,
-  Modal,
-  FlatList,
-  Button,
-  ActivityIndicator,
-  Dimensions,
-} from 'react-native'
-import useQuizData from '../utils/useQuizData'
-import { Item } from '../utils/types'
-import ItemResult from '../components/ItemResult'
-import Tile from '../components/Tile'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import { useNavigation } from '@react-navigation/native'
 import { useHeaderHeight } from '@react-navigation/elements'
-import { youDontHaveAnySavedQuestions, close } from '../../data/texts'
-import { Ionicons } from '@expo/vector-icons'
-import SavedOptions from '../components/SavedOptions'
-
+import { useEffect, useState } from 'react'
+import { FlatList, View } from 'react-native'
+import useOpenQuiz from '../hooks/useOpenQuiz'
+import { countItemsInTopic, importItem } from '../utils/getQuizData'
+import { Item } from '../utils/types'
+import {
+  EmptyState,
+  ListHeaderComponent,
+  RenderItem,
+  ResultModal,
+  contentContainerStyle,
+} from '../components/_ReusableComponents'
 export default function Questions({ route }) {
-  const { countItemsInTopic, importItem } = useQuizData()
   const [itemsCount, setItemsCount] = useState(0)
   const [items, setItems] = useState<Item[]>([])
 
-  const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
   const { openQuiz } = useOpenQuiz()
-  const [showLoadingMoreSpinner, setShowLoadingMoreSpinner] = useState(true)
-  // const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
+
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
-  const navigation = useNavigation()
-  const [shuffle, setShuffle] = useState<boolean>()
+
   function seeFullQuestion(item: Item): void {
     setModalItem(item)
     setShowModal(true)
@@ -53,7 +41,6 @@ export default function Questions({ route }) {
         route.params.topicName,
         i
       )
-      // console.log('item: ', item)
       itemsArray.push(item)
     }
     setItems(itemsArray)
@@ -69,40 +56,21 @@ export default function Questions({ route }) {
 
   return (
     <View>
-      <Modal
-        // duration={1000}
-        animationType="fade"
-        transparent={true}
-        visible={showModal}
-        onRequestClose={() => setShowModal(false)}
-      >
-        <ItemResult
-        //   showQuestion={true}
-          item={modalItem}
-          chosenOptions={null}
-          handleBtnPress={() => {
-            setShowModal(false)
-          }}
-          btnTitle={close}
-        />
-      </Modal>
+      <ResultModal
+        modalItem={modalItem}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
 
       {itemsCount > 0 ? (
         <FlatList
           data={items}
           renderItem={({ item }) => (
-            <View
-              style={{
-                width: '100%',
-                alignItems: 'center',
-              }}
-            >
-              <Tile item={item} handlePress={seeFullQuestion} />
-            </View>
+            <RenderItem item={item} seeFullQuestion={seeFullQuestion} />
           )}
           keyExtractor={item => item.id.toString()}
           ListHeaderComponent={() => (
-            <SavedOptions
+            <ListHeaderComponent
               itemsCount={0}
               onPressQuiz={() => {
                 openQuiz({
@@ -111,65 +79,15 @@ export default function Questions({ route }) {
                   itemsArray: items,
                   howManyItems: itemsCount,
                 })
-                //@ts-ignore
-                // navigation.navigate('Quiz', {
-                //   chapName: '__Saved__',
-                //   // topArray: [],
-                //   itemsArray: savedItems,
-                //   howManyItems: savedItems.length,
-                //   shuffle,
-                // })
               }}
               onToggleSwitch={null}
               isEnabled={isEnabled}
             />
-            // <Button title=""></Button>
           )}
-          contentContainerStyle={{
-            paddingBottom: 40,
-            paddingTop: 10,
-            //todo: zmienić szerokość lub padding
-          }}
-          //   onEndReached={() => setShowLoadingMoreSpinner(false)}
+          contentContainerStyle={contentContainerStyle}
         />
       ) : (
-        <View>
-          {false ? (
-            <View
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: screenHeight - headerHeight,
-              }}
-            >
-              <ActivityIndicator size="large" color="#0000ff" />
-            </View>
-          ) : (
-            <View
-              style={{
-                flexGrow: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                // top: 100
-                gap: 20,
-                // backgroundColor: 'red',
-                height: screenHeight - headerHeight,
-              }}
-            >
-              <Text style={{ opacity: 0.7 }}>
-                {youDontHaveAnySavedQuestions}
-              </Text>
-              <Ionicons
-                style={{
-                  opacity: 0.1,
-                }}
-                name="bookmarks"
-                size={264}
-                color="black"
-              />
-            </View>
-          )}
-        </View>
+        <EmptyState headerHeight={headerHeight} />
       )}
     </View>
   )

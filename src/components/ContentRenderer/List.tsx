@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { renderComponent } from '../ContentRenderer'
+import { renderComponent } from './_ContentRenderer'
 import { Entypo } from '@expo/vector-icons'
 import RenderHtml from 'react-native-render-html'
 
@@ -27,7 +27,7 @@ export function List({ value, width }) {
 export function ListElement({ value, width }) {
   // console.warn(value)
   let listValue =
-    '<span style="margin-bottom: 0px;  font-size: 18px">' + value +'</span>'
+    '<span style="margin-bottom: 0px;  font-size: 18px">' + value + '</span>'
   return (
     <View
       style={{
@@ -45,9 +45,11 @@ export function ListElement({ value, width }) {
       >
         <Entypo name="dot-single" size={26} color="black" />
       </View>
-      <View style={{
-        width: '90%',
-      }}>
+      <View
+        style={{
+          width: '90%',
+        }}
+      >
         <RenderHtml contentWidth={width} source={{ html: listValue }} />
       </View>
     </View>

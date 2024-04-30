@@ -14,7 +14,7 @@ import useStore from "../utils/store"
 
 export default function Header(){
   const navigation = useNavigation()
-  const setShowPrompt = useStore(state => state.setShowPrompt)
+  const setShowPopup = useStore(state => state.setShowPopup)
 
     return (
       //todo: popraw Header
@@ -27,7 +27,7 @@ export default function Header(){
         justifyContent: 'center'
       }}
         onPress={() => {
-          setShowPrompt(false)
+          setShowPopup(false)
           console.log('first')
         }}
       >
@@ -55,7 +55,7 @@ export default function Header(){
             size={30}
             color="black"
             //@ts-ignore
-            onPress={() => {navigation.navigate('Saved'); setShowPrompt(false)}}
+            onPress={() => {navigation.navigate('Saved'); setShowPopup(false)}}
           />
 
           <Feather
@@ -63,7 +63,7 @@ export default function Header(){
             size={28}
             color="black"
             //@ts-ignore
-            onPress={() => {navigation.navigate('Settings'); setShowPrompt(false)}}
+            onPress={() => {navigation.navigate('Settings'); setShowPopup(false)}}
           />
           {/*
         <Feather

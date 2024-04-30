@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Pressable, View, Text, StyleSheet } from 'react-native'
-import ContentRenderer from './ContentRenderer'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
 import { LinearGradient } from 'expo-linear-gradient'
 import { explanation as explText } from '../../data/texts'
 import { AntDesign } from '@expo/vector-icons'
-import useStore from "../utils/store"
-export default function ExpandableView({ data, showHeader=false }) {
+import useStore from '../utils/store'
+export default function ExpandableView({ data, showHeader = false }) {
   const [viewHeight, setViewHeight] = useState(0)
   const [max, setMax] = useState(150)
-  const setShowPrompt = useStore(state => state.setShowPrompt)
+  const setShowPopup = useStore(state => state.setShowPopup)
 
   const handleLayout = event => {
     const { height } = event.nativeEvent.layout
@@ -39,10 +39,10 @@ export default function ExpandableView({ data, showHeader=false }) {
         )}
         {max !== null && viewHeight > 50 && (
           <AntDesign
-            onPress={() => {setMax(null); 
-          setShowPrompt(false)}
-
-            }
+            onPress={() => {
+              setMax(null)
+              setShowPopup(false)
+            }}
             name="down"
             size={34}
             color="black"

@@ -5,6 +5,7 @@ import { Button, Modal, Text } from 'react-native'
 import CustomModal from '../components/CustomModal'
 import { noQuestions } from '../../data/texts'
 import { getValue } from '../utils/utilStorage'
+import { Item } from '../utils/types'
 
 const useOpenQuiz = () => {
   const navigation = useNavigation()
@@ -15,7 +16,7 @@ const useOpenQuiz = () => {
     chapterName: string
     howManyItems?: number
     shuffle?: boolean
-    itemsArray?: string[]
+    itemsArray?: Item[]
   }
 
   const openQuiz = (
@@ -25,10 +26,11 @@ const useOpenQuiz = () => {
       howManyItems,
       shuffle,
       itemsArray,
-    }: openQuizPropType //nie wiem czy nie trzeba Item[]
+    }: openQuizPropType 
   ): void => {
+    
     //jeśli jest rozdział i wybrano infinity mode
-    //? kiedy jest infinityMode to nazwa topika jest równa ""
+    //* kiedy jest infinityMode to nazwa topika jest równa ""
     if (howManyItems === Infinity) {
       shuffle = true
       navigate()

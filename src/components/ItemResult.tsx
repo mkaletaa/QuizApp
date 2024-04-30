@@ -9,7 +9,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native'
 import { Item, Option } from '../utils/types'
-import ContentRenderer from './ContentRenderer'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
 // import Question from './Question'
 import { FontAwesome, Foundation } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
@@ -18,7 +18,7 @@ import React, { useEffect, useState } from 'react'
 import { correctAnswers, yourAnswers } from '../../data/texts'
 import { returnIsCorrect } from '../utils/functions'
 import ExpandableView from './ExpandableView'
-import ExplanationPrompt from './ui/ExplanationPrompt'
+import ExplanationPopup from './ui/ExplanationPopup'
 import useStore from '../utils/store'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -33,16 +33,16 @@ export default function ItemResult({
   handleBtnPress: () => void
   btnTitle: string
 }) {
-  // const [showPrompt, setShowPrompt] = useState(false)
+  // const [showPrompt, setShowPopup] = useState(false)
   // const [rerender, setRerender] = useState(true)
   // Pobranie wartości showPrompt
   // const showPrompt = useStore(state => state.showPrompt)
 
   // Ustawienie wartości showPrompt
-  const setShowPrompt = useStore(state => state.setShowPrompt)
+  const setShowPopup = useStore(state => state.setShowPopup)
   useEffect(() => {
     return () => {
-      setShowPrompt(false)
+      setShowPopup(false)
     }
   }, [])
   return (
@@ -50,7 +50,7 @@ export default function ItemResult({
     <ScrollView
       contentContainerStyle={[styles.scrollContainer]}
       // onStartShouldSetResponder={() => true}
-      onScroll={() => setShowPrompt(false)}
+      onScroll={() => setShowPopup(false)}
     >
       <TouchableWithoutFeedback
         style={
@@ -61,16 +61,16 @@ export default function ItemResult({
           }
         }
         onPress={() => {
-          setShowPrompt(false)
+          setShowPopup(false)
         }}
       >
         <View
           style={styles.contentContainer}
           // onStartShouldSetResponder={() => true}
         >
-          {/* <Pressable onPress={()=>setShowPrompt(true)}> */}
+          {/* <Pressable onPress={()=>setShowPopup(true)}> */}
 
-          <ExplanationPrompt item={item}></ExplanationPrompt>
+          <ExplanationPopup item={item}></ExplanationPopup>
 
           {/* </Pressable> */}
           {returnIsCorrect(item, chosenOptions) === 'correct' && (
@@ -126,7 +126,7 @@ export default function ItemResult({
               title={btnTitle}
               onPress={() => {
                 handleBtnPress()
-                setShowPrompt(false)
+                setShowPopup(false)
               }}
             />
           </View>

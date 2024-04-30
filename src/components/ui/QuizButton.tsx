@@ -6,7 +6,7 @@ import useStore from '../../utils/store'
 export default function QuizButton({ topicName, chapterName }) {
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 
-  const setShowPrompt = useStore(state => state.setShowPrompt)
+  const setShowPopup = useStore(state => state.setShowPopup)
 
   return (
     <React.Fragment>
@@ -15,7 +15,7 @@ export default function QuizButton({ topicName, chapterName }) {
         color="rgb(0, 150, 255)"
         onPress={() => {
           openQuiz({ topicName, chapterName })
-          setShowPrompt(false)
+          setShowPopup(false)
         }}
       />
       {noQuestionModal()}

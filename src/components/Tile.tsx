@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 // import Question from './Question'
-import ContentRenderer from './ContentRenderer'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
 
 export default function Tile({
   item,
@@ -15,22 +15,21 @@ export default function Tile({
   handlePress: any
   color?: any
 }) {
+  const viewRef = useRef(null)
+  const [viewWidth, setViewWidth] = useState(0)
 
-    const viewRef = useRef(null)
-    const [viewWidth, setViewWidth] = useState(0)
+  useLayoutEffect(() => {
+    if (viewRef.current) {
+      viewRef.current.measure((x, y, width, height, pageX, pageY) => {
+        setViewWidth(width)
+        //  console.log('wysokość: ', width) //nadal 0 po onmount
+      })
+    }
+  }, [])
 
-     useLayoutEffect(() => {
-       if (viewRef.current) {
-         viewRef.current.measure((x, y, width, height, pageX, pageY) => {
-           setViewWidth(width)
-          //  console.log('wysokość: ', width) //nadal 0 po onmount
-         })
-       }
-     }, []) 
-
-     useEffect(() => {
-       console.log('szerokość: ', viewWidth) //nadal 0 po onmount
-     }, [viewWidth]);
+  useEffect(() => {
+    console.log('szerokość: ', viewWidth) //nadal 0 po onmount
+  }, [viewWidth])
 
   function setGradientColor(color: string): string {
     switch (color) {
@@ -58,24 +57,24 @@ export default function Tile({
           alignItems: 'center',
           marginTop: 16,
           // justifyContent: 'center',
-          
+
           borderRadius: 10,
           elevation: 3,
         },
       ]}
-      >
-    <Pressable
-      style={{
-        paddingTop: 20,
-        // backgroundColor: 'red',
-        alignItems: 'center',
-        width:'100%',
-        height: '100%',
-      }}
-      onPress={() => {
-        handlePress(item)
-      }}
     >
+      <Pressable
+        style={{
+          paddingTop: 20,
+          // backgroundColor: 'red',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
+        }}
+        onPress={() => {
+          handlePress(item)
+        }}
+      >
         <View style={{ width: '90%' }}>
           {/* <Question question={item.question} /> */}
           <ContentRenderer content={item.question} width={viewWidth} />
@@ -94,7 +93,7 @@ export default function Tile({
             bottom: 0,
           }}
         ></LinearGradient>
-    </Pressable>
-      </View>
+      </Pressable>
+    </View>
   )
 }

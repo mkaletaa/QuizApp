@@ -14,9 +14,9 @@ import {
 } from 'react-native'
 import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
-import ContentRenderer from '../components/ContentRenderer'
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import QuizButton from '../components/ui/QuizButton'
-import TheoryPrompt from '../components/ui/TheoryPrompt'
+import TheoryPopup from '../components/ui/TheoryPopup'
 import { removeUnderscores } from '../utils/functions'
 import useStore from '../utils/store'
 
@@ -32,7 +32,7 @@ export default function Theory({ route }) {
   const headerHeight = useHeaderHeight()
   // const { images, addImage, removeImage } = useStore()
 
-  const setShowPrompt = useStore(state => state.setShowPrompt)
+  const setShowPopup = useStore(state => state.setShowPopup)
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
@@ -65,15 +65,14 @@ export default function Theory({ route }) {
       useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
       // clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
       useStore.getState().disableCarousel()
-      useStore.getState().setShowPrompt(false) //todo : naprawić bo ta linia nie działa
-
+      useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
     }
   }, [])
 
   const renderHeader = () => (
     <TouchableWithoutFeedback
       onPress={() => {
-        setShowPrompt(false)
+        setShowPopup(false)
       }}
     >
       <View style={styles.header}>
@@ -94,7 +93,12 @@ export default function Theory({ route }) {
                   // backgroundColor: 'red',
                 }}
               >
-                <Pressable onPress={() => {scrollToSection(i); setShowPrompt(false)}}>
+                <Pressable
+                  onPress={() => {
+                    scrollToSection(i)
+                    setShowPopup(false)
+                  }}
+                >
                   <Text
                     style={{
                       fontSize: 21,
@@ -118,7 +122,7 @@ export default function Theory({ route }) {
       return (
         <TouchableWithoutFeedback
           onPress={() => {
-            setShowPrompt(false)
+            setShowPopup(false)
           }}
         >
           <View
@@ -149,7 +153,7 @@ export default function Theory({ route }) {
   const renderItem = ({ item, index }) => (
     <TouchableWithoutFeedback
       onPress={() => {
-        setShowPrompt(false)
+        setShowPopup(false)
       }}
     >
       <View
@@ -167,7 +171,7 @@ export default function Theory({ route }) {
   const renderFooter = () => (
     <TouchableWithoutFeedback
       onPress={() => {
-        setShowPrompt(false)
+        setShowPopup(false)
       }}
     >
       <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
@@ -201,7 +205,7 @@ export default function Theory({ route }) {
   }
 
   const handleScroll = event => {
-        setShowPrompt(false)
+    setShowPopup(false)
 
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
     const percent =
@@ -259,7 +263,7 @@ export default function Theory({ route }) {
 
       <TouchableWithoutFeedback
         onPress={() => {
-          setShowPrompt(false)
+          setShowPopup(false)
         }}
       >
         <Entypo
@@ -275,7 +279,7 @@ export default function Theory({ route }) {
       </TouchableWithoutFeedback>
 
       {theoryData && shouldMemoize && (
-        <TheoryPrompt topicName={topicName} chapterName={chapterName} />
+        <TheoryPopup topicName={topicName} chapterName={chapterName} />
       )}
       {shouldMemoize ? (
         memoizedComponents

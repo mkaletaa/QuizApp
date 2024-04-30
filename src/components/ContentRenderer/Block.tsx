@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { SimpleLineIcons } from '@expo/vector-icons'
 
-import { renderComponent } from '../ContentRenderer'
+import { renderComponent } from './_ContentRenderer'
 type blockType = 'info' | 'warning' | 'important' | 'task'
 
 export default function Block({
@@ -79,11 +79,11 @@ export default function Block({
     if (viewRef.current) {
       viewRef.current.measure((x, y, width, height, pageX, pageY) => {
         setViewWidth(width)
-        console.log("szerokość bloku: ", width)
+        console.log('szerokość bloku: ', width)
       })
     }
-  }, []) 
-  
+  }, [])
+
   return (
     <View
       ref={viewRef}
@@ -103,12 +103,12 @@ export default function Block({
               flexWrap: 'wrap',
               // backgroundColor: 'tomato',
               width: '90%', //maxWidth
-              gap: 10
+              gap: 10,
             }}
           >
             {
               //@ts-ignore
-              value.map((item, index) => renderComponent(item, viewWidth-14 )) //minus 14 because 2x5px of padding + 2x2px of border
+              value.map((item, index) => renderComponent(item, viewWidth - 14)) //minus 14 because 2x5px of padding + 2x2px of border
             }
           </View>
         </React.Fragment>

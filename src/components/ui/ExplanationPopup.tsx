@@ -1,46 +1,28 @@
-import { AntDesign, Entypo } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
 // import { AntDesign as staro } from '@expo/vector-icons'
-import { useEffect, useState } from 'react'
-import { Animated, Button, Text, View } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import { sendAnEmail } from '../../utils/functions'
-import { Item } from '../../utils/types'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Ionicons } from '@expo/vector-icons'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useEffect, useState } from 'react'
+import { Animated, Button, View } from 'react-native'
 import { reportAMistake } from '../../../data/texts'
+import useAnimatePopup from '../../hooks/useAnimatePopup'
+import { sendAnEmail } from '../../utils/functions'
 import useStore from '../../utils/store'
+import utilStyles from '../../utils/styles'
+import { Item } from '../../utils/types'
 
-export default function ExplanationPrompt({ item }: { item: Item }) {
-  // const [showPrompt2, setShowPrompt] = useState(false)
-  const [saved, setSaved] = useState(false)
-
-  // Pobranie wartości showPrompt
-  const showPrompt = useStore(state => state.showPrompt)
-
-  // Ustawienie wartości showPrompt
-  const setShowPrompt = useStore(state => state.setShowPrompt)
-
-  const promptScale = useState(new Animated.Value(0))[0]
+export default function ExplanationPopup({ item }: { item: Item }) {
+  const [saved, setSaved] = useState(false) //is this questions saved or not
+  const showPopup = useStore(state => state.showPopup)
+  const setShowPopup = useStore(state => state.setShowPopup)
+  const { popupScale, transform } = useAnimatePopup(showPopup)
 
   useEffect(() => {
-    Animated.timing(promptScale, {
-      toValue: showPrompt ? 1 : 0,
-      duration: 100,
-      useNativeDriver: true,
-    }).start()
-  }, [showPrompt])
-  // Użycie showPrompt w komponencie
-  // if (showPrompt) {
-  //   // Wyświetlanie jakiegoś elementu na podstawie showPrompt
-  // }
-
-  useEffect(() => {
-    console.log('first')
-    setShowPrompt(showPrompt)
+    setShowPopup(showPopup)
   }, [])
 
   useEffect(() => {
-    checkIfSaved() // Sprawdzenie stanu zapisanego po każdej zmianie 'saved'
+    checkIfSaved() 
   }, [saved, item.id])
 
   const checkIfSaved = async () => {
@@ -115,35 +97,21 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
           right: 20,
         }}
         onPress={() => {
-          setShowPrompt(!showPrompt)
-          console.log('pressdd')
+          setShowPopup(!showPopup)
         }}
       />
 
       <Animated.View
-        style={{
-          opacity: promptScale,
-          transform: [
-            {
-              scale: promptScale.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, 1],
-              }),
-            },
-          ],
-          position: 'absolute',
-          top: 75,
-          right: 60,
-          flexDirection: 'row',
-          elevation: 5,
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: 2 },
-          shadowRadius: 4,
-          backgroundColor: 'white',
-          padding: 10,
-          borderRadius: 6,
-          alignItems: 'center',
-        }}
+        style={[
+          utilStyles.popup,
+          {
+            opacity: popupScale,
+            transform,
+
+            flexDirection: 'row',
+            top: 75,
+          },
+        ]}
       >
         <Button
           title={reportAMistake}
@@ -151,7 +119,7 @@ export default function ExplanationPrompt({ item }: { item: Item }) {
           //@ts-ignore
           onPress={() => {
             sendAnEmail('id: ' + item.id)
-            setShowPrompt(false)
+            setShowPopup(false)
           }}
         />
         <View
