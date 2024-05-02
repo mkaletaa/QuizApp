@@ -75,10 +75,12 @@ export default function Theory({ route }) {
         setShowPopup(false)
       }}
     >
-      <View style={styles.header}>
-        {/* <Text style={{ marginBottom: 10, fontSize: 30 }}>
-        {removeUnderscores(topicName, true)}
-      </Text> */}
+      <View
+        style={[
+          styles.header,
+          { borderBottomWidth: theoryData[1]?.title ? 1 : 0 },
+        ]}
+      >
 
         {theoryData.map(
           (a, i) =>
@@ -310,7 +312,7 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 10,
-    borderBottomWidth: 1,
+    // borderBottomWidth: 1,
     alignItems: 'center',
     gap: 5,
   },
