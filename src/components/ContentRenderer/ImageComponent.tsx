@@ -88,7 +88,7 @@ const ImageComponent = ({
       <TouchableOpacity onPress={openModal} activeOpacity={0.7}>
         {/* <View style={{}}> */}
         {/* <ActivityIndicator size="large" color="#0000ff" /> */}
-        <View style={{ backgroundColor: '#FFFFFF', borderRadius: 8 }}>
+        <View style={{ backgroundColor: 'lightgray', borderRadius: 8 }}>
           <Image
             key={value}
             style={[
@@ -101,7 +101,7 @@ const ImageComponent = ({
             // placeholder={
             //   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['
             // }
-            placeholder={require('../../../assets/failImage.jpg')}
+            placeholder={require('../../../assets/failImage.png')}
             //todo: spróbowac require placeholdera i ogarnąć border w View, onError
             contentFit="cover"
             // placeholderContentFit="cover"
