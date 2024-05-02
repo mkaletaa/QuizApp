@@ -38,7 +38,10 @@ export default function Card({
     // if (data.name.endsWith('__All__')) {
     //   chapOrTop === 'top' ? onCardPress() : onCardPress(data.name)
     // } else {
-    chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
+      // setTimeout(()=>{
+
+        chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
+      // }, 0)
     // }
   }
   const navigation=useNavigation()

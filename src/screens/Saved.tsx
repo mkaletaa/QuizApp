@@ -85,7 +85,7 @@ export default function Saved() {
           ListFooterComponent={
             showLoadingMoreSpinner && (
               <ActivityIndicator
-                size="large"
+                size={50}
                 color="#0000ff"
                 style={{ marginTop: 10 }}
               />

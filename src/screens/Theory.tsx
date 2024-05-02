@@ -286,7 +286,7 @@ export default function Theory({ route }) {
         memoizedComponents
       ) : (
         <ActivityIndicator
-          size="large"
+          size={50}
           color="#0000ff"
           style={{ top: screenHeight / 2 - 50 }}
         />

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { View, Text, TouchableWithoutFeedback, Pressable } from "react-native"
 import { useNavigation } from '@react-navigation/native'
 
@@ -11,37 +11,44 @@ import { Entypo } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Foundation } from '@expo/vector-icons'
 import useStore from "../utils/store"
+// import { useRoute } from '@react-navigation/native'
 
-export default function Header(){
+export default function Header() {
   const navigation = useNavigation()
   const setShowPopup = useStore(state => state.setShowPopup)
 
-    return (
-      //todo: popraw Header
-      <Pressable
+
+  // Pobieranie wartości 'name' z obiektu 'route.params'
+  useEffect(() => {
+
+  }, []);
+
+  return (
+    //todo: popraw Header
+    <Pressable
       style={{
         // backgroundColor: 'red',
         width: 320,
         height: '100%',
         alignItems: 'flex-end',
-        justifyContent: 'center'
+        justifyContent: 'center',
       }}
-        onPress={() => {
-          setShowPopup(false)
-          console.log('first')
+      onPress={() => {
+        setShowPopup(false)
+        console.log('first')
+      }}
+    >
+      <View
+        style={{
+          flexDirection: 'row',
+          // backgroundColor: 'red',
+          gap: 20,
+          marginRight: 20,
+          alignItems: 'center',
+          // justifyContent: 'center',
         }}
       >
-      <View
-          style={{
-            flexDirection: 'row',
-            // backgroundColor: 'red',
-            gap: 20,
-            marginRight: 20,
-            alignItems: 'center',
-            // justifyContent: 'center',
-          }}
-        >
-            <React.Fragment>
+        <React.Fragment>
           {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
           {/* <View style={{ flexDirection: 'row', gap: 1 }}>
           <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
@@ -54,16 +61,22 @@ export default function Header(){
             name="bookmark-outline"
             size={30}
             color="black"
-            //@ts-ignore
-            onPress={() => {navigation.navigate('Saved'); setShowPopup(false)}}
+            onPress={() => {
+              //@ts-ignore
+              navigation.navigate('Saved')
+              setShowPopup(false)
+            }}
           />
 
           <Feather
             name="sliders"
             size={28}
             color="black"
-            //@ts-ignore
-            onPress={() => {navigation.navigate('Settings'); setShowPopup(false)}}
+            onPress={() => {
+              //@ts-ignore
+              navigation.navigate('Settings')
+              setShowPopup(false)
+            }}
           />
           {/*
         <Feather
@@ -81,7 +94,11 @@ export default function Header(){
           onPress={() => navigation.navigate('Settings3')}
         /> */}
         </React.Fragment>
-        </View>
-      </Pressable>
-    )
+      </View>
+    </Pressable>
+  )
+}
+
+function useRoute() {
+  throw new Error("Function not implemented.")
 }

@@ -214,7 +214,7 @@ export default function Quiz({ route }) {
         )}
 
         {!item && !showGeneralResults && (
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size={50} color="#0000ff" />
         )}
 
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
