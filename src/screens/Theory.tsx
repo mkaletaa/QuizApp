@@ -205,8 +205,6 @@ export default function Theory({ route }) {
   }
 
   const handleScroll = event => {
-    setShowPopup(false)
-
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
     const percent =
       (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
@@ -222,6 +220,7 @@ export default function Theory({ route }) {
           onStartShouldSetResponder={() => true}
           // contentContainerStyle={{ paddingBottom: 20 }}
           onScroll={handleScroll}
+          onScrollBeginDrag={() => setShowPopup(false)}
           ref={sectionListRef}
           sections={theoryData}
           scrollEventThrottle={15}
