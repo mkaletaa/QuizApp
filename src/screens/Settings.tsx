@@ -6,7 +6,7 @@ import { randomOrder, contact, aboutTheApp } from '../../data/texts'
 import { Entypo } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 import * as Sentry from '@sentry/react-native'
-
+import useStore from '../utils/store'
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
     useState<boolean>()

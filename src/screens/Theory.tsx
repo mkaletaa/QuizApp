@@ -41,6 +41,7 @@ export default function Theory({ route }) {
     setTimeout(() => {
       setShouldMemoize(true)
     }, 0)
+ 
   }, [route.params])
 
   // useEffect(() => {
@@ -81,7 +82,6 @@ export default function Theory({ route }) {
           { borderBottomWidth: theoryData[1]?.title ? 1 : 0 },
         ]}
       >
-
         {theoryData.map(
           (a, i) =>
             a.title && (

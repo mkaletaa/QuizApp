@@ -7,6 +7,8 @@ import ChapterDescription from '../components/ui/ChapterDescription'
 import RandomQuestion from '../components/ui/RandomQuestion'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import utilStyles from '../utils/styles'
+import { removeUnderscores } from '../utils/functions'
+import useStore from '../utils/store'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
@@ -27,6 +29,7 @@ export default function Topics({ route }) {
       setChapterName(chapterName)
       setTopicsToShow([...topics[chapterName]])
     }
+
   }, [route.params])
 
   const showTheory = (topicName, chapterName) => {
@@ -44,7 +47,10 @@ export default function Topics({ route }) {
     // setPressedTopic(pressedTopicName)
     // setShowStats(true)
     //@ts-ignore
-    navigation.navigate('Questions', { topicName: pressedTopicName, chapterName: chapterName})
+    navigation.navigate('Questions', {
+      topicName: pressedTopicName,
+      chapterName: chapterName,
+    })
   }
 
   return (

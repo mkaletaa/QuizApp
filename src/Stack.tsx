@@ -17,8 +17,10 @@ import Questions from './screens/Questions'
 const Stack = createStackNavigator()
 
 const MyStack = () => {
-  const header = {
-    headerRight: () => <Header />,
+  const header = params => {
+    return {
+      headerRight: () => <Header title={params.title || null} />,
+    }
   }
 
   return (
@@ -26,18 +28,18 @@ const MyStack = () => {
       <Stack.Screen
         name="Chapters"
         component={Chapters}
-        options={{ ...header, title: '' }}
+        options={{ ...header({ title: null }), title: null }}
       />
 
       <Stack.Screen
         name="Topics"
         component={Topics}
         options={({ route }) => ({
-          ...header,
-          title:
+          ...header({
             //@ts-ignore
-            `${removeUnderscores(route.params?.chapterName, true)}` ||
-            'chapter name',
+            title: removeUnderscores(route.params?.chapterName, true),
+          }),
+          title: null, // Ukrycie tytułu ekranu
         })}
       />
 
@@ -45,12 +47,11 @@ const MyStack = () => {
         name="Theory"
         component={Theory}
         options={({ route }) => ({
-          ...header,
-
-          title:
+          ...header({
             //@ts-ignore
-            `${removeUnderscores(route.params?.topicName, true)}` ||
-            'topic name',
+            title: removeUnderscores(route.params?.topicName, true),
+          }),
+          title: null, // Ukrycie tytułu ekranu
         })}
       />
 
@@ -64,17 +65,10 @@ const MyStack = () => {
         name="Saved"
         component={Saved}
         options={({ route }) => ({
-          ...header,
-          title: savedQuestions,
-          headerStyle: {
-            // backgroundColor: 'lightblue',
-          },
-          headerTitleStyle: {
-            // color: 'darkblue',
-            // fontSize: 18,
-            // marginLeft: -20,
-            // fontWeight: 'bold',
-          },
+          ...header({
+            title: savedQuestions,
+          }),
+          title: null, // Ukrycie tytułu ekranu
         })}
       />
 
@@ -82,8 +76,10 @@ const MyStack = () => {
         name="About"
         component={About}
         options={({ route }) => ({
-          ...header,
-          title: aboutTheApp,
+          ...header({
+            title: aboutTheApp,
+          }),
+          title: null, // Ukrycie tytułu ekranu
         })}
       />
 
@@ -91,8 +87,10 @@ const MyStack = () => {
         name="Settings"
         component={Settings}
         options={({ route }) => ({
-          ...header,
-          title: settings,
+          ...header({
+            title: settings,
+          }),
+          title: null, // Ukrycie tytułu ekranu
         })}
       />
 
@@ -100,9 +98,11 @@ const MyStack = () => {
         name="Questions"
         component={Questions}
         options={({ route }) => ({
-          ...header,
-          //@ts-ignore
-          title: `${removeUnderscores(route.params?.topicName, true)}`,
+          ...header({
+            //@ts-ignore
+            title: removeUnderscores(route.params?.topicName, true),
+          }),
+          title: null, // Ukrycie tytułu ekranu
         })}
       />
 
