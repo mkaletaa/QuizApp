@@ -1,6 +1,6 @@
 export const read = 'Czytaj'
 export const randomQuestion = 'Losowe Pytanie'
-export const takeAQuiz = 'ROZWIĄŻ QUIZ'
+export const takeAQuiz = 'Rozwiąż quiz'
 export const reverseTheOrder = 'Odwróć kolejność'
 export const savedQuestions = 'Zapisane pytania'
 export const youDontHaveAnySavedQuestions =

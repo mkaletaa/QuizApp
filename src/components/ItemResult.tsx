@@ -21,6 +21,7 @@ import ExpandableView from './ExpandableView'
 import ExplanationPopup from './ui/ExplanationPopup'
 import useStore from '../utils/store'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 
 export default function ItemResult({
   item,
@@ -122,13 +123,35 @@ export default function ItemResult({
           )}
 
           <View style={styles.nextItem}>
-            <Button
+            {/* <Button
               title={btnTitle}
               onPress={() => {
                 handleBtnPress()
                 setShowPopup(false)
               }}
-            />
+            /> */}
+            <PaperButton
+              mode="outlined"
+              onPress={() => {
+                handleBtnPress()
+                setShowPopup(false)
+              }}
+              // disabled={chosenOptions.length === 0}
+              elevation={5}
+              style={{
+                borderColor: 'purple',
+                borderWidth: 1.5
+              }}
+              
+            >
+              <Text
+                style={{
+                  color: 'purple',
+                }}
+              >
+                {btnTitle}
+              </Text>
+            </PaperButton>
           </View>
         </View>
       </TouchableWithoutFeedback>

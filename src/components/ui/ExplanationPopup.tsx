@@ -9,20 +9,21 @@ import { sendAnEmail } from '../../utils/functions'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
 import { Item } from '../../utils/types'
+import { TouchableRipple } from 'react-native-paper'
 
 export default function ExplanationPopup({ item }: { item: Item }) {
   const [saved, setSaved] = useState(false) // Czy pytanie jest zapisane
   const showPopup = useStore(state => state.showPopup)
   const setShowPopup = useStore(state => state.setShowPopup)
   const { popupScale, transform } = useAnimatePopup(showPopup)
-  const [animation] = useState(new Animated.Value(0)); // Stan animacji
+  const [animation] = useState(new Animated.Value(0)) // Stan animacji
 
   useEffect(() => {
     setShowPopup(showPopup)
   }, [])
 
   useEffect(() => {
-    checkIfSaved() 
+    checkIfSaved()
   }, [saved, item.id])
 
   const checkIfSaved = async () => {
@@ -66,7 +67,7 @@ export default function ExplanationPopup({ item }: { item: Item }) {
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
       setSaved(true)
-      animateIcon(); // Rozpocznij animację po zapisaniu
+      animateIcon() // Rozpocznij animację po zapisaniu
     } catch (error) {
       console.error('Error saving item:', error)
     }
@@ -74,20 +75,28 @@ export default function ExplanationPopup({ item }: { item: Item }) {
 
   const animateIcon = () => {
     Animated.sequence([
-      Animated.timing(animation, { toValue: 1, duration: 200, useNativeDriver: false }),
-      Animated.timing(animation, { toValue: 0, duration: 200, useNativeDriver: false })
-    ]).start();
-  };
+      Animated.timing(animation, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: false,
+      }),
+      Animated.timing(animation, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: false,
+      }),
+    ]).start()
+  }
 
   const scale = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 1.5]
-  });
+    outputRange: [1, 1.5],
+  })
 
   const opacity = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 0.4]
-  });
+    outputRange: [1, 0.4],
+  })
 
   return (
     <View
@@ -102,20 +111,25 @@ export default function ExplanationPopup({ item }: { item: Item }) {
         zIndex: 1,
       }}
     >
-      <Entypo
-        name="dots-three-vertical"
-        size={28}
-        color="black"
+      <TouchableRipple
+        onPress={() => {
+          setShowPopup(!showPopup)
+        }}
         style={{
           position: 'absolute',
           top: 30,
           right: 20,
+          padding: 5  
         }}
-        onPress={() => {
-          setShowPopup(!showPopup)
-        }}
-      />
+        borderless
+      >
+        <Entypo
+          name="dots-three-vertical"
+          size={28}
+          color="black"
 
+        />
+      </TouchableRipple>
       <Animated.View
         style={[
           utilStyles.popup,

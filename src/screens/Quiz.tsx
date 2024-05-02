@@ -35,6 +35,7 @@ import {
   summary,
 } from '../../data/texts'
 import useStore from '../utils/store'
+import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -175,25 +176,24 @@ export default function Quiz({ route }) {
         ]}
       >
         {
-          <TouchableOpacity
+          <TouchableRipple
+          borderless
             style={{
-              backgroundColor: 'rgba(0, 150, 255, 0)',
-              borderRadius: 5,
               paddingVertical: 5,
               paddingHorizontal: 10,
               position: 'absolute',
               left: 20,
-              top: 10,
+              top: 15,
             }}
             onPress={() => handleBackPress()}
           >
             <AntDesign name="arrowleft" size={27} color="black" />
-          </TouchableOpacity>
+          </TouchableRipple>
         }
 
         {item && (
           <React.Fragment>
-            <View style={{ marginTop: 30, width: '90%' }}>
+            <View style={{ marginTop: 50, width: '90%' }}>
               {/* <Question question={item?.question} /> */}
               <ContentRenderer content={item?.question} />
             </View>
@@ -203,13 +203,26 @@ export default function Quiz({ route }) {
               handleOptionPress={handleOptionPress}
               multiChoice={item.multiChoice}
             />
-            <Button
+
+
+            <PaperButton
+              mode="contained"
+              onPress={() => {
+                setResults()
+              }}
+              disabled={chosenOptions.length === 0}
+              elevation={5}
+            >
+              {submit}
+            </PaperButton>
+
+            {/* <Button
               title={submit}
               onPress={() => {
                 setResults()
               }} //jak Infinity mode to nie ustawiaj rezultów
               disabled={chosenOptions.length === 0}
-            />
+            /> */}
           </React.Fragment>
         )}
 

@@ -74,7 +74,7 @@ const App = () => {
         <Snackbar
           visible={showTitleSnackbar}
           duration={700}
-          // onDismiss={null}
+          onDismiss={()=>{}}
           action={{
             label: 'Undo',
             onPress: () => {

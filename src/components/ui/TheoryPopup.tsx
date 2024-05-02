@@ -55,9 +55,10 @@ export default function TheoryPopup({ topicName, chapterName }) {
             transform,
 
             zIndex: 1,
-            flexDirection: 'column',
+            // flexDirection: 'column',
             top: 25,
             gap: 10,
+            alignItems: "stretch"
           },
         ]}
       >

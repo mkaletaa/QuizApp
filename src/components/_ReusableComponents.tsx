@@ -23,7 +23,7 @@ import Tile from './Tile'
 import { Ionicons } from '@expo/vector-icons'
 import { Octicons } from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons'
-
+import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 export function ResultModal({
   modalItem,
   showModal,
@@ -149,7 +149,7 @@ export function ListHeaderComponent({
         alignItems: 'center',
         gap: 30,
         flexDirection: 'row',
-        marginTop: 20
+        marginTop: 20,
         // backgroundColor: 'red',
       }}
     >
@@ -165,7 +165,25 @@ export function ListHeaderComponent({
       >
         <Text>{takeAQuiz}</Text>
       </Pressable> */}
-      <Button onPress={onPressQuiz} title={takeAQuiz} />
+      {/* <Button onPress={onPressQuiz} title={takeAQuiz} /> */}
+      <PaperButton
+        mode="elevated"
+        onPress={onPressQuiz}
+        // disabled={chosenOptions.length === 0}
+        elevation={5}
+        style={{
+          backgroundColor: 'slateblue',
+        }}
+        rippleColor="thistle"
+      >
+        <Text
+          style={{
+            color: 'white',
+          }}
+        >
+          {takeAQuiz}
+        </Text>
+      </PaperButton>
       {itemsCount > 1 && (
         <Pressable
           onPress={() => onToggleSwitch()}

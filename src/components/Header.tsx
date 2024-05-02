@@ -48,10 +48,10 @@ export default function Header({ title }) {
         <React.Fragment>
           <TouchableWithoutFeedback
             onLongPress={() => {
-              // setShowTitleSnackbar(true)
-              // setTimeout(() => {
-              //   setShowTitleSnackbar(false)
-              // }, 3000)
+              setShowTitleSnackbar(true)
+              setTimeout(() => {
+                setShowTitleSnackbar(false)
+              }, 3000)
             }}
           >
             <Text

@@ -13,7 +13,6 @@ import { read } from '../../data/texts'
 import { useNavigation } from '@react-navigation/native'
 import { TouchableRipple } from 'react-native-paper'
 
-
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -38,14 +37,14 @@ export default function Card({
     // if (data.name.endsWith('__All__')) {
     //   chapOrTop === 'top' ? onCardPress() : onCardPress(data.name)
     // } else {
-      // setTimeout(()=>{
+    // setTimeout(()=>{
 
-        chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
-      // }, 0)
+    chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
+    // }, 0)
     // }
   }
-  const navigation=useNavigation()
-  const handleLongPress = ()=>{
+  const navigation = useNavigation()
+  const handleLongPress = () => {
     chapOrTop === 'top' ? onCardLongPress() : null
   }
 
@@ -58,34 +57,34 @@ export default function Card({
         style={{ width: '100%', height: '100%' }}
       >
         <React.Fragment>
-        <Image
-          style={[
-            styles.image,
-            {
-              height: cardSize.height * 0.6,
-            },
-          ]}
-          source={{
-            uri: data.image,
-          }}
-        />
+          <Image
+            style={[
+              styles.image,
+              {
+                height: cardSize.height * 0.6,
+              },
+            ]}
+            source={{
+              uri: data.image,
+            }}
+          />
 
-        <View style={styles.footer}>
-          <Text numberOfLines={1} style={styles.title}>
-            {removeUnderscores(data.name, true)}
-          </Text>
+          <View style={styles.footer}>
+            <Text numberOfLines={1} style={styles.title}>
+              {removeUnderscores(data.name, true)}
+            </Text>
 
-          {chapOrTop === 'top' ? (
-            <TouchableOpacity
-              activeOpacity={0.75}
-              style={{ alignItems: 'center', flex: 1 }}
-              onPress={() => showTheory()}
-            >
-              <View style={styles.separator}></View>
-              <Text style={styles.readText}>{read}</Text>
-            </TouchableOpacity>
-          ) : null}
-        </View>
+            {chapOrTop === 'top' ? (
+              <TouchableOpacity
+                activeOpacity={0.75}
+                style={{ alignItems: 'center', flex: 1 }}
+                onPress={() => showTheory()}
+              >
+                <View style={styles.separator}></View>
+                <Text style={styles.readText}>{read}</Text>
+              </TouchableOpacity>
+            ) : null}
+          </View>
         </React.Fragment>
       </TouchableRipple>
     </View>

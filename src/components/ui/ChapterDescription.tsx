@@ -11,25 +11,35 @@ export default function ChapterDescription({
     <View
       style={{
         width: '90%',
-        backgroundColor: 'rgba(146,218,232,255)',
-        borderColor: '#34a1be',
-        borderWidth: 1.5,
-        borderRadius: 5,
+        backgroundColor: 'white',
+        borderColor: 'mint',
+        // borderWidth: 1.5,
+        borderRadius: 10,
         padding: 5,
         // maxHeight: 100,
         overflow: 'hidden',
+        elevation: 9,
       }}
     >
-      <ContentRenderer content={chapterDes} />
-      {/* <LinearGradient
-        colors={['transparent', 'rgba(176,238,252,255)']}
+      <View
+        style={{
+          zIndex: 1,
+        }}
+      >
+        <ContentRenderer content={chapterDes} />
+      </View>
+      <LinearGradient
+        start={{ x: 0, y: 0.7 }}
+        end={{ x: 1, y: 0 }}
+        colors={['#F6F0C4', '#D99EC9']}
         style={{
           width: '110%',
-          height: 50, //has to be 100% cuz if Math component, Tile cannot be pressed
+          height: '100%', //has to be 100% cuz if Math component, Tile cannot be pressed
           position: 'absolute',
-          bottom: 0,
+          top: 0,
+          left: 0,
         }}
-      ></LinearGradient> */}
+      ></LinearGradient>
     </View>
   )
 }
