@@ -11,6 +11,7 @@ import {
 import { removeUnderscores } from '../utils/functions'
 import { read } from '../../data/texts'
 import { useNavigation } from '@react-navigation/native'
+import { TouchableRipple } from 'react-native-paper'
 
 
 const screenWidthDim = Dimensions.get('window').width
@@ -47,22 +48,24 @@ export default function Card({
 
   return (
     <View style={[styles.card, cardSize]} key={data.name}>
-      <Pressable
+      <TouchableRipple
+        rippleColor="rgba(0, 0, 0, .32)"
         onPress={handlePress}
         onLongPress={handleLongPress}
         style={{ width: '100%', height: '100%' }}
       >
-          <Image
-            style={[
-              styles.image,
-              {
-                height: cardSize.height * 0.6,
-              },
-            ]}
-            source={{
-              uri: data.image,
-            }}
-          />
+        <React.Fragment>
+        <Image
+          style={[
+            styles.image,
+            {
+              height: cardSize.height * 0.6,
+            },
+          ]}
+          source={{
+            uri: data.image,
+          }}
+        />
 
         <View style={styles.footer}>
           <Text numberOfLines={1} style={styles.title}>
@@ -80,7 +83,8 @@ export default function Card({
             </TouchableOpacity>
           ) : null}
         </View>
-      </Pressable>
+        </React.Fragment>
+      </TouchableRipple>
     </View>
   )
 }
