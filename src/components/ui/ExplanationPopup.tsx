@@ -1,5 +1,4 @@
 import { Entypo } from '@expo/vector-icons'
-// import { AntDesign as staro } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useEffect, useState } from 'react'
@@ -12,10 +11,11 @@ import utilStyles from '../../utils/styles'
 import { Item } from '../../utils/types'
 
 export default function ExplanationPopup({ item }: { item: Item }) {
-  const [saved, setSaved] = useState(false) //is this questions saved or not
+  const [saved, setSaved] = useState(false) // Czy pytanie jest zapisane
   const showPopup = useStore(state => state.showPopup)
   const setShowPopup = useStore(state => state.setShowPopup)
   const { popupScale, transform } = useAnimatePopup(showPopup)
+  const [animation] = useState(new Animated.Value(0)); // Stan animacji
 
   useEffect(() => {
     setShowPopup(showPopup)
@@ -29,11 +29,8 @@ export default function ExplanationPopup({ item }: { item: Item }) {
     try {
       const savedItems = await AsyncStorage.getItem('savedItems')
       const parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
-      if (parsedSavedItems.some(savedItem => savedItem === item.id))
-        setSaved(true)
-      else setSaved(false)
+      setSaved(parsedSavedItems.includes(item.id))
     } catch (error) {
-      setSaved(false)
       console.error('Cannot check if the question is saved:', error)
     }
   }
@@ -69,10 +66,28 @@ export default function ExplanationPopup({ item }: { item: Item }) {
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
       setSaved(true)
+      animateIcon(); // Rozpocznij animację po zapisaniu
     } catch (error) {
       console.error('Error saving item:', error)
     }
   }
+
+  const animateIcon = () => {
+    Animated.sequence([
+      Animated.timing(animation, { toValue: 1, duration: 200, useNativeDriver: false }),
+      Animated.timing(animation, { toValue: 0, duration: 200, useNativeDriver: false })
+    ]).start();
+  };
+
+  const scale = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 1.5]
+  });
+
+  const opacity = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 0.4]
+  });
 
   return (
     <View
@@ -116,7 +131,6 @@ export default function ExplanationPopup({ item }: { item: Item }) {
         <Button
           title={reportAMistake}
           color="red"
-          //@ts-ignore
           onPress={() => {
             sendAnEmail('id: ' + item.id)
             setShowPopup(false)
@@ -130,21 +144,23 @@ export default function ExplanationPopup({ item }: { item: Item }) {
             marginHorizontal: 10,
           }}
         />
-        {saved ? (
-          <Ionicons
-            name="bookmark"
-            size={35}
-            color="orange"
-            onPress={() => removeItem()}
-          />
-        ) : (
-          <Ionicons
-            name="bookmark-outline"
-            size={35}
-            color="black"
-            onPress={() => saveItem()}
-          />
-        )}
+        <Animated.View style={{ transform: [{ scale }], opacity }}>
+          {saved ? (
+            <Ionicons
+              name="bookmark"
+              size={35}
+              color="orange"
+              onPress={() => removeItem()}
+            />
+          ) : (
+            <Ionicons
+              name="bookmark-outline"
+              size={35}
+              color="black"
+              onPress={() => saveItem()}
+            />
+          )}
+        </Animated.View>
       </Animated.View>
     </View>
   )
