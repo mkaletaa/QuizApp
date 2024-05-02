@@ -2,7 +2,7 @@ export const read = 'Czytaj'
 export const randomQuestion = 'Losowe Pytanie'
 export const takeAQuiz = 'ROZWIĄŻ QUIZ'
 export const reverseTheOrder = 'Odwróć kolejność'
-export const savedQuestions = 'Zapisane pytania zapisane ph khj ihdg asig id'
+export const savedQuestions = 'Zapisane pytania'
 export const youDontHaveAnySavedQuestions =
   'Nie masz jeszcze żadnych zapisanych pytań'
 export const correctAnswers = 'Poprawne odpowiedzi'

@@ -16,14 +16,8 @@ import { Button } from 'react-native-paper'
 export default function Header({ title }) {
   const navigation = useNavigation()
   const setShowPopup = useStore(state => state.setShowPopup)
-  const headerTitle = useStore(state => state.headerTitle)
-  const [headerTitleState, setHeaderTitleState] = useState('')
+  const setShowTitleSnackbar = useStore(state => state.setShowTitleSnackbar)
   // Pobieranie wartości 'name' z obiektu 'route.params'
-  useEffect(() => {
-    setTimeout(() => {
-      setHeaderTitleState(headerTitle)
-    }, 10)
-  }, [])
 
   return (
     //todo: popraw Header
@@ -52,18 +46,27 @@ export default function Header({ title }) {
         }}
       >
         <React.Fragment>
-          <Text
-            style={{
-              // backgroundColor: 'red',
-              flex: 1,
-              fontSize: 20,
-              // paddingLeft: 10,
-              textAlign: 'center',
+          <TouchableWithoutFeedback
+            onLongPress={() => {
+              // setShowTitleSnackbar(true)
+              // setTimeout(() => {
+              //   setShowTitleSnackbar(false)
+              // }, 3000)
             }}
-            numberOfLines={1}
           >
-            {title}
-          </Text>
+            <Text
+              style={{
+                // backgroundColor: 'red',
+                flex: 1,
+                fontSize: 20,
+                // paddingLeft: 10,
+                textAlign: 'center',
+              }}
+              numberOfLines={1}
+            >
+              {title}
+            </Text>
+          </TouchableWithoutFeedback>
           {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
           {/* <View style={{ flexDirection: 'row', gap: 1 }}>
           <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
@@ -71,15 +74,19 @@ export default function Header({ title }) {
         </View> */}
 
           {/* <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" /> */}
-          <View style={{
-            flexDirection: "row",
-            // paddingHorizontal: 10,
-            gap: 15
-          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              // paddingHorizontal: 10,
+              gap: 15,
+            }}
+          >
             <Ionicons
-              style={{
-                // backgroundColor: 'yellow',
-              }}
+              style={
+                {
+                  // backgroundColor: 'yellow',
+                }
+              }
               name="bookmark-outline"
               size={30}
               color="black"
@@ -120,8 +127,4 @@ export default function Header({ title }) {
       </View>
     </Pressable>
   )
-}
-
-function useRoute() {
-  throw new Error('Function not implemented.')
 }
