@@ -87,7 +87,7 @@ export default function Questions({ route }) {
           contentContainerStyle={contentContainerStyle}
         />
       ) : (
-        <EmptyState headerHeight={headerHeight} />
+        <EmptyState headerHeight={headerHeight} parent={'Questions'} />
       )}
     </View>
   )

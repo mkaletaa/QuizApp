@@ -14,12 +14,15 @@ import ItemResult from './ItemResult'
 import { Item } from '../utils/types'
 import {
   close,
+  noQuestions,
   reverseTheOrder,
   takeAQuiz,
   youDontHaveAnySavedQuestions,
 } from '../../data/texts'
 import Tile from './Tile'
 import { Ionicons } from '@expo/vector-icons'
+import { Octicons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
 
 export function ResultModal({
   modalItem,
@@ -73,9 +76,11 @@ export function RenderItem({
 export function EmptyState({
   condition = false,
   headerHeight,
+  parent,
 }: {
   condition?: boolean
   headerHeight: number
+  parent: 'Questions' | 'Saved'
 }) {
   const screenHeight = Dimensions.get('window').height
   return (
@@ -102,15 +107,28 @@ export function EmptyState({
             height: screenHeight - headerHeight,
           }}
         >
-          <Text style={{ opacity: 0.7 }}>{youDontHaveAnySavedQuestions}</Text>
-          <Ionicons
-            style={{
-              opacity: 0.1,
-            }}
-            name="bookmarks"
-            size={264}
-            color="black"
-          />
+          <Text style={{ opacity: 0.7 }}>
+            {parent === 'Saved' ? youDontHaveAnySavedQuestions : noQuestions}
+          </Text>
+          {parent === 'Saved' ? (
+            <Ionicons
+              style={{
+                opacity: 0.1,
+              }}
+              name="bookmarks"
+              size={264}
+              color="black"
+            />
+          ) : (
+            <MaterialIcons
+              name="quiz"
+              size={264}
+              color="black"
+              style={{
+                opacity: 0.1,
+              }}
+            />
+          )}
         </View>
       )}
     </View>
@@ -131,6 +149,7 @@ export function ListHeaderComponent({
         alignItems: 'center',
         gap: 30,
         flexDirection: 'row',
+        marginTop: 20
         // backgroundColor: 'red',
       }}
     >

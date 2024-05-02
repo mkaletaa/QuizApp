@@ -226,7 +226,7 @@ export default function Quiz({ route }) {
         transparent={true}
         visible={showResultModal}
         onRequestClose={() => nextBtnPress()}
-        statusBarTranslucent={true}
+        // statusBarTranslucent={true}
       >
         <ItemResult
           // showQuestion={false}

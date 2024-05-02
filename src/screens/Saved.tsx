@@ -94,7 +94,11 @@ export default function Saved() {
           onEndReached={() => setShowLoadingMoreSpinner(false)}
         />
       ) : (
-        <EmptyState condition={isPending} headerHeight={headerHeight} />
+        <EmptyState
+          condition={isPending}
+          headerHeight={headerHeight}
+          parent={'Saved'}
+        />
       )}
     </View>
   )
