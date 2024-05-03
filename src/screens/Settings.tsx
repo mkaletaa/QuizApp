@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Switch, View, Text, Pressable } from 'react-native'
+import { StyleSheet, Switch, View, Text } from 'react-native'
+import { List, Switch as PaperSwitch } from 'react-native-paper'
 import { getValue, setValue } from '../utils/utilStorage'
 import { useNavigation } from '@react-navigation/native'
 import { randomOrder, contact, aboutTheApp } from '../../data/texts'
 import { Entypo } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
-import * as Sentry from '@sentry/react-native'
 import useStore from '../utils/store'
-import { screenBackground } from '../utils/constants'
+import { buttonDark, screenBackground } from '../utils/constants'
+
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
     useState<boolean>()
@@ -25,7 +26,6 @@ const StickyHeaderScrollView = () => {
     setIsShuffleSwitchEnabled(prev => !prev)
   }
 
-  //tutaj niepotrzebnie się wywołuje podczas każdego mountingu
   useEffect(() => {
     try {
       setValue('shuffle', isShuffleSwitchEnabled)
@@ -38,98 +38,34 @@ const StickyHeaderScrollView = () => {
 
   return (
     <View style={styles.container}>
-      <Pressable
-        onPress={() => setShuffleStorage()}
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          // gap: 5, //used to be -15
-          // marginBottom: 10,
-          // paddingHorizontal: 15,
-          // fontSize: 20
-          // backgroundColor: 'blue',
-          borderBottomColor: 'silver',
-          borderBottomWidth: 1,
-        }}
-      >
-        <Text
-          style={{
-            width: '85%',
-            // backgroundColor: 'red',
-            fontSize: 16,
-            paddingRight: 15,
-            flex:1
-          }}
-        >
-          {randomOrder}
-        </Text>
-        <Switch
-          style={{
-            // backgroundColor: 'yellow',
-            // width: '15%',
-          }}
-          onValueChange={() => setShuffleStorage()}
-          value={isShuffleSwitchEnabled}
-        />
-      </Pressable>
+      <List.Item //chcę aby wysokoć tego itema była taka sama jak tego poniżej
+        title={randomOrder}
+        onPress={
+          setShuffleStorage
+        }
+        right={() => (
+          <PaperSwitch
+            value={isShuffleSwitchEnabled}
+            onValueChange={setShuffleStorage}
+          />
+        )}
+        style={{ borderBottomWidth: 1, borderBottomColor: 'silver', height: 60, justifyContent: "center" }}
+      />
+      <List.Item
+        title={aboutTheApp}
+        left={() => (
 
-      <Pressable
-        //@ts-ignore
+          <Entypo name="info" size={24} color={buttonDark} />
+        )}
+        right={() => <AntDesign name="right" size={24} color="dimgrey" />}
         onPress={() => navigation.navigate('About')}
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          // flexGrow: 'center',
-          // gap: 15, //used to be -15
-          marginBottom: 10,
-          //paddingHorizontal: 15,
-          // elevation: 5,
-          height: 50,
-          // fontSize: 20
-          // backgroundColor: 'blue',
-          borderBottomColor: 'silver',
           borderBottomWidth: 1,
-          // flexBasis: 'baseline',
+          borderBottomColor: 'silver',
+          paddingLeft: 15,
         }}
-      >
-        <Entypo
-          name="info-with-circle"
-          size={24}
-          color="steelblue"
-          style={{
-            // width: '10%',
-
-            // backgroundColor: 'silver',
-          }}
-        />
-        <Text style={{ fontSize: 18,
-        //  backgroundColor: 'red', 
-        // width: "auto" ,
-        flex:1,
-        paddingLeft: 10
-        // alignSelf:"stretch"
-        }}>
-          {aboutTheApp}
-        </Text>
-        <AntDesign
-          name="right"
-          size={24}
-          color="dimgrey"
-          style={{
-            // width: '10%',
-            // backgroundColor: 'white',
-          }}
-        />
-      </Pressable>
-
-      <Text
-        style={{
-          opacity: 0.6,
-          marginTop: 10,
-        }}
-      >
+      />
+      <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
     </View>
@@ -139,7 +75,7 @@ const StickyHeaderScrollView = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 15,
+    // paddingHorizontal: 15,
     paddingTop: 15,
     backgroundColor: screenBackground,
   },

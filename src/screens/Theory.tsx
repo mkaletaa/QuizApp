@@ -136,7 +136,7 @@ export default function Theory({ route }) {
               // backgroundColor: 'red',
               backgroundColor: sectionHeaderBG,
               borderTopWidth: 1,
-              borderTopColor: "lightgray",
+              borderTopColor: 'lightgray',
               // elevation: 1,
               // shadowColor: '#000', // Kolor cienia
               // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
@@ -220,10 +220,12 @@ export default function Theory({ route }) {
       <React.Fragment>
         <SectionList
           onStartShouldSetResponder={() => true}
-          contentContainerStyle={{
-            // backgroundColor: screenBackground,
-            // height: '100%',
-          }}
+          contentContainerStyle={
+            {
+              // backgroundColor: screenBackground,
+              // height: '100%',
+            }
+          }
           onScroll={handleScroll}
           onScrollBeginDrag={() => setShowPopup(false)}
           ref={sectionListRef}

@@ -9,6 +9,7 @@ import QuizButton from './QuizButton'
 import React from 'react'
 import { TouchableRipple } from 'react-native-paper'
 import { TouchableHighlight } from 'react-native-gesture-handler'
+import MistakeButton from './MistakeButton'
 
 export default function TheoryPopup({ topicName, chapterName }) {
   const showPopup = useStore(state => state.showPopup)
@@ -58,18 +59,19 @@ export default function TheoryPopup({ topicName, chapterName }) {
             // flexDirection: 'column',
             top: 25,
             gap: 10,
-            alignItems: "stretch"
+            alignItems: 'stretch',
           },
         ]}
       >
-        <Button
+        {/* <Button
           title={reportAMistake}
           color="red"
           onPress={() => {
             sendAnEmail(removeUnderscores(topicName))
             setShowPopup(false)
           }}
-        />
+        /> */}
+        <MistakeButton prop={topicName} />
         <QuizButton chapterName={chapterName} topicName={topicName} />
       </Animated.View>
     </View>

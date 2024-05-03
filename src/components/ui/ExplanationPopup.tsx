@@ -1,15 +1,13 @@
-import { Entypo } from '@expo/vector-icons'
-import { Ionicons } from '@expo/vector-icons'
+import { Entypo, Ionicons } from '@expo/vector-icons'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useEffect, useState } from 'react'
-import { Animated, Button, View } from 'react-native'
-import { reportAMistake } from '../../../data/texts'
+import { Animated, View } from 'react-native'
+import { TouchableRipple } from 'react-native-paper'
 import useAnimatePopup from '../../hooks/useAnimatePopup'
-import { sendAnEmail } from '../../utils/functions'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
 import { Item } from '../../utils/types'
-import { TouchableRipple } from 'react-native-paper'
+import MistakeButton from './MistakeButton'
 
 export default function ExplanationPopup({ item }: { item: Item }) {
   const [saved, setSaved] = useState(false) // Czy pytanie jest zapisane
@@ -119,16 +117,11 @@ export default function ExplanationPopup({ item }: { item: Item }) {
           position: 'absolute',
           top: 30,
           right: 20,
-          padding: 5  
+          padding: 5,
         }}
         borderless
       >
-        <Entypo
-          name="dots-three-vertical"
-          size={28}
-          color="black"
-
-        />
+        <Entypo name="dots-three-vertical" size={28} color="black" />
       </TouchableRipple>
       <Animated.View
         style={[
@@ -142,14 +135,16 @@ export default function ExplanationPopup({ item }: { item: Item }) {
           },
         ]}
       >
-        <Button
+        {/* <Button
           title={reportAMistake}
           color="red"
           onPress={() => {
             sendAnEmail('id: ' + item.id)
             setShowPopup(false)
           }}
-        />
+        /> */}
+        <MistakeButton prop={'id: ' + item.id} />
+
         <View
           style={{
             height: '100%',
