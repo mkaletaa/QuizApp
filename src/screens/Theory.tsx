@@ -20,6 +20,7 @@ import TheoryPopup from '../components/ui/TheoryPopup'
 import { removeUnderscores } from '../utils/functions'
 import useStore from '../utils/store'
 import { goUpBackground, sectionHeaderBG, spinner } from '../utils/constants'
+import { screenBackground } from '../utils/constants'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -42,7 +43,6 @@ export default function Theory({ route }) {
     setTimeout(() => {
       setShouldMemoize(true)
     }, 0)
- 
   }, [route.params])
 
   // useEffect(() => {
@@ -93,7 +93,6 @@ export default function Theory({ route }) {
                   width: '100%',
                   paddingHorizontal: 20,
                   gap: 20,
-                  // backgroundColor: 'red',
                 }}
               >
                 <Pressable
@@ -137,12 +136,12 @@ export default function Theory({ route }) {
               // backgroundColor: 'red',
               backgroundColor: sectionHeaderBG,
               borderTopWidth: 1,
-              borderTopColor: sectionHeaderBG,
-              elevation: 3,
-              shadowColor: '#000', // Kolor cienia
-              shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
-              shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
-              shadowRadius: 3, // Promień cienia
+              borderTopColor: "lightgray",
+              // elevation: 1,
+              // shadowColor: '#000', // Kolor cienia
+              // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
+              // shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
+              // shadowRadius: 3, // Promień cienia
             }}
           >
             <Text style={styles.sectionHeaderText}>{section.title}</Text>
@@ -221,7 +220,10 @@ export default function Theory({ route }) {
       <React.Fragment>
         <SectionList
           onStartShouldSetResponder={() => true}
-          // contentContainerStyle={{ paddingBottom: 20 }}
+          contentContainerStyle={{
+            // backgroundColor: screenBackground,
+            // height: '100%',
+          }}
           onScroll={handleScroll}
           onScrollBeginDrag={() => setShowPopup(false)}
           ref={sectionListRef}
@@ -239,6 +241,7 @@ export default function Theory({ route }) {
       <View
         style={{
           justifyContent: 'center',
+
           alignItems: 'center',
           height: screenHeight - headerHeight,
         }}
@@ -252,7 +255,9 @@ export default function Theory({ route }) {
   }, [topicName])
 
   return (
-    <View style={{ minHeight: screenHeight }}>
+    <View
+      style={{ minHeight: screenHeight, backgroundColor: screenBackground }}
+    >
       <StatusBar style="auto" />
       <View
         style={[
@@ -297,13 +302,13 @@ export default function Theory({ route }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingBottom: 50,
-  },
+  // container: {
+  //   flexGrow: 1,
+  //   backgroundColor: screenBackground,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   paddingBottom: 50,
+  // },
   progressBarContainer: {
     height: 5,
     backgroundColor: 'green',

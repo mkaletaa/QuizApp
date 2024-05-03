@@ -171,9 +171,9 @@ export function ListHeaderComponent({
         onPress={onPressQuiz}
         // disabled={chosenOptions.length === 0}
         elevation={5}
-        // style={{
-        //   backgroundColor: 'slateblue',
-        // }}
+        style={{
+          backgroundColor: 'slateblue',
+        }}
         rippleColor="thistle"
       >
         <Text

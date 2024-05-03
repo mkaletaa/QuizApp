@@ -1,6 +1,7 @@
 const primary1 = '#6b4891'
 const primary2 = '#7d609f'
-const primary3 = "thistle"
+const primary3 = "slateblue"
+const primary4 = "thistle"
 const secondary1 = '#F0F8FF'
 const secondary2 = '#F0FFFF'
 const secondary3 = '#FFFAF0'
@@ -28,9 +29,9 @@ export const buttonDark = primary1
 export const buttonLight = primary2
 export const spinner = primary1
 
-export const goUpBackground = secondary12
+export const goUpBackground = secondary4
 
-export const sectionHeaderBG = secondary11
+export const sectionHeaderBG = secondary18
 
 export const surfaceBg = secondary4
 

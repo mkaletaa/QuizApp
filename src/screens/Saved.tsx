@@ -54,6 +54,7 @@ export default function Saved() {
     <View
       style={{
         backgroundColor: screenBackground,
+        height: "100%"
       }}
     >
       <ResultModal

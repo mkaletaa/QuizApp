@@ -5,11 +5,12 @@ import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 // import Question from './Question'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
+import { surfaceBg } from '../utils/constants'
 
 export default function Tile({
   item,
   handlePress,
-  color = 'white',
+  color = surfaceBg,
 }: {
   item: Item
   handlePress: any
@@ -40,7 +41,7 @@ export default function Tile({
       case 'green':
         return 'rgb(0, 90, 0)'
       default:
-        return 'rgb(233, 233, 233)'
+        return 'rgb(240, 240, 240)'
     }
   }
 
