@@ -46,7 +46,7 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
               name="warning"
               size={16}
               color="black"
-              style={{ marginRight: 5}}
+              style={{ marginRight: 5 }}
             />
             <Text
               // variant="labelSmall"
@@ -94,10 +94,10 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
               {
                 backgroundColor: chosenOptions.some(el => el.id === option.id)
                   ? 'lightblue'
-                  : 'lightgray',
+                  : '#C5C6D0',
                 borderColor: chosenOptions.some(el => el.id === option.id)
                   ? 'rgb(50, 200, 255)'
-                  : 'silver',
+                  : 'darkgray',
               },
             ]}
             onPress={() => {

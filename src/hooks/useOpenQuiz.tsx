@@ -62,14 +62,14 @@ const useOpenQuiz = () => {
     return (
       // null
       <CustomModal
-        showModal={showNoQuestionsModal}
+        visible={showNoQuestionsModal}
         onRequestClose={() => setShowNoQuestionsModal(false)}
-        modalText={noQuestions}
+        text={noQuestions}
       >
-        <Button
+        {/* <Button
           title="ok"
           onPress={() => setShowNoQuestionsModal(false)}
-        ></Button>
+        ></Button> */}
       </CustomModal>
     )
   }

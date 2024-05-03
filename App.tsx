@@ -71,11 +71,12 @@ const App = () => {
           <MyStack />
 
           <CustomModal
-            showModal={showModal}
-            modalText={noInternetMessage}
+            visible={showModal}
+            text={noInternetMessage}
+            icon={"wifi-off"}
             onRequestClose={() => setShowModal(false)}
           >
-            <Button title="OK" onPress={() => setShowModal(false)} />
+            {/* <Button title="OK" onPress={() => setShowModal(false)} /> */}
           </CustomModal>
           {/* <Snackbar
           visible={showTitleSnackbar}

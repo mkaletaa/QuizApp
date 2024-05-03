@@ -1,31 +1,71 @@
-import { Modal, View, StyleSheet, Text } from 'react-native'
-
+import { Modal, View, StyleSheet } from 'react-native'
+import { Button, Dialog, Portal, Text } from 'react-native-paper'
+import { buttonLight, screenBackground } from '../utils/constants'
 export default function CustomModal({
   children = null,
-  showModal,
+  visible,
   onRequestClose,
-  modalText = null,
+  text = null,
+  icon = null,
+  title = null,
 }) {
+  // return (
+  //   <Modal
+  //     animationType="fade"
+  //     transparent={true}
+  //     visible={showModal} //showModal
+  //     onRequestClose={() => onRequestClose()}
+  //   >
+  //       <View style={styles.modalContainer}>
+  //         <View style={styles.modalContent}>
+  //           {modalText && (
+  //             <Text
+  //               style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}
+  //             >
+  //               {modalText}
+  //             </Text>
+  //           )}
+  //           {children}
+  //         </View>
+  //       </View>
+  //   </Modal>
+  // )
+
   return (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={showModal} //showModal
-      onRequestClose={() => onRequestClose()}
-    >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            {modalText && (
-              <Text
-                style={{ textAlign: 'center', fontSize: 15, marginBottom: 10 }}
-              >
-                {modalText}
-              </Text>
-            )}
-            {children}
-          </View>
-        </View>
-    </Modal>
+    <Portal>
+      <Dialog
+        style={{
+          backgroundColor: screenBackground,
+        }}
+        visible={visible}
+        onDismiss={onRequestClose}
+      >
+        {icon && <Dialog.Icon icon={icon} size={50}/>}
+        {title && <Dialog.Title>{title}</Dialog.Title>}
+        <Dialog.Content>
+          <Text
+            style={{
+              width: '100%',
+              // backgroundColor: "red",
+              textAlign: 'center',
+              fontSize: 18,
+            }}
+            variant="bodyMedium"
+          >
+            {text}
+          </Text>
+        </Dialog.Content>
+        <Dialog.Actions>
+          {!children && <Button onPress={onRequestClose}>
+            <Text style={{fontSize: 20, color:buttonLight}}>
+
+            Ok
+            </Text>
+            </Button>}
+          {children}
+        </Dialog.Actions>
+      </Dialog>
+    </Portal>
   )
 }
 

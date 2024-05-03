@@ -36,7 +36,7 @@ import {
 } from '../../data/texts'
 import useStore from '../utils/store'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
-import { buttonDark, spinner, screenBackground } from '../utils/constants'
+import { buttonDark, spinner, screenBackground, buttonLight } from '../utils/constants'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -253,14 +253,14 @@ export default function Quiz({ route }) {
       </Modal>
 
       <CustomModal
-        showModal={showExitModal}
+        visible={showExitModal}
         onRequestClose={() => setShowResultModal(false)}
-        modalText={areYouSure}
+        text={areYouSure}
       >
         <React.Fragment>
           <View style={styles.buttonsContainer}>
-            <Button title={yesQuit} color="red" onPress={closeModalAndGoBack} />
-            <Button title={nah} onPress={() => setShowExitModal(false)} />
+            <PaperButton children={yesQuit} textColor="red" onPress={closeModalAndGoBack} />
+            <PaperButton buttonColor="lightblue" textColor="#333" children={nah} onPress={() => setShowExitModal(false)} />
           </View>
         </React.Fragment>
       </CustomModal>
