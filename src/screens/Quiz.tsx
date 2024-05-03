@@ -36,7 +36,7 @@ import {
 } from '../../data/texts'
 import useStore from '../utils/store'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
-import { buttonDark, spinner } from '../utils/constants'
+import { buttonDark, spinner, screenBackground } from '../utils/constants'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -270,7 +270,7 @@ export default function Quiz({ route }) {
 
 const styles = StyleSheet.create({
   screen: {
-    // backgroundColor: 'white',
+    backgroundColor: screenBackground,
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingBottom: 50,
