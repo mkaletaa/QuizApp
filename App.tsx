@@ -10,7 +10,7 @@ import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
 import * as Updates from 'expo-updates'
 import { setValue } from './src/utils/utilStorage'
 import * as Sentry from '@sentry/react-native'
-import { Snackbar } from 'react-native-paper'
+import {  Provider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import useStore from './src/utils/store'
 
@@ -28,7 +28,6 @@ Sentry.init({
 
 const App = () => {
   const [showModal, setShowModal] = useState(false)
-  const showTitleSnackbar = useStore(state => state.showTitleSnackbar)
   async function onFetchUpdateAsync() {
     try {
       const update = await Updates.checkForUpdateAsync()
@@ -60,20 +59,25 @@ const App = () => {
   }, [])
 
   return (
-    <SafeAreaProvider style={{
-      // backgroundColor: 'yellow'
-    }}>
-      <NavigationContainer>
-        <MyStack />
+    <SafeAreaProvider
+      style={
+        {
+          // backgroundColor: 'yellow'
+        }
+      }
+    >
+      <Provider>
+        <NavigationContainer>
+          <MyStack />
 
-        <CustomModal
-          showModal={showModal}
-          modalText={noInternetMessage}
-          onRequestClose={() => setShowModal(false)}
-        >
-          <Button title="OK" onPress={() => setShowModal(false)} />
-        </CustomModal>
-        <Snackbar
+          <CustomModal
+            showModal={showModal}
+            modalText={noInternetMessage}
+            onRequestClose={() => setShowModal(false)}
+          >
+            <Button title="OK" onPress={() => setShowModal(false)} />
+          </CustomModal>
+          {/* <Snackbar
           visible={showTitleSnackbar}
           duration={700}
           onDismiss={()=>{}}
@@ -83,10 +87,11 @@ const App = () => {
               // Do something
             },
           }}
-        >
+        > 
           Hey there! I'm a Snackbar.
-        </Snackbar>
-      </NavigationContainer>
+        </Snackbar>*/}
+        </NavigationContainer>
+      </Provider>
     </SafeAreaProvider>
   )
 }

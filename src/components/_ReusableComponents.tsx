@@ -7,7 +7,6 @@ import {
   View,
   Text,
   Button,
-  Switch,
   Pressable,
 } from 'react-native'
 import ItemResult from './ItemResult'
@@ -23,7 +22,14 @@ import Tile from './Tile'
 import { Ionicons } from '@expo/vector-icons'
 import { Octicons } from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons'
-import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
+import {
+  Switch,
+  Button as PaperButton,
+  Text as PaperText,
+  TouchableRipple,
+} from 'react-native-paper'
+import { surfaceBg, buttonDark, buttonLight } from '../utils/constants'
+
 export function ResultModal({
   modalItem,
   showModal,
@@ -197,8 +203,13 @@ export function ListHeaderComponent({
             // backgroundColor: 'blue',
           }}
         >
-          <Switch onValueChange={onToggleSwitch} value={isEnabled} />
-          <Text>{reverseTheOrder}</Text>
+          <Switch
+            onValueChange={onToggleSwitch}
+            value={isEnabled}
+            color={buttonDark} // Kolor włączonego przycisku
+            // uncheckedColor="gray" // Kolor wyłączonego przycisku
+          />
+          <PaperText variant={"labelMedium"} style={{ color: buttonDark }}>{reverseTheOrder}</PaperText>
         </Pressable>
       )}
     </View>
