@@ -23,7 +23,7 @@ export default function ChapterDescription({
         padding: 5,
         // maxHeight: 100,
         overflow: 'hidden',
-        elevation: 3,
+        elevation: 1,
         marginVertical: 20
       }}
     >
