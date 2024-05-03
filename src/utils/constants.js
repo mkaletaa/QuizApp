@@ -13,6 +13,11 @@ const secondary10 = '#F0FFF0'
 
 const secondary11 = '#F3F3F3'
 const secondary12 = '#FFFFF8'
+//
+const secondary13 = '#FAFAFA'
+const secondary14 = '#FBFBFB'
+const secondary15 = '#C7C7C7'
+const secondary16 = '#FFFFF8'
 
 export const buttonDark = primary1
 export const buttonLight = primary2
@@ -24,6 +29,6 @@ export const sectionHeaderBG = secondary11
 
 export const surfaceBg = secondary9
 
-export const surfaceShadow = secondary1
+export const surfaceShadow = secondary11
 export const surfaceBorder1 = secondary2
 export const surfaceBorder2 = secondary4

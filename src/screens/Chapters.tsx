@@ -69,7 +69,7 @@ export default function Chapters() {
           y={450}
           width={396}
           height={228}
-          color="purple"
+          color="blue"
           opacity={0.07}
         />
         <Oval

@@ -23,12 +23,30 @@ const MyStack = () => {
     }
   }
 
+  const headerOptions = {
+    title: null,
+    headerStyle: {
+      backgroundColor: 'transparent',
+      elevation: 0,
+      borderBottomColor: 'lightgray',
+      borderBottomWidth: .5
+    },
+    headerTintColor: 'black',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      display: 'none',
+    },
+  }
+
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Chapters"
         component={Chapters}
-        options={{ ...header({ title: null }), title: null }}
+        options={{
+          ...header({ title: null }),
+          ...headerOptions,
+        }}
       />
 
       <Stack.Screen
@@ -39,7 +57,7 @@ const MyStack = () => {
             //@ts-ignore
             title: removeUnderscores(route.params?.chapterName, true),
           }),
-          title: null, // Ukrycie tytułu ekranu
+          ...headerOptions,
         })}
       />
 
@@ -51,7 +69,7 @@ const MyStack = () => {
             //@ts-ignore
             title: removeUnderscores(route.params?.topicName, true),
           }),
-          title: null, // Ukrycie tytułu ekranu
+          ...headerOptions,
         })}
       />
 
@@ -68,7 +86,7 @@ const MyStack = () => {
           ...header({
             title: savedQuestions,
           }),
-          title: null, // Ukrycie tytułu ekranu
+          ...headerOptions,
         })}
       />
 
@@ -79,7 +97,7 @@ const MyStack = () => {
           ...header({
             title: aboutTheApp,
           }),
-          title: null, // Ukrycie tytułu ekranu
+          ...headerOptions,
         })}
       />
 
@@ -90,7 +108,7 @@ const MyStack = () => {
           ...header({
             title: settings,
           }),
-          title: null, // Ukrycie tytułu ekranu
+          ...headerOptions,
         })}
       />
 
@@ -102,7 +120,7 @@ const MyStack = () => {
             //@ts-ignore
             title: removeUnderscores(route.params?.topicName, true),
           }),
-          title: null, // Ukrycie tytułu ekranu
+          ...headerOptions,
         })}
       />
 

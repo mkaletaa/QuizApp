@@ -10,21 +10,21 @@ export default function ChapterDescription({
   chapterDescription: string
 }) {
   return (
-    <Surface
-      elevation={5}
+    <View
       style={{
         width: '90%',
-        backgroundColor: surfaceBg,
+        backgroundColor: 'white',
         borderLeftColor: surfaceBorder1,
         borderBottomColor: surfaceBorder1,
         borderRightColor: surfaceBorder2,
         borderTopColor: surfaceBorder2,
-        borderWidth: 1.5,
+        // borderWidth: 1.5,
         borderRadius: 10,
         padding: 5,
         // maxHeight: 100,
         overflow: 'hidden',
-        // elevation: 9,
+        elevation: 3,
+        marginVertical: 20
       }}
     >
       <View
@@ -46,6 +46,6 @@ export default function ChapterDescription({
           left: 0,
         }}
       ></LinearGradient>
-    </Surface>
+    </View>
   )
 }
