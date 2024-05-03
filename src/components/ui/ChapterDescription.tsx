@@ -1,6 +1,8 @@
 import { View } from 'react-native'
 import ContentRenderer from '../ContentRenderer/_ContentRenderer'
 import { LinearGradient } from 'expo-linear-gradient'
+import { Surface } from 'react-native-paper'
+import { surfaceBg, surfaceBorder1, surfaceBorder2, surfaceShadow } from '../../utils/constants'
 
 export default function ChapterDescription({
   chapterDescription: chapterDes,
@@ -8,17 +10,21 @@ export default function ChapterDescription({
   chapterDescription: string
 }) {
   return (
-    <View
+    <Surface
+      elevation={5}
       style={{
         width: '90%',
-        backgroundColor: 'white',
-        borderColor: 'mint',
-        // borderWidth: 1.5,
+        backgroundColor: surfaceBg,
+        borderLeftColor: surfaceBorder1,
+        borderBottomColor: surfaceBorder1,
+        borderRightColor: surfaceBorder2,
+        borderTopColor: surfaceBorder2,
+        borderWidth: 1.5,
         borderRadius: 10,
         padding: 5,
         // maxHeight: 100,
         overflow: 'hidden',
-        elevation: 9,
+        // elevation: 9,
       }}
     >
       <View
@@ -31,7 +37,7 @@ export default function ChapterDescription({
       <LinearGradient
         start={{ x: 0, y: 0.7 }}
         end={{ x: 1, y: 0 }}
-        colors={['#F6F0C4', '#D99EC9']}
+        colors={[surfaceShadow, surfaceBg]}
         style={{
           width: '110%',
           height: '100%', //has to be 100% cuz if Math component, Tile cannot be pressed
@@ -40,6 +46,6 @@ export default function ChapterDescription({
           left: 0,
         }}
       ></LinearGradient>
-    </View>
+    </Surface>
   )
 }

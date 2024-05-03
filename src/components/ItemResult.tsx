@@ -22,6 +22,7 @@ import ExplanationPopup from './ui/ExplanationPopup'
 import useStore from '../utils/store'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
+import { buttonDark } from '../utils/constants'
 
 export default function ItemResult({
   item,
@@ -139,14 +140,13 @@ export default function ItemResult({
               // disabled={chosenOptions.length === 0}
               elevation={5}
               style={{
-                borderColor: 'purple',
-                borderWidth: 1.5
+                borderColor: buttonDark,
+                borderWidth: 1.5,
               }}
-              
             >
               <Text
                 style={{
-                  color: 'purple',
+                  color: buttonDark,
                 }}
               >
                 {btnTitle}

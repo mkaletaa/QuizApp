@@ -19,6 +19,7 @@ import QuizButton from '../components/ui/QuizButton'
 import TheoryPopup from '../components/ui/TheoryPopup'
 import { removeUnderscores } from '../utils/functions'
 import useStore from '../utils/store'
+import { goUpBackground, sectionHeaderBG, spinner } from '../utils/constants'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -134,9 +135,9 @@ export default function Theory({ route }) {
               paddingRight: 30,
 
               // backgroundColor: 'red',
-              backgroundColor: 'rgb(243, 243, 243)',
+              backgroundColor: sectionHeaderBG,
               borderTopWidth: 1,
-              borderTopColor: 'rgb(243, 243, 243)',
+              borderTopColor: sectionHeaderBG,
               elevation: 3,
               shadowColor: '#000', // Kolor cienia
               shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
@@ -287,7 +288,7 @@ export default function Theory({ route }) {
       ) : (
         <ActivityIndicator
           size={50}
-          color="#0000ff"
+          color={spinner}
           style={{ top: screenHeight / 2 - 50 }}
         />
       )}
@@ -326,7 +327,7 @@ const styles = StyleSheet.create({
   },
   goUp: {
     padding: 8,
-    backgroundColor: '#FFFFF8',
+    backgroundColor: goUpBackground,
     position: 'absolute',
     bottom: 20,
     left: 30,

@@ -4,7 +4,7 @@ import { ScrollView, View } from 'react-native'
 import { chapters, topics } from '../../data/data'
 import Card from '../components/Card'
 import ChapterDescription from '../components/ui/ChapterDescription'
-import RandomQuestion from '../components/ui/RandomQuestion'
+import RandomQuestionButton from '../components/ui/RandomQuestionButton'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import utilStyles from '../utils/styles'
 import { removeUnderscores } from '../utils/functions'
@@ -29,7 +29,6 @@ export default function Topics({ route }) {
       setChapterName(chapterName)
       setTopicsToShow([...topics[chapterName]])
     }
-
   }, [route.params])
 
   const showTheory = (topicName, chapterName) => {
@@ -59,7 +58,7 @@ export default function Topics({ route }) {
         alignItems: 'center',
       }}
     >
-      <RandomQuestion chapName={chapterName} />
+      <RandomQuestionButton chapName={chapterName} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         <ChapterDescription chapterDescription={chapterDes} />
 

@@ -5,9 +5,9 @@ import { ScrollView, View, Text } from 'react-native'
 import { chapters } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'
-import RandomQuestion from '../components/ui/RandomQuestion'
+import RandomQuestionButton from '../components/ui/RandomQuestionButton'
 import { LinearGradient } from 'expo-linear-gradient'
-import { Canvas, Patch, vec, Surface, Oval, Blur } from '@shopify/react-native-skia'
+import { Canvas, Patch, vec, Oval, Blur } from '@shopify/react-native-skia'
 
 export default function Chapters() {
   const navigation = useNavigation()
@@ -29,7 +29,7 @@ export default function Chapters() {
   const bottomRight = {
     pos: vec(width, height),
     c1: vec(width, height),
-    c2: vec( width, height),
+    c2: vec(width, height),
   }
   const bottomLeft = {
     pos: vec(0, height),
@@ -61,11 +61,25 @@ export default function Chapters() {
           width: 360,
           height: 600,
           position: 'absolute',
-          bottom: 0
+          bottom: 0,
         }}
       >
-        <Oval x={-100} y={450} width={396} height={228} color="purple" opacity={.07} />
-        <Oval x={300} y={150} width={496} height={228} color="yellow" opacity={.09} />
+        <Oval
+          x={-100}
+          y={450}
+          width={396}
+          height={228}
+          color="purple"
+          opacity={0.07}
+        />
+        <Oval
+          x={300}
+          y={150}
+          width={496}
+          height={228}
+          color="yellow"
+          opacity={0.09}
+        />
         {/* <Patch
           colors={colors}
           patch={[topLeft, topRight, bottomRight, bottomLeft]}
@@ -73,7 +87,7 @@ export default function Chapters() {
         <Blur blur={34} />
       </Canvas>
 
-      <RandomQuestion chapName={'__All__'} />
+      <RandomQuestionButton chapName={'__All__'} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         <StatusBar style="auto" />
 

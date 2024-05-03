@@ -36,6 +36,7 @@ import {
 } from '../../data/texts'
 import useStore from '../utils/store'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
+import { buttonDark, spinner } from '../utils/constants'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -212,6 +213,7 @@ export default function Quiz({ route }) {
               }}
               disabled={chosenOptions.length === 0}
               elevation={5}
+              buttonColor={buttonDark}
             >
               {submit}
             </PaperButton>
@@ -227,7 +229,7 @@ export default function Quiz({ route }) {
         )}
 
         {!item && !showGeneralResults && (
-          <ActivityIndicator size={50} color="#0000ff" />
+          <ActivityIndicator size={50} color={spinner} />
         )}
 
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
