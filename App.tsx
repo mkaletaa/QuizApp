@@ -60,7 +60,9 @@ const App = () => {
   }, [])
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider style={{
+      // backgroundColor: 'yellow'
+    }}>
       <NavigationContainer>
         <MyStack />
 

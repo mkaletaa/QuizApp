@@ -8,6 +8,7 @@ import utilStyles from '../utils/styles'
 import RandomQuestionButton from '../components/ui/RandomQuestionButton'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Canvas, Patch, vec, Oval, Blur } from '@shopify/react-native-skia'
+import { screenBackground } from '../utils/constants'
 
 export default function Chapters() {
   const navigation = useNavigation()
@@ -41,6 +42,7 @@ export default function Chapters() {
     <View
       style={{
         alignItems: 'center',
+        backgroundColor: screenBackground
       }}
     >
       {/* <LinearGradient
@@ -64,22 +66,22 @@ export default function Chapters() {
           bottom: 0,
         }}
       >
-        <Oval
-          x={-100}
-          y={450}
-          width={396}
-          height={228}
+        {/* <Oval
+          x={50}
+          y={200}
+          width={228}
+          height={400}
           color="blue"
           opacity={0.07}
-        />
-        <Oval
+        /> */}
+        {/* <Oval
           x={300}
           y={150}
           width={496}
           height={228}
           color="yellow"
           opacity={0.09}
-        />
+        /> */}
         {/* <Patch
           colors={colors}
           patch={[topLeft, topRight, bottomRight, bottomLeft]}

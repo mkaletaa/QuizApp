@@ -270,7 +270,7 @@ export default function Quiz({ route }) {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: 'lightgray',
+    // backgroundColor: 'white',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingBottom: 50,

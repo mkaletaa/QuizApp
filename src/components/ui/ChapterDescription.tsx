@@ -13,7 +13,7 @@ export default function ChapterDescription({
     <View
       style={{
         width: '90%',
-        backgroundColor: 'white',
+        backgroundColor: surfaceBg,
         borderLeftColor: surfaceBorder1,
         borderBottomColor: surfaceBorder1,
         borderRightColor: surfaceBorder2,
@@ -34,7 +34,7 @@ export default function ChapterDescription({
       >
         <ContentRenderer content={chapterDes} />
       </View>
-      <LinearGradient
+      {/* <LinearGradient
         start={{ x: 0, y: 0.7 }}
         end={{ x: 1, y: 0 }}
         colors={[surfaceShadow, surfaceBg]}
@@ -45,7 +45,7 @@ export default function ChapterDescription({
           top: 0,
           left: 0,
         }}
-      ></LinearGradient>
+      ></LinearGradient> */}
     </View>
   )
 }

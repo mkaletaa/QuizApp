@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, TouchableWithoutFeedback, Pressable } from 'react-native'
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Pressable,
+  Dimensions,
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import { Ionicons } from '@expo/vector-icons'
@@ -11,7 +17,9 @@ import { Entypo } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Foundation } from '@expo/vector-icons'
 import useStore from '../utils/store'
-import { Button } from 'react-native-paper'
+import { Button, TouchableRipple } from 'react-native-paper'
+import { screenBackground } from '../utils/constants'
+
 // import { useRoute } from '@react-navigation/native'
 export default function Header({ title }) {
   const navigation = useNavigation()
@@ -24,7 +32,7 @@ export default function Header({ title }) {
     <Pressable
       style={{
         // backgroundColor: 'red',
-        width: 320,
+        // width: 320,
         height: '100%',
         alignItems: 'flex-end',
         justifyContent: 'center',
@@ -37,14 +45,29 @@ export default function Header({ title }) {
       <View
         style={{
           flexDirection: 'row',
-          // backgroundColor: 'blue',
+          // backgroundColor: screenBackground,
+
           // gap: 20,
           paddingRight: 20,
           alignItems: 'center',
           height: '100%',
+          width: Dimensions.get('window').width,
           // justifyContent: 'center',
         }}
       >
+        <TouchableRipple
+          borderless
+          rippleColor="thistle"
+          onPress={() => {
+            navigation.goBack()
+          }}
+          style={{
+            marginLeft: 15
+            
+          }}
+        >
+          <AntDesign name="left" size={28} color="black" />
+        </TouchableRipple>
         <React.Fragment>
           <TouchableWithoutFeedback
             onLongPress={() => {

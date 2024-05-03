@@ -12,6 +12,7 @@ import {
   ResultModal,
   contentContainerStyle,
 } from '../components/_ReusableComponents'
+import { screenBackground } from '../utils/constants'
 
 export default function Saved() {
   const headerHeight = useHeaderHeight()
@@ -50,7 +51,11 @@ export default function Saved() {
   }
 
   return (
-    <View>
+    <View
+      style={{
+        backgroundColor: screenBackground,
+      }}
+    >
       <ResultModal
         modalItem={modalItem}
         showModal={showModal}

@@ -13,6 +13,7 @@ import Settings2 from './screens/Settings2'
 import Settings3 from './screens/Settings3'
 import About from './screens/About'
 import Questions from './screens/Questions'
+import { screenBackground } from './utils/constants'
 
 const Stack = createStackNavigator()
 
@@ -25,8 +26,10 @@ const MyStack = () => {
 
   const headerOptions = {
     title: null,
+    
     headerStyle: {
-      backgroundColor: 'transparent',
+        backgroundColor: screenBackground,
+
       elevation: 0,
       borderBottomColor: 'lightgray',
       borderBottomWidth: .5
@@ -39,10 +42,17 @@ const MyStack = () => {
   }
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: null,
+        // headerTransparent: true,
+        headerLeft: null,
+      }}
+    >
       <Stack.Screen
         name="Chapters"
         component={Chapters}
+        //@ts-ignore
         options={{
           ...header({ title: null }),
           ...headerOptions,

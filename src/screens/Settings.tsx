@@ -7,6 +7,7 @@ import { Entypo } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 import * as Sentry from '@sentry/react-native'
 import useStore from '../utils/store'
+import { screenBackground } from '../utils/constants'
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
     useState<boolean>()
@@ -140,6 +141,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
     paddingTop: 15,
+    backgroundColor: screenBackground,
   },
 })
 

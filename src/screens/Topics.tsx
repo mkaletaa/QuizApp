@@ -9,6 +9,7 @@ import useOpenQuiz from '../hooks/useOpenQuiz'
 import utilStyles from '../utils/styles'
 import { removeUnderscores } from '../utils/functions'
 import useStore from '../utils/store'
+import { screenBackground } from '../utils/constants'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
@@ -56,6 +57,7 @@ export default function Topics({ route }) {
     <View
       style={{
         alignItems: 'center',
+        backgroundColor: screenBackground,
       }}
     >
       <RandomQuestionButton chapName={chapterName} />

@@ -11,6 +11,7 @@ import {
   ResultModal,
   contentContainerStyle,
 } from '../components/_ReusableComponents'
+import { screenBackground } from '../utils/constants'
 export default function Questions({ route }) {
   const [itemsCount, setItemsCount] = useState(0)
   const [items, setItems] = useState<Item[]>([])
@@ -55,7 +56,12 @@ export default function Questions({ route }) {
   const [refreshing, setRefreshing] = useState(false)
 
   return (
-    <View>
+    <View
+      style={{
+        backgroundColor: screenBackground,
+        height: "100%"
+      }}
+    >
       <ResultModal
         modalItem={modalItem}
         showModal={showModal}

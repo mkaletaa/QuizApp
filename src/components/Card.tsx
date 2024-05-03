@@ -12,7 +12,7 @@ import { removeUnderscores } from '../utils/functions'
 import { read } from '../../data/texts'
 import { useNavigation } from '@react-navigation/native'
 import { TouchableRipple } from 'react-native-paper'
-
+import {surfaceBg} from "../utils/constants"
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -94,7 +94,7 @@ export default function Card({
 const styles = StyleSheet.create({
   card: {
     overflow: 'hidden',
-    backgroundColor: '#fff',
+    backgroundColor: surfaceBg,
     borderRadius: 10,
     margin: 10,
     shadowColor: '#000',

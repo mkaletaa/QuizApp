@@ -94,10 +94,10 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
               {
                 backgroundColor: chosenOptions.some(el => el.id === option.id)
                   ? 'lightblue'
-                  : 'silver',
+                  : 'lightgray',
                 borderColor: chosenOptions.some(el => el.id === option.id)
                   ? 'rgb(50, 200, 255)'
-                  : 'rgb(160, 160, 160)',
+                  : 'silver',
               },
             ]}
             onPress={() => {
