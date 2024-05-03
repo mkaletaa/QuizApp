@@ -10,7 +10,7 @@ import {
   RenderItem,
   ResultModal,
   contentContainerStyle,
-} from '../components/_ReusableComponents'
+} from '../components/molecules/_ReusableComponents'
 import { screenBackground } from '../utils/constants'
 export default function Questions({ route }) {
   const [itemsCount, setItemsCount] = useState(0)

@@ -1,10 +1,10 @@
 import { Dimensions, Pressable, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
-import useOpenQuiz from '../../hooks/useOpenQuiz'
-import { randomQuestion } from '../../../data/texts'
+import useOpenQuiz from '../../../hooks/useOpenQuiz'
+import { randomQuestion } from '../../../../data/texts'
 import { Button as PaperButton } from 'react-native-paper'
-import { buttonDark, buttonLight } from '../../utils/constants'
+import { buttonDark, buttonLight } from '../../../utils/constants'
 import { LinearGradient } from 'expo-linear-gradient'
 export default function RandomQuestionButton({ chapName }) {
   const navigation = useNavigation()
@@ -44,6 +44,7 @@ export default function RandomQuestionButton({ chapName }) {
     //     bottom: 0,
     //   }}
     // >
+    //todo: use FAB from paper
     <PaperButton
       mode="elevated"
       icon="dice-5"

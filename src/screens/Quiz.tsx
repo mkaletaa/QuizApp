@@ -20,7 +20,7 @@ import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
 import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
-import Line from '../components/ui/Line'
+import Line from '../components/molecules/atoms/Line'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { returnIsCorrect } from '../utils/functions'
 import { Option, Result } from '../utils/types'
@@ -36,7 +36,12 @@ import {
 } from '../../data/texts'
 import useStore from '../utils/store'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
-import { buttonDark, spinner, screenBackground, buttonLight } from '../utils/constants'
+import {
+  buttonDark,
+  spinner,
+  screenBackground,
+  buttonLight,
+} from '../utils/constants'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -178,7 +183,7 @@ export default function Quiz({ route }) {
       >
         {
           <TouchableRipple
-          borderless
+            borderless
             style={{
               paddingVertical: 5,
               paddingHorizontal: 10,
@@ -204,7 +209,6 @@ export default function Quiz({ route }) {
               handleOptionPress={handleOptionPress}
               multiChoice={item.multiChoice}
             />
-
 
             <PaperButton
               mode="contained"
@@ -259,8 +263,17 @@ export default function Quiz({ route }) {
       >
         <React.Fragment>
           <View style={styles.buttonsContainer}>
-            <PaperButton children={yesQuit} textColor="red" onPress={closeModalAndGoBack} />
-            <PaperButton buttonColor="lightblue" textColor="#333" children={nah} onPress={() => setShowExitModal(false)} />
+            <PaperButton
+              children={yesQuit}
+              textColor="red"
+              onPress={closeModalAndGoBack}
+            />
+            <PaperButton
+              buttonColor="lightblue"
+              textColor="#333"
+              children={nah}
+              onPress={() => setShowExitModal(false)}
+            />
           </View>
         </React.Fragment>
       </CustomModal>

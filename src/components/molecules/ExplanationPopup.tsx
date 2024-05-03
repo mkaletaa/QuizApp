@@ -7,7 +7,7 @@ import useAnimatePopup from '../../hooks/useAnimatePopup'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
 import { Item } from '../../utils/types'
-import MistakeButton from './MistakeButton'
+import MistakeButton from './atoms/MistakeButton'
 
 export default function ExplanationPopup({ item }: { item: Item }) {
   const [saved, setSaved] = useState(false) // Czy pytanie jest zapisane

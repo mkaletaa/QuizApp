@@ -14,17 +14,18 @@ export default function ChapterDescription({
       style={{
         width: '90%',
         backgroundColor: surfaceBg,
-        borderLeftColor: surfaceBorder1,
-        borderBottomColor: surfaceBorder1,
-        borderRightColor: surfaceBorder2,
-        borderTopColor: surfaceBorder2,
+        // borderLeftColor: surfaceBorder1,
+        // borderBottomColor: surfaceBorder1,
+        // borderRightColor: surfaceBorder2,
+        // borderTopColor: surfaceBorder2,
+        // borderColor: "#dfdfdf",
         // borderWidth: 1.5,
+        elevation: 1,
         borderRadius: 10,
         padding: 5,
         // maxHeight: 100,
         overflow: 'hidden',
-        elevation: 1,
-        marginVertical: 20
+        marginVertical: 20,
       }}
     >
       <View

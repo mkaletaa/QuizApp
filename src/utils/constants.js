@@ -33,7 +33,8 @@ export const goUpBackground = secondary4
 
 export const sectionHeaderBG = secondary18
 
-export const surfaceBg = secondary4
+export const surfaceBg = "ghostwhite"
+//used to be secondary4
 
 export const surfaceShadow = secondary11
 export const surfaceBorder1 = secondary2

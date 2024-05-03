@@ -9,16 +9,16 @@ import {
   Button,
   Pressable,
 } from 'react-native'
-import ItemResult from './ItemResult'
-import { Item } from '../utils/types'
+import ItemResult from '.././ItemResult'
+import { Item } from '../../utils/types'
 import {
   close,
   noQuestions,
   reverseTheOrder,
   takeAQuiz,
   youDontHaveAnySavedQuestions,
-} from '../../data/texts'
-import Tile from './Tile'
+} from '../../../data/texts'
+import Tile from '../Tile'
 import { Ionicons } from '@expo/vector-icons'
 import { Octicons } from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons'
@@ -28,7 +28,7 @@ import {
   Text as PaperText,
   TouchableRipple,
 } from 'react-native-paper'
-import { surfaceBg, buttonDark, buttonLight } from '../utils/constants'
+import { surfaceBg, buttonDark, buttonLight } from './../../utils/constants'
 
 export function ResultModal({
   modalItem,

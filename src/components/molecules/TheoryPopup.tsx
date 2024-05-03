@@ -5,11 +5,11 @@ import useAnimatePopup from '../../hooks/useAnimatePopup'
 import { removeUnderscores, sendAnEmail } from '../../utils/functions'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
-import QuizButton from './QuizButton'
+import QuizButton from './atoms/QuizButton'
 import React from 'react'
 import { TouchableRipple } from 'react-native-paper'
 import { TouchableHighlight } from 'react-native-gesture-handler'
-import MistakeButton from './MistakeButton'
+import MistakeButton from './atoms/MistakeButton'
 
 export default function TheoryPopup({ topicName, chapterName }) {
   const showPopup = useStore(state => state.showPopup)

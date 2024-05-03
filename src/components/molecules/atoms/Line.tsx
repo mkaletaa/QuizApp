@@ -1,6 +1,6 @@
 import { View, Dimensions } from 'react-native'
-import { Result } from '../../utils/types'
-import { setColor } from '../../utils/functions'
+import { Result } from '../../../utils/types'
+import { setColor } from '../../../utils/functions'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { StatusBar } from 'react-native'

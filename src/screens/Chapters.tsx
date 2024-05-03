@@ -5,7 +5,7 @@ import { ScrollView, View, Text } from 'react-native'
 import { chapters } from '../../data/data'
 import Card from '../components/Card'
 import utilStyles from '../utils/styles'
-import RandomQuestionButton from '../components/ui/RandomQuestionButton'
+import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Canvas, Patch, vec, Oval, Blur } from '@shopify/react-native-skia'
 import { screenBackground } from '../utils/constants'
@@ -42,7 +42,7 @@ export default function Chapters() {
     <View
       style={{
         alignItems: 'center',
-        backgroundColor: screenBackground
+        backgroundColor: screenBackground,
       }}
     >
       {/* <LinearGradient
