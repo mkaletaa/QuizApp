@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import { renderComponent } from './_ContentRenderer'
 import { Entypo } from '@expo/vector-icons'
 import RenderHtml from 'react-native-render-html'
+import { boldTextColor, textColor } from '../../utils/constants'
 
 export function List({ value, width }) {
   return (
@@ -27,7 +28,7 @@ export function List({ value, width }) {
 export function ListElement({ value, width }) {
   // console.warn(value)
   let listValue =
-    '<span style="margin-bottom: 0px;  font-size: 18px">' + value + '</span>'
+    `<span style="margin-bottom: 0px;  font-size: 18px; color: ${textColor}">` + value + '</span>'
   return (
     <View
       style={{
@@ -43,7 +44,7 @@ export function ListElement({ value, width }) {
           // backgroundColor: 'red',
         }}
       >
-        <Entypo name="dot-single" size={26} color="black" />
+        <Entypo name="dot-single" size={26} color={boldTextColor} />
       </View>
       <View
         style={{

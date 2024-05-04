@@ -24,7 +24,7 @@ import {
   TouchableRipple,
   Tooltip,
 } from 'react-native-paper'
-import { screenBackground, buttonLight } from '../utils/constants'
+import { screenBackground, buttonLight, boldTextColor } from '../utils/constants'
 
 // import { useRoute } from '@react-navigation/native'
 export default function Header({ title }) {
@@ -77,7 +77,7 @@ export default function Header({ title }) {
             <AntDesign
               name="left"
               size={28}
-              color="black"
+              color={boldTextColor}
               style={
                 {
                   // backgroundColor: 'red',
@@ -105,25 +105,25 @@ export default function Header({ title }) {
           <View
             style={{
               flex: 1,
-              height: "100%",
-              justifyContent: "center"
+              height: '100%',
+              justifyContent: 'center',
             }}
           >
             <Tooltip title={title}>
               {/* <TouchableWithoutFeedback style={{}}> */}
-                <Text
-                  style={{
-                    // backgroundColor: 'red',
-                    fontSize: 20,
-                    fontWeight: 'bold',
-                    // paddingLeft: 10,
-
-                    textAlign: 'center',
-                  }}
-                  numberOfLines={1}
-                >
-                  {title}
-                </Text>
+              <Text
+                style={{
+                  // backgroundColor: 'red',
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  // paddingLeft: 10,
+                  color: boldTextColor,
+                  textAlign: 'center',
+                }}
+                numberOfLines={1}
+              >
+                {title}
+              </Text>
               {/* </TouchableWithoutFeedback> */}
             </Tooltip>
           </View>
@@ -149,7 +149,7 @@ export default function Header({ title }) {
               }
               name="bookmark-outline"
               size={30}
-              color="black"
+              color={boldTextColor}
               onPress={() => {
                 //@ts-ignore
                 navigation.navigate('Saved')
@@ -160,7 +160,7 @@ export default function Header({ title }) {
             <Feather
               name="sliders"
               size={28}
-              color="black"
+              color={boldTextColor}
               onPress={() => {
                 //@ts-ignore
                 navigation.navigate('Settings')

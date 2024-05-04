@@ -9,6 +9,7 @@ import Block from './Block'
 import ImageComponent from './ImageComponent'
 import { List, ListElement } from './List'
 import Math from './Math'
+import { boldTextColor, textColor } from '../../utils/constants'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
@@ -23,7 +24,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
   switch (componentType) {
     case 'Text':
       let modifiedValue =
-        '<span style=" font-size: 18px; color: rgb(50, 50, 60); line-height: 25px;">' +
+        `<span style=" font-size: 18px; color: ${textColor}; line-height: 25px;">` +
         value +
         '</span>'
 
@@ -62,7 +63,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             style={{
               fontSize: setFontSize(),
               fontWeight: 'bold',
-              color: 'rgb(20, 20, 60)',
+              color: boldTextColor,
             }}
           >
             {value}

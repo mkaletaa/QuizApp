@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { explanation as explText } from '../../data/texts'
 import { AntDesign } from '@expo/vector-icons'
 import useStore from '../utils/store'
+import { boldTextColor } from '../utils/constants'
 export default function ExpandableView({ data, showHeader = false }) {
   const [viewHeight, setViewHeight] = useState(0)
   const [max, setMax] = useState(150)
@@ -45,7 +46,7 @@ export default function ExpandableView({ data, showHeader = false }) {
             }}
             name="down"
             size={34}
-            color="black"
+            color={boldTextColor}
             style={{
               // backgroundColor: 'red',
               position: 'absolute',

@@ -12,7 +12,7 @@ import { removeUnderscores } from '../utils/functions'
 import { read } from '../../data/texts'
 import { useNavigation } from '@react-navigation/native'
 import { TouchableRipple } from 'react-native-paper'
-import {surfaceBg, surfaceRipple} from "../utils/constants"
+import {boldTextColor, surfaceBg, surfaceRipple} from "../utils/constants"
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     paddingHorizontal: 15,
+    color : boldTextColor ,
   },
   separator: {
     borderRadius: 10,

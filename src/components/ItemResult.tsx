@@ -22,7 +22,7 @@ import ExplanationPopup from './molecules/ExplanationPopup'
 import useStore from '../utils/store'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
-import { buttonDark } from '../utils/constants'
+import { boldTextColor, buttonDark } from '../utils/constants'
 
 export default function ItemResult({
   item,
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: boldTextColor,
   },
   nextItem: {
     marginTop: 20,

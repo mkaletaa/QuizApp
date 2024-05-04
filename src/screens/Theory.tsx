@@ -19,7 +19,7 @@ import QuizButton from '../components/molecules/atoms/QuizButton'
 import TheoryPopup from '../components/molecules/TheoryPopup'
 import { removeUnderscores } from '../utils/functions'
 import useStore from '../utils/store'
-import { goUpBackground, sectionHeaderBG, spinner } from '../utils/constants'
+import { boldTextColor, borderColor, buttonDark, buttonLight, goUpBackground, gradient, sectionHeaderBG, spinner, surfaceBg, surfaceRipple } from '../utils/constants'
 import { screenBackground } from '../utils/constants'
 
 export default function Theory({ route }) {
@@ -105,7 +105,7 @@ export default function Theory({ route }) {
                     style={{
                       fontSize: 21,
                       textDecorationLine: 'underline',
-                      // backgroundColor: 'blue',
+                      color: boldTextColor,
                     }}
                   >
                     {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
@@ -136,7 +136,9 @@ export default function Theory({ route }) {
               // backgroundColor: 'red',
               backgroundColor: sectionHeaderBG,
               borderTopWidth: 1,
-              borderTopColor: 'lightgray',
+              // borderTopColor: 'lightgray',
+              borderTopColor: borderColor,
+
               // elevation: 1,
               // shadowColor: '#000', // Kolor cienia
               // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
@@ -313,28 +315,30 @@ const styles = StyleSheet.create({
   // },
   progressBarContainer: {
     height: 5,
-    backgroundColor: 'green',
+    backgroundColor: buttonDark,
     position: 'absolute',
     top: 0,
     zIndex: 2,
   },
   header: {
     padding: 10,
+    borderColor: borderColor,
     // borderBottomWidth: 1,
     alignItems: 'center',
     gap: 5,
+    // color: "red",
   },
   sectionHeaderText: {
     fontSize: 18,
     fontWeight: 'bold',
     // color: 'black',
-    color: 'rgb(20, 20, 60)',
+    color: boldTextColor,
     textAlign: 'center',
     // paddingRight:10
   },
   goUp: {
     padding: 8,
-    backgroundColor: goUpBackground,
+    backgroundColor: surfaceBg,
     position: 'absolute',
     bottom: 20,
     left: 30,

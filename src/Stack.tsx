@@ -13,7 +13,7 @@ import Settings2 from './screens/Settings2'
 import Settings3 from './screens/Settings3'
 import About from './screens/About'
 import Questions from './screens/Questions'
-import { screenBackground } from './utils/constants'
+import { borderColor, screenBackground } from './utils/constants'
 
 const Stack = createStackNavigator()
 
@@ -26,13 +26,15 @@ const MyStack = () => {
 
   const headerOptions = {
     title: null,
-    
+
     headerStyle: {
-        backgroundColor: screenBackground,
+      backgroundColor: screenBackground,
 
       elevation: 0,
-      borderBottomColor: 'lightgray',
-      borderBottomWidth: .5
+      borderBottomColor: borderColor,
+      // borderColor: borderColor,
+
+      borderBottomWidth: 0.5,
     },
     headerTintColor: 'black',
     headerTitleStyle: {

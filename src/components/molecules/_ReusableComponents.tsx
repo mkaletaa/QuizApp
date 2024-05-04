@@ -28,7 +28,7 @@ import {
   Text as PaperText,
   TouchableRipple,
 } from 'react-native-paper'
-import { surfaceBg, buttonDark, buttonLight, spinner } from './../../utils/constants'
+import { surfaceBg, buttonDark, buttonLight, spinner, boldTextColor } from './../../utils/constants'
 
 export function ResultModal({
   modalItem,
@@ -209,7 +209,7 @@ export function ListHeaderComponent({
             color={buttonDark} // Kolor włączonego przycisku
             // uncheckedColor="gray" // Kolor wyłączonego przycisku
           />
-          <PaperText variant={"labelMedium"} style={{ color: buttonDark }}>{reverseTheOrder}</PaperText>
+          <PaperText variant={"labelMedium"} style={{ color: boldTextColor }}>{reverseTheOrder}</PaperText>
         </Pressable>
       )}
     </View>

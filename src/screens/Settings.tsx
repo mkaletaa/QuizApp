@@ -7,7 +7,7 @@ import { randomOrder, contact, aboutTheApp } from '../../data/texts'
 import { Entypo } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 import useStore from '../utils/store'
-import { buttonDark, screenBackground, surfaceRipple } from '../utils/constants'
+import { borderColor, buttonDark, screenBackground, surfaceRipple, textColor } from '../utils/constants'
 import Gradient from '../components/molecules/Gradient'
 
 const StickyHeaderScrollView = () => {
@@ -39,35 +39,37 @@ const StickyHeaderScrollView = () => {
 
   return (
     <View style={styles.container}>
-      <Gradient/>
+      <Gradient />
       <List.Item //chcę aby wysokoć tego itema była taka sama jak tego poniżej
         title={randomOrder}
-        onPress={
-          setShuffleStorage
-        }
+        onPress={setShuffleStorage}
         rippleColor={surfaceRipple}
         right={() => (
           <PaperSwitch
-          value={isShuffleSwitchEnabled}
-          onValueChange={setShuffleStorage}
+            value={isShuffleSwitchEnabled}
+            onValueChange={setShuffleStorage}
           />
         )}
-        style={{ borderBottomWidth: 1, borderBottomColor: 'silver', height: 60, justifyContent: "center" }}
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: borderColor,
+          height: 60,
+          justifyContent: 'center',
+        }}
+        titleStyle={{ color: textColor }} 
         />
       <List.Item
         rippleColor={surfaceRipple}
         title={aboutTheApp}
-        left={() => (
-
-          <Entypo name="info" size={24} color={buttonDark} />
-        )}
-        right={() => <AntDesign name="right" size={24} color="dimgrey" />}
+        left={() => <Entypo name="info" size={24} color={buttonDark} />}
+        right={() => <AntDesign name="right" size={24} color={borderColor} />}
         onPress={() => navigation.navigate('About')}
         style={{
           borderBottomWidth: 1,
-          borderBottomColor: 'silver',
+          borderBottomColor: borderColor,
           paddingLeft: 15,
         }}
+        titleStyle={{ color: textColor }} 
       />
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>

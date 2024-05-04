@@ -14,7 +14,7 @@ export default function Tile({
 }: {
   item: Item
   handlePress: any
-  color?: any
+  color?: string
 }) {
   const viewRef = useRef(null)
   const [viewWidth, setViewWidth] = useState(0)

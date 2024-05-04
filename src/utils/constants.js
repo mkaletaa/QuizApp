@@ -1,7 +1,7 @@
 const primary1 = '#6b4891' //iwik
 const primary2 = '#7d609f' //iwik light
 const primary3 = '#6A5ACD' //slateblue
-const primary4 = "thistle"
+const primary4 = 'thistle'
 const primary5 = '#800080' //purple
 const primary6 = '#663399' //rebeccapurple
 const primary7 = '#8A2BE2' //blueviolet
@@ -33,9 +33,11 @@ const secondary19 = '#F1EFFA' //protonmail
 const secondary22 = '#EEEBFB' //close to protonmail
 const secondary20 = '#E6E6FA' //lavender
 const secondary21 = '#FDF5E6' //oldlace
-const defaultScreenBG = "#F2F2F2"
+const defaultScreenBG = '#F2F2F2'
+//* * * * * * * * * * * * * * *
+const darkBlue = 'rgb(20, 20, 60)'
 
-export const buttonDark = primary1
+export const buttonDark = primary3
 export const buttonLight = primary2
 export const spinner = primary1
 
@@ -54,4 +56,6 @@ export const screenBackground = secondary18
 
 export const surfaceRipple = '#D6D0E2'
 export const gradient = 'rgb(230, 230, 260)'
-
+export const boldTextColor = darkBlue
+export const textColor = 'rgb(40, 40, 55)'
+export const borderColor = '#D6D0E2'
