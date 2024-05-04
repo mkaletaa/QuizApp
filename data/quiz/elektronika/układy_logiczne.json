@@ -1,0 +1,336 @@
+[
+  {
+    "id": "elektronika|układy_logiczne|1",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi napięcie w stanie 0 na wejściu układu?"
+      }
+    ],
+    "options": [
+      { "id": "2", "val": "0 - 0,4 V", "correct": false },
+      { "id": "3", "val": "2 - 5,5 V", "correct": false },
+      { "id": "4", "val": "2,4 - 5 V", "correct": false },
+      { "id": "1", "val": "-0,5 - 0,8 V", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|2",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi napięcie w stanie 0 na wyjściu układu?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "-0,5 - 0,8 V", "correct": false },
+      { "id": "2", "val": "0 - 0,4 V", "correct": true },
+      { "id": "3", "val": "2 - 5,5 V", "correct": false },
+      { "id": "4", "val": "2,4 - 5 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|3",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi napięcie w stanie 1 na wejściu układu?"
+      }
+    ],
+    "options": [
+      { "id": "3", "val": "2 - 5,5 V", "correct": true },
+      { "id": "1", "val": "-0,5 - 0,8 V", "correct": false },
+      { "id": "2", "val": "0 - 0,4 V", "correct": false },
+      { "id": "4", "val": "2,4 - 5 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|4",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi napięcie w stanie 1 na wyjściu układu?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "-0,5 - 0,8 V", "correct": false },
+      { "id": "2", "val": "0 - 0,4 V", "correct": false },
+      { "id": "3", "val": "2 - 5,5 V", "correct": false },
+      { "id": "4", "val": "2,4 - 5 V", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|5",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi napięcie zasilania Ucc?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "4,75 - 5,25 V", "correct": true },
+      { "id": "2", "val": "4,25 - 5 V", "correct": false },
+      { "id": "3", "val": "4,25 - 5,75 V", "correct": false },
+      { "id": "4", "val": "4,75 - 5,75 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|6",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi typowa moc rozproszenia bramki?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "10 mW", "correct": true },
+      { "id": "2", "val": "20 mW", "correct": false },
+      { "id": "3", "val": "30 mW", "correct": false },
+      { "id": "4", "val": "40 mW", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|7",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi typowa moc rozproszenia przerzutnika?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "10 mW", "correct": false },
+      { "id": "2", "val": "20 mW", "correct": false },
+      { "id": "3", "val": "30 mW", "correct": false },
+      { "id": "4", "val": "40 mW", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|8",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi temperatura pracy?"
+      }
+    ],
+    "options": [
+      { "id": "4", "val": "0 - 60 *C", "correct": false },
+      { "id": "1", "val": "0 - 70 *C", "correct": true },
+      { "id": "2", "val": "0 - 80 *C", "correct": false },
+      { "id": "3", "val": "0 - 90 *C", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|9",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi obciążalność N?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "10", "correct": true },
+      { "id": "2", "val": "20", "correct": false },
+      { "id": "3", "val": "30", "correct": false },
+      { "id": "4", "val": "40", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|10",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi typowa odporność układu na działanie zakłóceń?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "1 V", "correct": true },
+      { "id": "2", "val": "2 V", "correct": false },
+      { "id": "3", "val": "3 V", "correct": false },
+      { "id": "4", "val": "4 V", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|11",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi minimalna odporność układu na działanie zakłóceń?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "0,1 V", "correct": false },
+      { "id": "2", "val": "0,2 V", "correct": false },
+      { "id": "3", "val": "0,3 V", "correct": false },
+      { "id": "4", "val": "0,4 V", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|12",
+    "multiChoice": true,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Zaznacz wszystkie prawdziwe informacje na temat poniższej bramki:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/BnQ3MKJt/image.png",
+        "props": { "orientation": "horizontal" }
+      }
+    ],
+    "options": [
+      { "id": "3", "val": "Jest to bramka NOT", "correct": false },
+      { "id": "1", "val": "Jest to bramka NAND", "correct": false },
+      { "id": "2", "val": "Jest to bramka NOR", "correct": true },
+      { "id": "4", "val": "Jest to bramka XNOR", "correct": false },
+
+      {
+        "id": "5",
+        "val": "Daje jedynkę jeśli na wejściu sa same zera",
+        "correct": true
+      },
+      {
+        "id": "6",
+        "val": "Daje zawsze jedynkę jeśli stany wejść są różne",
+        "correct": false
+      },
+      {
+        "id": "7",
+        "val": "Daje zawsze jedynkę jeśli stany wejść są równe",
+        "correct": false
+      },
+      {
+        "id": "8",
+        "val": "Daje jedynkę jeśli na wejściu są same jedynki",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|13",
+    "multiChoice": true,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Zaznacz wszystkie prawdziwe informacje na temat bramki opisanej poniższym wzorem:"
+      },
+      {
+        "type": "Math",
+        "value": "`Y=Ao+B`"
+      }
+    ],
+    "options": [
+      { "id": "3", "val": "Jest to bramka XNOR", "correct": false },
+      { "id": "1", "val": "Jest to bramka NAND", "correct": false },
+      { "id": "2", "val": "Jest to bramka NOR", "correct": false },
+      { "id": "4", "val": "Jest to bramka XOR", "correct": true },
+
+      {
+        "id": "5",
+        "val": "Daje jedynkę jeśli na wejściu sa same zera",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "Daje zawsze jedynkę jeśli stany wejść są różne",
+        "correct": true
+      },
+      {
+        "id": "7",
+        "val": "Daje zawsze jedynkę jeśli stany wejść są równe",
+        "correct": false
+      },
+      {
+        "id": "8",
+        "val": "Daje jedynkę jeśli na wejściu są same jedynki",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektronika|układy_logiczne|14",
+    "multiChoice": true,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Zaznacz wszystkie prawdziwe informacje na temat bramki, której tablica prawdy wygląda jak poniżej:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/c1rDW7cf/tabela.png",
+        "props": { "orientation": "horizontal" }
+      }
+    ],
+    "options": [
+      { "id": "3", "val": "Jest to bramka XNOR", "correct": false },
+      { "id": "1", "val": "Jest to bramka NAND", "correct": true },
+      { "id": "2", "val": "Jest to bramka NOR", "correct": false },
+      { "id": "4", "val": "Jest to bramka XOR", "correct": false },
+
+      {
+        "id": "5",
+        "val": "Realizuje sumę sygnałów wejściowych",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "Realizuje negację sumy sygnałów wejściowych",
+        "correct": false
+      },
+      {
+        "id": "7",
+        "val": "Realizuje iloczyn sygnałów wejściowych",
+        "correct": false
+      },
+      {
+        "id": "8",
+        "val": "Realizuje negację zmiennej wejściowej",
+        "correct": false
+      }
+    ],
+    "explanation": "Realizuje negację iloczynu zmiennych wejściowych"
+  },
+  {
+    "id": "elektronika|układy_logiczne|15",
+    "multiChoice": true,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Które z poniższych wzorów są prawdziwe?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `a+(b*c)=(a*b)+(a*C)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `a*(b+c)=(a*b)+(a*C)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `a+(b*c)=(a+b)*(a+C)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `a*(b+c)=(a+b)*(a+C)`"
+      }
+    ],
+    "options": [
+      { "id": "3", "val": "A", "correct": false },
+      { "id": "1", "val": "B", "correct": true },
+      { "id": "2", "val": "C", "correct": true },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  }
+]

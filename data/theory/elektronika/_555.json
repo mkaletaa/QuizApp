@@ -99,6 +99,20 @@
           "description": "Notatka z wykładu (nie moja)",
           "orientation": "vertical"
         }
+      },
+      {
+        "type": "Header",
+        "value": "Przebiegi czasowe",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Ja narysowałem to i zdałem ¯\\_( ͡° ͜ʖ ͡°)_/¯"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/br9SvWft/image.png",
+        "props": { "orientation": "horizontal" }
       }
     ]
   }

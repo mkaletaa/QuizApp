@@ -7,9 +7,112 @@
         "value": "Teoria algebr Boole’a to dział matematyki z pogranicza algebry abstrakcyjnej, teorii porządku i logiki. Jest stosowana w różnych działach matematyki jak topologia, w informatyce teoretycznej i elektronice cyfrowej."
       },
       {
-        "type": "Image",
-        "value": "https://i.postimg.cc/3wm9jQDv/image.png",
-        "props": { "description": "zależności", "orientation": "horizontal" }
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Działanie może mieć więcej niż jeden symbol. Tutaj musisz używać znaków +, * zamiast ∩ i ∪"
+          }
+        ],
+        "props": {
+          "type": "warning"
+        }
+      },
+      {
+        "type": "Header",
+        "value": "łączność:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`a+(b+c)=(a+b)+c`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Math",
+        "value": "`a*(b*c)=(a*b)*c`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Header",
+        "value": "przemienność:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`a+b=b+a`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Math",
+        "value": "`a*b=b*a`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Header",
+        "value": "absorbcja:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`a+(a*b)=a`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Math",
+        "value": "`a*(a+b)=a`",
+        "props": { "fontSize": 20 }
+      },
+
+      {
+        "type": "Header",
+        "value": "rozdzielność:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`a+(b*c)=(a+b)*(a+C)`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Math",
+        "value": "`a*(b+c)=(a*b)+(a*C)`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Header",
+        "value": "pochłanianie:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`a+overline a = 1`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Math",
+        "value": "`a*overline a = 0`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Header",
+        "value": "I prawo de Morgana:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`overline(a*b)= overline a + overline b`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Header",
+        "value": "II prawo de Morgana:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`overline(a+b)= overline a * overline b`",
+        "props": { "fontSize": 20 }
       },
       {
         "type": "Image",
@@ -94,7 +197,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "kiedyś będzie"
+        "value": "To jest na 5 więc wyjebane"
       }
     ]
   },
@@ -103,7 +206,12 @@
     "data": [
       {
         "type": "Text",
-        "value": "kiedyś będzie"
+        "value": "Niektóre bramki logiczne można przedstawić za pomocą innych. Oto sposób na przedstawienie bramki OR bramkami NOT i AND:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/NftfJK8p/image.png",
+        "props": { "orientation": "horizontal" }
       }
     ]
   }
