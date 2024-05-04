@@ -12,7 +12,7 @@ import { removeUnderscores } from '../utils/functions'
 import { read } from '../../data/texts'
 import { useNavigation } from '@react-navigation/native'
 import { TouchableRipple } from 'react-native-paper'
-import {surfaceBg} from "../utils/constants"
+import {surfaceBg, surfaceRipple} from "../utils/constants"
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -51,7 +51,7 @@ export default function Card({
   return (
     <View style={[styles.card, cardSize]} key={data.name}>
       <TouchableRipple
-        rippleColor="rgba(0, 0, 0, .32)"
+        rippleColor={surfaceRipple}
         onPress={handlePress}
         onLongPress={handleLongPress}
         style={{ width: '100%', height: '100%' }}
@@ -97,16 +97,16 @@ const styles = StyleSheet.create({
     backgroundColor: surfaceBg,
     borderRadius: 10,
     margin: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
     elevation: 2,
     alignItems: 'center',
     gap: 5,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
   },
   image: {
     width: '80%',
@@ -135,11 +135,12 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   readText: {
-    opacity: 0.6,
+    opacity: 0.9,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 20,
     width: '100%',
     height: '100%',
+    color: 'dimgray',
   },
 })
