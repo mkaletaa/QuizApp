@@ -9,6 +9,7 @@ import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionBu
 import { LinearGradient } from 'expo-linear-gradient'
 import { Canvas, Patch, vec, Oval, Blur } from '@shopify/react-native-skia'
 import { screenBackground } from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 
 export default function Chapters() {
   const navigation = useNavigation()
@@ -45,49 +46,7 @@ export default function Chapters() {
         backgroundColor: screenBackground,
       }}
     >
-      {/* <LinearGradient
-        // Button Linear Gradient
-        colors={['rgba(238, 130, 238, .2)', 'transparent']}
-        start={{ x: 0, y: 0.6 }}
-        end={{ x: 1, y: 0 }}
-        style={{
-          width: '100%',
-          height: '100%', //has to be 100% cuz if Math component, Tile cannot be pressed
-          position: 'absolute',
-          bottom: 0,
-        }}
-      ></LinearGradient> */}
-
-      <Canvas
-        style={{
-          width: 360,
-          height: 600,
-          position: 'absolute',
-          bottom: 0,
-        }}
-      >
-        {/* <Oval
-          x={50}
-          y={200}
-          width={228}
-          height={400}
-          color="blue"
-          opacity={0.07}
-        /> */}
-        {/* <Oval
-          x={300}
-          y={150}
-          width={496}
-          height={228}
-          color="yellow"
-          opacity={0.09}
-        /> */}
-        {/* <Patch
-          colors={colors}
-          patch={[topLeft, topRight, bottomRight, bottomLeft]}
-        /> */}
-        <Blur blur={34} />
-      </Canvas>
+      <Gradient/>
 
       <RandomQuestionButton chapName={'__All__'} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>

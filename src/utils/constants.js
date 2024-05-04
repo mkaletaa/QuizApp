@@ -7,7 +7,7 @@ const primary6 = '#663399' //rebeccapurple
 const primary7 = '#8A2BE2' //blueviolet
 const primary8 = '#9400D3' //darkviolet
 const primary9 = '#4B0082' //indigo
-
+//* * * * * * * * * * * *
 const secondary1 = '#F0F8FF' //aliceblue
 const secondary2 = '#F0FFFF' //azure
 const secondary3 = '#FFFAF0' //floralwhite
@@ -53,3 +53,5 @@ export const surfaceBorder2 = secondary4
 export const screenBackground = secondary18
 
 export const surfaceRipple = '#D6D0E2'
+export const gradient = 'rgb(230, 230, 260)'
+

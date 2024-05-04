@@ -12,7 +12,7 @@ import {
   ResultModal,
   contentContainerStyle,
 } from '../components/molecules/_ReusableComponents'
-import { screenBackground } from '../utils/constants'
+import { screenBackground, spinner } from '../utils/constants'
 
 export default function Saved() {
   const headerHeight = useHeaderHeight()
@@ -92,7 +92,7 @@ export default function Saved() {
             showLoadingMoreSpinner && (
               <ActivityIndicator
                 size={50}
-                color="#0000ff"
+                color={spinner}
                 style={{ marginTop: 10 }}
               />
             )

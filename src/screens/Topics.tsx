@@ -10,6 +10,7 @@ import utilStyles from '../utils/styles'
 import { removeUnderscores } from '../utils/functions'
 import useStore from '../utils/store'
 import { screenBackground } from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
@@ -60,6 +61,8 @@ export default function Topics({ route }) {
         backgroundColor: screenBackground,
       }}
     >
+      <Gradient />
+
       <RandomQuestionButton chapName={chapterName} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         <ChapterDescription chapterDescription={chapterDes} />

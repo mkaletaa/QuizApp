@@ -28,7 +28,7 @@ import {
   Text as PaperText,
   TouchableRipple,
 } from 'react-native-paper'
-import { surfaceBg, buttonDark, buttonLight } from './../../utils/constants'
+import { surfaceBg, buttonDark, buttonLight, spinner } from './../../utils/constants'
 
 export function ResultModal({
   modalItem,
@@ -99,7 +99,7 @@ export function EmptyState({
             height: screenHeight - headerHeight,
           }}
         >
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size={50} color={spinner} />
         </View>
       ) : (
         <View

@@ -36,6 +36,7 @@ export default function CustomModal({
       <Dialog
         style={{
           backgroundColor: screenBackground,
+          // borderRadius: 22
         }}
         visible={visible}
         onDismiss={onRequestClose}

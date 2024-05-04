@@ -7,7 +7,8 @@ import { randomOrder, contact, aboutTheApp } from '../../data/texts'
 import { Entypo } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 import useStore from '../utils/store'
-import { buttonDark, screenBackground } from '../utils/constants'
+import { buttonDark, screenBackground, surfaceRipple } from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
@@ -38,20 +39,23 @@ const StickyHeaderScrollView = () => {
 
   return (
     <View style={styles.container}>
+      <Gradient/>
       <List.Item //chcę aby wysokoć tego itema była taka sama jak tego poniżej
         title={randomOrder}
         onPress={
           setShuffleStorage
         }
+        rippleColor={surfaceRipple}
         right={() => (
           <PaperSwitch
-            value={isShuffleSwitchEnabled}
-            onValueChange={setShuffleStorage}
+          value={isShuffleSwitchEnabled}
+          onValueChange={setShuffleStorage}
           />
         )}
         style={{ borderBottomWidth: 1, borderBottomColor: 'silver', height: 60, justifyContent: "center" }}
-      />
+        />
       <List.Item
+        rippleColor={surfaceRipple}
         title={aboutTheApp}
         left={() => (
 

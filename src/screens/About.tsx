@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Component } from '../utils/types'
 import { ScrollView } from 'react-native'
 import { screenBackground } from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 export default function About() {
   const [content, setContent] = useState<Component[] | string>('')
   useEffect(() => {
@@ -19,6 +20,8 @@ export default function About() {
         //
       }}
     >
+      <Gradient />
+
       <ContentRenderer content={content} />
     </ScrollView>
   )
