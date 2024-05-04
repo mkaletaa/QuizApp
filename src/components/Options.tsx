@@ -6,6 +6,7 @@ import { Option } from '../utils/types'
 import { Chip, TouchableRipple } from 'react-native-paper'
 import { Button } from 'react-native-paper'
 import { Text } from 'react-native-paper'
+import { boldTextColor, gradient, textColor } from '../utils/constants'
 const OptionComponent = ({ option }: { option: Option }) => {
   const { val: answerValue } = option
 
@@ -94,10 +95,10 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
               {
                 backgroundColor: chosenOptions.some(el => el.id === option.id)
                   ? 'lightblue'
-                  : '#C5C6D0',
+                  : gradient,
                 borderColor: chosenOptions.some(el => el.id === option.id)
                   ? 'rgb(50, 200, 255)'
-                  : 'darkgray',
+                  : 'rgb(210, 210, 240)',
               },
             ]}
             onPress={() => {
@@ -116,6 +117,7 @@ const styles = StyleSheet.create({
   answerContainer: {
     // width: 300,
     alignItems: 'center',
+    elevation: 5
     // backgroundColor: 'red',
     // marginBottom: 50
   },
@@ -123,7 +125,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginVertical: 5,
-    borderWidth: 3,
+    borderWidth: 2.5,
+    
     // borderColor: 'grey',
     width: '50%',
     minWidth: 250, //

@@ -48,6 +48,7 @@ export default function GneralResults({
           Your score is {correctNr}/{resultsArray.length}
         </Text> */}
       </View>
+      {/* //todo: to najlepiej zamienić na FlatList */}
       {resultsArray.map((result, index) => (
         <View
           style={{

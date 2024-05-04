@@ -280,7 +280,7 @@ export default function Theory({ route }) {
         <Entypo
           name="arrow-up"
           size={40}
-          color="black"
+          color={boldTextColor}
           style={[
             styles.goUp,
             { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style

@@ -61,8 +61,10 @@ const StickyHeaderScrollView = () => {
       <List.Item
         rippleColor={surfaceRipple}
         title={aboutTheApp}
-        left={() => <Entypo name="info" size={24} color={buttonDark} />}
+        left={() => <Entypo name="info" size={24} color={"rebeccapurple"} />}
         right={() => <AntDesign name="right" size={24} color={borderColor} />}
+
+        //@ts-ignore
         onPress={() => navigation.navigate('About')}
         style={{
           borderBottomWidth: 1,

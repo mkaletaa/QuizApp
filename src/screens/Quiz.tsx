@@ -42,6 +42,7 @@ import {
   screenBackground,
   buttonLight,
 } from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -180,7 +181,8 @@ export default function Quiz({ route }) {
             minHeight: screenHeight - StatusBar.currentHeight,
           },
         ]}
-      >
+        >
+        {/* <Gradient></Gradient> */}
         {
           <TouchableRipple
             borderless
