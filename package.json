@@ -16,7 +16,6 @@
     "@react-native-masked-view/masked-view": "0.3.0",
     "@react-navigation/stack": "^6.3.21",
     "@sentry/react-native": "^5.22.0",
-    "@shopify/react-native-skia": "^1.2.3",
     "@types/react": "~18.2.45",
     "expo": "~50.0.15",
     "expo-av": "~13.10.5",
