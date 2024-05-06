@@ -58,7 +58,7 @@ const StickyHeaderScrollView = () => {
         }}
         titleStyle={{ color: textColor }} 
         />
-      <List.Item
+      {/* <List.Item
         rippleColor={surfaceRipple}
         title={aboutTheApp}
         left={() => <Entypo name="info" size={24} color={"rebeccapurple"} />}
@@ -72,7 +72,7 @@ const StickyHeaderScrollView = () => {
           paddingLeft: 15,
         }}
         titleStyle={{ color: textColor }} 
-      />
+      /> */}
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
