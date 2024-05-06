@@ -1,20 +1,37 @@
 import { Pressable, View, Text, Switch, ScrollView } from 'react-native'
 import { Item } from '../utils/types'
-import { useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 // import Question from './Question'
-import ContentRenderer from './ContentRenderer'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
+import { gradient, surfaceBg } from '../utils/constants'
 
 export default function Tile({
   item,
   handlePress,
-  color = 'white',
+  color = surfaceBg,
 }: {
   item: Item
   handlePress: any
-  color?: any
+  color?: string
 }) {
+  const viewRef = useRef(null)
+  const [viewWidth, setViewWidth] = useState(0)
+
+  useLayoutEffect(() => {
+    if (viewRef.current) {
+      viewRef.current.measure((x, y, width, height, pageX, pageY) => {
+        setViewWidth(width)
+        //  console.log('wysokość: ', width) //nadal 0 po onmount
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log('szerokość: ', viewWidth) //nadal 0 po onmount
+  }, [viewWidth])
+
   function setGradientColor(color: string): string {
     switch (color) {
       case 'red':
@@ -24,41 +41,44 @@ export default function Tile({
       case 'green':
         return 'rgb(0, 90, 0)'
       default:
-        return 'rgb(233, 233, 233)'
+        return gradient
     }
   }
 
   return (
-    <Pressable
-      style={{
-        // backgroundColor: 'red',
-        alignItems: 'center',
-      }}
-      onPress={() => {
-        handlePress(item)
-      }}
-    >
-      <View
-        style={[
-          {
-            backgroundColor: color,
-            width: '60%',
-            minWidth: 260,
-            height: 80, //100
-            overflow: 'hidden',
-            alignItems: 'center',
-            marginTop: 16,
-            paddingTop: 20,
-            // justifyContent: 'center',
+    <View
+      ref={viewRef}
+      style={[
+        {
+          backgroundColor: color,
+          width: '60%',
+          minWidth: 260,
+          height: 80, //100
+          overflow: 'hidden',
+          alignItems: 'center',
+          marginTop: 16,
+          // justifyContent: 'center',
 
-            borderRadius: 10,
-            elevation: 3,
-          },
-        ]}
+          borderRadius: 10,
+          elevation: 3,
+        },
+      ]}
+    >
+      <Pressable
+        style={{
+          paddingTop: 20,
+          // backgroundColor: 'red',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
+        }}
+        onPress={() => {
+          handlePress(item)
+        }}
       >
         <View style={{ width: '90%' }}>
           {/* <Question question={item.question} /> */}
-          <ContentRenderer content={item.question} />
+          <ContentRenderer content={item.question} width={viewWidth} />
 
           {/* {questionData.map(questionComponent => (
         <ContentRenderer data={questionComponent}></ContentRenderer>
@@ -74,7 +94,7 @@ export default function Tile({
             bottom: 0,
           }}
         ></LinearGradient>
-      </View>
-    </Pressable>
+      </Pressable>
+    </View>
   )
 }

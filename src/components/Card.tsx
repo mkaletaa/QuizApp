@@ -10,8 +10,9 @@ import {
 } from 'react-native'
 import { removeUnderscores } from '../utils/functions'
 import { read } from '../../data/texts'
-
-console.log('card')
+import { useNavigation } from '@react-navigation/native'
+import { TouchableRipple } from 'react-native-paper'
+import {boldTextColor, borderColor, surfaceBg, surfaceRipple} from "../utils/constants"
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -36,141 +37,111 @@ export default function Card({
     // if (data.name.endsWith('__All__')) {
     //   chapOrTop === 'top' ? onCardPress() : onCardPress(data.name)
     // } else {
+    // setTimeout(()=>{
+
     chapOrTop === 'top' ? onCardPress([data.name]) : onCardPress(data.name)
+    // }, 0)
     // }
+  }
+  const navigation = useNavigation()
+  const handleLongPress = () => {
+    chapOrTop === 'top' ? onCardLongPress() : null
   }
 
   return (
-    <Pressable
-      onPress={handlePress}
-      // onLongPress={() => onCardLongPress()}
-      //   style={({ pressed }) => [
-      //     styles.cardPressable,
-      //     pressed && styles.cardPressablePressed,
-      //   ]}
-    >
-      <View style={[styles.cardContainer, cardSize]} key={data.name}>
-        {/* <View
-          style={{
-            width: '90%',
-            marginTop: 10,
-          }}
-        > */}
-        <Image
-          style={[
-            styles.cardImage,
-            {
-              height: cardSize.height * 0.6,
-              // backgroundColor: 'blue',
-            },
-          ]}
-          source={{
-            uri: data.image,
-          }}
-        />
-        {/* </View> */}
+    <View style={[styles.card, cardSize]} key={data.name}>
+      <TouchableRipple
+        rippleColor={surfaceRipple}
+        onPress={handlePress}
+        onLongPress={handleLongPress}
+        style={{ width: '100%', height: '100%' }}
+      >
+        <React.Fragment>
+          <Image
+            style={[
+              styles.image,
+              {
+                height: cardSize.height * 0.6,
+              },
+            ]}
+            source={{
+              uri: data.image,
+            }}
+          />
 
-        <View style={styles.textContainer}>
-          <Text numberOfLines={1} style={styles.cardTitle}>
-            {removeUnderscores(data.name, true)}
-          </Text>
+          <View style={styles.footer}>
+            <Text numberOfLines={1} style={styles.title}>
+              {removeUnderscores(data.name, true)}
+            </Text>
 
-          {!data.name.endsWith('__All__') && chapOrTop === 'top' ? (
-            <TouchableOpacity
-              activeOpacity={0.75}
-              style={styles.readTouchable}
-              onPress={() => showTheory()}
-            >
-              <View style={styles.separator}></View>
-              <Text style={styles.read}>{read}</Text>
-            </TouchableOpacity>
-          ) : null}
-        </View>
-      </View>
-    </Pressable>
+            {chapOrTop === 'top' ? (
+              <TouchableOpacity
+                activeOpacity={0.75}
+                style={{ alignItems: 'center', flex: 1 }}
+                onPress={() => showTheory()}
+              >
+                <View style={styles.separator}></View>
+                <Text style={styles.readText}>{read}</Text>
+              </TouchableOpacity>
+            ) : null}
+          </View>
+        </React.Fragment>
+      </TouchableRipple>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  cardPressable: {
-    borderRadius: 10,
-  },
-
-  cardContainer: {
+  card: {
     overflow: 'hidden',
-
-    backgroundColor: '#fff',
+    backgroundColor: surfaceBg,
     borderRadius: 10,
-    // paddingHorizontal: 10,
-    // paddingTop: 10,
     margin: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 2,
     alignItems: 'center',
     gap: 5,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
   },
-  cardTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    // width: '90%'
-    paddingHorizontal: 15,
-  },
-  cardDes: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  cardImage: {
+  image: {
     width: '80%',
     resizeMode: 'cover',
     borderRadius: 8,
     alignSelf: 'center',
     marginTop: 15,
   },
-  textContainer: {
+  footer: {
     justifyContent: 'center',
     gap: 5,
     marginTop: 5,
     width: '100%',
-
-    // alignItems: 'center',
-    // height: cardSize.height - cardSize.width * 0.9,
-    // height: '30%',
-    // backgroundColor: 'green',
     flex: 1,
   },
-  readTouchable: {
-    // borderRadius: 10,
-    // borderTopWidth: 1,
-    // borderColor: 'lightgrey',
-    // backgroundColor: 'red',
-    // justifyContent: 'center',
-
-    alignItems: 'center',
-    // overflow: 'hidden',
-    flex: 1,
+  title: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingHorizontal: 15,
+    color : boldTextColor ,
   },
   separator: {
     borderRadius: 10,
     borderTopWidth: 1,
-    borderColor: 'lightgrey',
+    borderColor: borderColor,
     width: '70%',
-    backgroundColor: 'red',
-    // height: 1
   },
-  read: {
-    opacity: 0.6,
+  readText: {
+    opacity: 0.9,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 20,
-    // backgroundColor: 'red',
     width: '100%',
     height: '100%',
+    color: 'dimgray',
   },
 })

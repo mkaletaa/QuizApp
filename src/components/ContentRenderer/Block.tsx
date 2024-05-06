@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { View, useWindowDimensions, StyleSheet } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import { Feather } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { SimpleLineIcons } from '@expo/vector-icons'
 
-import { renderComponent } from '../ContentRenderer'
+import { renderComponent } from './_ContentRenderer'
 type blockType = 'info' | 'warning' | 'important' | 'task'
 
 export default function Block({
@@ -72,8 +72,21 @@ export default function Block({
     }
   }
 
+  const viewRef = useRef(null)
+  const [viewWidth, setViewWidth] = useState(0)
+
+  useEffect(() => {
+    if (viewRef.current) {
+      viewRef.current.measure((x, y, width, height, pageX, pageY) => {
+        setViewWidth(width)
+        console.log('szerokość bloku: ', width)
+      })
+    }
+  }, [])
+
   return (
     <View
+      ref={viewRef}
       style={[
         styles.block,
         {
@@ -88,15 +101,14 @@ export default function Block({
           <View
             style={{
               flexWrap: 'wrap',
-              //   backgroundColor: 'tomato',
+              // backgroundColor: 'tomato',
               width: '90%', //maxWidth
+              gap: 10,
             }}
           >
             {
               //@ts-ignore
-              value.map((item, index) =>
-                renderComponent(item, width*.9)
-              )
+              value.map((item, index) => renderComponent(item, viewWidth - 14)) //minus 14 because 2x5px of padding + 2x2px of border
             }
           </View>
         </React.Fragment>
@@ -119,7 +131,8 @@ const styles = StyleSheet.create({
   icon: {
     width: '10%',
     justifyContent: 'center',
-    marginTop: 1
+    marginTop: 1,
+    // backgroundColor: 'green',
     // textAlign: 'center',
   },
 })

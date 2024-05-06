@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { savedQuestions } from '../data/texts'
+import { savedQuestions, aboutTheApp, settings } from '../data/texts'
 import Header from './components/Header'
 import Chapters from './screens/Chapters'
 import Quiz from './screens/Quiz'
@@ -11,32 +11,65 @@ import Topics from './screens/Topics'
 import { removeUnderscores } from './utils/functions'
 import Settings2 from './screens/Settings2'
 import Settings3 from './screens/Settings3'
+import About from './screens/About'
+import Questions from './screens/Questions'
+import { borderColor, screenBackground } from './utils/constants'
 
 const Stack = createStackNavigator()
 
 const MyStack = () => {
+  const header = params => {
+    return {
+      headerRight: () => <Header title={params.title || null} />,
+    }
+  }
 
-  const header = {
-    headerRight: () => <Header />
+  const headerOptions = {
+    title: null,
+
+    headerStyle: {
+      backgroundColor: screenBackground,
+
+      elevation: 0,
+      borderBottomColor: borderColor,
+      // borderColor: borderColor,
+
+      borderBottomWidth: 0.5,
+    },
+    headerTintColor: 'black',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      display: 'none',
+    },
   }
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: null,
+        // headerTransparent: true,
+        headerLeft: null,
+      }}
+    >
       <Stack.Screen
         name="Chapters"
         component={Chapters}
-        options={{ ...header, title: '' }}
+        //@ts-ignore
+        options={{
+          ...header({ title: null }),
+          ...headerOptions,
+        }}
       />
 
       <Stack.Screen
         name="Topics"
         component={Topics}
         options={({ route }) => ({
-          ...header,
-          title:
+          ...header({
             //@ts-ignore
-            `${removeUnderscores(route.params?.chapterName, true)}` ||
-            'chapter name',
+            title: removeUnderscores(route.params?.chapterName, true),
+          }),
+          ...headerOptions,
         })}
       />
 
@@ -44,12 +77,11 @@ const MyStack = () => {
         name="Theory"
         component={Theory}
         options={({ route }) => ({
-          ...header,
-
-          title:
+          ...header({
             //@ts-ignore
-            `${removeUnderscores(route.params?.topicName, true)}` ||
-            'topic name',
+            title: removeUnderscores(route.params?.topicName, true),
+          }),
+          ...headerOptions,
         })}
       />
 
@@ -63,21 +95,47 @@ const MyStack = () => {
         name="Saved"
         component={Saved}
         options={({ route }) => ({
-          ...header,
-          title: savedQuestions,
-          headerStyle: {
-            // backgroundColor: 'lightblue',
-          },
-          headerTitleStyle: {
-            // color: 'darkblue',
-            // fontSize: 18,
-            // marginLeft: -20,
-            // fontWeight: 'bold',
-          },
+          ...header({
+            title: savedQuestions,
+          }),
+          ...headerOptions,
         })}
       />
 
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen
+        name="About"
+        component={About}
+        options={({ route }) => ({
+          ...header({
+            title: aboutTheApp,
+          }),
+          ...headerOptions,
+        })}
+      />
+
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={({ route }) => ({
+          ...header({
+            title: settings,
+          }),
+          ...headerOptions,
+        })}
+      />
+
+      <Stack.Screen
+        name="Questions"
+        component={Questions}
+        options={({ route }) => ({
+          ...header({
+            //@ts-ignore
+            title: removeUnderscores(route.params?.topicName, true),
+          }),
+          ...headerOptions,
+        })}
+      />
+
       <Stack.Screen name="Settings2" component={Settings2} />
       <Stack.Screen name="Settings3" component={Settings3} />
     </Stack.Navigator>

@@ -25,6 +25,7 @@ export type Option = {
   isMarked?: boolean
 }
 
+//type of a quiz question
 export type Item = {
   id: string
   multiChoice?: boolean
@@ -48,5 +49,3 @@ export type Result = {
   item: Item
   isCorrect: 'correct' | 'incorrect' | 'kindof'
 }
-
-//   setResults(prev => [...prev, { id: item.id, userChoices: [], item }])

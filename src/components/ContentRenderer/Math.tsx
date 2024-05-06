@@ -14,6 +14,7 @@ export default function Math({ width = 325, value = null, props = null }) {
     // <View style={{ height: 70, width: '100%', backgroundColor: 'blue' }}>
 
     <WebView
+      onStartShouldSetResponder={() => true}
       scrollEnabled={false}
       // onMessage={this.handleMessage.bind(this)}
       source={{ html }}
@@ -23,7 +24,6 @@ export default function Math({ width = 325, value = null, props = null }) {
         width: 300,
         height: 70,
         backgroundColor: 'transparent',
-    
       }}
       //scalesPageToFit={true}
     />

@@ -3,10 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { ScrollView, View } from 'react-native'
 import { chapters, topics } from '../../data/data'
 import Card from '../components/Card'
-import ContentRenderer from '../components/ContentRenderer'
-import RandomQuestion from '../components/ui/RandomQuestion'
+import ChapterDescription from '../components/molecules/ChapterDescription'
+import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import utilStyles from '../utils/styles'
+import { removeUnderscores } from '../utils/functions'
+import useStore from '../utils/store'
+import { screenBackground } from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
@@ -18,7 +22,11 @@ export default function Topics({ route }) {
   useEffect(() => {
     const chapterName: string = route.params.chapterName
     // const chapter = chapters.find(chapter => chapter.name === chapterName)
-    setChapterDes("<span style='font-size:15`px'>"+chapters.find(chapter => chapter.name === chapterName).des+"</span>")
+    setChapterDes(
+      "<span style='font-size:15`px'>" +
+        chapters.find(chapter => chapter.name === chapterName).des +
+        '</span>'
+    )
     if (chapterName && topics[chapterName]) {
       setChapterName(chapterName)
       setTopicsToShow([...topics[chapterName]])
@@ -32,30 +40,32 @@ export default function Topics({ route }) {
 
   //this function calls importQuiz and gives it an array of chosen topics
   const showQuiz = (topicName: string, chapterName: string): void => {
-    openQuiz(topicName, chapterName)
+    openQuiz({ topicName, chapterName })
   }
 
   const [pressedTopic, setPressedTopic] = useState<string>()
   function handleLongPress(pressedTopicName: string) {
-    setPressedTopic(pressedTopicName)
-    setShowStats(true)
+    // setPressedTopic(pressedTopicName)
+    // setShowStats(true)
+    //@ts-ignore
+    navigation.navigate('Questions', {
+      topicName: pressedTopicName,
+      chapterName: chapterName,
+    })
   }
 
   return (
     <View
       style={{
         alignItems: 'center',
+        backgroundColor: screenBackground,
       }}
     >
-      <RandomQuestion chapName={chapterName} />
+      <Gradient />
+
+      <RandomQuestionButton chapName={chapterName} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
-        <View
-          style={{
-            width: '90%',
-          }}
-        >
-          <ContentRenderer content={chapterDes} />
-        </View>
+        <ChapterDescription chapterDescription={chapterDes} />
 
         {topicsToShow.map(topic => (
           <Card

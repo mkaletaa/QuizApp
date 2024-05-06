@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import useQuizData from '../utils/useQuizData'
+import { useState } from 'react'
+import { importItemById } from '../utils/getQuizData'
 import { getValue } from '../utils/utilStorage'
-// import { removeItem } from '../utils/utilStorage'
+import { Item } from '../utils/types'
 const useFetchSavedItems = () => {
-  const [savedItems, setSavedItems] = useState([])
-  const [isPending, setIsPending] = useState(true)
-  const { importItemById } = useQuizData()
+  const [savedItems, setSavedItems] = useState<Item[]>([])
+  const [isPending, setIsPending] = useState(true) //are items still being retrieved from the memory
 
   const fetchSavedItems = async () => {
     try {
@@ -17,16 +16,15 @@ const useFetchSavedItems = () => {
         let items_ = []
         for (const id of parsedItems) {
           const item = importItemById(id)
-          console.log('parsedItems: ', item)
           if (item !== null) items_.push(item)
         }
 
-        getValue("savedItems")
+        getValue('savedItems')
         setSavedItems(items_)
       }
       setIsPending(false)
     } catch (error) {
-      console.error('Błąd podczas pobierania danych z AsyncStorage:', error)
+      console.error('Error while getting data from AsyncStorage:', error)
     }
   }
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Modal, View } from 'react-native'
 import { setColor } from '../utils/functions'
 import { Item, Option, Result } from '../utils/types'
-import Explanation from './Explanation'
+import ItemResult from './ItemResult'
 import Tile from './Tile'
 import { close } from '../../data/texts'
 
@@ -32,7 +32,13 @@ export default function GneralResults({
   }
 
   return (
-    <View style={{ backgroundColor: 'transparent', width: '100%' }}>
+    <View
+      style={{
+        backgroundColor: 'transparent',
+        width: '100%',
+        alignItems: 'center',
+      }}
+    >
       <View
         style={{
           alignItems: 'center',
@@ -42,14 +48,22 @@ export default function GneralResults({
           Your score is {correctNr}/{resultsArray.length}
         </Text> */}
       </View>
+      {/* //todo: to najlepiej zamienić na FlatList */}
       {resultsArray.map((result, index) => (
-        <Tile
-          item={result.item}
-          handlePress={() => {
-            handlePress(result.item, result.userChoices)
+        <View
+          style={{
+            width: '100%',
+            alignItems: 'center',
           }}
-          color={setColor(result)}
-        />
+        >
+          <Tile
+            item={result.item}
+            handlePress={() => {
+              handlePress(result.item, result.userChoices)
+            }}
+            color={setColor(result)}
+          />
+        </View>
       ))}
 
       <Modal
@@ -58,8 +72,8 @@ export default function GneralResults({
         visible={showModal}
         onRequestClose={() => setShowModal(false)}
       >
-        <Explanation
-          showQuestion={true}
+        <ItemResult
+          // showQuestion={true}
           item={modalItem}
           chosenOptions={modalChoices}
           handleBtnPress={() => {

@@ -15,16 +15,17 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import ContentRenderer from '../components/ContentRenderer'
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import CustomModal from '../components/CustomModal'
-import Explanation from '../components/Explanation'
+import ItemResult from '../components/ItemResult'
 import GeneralResults from '../components/GeneralResults'
 import Options from '../components/Options'
-import Line from '../components/ui/Line'
+import Line from '../components/molecules/atoms/Line'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { returnIsCorrect } from '../utils/functions'
 import { Option, Result } from '../utils/types'
-import useQuizData from '../utils/useQuizData'
+// import useQuizData from '../utils/useQuizData'
+import { countItemsInTopic } from '../utils/getQuizData'
 import {
   yesQuit,
   nah,
@@ -33,12 +34,21 @@ import {
   nextQuestion,
   summary,
 } from '../../data/texts'
+import useStore from '../utils/store'
+import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
+import {
+  buttonDark,
+  spinner,
+  screenBackground,
+  buttonLight,
+} from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
-  const { countItemsInTopic } = useQuizData()
+  // const { countItemsInTopic } = useQuizData()
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
@@ -70,12 +80,15 @@ export default function Quiz({ route }) {
     shuffle: route.params.shuffle,
   })
 
+  // useEffect(() => {
+  //       return () => {
+  //         const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
+  //         clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
+  //       }
+  // }, []);
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
   useEffect(() => {
-    // setTimeout(() => {
-    // console.log('quiz wywołanie')
-    // }, 2000)
     getNextItem() // pobranie pierwszego itema
   }, [whichItem])
 
@@ -168,27 +181,27 @@ export default function Quiz({ route }) {
             minHeight: screenHeight - StatusBar.currentHeight,
           },
         ]}
-      >
+        >
+        {/* <Gradient></Gradient> */}
         {
-          <TouchableOpacity
+          <TouchableRipple
+            borderless
             style={{
-              backgroundColor: 'rgba(0, 150, 255, 0)',
-              borderRadius: 5,
               paddingVertical: 5,
               paddingHorizontal: 10,
               position: 'absolute',
               left: 20,
-              top: 10,
+              top: 15,
             }}
             onPress={() => handleBackPress()}
           >
             <AntDesign name="arrowleft" size={27} color="black" />
-          </TouchableOpacity>
+          </TouchableRipple>
         }
 
         {item && (
           <React.Fragment>
-            <View style={{ marginTop: 30, width: '90%' }}>
+            <View style={{ marginTop: 50, width: '90%' }}>
               {/* <Question question={item?.question} /> */}
               <ContentRenderer content={item?.question} />
             </View>
@@ -198,18 +211,31 @@ export default function Quiz({ route }) {
               handleOptionPress={handleOptionPress}
               multiChoice={item.multiChoice}
             />
-            <Button
+
+            <PaperButton
+              mode="contained"
+              onPress={() => {
+                setResults()
+              }}
+              disabled={chosenOptions.length === 0}
+              elevation={5}
+              buttonColor={buttonDark}
+            >
+              {submit}
+            </PaperButton>
+
+            {/* <Button
               title={submit}
               onPress={() => {
                 setResults()
               }} //jak Infinity mode to nie ustawiaj rezultów
               disabled={chosenOptions.length === 0}
-            />
+            /> */}
           </React.Fragment>
         )}
 
         {!item && !showGeneralResults && (
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size={50} color={spinner} />
         )}
 
         {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
@@ -221,10 +247,10 @@ export default function Quiz({ route }) {
         transparent={true}
         visible={showResultModal}
         onRequestClose={() => nextBtnPress()}
-        statusBarTranslucent={true}
+        // statusBarTranslucent={true}
       >
-        <Explanation
-          showQuestion={false}
+        <ItemResult
+          // showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}
           handleBtnPress={nextBtnPress}
@@ -233,14 +259,23 @@ export default function Quiz({ route }) {
       </Modal>
 
       <CustomModal
-        showModal={showExitModal}
+        visible={showExitModal}
         onRequestClose={() => setShowResultModal(false)}
-        modalText={areYouSure}
+        text={areYouSure}
       >
         <React.Fragment>
           <View style={styles.buttonsContainer}>
-            <Button title={yesQuit} color="red" onPress={closeModalAndGoBack} />
-            <Button title={nah} onPress={() => setShowExitModal(false)} />
+            <PaperButton
+              children={yesQuit}
+              textColor="red"
+              onPress={closeModalAndGoBack}
+            />
+            <PaperButton
+              buttonColor="lightblue"
+              textColor="#333"
+              children={nah}
+              onPress={() => setShowExitModal(false)}
+            />
           </View>
         </React.Fragment>
       </CustomModal>
@@ -250,7 +285,7 @@ export default function Quiz({ route }) {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: 'lightgray',
+    backgroundColor: screenBackground,
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingBottom: 50,

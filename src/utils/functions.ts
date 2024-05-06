@@ -1,3 +1,5 @@
+//* This file contains other utility functions 
+
 import { Linking } from 'react-native'
 import { Item, Option, Result } from './types'
 // import Constants from 'expo-constants'
@@ -48,7 +50,6 @@ export function returnIsCorrect(
   //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
   //zwróć correct jeśli wszystkie elementy tablicy itemUserChoices mają właściwość correct: true i jest ich dokładnie tyle ile elementów tablicy itemUserChoices ma właściwość correct: true
   //zwróć w każdym innym przypadku
-  // return
   let nrOfCorrectUserOptions = 0
   let nrOfCorrectOptions = 0
 

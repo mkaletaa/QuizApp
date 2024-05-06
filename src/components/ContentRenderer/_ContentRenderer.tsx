@@ -4,16 +4,17 @@ import CodeHighlighter from 'react-native-code-highlighter'
 import RenderHtml from 'react-native-render-html'
 import YoutubePlayer from 'react-native-youtube-iframe'
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import { Component } from '../utils/types'
-import Block from './ContentRenderer/Block'
-import ImageComponent from './ContentRenderer/ImageComponent'
-import { List, ListElement } from './ContentRenderer/List'
-import Math from './ContentRenderer/Math'
+import { Component } from '../../utils/types'
+import Block from './Block'
+import ImageComponent from './ImageComponent'
+import { List, ListElement } from './List'
+import Math from './Math'
+import { boldTextColor, textColor } from '../../utils/constants'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
-  const { type:componentType, props, value } = dataComponent
-  console.log("🚀 ~ renderComponent ~ dataComponent:", JSON.stringify(dataComponent))
+  const { type: componentType, props, value } = dataComponent
+  // console.log("🚀 ~ renderComponent ~ dataComponent:", JSON.stringify(dataComponent))
 
   //key is stringified object itself (20 first characters)
   const key: string = JSON.stringify(value).slice(0, 50)
@@ -22,7 +23,10 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
   switch (componentType) {
     case 'Text':
-      let modifiedValue = '<span style=" font-size: 18px">' + value + '</span>'
+      let modifiedValue =
+        `<span style=" font-size: 18px; color: ${textColor}; line-height: 25px;">` +
+        value +
+        '</span>'
 
       return (
         <RenderHtml
@@ -43,7 +47,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           case 'sm':
             return 17
           default:
-            return 20 
+            return 20
         }
       }
       return (
@@ -55,7 +59,13 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             // backgroundColor: 'lightblue',
           }}
         >
-          <Text style={{ fontSize: setFontSize(), fontWeight: 'bold' }}>
+          <Text
+            style={{
+              fontSize: setFontSize(),
+              fontWeight: 'bold',
+              color: boldTextColor,
+            }}
+          >
             {value}
           </Text>
         </View>

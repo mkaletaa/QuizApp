@@ -1,65 +1,81 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
-import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
-// import Constants from 'expo-constants'
-import * as Notifications from 'expo-notifications'
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, Switch, View, Text } from 'react-native'
+import { List, Switch as PaperSwitch } from 'react-native-paper'
+import { getValue, setValue } from '../utils/utilStorage'
+import { useNavigation } from '@react-navigation/native'
+import { randomOrder, contact, aboutTheApp } from '../../data/texts'
+import { Entypo } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
+import useStore from '../utils/store'
+import { borderColor, buttonDark, screenBackground, surfaceRipple, textColor } from '../utils/constants'
+import Gradient from '../components/molecules/Gradient'
 
 const StickyHeaderScrollView = () => {
-  // const adUnitId = __DEV__
-  //   ? TestIds.BANNER
-  //   : 'ca-app-pub-8755010348178299~4784433482'
-  // Pobierz niestandardowe wartości zdefiniowane w app.json
-  // const ads = JSON.stringify(Constants.manifest2.extra.expoClient.extra.ads)
-  // console.log(ads) // Wyświetli wartość customConfig z app.json
+  const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
+    useState<boolean>()
 
-  const handleButtonPress = async () => {
-    try {
-      await sendNotification()
-      console.log('Notification sent successfully')
-    } catch (error) {
-      console.error('Error sending notification:', error)
+  useEffect(() => {
+    async function checkShuffle() {
+      const shouldShuffle = await getValue('shuffle')
+      if (shouldShuffle === null) setIsShuffleSwitchEnabled(false)
+      else setIsShuffleSwitchEnabled(shouldShuffle)
     }
-  }
+    checkShuffle()
+  }, [])
 
-  const sendNotification = async () => {
-    console.log('dede')
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: 'Nowa notyfikacja',
-        body: 'To jest treść nowej notyfikacji.',
-      },
-      trigger: null, // Notyfikacja zostanie natychmiast wyświetlona
-    })
+  function setShuffleStorage() {
+    setIsShuffleSwitchEnabled(prev => !prev)
   }
 
   useEffect(() => {
-    handleButtonPress()
-  }, [])
+    try {
+      setValue('shuffle', isShuffleSwitchEnabled)
+    } catch (e) {
+      console.error(e)
+    }
+  }, [isShuffleSwitchEnabled])
+
+  const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
-      <Button title="Wyślij notyfikację" onPress={handleButtonPress} />
-      {true &&
-        // <BannerAd
-        //   unitId={'ca-app-pub-8755010348178299~4784433482'}
-        //   size={BannerAdSize.FULL_BANNER}
-        //   requestOptions={{
-        //     requestNonPersonalizedAdsOnly: true,
-        //   }}
-        // />
-        null
-        }
-      <Text>Test</Text>
-      {true &&
-        // <BannerAd
-        //   unitId={TestIds.BANNER}
-        //   size={BannerAdSize.FULL_BANNER}
-        //   requestOptions={{
-        //     requestNonPersonalizedAdsOnly: true,
-        //   }}
-        // />
-        null
-        }
+      <Gradient />
+      <List.Item //chcę aby wysokoć tego itema była taka sama jak tego poniżej
+        title={randomOrder}
+        onPress={setShuffleStorage}
+        rippleColor={surfaceRipple}
+        right={() => (
+          <PaperSwitch
+            value={isShuffleSwitchEnabled}
+            onValueChange={setShuffleStorage}
+          />
+        )}
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: borderColor,
+          height: 60,
+          justifyContent: 'center',
+        }}
+        titleStyle={{ color: textColor }} 
+        />
+      <List.Item
+        rippleColor={surfaceRipple}
+        title={aboutTheApp}
+        left={() => <Entypo name="info" size={24} color={"rebeccapurple"} />}
+        right={() => <AntDesign name="right" size={24} color={borderColor} />}
+
+        //@ts-ignore
+        onPress={() => navigation.navigate('About')}
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: borderColor,
+          paddingLeft: 15,
+        }}
+        titleStyle={{ color: textColor }} 
+      />
+      <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
+        {contact}: <Text>learn.everything.app@proton.me</Text>
+      </Text>
     </View>
   )
 }
@@ -67,24 +83,9 @@ const StickyHeaderScrollView = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  stickyHeader: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 50,
-    backgroundColor: 'lightgray',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  stickyHeaderText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  content: {
-    marginTop: 50, // Ustaw to, aby uniknąć zakrywania treści przez nagłówek
-    // Inna zawartość ScrollView
+    // paddingHorizontal: 15,
+    paddingTop: 15,
+    backgroundColor: screenBackground,
   },
 })
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Item, Option, Result } from '../utils/types'
-import useQuizData from '../utils/useQuizData'
+// import useQuizData from '../utils/useQuizData'
 
+import { importItem, importItemInfinityMode } from '../utils/getQuizData'
 const useNextQuestion = ({
   chapName,
   topName,
@@ -17,7 +18,6 @@ const useNextQuestion = ({
 }) => {
   const [item, setItem] = useState<Item>(null)
   const [whichItem, setWhichItem] = useState(0)
-  const { importItem, importRandomItemAllItemsMode } = useQuizData()
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [resultsArray, setResultsArray] = useState<Result[]>([])
@@ -26,9 +26,9 @@ const useNextQuestion = ({
   //* zapisane pytania mają chapName ==='__Saved__'
 
   useEffect(() => {
-    console.log("🚀 ~ useNextQuestion ~ useEffect:", itemsCount)
+    console.log('🚀 ~ useNextQuestion ~ useEffect:', itemsCount)
     // let n = countItemsInTopics(topName, chapName)
-    
+
     if (shuffle && itemsCount !== Infinity) {
       let arr = []
       let usedNumbers = [] // Tablica przechowująca już użyte liczby
@@ -47,8 +47,8 @@ const useNextQuestion = ({
 
       //! symulacja długiego ładowania pytania
       // setTimeout(() => {
-        if (itemsArray === undefined) getFirstRandomItem(arr, 0)
-        else getFirstRandomItemFromList(arr, 0)
+      if (itemsArray === undefined) getFirstRandomItem(arr, 0)
+      else getFirstRandomItemFromList(arr, 0)
       // }, 2000)
 
       setRandomNrArray(arr)
@@ -74,7 +74,7 @@ const useNextQuestion = ({
 
     //być może można dać tutaj if (shuffle && whichItem === 0) return
     if (itemsCount === Infinity) {
-      newItem = importRandomItemAllItemsMode(chapName)
+      newItem = importItemInfinityMode(chapName)
       prepareForTheNextItem(newItem)
       return
     }
@@ -113,7 +113,7 @@ const useNextQuestion = ({
 
     //! symulacja długiego ładowania pytania
     // setTimeout(() => {
-      setItem(newItem)
+    setItem(newItem)
     // }, 2000)
   }
 

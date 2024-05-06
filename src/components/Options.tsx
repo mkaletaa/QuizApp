@@ -1,9 +1,12 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { multiChoice as multiChoiceText } from '../../data/texts'
 import { Option } from '../utils/types'
-
+import { Chip, TouchableRipple } from 'react-native-paper'
+import { Button } from 'react-native-paper'
+import { Text } from 'react-native-paper'
+import { boldTextColor, gradient, textColor } from '../utils/constants'
 const OptionComponent = ({ option }: { option: Option }) => {
   const { val: answerValue } = option
 
@@ -36,24 +39,31 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
   return (
     <View style={styles.wrapper}>
       {multiChoice ? (
-        <View style={styles.alert}>
-          <AntDesign
-            name="warning"
-            size={16}
-            color="black"
-            style={{ marginRight: 5 }}
-          />
-          <Text style={{ textAlign: 'center', fontSize: 15 }}>
-            {multiChoiceText}
-          </Text>
-        </View>
+        <React.Fragment>
+          {/* <Chip mode="outlined">{multiChoiceText}</Chip> */}
+
+          <View style={styles.alert}>
+            <AntDesign
+              name="warning"
+              size={16}
+              color="black"
+              style={{ marginRight: 5 }}
+            />
+            <Text
+              // variant="labelSmall"
+              style={{ textAlign: 'center', fontSize: 15 }}
+            >
+              {multiChoiceText}
+            </Text>
+          </View>
+        </React.Fragment>
       ) : null}
 
       {item.options?.map(option => (
         <View key={option.id} style={styles.answerContainer}>
-          <TouchableOpacity
-            activeOpacity={0.7}
-            // {...props}
+          {/* <Button
+            mode="outlined"
+            rippleColor="lightblue"
             style={[
               styles.touchableOpacity,
               {
@@ -70,7 +80,33 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
             }}
           >
             <OptionComponent option={option} />
-          </TouchableOpacity>
+          </Button> */}
+
+          <TouchableRipple
+            // activeOpacity={0.7}
+            // {...props}
+            rippleColor={
+              chosenOptions.some(el => el.id === option.id)
+                ? 'rgba(50, 200, 255, 1)'
+                : 'rgba(50, 200, 255, 0)'
+            }
+            style={[
+              styles.touchableOpacity,
+              {
+                backgroundColor: chosenOptions.some(el => el.id === option.id)
+                  ? 'lightblue'
+                  : gradient,
+                borderColor: chosenOptions.some(el => el.id === option.id)
+                  ? 'rgb(50, 200, 255)'
+                  : 'rgb(210, 210, 240)',
+              },
+            ]}
+            onPress={() => {
+              setButtonBackground(option)
+            }}
+          >
+            <OptionComponent option={option} />
+          </TouchableRipple>
         </View>
       ))}
     </View>
@@ -81,6 +117,7 @@ const styles = StyleSheet.create({
   answerContainer: {
     // width: 300,
     alignItems: 'center',
+    elevation: 5
     // backgroundColor: 'red',
     // marginBottom: 50
   },
@@ -88,10 +125,12 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginVertical: 5,
-    borderWidth: 3,
+    borderWidth: 2.5,
+    
     // borderColor: 'grey',
     width: '50%',
     minWidth: 250, //
+    overflow: 'hidden',
   },
   buttonText: {
     fontSize: 16,
@@ -106,11 +145,14 @@ const styles = StyleSheet.create({
   },
   alert: {
     backgroundColor: 'orange',
-    borderRadius: 4,
+    borderRadius: 8,
     marginBottom: 15,
     alignItems: 'center',
     flexDirection: 'row',
-    padding: 5,
+    padding: 10,
+    paddingVertical: 7,
+    borderWidth:2,
+    borderColor: 'rgba(249, 105, 14, .65)',
   },
 })
 
