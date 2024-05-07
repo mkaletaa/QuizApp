@@ -71,12 +71,12 @@
       },
       {
         "type": "Math",
-        "value": "`a+(b*c)=(a+b)*(a+C)`",
+        "value": "`a+(b*c)=(a+b)*(a+c)`",
         "props": { "fontSize": 20 }
       },
       {
         "type": "Math",
-        "value": "`a*(b+c)=(a*b)+(a*C)`",
+        "value": "`a*(b+c)=(a*b)+(a*c)`",
         "props": { "fontSize": 20 }
       },
       {
