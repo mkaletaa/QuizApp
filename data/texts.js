@@ -27,8 +27,6 @@ export const mailSubject = ' - błąd'
 export const mailBody =
   '\n\nNawet najlepsi popełniają błędy. Opisz co jest nie tak, a ja to naprawię. \n(możesz usunąć ciało tego maila z wyjątkiem pierwszej linii)'
 export const noQuestions = 'Brak pytań do wyświetlenia'
-export const longPress =
-  'Przytrzymaj palec na ekranie, by zobaczyć jeszcze raz pytanie'
 export const randomOrder = "losowa kolejność pytań"
 export const contact = 'Kontakt'
 export const aboutTheApp = 'O aplikacji'
