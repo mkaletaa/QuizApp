@@ -2,8 +2,7 @@
 export const chapters = [
   {
     name: 'elektronika',
-    image:
-      'https://i.postimg.cc/cLqQPLB8/66583146-processore-del-computer-e-chip-di-sistema-della-scheda-madre-chip-della-cpu-circuito-elettr.jpg',
+    image: 'https://i.postimg.cc/y8yYNN95/zaba.jpg',
     des: 'Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Te źródła nie są moje, więc jak coś jest źle to pretensje nie do mnie.',
   },
 ]
@@ -17,12 +16,11 @@ export const topics = {
     },
     {
       name: '_555',
-      image:
-        'https://i.postimg.cc/V6bQ7dc6/20231004-angel-Number-555-1080-X1080-300x300.webp',
+      image: 'https://i.postimg.cc/pVhyRRdQ/image.png',
     },
     {
       name: 'układy_logiczne',
-      image: 'https://i.postimg.cc/x1XtLjYF/image.png',
+      image: 'https://i.postimg.cc/G296NvDk/bool.png',
     },
   ],
 }
