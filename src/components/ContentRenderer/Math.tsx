@@ -1,5 +1,4 @@
 import React from 'react'
-import { Pressable, ScrollView, Touchable, View } from 'react-native'
 // import MathJax from 'react-native-mathjax'
 import WebView from 'react-native-webview'
 

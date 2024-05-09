@@ -1,4 +1,5 @@
 import { AntDesign } from '@expo/vector-icons'
+import { Image } from 'expo-image'
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { useEffect, useState } from 'react'
 import {
@@ -8,11 +9,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  ActivityIndicator,
-  ImageBackground,
+  View
 } from 'react-native'
-import { Image } from 'expo-image'
 import ImageViewer from 'react-native-image-zoom-viewer'
 import useStore from '../../utils/store'
 

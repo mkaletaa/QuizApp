@@ -1,15 +1,11 @@
 import { Entypo } from '@expo/vector-icons'
-import { Animated, Button, TouchableOpacity, View } from 'react-native'
-import { reportAMistake } from '../../../data/texts'
+import React from 'react'
+import { Animated, TouchableOpacity, View } from 'react-native'
 import useAnimatePopup from '../../hooks/useAnimatePopup'
-import { removeUnderscores, sendAnEmail } from '../../utils/functions'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
-import QuizButton from './atoms/QuizButton'
-import React from 'react'
-import { TouchableRipple } from 'react-native-paper'
-import { TouchableHighlight } from 'react-native-gesture-handler'
 import MistakeButton from './atoms/MistakeButton'
+import QuizButton from './atoms/QuizButton'
 
 export default function TheoryPopup({ topicName, chapterName }) {
   const showPopup = useStore(state => state.showPopup)

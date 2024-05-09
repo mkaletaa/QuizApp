@@ -1,11 +1,10 @@
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { quiz } from '../../data/quiz/quizModule'
-import { Button, Modal, Text } from 'react-native'
-import CustomModal from '../components/CustomModal'
 import { noQuestions } from '../../data/texts'
-import { getValue } from '../utils/utilStorage'
+import CustomModal from '../components/CustomModal'
 import { Item } from '../utils/types'
+import { getValue } from '../utils/utilStorage'
 
 const useOpenQuiz = () => {
   const navigation = useNavigation()

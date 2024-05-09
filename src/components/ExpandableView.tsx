@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { Pressable, View, Text, StyleSheet } from 'react-native'
-import ContentRenderer from './ContentRenderer/_ContentRenderer'
-import { LinearGradient } from 'expo-linear-gradient'
-import { explanation as explText } from '../../data/texts'
 import { AntDesign } from '@expo/vector-icons'
-import useStore from '../utils/store'
+import { LinearGradient } from 'expo-linear-gradient'
+import React, { useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { explanation as explText } from '../../data/texts'
 import { boldTextColor } from '../utils/constants'
+import useStore from '../utils/store'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
 export default function ExpandableView({ data, showHeader = false }) {
   const [viewHeight, setViewHeight] = useState(0)
   const [max, setMax] = useState(150)

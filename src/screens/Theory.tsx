@@ -15,12 +15,10 @@ import {
 import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
-import QuizButton from '../components/molecules/atoms/QuizButton'
 import TheoryPopup from '../components/molecules/TheoryPopup'
-import { removeUnderscores } from '../utils/functions'
+import QuizButton from '../components/molecules/atoms/QuizButton'
+import { boldTextColor, borderColor, buttonDark, screenBackground, sectionHeaderBG, spinner, surfaceBg } from '../utils/constants'
 import useStore from '../utils/store'
-import { boldTextColor, borderColor, buttonDark, buttonLight, goUpBackground, gradient, sectionHeaderBG, spinner, surfaceBg, surfaceRipple } from '../utils/constants'
-import { screenBackground } from '../utils/constants'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()

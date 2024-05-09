@@ -9,8 +9,6 @@ import Settings from './screens/Settings'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
 import { removeUnderscores } from './utils/functions'
-import Settings2 from './screens/Settings2'
-import Settings3 from './screens/Settings3'
 import About from './screens/About'
 import Questions from './screens/Questions'
 import { borderColor, screenBackground } from './utils/constants'
@@ -136,8 +134,6 @@ const MyStack = () => {
         })}
       />
 
-      <Stack.Screen name="Settings2" component={Settings2} />
-      <Stack.Screen name="Settings3" component={Settings3} />
     </Stack.Navigator>
   )
 }

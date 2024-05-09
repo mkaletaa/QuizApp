@@ -1,9 +1,6 @@
 import { View } from 'react-native'
+import { surfaceBg } from '../../utils/constants'
 import ContentRenderer from '../ContentRenderer/_ContentRenderer'
-import { LinearGradient } from 'expo-linear-gradient'
-import { Surface } from 'react-native-paper'
-import { gradient, surfaceBg, surfaceBorder1, surfaceBorder2, surfaceShadow } from '../../utils/constants'
-import Gradient from './Gradient'
 
 export default function ChapterDescription({
   chapterDescription: chapterDes,

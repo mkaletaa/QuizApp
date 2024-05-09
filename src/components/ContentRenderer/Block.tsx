@@ -1,9 +1,6 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { View, useWindowDimensions, StyleSheet } from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
-import { Feather } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { SimpleLineIcons } from '@expo/vector-icons'
+import { AntDesign, Feather, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons'
+import React, { useEffect, useRef, useState } from 'react'
+import { StyleSheet, View, useWindowDimensions } from 'react-native'
 
 import { renderComponent } from './_ContentRenderer'
 type blockType = 'info' | 'warning' | 'important' | 'task'

@@ -1,12 +1,10 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { Text, TouchableRipple } from 'react-native-paper'
 import { multiChoice as multiChoiceText } from '../../data/texts'
+import { gradient } from '../utils/constants'
 import { Option } from '../utils/types'
-import { Chip, TouchableRipple } from 'react-native-paper'
-import { Button } from 'react-native-paper'
-import { Text } from 'react-native-paper'
-import { boldTextColor, gradient, textColor } from '../utils/constants'
 const OptionComponent = ({ option }: { option: Option }) => {
   const { val: answerValue } = option
 

@@ -1,18 +1,15 @@
 import NetInfo from '@react-native-community/netinfo'
 import { NavigationContainer } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { Button, View, Text } from 'react-native'
 import 'react-native-gesture-handler'
 import MyStack from './src/Stack'
 import CustomModal from './src/components/CustomModal'
 import { noInternetMessage } from './data/texts'
 import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
 import * as Updates from 'expo-updates'
-import { setValue } from './src/utils/utilStorage'
 import * as Sentry from '@sentry/react-native'
 import {  Provider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import useStore from './src/utils/store'
 
 Sentry.init({
   dsn: "https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640",

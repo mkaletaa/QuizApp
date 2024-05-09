@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, Switch, View, Text } from 'react-native'
-import { List, Switch as PaperSwitch } from 'react-native-paper'
-import { getValue, setValue } from '../utils/utilStorage'
+import { AntDesign, Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import { randomOrder, contact, aboutTheApp } from '../../data/texts'
-import { Entypo } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
-import useStore from '../utils/store'
-import { borderColor, buttonDark, screenBackground, surfaceRipple, textColor } from '../utils/constants'
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { List, Switch as PaperSwitch } from 'react-native-paper'
+import { aboutTheApp, contact, randomOrder } from '../../data/texts'
 import Gradient from '../components/molecules/Gradient'
+import { borderColor, screenBackground, surfaceRipple, textColor } from '../utils/constants'
+import { getValue, setValue } from '../utils/utilStorage'
 
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =

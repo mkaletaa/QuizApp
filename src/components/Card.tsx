@@ -1,18 +1,17 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import {
   Dimensions,
   Image,
-  Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native'
-import { removeUnderscores } from '../utils/functions'
-import { read } from '../../data/texts'
-import { useNavigation } from '@react-navigation/native'
 import { TouchableRipple } from 'react-native-paper'
-import {boldTextColor, borderColor, surfaceBg, surfaceRipple} from "../utils/constants"
+import { read } from '../../data/texts'
+import { boldTextColor, borderColor, surfaceBg, surfaceRipple } from "../utils/constants"
+import { removeUnderscores } from '../utils/functions'
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {

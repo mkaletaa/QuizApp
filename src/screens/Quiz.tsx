@@ -2,47 +2,41 @@ import { AntDesign } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
 import {
+  ActivityIndicator,
   BackHandler,
-  Button,
   Dimensions,
   Modal,
   ScrollView,
   StatusBar,
   StyleSheet,
-  TouchableOpacity,
-  View,
-  Text,
-  ActivityIndicator,
+  View
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import CustomModal from '../components/CustomModal'
-import ItemResult from '../components/ItemResult'
 import GeneralResults from '../components/GeneralResults'
+import ItemResult from '../components/ItemResult'
 import Options from '../components/Options'
 import Line from '../components/molecules/atoms/Line'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { returnIsCorrect } from '../utils/functions'
 import { Option, Result } from '../utils/types'
 // import useQuizData from '../utils/useQuizData'
-import { countItemsInTopic } from '../utils/getQuizData'
-import {
-  yesQuit,
-  nah,
-  areYouSure,
-  submit,
-  nextQuestion,
-  summary,
-} from '../../data/texts'
-import useStore from '../utils/store'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 import {
+  areYouSure,
+  nah,
+  nextQuestion,
+  submit,
+  summary,
+  yesQuit,
+} from '../../data/texts'
+import {
   buttonDark,
-  spinner,
   screenBackground,
-  buttonLight,
+  spinner
 } from '../utils/constants'
-import Gradient from '../components/molecules/Gradient'
+import { countItemsInTopic } from '../utils/getQuizData'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width

@@ -1,10 +1,10 @@
-import { Button, Text } from 'react-native'
-import useOpenQuiz from '../../../hooks/useOpenQuiz'
-import { takeAQuiz } from '../../../../data/texts'
 import React from 'react'
-import useStore from '../../../utils/store'
+import { Text } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
+import { takeAQuiz } from '../../../../data/texts'
+import useOpenQuiz from '../../../hooks/useOpenQuiz'
 import { buttonDark } from '../../../utils/constants'
+import useStore from '../../../utils/store'
 export default function QuizButton({ topicName, chapterName }) {
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 

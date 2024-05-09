@@ -1,11 +1,10 @@
-import { Pressable, View, Text, Switch, ScrollView } from 'react-native'
-import { Item } from '../utils/types'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Pressable, View } from 'react-native'
+import { Item } from '../utils/types'
 // import Question from './Question'
-import ContentRenderer from './ContentRenderer/_ContentRenderer'
 import { gradient, surfaceBg } from '../utils/constants'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
 
 export default function Tile({
   item,

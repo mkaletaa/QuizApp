@@ -7,8 +7,6 @@ import ChapterDescription from '../components/molecules/ChapterDescription'
 import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import utilStyles from '../utils/styles'
-import { removeUnderscores } from '../utils/functions'
-import useStore from '../utils/store'
 import { screenBackground } from '../utils/constants'
 import Gradient from '../components/molecules/Gradient'
 export default function Topics({ route }) {

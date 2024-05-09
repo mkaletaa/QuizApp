@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import {
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  Pressable,
-  Dimensions,
-  TouchableOpacity,
-} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-
-import { Ionicons } from '@expo/vector-icons'
-import { Feather } from '@expo/vector-icons'
-import { Octicons } from '@expo/vector-icons'
-import { FontAwesome6 } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { Foundation } from '@expo/vector-icons'
-import useStore from '../utils/store'
+import React from 'react'
 import {
-  Button,
-  IconButton,
-  TouchableRipple,
-  Tooltip,
+  Dimensions,
+  Pressable,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native'
+
+import { AntDesign, Feather, Ionicons } from '@expo/vector-icons'
+import {
+  Tooltip
 } from 'react-native-paper'
-import { screenBackground, buttonLight, boldTextColor } from '../utils/constants'
+import { boldTextColor } from '../utils/constants'
+import useStore from '../utils/store'
 
 // import { useRoute } from '@react-navigation/native'
 export default function Header({ title }) {

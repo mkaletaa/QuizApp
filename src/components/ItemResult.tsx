@@ -1,28 +1,25 @@
 import {
-  Button,
   Dimensions,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
-  View,
   TouchableWithoutFeedback,
+  View
 } from 'react-native'
 import { Item, Option } from '../utils/types'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
 // import Question from './Question'
 import { FontAwesome, Foundation } from '@expo/vector-icons'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 // import {  } from 'react-native-gesture-handler'
 // import { TouchableOpacity } from 'react-native-gesture-handler'
+import { Button as PaperButton } from 'react-native-paper'
 import { correctAnswers, yourAnswers } from '../../data/texts'
+import { boldTextColor, buttonDark } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
+import useStore from '../utils/store'
 import ExpandableView from './ExpandableView'
 import ExplanationPopup from './molecules/ExplanationPopup'
-import useStore from '../utils/store'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
-import { boldTextColor, buttonDark } from '../utils/constants'
 
 export default function ItemResult({
   item,
