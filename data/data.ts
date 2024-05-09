@@ -22,5 +22,9 @@ export const topics = {
       name: 'układy_logiczne',
       image: 'https://i.postimg.cc/G296NvDk/bool.png',
     },
+    {
+      name: 'konwertery_kodów',
+      image: 'https://i.postimg.cc/bvypSgLH/image.png',
+    },
   ],
 }
