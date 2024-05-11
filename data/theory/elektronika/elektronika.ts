@@ -6,5 +6,5 @@ export const elektronika = {
   wzmacniacz_operacyjny,
   _555,
   układy_logiczne,
-  konwertery_kodów,
+  // konwertery_kodów,
 }

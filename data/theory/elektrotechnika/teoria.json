@@ -1,0 +1,87 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Znajdują się tutaj zadania teoretyczne z kolokwium"
+      },
+      {
+        "type": "Header",
+        "value": "Podaj definicję idealnego źródła prądu",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Idealne źródło prądu to źródło prądu, które dostarcza do obwodu stały prąd, niezależny od napięcia na zaciskach źródła, a rezystancja wewnętrzna wynosi 0 (zero)."
+      },
+      {
+        "type": "Header",
+        "value": "Przedstaw prawo Ohma",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "prawo Ohma: `U=IR` lub `I=U/R`",
+        "props": { "fontSize": 20 }
+      },
+      {
+        "type": "Header",
+        "value": "Przedstaw prawa Kirchhoffa",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "1. prawo: suma algebraiczna natężeń prądów wpływających i wypływających z węzła jest równa zeru"
+      },
+      {
+        "type": "Math",
+        "value": "`i_1 + i_2 + i_3 +...+ i_n = 0`"
+      },
+      {
+        "type": "Math",
+        "value": "`sum_(i=1)^n I_i=0`"
+      },
+      {
+        "type": "Text",
+        "value": "2. prawo: Algebraiczna suma sił elektromotorycznych i przyrostów napięć w dowolnym obwodzie zamkniętym jest równa zeru."
+      },
+      {
+        "type": "Math",
+        "value": "`sum_(i=1)^n epsilon_i + sum_(i=1)^m I_iR_i=0`"
+      },
+      {
+        "type": "Header",
+        "value": "Zdefiniuj oczko",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "zbiór połączonych ze sobą gałęzi, które tworzą zamkniętą drogę przepływu prądu elektrycznego"
+      },
+      {
+        "type": "Header",
+        "value": "Zdefiniuj węzeł",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "punkt w obwodzie, w którym 3 lub więcej gałęzi obwodu spotyka się w jednym punkcie"
+      },
+      {
+        "type": "Header",
+        "value": "Narysuj przebieg sinusoidalny, zaznacz i opisz jego wielkości charakterystyczne oraz zdefiniuj wartość skuteczną dla przebiegu sinusoidalnego",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/4dZ2FFgX/image.png",
+        "props": { "description": "Tutaj są zaznaczone okres i amplituda, można jeszcze zaznaczyć wartość maksymalną", "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "wartość skuteczna to wartość maksymalna podzielona przez pierwiastek z 2"
+      }
+    ]
+  }
+]

@@ -1,4 +1,4 @@
+import { elektronika } from './elektronika/elektronika'
+import { elektrotechnika } from './elektrotechnika/elektrotechnika'
 
-import {elektronika} from './elektronika/elektronika'
-
-export const theory = {elektronika }
+export const theory = { elektronika, elektrotechnika }

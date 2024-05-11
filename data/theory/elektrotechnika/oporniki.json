@@ -1,0 +1,161 @@
+[
+  {
+    "title": "wstęp",
+    "data": [
+      {
+        "type": "Header",
+        "value": "Poł. szeregowe",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Rezystancja zastępcza oporników w przypadku połączenia szeregowego to suma rezystancji oporników."
+      },
+      {
+        "type": "Math",
+        "value": "`R_z=R_1+R_2+...+R_n`"
+      },
+      {
+        "type": "Header",
+        "value": "Poł. równoległe",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "W przypadku połączenia równoległego, odwrotność rezystancji zastępczej oporników to suma odwrotności oporów poszczególnych oporników."
+      },
+      {
+        "type": "Math",
+        "value": "`1/R_z=1/R_1+1/R_2+...+1/R_n`"
+      },
+      {
+        "type": "Text",
+        "value": "Zatem oblicza się je na odwrót niż pojemność zastępcza kondensatorów. <br></br> Mamy też połączenia trójkąt i gwiazda."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/xTFrdf0b/image.png"
+      }
+    ]
+  },
+  {
+    "title": "Zadanie z kolokwium",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Przeanalizujmy następujące zadanie z kolokwium z 2024 r.:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/QtfnCmpJ/oporniki.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Nazwijmy sobie jakoś nasze oporniki. Poniżej znajduje się schemat z zadania:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/XqjMrXG9/IMG-20240511-183431.jpg",
+        "props": { "orientation": "landscape" }
+      },
+      {
+        "type": "Text",
+        "value": "Zauważmy, że R4 i R5 są połączone szeregowo. To samo R6 i R7."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/JnQvCm60/IMG-20240511-183437.jpg",
+        "props": { "orientation": "square" }
+      },
+      {
+        "type": "Math",
+        "value": "`R_{45}= R_4+R_5= 1+5=6Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{67}= R_6+R_7= 8+2=10Ω`"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz zamieńmy gwiazdę na trójkąt."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/6pGP5CjD/IMG-20240511-183935.jpg"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{12}=R_1+R_2+(R_1*R_2)/R_3`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{12}=2+2+(2*2)/4= 5Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{13}=R_1+R_3+(R_1*R_3)/R_2`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{13}=2+4+(2*4)/2= 10Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{23}=R_2+R_3+(R_2*R_3)/R_1`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{23}=2+4+(2*4)/2= 10Ω`"
+      },
+      {
+        "type": "Text",
+        "value": "Zauważmy teraz, że równoległe są do siebie pary rezystorów: R45 i R13, a także R67 i R23"
+      },
+      {
+        "type": "Math",
+        "value": "`1/R_{1345}= 1/R_{13}+1/R_{45}=1/10+1/6Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{1345}= 15/4Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`1/R_{2367}= 1/R_{23}+1/R_{67}=1/10+1/10Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{2367}= 5Ω`"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/xTjN5GNM/IMG-20240511-195114.jpg"
+      },
+      {
+        "type": "Text",
+        "value": "R<sub>1345</sub> oraz R<sub>2367</sub> są połączone szeregowo. Obliczmy dla nich opór zastępczy:"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{z1}=R_{1345}+R_{2367}=15/4+5=35/4Ω`"
+      },
+      {
+        "type": "Text",
+        "value": "Rz1 i R12 są równoległe"
+      },
+      {
+        "type": "Math",
+        "value": "`1/R_{zc}=1/R_{z1}+1/R_{12}=4/35+1/5Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`R_{zc}= 35/11Ω`"
+      },
+      {
+        "type": "Text",
+        "value": "Opór zastępczy całego układu wynosi 35/11 Ω"
+      }
+    ]
+  }
+]

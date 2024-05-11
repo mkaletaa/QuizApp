@@ -1,0 +1,130 @@
+[
+  {
+    "title": "wstęp",
+    "data": [
+      {
+        "type": "Header",
+        "value": "Poł. szeregowe",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "W przypadku połączenia szeregowego, odwrotność pojemności zastępczej kondensatorów w to suma odwrotności pojemności poszczególnych kondensatorów."
+      },
+      {
+        "type": "Math",
+        "value": "`1/C_z=1/C_1+1/C_2+...+1/C_n`"
+      },
+      {
+        "type": "Header",
+        "value": "Poł. równoległe",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Pojemność zastępcza kondensatorów w przypadku połączenia równoległego to suma pojemnosci kondensatorów."
+      },
+      {
+        "type": "Math",
+        "value": "`C_z=C_1+C_2+...+C_n`"
+      },
+      {
+        "type": "Text",
+        "value": "Zatem oblicza się je na odwrót niż opór zastępczy rezystorów."
+      }
+    ]
+  },
+  {
+    "title": "zadanie z kolokwium",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Przeanalizujmy następujące zadanie z kolokwium z 2024 r.:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/15tqhHCr/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Startujemy zatem z takim układem:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/XJjvKjtk/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Widzimy, że mamy tutaj mieszankę połączeń szeregowych i równoległych. Najpierw zajmiemy się tymi pierwszymi. Szeregowo połączone są ze sobą kondensatory:"
+      },
+      {
+        "type": "List",
+        "value": [
+          {
+            "type": "ListElement",
+            "value": "C1 z C2"
+          },
+          {
+            "type": "ListElement",
+            "value": "C3 z C4"
+          },
+          {
+            "type": "ListElement",
+            "value": "C5 z C6"
+          }
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "Nazwijmy kondensatory zastępcze odpowiednio C12, C34 i C56. Oto, jak będzie wyglądał teraz układ:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/yxNXGz3F/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Teraz pozostaje tylko wyliczyć wartości zastępcze poszczególnych par kondensatorów."
+      },
+      {
+        "type": "Math",
+        "value": "`1/C_{12}= 1/C_1+1/C_2= 1/4 + 1/4 = 1/2 μF`"
+      },
+      {
+        "type": "Math",
+        "value": "`C_{12}= 2 μF`"
+      },
+      {
+        "type": "Math",
+        "value": "`1/C_{34}= 1/C_3+1/C_4= 1/4 + 1/4 = 1/2 μF`"
+      },
+      {
+        "type": "Math",
+        "value": "`C_{34}= 2 μF`"
+      },
+      {
+        "type": "Math",
+        "value": "`1/C_{56}= 1/C_5+1/C_6= 1/4 + 1/4 = 1/2 μF`"
+      },
+      {
+        "type": "Math",
+        "value": "`C_{56}= 2 μF`"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz zredukowaliśmy nasz układ tak, że wszystkie kondensatory są połaczone równolegle. Skoro znamy ich wartości oraz znamy wzór na pojemność zastępczą w układzie równoległym, możemy policzyć pojemność zastępczą całego układu."
+      },
+      {
+        "type": "Math",
+        "value": "`C_z = C_{12}+C_{34}+C_{56}+C_7`"
+      },
+      {
+        "type": "Math",
+        "value": "`C_z = 2+2+2+2=8μF`"
+      }
+    ]
+  }
+]
