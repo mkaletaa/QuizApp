@@ -117,7 +117,11 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/hGLycJVf/image.png",
-        "props": { "orientation": "horizontal" }
+        "props": { "description": "Z tą tabelą są dwa problemy. Po pierwsze tam gdzie Uol i Uoh powinno być wyjście, a nie wejście. Po drugie na wykładzie było, że Uil jest 0 - 0.8, a Uih 2 - 5.", "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "I na tym można by zakończyć ten segment, ale u nas jeszcze zażyczył sobie podać definicję czasu propagacji i jak się go wyznacza. Zależności logicznych za to nie było wcale.<br></br><b>Czas propagacji</b> - czas jaki upływa między zmianą sygnału wejściowego a ustaleniem sygnału wyjściowego.<br></br>Nie wiem jak się go wyznacza, więc jak ktoś wie to pisać. Na wszelki wypadek wyjaśnię jeszcze inne pojęcia.<br></br><b>Maksymalna częstotliwość przełączania</b> - częstotliwość z jaką może zmieniać się sygnał na wejściu.<br></br><b>Obciążalność</b> - maksymalna liczba sygnałów wejściowych"
       }
     ]
   },
@@ -214,7 +218,7 @@
       },
       {
         "type": "Text",
-        "value": "Każda bramka może mieć co najwyżej 2 wejścia. Dla ambitnych jest zrobienie tego za pomocą samych bramek NAND, ale my nie jesteśmy ambitni. Obowiązuje taka sama kolejność działań jak na matematyce czyli najpierw nawiasy (negacja), potem mnożenie i potem dodawanie. Zaczniemy od wyrażenia po lewej. Normalnie moglibyśmy narysować tak:"
+        "value": "Każda bramka może mieć co najwyżej 2 wejścia. Dla ambitnych jest zrobienie tego za pomocą samych bramek NAND, ale my nie jesteśmy ambitni. Obowiązuje taka sama kolejność działań jak na matematyce czyli najpierw to co w nawiasach (negacja), potem mnożenie i potem dodawanie. Zaczniemy od wyrażenia po lewej. Normalnie moglibyśmy narysować tak:"
       },
       {
         "type": "Image",
@@ -254,6 +258,10 @@
         "type": "Image",
         "value": "https://i.postimg.cc/QCw4GvxP/image.png",
         "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Schematy stworzone za pomocą <a href='https://circuitverse.org/'>circuitverse.org</a>"
       }
     ]
   }
