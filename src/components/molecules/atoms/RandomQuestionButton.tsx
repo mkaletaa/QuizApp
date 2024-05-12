@@ -45,34 +45,35 @@ export default function RandomQuestionButton({ chapName }) {
     //   }}
     // >
     //todo: use FAB from paper
-    <PaperButton
-      mode="elevated"
-      icon="dice-5"
-      onPress={instantQuestion}
-      elevation={5}
-      buttonColor={buttonDark}
-      textColor="white"
-      style={{
-        // backgroundColor: 'orange',
-        alignItems: 'center',
-        // elevation: 3,
-        borderRadius: 10,
-        // height: 40,
-        justifyContent: 'center',
-        bottom: 40,
-        // marginRight: 15,
-        position: 'absolute',
-        zIndex: 2,
-        flexDirection: 'row',
-        // gap: 15,
-        // paddingHorizontal: 10,
-      }}
-    >
-      {}
-      {/* <FontAwesome5 name="dice" size={20} color="white" />
-        <Text> </Text>*/}
-      {randomQuestion}
-    </PaperButton>
+    // <PaperButton
+    //   mode="elevated"
+    //   icon="dice-5"
+    //   onPress={instantQuestion}
+    //   elevation={5}
+    //   buttonColor={buttonDark}
+    //   textColor="white"
+    //   style={{
+    //     // backgroundColor: 'orange',
+    //     alignItems: 'center',
+    //     // elevation: 3,
+    //     borderRadius: 10,
+    //     // height: 40,
+    //     justifyContent: 'center',
+    //     bottom: 40,
+    //     // marginRight: 15,
+    //     position: 'absolute',
+    //     zIndex: 2,
+    //     flexDirection: 'row',
+    //     // gap: 15,
+    //     // paddingHorizontal: 10,
+    //   }}
+    // >
+    //   {}
+    //   {/* <FontAwesome5 name="dice" size={20} color="white" />
+    //     <Text> </Text>*/}
+    //   {randomQuestion}
+    // </PaperButton>
+    null
     // </LinearGradient>
   )
 }
