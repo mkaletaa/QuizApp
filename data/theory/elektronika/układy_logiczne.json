@@ -206,11 +206,53 @@
     "data": [
       {
         "type": "Text",
-        "value": "Niektóre bramki logiczne można przedstawić za pomocą innych. Oto sposób na przedstawienie bramki OR bramkami NOT i AND:"
+        "value": "Trzeba było narysować schemat dla takiej funkcji:"
+      },
+      {
+        "type": "Math",
+        "value": "`overlineoverline(ABoverlineC)+overline(A+overline(overlineB+C))+C`"
+      },
+      {
+        "type": "Text",
+        "value": "Każda bramka może mieć co najwyżej 2 wejścia. Dla ambitnych jest zrobienie tego za pomocą samych bramek NAND, ale my nie jesteśmy ambitni. Obowiązuje taka sama kolejność działań jak na matematyce czyli najpierw nawiasy (negacja), potem mnożenie i potem dodawanie. Zaczniemy od wyrażenia po lewej. Normalnie moglibyśmy narysować tak:"
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/NftfJK8p/image.png",
+        "value": "https://i.postimg.cc/bw2TfG16/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Ale jest wymóg, żeby były maksymalnie 2 wejścia, a tutaj są 3. Trzeba więc tę bramkę rozbić na dwie. Jako że mnożenie jest przemienne nie ma znaczenia czy najpierw pomnożymy A z B czy B z ~C, czy A z ~C. Ja najpierw pomnożę B z ~C, a potem A z B~C."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/ncN42HNq/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz jeszcze tylko podwójne negacja i całe wyrażenie po lewej załatwione."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/zf8R237H/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz zajmijmy się środkowym wyrażeniem. Tutaj już nie ma wyboru kolejności."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/3rFxr7XY/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Na koniec zostało zsumować oba te wyrażenia z C. Kolejność nie ma znaczenia, ja najpierw zsumuję środkowe z C, a potem z pierwszym."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/QCw4GvxP/image.png",
         "props": { "orientation": "horizontal" }
       }
     ]
