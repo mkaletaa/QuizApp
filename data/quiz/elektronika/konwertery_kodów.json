@@ -78,51 +78,101 @@
   {
     "id": "elektronika|konwertery_kodów|5",
     "question": "Jak wygląda zapis liczby binarenj 1001101 w systemie dzisiętnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "73", "correct": false },
+      { "id": "1", "val": "77", "correct": true },
+      { "id": "1", "val": "79", "correct": false },
+      { "id": "1", "val": "83", "correct": false }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|6",
     "question": "Jak wygląda zapis liczby dziesiętnej 76 w systemie binarnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "1001100", "correct": true },
+      { "id": "1", "val": "1011000", "correct": false },
+      { "id": "1", "val": "1001110", "correct": false },
+      { "id": "1", "val": "1011100", "correct": false }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|7",
     "question": "Jak wygląda zapis liczby binarenj 10111010 w systemie dzisiętnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "134", "correct": false },
+      { "id": "1", "val": "155", "correct": false },
+      { "id": "1", "val": "162", "correct": false },
+      { "id": "1", "val": "186", "correct": true }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|8",
     "question": "Jak wygląda zapis liczby dziesiętnej 125 w systemie binarnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "1111111", "correct": false },
+      { "id": "1", "val": "1111110", "correct": false },
+      { "id": "1", "val": "1111101", "correct": true },
+      { "id": "1", "val": "1111011", "correct": false }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|9",
     "question": "Jak wygląda zapis liczby binarenj 11011 w systemie dzisiętnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "21", "correct": false },
+      { "id": "1", "val": "27", "correct": true },
+      { "id": "1", "val": "31", "correct": false },
+      { "id": "1", "val": "37", "correct": false }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|10",
     "question": "Jak wygląda zapis liczby dziesiętnej 90 w systemie binarnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "1010100", "correct": false },
+      { "id": "1", "val": "1001010", "correct": false },
+      { "id": "1", "val": "1001100", "correct": false },
+      { "id": "1", "val": "1011010", "correct": true }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|11",
     "question": "Jak wygląda zapis liczby binarenj 101010 w systemie dzisiętnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "37", "correct": false },
+      { "id": "1", "val": "39", "correct": false },
+      { "id": "1", "val": "42", "correct": true },
+      { "id": "1", "val": "44", "correct": false }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|12",
     "question": "Jak wygląda zapis liczby dziesiętnej 312 w systemie binarnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "100111000", "correct": true },
+      { "id": "1", "val": "101110000", "correct": false },
+      { "id": "1", "val": "100111100", "correct": false },
+      { "id": "1", "val": "101111000", "correct": false }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|13",
     "question": "Jak wygląda zapis liczby binarenj 111011 w systemie dzisiętnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "59", "correct": true },
+      { "id": "1", "val": "69", "correct": false },
+      { "id": "1", "val": "71", "correct": false },
+      { "id": "1", "val": "79", "correct": false }
+    ]
   },
   {
     "id": "elektronika|konwertery_kodów|14",
     "question": "Jak wygląda zapis liczby dziesiętnej 49 w systemie binarnym?",
-    "options": [{ "id": "1", "val": "", "correct": false }]
+    "options": [
+      { "id": "1", "val": "110011", "correct": false },
+      { "id": "1", "val": "111001", "correct": false },
+      { "id": "1", "val": "111011", "correct": false },
+      { "id": "1", "val": "110001", "correct": true }
+    ]
   }
 ]
