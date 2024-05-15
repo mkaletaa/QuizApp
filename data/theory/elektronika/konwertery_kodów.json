@@ -21,7 +21,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "<b>Kod pierścieniowy (1 z N)</b> - kod, w którym jedynka przypisywana jest tylko wadze liczby, której odpowiada kod dziesiętny. Słowa binarne o długości n bitów zawierają zawsze tylko jeden bit o wartości 1.Pozycja jedynki determinuje zakodowaną wartość; jest to więc kod pozycyjny, bezwagowy."
+        "value": "<b>Kod pierścieniowy (1 z N)</b> - kod, w którym jedynka przypisywana jest tylko wadze liczby, której odpowiada kod dziesiętny. Słowa binarne o długości n bitów zawierają zawsze tylko jeden bit o wartości 1. Pozycja jedynki determinuje zakodowaną wartość; jest to więc kod pozycyjny, bezwagowy."
       },
       {
         "type": "Image",
@@ -58,10 +58,6 @@
   {
     "title": "układ 7442",
     "data": [
-      {
-        "type": "Text",
-        "value": "definicja, symbol, tabela stanów, rodzaje wejść/wyjść, opis działania, zastosowanie"
-      },
       {
         "type": "Text",
         "value": "7442 - dekoder kodu naturalnego BCD na kod <s>1 z 10</s>. Składa się z ośmiu inwerterów NOT i 10 czterowejściowych bramek NAND. Inwertery pracują w parach, aby dostarczyć odpowiednich sygnałów sterujących dla bramek wyjściowych. Wewnątrz układu wykonywane jest pełne dekodowanie, co zapewnia stan nieaktywny wyjść w przypadku nieprawidłowych stanów wejściowych. Dekoder posiada cztery wejścia oznaczone A, B, C i D oraz 10 wyjść od 0 do 9. Na wejścia podajemy cyfrę w kodzie BCD (ang. Binary Coded Decimal, kod dziesiętny kodowany dwójkowo). Powoduje to wysterowanie odpowiedniego wyjścia od 0 do 9 w stan niski, jeśli kod wejściowy jest poprawny. W przeciwnym razie wyjścia pozostają w stanie wysokim. <a href='https://eduinf.waw.pl/inf/prg/010_uc/7442.php'>źródło</a> <br></br> Spełnia funkcje np. dekodera trzybitowego kodu dwójkowego na kod 1 z 8 lub demultipleksera z jednego wejścia na jedno z ośmiu wyjść; do konwersji naturalnego czterobitowego kodu dwójkowego na kod 1 z 16."
