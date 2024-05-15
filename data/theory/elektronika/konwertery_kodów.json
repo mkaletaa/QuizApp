@@ -1,8 +1,80 @@
 [
-    {
-        "title": "kod pierścieniowy, definicje",
-        "data": [
-            
-        ]
-    }
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Jak gdzieś tu się pojawi <s>przekreślony tekst</s> to znaczy że ta kreska powinna być u góry, a nie przekreślać napisu. Z jakiegoś powodu kreska nad tekstem się nie pojawia. "
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      }
+    ]
+  },
+  {
+    "title": "kod pierścieniowy, definicje, opis działania",
+    "data": [
+      {
+        "type": "Text",
+        "value": "<b>Dekoder</b> - układ zamieniający wewnętrzny inny niż pierścieniowy na pierścieniowy."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Enkoder</b> - narzędzie służące do zamiany jednego kodu w innyy  kod. Jako narzędzie należy rozumieć program, układ scalony, urządzenie mechaniczne itp."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Enkoder priorytetowy</b> - jeśli na wyjściu pojawi się więcej niż jeden sygnał wyróżniony, to ustalona ranga priorytetów wejścia decyduje, który z nich otrzymuje wyższy priorytet - który z nich zostanie 'wybrany'."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Transkoder</b> - układ umożliwiający współpracę systemów cyfrowych pracujących na innych kodach wewnętrznych, czyli układ zamieniający jeden kod wewnętrzny na inny, z których żaden nie jest kodem pierścieniowym."
+      }
+    ]
+  },
+  {
+    "title": "układ 7442",
+    "data": [
+      {
+        "type": "Text",
+        "value": "definicja, symbol, tabela stanów, rodzaje wejść/wyjść, opis działania, zastosowanie"
+      },
+      {
+        "type": "Text",
+        "value": "7442 - dekoder kodu naturalnego BCD na kod <s>1 z 10</s>. Składa się z ośmiu inwerterów NOT i 10 czterowejściowych bramek NAND. Inwertery pracują w parach, aby dostarczyć odpowiednich sygnałów sterujących dla bramek wyjściowych. Wewnątrz układu wykonywane jest pełne dekodowanie, co zapewnia stan nieaktywny wyjść w przypadku nieprawidłowych stanów wejściowych. Dekoder posiada cztery wejścia oznaczone A, B, C i D oraz 10 wyjść od 0 do 9. Na wejścia podajemy cyfrę w kodzie BCD (ang. Binary Coded Decimal, kod dziesiętny kodowany dwójkowo). Powoduje to wysterowanie odpowiedniego wyjścia od 0 do 9 w stan niski, jeśli kod wejściowy jest poprawny. W przeciwnym razie wyjścia pozostają w stanie wysokim. <a href='https://eduinf.waw.pl/inf/prg/010_uc/7442.php'>źródło</a> <br></br> Spełnia funkcje np. dekodera trzybitowego kodu dwójkowego na kod 1 z 8 lub demultipleksera z jednego wejścia na jedno z ośmiu wyjść; do konwersji naturalnego czterobitowego kodu dwójkowego na kod 1 z 16."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/HkYSLffD/image.png",
+        "props": { "description": "symbol 7442", "orientation": "landscape" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/P554H1wd/image.png",
+        "props": { "description": "obudowa 7442", "orientation": "landscape" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/7LCnGD9c/image.png",
+        "props": {
+          "description": "tabela stanów 7442",
+          "orientation": "vertical"
+        }
+      }
+    ]
+  },
+  {
+    "title": "układ 74147",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Układ 74147 zawiera dekoder priorytetowy 9 linii na 4 (ang. 9-Line to 4-Line Priority Encoder). Posiada 9 wejść od 1 do 9 oraz 4 wyjścia A, B, C i D. Stanem aktywnym wejść i wyjść jest poziom logiczny 0. Układ działa w ten sposób, iż badany jest stan poszczególnych bitów od 9 do 1. Jeśli zostanie napotkany pierwszy stan 0 na bicie n-tym, to na wyjściach pojawia się binarnie numer n w stanie zanegowanym (tzn. np. dla n = 7 będzie 1000). Dziesiąty stan występuje wtedy, gdy wszystkie wejścia są w stanie wysokim 1. <a href='https://eduinf.waw.pl/inf/prg/010_uc/74147.php'>źródło</a>"
+      }
+    ]
+  }
 ]
