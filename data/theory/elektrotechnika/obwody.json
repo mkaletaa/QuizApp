@@ -1,0 +1,69 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/qR7qMXTx/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/2jsWTMmp/oczko.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Do węzła A wpływa prąd i<sub>z1</sub>, a wypływają i<sub>1</sub>, i<sub>2</sub>, i<sub>4</sub>. Do węzła B wpływają prądy i<sub>2</sub>, i<sub>4</sub>, i<sub>z2</sub>, a wypływa i<sub>3</sub>. Na mocy pierwszego prawa Kirchhoffa:"
+      },
+      {
+        "type": "Math",
+        "value": "`i_{z1}-i_1-i_2-i_4=0`"
+      },
+      {
+        "type": "Math",
+        "value": "`i_{z2}+i_2+i_4-i_3=0`"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz korzystając z drugiego prawa Kirchhoffa zbudujemy kolejne dwa równania, odpowiednio dla górnego i dolnego oczka:"
+      },
+      {
+        "type": "Math",
+        "value": "`-e + U_{R2}-U_{R4}=0`"
+      },
+      {
+        "type": "Math",
+        "value": "`e - U_{R3}+U_{R1}-U_{R2}=0`"
+      },
+      {
+        "type": "Text",
+        "value": "Nie wiemy ile wynoszą napięcia oporników, ale znamy ich rezystancje i na podstawie prawa Ohma możemy napisać:"
+      },
+      {
+        "type": "Math",
+        "value": "`U_{R1}=i_1*R_1, U_{R2}=i_2*R_2, U_{R3}=i_3*R_3, U_{R4}=i_4*R_4`"
+      },
+      {
+        "type": "Text",
+        "value": "Po podstawieniu i<sub>n</sub>R<sub>n</sub> za U<sub>n</sub> oraz po wstawieniu znanych z treści zadania wartości liczbowych w miejsce R oraz e, nasze dwa równania napięciowe przybierają następującą postać:"
+      },
+      {
+        "type": "Math",
+        "value": "`-10 + 2i_2 - 4i_4 = 0`"
+      },
+      {
+        "type": "Math",
+        "value": "`10 - 3i_3 + i_1 - 2i_2 = 0`"
+      },
+      {
+        "type": "Text",
+        "value": "Razem z dwoma równaniami prądowymi tworzą układ czterech równań z czterema niewiadomymi i1, i2, i3 oraz i4. Rozwiązanie tego układu to już czysta matematyka, więc nie będę tego robił. Zapiszę tylko rozwiązanie."
+      },
+      {
+        "type": "Math",
+        "value": "`i_1=51/16; i_2=7/6; i_3 = 61/16; i_4 = -33/16`"
+      }
+    ]
+  }
+]
