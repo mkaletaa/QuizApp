@@ -7,7 +7,7 @@
         "value": [
           {
             "type": "Text",
-            "value": "Jak gdzieś tu się pojawi <s>przekreślony tekst</s> to znaczy że ta kreska powinna być u góry, a nie przekreślać napisu. Z jakiegoś powodu kreska nad tekstem się nie pojawia. "
+            "value": "Jak gdzieś tu się pojawi <s>przekreślony tekst</s> to znaczy że ta kreska powinna być u góry, a nie przekreślać napisu. Z jakiegoś powodu kreska nad tekstem się nie pojawia, więc muszę to zapisać w inny sposób."
           }
         ],
         "props": {

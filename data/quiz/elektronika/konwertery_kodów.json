@@ -1,0 +1,128 @@
+[
+  {
+    "id": "elektronika|konwertery_kodów|1",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Dopasuj nazwę do definicji:"
+      },
+      {
+        "type": "Text",
+        "value": "układ umożliwiający współpracę systemów cyfrowych pracujących na innych kodach wewnętrznych, czyli układ zamieniający jeden kod wewnętrzny na inny, z których żaden nie jest kodem pierścieniowym."
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "dekoder", "correct": false },
+      { "id": "2", "val": "enkoder", "correct": false },
+      { "id": "3", "val": "enkoder priorytetowy", "correct": false },
+      { "id": "4", "val": "transkoder", "correct": true }
+    ]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|2",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Dopasuj nazwę do definicji:"
+      },
+      {
+        "type": "Text",
+        "value": "kład zamieniający kod wewnętrzny inny niż pierścieniowy na pierścieniowy."
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "dekoder", "correct": true },
+      { "id": "2", "val": "enkoder", "correct": false },
+      { "id": "3", "val": "enkoder priorytetowy", "correct": false },
+      { "id": "4", "val": "transkoder", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|3",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Dopasuj nazwę do definicji:"
+      },
+      {
+        "type": "Text",
+        "value": "jeśli na wyjściu pojawi się więcej niż jeden sygnał wyróżniony, to ustalona ranga priorytetów wejścia decyduje, który z nich otrzymuje wyższy priorytet - który z nich zostanie 'wybrany'"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "dekoder", "correct": false },
+      { "id": "2", "val": "enkoder", "correct": false },
+      { "id": "3", "val": "enkoder priorytetowy", "correct": true },
+      { "id": "4", "val": "transkoder", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|4",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Dopasuj nazwę do definicji:"
+      },
+      {
+        "type": "Text",
+        "value": "narzędzie służące do zamiany jednego kodu w inny  kod. Jako narzędzie należy rozumieć program, układ scalony, urządzenie mechaniczne itp."
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "dekoder", "correct": false },
+      { "id": "2", "val": "enkoder", "correct": true },
+      { "id": "3", "val": "enkoder priorytetowy", "correct": false },
+      { "id": "4", "val": "transkoder", "correct": false }
+    ]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|5",
+    "question": "Jak wygląda zapis liczby binarenj 1001101 w systemie dzisiętnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|6",
+    "question": "Jak wygląda zapis liczby dziesiętnej 76 w systemie binarnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|7",
+    "question": "Jak wygląda zapis liczby binarenj 10111010 w systemie dzisiętnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|8",
+    "question": "Jak wygląda zapis liczby dziesiętnej 125 w systemie binarnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|9",
+    "question": "Jak wygląda zapis liczby binarenj 11011 w systemie dzisiętnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|10",
+    "question": "Jak wygląda zapis liczby dziesiętnej 90 w systemie binarnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|11",
+    "question": "Jak wygląda zapis liczby binarenj 101010 w systemie dzisiętnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|12",
+    "question": "Jak wygląda zapis liczby dziesiętnej 312 w systemie binarnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|13",
+    "question": "Jak wygląda zapis liczby binarenj 111011 w systemie dzisiętnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  },
+  {
+    "id": "elektronika|konwertery_kodów|14",
+    "question": "Jak wygląda zapis liczby dziesiętnej 49 w systemie binarnym?",
+    "options": [{ "id": "1", "val": "", "correct": false }]
+  }
+]
