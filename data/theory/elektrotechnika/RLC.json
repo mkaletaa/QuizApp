@@ -1,0 +1,196 @@
+[
+  {
+    "title": "wstęp",
+    "data": [
+      {
+        "type": "Text",
+        "value": "RLC to taki układ, w którym występuje rezystor (R), cewka (L) i kondensator (C). Cewka i kondensator posiadają impedancję. Jest to nic innego jak opór, tylko elektrotechnicy sobie wymyślili że będą to nazywać inaczej, żeby nie było zbyt łatwo. Oznacza się ją literą '<b><i>Z</i></b>' i jest wielkością zespoloną, czyli może mieć część urojoną. Odwrotnością impedancji jest admitancja i oznacza się ją literą <b><i>'Y'</i></b>, a jej jednostką jest Siemens (S). W elektrotechnice jednostkę urojoną oznacza się literą '<b><i>j</i></b>', co wbrew pozorom ma sens, bo <i>i</i> by się myliło z prądem. Aha, napięcie z jakiegoś powodu oznacza się tutaj przez <b><i>'E'</i></b> zamiast U. Wiem, pojebane. Ale co tutaj nie jest pojebane.<br></br>Do rozwiązania zadania będzie nam potrzebne jeszcze kilka wzorów."
+      },
+      {
+        "type": "Math",
+        "value": "`e(t)=E_{max}sin(omega t + varphi)`"
+      },
+      {
+        "type": "List",
+        "value": [
+          {
+            "type": "ListElement",
+            "value": "e(t) - równanie napięciowe"
+          },
+          {
+            "type": "ListElement",
+            "value": "E<sub>max</sub> - napięcie maksymalne"
+          },
+          {
+            "type": "ListElement",
+            "value": "ω - prędkość kątowa = 2*π*f"
+          },
+          {
+            "type": "ListElement",
+            "value": "φ - przesunięcie kątowe"
+          }
+        ]
+      },
+      {
+        "type": "Math",
+        "value": "`Z_L=jomegaL`"
+      },
+      {
+        "type": "Math",
+        "value": "`Z_C=-j1/(omegaC)`"
+      },
+      {
+        "type": "List",
+        "value": [
+          {
+            "type": "ListElement",
+            "value": "Z<sub>L</sub> - impedancja cewki"
+          },
+          {
+            "type": "ListElement",
+            "value": "Z<sub>C</sub> - impedancja kondensatora"
+          },
+          {
+            "type": "ListElement",
+            "value": "j - jednostka urojona"
+          },
+          {
+            "type": "ListElement",
+            "value": "L - indukcyjność cewki"
+          },
+          {
+            "type": "ListElement",
+            "value": "C - pojemność kondensatora"
+          }
+        ]
+      },
+      {
+        "type": "Math",
+        "value": "`E = E_{sk}*e^(jvarphi)=E_{sk}(cos(varphi)+jsin(varphi))`"
+      },
+      {
+        "type": "List",
+        "value": [
+          {
+            "type": "ListElement",
+            "value": "E - napięcie wytwarzane przez źródło"
+          },
+          {
+            "type": "ListElement",
+            "value": "E<sub>sk</sub> - napięcie skuteczne = E<sub>max</sub>/√2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "zadanie z kolokwium",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/gJNVQ5Bm/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Zacznijmy od wyznaczenia E. We wzorze na e(t) nie ma φ, więc jest ono równe 0. Widzimy też, że E<sub>sk</sub> równe jest 50, bo maksymalne wynosi 50√2 i jak podzielimy to przez √2 to otrzymamy 50."
+      },
+      {
+        "type": "Math",
+        "value": "`E = 50e^(j*0) = 50(cos0+jsin0) = 50V`"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz wyznaczmy impedancję cewki oraz kondensatora."
+      },
+      {
+        "type": "Math",
+        "value": "`Z_C=-j1/(omegaC) = -j1/(1*0,1) = -j10Ω`"
+      },
+      {
+        "type": "Math",
+        "value": "`Z_L=jomegaL = j*1*10 = j10Ω`"
+      },
+      {
+        "type": "Text",
+        "value": "Mamy już wszystko, żeby policzyć impedancję  układu RLC. Uwaga! Póki co ignorujemy istnienie rezystora R1 <br></br> Kondensator, cewka i rezystor R2 są ułożone równolegle, więc impedancja (opór) zastępcza będzie się dla nich wyrażała wzorem:"
+      },
+      {
+        "type": "Math",
+        "value": "`1/Z_{RLC} = 1/Z_C+1/Z_L+1/R_2`"
+      },
+      {
+        "type": "Math",
+        "value": "`1/Z_{RLC} = 1/-j10+1/j10+1/10=1/10`"
+      },
+      {
+        "type": "Math",
+        "value": "`Z_{RLC} = 10Ω`"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz można policzyć impedancję całego układu, czyli RLC + opornik R1. Jeśli potraktować RLC jako jeden wielki rezystor to jest on ułożony szeregowo razem z R1. Zatem wzór na impedancję całego układu wynosi:"
+      },
+      {
+        "type": "Math",
+        "value": "`Z=R_1+Z_{RLC} = 15+10=25Ω`"
+      },
+      {
+        "type": "Text",
+        "value": "Jeżeli mamy opór i napięcie, to z prawa Ohma można wyznaczyć natężenie."
+      },
+      {
+        "type": "Math",
+        "value": "`I=E/Z=50/25=2A`"
+      },
+      {
+        "type": "Text",
+        "value": "Teraz można wyznaczyć napięcie na rezystorze R1"
+      },
+      {
+        "type": "Math",
+        "value": "`U_{R1} = I*R_1=2*15=30 V`"
+      },
+      {
+        "type": "Text",
+        "value": "Traktując cewkę, kondensatot i opornik R2 jako jeden rezystor oraz wiedząc, że zwrot napięcia jest przeciwny do zwortu prądu można naszkicować taki rysunek pomocniczy:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/pXL46Mrc/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "Wiemy z 2 prawa Kirchhoffa, że w oczku suma napięć musi się równać 0. "
+      },
+      {
+        "type": "Math",
+        "value": "`E=U_{AB}+U_{R1}=>U_{AB}=E-U_{R1}`"
+      },
+      {
+        "type": "Math",
+        "value": "`U_{AB}=50-30=20V`"
+      },
+      {
+        "type": "Text",
+        "value": "Z prawa Ohma:"
+      },
+      {
+        "type": "Math",
+        "value": "`I_1=U_{AB}/Z_C = 20/(-j10)=-2/j*j/j=-(2j)/-1=j2 A`"
+      },
+      {
+        "type": "Math",
+        "value": "`I_2=U_{AB}/Z_L = 20/(j10)=2/j*(j/j)=(2j)/-1=-j2 A`"
+      },
+      {
+        "type": "Math",
+        "value": "`I_3=U_{AB}/R_2=20/10=2A`"
+      },
+      {
+        "type": "Text",
+        "value": "Obliczyliśmy już wszystkie napięcia i prądy, czyli zadanie wykonane. Jakby ktoś się zastanawiał czemu mnożyłem przez (j/j) to po to, żeby pozbyć się jednostki urojonej z mianownika."
+      }
+    ]
+  }
+]

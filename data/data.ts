@@ -45,5 +45,9 @@ export const topics = {
       name: 'oporniki',
       image: 'https://i.postimg.cc/Xq7SDXgQ/image.png',
     },
+    {
+      name: 'RLC',
+      image: 'https://i.postimg.cc/9Q8N13XP/rlc.png',
+    },
   ],
 }
