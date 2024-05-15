@@ -21,11 +21,29 @@
     "data": [
       {
         "type": "Text",
-        "value": "<b>Dekoder</b> - układ zamieniający wewnętrzny inny niż pierścieniowy na pierścieniowy."
+        "value": "<b>Kod pierścieniowy (1 z N)</b> - kod, w którym jedynka przypisywana jest tylko wadze liczby, której odpowiada kod dziesiętny. Słowa binarne o długości n bitów zawierają zawsze tylko jeden bit o wartości 1.Pozycja jedynki determinuje zakodowaną wartość; jest to więc kod pozycyjny, bezwagowy."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/dtLfmM52/image.png",
+        "props": { "description": "kod 1 z N" }
       },
       {
         "type": "Text",
-        "value": "<b>Enkoder</b> - narzędzie służące do zamiany jednego kodu w innyy  kod. Jako narzędzie należy rozumieć program, układ scalony, urządzenie mechaniczne itp."
+        "value": "<b>Kod <s>1 z N</s></b> - to samo co 1 z N, ale zamieniasz miejscami zera z jedynkami."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/VNcH8Jmg/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Dekoder</b> - układ zamieniający kod wewnętrzny inny niż pierścieniowy na pierścieniowy."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Enkoder</b> - narzędzie służące do zamiany jednego kodu w inny  kod. Jako narzędzie należy rozumieć program, układ scalony, urządzenie mechaniczne itp."
       },
       {
         "type": "Text",
@@ -74,6 +92,96 @@
       {
         "type": "Text",
         "value": "Układ 74147 zawiera dekoder priorytetowy 9 linii na 4 (ang. 9-Line to 4-Line Priority Encoder). Posiada 9 wejść od 1 do 9 oraz 4 wyjścia A, B, C i D. Stanem aktywnym wejść i wyjść jest poziom logiczny 0. Układ działa w ten sposób, iż badany jest stan poszczególnych bitów od 9 do 1. Jeśli zostanie napotkany pierwszy stan 0 na bicie n-tym, to na wyjściach pojawia się binarnie numer n w stanie zanegowanym (tzn. np. dla n = 7 będzie 1000). Dziesiąty stan występuje wtedy, gdy wszystkie wejścia są w stanie wysokim 1. <a href='https://eduinf.waw.pl/inf/prg/010_uc/74147.php'>źródło</a>"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/B6qCNyGc/image.png",
+        "props": { "description": "symbol 74147" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/qRjxFLJf/image.png",
+        "props": { "description": "obudowa DIL-16", "orientation": "horizontal" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/x8Zyf1Nt/image.png",
+        "props": { "description": "tabela stanów dekodera typu 74147", "orientation": "portrait" }
+      }
+    ]
+  },
+  {
+    "title": "kody",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Kody – rodzaje (m. in. kody wagowe, niewagowe); naturalny binarny (tzw. NKB, zapis liczb z systemu dziesiętnegow systemie dwójkowym i na odwrót); kody „dwójkowo-dziesiętne” (BCD): specyfika, zastosowanie, znajomośćkodów wagowych – BCD 8421, Aiken"
+      },
+      {
+        "type": "Header",
+        "value": "Kody wagowe i niewagowe",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "tego jeszcze nie ma"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Kod Graya</b> - zwany również kodem refleksyjnym, jest dwójkowym kodem bezwagowym niepozycyjnym, który charakteryzuje się tym, że dwa kolejne słowa kodowe różnią się tylko stanem jednego bitu. Kodem Graya długości n jest ciąg wszystkich 2^n  różnych ciągów n cyfr {0,1}, ustawionych tak, że dwa kolejne ciągi różnią się na jednej pozycji. Konstrukcja kodu Graya:"
+      },
+      {
+        "type": "List",
+        "value": [
+            {
+                "type": "ListElement",
+                "value": "Początkowy kod to dwie cyfry: 0 i 1, od nich zaczyna się konstrukcję..."
+            },
+            {
+                "type": "ListElement",
+                "value": "...dopisz te same słowa kodowe, ale w odwrotnej kolejności (odbicie lustrzane)..."
+            },
+            {
+                "type": "ListElement",
+                "value": "...do początkowych wyrazów dopisz po lewej stronie bit o wartości 0, natomiast do odbitych lustrzanie bit o wartości 1."
+            }
+        ]
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/FHXxfw8s/image.png",
+        "props": { "description": "kod Graya"}
+      },
+      {
+        "type": "Text",
+        "value": "<b>NKB</b> (naturalny kod binarny) - zapis liczby nieujemnej w naturalnym kodzie binarnym odpowiada jej reprezentacji w pozycyjnym kodzie dwójkowym. Wagi NKB k-pozycyjnego są równe 2^i gdzie i={0, 1, 2, ..., k}. Np. za pomocą kodu 3-bitowego można zakodowac 8 kolejnych wartości 0, 1, 2, 3, 4, 5, 6, 7. Waga pozycji 0 wynosi 1, waga pozycji 1 równa się 2, natomiast waga pozycji 2 wynosi 4."
+      },
+      {
+        "type": "Header",
+        "value": "Zamiana z systemu binarnego na dziesiętny i vice versa",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "YouTube",
+        "value": "64bXbK104qk"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Kod BCD</b> - stosowany w elektronice i informatyce sposób zapisu liczb polegający na zakodowaniu kolejnych cyfr dziesiętnych liczby dwójkowo przy użyciu czterech bitów. Taki zapis pozwala na łatwą konwersję liczby do i z systemu dziesiętnego, jest jednak nadmiarowy (wykorzystuje tylko 10 czterobitowych układów z 16 możliwych). Np.: liczba 127 przedstawiona w BCD to: 0001 0010 0111."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/9fJPn0Mr/image.png",
+        "props": { "description": "kod BCD", "orientation": "vertical" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Kod Aikena</b> -  kod, w którym cyfry dziesiętne występują z jednakowym prawdopodobieństwem. Poszczególne cyfry dziesiętne przedstawione są za pomocą ciągów bitowych o jednakowej długości. Długość słowa kodowego wynosi 4 bity (należy zakodować 10 cyfr dziesiętnych)."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/MZhLDPNg/image.png",
+        "props": { "description": "kod Aikena", "orientation": "vertical" }
       }
     ]
   }
