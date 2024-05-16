@@ -26,6 +26,18 @@
       },
       {
         "type": "Text",
+        "value": "Teraz można podstawić liczby za i<sub>z1</sub> i i<sub>z2</sub>. Finalnie równania prądowe wygladają tak:"
+      },
+      {
+        "type": "Math",
+        "value": "`2-i_1-i_2-i_4=0`"
+      },
+      {
+        "type": "Math",
+        "value": "`5+i_2+i_4-i_3=0`"
+      },
+      {
+        "type": "Text",
         "value": "Teraz korzystając z drugiego prawa Kirchhoffa zbudujemy kolejne dwa równania, odpowiednio dla górnego i dolnego oczka:"
       },
       {
@@ -62,7 +74,7 @@
       },
       {
         "type": "Math",
-        "value": "`i_1=51/16; i_2=7/6; i_3 = 61/16; i_4 = -33/16`"
+        "value": "`i_1=51/16; i_2=7/8; i_3 = 61/16; i_4 = -33/16`"
       }
     ]
   }

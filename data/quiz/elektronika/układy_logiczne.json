@@ -12,7 +12,7 @@
       { "id": "2", "val": "0 - 0,4 V", "correct": false },
       { "id": "3", "val": "2 - 5,5 V", "correct": false },
       { "id": "4", "val": "2,4 - 5 V", "correct": false },
-      { "id": "1", "val": "-0,5 - 0,8 V", "correct": true }
+      { "id": "1", "val": "0 - 0,8 V", "correct": true }
     ]
   },
   {
@@ -41,7 +41,7 @@
       }
     ],
     "options": [
-      { "id": "3", "val": "2 - 5,5 V", "correct": true },
+      { "id": "3", "val": "2 - 5 V", "correct": true },
       { "id": "1", "val": "-0,5 - 0,8 V", "correct": false },
       { "id": "2", "val": "0 - 0,4 V", "correct": false },
       { "id": "4", "val": "2,4 - 5 V", "correct": false }
@@ -311,19 +311,19 @@
       },
       {
         "type": "Math",
-        "value": "A) `a+(b*c)=(a*b)+(a*C)`"
+        "value": "A) `a+(b*c)=(a*b)+(a*c)`"
       },
       {
         "type": "Math",
-        "value": "B) `a*(b+c)=(a*b)+(a*C)`"
+        "value": "B) `a*(b+c)=(a*b)+(a*c)`"
       },
       {
         "type": "Math",
-        "value": "C) `a+(b*c)=(a+b)*(a+C)`"
+        "value": "C) `a+(b*c)=(a+b)*(a+c)`"
       },
       {
         "type": "Math",
-        "value": "D) `a*(b+c)=(a+b)*(a+C)`"
+        "value": "D) `a*(b+c)=(a+b)*(a+c)`"
       }
     ],
     "options": [

@@ -17,7 +17,7 @@
     ]
   },
   {
-    "title": "kod pierścieniowy, definicje, opis działania",
+    "title": "kod pierścieniowy, definicje",
     "data": [
       {
         "type": "Text",
@@ -60,7 +60,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "7442 - dekoder kodu naturalnego BCD na kod <s>1 z 10</s>. Składa się z ośmiu inwerterów NOT i 10 czterowejściowych bramek NAND. Inwertery pracują w parach, aby dostarczyć odpowiednich sygnałów sterujących dla bramek wyjściowych. Wewnątrz układu wykonywane jest pełne dekodowanie, co zapewnia stan nieaktywny wyjść w przypadku nieprawidłowych stanów wejściowych. Dekoder posiada cztery wejścia oznaczone A, B, C i D oraz 10 wyjść od 0 do 9. Na wejścia podajemy cyfrę w kodzie BCD (ang. Binary Coded Decimal, kod dziesiętny kodowany dwójkowo). Powoduje to wysterowanie odpowiedniego wyjścia od 0 do 9 w stan niski, jeśli kod wejściowy jest poprawny. W przeciwnym razie wyjścia pozostają w stanie wysokim. <a href='https://eduinf.waw.pl/inf/prg/010_uc/7442.php'>źródło</a> <br></br> Spełnia funkcje np. dekodera trzybitowego kodu dwójkowego na kod 1 z 8 lub demultipleksera z jednego wejścia na jedno z ośmiu wyjść; do konwersji naturalnego czterobitowego kodu dwójkowego na kod 1 z 16."
+        "value": "7442 - dekoder kodu naturalnego BCD na kod <s>1 z 10</s>. Składa się z ośmiu inwerterów NOT i 10 czterowejściowych bramek NAND. Inwertery pracują w parach, aby dostarczyć odpowiednich sygnałów sterujących dla bramek wyjściowych. Wewnątrz układu wykonywane jest pełne dekodowanie, co zapewnia stan nieaktywny wyjść w przypadku nieprawidłowych stanów wejściowych. Dekoder posiada cztery wejścia oznaczone A, B, C i D oraz 10 wyjść od 0 do 9.<br></br>Na wejścia podajemy cyfrę w kodzie BCD (ang. Binary Coded Decimal, kod dziesiętny kodowany dwójkowo). Powoduje to wysterowanie odpowiedniego wyjścia od 0 do 9 w stan niski, jeśli kod wejściowy jest poprawny. W przeciwnym razie wyjścia pozostają w stanie wysokim. <a href='https://eduinf.waw.pl/inf/prg/010_uc/7442.php'>źródło</a> <br></br> Spełnia funkcje np. dekodera trzybitowego kodu dwójkowego na kod 1 z 8 lub demultipleksera z jednego wejścia na jedno z ośmiu wyjść; do konwersji naturalnego czterobitowego kodu dwójkowego na kod 1 z 16."
       },
       {
         "type": "Image",
@@ -109,10 +109,7 @@
   {
     "title": "kody",
     "data": [
-      {
-        "type": "Text",
-        "value": "Kody – rodzaje (m. in. kody wagowe, niewagowe); naturalny binarny (tzw. NKB, zapis liczb z systemu dziesiętnegow systemie dwójkowym i na odwrót); kody „dwójkowo-dziesiętne” (BCD): specyfika, zastosowanie, znajomośćkodów wagowych – BCD 8421, Aiken"
-      },
+
       {
         "type": "Header",
         "value": "Kody wagowe i niewagowe",
@@ -120,34 +117,9 @@
       },
       {
         "type": "Text",
-        "value": "tego jeszcze nie ma"
+        "value": "W przypadku dwójkowych kodów wagowych (pozycyjnych), każdy bit (każda pozycja) słowa kodowego ma określoną wagę (np. naturalny kod binarny). Wagi są liczbami całkowitymi i mogą przyjmować wartości ujemne. Wartości liczbowe kodów są wyznaczane jako sumy wag tych pozycji słów kodowych, które zawierają jedynki. W kodach niewagowych nie ma bezpośredniej zależności między pozycją cyfry a jej wagą. Słowa kodowe są tworzone według z góry zadanych reguł (np. kod Graya). <a href='http://staff.iiar.pwr.wroc.pl/robert.wojcik/dydaktyka/cop/ipi/ipi_cw2.pdf'>Więcej info (pdf)</a>"
       },
-      {
-        "type": "Text",
-        "value": "<b>Kod Graya</b> - zwany również kodem refleksyjnym, jest dwójkowym kodem bezwagowym niepozycyjnym, który charakteryzuje się tym, że dwa kolejne słowa kodowe różnią się tylko stanem jednego bitu. Kodem Graya długości n jest ciąg wszystkich 2^n  różnych ciągów n cyfr {0,1}, ustawionych tak, że dwa kolejne ciągi różnią się na jednej pozycji. Konstrukcja kodu Graya:"
-      },
-      {
-        "type": "List",
-        "value": [
-            {
-                "type": "ListElement",
-                "value": "Początkowy kod to dwie cyfry: 0 i 1, od nich zaczyna się konstrukcję..."
-            },
-            {
-                "type": "ListElement",
-                "value": "...dopisz te same słowa kodowe, ale w odwrotnej kolejności (odbicie lustrzane)..."
-            },
-            {
-                "type": "ListElement",
-                "value": "...do początkowych wyrazów dopisz po lewej stronie bit o wartości 0, natomiast do odbitych lustrzanie bit o wartości 1."
-            }
-        ]
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/FHXxfw8s/image.png",
-        "props": { "description": "kod Graya"}
-      },
+
       {
         "type": "Text",
         "value": "<b>NKB</b> (naturalny kod binarny) - zapis liczby nieujemnej w naturalnym kodzie binarnym odpowiada jej reprezentacji w pozycyjnym kodzie dwójkowym. Wagi NKB k-pozycyjnego są równe 2^i gdzie i={0, 1, 2, ..., k}. Np. za pomocą kodu 3-bitowego można zakodowac 8 kolejnych wartości 0, 1, 2, 3, 4, 5, 6, 7. Waga pozycji 0 wynosi 1, waga pozycji 1 równa się 2, natomiast waga pozycji 2 wynosi 4."
@@ -163,7 +135,7 @@
       },
       {
         "type": "Text",
-        "value": "<b>Kod BCD</b> - stosowany w elektronice i informatyce sposób zapisu liczb polegający na zakodowaniu kolejnych cyfr dziesiętnych liczby dwójkowo przy użyciu czterech bitów. Taki zapis pozwala na łatwą konwersję liczby do i z systemu dziesiętnego, jest jednak nadmiarowy (wykorzystuje tylko 10 czterobitowych układów z 16 możliwych). Np.: liczba 127 przedstawiona w BCD to: 0001 0010 0111."
+        "value": "<b>Kod BCD</b> - stosowany w elektronice i informatyce sposób zapisu liczb polegający na zakodowaniu kolejnych cyfr dziesiętnych liczby dwójkowo przy użyciu czterech bitów. Taki zapis pozwala na łatwą konwersję liczby do i z systemu dziesiętnego, jest jednak nadmiarowy (wykorzystuje tylko 10 czterobitowych układów z 16 możliwych). Np.: liczba 127 przedstawiona w BCD to: 0001 0010 0111. <br></br>BCD jest powszechnie stosowany w systemach cyfrowych wymagających precyzyjnej arytmetyki dziesiętnej, takich jak kalkulatory, kasy fiskalne i systemy księgowe. Znajduje również zastosowanie w obwodach zegara czasu rzeczywistego i systemach pomiarowych. <a href='https://www.lenovo.com/us/en/glossary/binary-coded-decimal/#:~:text=BCD%20is%20commonly%20used%20in,clock%20circuits%20and%20measurement%20systems.'>źródło</a>"
       },
       {
         "type": "Image",
@@ -172,7 +144,7 @@
       },
       {
         "type": "Text",
-        "value": "<b>Kod Aikena</b> -  kod, w którym cyfry dziesiętne występują z jednakowym prawdopodobieństwem. Poszczególne cyfry dziesiętne przedstawione są za pomocą ciągów bitowych o jednakowej długości. Długość słowa kodowego wynosi 4 bity (należy zakodować 10 cyfr dziesiętnych)."
+        "value": "<b>Kod Aikena</b> -  kod, w którym cyfry dziesiętne występują z jednakowym prawdopodobieństwem. Poszczególne cyfry dziesiętne przedstawione są za pomocą ciągów bitowych o jednakowej długości. Długość słowa kodowego wynosi 4 bity (należy zakodować 10 cyfr dziesiętnych). <br></br>Kod Aikena nazywany jest tez kodem 2421, bo takie są w nim wagi. Np. cyfra 7 zakodowama w nim to 1101, bo 1*2 + 1*4 + 0*2 + 1*1 = 7. Charakterystyczne jest w nim to, że pierwsze pięć cyfr dziesiętnych (0-4) i ostatnie pięć (5-9) mają zamienione zera na jedynki i vice versa. 0 to 0000, 9 to 1111. 1 to 0001, 8 to 1110 . 2 to 0010, 7 to 1101 itd. "
       },
       {
         "type": "Image",
