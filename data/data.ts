@@ -17,7 +17,7 @@ export const topics = {
   elektronika: [
     {
       name: 'wzmacniacz_operacyjny',
-      image: 'https://i.postimg.cc/nhGsgQML/wxmacniaczc.png',
+      image: 'https://i.postimg.cc/jdYvFSMz/image.png',
     },
     {
       name: '_555',
@@ -30,6 +30,10 @@ export const topics = {
     {
       name: 'konwertery_kodów',
       image: 'https://i.postimg.cc/bvypSgLH/image.png',
+    },
+    {
+      name: 'liczniki',
+      image: 'https://i.postimg.cc/GhDV4f5j/image.png',
     },
   ],
   elektrotechnika: [

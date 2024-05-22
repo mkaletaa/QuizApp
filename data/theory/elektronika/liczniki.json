@@ -1,0 +1,47 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Wiktor, wiem że to czytasz. Podeślij jakieś info o 74193 i o projektowaniu liczników"
+      }
+    ]
+  },
+  {
+    "title": "pojęcia",
+    "data": [
+      {
+        "type": "Text",
+        "value": "<b>Licznik</b> to układ cyfrowy sekwencyjny (stan wyjść y zależy od stanu wejść x oraz od poprzedniego stanu, zwanego stanem wewnętrznym, pamiętanego w zespole rejestrów – pamięci), służący do zliczania i pamiętania liczby impulsów podawanych na jego wejście zliczające. Oprócz wejścia dla impulsów zliczanych, licznik ma zazwyczaj wejście ustawiające jego stan początkowy. Ustawienie wszystkich przerzutników, z których zbudowany jest licznik, w stan 0 nazywa się zerowaniem licznika. Podstawowym elementem liczników jest przerzutnik synchroniczny. Liczba wyjść (długość licznika) jest równa liczbie przerzutników. Stan licznika to określona kombinacja stanów przerzutników, budujących licznik. <br></br> <b>Liczniki dodające</b> – po każdym impulsie wejściowym zwiększają liczbę pamiętaną o 1.<br></br><b>Liczniki odejmujące</b> – zmniejszają o 1 zawartość licznika. <br></br> <b>Liczniki rewersyjne</b> – dwukierunkowe. Dodają i odejmują impulsy w jednym liczniku. <br></br> <b>Licznik modulo N</b> – przechodzi przez wszystkie stany cyklicznie (po przejściu N stanów cykl jest powtarzany).<br></br><b>Licznik do N</b> – przechodzi przez wszystkie stany jednokrotnie (po osiągnięciu ostatniego pozostaje w nim). Ponowne użycie licznika wymaga wyzerowania go.<br></br><b>Licznik asynchroniczny</b> – wyjście jednego przerzutnika jest źródłem sygnału zegarowego (wejściowego) dla kolejnego przerzutnika. Zliczane impulsy są podawane tylko do jednego przerzutnika. <br></br><b>Licznik synchroniczny</b> – sygnał zegarowy jest doprowadzony jednocześnie do wejść synchronizujących wszystkich przerzutników. Pojawienie się kolejnego impulsu zliczanego sprawia, że wszystkie przerzutniki jednocześnie przetwarzają informację wejściową i czas ustalania się kolejnego stanu licznika wyznacza przerzutnik o najdłuższym czasie propagacji."
+      }
+    ]
+  },
+  {
+    "title": "licznik 7490",
+    "data": [
+      {
+        "type": "Text",
+        "value": "comming soon"
+      }
+    ]
+  },
+  {
+    "title": "licznik 74193",
+    "data": [
+      {
+        "type": "Text",
+        "value": "comming soon"
+      }
+    ]
+  },
+  {
+    "title": "projektowanie liczników mod N",
+    "data": [
+      {
+        "type": "Text",
+        "value": "comming soon"
+      }
+    ]
+  }
+]

@@ -124,6 +124,10 @@
       {
         "type": "Math",
         "value": "`C_z = 2+2+2+2=8μF`"
+      },
+      {
+        "type": "Text",
+        "value": "Schematy stworzone za pomocą: <a href='https://www.smartdraw.com/'>smartdraw.com</a>"
       }
     ]
   }

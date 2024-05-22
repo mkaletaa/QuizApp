@@ -87,7 +87,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Układ 74147 zawiera dekoder priorytetowy 9 linii na 4 (ang. 9-Line to 4-Line Priority Encoder). Posiada 9 wejść od 1 do 9 oraz 4 wyjścia A, B, C i D. Stanem aktywnym wejść i wyjść jest poziom logiczny 0. Układ działa w ten sposób, iż badany jest stan poszczególnych bitów od 9 do 1. Jeśli zostanie napotkany pierwszy stan 0 na bicie n-tym, to na wyjściach pojawia się binarnie numer n w stanie zanegowanym (tzn. np. dla n = 7 będzie 1000). Dziesiąty stan występuje wtedy, gdy wszystkie wejścia są w stanie wysokim 1. <a href='https://eduinf.waw.pl/inf/prg/010_uc/74147.php'>źródło</a>"
+        "value": "Układ 74147 to enkoder priorytetowy 9 linii na 4 (ang. 9-Line to 4-Line Priority Encoder). Posiada 9 wejść od 1 do 9 oraz 4 wyjścia A, B, C i D. Stanem aktywnym wejść i wyjść jest poziom logiczny 0. Układ działa w ten sposób, iż badany jest stan poszczególnych bitów od 9 do 1. Jeśli zostanie napotkany pierwszy stan 0 na bicie n-tym, to na wyjściach pojawia się binarnie numer n w stanie zanegowanym (tzn. np. dla n = 7 będzie 1000). Dziesiąty stan występuje wtedy, gdy wszystkie wejścia są w stanie wysokim 1. <a href='https://eduinf.waw.pl/inf/prg/010_uc/74147.php'>źródło</a>"
       },
       {
         "type": "Image",

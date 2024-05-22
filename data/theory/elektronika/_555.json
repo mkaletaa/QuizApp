@@ -113,6 +113,10 @@
         "type": "Image",
         "value": "https://i.postimg.cc/br9SvWft/image.png",
         "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "<a href='https://forbot.pl/blog/kurs-elektroniki-ii-wstep-do-ukladu-ne555-id8202'>źródło</a>"
       }
     ]
   }
