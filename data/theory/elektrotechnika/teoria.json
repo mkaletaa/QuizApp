@@ -17,6 +17,15 @@
       },
       {
         "type": "Header",
+        "value": "Podaj definicję idealnego źródła napięcia",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Źródło napięcia, które na zaciskach ma stałe napięcie, niezależne od obciążenia, prądu przepływającego przez źródło, a rezystancja wewnętrzna jest równa 0 (zero)"
+      },
+      {
+        "type": "Header",
         "value": "Przedstaw prawo Ohma",
         "props": { "size": "sm" }
       },
@@ -67,6 +76,15 @@
       {
         "type": "Text",
         "value": "punkt w obwodzie, w którym 3 lub więcej gałęzi obwodu spotyka się w jednym punkcie"
+      },
+      {
+        "type": "Header",
+        "value": "Zdefiniuj gałaź",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "połączenie między węzłami"
       },
       {
         "type": "Header",

@@ -1,11 +1,24 @@
 [
   {
-    "title": "",
+    "title": "wstęp",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Cala filozofia zadań z obwodami polega na wyznaczeniu równań prądowych, napięciowych i wyliczenia niewiadomych z takiego układu równań. Najczęściej po drodze należy wykorzystać jeszcze prawo Ohma. Tak więc przydadzą się oba prawa Kirchhoffa i znajomość algebry liniowej. Stosując napięciowe prawo Kirchhoffa ważna jest umiejętność określenia ile jest oczek na schemacie i gdzie one są, bo coś, co może na pierwszy rzut oka wyglądać jak oczko nie zawsze nim jest. Zasadą metody oczkowej jest to, że „nie widzi” ona fizycznych źródeł prądu. Wszystkie źródła prądowe w obwodzie elektrycznym musimy transformować do postaci „wirtualnych” źródeł napięcia. A mówiąc po ludzku, tam gdzie jest strzałka w podwójnym kółku, tam nie ma oczka. <br></br>Dla każdego z tych oczek rysujesz kierunek przepływu prądu. Nie ma znaczenia, w którą stronę to zaznaczysz. W jednym oczku może być zgodnie z ruchem wskazówek zegara, w drugim przeciwnie albo w obu może być tak samo."
+      }
+    ]
+  },
+  {
+    "title": "zadanie z kolokwium",
     "data": [
       {
         "type": "Image",
         "value": "https://i.postimg.cc/qR7qMXTx/image.png",
         "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Rysujemy kierunek przepływu prądu dla każdego z oczek (oczywiście są ich tu dokładnie dwa), zaznaczamy węzły A i B i określamy dla nich prądy wpływające i wypływające."
       },
       {
         "type": "Image",
@@ -70,11 +83,15 @@
       },
       {
         "type": "Text",
-        "value": "Razem z dwoma równaniami prądowymi tworzą układ czterech równań z czterema niewiadomymi i1, i2, i3 oraz i4. Rozwiązanie tego układu to już czysta matematyka, więc nie będę tego robił. Zapiszę tylko rozwiązanie."
+        "value": "Razem z dwoma równaniami prądowymi tworzą układ czterech równań z czterema niewiadomymi i1, i2, i3 oraz i4. Rozwiązanie tego układu to już czysta matematyka, więc nie będę tego robił. Zapiszę tylko rozwiązanie. Jak wynik wyjdzie ujemny, to <b>nie</b> znaczy, że jest błędny."
       },
       {
         "type": "Math",
         "value": "`i_1=51/16; i_2=7/8; i_3 = 61/16; i_4 = -33/16`"
+      },
+      {
+        "type": "Text",
+        "value": "Pamiętaj, że bardziej skomplikowane układy równań możesz rozwiazać metodą wyznacznikową."
       }
     ]
   }

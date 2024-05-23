@@ -1,0 +1,95 @@
+[
+  {
+    "id": "elektrotechnika|teoria|1",
+    "multiChoice": true,
+    "question": "Zaznacz prawdziwe informacje na temat idealnego źródła prądu",
+    "options": [
+      { "id": "1", "val": "dostarcza do obwody stały prąd", "correct": true },
+      {
+        "id": "2",
+        "val": "dostarcza do obwody zmienny prąd",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "dostarcza prąd zależny od napięcia na zaciskach źródła",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "dostarcza prąd niezależny od napięcia na zaciskach źródła",
+        "correct": true
+      },
+      { "id": "6", "val": "rezystancja wewnętrzna wynosi 0", "correct": true },
+      {
+        "id": "7",
+        "val": "rezystancja wewnętrzna jest nieskończona",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|teoria|1.5",
+    "multiChoice": true,
+    "question": "Zaznacz prawdziwe informacje na temat idealnego źródła napięcia",
+    "options": [
+      {
+        "id": "1",
+        "val": "na zaciskach ma stałe napięcie, zależne od obciażenia",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "na zaciskach ma zmienne napięcie, zależne od obciażenia",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "na zaciskach ma stałe napięcie, niezależne od obciażenia",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "na zaciskach ma zmienne napięcie, niezależne od obciażenia",
+        "correct": false
+      },
+      { "id": "6", "val": "rezystancja wewnętrzna wynosi 0", "correct": true },
+      {
+        "id": "7",
+        "val": "rezystancja wewnętrzna jest nieskończona",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|teoria|2",
+    "multiChoice": true,
+    "question": "Wzór na prawo Ohma",
+    "options": [
+      { "id": "1", "val": "U=IR", "correct": true },
+      { "id": "2", "val": "I=UR", "correct": false },
+      { "id": "3", "val": "U=I/R", "correct": false },
+      { "id": "4", "val": "I=U/R", "correct": true }
+    ]
+  },
+  {
+    "id": "elektrotechnika|teoria|3",
+    "question": "Jeśli wartośc maksymalna napięcia dla przebiegu sinusoidalnego wynosi 10 V, to ile wynosi wartość skuteczna?",
+    "options": [
+      { "id": "1", "val": "10 V", "correct": false },
+      { "id": "2", "val": "10/√2 V", "correct": true },
+      { "id": "3", "val": "10√2 V", "correct": false }
+    ],
+    "explanation": "wartość skuteczna to wartość maksymalna podzielona przez pierwiastek z 2"
+  },
+  {
+    "id": "elektrotechnika|teoria|4",
+    "question": "Jeśli wartośc maksymalna natężenia dla przebiegu sinusoidalnego wynosi 10 A, to ile wynosi amplituda?",
+    "options": [
+      { "id": "1", "val": "10 A", "correct": true },
+      { "id": "2", "val": "20 A", "correct": false },
+      { "id": "3", "val": "20√2 A", "correct": false },
+      { "id": "4", "val": "10/√2 A", "correct": false }
+    ]
+  }
+]

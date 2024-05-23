@@ -1,0 +1,50 @@
+[
+    {"//todo": "dodać pytanie o kierunek wektora napięcia, który z równań napięciowych jest poprawne dla rysunku i w jaki sposób dobierać kierunek płynięcia prądu, pytanie o oczka w przedostatniego slajdu z teams"},
+  {
+    "id": "elektrotechnika|obwody|1",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile tutaj jest oczek?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/d05P07VC/image.png",
+        "props": { "orientation": "horizontal" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "1", "correct": false },
+      { "id": "2", "val": "2", "correct": true },
+      { "id": "3", "val": "3", "correct": false },
+      { "id": "4", "val": "4", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": "2, bo po lewej mamy niezależne źródło prądu (strzałka w podwójnym kółku) czyli nie traktujemy czegoś takiego jako oczko."
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|obwody|2",
+    "question": "Podczas rozwiązywania układu równań wartość natężenia prądu okazała się liczbą ujemną. Co należy zrobić w takiej sytuacji?",
+    "options": [
+      {
+        "id": "1",
+        "val": "Należy zapisać równania jeszcze raz, przyjmując przeciwny kierunek przepływu prądu",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "Należy przyjąć, że wynik jest wartością bezwględną, czyli zapisać liczbę z plusem",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "Nic, wynik może być ujemny, znaczy to tylko tyle, że prąd płynie w przeciwnym kierunku, niż początkowo zakładano",
+        "correct": true
+      }
+    ]
+  }
+]

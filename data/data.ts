@@ -33,7 +33,7 @@ export const topics = {
     },
     {
       name: 'liczniki',
-      image: 'https://i.postimg.cc/GhDV4f5j/image.png',
+      image: 'https://i.postimg.cc/CL23BZkT/image.png',
     },
   ],
   elektrotechnika: [
