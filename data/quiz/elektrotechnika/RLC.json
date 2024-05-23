@@ -1,0 +1,196 @@
+[
+  {
+    "id": "elektrotechnika|RLC|1",
+    "multiChoice": true,
+    "question": "Zaznacz wszystkie prawdziwe informacje o impedancji",
+    "options": [
+      { "id": "1", "val": "jednostką jest Siemens (S)", "correct": false },
+      { "id": "1.5", "val": "jednostką jest Henr (H)", "correct": false },
+      { "id": "2", "val": "jednostką jest Ohm (Ω)", "correct": true },
+      { "id": "3", "val": "oznacza się ją literą Z", "correct": true },
+      { "id": "4", "val": "oznacza się ją literą Y", "correct": false },
+      { "id": "4.4", "val": "oznacza się ją literą L", "correct": false },
+      { "id": "5", "val": "jest odwrotnością indukcyjności", "correct": false },
+      { "id": "6", "val": "jest odwrotnością admitancji", "correct": true }
+    ]
+  },
+  {
+    "id": "elektrotechnika|RLC|2",
+    "multiChoice": true,
+    "question": "Zaznacz wszystkie prawdziwe informacje o admitancji",
+    "options": [
+      { "id": "1", "val": "jednostką jest Siemens (S)", "correct": true },
+      { "id": "2", "val": "jednostką jest Ohm (Ω)", "correct": false },
+      { "id": "1.5", "val": "jednostką jest Henr (H)", "correct": false },
+      { "id": "4", "val": "oznacza się ją literą Y", "correct": true },
+      { "id": "4.4", "val": "oznacza się ją literą L", "correct": false },
+      { "id": "3", "val": "oznacza się ją literą Z", "correct": false },
+      { "id": "6", "val": "jest odwrotnością impedancji", "correct": true },
+      { "id": "5", "val": "jest odwrotnością indukcyjności", "correct": false }
+    ]
+  },
+  {
+    "id": "elektrotechnika|RLC|3",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Podaj wzór na równanie napięciowe"
+      },
+      {
+        "type": "Math",
+        "value": "A) `e(t)=E_{sk}sin(omegat+varphi)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `e(t)=E_{max}cos(omegat+varphi)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `e(t)=E_{sk}cos(omegat+varphi)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `e(t)=E_{max}sin(omegat+varphi)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": true }
+    ]
+  },
+  {
+    "id": "elektrotechnika|RLC|4",
+    "question": "Podad wzór na ω",
+    "options": [
+        { "id": "1", "val": "1/f", "correct": false },
+        { "id": "2", "val": "1/2πf", "correct": false },
+        { "id": "3", "val": "2πf", "correct": true }
+    ]
+  },
+  {
+    "id": "elektrotechnika|RLC|5",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Podaj wzór na impedancję cewki Z<sub>L</sub>"
+      },
+      {
+        "type": "Math",
+        "value": "A) `Z_L=jomegaL`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `Z_L=-jomegaL`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `Z_L=j1/(omegaL)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `Z_L=-j1/(omegaL)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `Z_L=1/(jomegaL)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `Z_L=-1/(jomegaL)`"
+      }
+    ],
+    "options": [
+        { "id": "1", "val": "A", "correct": true },
+        { "id": "2", "val": "B", "correct": false },
+        { "id": "3", "val": "C", "correct": false },
+        { "id": "4", "val": "D", "correct": false },
+        { "id": "5", "val": "E", "correct": false },
+        { "id": "6", "val": "F", "correct": false }
+    ]
+  },
+   {
+     "id": "elektrotechnika|RLC|6",
+     "question": [
+       {
+         "type": "Text",
+         "value": "Podaj wzór na impedancję kondensatora Z<sub>C</sub>"
+       },
+       {
+         "type": "Math",
+         "value": "A) `Z_C=jomegaC`"
+       },
+       {
+         "type": "Math",
+         "value": "B) `Z_C=-jomegaC`"
+       },
+       {
+         "type": "Math",
+         "value": "C) `Z_C=j1/(omegaC)`"
+       },
+       {
+         "type": "Math",
+         "value": "D) `Z_C=-j1/(omegaC)`"
+       },
+       {
+         "type": "Math",
+         "value": "E) `Z_C=1/(jomegaC)`"
+       },
+       {
+         "type": "Math",
+         "value": "F) `Z_C=-1/(jomegaC)`"
+       }
+     ],
+     "options": [
+       { "id": "1", "val": "A", "correct": false },
+       { "id": "2", "val": "B", "correct": false },
+       { "id": "3", "val": "C", "correct": false },
+       { "id": "4", "val": "D", "correct": true},
+       { "id": "5", "val": "E", "correct": false },
+       { "id": "6", "val": "F", "correct": false }
+     ]
+   },
+   {
+    "id": "elektrotechnika|RLC|7",
+    "multiChoice": true,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Podaj wzór na napięcie wytwarzane przez źródło, E"
+      },
+      {
+        "type": "Math",
+        "value": "A) `E=E_{sk}*e^(varphi)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `E=E_{max}*e^(varphi)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `E=E_{sk}*e^(jvarphi)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `E=E_{max}*e^(jvarphi)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `E=E_{sk}(cos(varphi)+jsin(varphi))`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `E=E_{max}(cos(varphi)+jsin(varphi))`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": true },
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "5", "val": "E", "correct": true },
+      { "id": "6", "val": "F", "correct": false }
+    ]
+   }
+]

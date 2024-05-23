@@ -1,0 +1,110 @@
+[
+  {
+    "id": "elektrotechnika|kondensatory|1",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jakim wzorem wyraża się pojemność zastępcza kondensatorów w układzie szeregowym?"
+      },
+      {
+        "type": "Math",
+        "value": "A: `C_z=C_1+C_2+...+C_n`"
+      },
+      {
+        "type": "Math",
+        "value": "B: `1/C_z=1/C_1+1/C_2+...+1/C_n`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true }
+    ]
+  },
+  {
+    "id": "elektrotechnika|kondensatory|2",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jakim wzorem wyraża się pojemność zastępcza kondensatorów w układzie równoległym?"
+      },
+      {
+        "type": "Math",
+        "value": "A: `C_z=C_1+C_2+...+C_n`"
+      },
+      {
+        "type": "Math",
+        "value": "B: `1/C_z=1/C_1+1/C_2+...+1/C_n`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false }
+    ]
+  },
+  {
+    "id": "elektrotechnika|kondensatory|3",
+    "question": "4 kondensatory są połączone szeregowo. Każdy z nich ma pojemność 2uF. Jaka będzie pojemność zastępcza tego układu?",
+    "options": [
+      { "id": "1", "val": "2 uF", "correct": false },
+      { "id": "2", "val": "4 uF", "correct": false },
+      { "id": "3", "val": "8 uF", "correct": false },
+      { "id": "4", "val": "1/2 uF", "correct": true },
+      { "id": "5", "val": "1/4 uF", "correct": false },
+      { "id": "6", "val": "1/8 uF", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`1/C_z=1/2+1/2+1/2+1/2=2=>C_z=1/2uF`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|kondensatory|4",
+    "question": "4 kondensatory są połączone równolegle. Każdy z nich ma pojemność 2uF. Jaka będzie pojemność zastępcza tego układu?",
+    "options": [
+      { "id": "1", "val": "2 uF", "correct": false },
+      { "id": "2", "val": "4 uF", "correct": false },
+      { "id": "3", "val": "8 uF", "correct": true },
+      { "id": "4", "val": "1/2 uF", "correct": false },
+      { "id": "5", "val": "1/4 uF", "correct": false },
+      { "id": "6", "val": "1/8 uF", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`C_z=2+2+2+2=8uF`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|kondensatory|5",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi pojemność zastępcza w tym układzie?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/5N5XtYPs/kondensatiry.png",
+        "props": { "orientation": "horizontal" }
+      }
+    ],
+    "options": [
+      { "id": "4", "val": "1/9 uF", "correct": false },
+      { "id": "3", "val": "3/8 uF", "correct": false },
+      { "id": "2", "val": "8/3 uF", "correct": false },
+      { "id": "1", "val": "9 uF", "correct": true }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`1/C_{12}=1/C_1+1/C_2=1/2+1/2=1 uF`"
+      },
+      {
+        "type": "Math",
+        "value": "`C_z=C_{12}+C_3=1+8=9 uF`"
+      }
+    ]
+  }
+]

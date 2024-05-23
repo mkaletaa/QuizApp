@@ -1,0 +1,130 @@
+[
+  {
+    "id": "elektrotechnika|oporniki|1",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jakim wzorem wyraża się wypadkowa rezystancja oporników w układzie równoległym?"
+      },
+      {
+        "type": "Math",
+        "value": "A: `R_z=R_1+R_2+...+R_n`"
+      },
+      {
+        "type": "Math",
+        "value": "B: `1/R_z=1/R_1+1/R_2+...+1/R_n`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true }
+    ]
+  },
+  {
+    "id": "elektrotechnika|oporniki|2",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jakim wzorem wyraża się wypadkowa rezystancja oporników w układzie szeregowym?"
+      },
+      {
+        "type": "Math",
+        "value": "A: `R_z=R_1+R_2+...+R_n`"
+      },
+      {
+        "type": "Math",
+        "value": "B: `1/R_z=1/R_1+1/R_2+...+1/R_n`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false }
+    ]
+  },
+  {
+    "id": "elektrotechnika|oporniki|3",
+    "question": "4 rezystory są połączone szeregowo. Każdy z nich ma rezystancję 2Ω. Jaka będzie rezystancja zastępcza tego układu?",
+    "options": [
+      { "id": "1", "val": "2 Ω", "correct": false },
+      { "id": "2", "val": "4 Ω", "correct": false },
+      { "id": "3", "val": "8 Ω", "correct": true },
+      { "id": "4", "val": "1/2 Ω", "correct": false },
+      { "id": "5", "val": "1/4 Ω", "correct": false },
+      { "id": "6", "val": "1/8 Ω", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`R_z=2+2+2+2=8Ω`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|oporniki|4",
+    "question": "4 rezystory są połączone równolegle. Każdy z nich ma rezystancję 2Ω. Jaka będzie rezystancja zastępcza tego układu?",
+    "options": [
+      { "id": "1", "val": "2 Ω", "correct": false },
+      { "id": "2", "val": "4 Ω", "correct": false },
+      { "id": "3", "val": "8 Ω", "correct": false },
+      { "id": "4", "val": "1/2 Ω", "correct": true },
+      { "id": "5", "val": "1/4 Ω", "correct": false },
+      { "id": "6", "val": "1/8 Ω", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`1/R_z=1/2+1/2+1/2+1/2=2Ω=>R_z=1/2Ω`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|oporniki|5",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Ile wynosi wypadkowa rezystancja w tym układzie?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/DzpX2Zrp/oporniki.png",
+        "props": { "orientation": "horizontal" }
+      }
+    ],
+    "options": [
+      { "id": "4", "val": "1/9 uF", "correct": false },
+      { "id": "3", "val": "3/8 uF", "correct": false },
+      { "id": "2", "val": "8/3 uF", "correct": true },
+      { "id": "1", "val": "9 uF", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`C_{12}=C_1+C_2=2+2=4 uF`"
+      },
+      {
+        "type": "Math",
+        "value": "`1/C_z=1/C_{12}+1/C_3=1/4+1/8=3/8=>C_z=8/3 uF`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|oporniki|6",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jaki to układ?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/05wws9bZ/oprniki2.png"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "szeregowy", "correct": false },
+      { "id": "2", "val": "równoległy", "correct": true },
+      { "id": "3", "val": "trójkąt", "correct": false },
+      { "id": "3", "val": "gwiazda", "correct": false },
+      { "id": "3", "val": "żaden z powyższych", "correct": false }
+    ]
+  }
+]
