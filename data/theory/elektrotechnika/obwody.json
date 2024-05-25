@@ -4,7 +4,25 @@
     "data": [
       {
         "type": "Text",
-        "value": "Cala filozofia zadań z obwodami polega na wyznaczeniu równań prądowych, napięciowych i wyliczenia niewiadomych z takiego układu równań. Najczęściej po drodze należy wykorzystać jeszcze prawo Ohma. Tak więc przydadzą się oba prawa Kirchhoffa i znajomość algebry liniowej. Stosując napięciowe prawo Kirchhoffa ważna jest umiejętność określenia ile jest oczek na schemacie i gdzie one są, bo coś, co może na pierwszy rzut oka wyglądać jak oczko nie zawsze nim jest. Zasadą metody oczkowej jest to, że „nie widzi” ona fizycznych źródeł prądu. Wszystkie źródła prądowe w obwodzie elektrycznym musimy transformować do postaci „wirtualnych” źródeł napięcia. A mówiąc po ludzku, tam gdzie jest strzałka w podwójnym kółku, tam nie ma oczka. <br></br>Dla każdego z tych oczek rysujesz kierunek przepływu prądu. Nie ma znaczenia, w którą stronę to zaznaczysz. W jednym oczku może być zgodnie z ruchem wskazówek zegara, w drugim przeciwnie albo w obu może być tak samo."
+        "value": "Cala filozofia zadań z obwodami polega na wyznaczeniu równań prądowych, napięciowych i wyliczeniu niewiadomych z takiego układu równań. Najczęściej po drodze należy wykorzystać jeszcze prawo Ohma. Tak więc przydadzą się oba prawa Kirchhoffa i znajomość algebry liniowej. Stosując napięciowe prawo Kirchhoffa ważna jest umiejętność określenia ile jest oczek na schemacie i gdzie one są, bo coś, co może na pierwszy rzut oka wyglądać jak oczko nie zawsze nim jest.<br></br>Podczas wyznaczania oczek ignorujemy gałęzie, na których znajdują sie niezależne źródła prądu, czyli strzałki w podwójnym kółku."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/JhTKcqjT/oczko.png",
+        "props":{"description":"Mamy tu dwa oczka"}
+      },
+      {
+        "type": "Text",
+        "value": "Dla każdego z tych oczek rysujesz umowny kierunek przepływu prądu. Nie ma znaczenia, w którą stronę to zaznaczysz. W jednym oczku może być zgodnie z ruchem wskazówek zegara, w drugim przeciwnie albo w obu może być tak samo. No i zapisujesz dla każdego z nich po jednym równaniu napięciowym w oparciu o drugie prawo Kirchhoffa. To, czy postawisz znak plusa czy minusa zależy od zwrotu strzałki napięcia i przyjętego kierunku obieugu prądu w oczku. Jeśli są one takie same, to dajesz plusa, a jak przeciwne, to minusa. Zwrot strzałki napięcia jest zawsze przeciwny do zwrotu prądu gałęziowego <i>i</i>."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/85pcDR3V/obieg.png",
+        "props": { "description": "strzałka napięcia jest przeciwnego zwrotu co strzałka prądu gałęziowego"}
+      },
+      {
+        "type": "Text",
+        "value": "Dla powyższego rysunku przy U postawimy znak plusa, bo zwrot strzałki napięcia jest taki sam, co kierunek przyjętego przez nas obiegu prądu w oczku zaznaczonego pomarańczową strzałką. <br></br>Zapisujesz też równania prądowe dla węzłów wykorzystując pierwsze prawo Kirchhoffa. Jeśli chodzi o węzły, tutaj już nie stosujesz triku z ignorowaniem gałęzi. Jeśli nie wiesz ile równań masz zapisać, to pamiętaj, że ma być ich tyle samo, co niewiadomych."
       }
     ]
   },

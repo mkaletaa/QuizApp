@@ -1,5 +1,4 @@
 [
-    {"//todo": "dodać pytanie o kierunek wektora napięcia, który z równań napięciowych jest poprawne dla rysunku i w jaki sposób dobierać kierunek płynięcia prądu, pytanie o oczka w przedostatniego slajdu z teams"},
   {
     "id": "elektrotechnika|obwody|1",
     "question": [
@@ -22,7 +21,12 @@
     "explanation": [
       {
         "type": "Text",
-        "value": "2, bo po lewej mamy niezależne źródło prądu (strzałka w podwójnym kółku) czyli nie traktujemy czegoś takiego jako oczko."
+        "value": "2, bo po lewej mamy niezależne źródło prądu (strzałka w podwójnym kółku) czyli ignorujemy gałąź i wychodzą nam dwie zamknięte drogi przepływu prądu."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/NjZj9hzb/oczka-solution.png",
+        "props": { "orientation": "horizontal" }
       }
     ]
   },
@@ -45,6 +49,64 @@
         "val": "Nic, wynik może być ujemny, znaczy to tylko tyle, że prąd płynie w przeciwnym kierunku, niż początkowo zakładano",
         "correct": true
       }
+    ]
+  },
+  {
+    "id": "elektrotechnika|obwody|3",
+    "question": "W jaki sposób dobrać kierunek płynięcia prądu w oczku?",
+    "options": [
+      { "id": "1", "val": "dowolny, ale dla wszystkich oczek taki sam", "correct": false },
+      { "id": "2", "val": "dowolny, może być różny dla każdego z oczek", "correct": true },
+      { "id": "3", "val": "przeciwnie do ruchu wskazówek zegara", "correct": false },
+      { "id": "4", "val": "zgodnie z ruchem wskazówek zegara", "correct": false }
+    ]
+  },
+  {
+    "id": "elektrotechnika|obwody|4",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Zapisując równanie dla oczka, z jakim znakiem będzie tutaj napięcie?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/sgKDmQx6/obieg-2.png"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "-U", "correct": true },
+      { "id": "2", "val": "+U", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": "zwrot strzałki napięcia jest zawsze przeciwny do zwrotu prądu gałęziowego <i>i</i>. Czyli zwrot strzałki napięcia jest przeciwny do przyjętego obiegu przepływu prądu w oczku zaznaczonego pomarańczową strzałką."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/nr8HrqSz/obieg-3.png"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|obwody|5",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Text",
+        "value": "Jak będzie wyglądało równanie napięciowe dla oczka po prawej?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/P5fdCXym/r-wnanie.png",
+        "props": { "orientation": "horizontal" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "Ur1 - Ur2 + e = 0", "correct": false },
+      { "id": "2", "val": "-Ur1 + Ur2 - e = 0", "correct": false },
+      { "id": "3", "val": "-Ur1 + Ur2 + e = 0", "correct": false },
+      { "id": "4", "val": "Ur1 - Ur2 - e = 0", "correct": true }
     ]
   }
 ]

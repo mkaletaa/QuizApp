@@ -1,4 +1,4 @@
-//if a name consists of more than one words, separate them with underscore
+//if a name consists of more than one word, separate them with an underscore
 export const chapters = [
   {
     name: 'elektronika',
@@ -9,6 +9,10 @@ export const chapters = [
     name: 'elektrotechnika',
     image: 'https://i.postimg.cc/Xv0Xm9DV/chrab-szcz.png',
     des: 'tak, na okładce to Chrabąszcz',
+  },
+  {
+    name: 'mp',
+    image: 'https://i.postimg.cc/cJjqYrV8/image.png',
   },
 ]
 //also id of questions should go like "cat_1|top_1|1"
@@ -58,4 +62,26 @@ export const topics = {
       image: 'https://i.postimg.cc/9Q8N13XP/rlc.png',
     },
   ],
+  mp:[
+    {
+      name: 'złożoność',
+      image: ''
+    },
+    {
+      name: 'rekurencja',
+      image: ''
+    },
+    {
+      name: 'liczby_losowe',
+      image: ''
+    },
+    {
+      name: 'alg._plecakowy',
+      image: ''
+    },
+    {
+      name: 'alg._huffmanna',
+      image: ''
+    },
+  ]
 }
