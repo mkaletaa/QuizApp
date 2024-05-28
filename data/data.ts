@@ -10,10 +10,10 @@ export const chapters = [
     image: 'https://i.postimg.cc/Xv0Xm9DV/chrab-szcz.png',
     des: 'tak, na okładce to Chrabąszcz',
   },
-  // {
-  //   name: 'mp',
-  //   image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-  // },
+  {
+    name: 'metody_programowania',
+    image: 'https://i.postimg.cc/cJjqYrV8/image.png',
+  },
 ]
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
@@ -62,26 +62,26 @@ export const topics = {
       image: 'https://i.postimg.cc/9Q8N13XP/rlc.png',
     },
   ],
-  mp:[
+  metody_programowania: [
     {
-      name: 'złożoność',
-      image: ''
+      name: 'złożoność_obliczeniowa',
+      image: '',
     },
     {
       name: 'rekurencja',
-      image: ''
+      image: '',
     },
     {
       name: 'liczby_losowe',
-      image: ''
+      image: '',
     },
     {
       name: 'alg._plecakowy',
-      image: ''
+      image: '',
     },
     {
       name: 'alg._huffmanna',
-      image: ''
+      image: '',
     },
-  ]
+  ],
 }
