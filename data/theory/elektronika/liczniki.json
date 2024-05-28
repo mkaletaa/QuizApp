@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Wiktor, wiem że to czytasz. Podeślij jakieś info o 74193 i o projektowaniu liczników"
+        "value": "Wiktor, wiem że to czytasz. Podeślij jakieś info o projektowaniu liczników"
       }
     ]
   },
@@ -22,7 +22,19 @@
     "data": [
       {
         "type": "Text",
-        "value": "comming soon"
+        "value": "definicja, symbol, opis wejść/wyjść, sposoby działania, zastosowanie"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/m23sKb1v/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "Układ 7490 zawiera 4-bitowy licznik dziesiętny BCD (ang. Decade Binary Counter). Licznik wewnętrznie składa się z dwóch modułów liczących odpowiednio do 2 i do 5. Wejście zegarowe A dotyczy modułu liczącego do 2, wejście zegarowe B dotyczy modułu liczącego do 5. Wynik z modułu 2 pojawia się na wyjściu QA, wynik z modułu 5 pojawia się na pozostałych wyjściach QB, QC i QD. Zliczanie odbywa się przy opadającym zboczu sygnału zegarowego. Dodatkowo licznik posiada dwa wejścia zerujące R0(1) i R0(2) (stan wysoki na obu tych wejściach powoduje wyzerowanie licznika) oraz dwa wejścia ustawiające R9(1) i R9(2) (stan wysoki na obu wejściach powoduje ustawienie stanu 9 na wyjściach licznika: QA = QD = 1, QB = QC = 0)."
+      },
+      {
+        "type": "Text",
+        "value": "Więcej info: <a href='https://www.eduinf.waw.pl/inf/prg/010_uc/7490.php'>LINK</a>"
       }
     ]
   },
@@ -30,8 +42,16 @@
     "title": "licznik 74193",
     "data": [
       {
+        "type": "Image",
+        "value": "https://i.postimg.cc/9fk5y0s7/image.png"
+      },
+      {
         "type": "Text",
-        "value": "comming soon"
+        "value": "Układ 74193 zawiera synchroniczny, rewersyjny licznik dwójkowy (4 bity) z dwoma wejściami zegarowymi i z wejściem zerującym (ang. Synchronous Up/Down Binary 4-bit Counter with Dual Clock and Clear). Wyjścia licznika zmieniają stany synchronicznie w takt impulsów zegarowych. Znaczenie wejść/wyjść układu jest następujące:<br></br><b>UP</b> - dodatnie zbocze sygnału na tym wejściu powoduje zwiększanie stanu licznika o 1. Licznik zlicza w górę.<br></br><b>DOWN</b> - dodatnie zbocze sygnału na tym wejściu powoduje zmniejszenie stanu licznika o 1. Licznik zlicza w dół.<br></br><b>CLR</b> - stan 1 powoduje wyzerowanie stanu licznika. Funkcja ta jest niezależna od stanu pozostałych wejść.<br></br><b>LOAD</b> - stan niski 0 powoduje przepisanie danych z wejść A...D na wyjścia QA...QD niezależnie od sygnałów zegarowych.<br></br><b>A...D</b> - wejścia danych.<br></br><b>CO</b> - wyjście przeniesienia do następnej dekady liczącej. Na wyjściu tym pojawia się ujemny impuls o czasie trwania impulsu na wejściu UP, gdy licznik zmienia swój stan z 15 na 0.<br></br><b>BO</b> - wyjście pożyczki do następnej dekady liczącej. Na wyjściu tym pojawia się ujemny impuls o czasie trwania impulsu na wejściu DOWN, gdy licznik zmienia swój stan z 0 na 15.<br></br><b>AQ...QD</b> - wyjścia stanu licznika w kodzie 8421."
+      },
+      {
+        "type": "Text",
+        "value": "Więcej info: <a href='https://eduinf.waw.pl/inf/prg/010_uc/74193.php'>LINK</a>"
       }
     ]
   },
