@@ -39,19 +39,24 @@
       },
       {
         "type": "Text",
+        "value": "<b>Transkoder</b> - układ umożliwiający współpracę systemów cyfrowych pracujących na innych kodach wewnętrznych, czyli układ zamieniający jeden kod wewnętrzny na inny, z których żaden nie jest kodem pierścieniowym."
+      },
+      {
+        "type": "Text",
         "value": "<b>Dekoder</b> - układ zamieniający kod wewnętrzny inny niż pierścieniowy na pierścieniowy."
       },
       {
         "type": "Text",
-        "value": "<b>Enkoder</b> - narzędzie służące do zamiany jednego kodu w inny  kod. Jako narzędzie należy rozumieć program, układ scalony, urządzenie mechaniczne itp."
+        "value": "<b>Enkoder</b> - układ zamieniający kod wewnętrzny pierścieniowy na inny niż pierścieniowy."
       },
       {
         "type": "Text",
         "value": "<b>Enkoder priorytetowy</b> - jeśli na wyjściu pojawi się więcej niż jeden sygnał wyróżniony, to ustalona ranga priorytetów wejścia decyduje, który z nich otrzymuje wyższy priorytet - który z nich zostanie 'wybrany'."
       },
       {
-        "type": "Text",
-        "value": "<b>Transkoder</b> - układ umożliwiający współpracę systemów cyfrowych pracujących na innych kodach wewnętrznych, czyli układ zamieniający jeden kod wewnętrzny na inny, z których żaden nie jest kodem pierścieniowym."
+        "type": "Image",
+        "value": "https://i.postimg.cc/CL1JD7Hz/image.png",
+        "props": { "description": "gościowi się ubzdurało jeszcze żebyśmy podali symbole mimo że tego nie było w wymaganiach", "orientation": "portrait" }
       }
     ]
   },
@@ -60,7 +65,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "7442 - dekoder kodu naturalnego BCD na kod <s>1 z 10</s>. Składa się z ośmiu inwerterów NOT i 10 czterowejściowych bramek NAND. Inwertery pracują w parach, aby dostarczyć odpowiednich sygnałów sterujących dla bramek wyjściowych. Wewnątrz układu wykonywane jest pełne dekodowanie, co zapewnia stan nieaktywny wyjść w przypadku nieprawidłowych stanów wejściowych. Dekoder posiada cztery wejścia oznaczone A, B, C i D oraz 10 wyjść od 0 do 9.<br></br>Na wejścia podajemy cyfrę w kodzie BCD (ang. Binary Coded Decimal, kod dziesiętny kodowany dwójkowo). Powoduje to wysterowanie odpowiedniego wyjścia od 0 do 9 w stan niski, jeśli kod wejściowy jest poprawny. W przeciwnym razie wyjścia pozostają w stanie wysokim. <a href='https://eduinf.waw.pl/inf/prg/010_uc/7442.php'>źródło</a> <br></br> Spełnia funkcje np. dekodera trzybitowego kodu dwójkowego na kod 1 z 8 lub demultipleksera z jednego wejścia na jedno z ośmiu wyjść; do konwersji naturalnego czterobitowego kodu dwójkowego na kod 1 z 16."
+        "value": "7442 - dekoder kodu naturalnego BCD 8421 na kod <s>1 z 10</s>. Składa się z ośmiu inwerterów NOT i 10 czterowejściowych bramek NAND. Inwertery pracują w parach, aby dostarczyć odpowiednich sygnałów sterujących dla bramek wyjściowych. Wewnątrz układu wykonywane jest pełne dekodowanie, co zapewnia stan nieaktywny wyjść w przypadku nieprawidłowych stanów wejściowych. Dekoder posiada cztery wejścia oznaczone A, B, C i D oraz 10 wyjść od 0 do 9.<br></br>Na wejścia podajemy cyfrę w kodzie BCD (ang. Binary Coded Decimal, kod dziesiętny kodowany dwójkowo). Powoduje to wysterowanie odpowiedniego wyjścia od 0 do 9 w stan niski, jeśli kod wejściowy jest poprawny. W przeciwnym razie wyjścia pozostają w stanie wysokim. <a href='https://eduinf.waw.pl/inf/prg/010_uc/7442.php'>źródło</a> <br></br> Spełnia funkcje np. dekodera trzybitowego kodu dwójkowego na kod 1 z 8 lub demultipleksera z jednego wejścia na jedno z ośmiu wyjść; do konwersji naturalnego czterobitowego kodu dwójkowego na kod 1 z 16."
       },
       {
         "type": "Image",
@@ -69,12 +74,7 @@
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/P554H1wd/image.png",
-        "props": { "description": "obudowa 7442", "orientation": "landscape" }
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/7LCnGD9c/image.png",
+        "value": "https://i.postimg.cc/TYDLZWTt/image.png",
         "props": {
           "description": "tabela stanów 7442",
           "orientation": "vertical"
@@ -87,17 +87,12 @@
     "data": [
       {
         "type": "Text",
-        "value": "Układ 74147 to enkoder priorytetowy 9 linii na 4 (ang. 9-Line to 4-Line Priority Encoder). Posiada 9 wejść od 1 do 9 oraz 4 wyjścia A, B, C i D. Stanem aktywnym wejść i wyjść jest poziom logiczny 0. Układ działa w ten sposób, iż badany jest stan poszczególnych bitów od 9 do 1. Jeśli zostanie napotkany pierwszy stan 0 na bicie n-tym, to na wyjściach pojawia się binarnie numer n w stanie zanegowanym (tzn. np. dla n = 7 będzie 1000). Dziesiąty stan występuje wtedy, gdy wszystkie wejścia są w stanie wysokim 1. <a href='https://eduinf.waw.pl/inf/prg/010_uc/74147.php'>źródło</a>"
+        "value": "Układ 74147 to enkoder priorytetowy 9 linii (1 do 9) na <s>BCD</s>. Posiada 9 wejść od 1 do 9 oraz 4 wyjścia A, B, C i D. Stanem aktywnym wejść i wyjść jest poziom logiczny 0. Układ działa w ten sposób, iż badany jest stan poszczególnych bitów od 9 do 1. Jeśli zostanie napotkany pierwszy stan 0 na bicie n-tym, to na wyjściach pojawia się binarnie numer n w stanie zanegowanym (tzn. np. dla n = 7 będzie 1000). Dziesiąty stan występuje wtedy, gdy wszystkie wejścia są w stanie wysokim 1. <a href='https://eduinf.waw.pl/inf/prg/010_uc/74147.php'>źródło</a>"
       },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/B6qCNyGc/image.png",
         "props": { "description": "symbol 74147" }
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/qRjxFLJf/image.png",
-        "props": { "description": "obudowa DIL-16", "orientation": "horizontal" }
       },
       {
         "type": "Image",
@@ -144,7 +139,7 @@
       },
       {
         "type": "Text",
-        "value": "<b>Kod Aikena</b> -  kod, w którym cyfry dziesiętne występują z jednakowym prawdopodobieństwem. Poszczególne cyfry dziesiętne przedstawione są za pomocą ciągów bitowych o jednakowej długości. Długość słowa kodowego wynosi 4 bity (należy zakodować 10 cyfr dziesiętnych). <br></br>Kod Aikena nazywany jest tez kodem 2421, bo takie są w nim wagi. Np. cyfra 7 zakodowama w nim to 1101, bo 1*2 + 1*4 + 0*2 + 1*1 = 7. Charakterystyczne jest w nim to, że pierwsze pięć cyfr dziesiętnych (0-4) i ostatnie pięć (5-9) mają zamienione zera na jedynki i vice versa. 0 to 0000, 9 to 1111. 1 to 0001, 8 to 1110 . 2 to 0010, 7 to 1101 itd. "
+        "value": "<b>Kod Aikena</b> -  kod, w którym cyfry dziesiętne występują z jednakowym prawdopodobieństwem. Poszczególne cyfry dziesiętne przedstawione są za pomocą ciągów bitowych o jednakowej długości. Długość słowa kodowego wynosi 4 bity (należy zakodować 10 cyfr dziesiętnych). <br></br>Kod Aikena nazywany jest tez kodem 2421, bo takie są w nim wagi. Np. cyfra 7 zakodowama w nim to 1101, bo 1*2 + 1*4 + 0*2 + 1*1 = 7. Charakterystyczne jest w nim to, że pierwsze pięć cyfr dziesiętnych (0-4) i ostatnie pięć (5-9) mają zamienione zera na jedynki i vice versa. 0 to 0000, 9 to 1111. 1 to 0001, 8 to 1110 . 2 to 0010, 7 to 1101 itd. Liczba 127 przedstawiona w kodzie Aikena to 0001 0010 1101."
       },
       {
         "type": "Image",

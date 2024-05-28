@@ -51,7 +51,32 @@
       }
     ]
   },
-
+  {
+    "id": "elektronika|konwertery_kodów|2p",
+    "question": "Co robi enkoder?",
+    "options": [
+      {
+        "id": "1",
+        "val": "zamienia kod pierścieniowy na kod pierścieniowy",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "zamienia kod inny niż pierścieniowy na pierścieniowy",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "zamienia kod pierścieniowy na kod inny niż pierścieniowy",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "zamienia kod inny niż pierścieniowy na kod inny niż pierścieniowy",
+        "correct": false
+      }
+    ]
+  },
 
   {
     "id": "elektronika|konwertery_kodów|4",
@@ -139,18 +164,18 @@
     "options": [
       { "id": "1", "val": "111011", "correct": false },
       { "id": "2", "val": "110001", "correct": false },
-      { "id": "3", "val": "0011 1011", "correct": false },
-      { "id": "4", "val": "0011 0001", "correct": true }
+      { "id": "3", "val": "0100 1001", "correct": true },
+      { "id": "4", "val": "0011 0001", "correct": false }
     ]
   },
   {
     "id": "elektronika|konwertery_kodów|13",
-    "question": "Jak wygląda zapis liczby dziesiętnej 59 w kodzie BCD?",
+    "question": "Jak wygląda zapis liczby dziesiętnej 52 w kodzie BCD?",
     "options": [
-      { "id": "1", "val": "0011 1011", "correct": true },
-      { "id": "2", "val": "0011 0111", "correct": false },
-      { "id": "3", "val": "110111", "correct": false },
-      { "id": "4", "val": "111011", "correct": false }
+      { "id": "1", "val": "0101 0010", "correct": true },
+      { "id": "2", "val": "0011 0100", "correct": false },
+      { "id": "3", "val": "110100", "correct": false },
+      { "id": "4", "val": "1010010", "correct": false }
     ]
   },
   {
@@ -165,12 +190,12 @@
   },
   {
     "id": "elektronika|konwertery_kodów|15",
-    "question": "Jak zapisać cyfrę 6 w kodzie Aikena?",
+    "question": "Jak zapisać liczbę 61 w kodzie Aikena?",
     "options": [
-      { "id": "1", "val": "0110", "correct": false },
-      { "id": "2", "val": "1110", "correct": false },
-      { "id": "3", "val": "1100", "correct": true },
-      { "id": "4", "val": "1001", "correct": false }
+      { "id": "1", "val": "00111101", "correct": false },
+      { "id": "2", "val": "111101", "correct": false },
+      { "id": "3", "val": "1100 0001", "correct": true },
+      { "id": "4", "val": "0011 1101", "correct": false }
     ]
   }
 ]

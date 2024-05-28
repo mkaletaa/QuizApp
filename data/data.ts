@@ -10,10 +10,10 @@ export const chapters = [
     image: 'https://i.postimg.cc/Xv0Xm9DV/chrab-szcz.png',
     des: 'tak, na okładce to Chrabąszcz',
   },
-  {
-    name: 'mp',
-    image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-  },
+  // {
+  //   name: 'mp',
+  //   image: 'https://i.postimg.cc/cJjqYrV8/image.png',
+  // },
 ]
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
