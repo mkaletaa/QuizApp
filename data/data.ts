@@ -20,6 +20,10 @@ export const chapters = [
 export const topics = {
   elektronika: [
     {
+      name: 'wzmacniacz_tranzystorowy',
+      image: 'https://i.postimg.cc/jdYvFSMz/image.png',
+    },
+    {
       name: 'wzmacniacz_operacyjny',
       image: 'https://i.postimg.cc/jdYvFSMz/image.png',
     },

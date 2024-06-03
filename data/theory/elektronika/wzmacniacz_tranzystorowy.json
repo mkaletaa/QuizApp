@@ -1,0 +1,168 @@
+[
+  {
+    "title": "wzmocnienie",
+    "data": [
+      {
+        "type": "Text",
+        "value": "<b>Wzmocnienie</b> - stosuenk wartości skutecznej sygnału wyjściowego do wartości skutecznej sygnału wejściowego."
+      },
+      {
+        "type": "Text",
+        "value": "wzmocnienie napięciowe woltowe"
+      },
+      {
+        "type": "Math",
+        "value": "`K_u = U_{wy}/U_{we} [V/V]`"
+      },
+      {
+        "type": "Text",
+        "value": "wzmocnienie napięciowe decybelowe"
+      },
+      {
+        "type": "Math",
+        "value": "`K_u = 20log(U_{wy}/U_{we}) [dB]`"
+      },
+      {
+        "type": "Text",
+        "value": "wzmocnienie prądowe amperowe"
+      },
+      {
+        "type": "Math",
+        "value": "`K_i = I_{wy}/I_{we} [A/A]`"
+      },
+      {
+        "type": "Text",
+        "value": "wzmocnienie prądowe decybelowe"
+      },
+      {
+        "type": "Math",
+        "value": "`K_i = 20log(I_{wy}/I_{we}) [dB]`"
+      },
+      {
+        "type": "Text",
+        "value": "wzmocnienie mocy watowe"
+      },
+      {
+        "type": "Math",
+        "value": "`K_p = P_{wy}/P_{we} [W/W]`"
+      },
+      {
+        "type": "Text",
+        "value": "wzmocnienie mocy decybelowe"
+      },
+      {
+        "type": "Math",
+        "value": "`K_p = 10log(P_{wy}/P_{we}) [dB]`"
+      }
+    ]
+  },
+  {
+    "title": "schemat, rola elementów, parametry itd.",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/j52V1vB5/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Header",
+        "value": "Rola elementów",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Ce</b> - niweluje ujemne sprzężenie zwrotne, pozwala zachować duże wzmocnienie napięciowe"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Cs1, Cs2</b> - kondensatory sprzęgające, eliminują składową stałą, zapobiegają zmianie punktu pracy od rezystancji źródła i wyjścia "
+      },
+      {
+        "type": "Text",
+        "value": "<b>Rc</b> - rezystor kolektora, polaryzuje kolektor, stanowi przetwornik prąd-napięcie, jego wartość wpływa na wzmocnienie."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Re</b> - rezystor emitera, polaryzuje emiter, realizuje ujemne sprzężenie zwrotne dla składowej stałej"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Rb1, Rb2</b> - polaryzują bazę, zadają stały potencjał występujący na bazie tranzystora"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Ucc</b> - źródło napięciowe stałe"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Eg</b> - źródło napięcia"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Rg</b> - rezystancja wewnętrzna napięcia"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Ro</b> - rezystancja obciążenia"
+      },
+      {
+        "type": "Header",
+        "value": "Parametry OE",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          {
+            "type": "ListElement",
+            "value": "odwraca fazę sygnału o 180 stopni (w zakresie małych i średnich częstotliwości)"
+          },
+          {
+            "type": "ListElement",
+            "value": "posiada duże wzmocnienie prądowe Ki (ok. 100)"
+          },
+          {
+            "type": "ListElement",
+            "value": "posiada duże wzmocnienie napięciowe Ku (ok. 60)"
+          },
+          {
+            "type": "ListElement",
+            "value": "posiada średniej wielkości rezystancję wejściową i wyjściową (kilka kilo Ohmów)"
+          }
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "Odwracanie fazy",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "W układzie OE następuje odwrócenie fazy sygnału wyjściowego względem wejściowego. Wzrostowi napięcia wejściowego towarzyszy wzrost prądu bazy i wzrost prądu kolektora. Zwiększa to spadek napięcia na rezystancji i obciążenia i zmniejszenie napięcia na kolektorze. "
+      }
+    ]
+  },
+  {
+    "title": "wyznaczanie pasma przenoszenia",
+    "data": [
+        {
+            "type": "Text",
+            "value": "<b>Pasmo przenoszenia</b> - zakres częstotliwości, w którym tłumienie sygnału jest nie większe niż 3 dB. Pasmem przenoszenia określa się różnice między górną i dolną częstotliwością graniczną."
+        },
+        {
+            "type": "Text",
+            "value": "Poniżej zamieszczam wykresy pasma przenoszenia. Niestety jakość jest jaka jest, ale to przez to, że zdjęcia robione z przyczajki. Pewien patriota ryzykował wywaleniem z labów, by przekazać ten skarb następnym pokoleniom."
+        },
+        {
+            "type": "Image",
+            "value": "https://i.postimg.cc/d1FMsw7h/liniowa.jpg",
+            "props": { "description": "skala liniowa", "orientation": "horizontal" }
+        },
+        {
+            "type": "Image",
+            "value": "https://i.postimg.cc/FKjqn8PN/decybelowa.jpg",
+            "props": { "description": "skala decybelowa", "orientation": "horizontal" }
+        }
+    ]
+  }
+]

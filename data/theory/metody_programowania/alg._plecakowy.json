@@ -1,0 +1,57 @@
+[
+    {
+        "title": "programowanie dynamiczne",
+        "data": [
+            {
+                "type": "Text",
+                "value": "<b>Programowanie dynamiczne</b> - sposób projektowania algorytmów wymyślony przez Richarda Bellmana, stosowany przeważnie do rozwiązywania zagadnień optymalizacyjnych. Opiera się na podziale rozwiązywanego problemu na podproblemy względem kilku parametrów. Konstrukcja programu wykorzystującego zasadę programowania dynamicznego może być sformułowana w trzech etapach: koncepcji inicjacji i progresji. Jednym z zastosowań <a href='https://pdfhost.io/v/sddQgRZ9~_pr_dynamiczne'>Więcej info (pdf)</a><br></br>Jednym z zastosowań programowania dynamicznego jest rozwiązywanie problemu plecakowego. Problem ten brzmi następująco: <i>Jesteś złodziejem, który planuje dokonać włamania do domu pełnego cennych przedmiotów, jednak masz ograniczoną pojemność swojego plecaka. Twoim celem jest maksymalizacja wartości skradzionych przedmiotów, jednocześnie nie przekraczając pojemności plecaka. Nie możesz dzielić przedmiotów na mniejsze części.</i>"
+            }
+        ]
+    },
+    {
+        "title": "rozwiązanie bez nawrotów",
+        "data": [
+            {
+                "type": "Text",
+                "value": "Problem może być rozwiązany poprzez sporządzenie tabelki. Hindus ci wsyzstko wytłumaczy."
+            },
+            {
+                "type": "YouTube",
+                "value": "nLmhmB6NzcM"
+            },
+            {
+                "type": "Text",
+                "value": "<a href='https://www.youtube.com/watch?v=nLmhmB6NzcM'>Link bezpośrednio do YouTube</a>"
+            }
+        ]
+    },
+    {
+        "title": "rozwiązanie z nawrotami",
+        "data": [
+            {
+                "type": "Text",
+                "value": "Rozwiązanie z nawrotami też wymaga zbudowania tabelki, ale pierwsze skrzypce gra drzewko binarne. Przedmioty w tabeli muszą być ułożone w ten sposób, że najwyżej znajduje się ten, którego stosuenk wartości p do wagi w jest największy, a im niżej, tym ten stosunek staje się mniejszy.<br></br>Algorytm składa się z kilku kroków:<br></br><b>1)</b> policz profit p i wagę w zapakowanych przedmiotów.<br></br><b>2)</b> porównaj w z maksymalną wagą jaka może zmieścić się do plecaka W. Jeśli w < W to węzeł jest obiecujący, liczymy dalej. Jeśli w >= W to węzeł nie jest obiecujący, cofamy się na drzewku i zaczynamu kroki algorytmu od nowa.<br></br><b>3)</b> wyznaczamy k koraz i. k to indeks przedmiotu, dla którego przekroczymy nośność plecaka W. Zaś i to poziom drzewa, na którym się aktualnie znajdujemy.<br></br><b>4)</b> oblicz totalweight ze wzoru:"
+            },
+            {
+                "type": "Math",
+                "value": "`totweight = w + sum`"
+            },
+            {
+                "type": "Text",
+                "value": "<b>5)</b> Oblicz bound ze wzoru:"
+            },
+            {
+                "type": "Math",
+                "value": "``"
+            },
+            {
+                "type": "Text",
+                "value": "Jeżeli bound > max_profit to węzeł jest obiecujący i przechodzimy do jego dziecka. Jeśli nie, znaczy że węzeł jest nieobiecujący i trzeba się cofnąć."
+            },
+            {
+                "type": "Text",
+                "value": "Ten algorytm jest w chuj dojebany i dokładniejsze go opisanie + rozpisanie przykładowego zadania zajęłoby mi z tydzień, więc dam linka do pdf-a, gdzie są obliczenia dla pierwszych kilku węzłów i końcowe drzewko. <a href='https://pdfhost.io/v/EX63gGCQB_Przyklad_z_Laboratorium'>Klikaj tu</a>"
+            }
+        ]
+    }
+]

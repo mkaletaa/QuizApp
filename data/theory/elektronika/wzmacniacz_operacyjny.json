@@ -19,7 +19,8 @@
         "type": "Image",
         "value": "https://i.postimg.cc/kgwTCCmX/image.png",
         "props": {
-          "orientation": "landscape"
+          "orientation": "landscape",
+          "description": "v+, v- : złącze dodatnie, ujemne; vs+, vs- : złącze zasialania dodatnie i ujemne; v out : wyjście"
         }
       },
       {

@@ -1,14 +1,5 @@
 [
   {
-    "title": "",
-    "data": [
-      {
-        "type": "Text",
-        "value": "Wiktor, wiem że to czytasz. Podeślij jakieś info o projektowaniu liczników"
-      }
-    ]
-  },
-  {
     "title": "pojęcia",
     "data": [
       {
@@ -21,16 +12,12 @@
     "title": "licznik 7490",
     "data": [
       {
-        "type": "Text",
-        "value": "definicja, symbol, opis wejść/wyjść, sposoby działania, zastosowanie"
-      },
-      {
         "type": "Image",
         "value": "https://i.postimg.cc/m23sKb1v/image.png"
       },
       {
         "type": "Text",
-        "value": "Układ 7490 zawiera 4-bitowy licznik dziesiętny BCD (ang. Decade Binary Counter). Licznik wewnętrznie składa się z dwóch modułów liczących odpowiednio do 2 i do 5. Wejście zegarowe A dotyczy modułu liczącego do 2, wejście zegarowe B dotyczy modułu liczącego do 5. Wynik z modułu 2 pojawia się na wyjściu QA, wynik z modułu 5 pojawia się na pozostałych wyjściach QB, QC i QD. Zliczanie odbywa się przy opadającym zboczu sygnału zegarowego. Dodatkowo licznik posiada dwa wejścia zerujące R0(1) i R0(2) (stan wysoki na obu tych wejściach powoduje wyzerowanie licznika) oraz dwa wejścia ustawiające R9(1) i R9(2) (stan wysoki na obu wejściach powoduje ustawienie stanu 9 na wyjściach licznika: QA = QD = 1, QB = QC = 0)."
+        "value": "Układ 7490 <u>składa się z dwóch niezależnych modułów (liczników) liczących odpowiednio mod 2 i mod 5</u>. Wejście zegarowe A dotyczy modułu liczącego do 2, wejście zegarowe B dotyczy modułu liczącego do 5. Wynik z modułu 2 pojawia się na wyjściu QA, wynik z modułu 5 pojawia się na pozostałych wyjściach QB, QC i QD. Zliczanie odbywa się przy opadającym zboczu sygnału zegarowego. Dodatkowo licznik posiada dwa wejścia zerujące R0(1) i R0(2) (stan wysoki na obu tych wejściach powoduje wyzerowanie licznika) oraz dwa wejścia ustawiające R9(1) i R9(2) (stan wysoki na obu wejściach powoduje ustawienie stanu 9 na wyjściach licznika: QA = QD = 1, QB = QC = 0)."
       },
       {
         "type": "Text",
@@ -60,7 +47,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "comming soon"
+        "value": ":("
       }
     ]
   }
