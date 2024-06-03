@@ -1,7 +1,6 @@
 [
   {
     "id": "elektronika|wzmacniacz_operacyjny|4",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -25,7 +24,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|2",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -49,7 +47,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|5",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -73,7 +70,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|1",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -97,7 +93,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|3",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -121,7 +116,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|9",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -171,7 +165,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|7",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -221,7 +214,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|6",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -271,7 +263,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|8",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -321,7 +312,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|10",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -372,7 +362,6 @@
 
   {
     "id": "elektronika|wzmacniacz_operacyjny|12",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -393,7 +382,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|13",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -415,7 +403,6 @@
 
   {
     "id": "elektronika|wzmacniacz_operacyjny|15",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -436,7 +423,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|14",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -457,7 +443,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|11",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -479,7 +464,6 @@
 
   {
     "id": "elektronika|wzmacniacz_operacyjny|18",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -532,7 +516,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|20",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -565,7 +548,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|16",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -618,7 +600,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|17",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -678,7 +659,6 @@
 
   {
     "id": "elektronika|wzmacniacz_operacyjny|19",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -754,537 +734,9 @@
       }
     ]
   },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|22",
-    "question": [
-      {
-        "type": "Text",
-        "value": "Ile kondensatorów znajduje się we wtórniku napięciowym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "0", "correct": true },
-      { "id": 2, "val": "1", "correct": false },
-      { "id": 3, "val": "2", "correct": false },
-      { "id": 4, "val": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/7YF2K1vy/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|23",
-    "question": [
-      {
-        "type": "Text",
-        "value": "Ile kondensatorów znajduje się we wzmacniaczu odwracającym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "0", "correct": true },
-      { "id": 2, "val": "1", "correct": false },
-      { "id": 3, "val": "2", "correct": false },
-      { "id": 4, "val": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|24",
-    "question": [
-      {
-        "type": "Text",
-        "value": "Ile kondensatorów znajduje się we wzmacniaczu nieodwracającym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "0", "correct": true },
-      { "id": 2, "val": "1", "correct": false },
-      { "id": 3, "val": "2", "correct": false },
-      { "id": 4, "val": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|25",
-    "question": [
-      {
-        "type": "Text",
-        "value": "Ile kondensatorów znajduje się we wzmacniaczu całkującym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "0", "correct": false },
-      { "id": 2, "val": "1", "correct": true },
-      { "id": 3, "val": "2", "correct": false },
-      { "id": 4, "val": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|26",
-    "question": [
-      {
-        "type": "Text",
-        "value": "Ile kondensatorów znajduje się we wzmacniaczu różniczkującym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "0", "correct": false },
-      { "id": 2, "val": "1", "correct": true },
-      { "id": 3, "val": "2", "correct": false },
-      { "id": 4, "val": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|27",
-    "question": [
-      {
-        "type": "Text",
-        "value": "Ile kondensatorów znajduje się we wzmacniaczu sumującym?"
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "0", "correct": true },
-      { "id": 2, "val": "1", "correct": false },
-      { "id": 3, "val": "2", "correct": false },
-      { "id": 4, "val": "3", "correct": false }
-    ],
-    "explanation": [
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ]
-  },
 
-
-
-  
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|28",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Do którego z tych schematów neleży ten wzór?"
-      },
-      {
-        "type": "Math",
-        "value": "`U_{wy}=((R_1+R_2)/R_1)*U_{we}`"
-      },
-      {
-        "type": "Text",
-        "value": "A)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "B)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "C)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "D)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "E)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": false },
-      { "id": 2, "val": "B", "correct": false },
-      { "id": 3, "val": "C", "correct": true },
-      { "id": 4, "val": "D", "correct": false },
-      { "id": 5, "val": "E", "correct": false }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|29",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Do którego z tych schematów neleży ten wzór?"
-      },
-      {
-        "type": "Math",
-        "value": "`U_{wy}=-1/(R_1*C)*int_0^T U_{we} dt`"
-      },
-      {
-        "type": "Text",
-        "value": "A)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "B)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "C)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "D)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "E)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": false },
-      { "id": 2, "val": "B", "correct": false },
-      { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": false },
-      { "id": 5, "val": "E", "correct": true }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|30",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Do którego z tych schematów neleży ten wzór?"
-      },
-      {
-        "type": "Math",
-        "value": "`U_{wy}=-R_2*C*(dU_{we})/dt`"
-      },
-      {
-        "type": "Text",
-        "value": "A)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "B)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "C)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "D)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "E)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": true },
-      { "id": 2, "val": "B", "correct": false },
-      { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": false },
-      { "id": 5, "val": "E", "correct": false }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|31",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Do którego z tych schematów neleży ten wzór?"
-      },
-      {
-        "type": "Math",
-        "value": "`U_{wy}=-R(U_{we1}/R_1 + U_{we2}/R_2 + ... + U_{wen}/R_n)`"
-      },
-      {
-        "type": "Text",
-        "value": "A)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "B)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "C)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "D)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "E)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": false },
-      { "id": 2, "val": "B", "correct": false },
-      { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": true },
-      { "id": 5, "val": "E", "correct": false }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|32",
-    "multiChoice": false,
-    "question": [
-      {
-        "type": "Text",
-        "value": "Do którego z tych schematów neleży ten wzór?"
-      },
-      {
-        "type": "Math",
-        "value": "`U_{wy}=-R_2/R_1*U_{we}`"
-      },
-      {
-        "type": "Text",
-        "value": "A)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/tTF6QYFM/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "B)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/t49x0qgr/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "C)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/wv5zdpMV/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "D)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/Y94341TD/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "E)"
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/CK1JgHK6/image.png",
-        "props": {
-          "orientation": "horizontal"
-        }
-      }
-    ],
-    "options": [
-      { "id": 1, "val": "A", "correct": false },
-      { "id": 2, "val": "B", "correct": true },
-      { "id": 3, "val": "C", "correct": false },
-      { "id": 4, "val": "D", "correct": false },
-      { "id": 5, "val": "E", "correct": false }
-    ]
-  },
   {
     "id": "elektronika|wzmacniacz_operacyjny|33",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -1356,7 +808,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|34",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -1428,7 +879,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|35",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -1500,7 +950,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|36",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -1572,7 +1021,6 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|37",
-    "multiChoice": false,
     "question": [
       {
         "type": "Text",
@@ -1643,167 +1091,40 @@
     ]
   },
   {
-    "id": "elektronika|wzmacniacz_operacyjny|38",
-    "multiChoice": true,
-    "question": "Wybierz wszystkie cechy idealnego wzmacniacza",
-    "options": [
-      {
-        "id": 1,
-        "val": "Nieskończenie duża impedancja wejściowa",
-        "correct": true
-      },
-      {
-        "id": 2,
-        "val": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
-        "correct": false
-      },
-      {
-        "id": 3,
-        "val": "Zerowe wejściowe napięcie niezrównoważenia",
-        "correct": true
-      },
-      {
-        "id": 4,
-        "val": "Skończone wzmocnienie napięciowe sygnału różnicowego",
-        "correct": false
-      },
-      {
-        "id": 5,
-        "val": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
-        "correct": true
-      },
-      {
-        "id": 6,
-        "val": "Skończona impedancja wejściowa",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|39",
-    "multiChoice": true,
-    "question": "Wybierz wszystkie cechy idealnego wzmacniacza",
-    "options": [
-      {
-        "id": 1,
-        "val": "Impedancja wyjściowa równa zero",
-        "correct": true
-      },
-      {
-        "id": 2,
-        "val": "Impedancja wyjściowa jest niewielka",
-        "correct": false
-      },
-      {
-        "id": 3,
-        "val": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
-        "correct": true
-      },
-      {
-        "id": 4,
-        "val": "Nieskończenie duży zakres dynamiczny sygnału",
-        "correct": true
-      },
-      {
-        "id": 5,
-        "val": "Pasmo przenoszenia sygnałów jest ograniczone",
-        "correct": false
-      },
-      {
-        "id": 6,
-        "val": "Wejścia wzmacniacza nie są symetryczne",
-        "correct": false
-      }
-    ]
-  },
-  {
     "id": "elektronika|wzmacniacz_operacyjny|40",
     "multiChoice": true,
-    "question": "Wybierz wszystkie cechy rzeczywistego wzmacniacza",
+    "question": "Wybierz wszystkie cechy rzeczywistego WO",
     "options": [
       {
-        "id": 1,
-        "val": "Nieskończenie duża impedancja wejściowa",
+        "id": "1",
+        "val": "Impedancja wyjściowa z reguły kilka ohmów",
         "correct": false
       },
       {
-        "id": 2,
-        "val": "Zerowe wejściowe napięcie niezrównoważenia",
+        "id": "2",
+        "val": "Impedancja wyjściowa z reguły kilkadziesiąt ohmów",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Impedancja wyjściowa z reguły kilkaset ohmów",
         "correct": false
       },
-      {
-        "id": 3,
-        "val": "Skończone wzmocnienie napięciowe sygnału różnicowego",
-        "correct": true
-      },
-      {
-        "id": 4,
-        "val": "Nieskońoczenie duże różnicowe wzmocnienie napięciowe",
-        "correct": false
-      },
-      {
-        "id": 5,
-        "val": "Wzmocnienie wejściowego napięcia niezrównoważenia nie jest równe zeru",
-        "correct": true
-      },
-      {
-        "id": 6,
-        "val": "Skończona impedancja wejściowa",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|41",
-    "multiChoice": true,
-    "question": "Wybierz wszystkie cechy rzeczywistego wzmacniacza",
-    "options": [
-      {
-        "id": 1,
-        "val": "Impedancja wyjściowa równa zero",
-        "correct": false
-      },
-      {
-        "id": 2,
-        "val": "Nieskończenie szerokie pasmo przenoszonych częstotliwości",
-        "correct": false
-      },
-      {
-        "id": 3,
-        "val": "Nieskończenie duży zakres dynamiczny sygnału",
-        "correct": false
-      },
-      {
-        "id": 4,
-        "val": "Impedancja wyjściowa jest niewielka",
-        "correct": true
-      },
-      {
-        "id": 5,
-        "val": "Pasmo przenoszenia sygnałów jest ograniczone",
-        "correct": true
-      },
-      {
-        "id": 6,
-        "val": "Wejścia wzmacniacza nie są symetryczne",
-        "correct": true
-      }
-    ]
-  },
-  {
-    "id": "elektronika|wzmacniacz_operacyjny|42",
-    "question": "Zerowe wejściowe napięcie niezrównoważenia to cecha:",
-    "options": [
-      {
-        "id": 1,
-        "val": "Idealnego WO",
-        "correct": true
-      },
-      {
-        "id": 2,
-        "val": "Rzeczywistego WO",
-        "correct": false
-      }
+      { "id": "4", "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt kilo herców", "correct": false },
+      { "id": "5", "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt mega herców", "correct": true },
+      { "id": "6", "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt giga herców", "correct": false },
+      { "id": "7", "val": "Impedancja wejściowa 10^4 - 10^13 ohmów", "correct": false },
+      { "id": "8", "val": "Impedancja wejściowa 10^7 - 10^13 ohmów", "correct": true },
+
+      { "id": "9", "val": "Wzmocnienie napięciowe 10^(-14) - 10^(-4) V/V", "correct": false },
+      { "id": "10", "val": "Wzmocnienie napięciowe 10^4 - 10^6 V/V", "correct": true },
+
+      { "id": "11", "val": "Wzmocnienie napięciowe 80 - 100 dB", "correct": false },
+      { "id": "12", "val": "Wzmocnienie napięciowe 100 - 120 dB", "correct": false },
+      { "id": "13", "val": "Wzmocnienie napięciowe 80 - 120 dB", "correct": true },
+
+      { "id": "14", "val": "Prąd wejściowy z zakresu 10^(-14) - 10^(-4) A", "correct": true },
+      { "id": "15", "val": "Prąd wejściowy z zakresu 10^4 - 10^6 A", "correct": false }
     ]
   }
 ]
