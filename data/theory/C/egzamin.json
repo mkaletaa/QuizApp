@@ -1,11 +1,81 @@
 [
-    {
-        "title": "",
-        "data": [
-            {
-                "type": "Text",
-                "value": "Znajdują się tu pytania z egzaminu. Co roku są te same (albo prawie te same). Wszystkie wzięte z książki Grębosza <a href='https://ifj.edu.pl/private/grebosz/opus_php/wybor_rozdzialu.php'>LINK</a> <br></br> Tych pytań jest tam łącznie grubo ponad tysiąc, ale na egzaminie pojawia się sto kilkadziesiąt z nich. Poniżej przedstawiam te pytania, niestety ich lista jest niepełna, dlatego proszę o kontakt, żebym mógł uzupełnić kolekcję o nowe eksponaty, a jeszcze jak znajdziesz to pytanie w linku powyżej to już w ogóle super. Odpowiedzi do nich znajdują się w <a href='https://pdfhost.io/v/8AReVX9Pg_C'>tym pe de efie</a>. Są w nim błędy i to co mogłem to poprawiłem, ale coś mogło mi umknąć, więc w razie czego, kontakt.<br></br>Ale przechodząc do meritum: obczaj sobie te pytanka. Pod każdym z nich masz poprawne odpowiedzi."
-            }
-        ]
-    }
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Znajdują się tu pytania z egzaminu. Co roku są te same (albo prawie te same). Wszystkie wzięte z książki Grębosza <a href='https://ifj.edu.pl/private/grebosz/opus_php/wybor_rozdzialu.php'>LINK</a> <br></br> Tych pytań jest tam łącznie grubo ponad tysiąc, ale na egzaminie pojawia się sto kilkadziesiąt z nich. Poniżej przedstawiam te pytania, niestety ich lista jest niepełna, dlatego proszę o kontakt, żebym mógł uzupełnić kolekcję o nowe eksponaty, a jeszcze jak znajdziesz to pytanie w linku powyżej to już w ogóle super. Odpowiedzi do nich znajdują się w <a href='https://pdfhost.io/v/8AReVX9Pg_C'>tym pe de efie</a>. Są w nim błędy i to co mogłem to poprawiłem, ale coś mogło mi umknąć, więc w razie czego, kontakt.<br></br>Przy pytaniach wielokrotnego wyboru jak nie wiesz ile jest poprawnych odpowiedzi, to z tego co pamiętam wystarczy spojrzeć za ile punktów jest to pytanie i odpowiedzi będzie tyle samo. Ale przechodząc do meritum: obczaj sobie te pytanka. Pod każdym z nich masz poprawne odpowiedzi."
+      },
+      {
+        "type": "Text",
+        "value": "1. Jaka jest różnica między inicjalizacją a przypisanie? <br></br> Inicjalizacja to nadanie wartości w momencie tworzenia obiektu, przypisanie w każdym innym momencie."
+      },
+      {
+        "type": "Text",
+        "value": "2. Na czym polega rekurencja pośrednia? <br></br>Na wywołaniu funkcji pierwszej przez funkcję drugą, a funkcji drugiej przez funkcję pierwszą."
+      },
+      {
+        "type": "Text",
+        "value": "3. Zapis float kot [3][2]{} to:<br></br>Definicja i jedenoczesna deklaracja, którą czytamy: kot jest tablicą 3 elementów, z których każdy jest 2 elementową tablicą liczb typu float"
+      },
+      {
+        "type": "Text",
+        "value": "4. Ile razy wykona się instrukcja pętli?"
+      },
+      {
+        "type": "Code",
+        "value": "",
+        "props": { "height": 200, "language": "cpp" }
+      },
+      {
+        "type": "Text",
+        "value": "5"
+      },
+      {
+        "type": "Text",
+        "value": "5. zapis int(*wsk_fun)() definiuje:<br></br>wskaźnik do funkcji wywoływanej bez argumentów, a zwracającej wartość typu int."
+      },
+      {
+        "type": "Text",
+        "value": "6. Kiedy deklarujemy zmienną w języku c++?<br></br>W dowolnym miejscu, przynajmniej jedną linijkę przed jej pierwszym użyciem"
+      },
+      {
+        "type": "Text",
+        "value": "7. Nazwa funkcji jest przeładowana, gdy istnieją dwie lub więcej funkcji o tej samej nazwie...<br></br>zakres nazw tych funkcji nie ma znaczenia <br></br>funkcje te mają różny typ rezultatów <br></br> funkcje te mają różną listę argumentów."
+      },
+      {
+        "type": "Text",
+        "value": "8. Co zwraca poniższa funkcja:<br></br>"
+      },
+      {
+        "type": "Code",
+        "value": "",
+        "props": { "height": 200, "language": "" }
+      },
+      {
+        "type": "Text",
+        "value": "a*b"
+      },
+      {
+        "type": "Text",
+        "value": "9. W jakim obszarze pamięci tworzony jest statyczny obiekt funkcji?<br></br>zależy od kompilatora"
+      },
+      {
+        "type": "Text",
+        "value": "10. Dlaczego jeśli przesuwamy się po dowolnej tablicy za pomocą wskaźnika np. zwiększając go o 1 to taki wskaźnik przesuwa się po tablicy poprawnie?<br></br>obiekty przechpwywane w tablicy zajmują kolejny obszar pamięci i dodanie wartości 1 do adresu powoduje przesunięcie o jeden bit do przodu."
+      },
+      {
+        "type": "Text",
+        "value": "11. Załóżmy, że mamy dwa wskaźniki pokazujące na tą samą tablicę. Które operacje mają sens?<br></br>odejmowanie dwóch wskaźników <br></br>dodanie dwóch wskaźników."
+      },
+      {
+        "type": "Text",
+        "value": "12. Mamy deklarację funkcji int f(return 4.2). Jaką wartość zwróci?<br></br>4"
+      },
+      {
+        "type": "Text",
+        "value": ""
+      }
+    ]
+  }
 ]
