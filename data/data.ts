@@ -3,21 +3,25 @@ export const chapters = [
   {
     name: 'C',
     image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
-    des: '.',
   },
   {
     name: 'elektronika',
     image: 'https://i.postimg.cc/y8yYNN95/zaba.jpg',
-    des: 'Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Te źródła nie są moje, więc jak coś jest źle to pretensje nie do mnie.',
+    des: 'Jeśli myślisz, że będzie źle, to będzie gorzej. Ten przedmiot to jakiś ewenement, bo kolokwia są fajniejsze niż ćwiczenia. Nie dość, że wychodzisz wcześniej, to jeszcze nie musisz słuchać darcia mordy. Ale nie bój żaby, dzięki mnie zdasz śpiewająco na 3. <br></br> Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Nie są moje. Zdarzają się w nich błędy, więc jak coś to lepiej uczyć się z aplikacji niż z nich. No i zwracaj największą uwagę na schematy.',
   },
   {
     name: 'elektrotechnika',
     image: 'https://i.postimg.cc/Xv0Xm9DV/chrab-szcz.png',
-    des: 'tak, na okładce to Chrabąszcz',
+    des: 'Jeśli chodzi o laboratoria, to z Prusakiem zdasz z palcem wiadomo gdzie, a z Chrabąszczem choćbyś przepisał słowo w słowo jego notatki to i tak nie dostaniesz 5 (nie żartuję). Gość potrafi uwalić cię za jedno źle użyte słowo (tutaj też nie żartuję). Na szczęście we wszystkich grupach i na wszystkich termianch pytania były te same. <br></br>Jeśli chodzi o ćwiczenia, to na początku pyta kilka osób, ale bez spiny, to nie żabulec. Kolokwia z ćwiczeń już nie sprawdza tak surowo. <br></br>Tak, na okładce to Chrabąszcz',
   },
+  // {
+  //   name: 'metody_programowania',
+  //   image: 'https://i.postimg.cc/cJjqYrV8/image.png',
+  // },
   {
-    name: 'metody_programowania',
+    name: 'VHDL',
     image: 'https://i.postimg.cc/cJjqYrV8/image.png',
+    des: 'Nie będzie tu dużo, bo przedmiot łatwy do zdania, ale lepiej zaliczyć w pierwszym terminie niż drugim. Król złoty wręcz zachęca do brania kodu z neta. Ciekawostka: zdałem ten przedmoit bez napisania ani jednej linijki kodu samodzielnie. Zawsze była kopiuj-wklejka albo bezmyślne przpisywanie. Radziłbym tylko uważać, bo Aldec jest trojanem <a href="https://i.postimg.cc/qBQgMGrJ/image.png">XDD</a>',
   },
 ]
 //also id of questions should go like "cat_1|top_1|1"
@@ -77,26 +81,32 @@ export const topics = {
       image: 'https://i.postimg.cc/9Q8N13XP/rlc.png',
     },
   ],
-  metody_programowania: [
+  // metody_programowania: [
+  //   {
+  //     name: 'złożoność_obliczeniowa',
+  //     image: '',
+  //   },
+  //   {
+  //     name: 'rekurencja',
+  //     image: '',
+  //   },
+  //   {
+  //     name: 'liczby_losowe',
+  //     image: '',
+  //   },
+  //   {
+  //     name: 'alg._plecakowy',
+  //     image: '',
+  //   },
+  //   {
+  //     name: 'alg._huffmanna',
+  //     image: '',
+  //   },
+  // ],
+  VHDL:[
     {
-      name: 'złożoność_obliczeniowa',
-      image: '',
-    },
-    {
-      name: 'rekurencja',
-      image: '',
-    },
-    {
-      name: 'liczby_losowe',
-      image: '',
-    },
-    {
-      name: 'alg._plecakowy',
-      image: '',
-    },
-    {
-      name: 'alg._huffmanna',
-      image: '',
-    },
-  ],
+      name: 'kolos',
+      image: ''
+    }
+  ]
 }
