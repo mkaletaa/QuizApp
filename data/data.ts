@@ -1,6 +1,11 @@
 //if a name consists of more than one word, separate them with an underscore
 export const chapters = [
   {
+    name: 'C',
+    image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
+    des: '.',
+  },
+  {
     name: 'elektronika',
     image: 'https://i.postimg.cc/y8yYNN95/zaba.jpg',
     des: 'Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Te źródła nie są moje, więc jak coś jest źle to pretensje nie do mnie.',
@@ -18,6 +23,12 @@ export const chapters = [
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
 export const topics = {
+  C: [
+    {
+      name: 'egzamin',
+      image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
+    },
+  ],
   elektronika: [
     {
       name: 'wzmacniacz_tranzystorowy',
