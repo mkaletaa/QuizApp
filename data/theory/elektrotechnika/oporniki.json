@@ -42,13 +42,9 @@
     "title": "Zadanie z kolokwium",
     "data": [
       {
-        "type": "Text",
-        "value": "Przeanalizujmy następujące zadanie z kolokwium z 2024 r.:"
-      },
-      {
         "type": "Image",
         "value": "https://i.postimg.cc/QtfnCmpJ/oporniki.png",
-        "props": { "orientation": "horizontal" }
+        "props": { "description": "2024", "orientation": "horizontal" }
       },
       {
         "type": "Text",

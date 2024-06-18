@@ -89,7 +89,7 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/gJNVQ5Bm/image.png",
-        "props": { "orientation": "horizontal" }
+        "props": { "description": "2024", "orientation": "horizontal" }
       },
       {
         "type": "Text",
@@ -151,6 +151,7 @@
         "type": "Math",
         "value": "`U_{R1} = I*R_1=2*15=30 V`"
       },
+
       {
         "type": "Text",
         "value": "Traktując cewkę, kondensator i opornik R2 jako jeden rezystor oraz wiedząc, że zwrot napięcia jest przeciwny do zwortu prądu można naszkicować taki rysunek pomocniczy:"
@@ -161,11 +162,19 @@
       },
       {
         "type": "Text",
-        "value": "Wiemy z 2 prawa Kirchhoffa, że w oczku suma napięć musi się równać 0. "
+        "value": "Teraz przydałoby się wyznaczyć U<sub>AB</sub>. Można to zrobić na dwa sposoby. Pierwszy polega na wykorzystaniu prawa Ohma."
       },
       {
         "type": "Math",
-        "value": "`E=U_{AB}+U_{R1}=>U_{AB}=E-U_{R1}`"
+        "value": "`U_{AB}=Z_{RLC}*I = 10*2=20 V`"
+      },
+      {
+        "type": "Text",
+        "value": "Drugi sposób wykorzystuje drugie prawo Kirchhoffa, które mówi, że w oczku algebraiczna suma napięć na elementach pasywnych (rezystorach) i sił elektromotorycznych (sztrzałka w kółku) równa jest 0. "
+      },
+      {
+        "type": "Math",
+        "value": "`U_{AB}+U_{R1}-E=0=>U_{AB}=E-U_{R1}`"
       },
       {
         "type": "Math",

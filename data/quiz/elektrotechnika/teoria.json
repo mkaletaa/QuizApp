@@ -20,11 +20,11 @@
         "val": "dostarcza prąd niezależny od napięcia na zaciskach źródła",
         "correct": true
       },
-      { "id": "6", "val": "rezystancja wewnętrzna wynosi 0", "correct": true },
+      { "id": "6", "val": "rezystancja wewnętrzna wynosi 0", "correct": false },
       {
         "id": "7",
         "val": "rezystancja wewnętrzna jest nieskończona",
-        "correct": false
+        "correct": true
       }
     ]
   },

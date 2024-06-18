@@ -13,7 +13,7 @@
       },
       {
         "type": "Text",
-        "value": "Idealne źródło prądu to źródło prądu, które dostarcza do obwodu stały prąd, niezależny od napięcia na zaciskach źródła, a rezystancja wewnętrzna wynosi 0 (zero)."
+        "value": "Idealne źródło prądu to źródło prądu, które dostarcza do obwodu stały prąd, niezależny od napięcia na zaciskach źródła, a rezystancja wewnętrzna wynosi nieskończoność."
       },
       {
         "type": "Header",
@@ -53,7 +53,7 @@
       },
       {
         "type": "Text",
-        "value": "2. prawo: Algebraiczna suma sił elektromotorycznych i przyrostów napięć w dowolnym obwodzie zamkniętym jest równa zeru."
+        "value": "2. prawo: algebraiczna suma sił elektromotorycznych i przyrostów napięć w dowolnym obwodzie zamkniętym jest równa zeru."
       },
       {
         "type": "Math",
@@ -75,16 +75,16 @@
       },
       {
         "type": "Text",
-        "value": "punkt w obwodzie, w którym 3 lub więcej gałęzi obwodu spotyka się w jednym punkcie"
+        "value": "zacisk będący końcówką gałęzi, do którego można dołączyć następną gałąż lub kilka gałęzi"
       },
       {
         "type": "Header",
-        "value": "Zdefiniuj gałaź",
+        "value": "Zdefiniuj gałąź",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "połączenie między węzłami"
+        "value": "jeden lub więcej elementów połączonych ze sobą w określony sposób (na zewnątrz wyprowadzone są tylko 2 końcówki)"
       },
       {
         "type": "Header",

@@ -32,7 +32,7 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/qR7qMXTx/image.png",
-        "props": { "orientation": "horizontal" }
+        "props": { "description":"2024", "orientation": "horizontal" }
       },
       {
         "type": "Text",
