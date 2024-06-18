@@ -5,9 +5,13 @@ export const chapters = [
     image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
   },
   {
+    name: 'AiA',
+    image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
+  },
+  {
     name: 'elektronika',
     image: 'https://i.postimg.cc/y8yYNN95/zaba.jpg',
-    des: 'Jeśli myślisz, że będzie źle, to będzie gorzej. Ten przedmiot to jakiś ewenement, bo kolokwia są fajniejsze niż ćwiczenia. Nie dość, że wychodzisz wcześniej, to jeszcze nie musisz słuchać darcia mordy. Ale nie bój żaby, dzięki mnie zdasz śpiewająco na 3. <br></br> Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Nie są moje. Zdarzają się w nich błędy, więc jak coś to lepiej uczyć się z aplikacji niż z nich. No i zwracaj największą uwagę na schematy.',
+    des: 'Jeśli myślisz, że będzie źle, mylisz się. Będzie gorzej. Ten przedmiot to jakiś ewenement, bo kolokwia są fajniejsze niż ćwiczenia. Nie dość, że wychodzisz wcześniej, to jeszcze nie musisz słuchać darcia mordy. Ale nie bój żaby, dzięki mnie zdasz śpiewająco na 3. <br></br> Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Nie są moje. Zdarzają się w nich błędy, więc jak coś to lepiej uczyć się z aplikacji niż z nich. No i zwracaj największą uwagę na schematy.',
   },
   {
     name: 'elektrotechnika',
@@ -30,6 +34,12 @@ export const topics = {
   C: [
     {
       name: 'egzamin',
+      image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
+    },
+  ],
+  AiA: [
+    {
+      name: 'egzamin_teoria',
       image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
     },
   ],

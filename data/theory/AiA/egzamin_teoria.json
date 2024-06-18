@@ -1,0 +1,35 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Co roku pytania są podobne."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/HxX00cPT/AiA-1.png",
+        "props": { "orientation": "portrait" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/8cbh98S3/AiA-2.png",
+        "props": { "orientation": "portrait" }
+      },
+      {
+        "type": "Text",
+        "value": "Jest jeszcze coś takiego: (nie moje)"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/BnjKcPXR/image.png",
+        "props": { "orientation": "portrait" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/P5086fDJ/image.png",
+        "props": { "orientation": "portrait" }
+      }
+    ]
+  }
+]
