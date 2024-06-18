@@ -45,6 +45,10 @@ export const topics = {
     {
       name: 'pochodne',
       image: 'https://i.postimg.cc/zvkLp.png'
+    },
+    {
+      name: 'całki',
+      image: 'https://i.postimg.cc/zvkLp.png'
     }
   ],
   elektronika: [

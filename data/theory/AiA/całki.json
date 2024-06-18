@@ -1,0 +1,59 @@
+[
+    {
+        "title": "",
+        "data": [
+            {
+                "type": "Math",
+                "value": "`int dx = x +c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int a dx = ax +c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int x^n dx = 1/(n+1) x^(n+1) + c, n!=-1`"
+            },
+            {
+                "type": "Math",
+                "value": "`int x^(-1) dx = int 1/x dx = ln|x| + c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int sinx dx = -cosx + c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int cosx dx = sinx + c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int tgx dx = -ln|cosx| + c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int ctgx dx = ln|sinx| + c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int a^x dx = a^x/lna + c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int e^x dx = e^x + c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int log_ax dx = x*log_ax - x/lna +c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int lnx dx = x*lnx -x +c`"
+            },
+            {
+                "type": "Math",
+                "value": "`int(f'(x))/f(x) dx = ln|f(x)| + c`"
+            }
+        ]
+    }
+]
