@@ -42,6 +42,10 @@ export const topics = {
       name: 'egzamin_teoria',
       image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
     },
+    {
+      name: 'pochodne',
+      image: 'https://i.postimg.cc/zvkLp.png'
+    }
   ],
   elektronika: [
     {
