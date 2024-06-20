@@ -1,0 +1,21 @@
+[
+    {
+        "id": "AiA|pochodne|1",
+        "multiChoice": false,
+        "question": [
+            {
+                "type": "Text",
+                "value": ""
+            }
+        ],
+        "options": [
+            { "id": "", "val": "", "correct": false }
+        ],
+        "explanation": [
+            {
+                "type": "Text",
+                "value": ""
+            }
+        ]
+    }
+]

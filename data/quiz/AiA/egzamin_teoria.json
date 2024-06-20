@@ -1,0 +1,89 @@
+[
+    {
+        "id": "AiA|egzamin_teoria|1",
+        "question": "Kryterium bezwzględnej zbieżności szeregów wykorzystujący ilorazy wyrazów ciągu podał",
+        "options": [
+            { "id": "1", "val": "Leibniz", "correct": false },
+            { "id": "2", "val": "d'Alembert", "correct": true },
+            { "id": "3", "val": "Cauchy", "correct": false }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|2",
+        "question": "Kryterium bezwzględnej zbieżności szeregów wykorzystujący pierwiastek n-tego stopnia stworzył matematyk o nazwisku:",
+        "options": [
+            { "id": "1", "val": "Leibniz", "correct": false },
+            { "id": "2", "val": "d'Alembert", "correct": false },
+            { "id": "3", "val": "Cauchy", "correct": true }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|3",
+        "question": "Kryterium zbieżności szeregów znakozmiennych stworzył matematyk o nazwisku:",
+        "options": [
+            { "id": "1", "val": "Leibniz", "correct": true },
+            { "id": "2", "val": "d'Alembert", "correct": false },
+            { "id": "3", "val": "Cauchy", "correct": false }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|4",
+        "question": "Jeśli wyznacznik macierzy rozszerzonej o kolumnę wyrazów wolnych jest niezerowy, to układ równań ma:",
+        "options": [
+            { "id": "1", "val": "zero rozwiązań", "correct": true },
+            { "id": "2", "val": "jedno rozwiązanie", "correct": false },
+            { "id": "3", "val": "dwa rozwiązania", "correct": false },
+            { "id": "4", "val": "trzy rozwiązania", "correct": false },
+            { "id": "5", "val": "nieiskończenie wiele rozwiązań", "correct": false }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|5",
+        "question": "Równanie różniczkowe y' + y = x + 2y jest równaniem... (wybrać najlepszą odpowiedź)",
+        "options": [
+            { "id": "1", "val": "Bernoulliego", "correct": false },
+            { "id": "2", "val": "liniowym niejednorodnym", "correct": true },
+            { "id": "3", "val": "liniowym jednorodnym", "correct": false },
+            { "id": "4", "val": "zupełnym", "correct": false },
+            { "id": "5", "val": "drugiego rzędu", "correct": false }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|6",
+        "question": "Szereg harmoniczny jest...(wybrać najdokładniejszą odpowiedź)",
+        "options": [
+            { "id": "1", "val": "zbieżny", "correct": false },
+            { "id": "2", "val": "zbieżny warunkowo", "correct": false },
+            { "id": "3", "val": "zbieżny bezwzględnie", "correct": false },
+            { "id": "4", "val": "rozbieżny", "correct": true },
+            { "id": "5", "val": "rozbieżny do plus nieskończoności", "correct": false }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|7",
+        "question": "Funkcja f(x) = |x| jest... (wybrać najsilniejszą prawdziwą własność)",
+        "options": [
+            { "id": "1", "val": "ciągła", "correct": true },
+            { "id": "2", "val": "różniczkowalna", "correct": false },
+            { "id": "3", "val": "zbieżny klasy C1", "correct": false },
+            { "id": "4", "val": "zbieżny klasy C2", "correct": false },
+            { "id": "5", "val": "zbieżny klasy C nieskończoność", "correct": false }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|8",
+        "question": "Struktura złożona ze zbioru liczb naturalnych i działania dodawania to...",
+        "options": [
+            { "id": "1", "val": "grupa abelowa", "correct": false },
+            { "id": "2", "val": "monoid przemienny", "correct": true }
+        ]
+    },
+    {
+        "id": "AiA|egzamin_teoria|9",
+        "question": "Struktura złożona ze zbioru liczb wymiernych i działania dodawania to...",
+        "options": [
+            { "id": "1", "val": "grupa abelowa", "correct": true },
+            { "id": "2", "val": "monoid przemienny", "correct": false }
+        ]
+    }
+]

@@ -43,6 +43,10 @@ export const topics = {
       image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
     },
     {
+      name: 'granice',
+      image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
+    },
+    {
       name: 'pochodne',
       image: 'https://i.postimg.cc/zvkLp.png',
     },

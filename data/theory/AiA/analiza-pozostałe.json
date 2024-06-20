@@ -69,6 +69,10 @@
       {
         "type": "Math",
         "value": "`b = lim_{x->+-oo}(f(x)-ax)`"
+      },
+      {
+        "type": "Text",
+        "value": "a i b muszą być liczbami, a nie nieskończonością"
       }
     ]
   }
