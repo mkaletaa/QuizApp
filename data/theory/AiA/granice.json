@@ -1,8 +1,70 @@
 [
-    {
-        "title": "",
-        "data": [
-            
-        ]
-    }
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Header",
+        "value": "symbole nieoznaczone:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "0/0, oo/oo, 0*oo, oo-oo, 0^0, oo^0, 1^infty`"
+      },
+      {
+        "type": "Header",
+        "value": "ciekawe granice:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{x->0}sinx/x=1`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{x->0}sin(ax)/x=a`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{x->0}arcsinx/x=1`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{x->0}tgx/x=1`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{n->oo}(1+1/n)^n=e`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{n->oo}(1+n)^(1/n)=e`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{n->oo}root(n)(n) = 1`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{n->oo}root(n)(a) = 1, a>0`"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{n->oo}lnx/x = 0`"
+      },
+      {
+        "type": "Text",
+        "value": "Zadanie z liczbą e pojawiło się na kolokwium i na egzaminie."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/zDRJZ6fb/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Oto jak je rozwiązać:"
+      }
+    ]
+  }
 ]
