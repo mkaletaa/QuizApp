@@ -1,0 +1,160 @@
+[
+  {
+    "id": "elektrotechnika|egzamin|1",
+    "question": "Idealne źródło prądowe charakteryzuje się własnością:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Stała wartość wydawanego prądu, niezależnie od obciążenia",
+        "correct": true
+      },
+      { "id": "2", "val": "Bardzo długi czas pracy", "correct": false },
+      {
+        "id": "3",
+        "val": "Stała wartość napięcia na zaciskach źródła, niezależnie od obciążenia",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|2",
+    "question": "Wybierz poprawnie sformułowane II prawo Kirchhoffa:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Suma wartości sił elektromotorycznych występująych w danym oczku obwodu elektrycznego jest równa sumie wartości chwilowych napięć na elementach pasywnych tego oczka",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "Suma wartości chwilowych sił elektromotorycznych występujących w danym oczku obwodu elektrycznego jest równa sumie wartości chwilowych napięć na elementach pasywnych tego oczka",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Suma wartości chwilowych sił elektromotorycznych występujących w danym oczku obwodu elektrycznego jest równa sumie wartości chwilowych napięć odbiornikowych wszystkich gałęzi dowolnego oczka",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|5",
+    "question": "Transformator to:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Urządzenie elektryczne służące do zmiany układu napięć i prądów przemiennych na układ prądów i napięć przemiennych o najczęściej innych wartościach, lecz takiej samej częstorliwości. Zmiana ta odbywa się za pośrednictwem pola megnatycznego.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "Urządzenie elektryczne służące do przetwarzania układu napięć i prądów przemiennych na jeden lub kilka układów napięć stałych. Zmiana zachodzi za pośrednictwem pola elektrycznego.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Urządzenie elektryczne służące do zmiany układu napięć i prądów przemiennych na jeden lub kilka układ napięć o tych samych wartościach lecz o różnych częstotliwościach.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|6",
+    "question": "Na zaciski układu szeregowego RL włączono stałe napięcie o wartości 10 V, wartość stałej czasowej układu dla R=50 Ω, L=100 mH wynosi:",
+    "options": [
+      {
+        "id": "1",
+        "val": "0.02 s",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "0.5 s",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "0.002 s",
+        "correct": true
+      }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`tau = L/R`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|7",
+    "question": "Podać definicję jednego ampera [1A]",
+    "options": [
+      {
+        "id": "1",
+        "val": "Amper jest to prąd elektryczny nie zmieniający się, który płynąc w dwóch równoległych, prostoliniowych, nieskończenie długich przewodach, o przekroju kołowym znikomym małym, umieszczonych w próżni w odległości 1 m od siebie wywołałby między tymi przewodami siłę 2 * 10^-7 N (niutona) na każdy metr długości przewodu.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Amper jest to prąd elektryczny nie zmieniający się, który płynąc w dwóch równoległych, prostoliniowych, nieskończenie długich przewodach, o przekroju kołowym znikomym małym, umieszczonych w odległości 1 m od siebie wywołałby między tymi przewodami siłę 2 * 10^-7 N (niutona) na metr długości przewodu.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "Amper jest to prąd elektryczny zmieniający się, który płynąc w dwóch równoległych, prostoliniowych, nieskończenie długich przewodach, o przekroju kołowym małym, umieszczonych w odległości 1 m od siebie wywołałby między tymi przewodami siłę 2 * 10^-7 N (niutona) na każdy metr długości przewodu.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|8",
+    "question": "Grzejnik o wartości R=25 Ω, zasilano napięciem stałym o wartości U=250 V, jaka wartość energii wydzieliła się na grzejniku w ciągu 4 godz. pracy?",
+    "options": [
+      { "id": "1", "val": "25 kWh", "correct": false },
+      { "id": "2", "val": "10 kWh", "correct": true },
+      { "id": "3", "val": "2,5 kWh", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`4P = 4U_{sk}^2/R`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|9",
+    "question": "Ile wynosi moc czynna w układzie 3 równolegle połączonych elementów: reaktancji indukcyjnej XL=30Ω, opornika R=80Ω, reaktancji pojemnościowej Xc=30Ω, jeśli układ ten zasilono napięciem sinusoidalnym u(t)=√2200 sinωt.",
+    "options": [
+      { "id": "1", "val": "500 W", "correct": true },
+      { "id": "2", "val": "750 W", "correct": false },
+      { "id": "3", "val": "720 W", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`P = U_{sk}^2/R`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|10",
+    "question": "Metoda klasyczna rozwiązywania obwodów elektrycznych polega na:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Ułożeniu równań napięciowych dla niezależnych oczek obwodu.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Wykorzystaniu prawa Ohma oraz transfiguracji obwodu.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "Zastosowaniu prądowego w odniesieniu do węzłów oraz napięciowego w odniesieniu do oczek - praw Kirchhoffa.",
+        "correct": false
+      }
+    ]
+  }
+]
