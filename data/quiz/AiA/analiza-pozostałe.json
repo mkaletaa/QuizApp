@@ -1,0 +1,190 @@
+[
+  {
+    "id": "AiA|analiza-pozostałe|1",
+    "question": [
+      {
+        "type": "Text",
+        "value": "który z tych wzorów opisuje sinus hiperboliczny?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `(e^x + e^(-x))/2`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `(e^x - e^(-x))/2`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true }
+    ]
+  },
+  {
+    "id": "AiA|analiza-pozostałe|2",
+    "question": [
+      {
+        "type": "Text",
+        "value": "który z tych wzorów opisuje cosinus hiperboliczny?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `(e^x + e^(-x))/2`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `(e^x - e^(-x))/2`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|analiza-pozostałe|3",
+    "question": [
+      {
+        "type": "Text",
+        "value": "który z tych wzorów opisuje długość krzywej?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `int_a^b sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `int_a^b sqrt(1-(dy/dx)^2) dx`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|analiza-pozostałe|6",
+    "question": [
+      {
+        "type": "Text",
+        "value": "który z tych wzorów opisuje pole bryły obrotowej względem osi OY?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `2pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `pi int_a^b y^2 dx`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `2pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `2pi int_a^b xy dx`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": true },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|analiza-pozostałe|4",
+    "question": [
+      {
+        "type": "Text",
+        "value": "który z tych wzorów opisuje pole bryły obrotowej względem osi OX?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `2pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `pi int_a^b y^2 dx`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `2pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `2pi int_a^b xy dx`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|analiza-pozostałe|5",
+    "question": [
+      {
+        "type": "Text",
+        "value": "który z tych wzorów opisuje objętość bryły obrotowej względem osi OX?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `2pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `pi int_a^b y^2 dx`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `2pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `2pi int_a^b xy dx`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+
+  {
+    "id": "AiA|analiza-pozostałe|7",
+    "question": [
+      {
+        "type": "Text",
+        "value": "który z tych wzorów opisuje objętość bryły obrotowej względem osi OY?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `2pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `pi int_a^b y^2 dx`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `2pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `2pi int_a^b xy dx`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": true }
+    ]
+  }
+]
