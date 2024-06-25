@@ -38,6 +38,34 @@
     ]
   },
   {
+    "id": "elektrotechnika|egzamin|3",
+    "question": "Ile wynosi impedancja zastępcza w układzie trzech równolegle połączonych elementów: <br></br>element 1: cewka o indukcyjności L-0.2 H <br></br>element 2: opornik o rezystancji R=1 Ω <br></br>element 3: kondensator o pojemnności C=0.1 F, przy zasileniu układu napięciem sinusoidalnym u(t)= √2* 100 sin(ωt) o pulsacji 10 rad/s",
+    "options": [
+      { "id": "1", "val": "1 - j0.5 Ω", "correct": false },
+      { "id": "2", "val": "0.8 + j0.4 Ω", "correct": false },
+      { "id": "3", "val": "0.8 - j0.4 Ω", "correct": true }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|4",
+    "question": "Szeregowo połączone elementy R= 8Ω, X<sub>L</sub> = 11Ω, X<sub>C</sub> = 5Ω, zasilono napięciem sinusoidalnym o przebiegu u(t)= √2* 230 sin(ωt), wartość skuteczna prądu płynącego w obwodzie wynosi:",
+    "options": [
+      { "id": "1", "val": "230/14 A", "correct": false },
+      { "id": "2", "val": "23 A", "correct": true },
+      { "id": "3", "val": "230 A", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`|Z| = sqrt(R^2 + (X_L - X_C)^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "`I_{sk}= U_{sk}/|Z|`"
+      }
+    ]
+  },
+  {
     "id": "elektrotechnika|egzamin|5",
     "question": "Transformator to:",
     "options": [
@@ -153,6 +181,182 @@
       {
         "id": "3",
         "val": "Zastosowaniu prądowego w odniesieniu do węzłów oraz napięciowego w odniesieniu do oczek - praw Kirchhoffa.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|11",
+    "question": "Twierdzenie Thevenina (wybierz poprawne określenie): <br></br>Każdy liniowy obwód aktywny rozpatrywany między wybranymi zaciskami A-B można zastąpić obwodem zastępczym:",
+    "options": [
+      {
+        "id": "1",
+        "val": "złożonym ze źródła napięcia, rezystancji zastępczej obwodu widzianego z zacisków A-B oraz rezystancji gałęzi między zaciskami A-B, połączonych równolegle, sem. źródła zastępczego jest równa napięciu stanu jałowego na zaciskach A-B.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "złożonym ze źródła napięcia, rezystancji zastępczej obwodu widzianego z zacisków A-B oraz rezystancji gałęzi między zaciskami A-B, połączonych szeregowo, sem. źródła zastępczego jest równa spadkowi napięcia na zaciskach A-B.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "złożonym ze źródła napięcia, rezystancji zastępczej obwodu widzianego z zacisków A-B oraz rezystancji gałęzi między zaciskami A-B, połączonych szeregowo, sem. źródła zastępczego jest równa napięciu stanu jałowego na zaciskach A-B.",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|12",
+    "question": "Moc czynna w obwodzie prądu przemiennego sinusoidalnego to:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Średnia wartość funkcji mocy chwilowej obliczona za okres tej funkcji.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "Moc strat w uzwojeniach maszyny będąca iloczynem napięcia zasilającego odbiornik i pobieranego prądu.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Suma wartości skutecznych napięcia i prądu.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|13",
+    "question": "Zjawiskiem indukcji wzajemnej nazywamy:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Powstanie siły siły elektromotorycznej w cewce pod wpływem zmiany prądu w tej cewce.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "Powstanie siły elektromotorycznej w cewce pod wpływem zmiany strumienia magnetycznego obejmującego tą cewkę.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Powstanie siły elektromotorycznej w cewce w wyniku zmiany strumienia magnetycznego wytworzonego przez prąd płynący w sąsiedniej cewce.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|14",
+    "question": "Zjawisko rezonansu prądowego następuje:",
+    "options": [
+      {
+        "id": "1",
+        "val": "gdy susceptancja układu równolegle połączonych elementów pasywnych obwodu elektrycznego jest równa zero.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "gdy reaktancja układu równolegle połączonych elementów pasywnych obwodu elektrycznego jest równa zero.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": " gdy impedancja układu równolegle połączonych elementów skupionych jest równa susceptancji tego obwodu.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|15",
+    "question": "Pojemność zastępcza układu 6 jednakowych kondensatorów o pojemności C = 1 µF, złożonego z 3 gałęzi równoległych po 2 kondensatory szeregowo w każdej gałęzi wynosi:",
+    "options": [
+      { "id": "1", "val": "3/2 µF", "correct": true },
+      { "id": "2", "val": "2/3 µF", "correct": false },
+      { "id": "3", "val": "6 µF", "correct": false }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|16",
+    "question": "Wartością skuteczną danego prądu sinusoidalnego I nazywamy:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Równoważny prąd stały, który przepływając przez ten sam opornik w tym samym czasie równym okresowi lub dowolnie długim okresie, spowodowałby wydzielenie tej samej ilości energii w postaci ciepła, jaką daje dany prąd sinusoidalny.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Równoważny prąd stały, który przepływając przez ten sam opornik w czasie równym połowie okresu spowodowałby wydzielenie tej samej ilości energii w postaci ciepła, jak dany prąd sinusoidalny.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "Wartość równoważną idealnym rezystorze R taką samą co wartość maksymalna wartości skutecznej danego prądu sinusoidalnego.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|17",
+    "question": "Układ szeregowy RLC zasilono napięciem sinusoidalnym, rezystancja R = 1 Ω, indukcyjność cewki L = 0.2 H, pojemność kondensatora C = 500 μF, ile wynosi pulsacja rezonansowa tego obwodu?",
+    "options": [
+      { "id": "1", "val": "100 rad/s", "correct": true },
+      { "id": "2", "val": "100/2π rad/s", "correct": false },
+      { "id": "3", "val": "50 rad/s", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`omega = sqrt(1/(LC))`"
+      }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|18",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Dla jakiej pulsacji w układzie równoległym LC wystąpi rezonans prądowy?"
+      },
+      {
+        "type": "Math",
+        "value": "A) `omega = sqrt(1/(LC))`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `omega = sqrt(LC)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `omega = 1/(LC)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false }
+    ]
+  },
+  {
+    "id": "elektrotechnika|egzamin|19",
+    "question": "Jak brzmi pierwsze prawo Kirchhoffa?",
+    "options": [
+      {
+        "id": "1",
+        "val": "Suma algebraiczna prądów chwilowych w węźle obwodu elektrycznego jest równa zeru, czyli suma prądów chwilowych wypływających do węzła równa się sumie prądów wypływających z węzła.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Suma prądów chwilowych wypływających z węzła jest równa sumie prądów odpływających od węzła.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "Suma wartości chwilowych prądów wypływających do węzła równa się sumie wartości chwilowych prądów odpływających do drugiego węzła.",
         "correct": false
       }
     ]
