@@ -1,21 +1,276 @@
 [
-    {
-        "id": "AiA|pochodne|1",
-        "multiChoice": false,
-        "question": [
-            {
-                "type": "Text",
-                "value": ""
-            }
-        ],
-        "options": [
-            { "id": "", "val": "", "correct": false }
-        ],
-        "explanation": [
-            {
-                "type": "Text",
-                "value": ""
-            }
-        ]
-    }
+  {
+    "id": "AiA|pochodne|1",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`(fg)' = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `f'g - fg'`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `f'g + fg'`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `fg' - f'g`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `fg' + f'g`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|2",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`(f/g)' = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `(f'g + fg')/g^2`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `(f'g - fg')/g^2`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `(fg' + f'g)/g^2`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `(fg' - f'g)/g^2`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|3",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx -2/x = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `2/x^2`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `2/x^-2`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `- 2/x^2`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `- 2/x^-2`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Math",
+        "value": "`d/dx a/x = - a/x^2`"
+      }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|4",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx a^x = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `a^xlnx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `x^alna`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `x^alnx`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `a^xlna`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/(xlna)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `1/(alnx)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": true },
+      { "id": "3", "val": "E", "correct": false },
+      { "id": "3", "val": "F", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|5",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx log_ax = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `a^xlnx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `x^alna`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `x^alnx`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `a^xlna`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/(xlna)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `1/(alnx)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "3", "val": "E", "correct": true },
+      { "id": "3", "val": "F", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|6",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx lnx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `1/x`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `1/x^2`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `x`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `ln|x|`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|7",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx sinx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `sinx`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `cosx`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `-sinx`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `-cosx`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+   {
+     "id": "AiA|pochodne|8",
+     "question": [
+       {
+         "type": "Math",
+         "value": "`d/dx cosx = ?`"
+       },
+       {
+         "type": "Math",
+         "value": "A) `sinx`"
+       },
+       {
+         "type": "Math",
+         "value": "B) `cosx`"
+       },
+       {
+         "type": "Math",
+         "value": "C) `-sinx`"
+       },
+       {
+         "type": "Math",
+         "value": "D) `-cosx`"
+       }
+     ],
+     "options": [
+       { "id": "1", "val": "A", "correct": false },
+       { "id": "2", "val": "B", "correct": false },
+       { "id": "3", "val": "C", "correct": true },
+       { "id": "4", "val": "D", "correct": false }
+     ]
+   }
 ]
