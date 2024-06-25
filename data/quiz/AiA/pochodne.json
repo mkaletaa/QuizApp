@@ -217,60 +217,332 @@
       {
         "type": "Math",
         "value": "`d/dx sinx = ?`"
+      }
+    ],
+    "options": [
+      { "id": "2", "val": "cos x", "correct": true },
+      { "id": "3", "val": "-sin x", "correct": false },
+      { "id": "4", "val": "-cos x", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|8",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx cosx = ?`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "sin x", "correct": false },
+      { "id": "3", "val": "-sin x", "correct": true },
+      { "id": "4", "val": "-cos x", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|9",
+    "multiChoice": true,
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx tgx = ?`"
       },
       {
         "type": "Math",
-        "value": "A) `sinx`"
+        "value": "A) `1/sin^2x`"
       },
       {
         "type": "Math",
-        "value": "B) `cosx`"
+        "value": "B) `1/cos^2x`"
       },
       {
         "type": "Math",
-        "value": "C) `-sinx`"
+        "value": "C) `1 + tg^2x`"
       },
       {
         "type": "Math",
-        "value": "D) `-cosx`"
+        "value": "D) `1 - tg^2x`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true },
+      { "id": "3", "val": "C", "correct": true },
+      { "id": "4", "val": "D", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|10",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx arcsinx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `-1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `-1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/sqrt(x^2-1)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `-1/sqrt(x^2-1)`"
       }
     ],
     "options": [
       { "id": "1", "val": "A", "correct": false },
       { "id": "2", "val": "B", "correct": true },
       { "id": "3", "val": "C", "correct": false },
-      { "id": "4", "val": "D", "correct": false }
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
     ]
   },
-   {
-     "id": "AiA|pochodne|8",
-     "question": [
-       {
-         "type": "Math",
-         "value": "`d/dx cosx = ?`"
-       },
-       {
-         "type": "Math",
-         "value": "A) `sinx`"
-       },
-       {
-         "type": "Math",
-         "value": "B) `cosx`"
-       },
-       {
-         "type": "Math",
-         "value": "C) `-sinx`"
-       },
-       {
-         "type": "Math",
-         "value": "D) `-cosx`"
-       }
-     ],
-     "options": [
-       { "id": "1", "val": "A", "correct": false },
-       { "id": "2", "val": "B", "correct": false },
-       { "id": "3", "val": "C", "correct": true },
-       { "id": "4", "val": "D", "correct": false }
-     ]
-   }
+  {
+    "id": "AiA|pochodne|11",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx arccosx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `-1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `-1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/sqrt(x^2-1)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `-1/sqrt(x^2-1)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": true },
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|12",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx arcsinhx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `-1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `-1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/sqrt(x^2-1)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `-1/sqrt(x^2-1)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|13",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx arccoshx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `-1/sqrt(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `-1/sqrt(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/sqrt(x^2-1)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `-1/sqrt(x^2-1)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "5", "val": "E", "correct": true },
+      { "id": "6", "val": "F", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|14",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx arctgx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `1/(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `1/(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `-1/(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `-1/(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/(x^2-1)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `-1/(x^2-1)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|15",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx arctghx = ?`"
+      },
+      {
+        "type": "Math",
+        "value": "A) `1/(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `1/(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `-1/(1+x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `-1/(1-x^2)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `1/(x^2-1)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `-1/(x^2-1)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": true },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|16",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx sinhx = ?`"
+      }
+    ],
+    "options": [
+      { "id": "2", "val": "cosh x", "correct": true },
+      { "id": "3", "val": "-sinh x", "correct": false },
+      { "id": "4", "val": "-cosh x", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|pochodne|17",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`d/dx coshx = ?`"
+      }
+    ],
+    "options": [
+      { "id": "2", "val": "sinh x", "correct": true },
+      { "id": "3", "val": "-sinh x", "correct": false },
+      { "id": "4", "val": "-cosh x", "correct": false }
+    ]
+  }
 ]
