@@ -16,7 +16,7 @@
       },
       {
         "type": "Math",
-        "value": "`tghx = sinh/cosh = (e^x - e^(-x))/(e^x + e^(-x))`"
+        "value": "`tghx = sinhx/coshx = (e^x - e^(-x))/(e^x + e^(-x))`"
       },
       {
         "type": "Text",

@@ -9,7 +9,7 @@
       },
       {
         "type": "Math",
-        "value": "0/0, oo/oo, 0*oo, oo-oo, 0^0, oo^0, 1^infty`"
+        "value": "`0/0, oo/oo, 0*oo, oo-oo, 0^0, oo^0, 1^infty`"
       },
       {
         "type": "Header",
@@ -64,6 +64,42 @@
       {
         "type": "Text",
         "value": "Oto jak je rozwiązać:"
+      },
+      {
+        "type": "Math",
+        "value": "`lim_{n->oo}((3n+1)/(5+3n))^(2n+9)=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}((5+3n-4)/(5+3n))^(2n+9)=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}((5+3n)/(5+3n)+(-4)/(5+3n))^(2n+9)=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}(1+1/((5+3n)/-4))^(2n+9)=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}((1+1/((5+3n)/-4))^((5+3n)/-4 * (-4)/(5+3n)))^(2n+9)=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}(e^((-4)/(5+3n)))^(2n+9)=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}e^((-4)/(5+3n) * (2n+9))=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}e^((-8n-36)/(3n+5))=`"
+      },
+      {
+        "type": "Math",
+        "value": "`=lim_{n->oo}e^(-8/3)`"
       }
     ]
   }

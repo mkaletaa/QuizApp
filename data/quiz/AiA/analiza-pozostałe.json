@@ -75,7 +75,7 @@
       },
       {
         "type": "Math",
-        "value": "B) `pi int_a^b y^2 dx`"
+        "value": "B) `pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
       },
       {
         "type": "Math",
@@ -83,7 +83,7 @@
       },
       {
         "type": "Math",
-        "value": "D) `2pi int_a^b xy dx`"
+        "value": "D) `pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
       }
     ],
     "options": [
@@ -106,7 +106,7 @@
       },
       {
         "type": "Math",
-        "value": "B) `pi int_a^b y^2 dx`"
+        "value": "B) `pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
       },
       {
         "type": "Math",
@@ -114,7 +114,7 @@
       },
       {
         "type": "Math",
-        "value": "D) `2pi int_a^b xy dx`"
+        "value": "D) `pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
       }
     ],
     "options": [
@@ -133,7 +133,7 @@
       },
       {
         "type": "Math",
-        "value": "A) `2pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
+        "value": "A) `pi int_a^b xy dx`"
       },
       {
         "type": "Math",
@@ -141,7 +141,7 @@
       },
       {
         "type": "Math",
-        "value": "C) `2pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
+        "value": "C) `2pi int_a^b y^2 dx`"
       },
       {
         "type": "Math",
@@ -165,15 +165,15 @@
       },
       {
         "type": "Math",
-        "value": "A) `2pi int_a^b |y| sqrt(1+(dy/dx)^2) dx`"
+        "value": "A) `pi int_a^b y^2 dx`"
       },
       {
         "type": "Math",
-        "value": "B) `pi int_a^b y^2 dx`"
+        "value": "B) `pi int_a^b xy dx`"
       },
       {
         "type": "Math",
-        "value": "C) `2pi int_a^b x sqrt(1+(dy/dx)^2) dx`"
+        "value": "C) `2pi int_a^b y^2 dx`"
       },
       {
         "type": "Math",
