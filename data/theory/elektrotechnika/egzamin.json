@@ -26,6 +26,18 @@
         "type": "Image",
         "value": "https://i.postimg.cc/85f0p3hp/13-4.png",
         "props": { "orientation": "portrait" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Błagam, nie zaznaczaj wszystkiego na 100% bo to mega sus"
+          }
+        ],
+        "props": {
+          "type": "important"
+        }
       }
     ]
   }

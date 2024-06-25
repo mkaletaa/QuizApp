@@ -1,0 +1,83 @@
+[
+  {
+    "id": "AiA|całki|1",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`int dx =`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "1", "correct": false },
+      { "id": "2", "val": "0", "correct": false },
+      { "id": "3", "val": "x + c", "correct": true },
+      { "id": "3", "val": "ln|x| + c", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": "Jak nie ma nic w całce to tak jakby było tam 1"
+      }
+    ]
+  },
+  {
+    "id": "AiA|całki|2",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`int sinx dx =`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "cosx + c", "correct": false },
+      { "id": "2", "val": "-cosx + c", "correct": true },
+      { "id": "3", "val": "sinx + c", "correct": false },
+      { "id": "3", "val": "-sinx + c", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|całki|3",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`int cosx dx =`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "cosx + c", "correct": false },
+      { "id": "2", "val": "-cosx + c", "correct": false },
+      { "id": "3", "val": "sinx + c", "correct": true },
+      { "id": "3", "val": "-sinx + c", "correct": false }
+    ]
+  },
+  {
+    "id": "AiA|całki|4",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`int tgx dx =`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "ln|sinx| + c", "correct": false },
+      { "id": "2", "val": "-ln|sinx| + c", "correct": false },
+      { "id": "3", "val": "ln|cosx| + c", "correct": false },
+      { "id": "3", "val": "-ln|cosx| + c", "correct": true }
+    ]
+  },
+  {
+    "id": "AiA|całki|5",
+    "question": [
+      {
+        "type": "Math",
+        "value": "`int (2x+3)/(x^2+3x) dx =`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "ln|x^2+3x| + c", "correct": true },
+      { "id": "2", "val": "-ln|x^2+3x| + c", "correct": false },
+      { "id": "3", "val": "ln|2x+3| + c", "correct": false },
+      { "id": "3", "val": "-ln|2x+3| + c", "correct": false }
+    ]
+  }
+]
