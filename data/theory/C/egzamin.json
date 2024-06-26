@@ -4,27 +4,28 @@
     "data": [
       {
         "type": "Text",
-        "value": "Znajdują się tu pytania z egzaminu. Co roku są te same (albo prawie te same). Wszystkie wzięte z książki Grębosza <a href='https://ifj.edu.pl/private/grebosz/opus_php/wybor_rozdzialu.php'>LINK</a> <br></br> Tych pytań jest tam łącznie grubo ponad tysiąc, ale na egzaminie pojawia się sto kilkadziesiąt z nich. Poniżej przedstawiam te pytania, niestety ich lista jest niepełna, dlatego proszę o kontakt, żebym mógł uzupełnić kolekcję o nowe eksponaty, a jeszcze jak znajdziesz to pytanie w linku powyżej to już w ogóle super. Odpowiedzi do nich znajdują się w <a href='https://pdfhost.io/v/8AReVX9Pg_C'>tym pe de efie</a>. Są w nim błędy i to co mogłem to poprawiłem, ale coś mogło mi umknąć, więc w razie czego, kontakt.<br></br>Przy pytaniach wielokrotnego wyboru jak nie wiesz ile jest poprawnych odpowiedzi, to z tego co pamiętam wystarczy spojrzeć za ile punktów jest to pytanie i odpowiedzi będzie tyle samo. Ale przechodząc do meritum: obczaj sobie te pytanka. Pod każdym z nich masz poprawne odpowiedzi."
+        "value": "Znajdują się tu pytania z egzaminu. Co roku są te same (albo prawie te same), przynajmniej jak masz z Bąkiem. Wszystkie wzięte z książki Grębosza <a href='https://ifj.edu.pl/private/grebosz/opus_php/wybor_rozdzialu.php'>LINK</a> <br></br> Tych pytań jest tam łącznie grubo ponad tysiąc, ale na egzaminie pojawia się sto kilkadziesiąt z nich. Poniżej przedstawiam te pytania, niestety ich lista jest niepełna, dlatego proszę o kontakt, żebym mógł uzupełnić kolekcję o nowe eksponaty, a jeszcze jak znajdziesz to pytanie w linku powyżej to już w ogóle super. Odpowiedzi do nich znajdują się w <a href='https://pdfhost.io/v/8AReVX9Pg_C'>tym pe de efie</a>. Zdarzają się w nim błędy i to co mogłem to poprawiłem, ale coś mogło mi umknąć, więc w razie czego, wiesz co robić.<br></br>Przy pytaniach wielokrotnego wyboru jak nie wiesz ile jest poprawnych odpowiedzi, to z tego co pamiętam wystarczy spojrzeć za ile punktów jest to pytanie i odpowiedzi będzie tyle samo. Ale przechodząc do meritum: obczaj sobie te pytanka. Pod każdym z nich masz poprawne odpowiedzi."
       },
       {
         "type": "Text",
-        "value": "1. Jaka jest różnica między inicjalizacją a przypisanie? <br></br> Inicjalizacja to nadanie wartości w momencie tworzenia obiektu, przypisanie w każdym innym momencie."
+        "value": "<b>1.</b> <b>ss</b> Jaka jest różnica między inicjalizacją a przypisaniem? <br></br> Inicjalizacja to nadanie wartości w momencie tworzenia obiektu, przypisanie w każdym innym momencie."
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>2.</b> Na czym polega rekurencja pośrednia? <br></br>Na wywołaniu funkcji pierwszej przez funkcję drugą, a funkcji drugiej przez funkcję pierwszą."
       },
       {
         "type": "Text",
-        "value": "2. Na czym polega rekurencja pośrednia? <br></br>Na wywołaniu funkcji pierwszej przez funkcję drugą, a funkcji drugiej przez funkcję pierwszą."
+        "value": "<b>3.</b> Zapis float kot [3][2]{} to:<br></br>Definicja i jedenoczesna deklaracja, którą czytamy: kot jest tablicą 3 elementów, z których każdy jest 2 elementową tablicą liczb typu float"
       },
       {
         "type": "Text",
-        "value": "3. Zapis float kot [3][2]{} to:<br></br>Definicja i jedenoczesna deklaracja, którą czytamy: kot jest tablicą 3 elementów, z których każdy jest 2 elementową tablicą liczb typu float"
-      },
-      {
-        "type": "Text",
-        "value": "4. Ile razy wykona się instrukcja pętli?"
+        "value": "<b>4.</b> Ile razy wykona się instrukcja pętli?"
       },
       {
         "type": "Code",
-        "value": "",
+        "value": "#define CZYNNIK(a, b) ((a)/((a)+(b)))\n int d = 0;\n while(d<0){\n  \t\t   cout << \"Czynnik = \" << CZYNNIK(++d, 2.0);\n  \t\t   cout << \", dla d = \" << d << endl;\n }",
         "props": { "height": 200, "language": "cpp" }
       },
       {
@@ -33,19 +34,52 @@
       },
       {
         "type": "Text",
-        "value": "5. zapis int(*wsk_fun)() definiuje:<br></br>wskaźnik do funkcji wywoływanej bez argumentów, a zwracającej wartość typu int."
+        "value": "<b>5.</b> zapis int(*wsk_fun)() definiuje:<br></br>wskaźnik do funkcji wywoływanej bez argumentów, a zwracającej wartość typu int."
       },
       {
         "type": "Text",
-        "value": "6. Kiedy deklarujemy zmienną w języku c++?<br></br>W dowolnym miejscu, przynajmniej jedną linijkę przed jej pierwszym użyciem"
+        "value": "<b>6.</b> Kiedy deklarujemy zmienną w języku c++?<br></br>W dowolnym miejscu, przynajmniej jedną linijkę przed jej pierwszym użyciem"
       },
       {
         "type": "Text",
-        "value": "7. Nazwa funkcji jest przeładowana, gdy istnieją dwie lub więcej funkcji o tej samej nazwie...<br></br>zakres nazw tych funkcji nie ma znaczenia <br></br>funkcje te mają różny typ rezultatów <br></br> funkcje te mają różną listę argumentów."
+        "value": "<b>7.</b> Nazwa funkcji jest przeładowana, gdy istnieją dwie lub więcej funkcji o tej samej nazwie...<br></br>zakres nazw tych funkcji nie ma znaczenia <br></br>funkcje te mają różny typ rezultatów <br></br> funkcje te mają różną listę argumentów."
       },
       {
         "type": "Text",
-        "value": "8. Co zwraca poniższa funkcja:<br></br>"
+        "value": "<b>8.</b> Co zwraca poniższa funkcja:<br></br>"
+      },
+      {
+        "type": "Code",
+        "value": "55g",
+        "props": { "height": 200, "language": "java" }
+      },
+      {
+        "type": "Text",
+        "value": "a*b"
+      },
+      {
+        "type": "Text",
+        "value": "<b>9.</b> W jakim obszarze pamięci tworzony jest statyczny obiekt funkcji?<br></br>zależy od kompilatora"
+      },
+      {
+        "type": "Text",
+        "value": "<b>10.</b> Dlaczego jeśli przesuwamy się po dowolnej tablicy za pomocą wskaźnika np. zwiększając go o 1 to taki wskaźnik przesuwa się po tablicy poprawnie?<br></br>obiekty przechpwywane w tablicy zajmują kolejny obszar pamięci i dodanie wartości 1 do adresu powoduje przesunięcie o jeden bit do przodu."
+      },
+      {
+        "type": "Text",
+        "value": "<b>11.</b> Załóżmy, że mamy dwa wskaźniki pokazujące na tą samą tablicę. Które operacje mają sens? (rozdział 12, ćwiczenie IX)<br></br>odejmowanie dwóch wskaźników <br></br>dodanie liczby całkowitej do wskaźnika <br></br>odejmowanie liczby całkowitej od wskaźnika."
+      },
+      {
+        "type": "Text",
+        "value": "<b>12.</b> Mamy deklarację funkcji int f(return 4.2). Jaką wartość zwróci?<br></br>4"
+      },
+      {
+        "type": "Text",
+        "value": "<b>13.</b> Jeśli do wskaźnika pokazującego na obiekt dodany przez operatora new przypiszemy inny adres, to:<br></br>obiekt taki zostanie automatycznie usunięcy z pamięci <br></br>nastąpi utrata kontaktu z obiektem, która uniemożliwi odwołanie się do niego "
+      },
+      {
+        "type": "Text",
+        "value": "<b>14.</b> Ile zostanie wypisanych znaków * w zależności od parametru n:"
       },
       {
         "type": "Code",
@@ -54,27 +88,307 @@
       },
       {
         "type": "Text",
-        "value": "a*b"
+        "value": "2^n"
       },
       {
         "type": "Text",
-        "value": "9. W jakim obszarze pamięci tworzony jest statyczny obiekt funkcji?<br></br>zależy od kompilatora"
+        "value": "<b>15.</b> Czy w funkcji, do której wysłano tablicę można dowiedzieć się ile ma ona elementów?<br></br><u>nie</u>"
       },
       {
         "type": "Text",
-        "value": "10. Dlaczego jeśli przesuwamy się po dowolnej tablicy za pomocą wskaźnika np. zwiększając go o 1 to taki wskaźnik przesuwa się po tablicy poprawnie?<br></br>obiekty przechpwywane w tablicy zajmują kolejny obszar pamięci i dodanie wartości 1 do adresu powoduje przesunięcie o jeden bit do przodu."
+        "value": "<b>16.</b> Anonimową przestrzeń nazw może mieć...<br></br>każdy plik"
       },
       {
         "type": "Text",
-        "value": "11. Załóżmy, że mamy dwa wskaźniki pokazujące na tą samą tablicę. Które operacje mają sens?<br></br>odejmowanie dwóch wskaźników <br></br>dodanie dwóch wskaźników."
+        "value": "<b>17.</b> Co zostanie wyświetlone?"
+      },
+      {
+        "type": "Image",
+        "value": "",
+        "props": { "description": "", "orientation": "horizontal" }
       },
       {
         "type": "Text",
-        "value": "12. Mamy deklarację funkcji int f(return 4.2). Jaką wartość zwróci?<br></br>4"
+        "value": "Rozmiar tablicy pierwszej: 16; drugiej:15"
       },
       {
         "type": "Text",
-        "value": ""
+        "value": "<b>18.</b> Używają operatora static_cast do rzutowania statycznego pełna składnia tego operatora to:<br></br>static_cast<typ>(wyrażenie)"
+      },
+      {
+        "type": "Text",
+        "value": "<b>19.</b> Co się wypisze na ekranie po wykonaniu kodu int a=4; cout << (a=7) << endl; ?<br></br>7"
+      },
+      {
+        "type": "Text",
+        "value": "<b>20.</b> Przykładem postinkrementacji jest: <br></br>i++"
+      },
+      {
+        "type": "Text",
+        "value": "<b>21.</b> Czy możliwe jest powtórzenie tej samej deklaracji w danym zakresie ważności?<br></br>nie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>22.</b> Jakie konsekwencje ma nieumieszczenie break; na końcu instrukcji case?<br></br>nastąpi wykonanie następnego bloku case."
+      },
+      {
+        "type": "Text",
+        "value": "<b>23.</b> Zasięg lokalny oznaczamy...<br></br> nawiasami klamrowymi."
+      },
+      {
+        "type": "Text",
+        "value": "<b>24.</b> Przeładowanie funkcji stosujemy, gdy:<br></br>funkcje wykonują podobne czynności."
+      },
+      {
+        "type": "Text",
+        "value": "<b>25.</b> Jak działa obiekt static wewnątrz funkcji?<br></br>jest tworzony raz podczas pierwszego wywołania funkcji i pamięta swoją wartość"
+      },
+      {
+        "type": "Text",
+        "value": "<b>26.</b> Czy w miejscu, gdzie program sprawdza wyrażenie logiczne można podstawić obiekt typu int?<br></br>tak"
+      },
+      {
+        "type": "Text",
+        "value": "<b>27.</b> Co to argumenty domniemane funkcji?<br></br>Argumenty, którym podajemy wartości domyślne podczas deklaracji funkcji, dzięki czemu możemy je pominąć podczas jej wywołania"
+      },
+      {
+        "type": "Text",
+        "value": "<b>28.</b> Na czym polega rekurencja bezpośrednia?<br></br>na wywołaniu funkcji przez samą siebie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>29.</b> Jaka jest różnica między operatoerm = a == ?<br></br>operator = to przypisanie, a operator == to porównanie.<br></br>operator == zwraca wartość logiczną, a operator = zwraca wartość jaka jest przypisywana"
+      },
+      {
+        "type": "Text",
+        "value": "<b>30.</b> Przy wyrażeniu: if((...)&&(...)&&(...)){instrukcja}<br></br>wszystkie wyrażenia muszą być prawdziwe, aby wykonały się instrukcje wewnątrz ifa <br></br>kompilator będzie sprawdzał wyrażenia logiczne do momentu aż któreś okaże się nieprawdziwe"
+      },
+      {
+        "type": "Text",
+        "value": "<b>31.</b> Jaka jest nazwa obiektu stworzonego w ten sposób: new double(3.14)<br></br>obiekt tworzony operatorem new nie posiada nazwy."
+      },
+      {
+        "type": "Text",
+        "value": "<b>32.</b> W jaki sposób operator new może nas powiadomić o niemożliwości stworzenia nowego obiektu przez wyczerpanie zapasu dostępnej pamięci?<br></br>rzuceniem wyjątku"
+      },
+      {
+        "type": "Text",
+        "value": "<b>33.</b> W programie są następujące dyrektywy:"
+      },
+      {
+        "type": "Code",
+        "value": "",
+        "props": { "height": 200, "language": "" }
+      },
+      {
+        "type": "Text",
+        "value": "Co w związku z tym wypisze na ekranie poniższa instrukcja?"
+      },
+      {
+        "type": "Code",
+        "value": "",
+        "props": { "height": 200, "language": "" }
+      },
+      {
+        "type": "Text",
+        "value": "80"
+      },
+      {
+        "type": "Text",
+        "value": "<b>34.</b> Jaki jest cel stosowania przyrostka volatile? O czym informuje on kompilator?<br></br>informuje, że zawsze musi sięgać do pamięci, aby odczytaćwartość zmiennej <br></br>informuje kompilator, że zmienna może zmieniać swoją wartość bez jego wiedzy."
+      },
+      {
+        "type": "Text",
+        "value": "<b>35.</b> Jak długo żyje obiekt stworzony operatorem new? <br></br>do końca działania programu <br></br>do momentu wywołania operatora delete"
+      },
+      {
+        "type": "Text",
+        "value": "<b>36.</b> Jaka jest ochrona przed przekazaniem limitu typu całkowitego?<br></br>Nie będzie żadnego ostrzeżenia, zmienna przyjmie wartość ujemną"
+      },
+      {
+        "type": "Text",
+        "value": "<b>37.</b> Jaka jest różnica między zmienną zadeklarowaną przed instrukcją for, a zmienną zdefiniowaną w wyrażeniu inicjalizacyjnym pętle for?<br></br>zmienna zdefiniowana przed pętlą jest dostępna zarówno wewnątrz pętli jak i poza nią <br></br>zmienna zdefiniowana w wyrażeniu inicjalizującym pętle for jest dostępna tylko w pętli"
+      },
+      {
+        "type": "Text",
+        "value": "<b>38.</b> Gdzie funkcja tworzy obiekty lokalne?<br></br>na stosie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>41.</b> Co zrobić, aby funkcja mogła modyfikować obiekty przesłane do niej jako argumenty?<br></br>przesłać argumenty przez referencje albo adres"
+      },
+      {
+        "type": "Text",
+        "value": "<b>42.</b> Jaka jest różnica między pętlą while, a do...while()?<br></br>do...while wykonuje się zawsze przynajmniej raz.<br></br>w do...while najpierw wykonują się instrukcje, potem sprawdzany jest warunek, w while odwrotnie."
+      },
+      {
+        "type": "Text",
+        "value": "<b>43.</b> jaka instrukcja pozwala na przerwanie aktualnie wykonywanej pętli i przejście do kolejnego obiegu?<br></br>continue"
+      },
+      {
+        "type": "Text",
+        "value": "<b>44.</b> Jaką wartość zwróci funkcja: auto f()->int {return 4,2}?<br></br>2"
+      },
+      {
+        "type": "Text",
+        "value": "<b>45.</b> Czy konstruktor domniemany może mieć argumenty domniemane?<br></br>tak"
+      },
+      {
+        "type": "Text",
+        "value": "<b>46.</b> Co to polimorfizm? <br></br>mechanizm korzystający z późnego wiązania metody"
+      },
+      {
+        "type": "Text",
+        "value": "<b>47.</b> Czy mając stały obiekt klasy K można do niego wywołać funkcję składową const?<br></br>tak"
+      },
+      {
+        "type": "Text",
+        "value": "<b>48.</b> Co jest potrzebne, aby z zakresu klasy pochodnej dostać się do składników prywatncyh klasy podstawowej?<br></br>publiczne funkcje składowe pracujące na prywatnych składnikach klasy bazowej <br></br>chronione funkcje składowe pracujące na prywatnych składnikach klasy bazowej"
+      },
+      {
+        "type": "Text",
+        "value": "<b>49.</b> Czy może istnieć klasa, w której wszystkie konstruktory są prywatne?<br></br>tak"
+      },
+      {
+        "type": "Text",
+        "value": "<b>50.</b> Co to jest destruktor?<br></br>Specjalna funkcja klasy, która sprząta po obiekcie (zwalnia pamięć)<br></br>specjalna funkcja składowa wywoływana automatycznie w momencie likwidacji obiektu."
+      },
+      {
+        "type": "Text",
+        "value": "<b>51.</b> Co to jest wiązanie?<br></br>Przypisanie wywołania funkcji w momencie kompilacji na podstawie tego obiektu"
+      },
+      {
+        "type": "Text",
+        "value": "<b>52.</b> Zdania prawdziwe o klasie:<br></br>Składnikiem klasy może być oniekt innej klasy <br></br>składnikiem klasy może być obiekt typu double <br></br>składnikiem klasy może być funkcja <br></br>klasa to typ"
+      },
+      {
+        "type": "Text",
+        "value": "<b>53.</b> Które funkcje są dziedziczone?<br></br>konstruktor <br></br>konstruktor kopiujący <br></br>destruktor <br></br>destruktor kopiujący"
+      },
+      {
+        "type": "Text",
+        "value": "<b>54.</b> W przypadku przeładowania operatorów: <br></br>operatory strumienia wejścia (>>) i wyjścia (<<) mogą być zdefiniowane jako składnik klasy lub jako funkcja globalna <br></br>Jeśli operator przypisania nie jest zdefiniowany, kompilator zdefiniuje go automatycznie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>55.</b> Definicja TCordinate& operator++(int); jest przeładowaniem operatora:<br></br>post inkrementacji <br></br>jeszcze było takie z void zamiast int, to też jest postinkrementacja (chyba)"
+      },
+      {
+        "type": "Text",
+        "value": "<b>56.</b> Proces zamknięcia pewnych danych klasowych oraz funkcji tak, że są one dostępne tylko dla funkcji danej klasy i funkcji zaprzyjaźnionych to:<br></br>enkapsulacja"
+      },
+      {
+        "type": "Text",
+        "value": "<b>57.</b> Co to jest unia?<br></br>struktura danych umożliwiająca przechowywanie obiektu danego typu."
+      },
+      {
+        "type": "Text",
+        "value": "<b>58.</b> Funkcja składowa jest typu inline jeżeli...<br></br>Jest umieszczona w obrębie zdefiniowanej klasy lub poza nią jeśli jest to wyrażone słowem inline"
+      },
+      {
+        "type": "Text",
+        "value": "<b>59.</b> Z czego wynika rozmiar unii? <br></br>Z rozmiaru jej największego obiektu."
+      },
+      {
+        "type": "Text",
+        "value": "<b>60.</b> Która definicja przepełnienia operatora przypisania jest poprawna?<br></br>TCoordinate& operator=(const TCoordinate & ) <b>(nie dokończone)</b>"
+      },
+      {
+        "type": "Text",
+        "value": "<b>61.</b> Wybierz poprawną definicję operatora []:<br></br>wszystkie definicje są błędne"
+      },
+      {
+        "type": "Text",
+        "value": "<b>62.</b> Definicja klasy:<br></br>nie jest definicją jeszcze żadnych obiektów, więc w pamięci nie istnieje jeszcze żaden obiekt."
+      },
+      {
+        "type": "Text",
+        "value": "<b>63.</b> Jak wywołać funkcję składową fun klasy K, jeśli jeszcze nie ma ani jednego obiektu?<br></br>poprzez  nazwę klasy: K::fun();"
+      },
+      {
+        "type": "Text",
+        "value": "<b>64.</b> W przypadku wskaźnika this: <br></br>odnosi się do aktualnie używanego obiektu <br></br>może być użyty tylko z wnętrza niestatycznych funkcji składowych"
+      },
+      {
+        "type": "Text",
+        "value": "<b>65.</b> jaka jest kolejność tworzenia obiektów?<br></br>obiekt klasy bazowej -> obiekt klasy pochodnej -> obiekty klas zawierających się w klasie pochodnej"
+      },
+      {
+        "type": "Text",
+        "value": "<b>66.</b> Czy na liście inicjalizacyjnej można wykonać jakąś funkcję?<br></br>tak"
+      },
+      {
+        "type": "Text",
+        "value": "<b>67.</b> Poprawna definicja wskaźnika o nazwie p do pokazywania we wnętrzu klasy M na składniki będące wskaźnikami do obiektów typu double to:<br></br>double* M::p;"
+      },
+      {
+        "type": "Text",
+        "value": "<b>68.</b> Co to jest enkapsulacja? <br></br>Zamykanie danych 'w pudełku'; określenie, które dane mogą być dostępne na zewnątrz, a które nie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>69.</b> Wybierz opcje, które dotycza konstruktora:<br></br>nie można go przesłaniać"
+      },
+      {
+        "type": "Text",
+        "value": "<b>70.</b> Co wywołuje wyrażenie: TCoordinate a=b <br></br>konstruktor kopiujący"
+      },
+      {
+        "type": "Text",
+        "value": "<b>71.</b> Zaznacz poprawną definicję obiektu klasy <br</br>Rectangle r{}<br></br>rectangle *r = new Rectangle();<br></br>Rectangle *r {new Rectangle()}"
+      },
+      {
+        "type": "Text",
+        "value": "<b>72.</b> Na czym polega późne wiązanie?<br></br>przypisanie wywołania funkcji w momencie kompilacji na podstawie typu obiektu"
+      },
+      {
+        "type": "Text",
+        "value": "<b>73.</b> W klasie K jest składnik typu const. Czy można go inicjalizować w ciele jej konstruktora?<br></br>nie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>74.</b> Których operatorów nie można przeładować?<br></br>?:; ::; *; . <b>dokończyć</b>"
+      },
+      {
+        "type": "Text",
+        "value": "<b>75.</b> Jeśli klasa W jest zagnieżdżona w klasie A, gdzie można umieścić definicję funkcji składowej klasy zagnieżdżonej W?<br></br>chuj wie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>76.</b> Klasa K ma trzy konstruktory, ale żaden nie jest domniemany. Czy kompilator wygeneruje automatycznie konstruktor domniemany dla tej klasy?<br></br>nie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>77.</b> Co wyświetli się w konsoli po uruchomieniu poniższego programu? <b>dokończyć</b>"
+      },
+      {
+        "type": "Text",
+        "value": "<b>78.</b> jakiego dostępu jest składnik dana1:"
+      },
+      {
+        "type": "Code",
+        "value": "",
+        "props": { "height": 200, "language": "" }
+      },
+      {
+        "type": "Text",
+        "value": "przez domniemanie - private"
+      },
+      {
+        "type": "Text",
+        "value": "<b>79.</b> Składniki deklarowane za etykietą private mogą zostać wykorzysatne przez:<br></br>funkcje składowe klasy <br></br>funkcje zaprzyjaźnione"
+      },
+      {
+        "type": "Text",
+        "value": "<b>80.</b> Czy wszystkie składniki klasy bazowej są dziedziczone przez klase pochodną?<br></br>tak"
+      },
+      {
+        "type": "Text",
+        "value": "<b>81.</b> Co to jest konstruktor?<br></br>funkcja składowa wywoływana autmoatycznie w momencie tworzenia obiektu <br></br>specjalna funkcja składowa klasy, która tworzy nowy obiekt."
+      },
+      {
+        "type": "Text",
+        "value": "W klasie K jeden ze składników-danych ma przydomek mutable.  Jeśli stworzymy stały obiekt tej klasy, na co pozwoli nam  ten przydomek mutable? <br></br> Możemy dokonywać zmian tego składnika nawet z ciała  funkcji const. "
       }
     ]
   }
