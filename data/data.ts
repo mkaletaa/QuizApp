@@ -23,11 +23,11 @@ export const chapters = [
   //   name: 'metody_programowania',
   //   image: 'https://i.postimg.cc/cJjqYrV8/image.png',
   // },
-  {
-    name: 'VHDL',
-    image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-    des: 'Nie będzie tu dużo, bo przedmiot łatwy do zdania, ale lepiej zaliczyć w pierwszym terminie niż drugim. Król złoty wręcz zachęca do brania kodu z neta. Ciekawostka: zdałem ten przedmoit bez napisania ani jednej linijki kodu samodzielnie. Zawsze była kopiuj-wklejka albo bezmyślne przpisywanie. Radziłbym tylko uważać, bo Aldec jest trojanem <a href="https://i.postimg.cc/qBQgMGrJ/image.png">XDD</a>',
-  },
+  // {
+  //   name: 'VHDL',
+  //   image: 'https://i.postimg.cc/cJjqYrV8/image.png',
+  //   des: 'Nie będzie tu dużo, bo przedmiot łatwy do zdania, ale lepiej zaliczyć w pierwszym terminie niż drugim. Król złoty wręcz zachęca do brania kodu z neta. Ciekawostka: zdałem ten przedmoit bez napisania ani jednej linijki kodu samodzielnie. Zawsze była kopiuj-wklejka albo bezmyślne przpisywanie. Radziłbym tylko uważać, bo Aldec jest trojanem <a href="https://i.postimg.cc/qBQgMGrJ/image.png">XDD</a>',
+  // },
 ]
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
@@ -134,10 +134,10 @@ export const topics = {
   //     image: '',
   //   },
   // ],
-  VHDL: [
-    {
-      name: 'kolos',
-      image: '',
-    },
-  ],
+  // VHDL: [
+  //   {
+  //     name: 'kolos',
+  //     image: '',
+  //   },
+  // ],
 }
