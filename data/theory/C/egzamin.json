@@ -8,7 +8,7 @@
       },
       {
         "type": "Text",
-        "value": "<b>1.</b> <b>ss</b> Jaka jest różnica między inicjalizacją a przypisaniem? <br></br> Inicjalizacja to nadanie wartości w momencie tworzenia obiektu, przypisanie w każdym innym momencie."
+        "value": "<b>1.</b> Jaka jest różnica między inicjalizacją a przypisaniem? <br></br> Inicjalizacja to nadanie wartości w momencie tworzenia obiektu, przypisanie w każdym innym momencie."
       },
 
       {
@@ -26,7 +26,7 @@
       {
         "type": "Code",
         "value": "#define CZYNNIK(a, b) ((a)/((a)+(b)))\n int d = 0;\n while(d<0){\n  \t\t   cout << \"Czynnik = \" << CZYNNIK(++d, 2.0);\n  \t\t   cout << \", dla d = \" << d << endl;\n }",
-        "props": { "height": 200, "language": "cpp" }
+        "props": { "language": "cpp" }
       },
       {
         "type": "Text",
@@ -50,12 +50,12 @@
       },
       {
         "type": "Code",
-        "value": "55g",
-        "props": { "height": 200, "language": "java" }
+        "value": "int funkcja(int a, int b){\n    \t\t if(b==0)\n    \t\t\t   return 0;\n    \t\t int h = funkcja(a, b/2) * 2;\n    \t\t if(b%2==0)\n    \t\t\t   return h;\n    \t\t return h+a;\n }",
+        "props": { "language": "java" }
       },
       {
         "type": "Text",
-        "value": "a*b"
+        "value": "a*b "
       },
       {
         "type": "Text",
@@ -83,8 +83,7 @@
       },
       {
         "type": "Code",
-        "value": "",
-        "props": { "height": 200, "language": "" }
+        "value": "void wypisuj(int n){\n \t\tif(n==0){\n \t\t\t\t    cout<<\"*\";\n \t\t\t\t    return;\n \t\t}\n \t\twypisuj(n-1);\n \t\twypisuj(n-1);\n }", "props": { "language": "cpp" }
       },
       {
         "type": "Text",
@@ -104,8 +103,8 @@
       },
       {
         "type": "Image",
-        "value": "",
-        "props": { "description": "", "orientation": "horizontal" }
+        "value": "https://i.postimg.cc/bNXBvjHD/image.png",
+        "props": { "orientation": "horizontal" }
       },
       {
         "type": "Text",
@@ -177,8 +176,8 @@
       },
       {
         "type": "Code",
-        "value": "",
-        "props": { "height": 200, "language": "" }
+        "value": "#define A 20\n#define B 40\n#define SS A + B",
+        "props": { "language": "cpp" }
       },
       {
         "type": "Text",
@@ -186,8 +185,8 @@
       },
       {
         "type": "Code",
-        "value": "",
-        "props": { "height": 200, "language": "" }
+        "value": "cout << (2*SS) << endl;",
+        "props": { "language": "cpp" }
       },
       {
         "type": "Text",
@@ -347,7 +346,28 @@
       },
       {
         "type": "Text",
-        "value": "<b>74.</b> Których operatorów nie można przeładować?<br></br>?:; ::; *; . <b>dokończyć</b>"
+        "value": "<b>74.</b> Których operatorów nie można przeładować?"
+      },
+      {
+        "type": "List",
+        "value": [
+          {
+            "type": "ListElement",
+            "value": "?:"
+          },
+          {
+            "type": "ListElement",
+            "value": "::"
+          },
+          {
+            "type": "ListElement",
+            "value": "*"
+          },
+          {
+            "type": "ListElement",
+            "value": "."
+          }
+        ]
       },
       {
         "type": "Text",
@@ -359,16 +379,21 @@
       },
       {
         "type": "Text",
-        "value": "<b>77.</b> Co wyświetli się w konsoli po uruchomieniu poniższego programu? <b>dokończyć</b>"
+        "value": "<b>77.</b> Co wyświetli się w konsoli po uruchomieniu poniższego programu?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/nVS57PbZ/image.png",
+        "props": { "orientation": "portrait" }
       },
       {
         "type": "Text",
-        "value": "<b>78.</b> jakiego dostępu jest składnik dana1:"
+        "value": "error <br></br> <b>78.</b> jakiego dostępu jest składnik dana1:"
       },
       {
         "type": "Code",
-        "value": "",
-        "props": { "height": 200, "language": "" }
+        "value": "class Klasa{\n\t\tint dana1;\n\tpublic:\n\t\tint dana2;\n}",
+        "props": { "language": "cpp" }
       },
       {
         "type": "Text",
