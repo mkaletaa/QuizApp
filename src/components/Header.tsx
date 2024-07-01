@@ -59,19 +59,22 @@ export default function Header({ title }) {
             onPress={() => {
               navigation.goBack()
             }}
-            style={{
-              marginLeft: 15,
-            }}
+            style={
+              {
+                width: 60,
+                height: '100%',
+                justifyContent: 'center',
+                // backgroundColor: 'red',
+              }
+            }
           >
             <AntDesign
               name="left"
               size={28}
               color={boldTextColor}
-              style={
-                {
-                  // backgroundColor: 'red',
-                }
-              }
+              style={{
+                textAlign: 'center',
+              }}
             />
           </TouchableOpacity>
         )}
