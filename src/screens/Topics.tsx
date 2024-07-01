@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 import { chapters, topics } from '../../data/data'
 import Card from '../components/Card'
 import ChapterDescription from '../components/molecules/ChapterDescription'
@@ -19,11 +19,12 @@ export default function Topics({ route }) {
 
   useEffect(() => {
     const chapterName: string = route.params.chapterName
-    // const chapter = chapters.find(chapter => chapter.name === chapterName)
+
+    const chapter = chapters.find(chapter => chapter.name === chapterName).des
     setChapterDes(
-      "<span style='font-size:15`px'>" +
-        chapters.find(chapter => chapter.name === chapterName).des +
-        '</span>'
+      chapter
+        ? "<span style='font-size:15`px'>" + chapter + '</span>'
+        : undefined
     )
     if (chapterName && topics[chapterName]) {
       setChapterName(chapterName)
@@ -63,7 +64,9 @@ export default function Topics({ route }) {
 
       <RandomQuestionButton chapName={chapterName} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
-        <ChapterDescription chapterDescription={chapterDes} />
+        {chapterDes !== undefined && (
+          <ChapterDescription chapterDescription={chapterDes} />
+        )}
 
         {topicsToShow.map(topic => (
           <Card
