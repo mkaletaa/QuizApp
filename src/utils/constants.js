@@ -56,6 +56,8 @@ export const screenBackground = secondary18
 
 export const surfaceRipple = '#CBC0E0'
 export const gradient = 'rgb(230, 230, 260)'
+//* export const gradient = 'rgb(210,215,255)' // this will be gradient in the future
+
 export const boldTextColor = darkBlue
 export const textColor = 'rgb(40, 40, 55)'
 export const borderColor = '#D6D0E2'

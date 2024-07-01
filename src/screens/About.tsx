@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Component } from '../utils/types'
 import { ScrollView } from 'react-native'
 import { screenBackground } from '../utils/constants'
-import Gradient from '../components/molecules/Gradient'
+import Gradient from '../components/molecules/atoms/Gradient'
 export default function About() {
   const [content, setContent] = useState<Component[] | string>('')
   useEffect(() => {

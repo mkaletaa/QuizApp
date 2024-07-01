@@ -8,7 +8,7 @@ import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionBu
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import utilStyles from '../utils/styles'
 import { screenBackground } from '../utils/constants'
-import Gradient from '../components/molecules/Gradient'
+import Gradient from '../components/molecules/atoms/Gradient'
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')

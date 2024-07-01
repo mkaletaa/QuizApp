@@ -7,7 +7,7 @@ import Card from '../components/Card'
 import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
 import utilStyles from '../utils/styles'
 // import { Canvas, Patch, vec, Oval, Blur } from '@shopify/react-native-skia'
-import Gradient from '../components/molecules/Gradient'
+import Gradient from '../components/molecules/atoms/Gradient'
 import { screenBackground } from '../utils/constants'
 
 export default function Chapters() {
@@ -45,7 +45,7 @@ export default function Chapters() {
         backgroundColor: screenBackground,
       }}
     >
-      <Gradient/>
+      <Gradient />
 
       <RandomQuestionButton chapName={'__All__'} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>

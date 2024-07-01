@@ -4,8 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { List, Switch as PaperSwitch } from 'react-native-paper'
 import { aboutTheApp, contact, randomOrder } from '../../data/texts'
-import Gradient from '../components/molecules/Gradient'
-import { borderColor, screenBackground, surfaceRipple, textColor } from '../utils/constants'
+import Gradient from '../components/molecules/atoms/Gradient'
+import {
+  borderColor,
+  screenBackground,
+  surfaceRipple,
+  textColor,
+} from '../utils/constants'
 import { getValue, setValue } from '../utils/utilStorage'
 
 const StickyHeaderScrollView = () => {
@@ -54,14 +59,13 @@ const StickyHeaderScrollView = () => {
           height: 60,
           justifyContent: 'center',
         }}
-        titleStyle={{ color: textColor }} 
-        />
+        titleStyle={{ color: textColor }}
+      />
       <List.Item
         rippleColor={surfaceRipple}
         title={aboutTheApp}
-        left={() => <Entypo name="info" size={24} color={"rebeccapurple"} />}
+        left={() => <Entypo name="info" size={24} color={'rebeccapurple'} />}
         right={() => <AntDesign name="right" size={24} color={borderColor} />}
-
         //@ts-ignore
         onPress={() => navigation.navigate('About')}
         style={{
@@ -69,7 +73,7 @@ const StickyHeaderScrollView = () => {
           borderBottomColor: borderColor,
           paddingLeft: 15,
         }}
-        titleStyle={{ color: textColor }} 
+        titleStyle={{ color: textColor }}
       />
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
