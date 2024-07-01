@@ -1,39 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { Modal, View, Text, Button } from 'react-native'
+import { Modal, View, Text, Button, BackHandler, FlatList } from 'react-native'
 import { setColor } from '../utils/functions'
-import { Item, Option, Result } from '../utils/types'
+import { Item, Option } from '../utils/types'
 import ItemResult from '../components/ItemResult'
 import Tile from '../components/Tile'
 import { close } from '../../data/texts'
-import {
-  Switch,
-  Button as PaperButton,
-  Text as PaperText,
-  TouchableRipple,
-} from 'react-native-paper'
+import { Button as PaperButton } from 'react-native-paper'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
-
-  useEffect(() => {
-    setResultsArray(route.params.resultsArray)
-  }, [])
   const [correctNr, setCorrectNr] = useState(0)
-
-  useEffect(() => {
-    let correct = 0
-    resultsArray.forEach(result => {
-      if (result.isCorrect === 'correct') correct++
-    })
-    setCorrectNr(correct)
-  }, [])
-
-  // const screenWidth = Dimensions.get('window').width
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState<Item>()
   const [modalChoices, setModalChoices] = useState<Option[]>()
-  const { openQuiz, noQuestionModal } = useOpenQuiz()
+  const { openQuiz } = useOpenQuiz()
+
+  useEffect(() => {
+    setResultsArray(route.params.resultsArray)
+    let correct = 0
+    route.params.resultsArray.forEach(result => {
+      if (result.isCorrect === 'correct') correct++
+    })
+    setCorrectNr(correct)
+
+    // const backHandler = BackHandler.addEventListener('hardwareBackPress', null)
+    // return () => backHandler.remove()
+  }, [])
 
   function handlePress(item: Item, choices: Option[]) {
     setShowModal(true)
@@ -41,62 +34,82 @@ export default function QuizResults({ route }) {
     setModalChoices(choices)
   }
 
-  return (
+  function retakeQuiz(incorrectOnly = false) {
+    let itemsArray
+    if (incorrectOnly) {
+      itemsArray = resultsArray
+        .filter(el => el.isCorrect !== 'correct')
+        .map(el => el.item)
+    } else {
+      itemsArray = resultsArray.map(el => el.item)
+    }
+    openQuiz({
+      chapterName: '__Saved__', // todo: change
+      itemsArray: itemsArray,
+      howManyItems: itemsArray.length,
+    })
+  }
+
+  // Renderowanie elementu listy
+  const renderItem = ({ item }) => (
     <View
       style={{
-        backgroundColor: 'transparent',
         width: '100%',
         alignItems: 'center',
-        marginTop: 50,
       }}
     >
-      <View
-        style={{
-          alignItems: 'center',
-        }}
-      >
-        <Text>
-          Your score is {correctNr}/{resultsArray.length}
-        </Text>
-      </View>
-      {/* //todo: to najlepiej zamienić na FlatList */}
-      {resultsArray.map((result, index) => (
-        <View
-          style={{
-            width: '100%',
-            alignItems: 'center',
-          }}
-        >
-          <Tile
-            item={result.item}
-            handlePress={() => {
-              handlePress(result.item, result.userChoices)
-            }}
-            color={setColor(result)}
-          />
-        </View>
-      ))}
+      <Tile
+        item={item.item}
+        handlePress={() => handlePress(item.item, item.userChoices)}
+        color={setColor(item)}
+      />
+    </View>
+  )
 
+  // Komponent stopki listy
+  const ListFooter = () => (
+    <View style={{ marginVertical: 20 }}>
       <PaperButton
-        mode="elevated"
-        // onPress={onPressQuiz}
-        // disabled={chosenOptions.length === 0}
-        elevation={5}
-        style={{
-          backgroundColor: 'slateblue',
-          marginTop: 20,
-        }}
-        rippleColor="thistle"
-        onPress={() => openQuiz({ topicName: 'top_1', chapterName: 'cat_1' })}
+        mode="contained"
+        style={{ backgroundColor: 'slateblue', paddingVertical: 10 }}
+        onPress={() => retakeQuiz()}
       >
-        <Text
-          style={{
-            color: 'white',
-          }}
-        >
-          rozwiąż quiz ponownie
+        <Text style={{ color: 'white' }}>Rozwiąż quiz ponownie</Text>
+      </PaperButton>
+      {/* todo: disable if all correct */}
+      <PaperButton
+        mode="contained"
+        style={{ backgroundColor: 'slateblue', paddingVertical: 10 }}
+        onPress={() => retakeQuiz(true)}
+      >
+        <Text style={{ color: 'white' }}>
+          Rozwiąż quiz ponownie / tylko złe
         </Text>
       </PaperButton>
+    </View>
+  )
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', marginTop: 50 }}>
+      <Text>
+        Your score is {correctNr}/{resultsArray.length}
+      </Text>
+
+      <View
+        style={{
+          //   alignItems: 'center',
+          width: '100%',
+          //   backgroundColor: 'red',
+        }}
+      >
+        <FlatList
+          data={resultsArray}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          ListFooterComponent={ListFooter}
+          style={{}}
+        />
+      </View>
 
       <Modal
         animationType="fade"
@@ -105,12 +118,9 @@ export default function QuizResults({ route }) {
         onRequestClose={() => setShowModal(false)}
       >
         <ItemResult
-          // showQuestion={true}
           item={modalItem}
           chosenOptions={modalChoices}
-          handleBtnPress={() => {
-            setShowModal(false)
-          }}
+          handleBtnPress={() => setShowModal(false)}
           btnTitle={close}
         />
       </Modal>

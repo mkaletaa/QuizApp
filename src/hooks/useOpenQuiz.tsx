@@ -5,6 +5,7 @@ import { noQuestions } from '../../data/texts'
 import CustomModal from '../components/CustomModal'
 import { Item } from '../utils/types'
 import { getValue } from '../utils/utilStorage'
+import { StackActions } from '@react-navigation/native'
 
 const useOpenQuiz = () => {
   const navigation = useNavigation()
@@ -43,15 +44,25 @@ const useOpenQuiz = () => {
     }
 
     function navigate() {
+
+      navigation.dispatch(
+        StackActions.replace('Quiz', {
+          topName: topicName,
+          chapName: chapterName,
+          howManyItems: howManyItems,
+          shuffle,
+          itemsArray,
+        })
+      )
       // console.log("dd")
       //@ts-ignore
-      navigation.navigate('Quiz', {
-        topName: topicName,
-        chapName: chapterName,
-        howManyItems: howManyItems,
-        shuffle,
-        itemsArray,
-      })
+      // navigation.navigate('Quiz', {
+      //   topName: topicName,
+      //   chapName: chapterName,
+      //   howManyItems: howManyItems,
+      //   shuffle,
+      //   itemsArray,
+      // })
     }
   }
 

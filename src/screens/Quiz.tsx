@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import CustomModal from '../components/CustomModal'
-import GeneralResults from '../components/GeneralResults'
+// import GeneralResults from '../components/GeneralResults'
 import ItemResult from '../components/ItemResult'
 import Options from '../components/Options'
 import Line from '../components/molecules/atoms/Line'
@@ -75,7 +75,11 @@ export default function Quiz({ route }) {
   })
 
   useEffect(() => {
-    console.log('refresh')
+       const backHandler = BackHandler.addEventListener(
+         'hardwareBackPress',
+         handleBackPress
+       )
+    return () => backHandler.remove() // Cleanup the event listener on unmount
   }, []);
   // useEffect(() => {
   //       return () => {
@@ -89,14 +93,14 @@ export default function Quiz({ route }) {
     getNextItem() // pobranie pierwszego itema
   }, [whichItem])
 
-  useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      handleBackPress
-    )
+  // useEffect(() => {
+  //   const backHandler = BackHandler.addEventListener(
+  //     'hardwareBackPress',
+  //     handleBackPress
+  //   )
 
-    return () => backHandler.remove() // Cleanup the event listener on unmount
-  }, [showExitModal, navigation])
+  //   return () => backHandler.remove() // Cleanup the event listener on unmount
+  // }, [showExitModal, navigation])
 
   function handleOptionPress(option: Option, action: 'add' | 'remove'): void {
     //jeśli opcja została zaznaczona i jest multichoice

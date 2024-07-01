@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Item, Option, Result } from '../utils/types'
 // import useQuizData from '../utils/useQuizData'
 import { useNavigation } from '@react-navigation/native'
-
+import { StackActions } from '@react-navigation/native'
 import { importItem, importItemInfinityMode } from '../utils/getQuizData'
 const useNextQuestion = ({
   chapName,
@@ -141,8 +141,8 @@ const useNextQuestion = ({
     setItem(null)
     setTimeout(() => {
       // setShowGeneralResults(true)
-      
-      navigation.navigate("QuizResults", {resultsArray})
+      navigation.dispatch(StackActions.replace('QuizResults', { resultsArray }))
+      // navigation.navigate("QuizResults", {resultsArray})
     }, 0)
     setShowResultModal(false)
   }
