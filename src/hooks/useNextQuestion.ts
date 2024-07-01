@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Item, Option, Result } from '../utils/types'
 // import useQuizData from '../utils/useQuizData'
+import { useNavigation } from '@react-navigation/native'
 
 import { importItem, importItemInfinityMode } from '../utils/getQuizData'
 const useNextQuestion = ({
@@ -21,10 +22,10 @@ const useNextQuestion = ({
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [resultsArray, setResultsArray] = useState<Result[]>([])
-  const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
+  // const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [randomNrArray, setRandomNrArray] = useState([]) //
   //* zapisane pytania mają chapName ==='__Saved__'
-
+  const navigation = useNavigation()
   useEffect(() => {
     console.log('🚀 ~ useNextQuestion ~ useEffect:', itemsCount)
     // let n = countItemsInTopics(topName, chapName)
@@ -139,7 +140,9 @@ const useNextQuestion = ({
   function prepareForGeneralResults() {
     setItem(null)
     setTimeout(() => {
-      setShowGeneralResults(true)
+      // setShowGeneralResults(true)
+      
+      navigation.navigate("QuizResults", {resultsArray})
     }, 0)
     setShowResultModal(false)
   }
@@ -157,8 +160,8 @@ const useNextQuestion = ({
     setChosenOptions,
     resultsArray,
     setResultsArray,
-    showGeneralResults,
-    setShowGeneralResults,
+    // showGeneralResults,
+    // setShowGeneralResults,
   }
 }
 

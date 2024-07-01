@@ -18,16 +18,13 @@ const useOpenQuiz = () => {
     itemsArray?: Item[]
   }
 
-  const openQuiz = (
-    {
-      topicName,
-      chapterName,
-      howManyItems,
-      shuffle,
-      itemsArray,
-    }: openQuizPropType 
-  ): void => {
-    
+  const openQuiz = ({
+    topicName,
+    chapterName,
+    howManyItems,
+    shuffle,
+    itemsArray,
+  }: openQuizPropType): void => {
     //jeśli jest rozdział i wybrano infinity mode
     //* kiedy jest infinityMode to nazwa topika jest równa ""
     if (howManyItems === Infinity) {
@@ -46,6 +43,7 @@ const useOpenQuiz = () => {
     }
 
     function navigate() {
+      // console.log("dd")
       //@ts-ignore
       navigation.navigate('Quiz', {
         topName: topicName,

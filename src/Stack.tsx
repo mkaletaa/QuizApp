@@ -4,6 +4,7 @@ import { savedQuestions, aboutTheApp, settings } from '../data/texts'
 import Header from './components/Header'
 import Chapters from './screens/Chapters'
 import Quiz from './screens/Quiz'
+import QuizResults from './screens/QuizResults'
 import Saved from './screens/Saved'
 import Settings from './screens/Settings'
 import Theory from './screens/Theory'
@@ -86,6 +87,12 @@ const MyStack = () => {
       <Stack.Screen
         name="Quiz"
         component={Quiz}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="QuizResults"
+        component={QuizResults}
         options={{ headerShown: false }}
       />
 

@@ -22,6 +22,8 @@ export default function TheoryPopup({ topicName, chapterName }) {
         marginTop: 0,
         zIndex: 1,
         position: 'absolute',
+        // backgroundColor: 'red',
+        // width: '100%',
       }}
     >
       <TouchableOpacity

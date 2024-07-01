@@ -64,8 +64,8 @@ export default function Quiz({ route }) {
     setChosenOptions,
     resultsArray,
     setResultsArray,
-    showGeneralResults,
-    setShowGeneralResults,
+    // showGeneralResults,
+    // setShowGeneralResults,
   } = useNextQuestion({
     chapName: route.params.chapName,
     topName: route.params.topName,
@@ -74,6 +74,9 @@ export default function Quiz({ route }) {
     shuffle: route.params.shuffle,
   })
 
+  useEffect(() => {
+    console.log('refresh')
+  }, []);
   // useEffect(() => {
   //       return () => {
   //         const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
@@ -93,7 +96,7 @@ export default function Quiz({ route }) {
     )
 
     return () => backHandler.remove() // Cleanup the event listener on unmount
-  }, [showExitModal, showGeneralResults, navigation])
+  }, [showExitModal, navigation])
 
   function handleOptionPress(option: Option, action: 'add' | 'remove'): void {
     //jeśli opcja została zaznaczona i jest multichoice
@@ -140,10 +143,10 @@ export default function Quiz({ route }) {
   }
 
   const handleBackPress = () => {
-    if (showExitModal || showGeneralResults) {
+    if (showExitModal) {
       // If the exit modal or general results are already visible, close them
       setShowExitModal(false)
-      setShowGeneralResults(false)
+      // setShowGeneralResults(false)
       navigation.goBack() // powrót do poprzedniego ek
     } else {
       // Otherwise, show the exit modal
@@ -228,11 +231,11 @@ export default function Quiz({ route }) {
           </React.Fragment>
         )}
 
-        {!item && !showGeneralResults && (
+        {!item && (
           <ActivityIndicator size={50} color={spinner} />
         )}
 
-        {showGeneralResults && <GeneralResults resultsArray={resultsArray} />}
+        {/* {showGeneralResults && <GeneralResults resultsArray={resultsArray} />} */}
 
         {/* <View style={{height: 100, width: 100, backgroundColor: 'red'}}></View> */}
       </ScrollView>
