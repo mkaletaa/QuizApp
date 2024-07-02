@@ -26,6 +26,10 @@ import {
   StackedBarChart,
 } from 'react-native-chart-kit'
 import { surfaceBg } from '../utils/constants'
+import {
+  RenderItem,
+  ResultModal,
+} from '../components/molecules/_ReusableComponents'
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
   const [correctNr, setCorrectNr] = useState(0)
@@ -109,21 +113,28 @@ export default function QuizResults({ route }) {
       howManyItems: itemsArray.length,
     })
   }
-
+  
+  //this fires after tapping on a Tile
+  function seeFullQuestion(item: Item, index: number): void {
+    setModalItem(item)
+    setShowModal(true)
+    setIndex(index)
+  }
   // Renderowanie elementu listy
   const renderItem = ({ item, index }) => (
-    <View
-      style={{
-        width: '100%',
-        alignItems: 'center',
-      }}
-    >
-      <Tile
-        item={item.item}
-        handlePress={() => handlePress(item.item, item.userChoices, index)}
-        color={setColor(item)}
-      />
-    </View>
+    <RenderItem item={item.item} index={index} seeFullQuestion={seeFullQuestion} />
+    // <View
+    //   style={{
+    //     width: '100%',
+    //     alignItems: 'center',
+    //   }}
+    // >
+    //   <Tile
+    //     item={item.item}
+    //     handlePress={() => handlePress(item.item, item.userChoices, index)}
+    //     color={setColor(item)}
+    //   />
+    // </View>
   )
 
   const ListHeader = () => (
@@ -199,6 +210,16 @@ export default function QuizResults({ route }) {
         ListFooterComponent={ListFooter}
         style={{}}
       />
+
+      {/* <ResultModal
+        items={resultsArray}
+        index={index}
+        modalItem={modalItem}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        userChoices={item.userChoices} // Access userChoices similarly
+      /> */}
+
       <Modal
         animationType="fade"
         transparent={true}
