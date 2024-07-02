@@ -21,7 +21,7 @@ const Settings = () => {
     useState<boolean>()
 
   useEffect(() => {
-    async function checkPreferencies() {
+    async function checkPreferences() {
       const shouldShuffle = await getValue('shuffle')
       const shouldHide = await getValue('hide')
       if (shouldShuffle === null) setIsShuffleSwitchEnabled(false)
@@ -29,7 +29,7 @@ const Settings = () => {
       if (shouldHide === null) setIsHideAnswersSwitchEnabled(false)
       else setIsHideAnswersSwitchEnabled(shouldHide)
     }
-    checkPreferencies()
+    checkPreferences()
   }, [])
 
   function setShuffleStorage() {

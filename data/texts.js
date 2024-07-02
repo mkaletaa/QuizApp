@@ -36,3 +36,4 @@ export const retakeWrong = 'Popraw błędne odpowiedzi'
 export const hideAnswers = 'Zakrywaj odpowiedzi'
 export const hideAnswersExplain =
   'Uczymy się skuteczniej, gdy próbujemy przypomnieć sobie odpowiedź samemu, bez sugerowania się dostępnymi opcjami'
+  export const showOptions = "Pokaż odpowiedzi"
