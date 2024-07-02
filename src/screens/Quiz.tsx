@@ -9,7 +9,8 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  View
+  View,
+  Text,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
@@ -27,16 +28,14 @@ import {
   areYouSure,
   nah,
   nextQuestion,
+  showOptions,
   submit,
   summary,
   yesQuit,
 } from '../../data/texts'
-import {
-  buttonDark,
-  screenBackground,
-  spinner
-} from '../utils/constants'
+import { buttonDark, screenBackground, spinner } from '../utils/constants'
 import { countItemsInTopic } from '../utils/getQuizData'
+import { getValue } from '../utils/utilStorage'
 
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
@@ -75,12 +74,12 @@ export default function Quiz({ route }) {
   })
 
   useEffect(() => {
-       const backHandler = BackHandler.addEventListener(
-         'hardwareBackPress',
-         handleBackPress
-       )
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      handleBackPress
+    )
     return () => backHandler.remove() // Cleanup the event listener on unmount
-  }, []);
+  }, [])
   // useEffect(() => {
   //       return () => {
   //         const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
@@ -168,6 +167,17 @@ export default function Quiz({ route }) {
       scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false })
   }, [showResultModal])
 
+  const [hideAnswers, setHideAnswers] = useState(false)
+
+  useEffect(() => {
+    async function checkIfShouldHide() {
+      const shouldHide = await getValue('hide')
+      if (shouldHide === null) setHideAnswers(false)
+      else setHideAnswers(shouldHide)
+    }
+    checkIfShouldHide()
+  }, [item])
+
   return (
     <SafeAreaView>
       {item && itemsCount !== Infinity && whichItem !== 0 && (
@@ -182,7 +192,7 @@ export default function Quiz({ route }) {
             minHeight: screenHeight - StatusBar.currentHeight,
           },
         ]}
-        >
+      >
         {/* <Gradient></Gradient> */}
         {
           <TouchableRipple
@@ -206,24 +216,43 @@ export default function Quiz({ route }) {
               {/* <Question question={item?.question} /> */}
               <ContentRenderer content={item?.question} />
             </View>
-            <Options
-              item={item}
-              chosenOptions={chosenOptions}
-              handleOptionPress={handleOptionPress}
-              multiChoice={item.multiChoice}
-            />
 
-            <PaperButton
-              mode="contained"
-              onPress={() => {
-                setResults()
-              }}
-              disabled={chosenOptions.length === 0}
-              elevation={5}
-              buttonColor={buttonDark}
-            >
-              {submit}
-            </PaperButton>
+            {hideAnswers ? (
+              <PaperButton
+                mode="outlined"
+                elevation={5}
+                style={{
+                  borderColor: buttonDark,
+                  borderWidth: 1.5,
+                }}
+                onPress={() => {
+                  setHideAnswers(false)
+                }}
+              >
+                <Text>{showOptions}</Text>
+              </PaperButton>
+            ) : (
+              <>
+                
+                <Options
+                  item={item}
+                  chosenOptions={chosenOptions}
+                  handleOptionPress={handleOptionPress}
+                  multiChoice={item.multiChoice}
+                />
+                <PaperButton
+                  mode="contained"
+                  onPress={() => {
+                    setResults()
+                  }}
+                  disabled={chosenOptions.length === 0}
+                  elevation={5}
+                  buttonColor={buttonDark}
+                >
+                  {submit}
+                </PaperButton>
+              </>
+            )}
 
             {/* <Button
               title={submit}
@@ -235,9 +264,7 @@ export default function Quiz({ route }) {
           </React.Fragment>
         )}
 
-        {!item && (
-          <ActivityIndicator size={50} color={spinner} />
-        )}
+        {!item && <ActivityIndicator size={50} color={spinner} />}
 
         {/* {showGeneralResults && <GeneralResults resultsArray={resultsArray} />} */}
 
