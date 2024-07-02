@@ -21,10 +21,13 @@ export default function Questions({ route }) {
 
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
+  const [index, setIndex] = useState(0) //index of item to show 
 
-  function seeFullQuestion(item: Item): void {
+  //this fires after tapping on a Tile
+  function seeFullQuestion(item: Item, index: number): void {
     setModalItem(item)
     setShowModal(true)
+    setIndex(index)
   }
 
   useEffect(() => {
@@ -59,10 +62,12 @@ export default function Questions({ route }) {
     <View
       style={{
         backgroundColor: screenBackground,
-        height: "100%"
+        height: '100%',
       }}
     >
       <ResultModal
+        items={items}
+        index={index}
         modalItem={modalItem}
         showModal={showModal}
         setShowModal={setShowModal}
@@ -71,8 +76,12 @@ export default function Questions({ route }) {
       {itemsCount > 0 ? (
         <FlatList
           data={items}
-          renderItem={({ item }) => (
-            <RenderItem item={item} seeFullQuestion={seeFullQuestion} />
+          renderItem={({ item, index }) => (
+            <RenderItem
+              item={item}
+              index={index}
+              seeFullQuestion={seeFullQuestion}
+            />
           )}
           keyExtractor={item => item.id.toString()}
           ListHeaderComponent={() => (

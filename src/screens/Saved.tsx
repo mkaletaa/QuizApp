@@ -21,10 +21,12 @@ export default function Saved() {
   const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
+  const [index, setIndex] = useState(0)
 
-  function seeFullQuestion(item: Item): void {
+  function seeFullQuestion(item: Item, index: number): void {
     setModalItem(item)
     setShowModal(true)
+    setIndex(index)
   }
 
   useEffect(() => {
@@ -54,10 +56,12 @@ export default function Saved() {
     <View
       style={{
         backgroundColor: screenBackground,
-        height: "100%"
+        height: '100%',
       }}
     >
       <ResultModal
+        items={savedItems}
+        index={index}
         modalItem={modalItem}
         showModal={showModal}
         setShowModal={setShowModal}
@@ -66,8 +70,12 @@ export default function Saved() {
       {savedItems.length > 0 ? (
         <FlatList
           data={savedItems}
-          renderItem={({ item }) => (
-            <RenderItem item={item} seeFullQuestion={seeFullQuestion} />
+          renderItem={({ item, index }) => (
+            <RenderItem
+              item={item}
+              index={index}
+              seeFullQuestion={seeFullQuestion}
+            />
           )}
           keyExtractor={item => item.id.toString()}
           refreshControl={
