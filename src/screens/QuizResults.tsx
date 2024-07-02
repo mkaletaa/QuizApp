@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Modal, View, Text, Button, BackHandler, FlatList } from 'react-native'
+import {
+  Modal,
+  View,
+  Text,
+  Button,
+  BackHandler,
+  FlatList,
+  StatusBar,
+} from 'react-native'
 import { setColor } from '../utils/functions'
 import { Item, Option } from '../utils/types'
 import ItemResult from '../components/ItemResult'
@@ -8,6 +16,15 @@ import { close } from '../../data/texts'
 import { Button as PaperButton } from 'react-native-paper'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { retake, retakeWrong } from '../../data/texts'
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from 'react-native-chart-kit'
+import { surfaceBg } from '../utils/constants'
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
   const [correctNr, setCorrectNr] = useState(0)
@@ -23,10 +40,41 @@ export default function QuizResults({ route }) {
       if (result.isCorrect === 'correct') correct++
     })
     setCorrectNr(correct)
-
+    console.log(route.params.resultsArray)
     // const backHandler = BackHandler.addEventListener('hardwareBackPress', null)
     // return () => backHandler.remove()
   }, [])
+
+  const transformData = data => {
+    const counts = data.reduce((acc, item) => {
+      acc[item.isCorrect] = (acc[item.isCorrect] || 0) + 1
+      return acc
+    }, {})
+
+    return [
+      {
+        name: 'Correct',
+        population: counts.correct || 0,
+        color: 'rgb(131, 167, 234)',
+        legendFontColor: '#7F7F7F',
+        legendFontSize: 15,
+      },
+      {
+        name: 'Kind of',
+        population: counts.kindof || 0,
+        color: '#F00',
+        legendFontColor: '#7F7F7F',
+        legendFontSize: 15,
+      },
+      {
+        name: 'Incorrect',
+        population: counts.incorrect || 0,
+        color: 'rgb(0, 0, 255)',
+        legendFontColor: '#7F7F7F',
+        legendFontSize: 15,
+      },
+    ]
+  }
 
   function handlePress(item: Item, choices: Option[]) {
     setShowModal(true)
@@ -66,7 +114,35 @@ export default function QuizResults({ route }) {
     </View>
   )
 
-  // Komponent stopki listy
+  const ListHeader = () => (
+    <View style={{ backgroundColor: surfaceBg,
+      margin: 20,
+      borderRadius: 10,
+      elevation: 1
+     }}>
+      <PieChart
+        data={transformData(resultsArray)}
+        width={300}
+        height={220}
+        chartConfig={{
+          backgroundColor: '#1cc910',
+          backgroundGradientFrom: '#eff3ff',
+          backgroundGradientTo: '#efefef',
+          decimalPlaces: 2, // optional, defaults to 2dp
+          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          style: {
+            borderRadius: 16,
+          },
+        }}
+        accessor={'population'}
+        backgroundColor={'transparent'}
+        paddingLeft={'15'}
+        center={[10, 50]}
+        absolute
+      ></PieChart>
+    </View>
+  )
+
   const ListFooter = () => (
     <View style={{ marginVertical: 20, alignItems: 'center', gap: 20 }}>
       <PaperButton
@@ -83,36 +159,31 @@ export default function QuizResults({ route }) {
           style={{ backgroundColor: 'slateblue', paddingVertical: 10, flex: 1 }}
           onPress={() => retakeQuiz(true)}
         >
-          <Text style={{ color: 'white' }}>
-            {retakeWrong}
-          </Text>
+          <Text style={{ color: 'white' }}>{retakeWrong}</Text>
         </PaperButton>
       )}
     </View>
   )
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', marginTop: 50 }}>
-      <Text>
+    <React.Fragment>
+      {/* <Text>
         Your score is {correctNr}/{resultsArray.length}
-      </Text>
+        </Text> */}
+      <StatusBar
+        // backgroundColor="#6200EE" // Change this to the desired color
+        // barStyle="light-content" // Change this to "dark-content" for dark text
+        translucent={false} // Ensure the status bar is not transparent
+      />
 
-      <View
-        style={{
-          //   alignItems: 'center',
-          width: '100%',
-          //   backgroundColor: 'red',
-        }}
-      >
-        <FlatList
-          data={resultsArray}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          ListFooterComponent={ListFooter}
-          style={{}}
-        />
-      </View>
-
+      <FlatList
+        data={resultsArray}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
+        ListHeaderComponent={ListHeader}
+        ListFooterComponent={ListFooter}
+        style={{}}
+      />
       <Modal
         animationType="fade"
         transparent={true}
@@ -126,6 +197,6 @@ export default function QuizResults({ route }) {
           btnTitle={close}
         />
       </Modal>
-    </View>
+    </React.Fragment>
   )
 }

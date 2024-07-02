@@ -26,6 +26,7 @@
     "expo-updates": "~0.24.12",
     "react": "18.2.0",
     "react-native": "0.73.6",
+    "react-native-chart-kit": "^6.12.0",
     "react-native-code-highlighter": "^1.2.2",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-google-mobile-ads": "^13.0.2",
