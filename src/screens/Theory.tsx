@@ -183,13 +183,18 @@ export default function Theory({ route }) {
   )
 
   const scrollToSection = sectionIndex => {
-    if (sectionListRef.current) {
-      //@ts-ignore
-      sectionListRef.current.scrollToLocation({
-        animated: true,
-        itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
-        sectionIndex,
-      })
+    try{
+
+      if (sectionListRef.current) {
+        //@ts-ignore
+        sectionListRef.current.scrollToLocation({
+          animated: true,
+          itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
+          sectionIndex,
+        })
+      }
+    } catch(e){
+      //do nothing
     }
   }
 
