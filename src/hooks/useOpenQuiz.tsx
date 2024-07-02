@@ -17,6 +17,7 @@ const useOpenQuiz = () => {
     howManyItems?: number
     shuffle?: boolean
     itemsArray?: Item[]
+    isRetake?: boolean
   }
 
   const openQuiz = ({
@@ -25,6 +26,7 @@ const useOpenQuiz = () => {
     howManyItems,
     shuffle,
     itemsArray,
+    isRetake = false, //czy user poprawia quiz
   }: openQuizPropType): void => {
     //jeśli jest rozdział i wybrano infinity mode
     //* kiedy jest infinityMode to nazwa topika jest równa ""
@@ -44,25 +46,29 @@ const useOpenQuiz = () => {
     }
 
     function navigate() {
-
-      navigation.dispatch(
-        StackActions.replace('Quiz', {
-          topName: topicName,
-          chapName: chapterName,
-          howManyItems: howManyItems,
-          shuffle,
-          itemsArray,
-        })
-      )
+      if (isRetake) {
+        navigation.dispatch(
+          StackActions.replace('Quiz', {
+            topName: topicName,
+            chapName: chapterName,
+            howManyItems: howManyItems,
+            shuffle,
+            itemsArray,
+          })
+        )
+        return
+      }
       // console.log("dd")
       //@ts-ignore
-      // navigation.navigate('Quiz', {
-      //   topName: topicName,
-      //   chapName: chapterName,
-      //   howManyItems: howManyItems,
-      //   shuffle,
-      //   itemsArray,
-      // })
+      navigation.navigate('Quiz', {
+        topName: topicName,
+        chapName: chapterName,
+        howManyItems: howManyItems,
+        shuffle,
+        itemsArray,
+      })
+      const state = navigation.getState()
+      console.log('Previous Screens:', state.routes)
     }
   }
 

@@ -30,6 +30,8 @@ import {
   RenderItem,
   ResultModal,
 } from '../components/molecules/_ReusableComponents'
+import { useNavigation } from '@react-navigation/native'
+
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
   const [correctNr, setCorrectNr] = useState(0)
@@ -49,6 +51,8 @@ export default function QuizResults({ route }) {
     console.log(route.params.resultsArray)
     // const backHandler = BackHandler.addEventListener('hardwareBackPress', null)
     // return () => backHandler.remove()
+
+
   }, [])
 
   const transformData = data => {
@@ -111,6 +115,7 @@ export default function QuizResults({ route }) {
       chapterName: '__Saved__', // todo: change
       itemsArray: itemsArray,
       howManyItems: itemsArray.length,
+      isRetake: true
     })
   }
   
@@ -168,7 +173,7 @@ export default function QuizResults({ route }) {
       ></PieChart>
     </View>
   )
-
+const navigation = useNavigation()
   const ListFooter = () => (
     <View style={{ marginVertical: 20, alignItems: 'center', gap: 20 }}>
       <PaperButton
@@ -188,6 +193,15 @@ export default function QuizResults({ route }) {
           <Text style={{ color: 'white' }}>{retakeWrong}</Text>
         </PaperButton>
       )}
+
+      <PaperButton
+        mode="contained"
+        style={{ backgroundColor: 'slateblue', paddingVertical: 10, flex: 1 }}
+        onPress={() => navigation.goBack()}
+      >
+        <Text style={{ color: 'white' }}>wróć</Text>
+      </PaperButton>
+
     </View>
   )
 
@@ -220,6 +234,7 @@ export default function QuizResults({ route }) {
         userChoices={item.userChoices} // Access userChoices similarly
       /> */}
 
+    {/* this could be replaced by ResultModal, but there is an issue */}
       <Modal
         animationType="fade"
         transparent={true}
