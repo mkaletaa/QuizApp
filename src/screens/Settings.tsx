@@ -1,9 +1,16 @@
-import { AntDesign, Entypo } from '@expo/vector-icons'
+import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { List, Switch as PaperSwitch } from 'react-native-paper'
-import { aboutTheApp, contact, hideAnswers, hideAnswersExplain, randomOrder } from '../../data/texts'
+import {
+  aboutTheApp,
+  contact,
+  hideAnswers,
+  hideAnswersExplain,
+  randomOrder,
+  savedQuestions,
+} from '../../data/texts'
 import Gradient from '../components/molecules/atoms/Gradient'
 import {
   borderColor,
@@ -13,7 +20,7 @@ import {
 } from '../utils/constants'
 import { getValue, setValue } from '../utils/utilStorage'
 import MyBottomSheet from '../components/BottomSheet'
-
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 const Settings = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
     useState<boolean>()
@@ -37,7 +44,7 @@ const Settings = () => {
   }
 
   function setHideAnswersStorage() {
-    setIsHideAnswersSwitchEnabled(prev=>!prev)
+    setIsHideAnswersSwitchEnabled(prev => !prev)
   }
 
   useEffect(() => {
@@ -101,17 +108,40 @@ const Settings = () => {
           }}
           titleStyle={{ color: textColor }}
           description={() => (
-            <Text style={{ opacity: 0.6 }}>
-              {hideAnswersExplain}
-            </Text>
+            <Text style={{ opacity: 0.6 }}>{hideAnswersExplain}</Text>
           )}
         />
       </List.Section>
 
       <List.Item
         rippleColor={surfaceRipple}
+        title={savedQuestions}
+        left={() => (
+          <Ionicons name="bookmark-outline" size={24} color={'slateblue'} />
+        )}
+        right={() => <AntDesign name="right" size={24} color={borderColor} />}
+        //@ts-ignore
+        onPress={() => navigation.navigate('Saved')}
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: borderColor,
+          paddingLeft: 15,
+          marginTop: -8,
+          // height: 60
+        }}
+        titleStyle={{ color: textColor }}
+      />
+
+      <List.Item
+        rippleColor={surfaceRipple}
         title={aboutTheApp}
-        left={() => <Entypo name="info" size={24} color={'slateblue'} />}
+        left={() => (
+          <MaterialCommunityIcons
+            name="information-variant"
+            size={26}
+            color="slateblue"
+          />
+        )}
         right={() => <AntDesign name="right" size={24} color={borderColor} />}
         //@ts-ignore
         onPress={() => navigation.navigate('About')}
@@ -119,7 +149,7 @@ const Settings = () => {
           borderBottomWidth: 1,
           borderBottomColor: borderColor,
           paddingLeft: 15,
-          marginTop: -8,
+          marginTop: 0,
           // height: 60
         }}
         titleStyle={{ color: textColor }}
