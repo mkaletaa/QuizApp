@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 1)',
     minHeight: Dimensions.get('window').height,
     flexGrow: 1,
+    width: Dimensions.get('window').width,
   },
   contentContainer: {
     alignItems: 'center',

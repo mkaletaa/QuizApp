@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Modal,
   View,
@@ -7,6 +7,7 @@ import {
   BackHandler,
   FlatList,
   StatusBar,
+  Pressable,
 } from 'react-native'
 import { setColor } from '../utils/functions'
 import { Item, Option } from '../utils/types'
@@ -32,6 +33,7 @@ export default function QuizResults({ route }) {
   const [modalItem, setModalItem] = useState<Item>()
   const [modalChoices, setModalChoices] = useState<Option[]>()
   const { openQuiz } = useOpenQuiz()
+  const [index, setIndex] = useState(0)
 
   useEffect(() => {
     setResultsArray(route.params.resultsArray)
@@ -76,10 +78,20 @@ export default function QuizResults({ route }) {
     ]
   }
 
-  function handlePress(item: Item, choices: Option[]) {
+  function handlePress(item: Item, choices: Option[], index: number) {
+    setIndex(index)
     setShowModal(true)
     setModalItem(item)
     setModalChoices(choices)
+  }
+
+  useEffect(() => {
+    if (showModal === true) scrollToIndex(index)
+  }, [showModal])
+
+  const flatListRef = useRef(null)
+  const scrollToIndex = index => {
+    flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
   }
 
   function retakeQuiz(incorrectOnly = false) {
@@ -99,7 +111,7 @@ export default function QuizResults({ route }) {
   }
 
   // Renderowanie elementu listy
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item, index }) => (
     <View
       style={{
         width: '100%',
@@ -108,18 +120,21 @@ export default function QuizResults({ route }) {
     >
       <Tile
         item={item.item}
-        handlePress={() => handlePress(item.item, item.userChoices)}
+        handlePress={() => handlePress(item.item, item.userChoices, index)}
         color={setColor(item)}
       />
     </View>
   )
 
   const ListHeader = () => (
-    <View style={{ backgroundColor: surfaceBg,
-      margin: 20,
-      borderRadius: 10,
-      elevation: 1
-     }}>
+    <View
+      style={{
+        backgroundColor: surfaceBg,
+        margin: 20,
+        borderRadius: 10,
+        elevation: 1,
+      }}
+    >
       <PieChart
         data={transformData(resultsArray)}
         width={300}
@@ -190,11 +205,25 @@ export default function QuizResults({ route }) {
         visible={showModal}
         onRequestClose={() => setShowModal(false)}
       >
-        <ItemResult
-          item={modalItem}
-          chosenOptions={modalChoices}
-          handleBtnPress={() => setShowModal(false)}
-          btnTitle={close}
+        <FlatList
+          pagingEnabled
+          horizontal={true}
+          ref={flatListRef}
+          // contentContainerStyle={{
+          //   width: '100%',
+          // }}
+          data={resultsArray} // Pass resultsArray directly to data prop
+          keyExtractor={(item, index) => index.toString()} // Use a unique key for each item
+          renderItem={(
+            { item } // Destructure item from the object passed by FlatList
+          ) => (
+            <ItemResult
+              item={item.item} // Assuming item is structured as { item: Item, userChoices: Option[] }
+              chosenOptions={item.userChoices} // Access userChoices similarly
+              handleBtnPress={() => setShowModal(false)}
+              btnTitle={close}
+            />
+          )}
         />
       </Modal>
     </React.Fragment>

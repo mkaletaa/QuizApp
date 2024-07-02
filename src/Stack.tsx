@@ -140,7 +140,6 @@ const MyStack = () => {
           ...headerOptions,
         })}
       />
-
     </Stack.Navigator>
   )
 }
