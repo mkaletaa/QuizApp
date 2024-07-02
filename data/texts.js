@@ -31,3 +31,5 @@ export const randomOrder = "losowa kolejność pytań"
 export const contact = 'Kontakt'
 export const aboutTheApp = 'O aplikacji'
 export const settings = 'Ustawienia'
+export const retake = "Rozwiąż ponownie"
+export const retakeWrong = "Popraw błędne odpowiedzi"

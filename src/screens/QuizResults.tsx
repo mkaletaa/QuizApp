@@ -7,7 +7,7 @@ import Tile from '../components/Tile'
 import { close } from '../../data/texts'
 import { Button as PaperButton } from 'react-native-paper'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-
+import { retake, retakeWrong } from '../../data/texts'
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
   const [correctNr, setCorrectNr] = useState(0)
@@ -68,24 +68,26 @@ export default function QuizResults({ route }) {
 
   // Komponent stopki listy
   const ListFooter = () => (
-    <View style={{ marginVertical: 20 }}>
+    <View style={{ marginVertical: 20, alignItems: 'center', gap: 20 }}>
       <PaperButton
         mode="contained"
-        style={{ backgroundColor: 'slateblue', paddingVertical: 10 }}
+        style={{ backgroundColor: 'slateblue', paddingVertical: 10, flex: 1 }}
         onPress={() => retakeQuiz()}
       >
-        <Text style={{ color: 'white' }}>Rozwiąż quiz ponownie</Text>
+        <Text style={{ color: 'white' }}>{retake}</Text>
       </PaperButton>
-      {/* todo: disable if all correct */}
-      <PaperButton
-        mode="contained"
-        style={{ backgroundColor: 'slateblue', paddingVertical: 10 }}
-        onPress={() => retakeQuiz(true)}
-      >
-        <Text style={{ color: 'white' }}>
-          Rozwiąż quiz ponownie / tylko złe
-        </Text>
-      </PaperButton>
+
+      {resultsArray.every(el => el.isCorrect === 'correct') ? null : ( //jeśli we wszystkich elementach itemsArray klucz isCorrect ma wartość correct to ukryj button
+        <PaperButton
+          mode="contained"
+          style={{ backgroundColor: 'slateblue', paddingVertical: 10, flex: 1 }}
+          onPress={() => retakeQuiz(true)}
+        >
+          <Text style={{ color: 'white' }}>
+            {retakeWrong}
+          </Text>
+        </PaperButton>
+      )}
     </View>
   )
 
