@@ -12,6 +12,7 @@ import {
   textColor,
 } from '../utils/constants'
 import { getValue, setValue } from '../utils/utilStorage'
+import MyBottomSheet from '../components/BottomSheet'
 
 const StickyHeaderScrollView = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
@@ -78,6 +79,7 @@ const StickyHeaderScrollView = () => {
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
+      <MyBottomSheet />
     </View>
   )
 }

@@ -23,7 +23,7 @@ export default function Topics({ route }) {
     const chapter = chapters.find(chapter => chapter.name === chapterName).des
     setChapterDes(
       chapter
-        ? "<span style='font-size:15`px'>" + chapter + '</span>'
+        ? "<span style='font-size:16px'>" + chapter + '</span>'
         : undefined
     )
     if (chapterName && topics[chapterName]) {

@@ -9,6 +9,7 @@ import utilStyles from '../utils/styles'
 // import { Canvas, Patch, vec, Oval, Blur } from '@shopify/react-native-skia'
 import Gradient from '../components/molecules/atoms/Gradient'
 import { screenBackground } from '../utils/constants'
+import MyBottomSheet from '../components/BottomSheet'
 
 export default function Chapters() {
   const navigation = useNavigation()
