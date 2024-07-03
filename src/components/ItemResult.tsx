@@ -10,7 +10,7 @@ import { Item, Option } from '../utils/types'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
 // import Question from './Question'
 import { FontAwesome, Foundation } from '@expo/vector-icons'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 // import {  } from 'react-native-gesture-handler'
 // import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Button as PaperButton } from 'react-native-paper'
@@ -38,7 +38,7 @@ export default function ItemResult({
   // const showPrompt = useStore(state => state.showPrompt)
 
   // Ustawienie wartości showPrompt
-  const setShowPopup = useStore(state => state.setShowPopup)
+  const [showPopup, setShowPopup] = useState(false)
   useEffect(() => {
     return () => {
       setShowPopup(false)

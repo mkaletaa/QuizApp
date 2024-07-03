@@ -18,7 +18,7 @@ import useStore from '../utils/store'
 // import { useRoute } from '@react-navigation/native'
 export default function Header({ title }) {
   const navigation = useNavigation()
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
 
   // Pobieranie wartości 'name' z obiektu 'route.params'
 
@@ -33,7 +33,7 @@ export default function Header({ title }) {
         justifyContent: 'center',
       }}
       onPress={() => {
-        setShowPopup(false)
+        // setShowPopup(false)
         console.log('first')
       }}
     >
@@ -145,7 +145,7 @@ export default function Header({ title }) {
               onPress={() => {
                 //@ts-ignore
                 navigation.navigate('Saved')
-                setShowPopup(false)
+                // setShowPopup(false)
               }}
             />
 
@@ -156,7 +156,7 @@ export default function Header({ title }) {
               onPress={() => {
                 //@ts-ignore
                 navigation.navigate('Settings')
-                setShowPopup(false)
+                // setShowPopup(false)
               }}
             />
           </View>

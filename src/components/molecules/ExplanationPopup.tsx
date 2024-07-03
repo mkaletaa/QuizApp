@@ -10,8 +10,9 @@ import MistakeButton from './atoms/MistakeButton'
 
 export default function ExplanationPopup({ item }) {
   const [saved, setSaved] = useState(false)
-  const showPopup = useStore(state => state.showPopup)
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const showPopup = useStore(state => state.showPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
+  const [showPopup, setShowPopup] = useState(false)
   const { popupOpacity, transform } = useAnimatePopup(showPopup)
   const [animation] = useState(new Animated.Value(0))
 
@@ -19,8 +20,9 @@ export default function ExplanationPopup({ item }) {
     checkIfSaved()
   }, [])
 
+
   useEffect(() => {
-    setShowPopup(showPopup)
+    // setShowPopup(showPopup)
   }, [showPopup])
 
   const checkIfSaved = async () => {
@@ -110,7 +112,7 @@ export default function ExplanationPopup({ item }) {
         }}
       >
         <TouchableRipple
-          onPress={() => setShowPopup(!showPopup)}
+          onPress={() => setShowPopup(true)}
           style={{
             position: 'absolute',
             top: 30,

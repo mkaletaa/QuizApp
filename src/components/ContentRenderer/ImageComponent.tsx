@@ -59,11 +59,11 @@ const ImageComponent = ({
     setDescriptionState(description || images[indexState]?.des)
   }, [modalVisible, indexState])
 
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
 
   const openModal = () => {
     setModalVisible(true)
-    setShowPopup(false)
+    // setShowPopup(false)
   }
 
   const closeModal = () => {

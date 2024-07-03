@@ -9,7 +9,7 @@ import ContentRenderer from './ContentRenderer/_ContentRenderer'
 export default function ExpandableView({ data, showHeader = false }) {
   const [viewHeight, setViewHeight] = useState(0)
   const [max, setMax] = useState(150)
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
 
   const handleLayout = event => {
     const { height } = event.nativeEvent.layout
@@ -42,7 +42,7 @@ export default function ExpandableView({ data, showHeader = false }) {
           <AntDesign
             onPress={() => {
               setMax(null)
-              setShowPopup(false)
+              // setShowPopup(false)
             }}
             name="down"
             size={34}

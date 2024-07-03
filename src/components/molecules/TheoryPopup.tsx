@@ -1,5 +1,5 @@
 import { Entypo } from '@expo/vector-icons'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Animated,
   Modal,
@@ -13,8 +13,13 @@ import MistakeButton from './atoms/MistakeButton'
 import QuizButton from './atoms/QuizButton'
 
 export default function TheoryPopup({ topicName, chapterName }) {
-  const showPopup = useStore(state => state.showPopup)
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const showPopup = useStore(state => state.showPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
+  const [showPopup, setShowPopup] = useState(false)
+
+  useEffect(() => {
+    
+  }, []);
 
   const { popupOpacity,  transform } = useAnimatePopup(showPopup)
 
@@ -40,7 +45,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
             justifyContent: 'center',
             // backgroundColor: 'red'
           }}
-          onPress={() => setShowPopup(!showPopup)}
+          onPress={() => setShowPopup(e=>!e)}
         >
           <Entypo
             name="dots-three-vertical"

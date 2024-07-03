@@ -33,7 +33,7 @@ export default function Theory({ route }) {
   const headerHeight = useHeaderHeight()
   // const { images, addImage, removeImage } = useStore()
 
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
@@ -66,16 +66,16 @@ export default function Theory({ route }) {
       useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
       // clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
       useStore.getState().disableCarousel()
-      useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
+      // useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
     }
   }, [])
 
   const renderHeader = () => (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        setShowPopup(false)
-      }}
-    >
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
       <View
         style={[
           styles.header,
@@ -97,7 +97,7 @@ export default function Theory({ route }) {
                 <Pressable
                   onPress={() => {
                     scrollToSection(i)
-                    setShowPopup(false)
+                    // setShowPopup(false)
                   }}
                 >
                   <Text
@@ -115,17 +115,17 @@ export default function Theory({ route }) {
             )
         )}
       </View>
-    </TouchableWithoutFeedback>
+    // </TouchableWithoutFeedback>
   )
 
   const renderSectionHeader = ({ section }) => {
     if (section.title) {
       return (
-        <TouchableWithoutFeedback
-          onPress={() => {
-            setShowPopup(false)
-          }}
-        >
+        // <TouchableWithoutFeedback
+        //   onPress={() => {
+        //     setShowPopup(false)
+        //   }}
+        // >
           <View
             style={{
               padding: 10,
@@ -147,18 +147,18 @@ export default function Theory({ route }) {
           >
             <Text style={styles.sectionHeaderText}>{section.title}</Text>
           </View>
-        </TouchableWithoutFeedback>
+        // </TouchableWithoutFeedback>
       )
     }
     return null // Brak nagłówka dla sekcji bez tytułu
   }
 
   const renderItem = ({ item, index }) => (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        setShowPopup(false)
-      }}
-    >
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
       <View
         style={{
           paddingBottom: 20,
@@ -168,19 +168,19 @@ export default function Theory({ route }) {
       >
         <ContentRenderer content={[item]} />
       </View>
-    </TouchableWithoutFeedback>
+    // </TouchableWithoutFeedback>
   )
 
   const renderFooter = () => (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        setShowPopup(false)
-      }}
-    >
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
       <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
         <QuizButton chapterName={chapterName} topicName={topicName} />
       </View>
-    </TouchableWithoutFeedback>
+    // </TouchableWithoutFeedback>
   )
 
   const scrollToSection = sectionIndex => {
@@ -233,7 +233,7 @@ export default function Theory({ route }) {
             }
           }
           onScroll={handleScroll}
-          onScrollBeginDrag={() => setShowPopup(false)}
+          // onScrollBeginDrag={() => setShowPopup(false)}
           ref={sectionListRef}
           sections={theoryData}
           scrollEventThrottle={15}
@@ -277,11 +277,11 @@ export default function Theory({ route }) {
         ]}
       />
 
-      <TouchableWithoutFeedback
+      {/* <TouchableWithoutFeedback
         onPress={() => {
           setShowPopup(false)
         }}
-      >
+      > */}
         <Entypo
           name="arrow-up"
           size={40}
@@ -292,7 +292,7 @@ export default function Theory({ route }) {
           ]}
           onPress={() => scrollToTop()}
         />
-      </TouchableWithoutFeedback>
+      {/* </TouchableWithoutFeedback> */}
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
