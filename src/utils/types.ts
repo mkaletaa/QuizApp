@@ -9,6 +9,7 @@ type Type =
   | 'YouTube'
   | 'Code'
   | 'Quote'
+  | 'Spoiler'
 
 export type Component = {
   type: Type
