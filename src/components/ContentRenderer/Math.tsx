@@ -1,32 +1,61 @@
 import React from 'react'
-import { View } from 'react-native'
-// import MathJax from 'react-native-mathjax'
+import { View, Pressable, TouchableWithoutFeedback } from 'react-native'
 import WebView from 'react-native-webview'
 
-//todo zmienić 325 na coś innego
-export default function Math({ width = 325, value, props }) {
-  let html =
-    `<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><div style="display: flex;justify-content: center;align-items: center; overflow-x:auto; "><div style="max-width: 100%;margin: 0 auto;font-size:${props?.fontSize ? props.fontSize : 15}px">`
-  html += value
-  html += '</div></div>'
+export default function Math({ width, value, props }) {
+  let html = `
+    <html>
+    <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        #math-container {
+          overflow-x: auto;
+          max-width: 100%;
+          font-size: ${props?.fontSize ? props.fontSize : 15}px;
+          height: ${props?.height ? props.height : 70}px;
+          display: flex;
+          align-items: center;
+          padding-right: ${width * 0.05}px !important;
+          padding-left: ${width * 0.05}px;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="math-container">${value}</div>
+    </body>
+    </html>
+  `
 
   return (
-    <View style={{ height: 70, width: '100%', backgroundColor: 'lightblue', position: 'relative' }}>
-
-    <WebView
-      onStartShouldSetResponder={() => true}
-      scrollEnabled={false}
-      // onMessage={this.handleMessage.bind(this)}
-      source={{ html }}
-      // {...props}
-      //todo: zmienić 320 na jakiś inny width
+    <View
       style={{
-        width: 300,
-        height: props?.height ? props.height : 70,
-        backgroundColor: 'transparent',
+        width: width,
       }}
-      //scalesPageToFit={true}
-    />
+      onStartShouldSetResponder={event => true}
+      onTouchEnd={e => {
+        e.stopPropagation()
+      }}
+    >
+
+        <WebView
+          onStartShouldSetResponder={() => true}
+          scrollEnabled={false}
+          source={{ html }}
+          style={{
+            width: width,
+            height: props?.height ? props.height : 70,
+            backgroundColor: 'transparent',
+          }}
+        />
     </View>
   )
 }
