@@ -1,28 +1,27 @@
 import { Entypo, Ionicons } from '@expo/vector-icons'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Animated, View } from 'react-native'
 import { TouchableRipple } from 'react-native-paper'
 import useAnimatePopup from '../../hooks/useAnimatePopup'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
-import { Item } from '../../utils/types'
 import MistakeButton from './atoms/MistakeButton'
 
-export default function ExplanationPopup({ item }: { item: Item }) {
-  const [saved, setSaved] = useState(false) // Czy pytanie jest zapisane
+export default function ExplanationPopup({ item }) {
+  const [saved, setSaved] = useState(false)
   const showPopup = useStore(state => state.showPopup)
   const setShowPopup = useStore(state => state.setShowPopup)
-  const { popupScale, transform } = useAnimatePopup(showPopup)
-  const [animation] = useState(new Animated.Value(0)) // Stan animacji
-
-  useEffect(() => {
-    setShowPopup(showPopup)
-  }, [])
+  const { popupOpacity, transform } = useAnimatePopup(showPopup)
+  const [animation] = useState(new Animated.Value(0))
 
   useEffect(() => {
     checkIfSaved()
-  }, [saved, item.id])
+  }, [])
+
+  useEffect(() => {
+    setShowPopup(showPopup)
+  }, [showPopup])
 
   const checkIfSaved = async () => {
     try {
@@ -65,7 +64,7 @@ export default function ExplanationPopup({ item }: { item: Item }) {
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
       setSaved(true)
-      animateIcon() // Rozpocznij animację po zapisaniu
+      animateIcon()
     } catch (error) {
       console.error('Error saving item:', error)
     }
@@ -110,9 +109,7 @@ export default function ExplanationPopup({ item }: { item: Item }) {
       }}
     >
       <TouchableRipple
-        onPress={() => {
-          setShowPopup(!showPopup)
-        }}
+        onPress={() => setShowPopup(!showPopup)}
         style={{
           position: 'absolute',
           top: 30,
@@ -123,27 +120,19 @@ export default function ExplanationPopup({ item }: { item: Item }) {
       >
         <Entypo name="dots-three-vertical" size={28} color="black" />
       </TouchableRipple>
+
       <Animated.View
         style={[
           utilStyles.popup,
           {
-            opacity: popupScale,
+            opacity: popupOpacity,
             transform,
-
             flexDirection: 'row',
             top: 75,
           },
         ]}
       >
-        {/* <Button
-          title={reportAMistake}
-          color="red"
-          onPress={() => {
-            sendAnEmail('id: ' + item.id)
-            setShowPopup(false)
-          }}
-        /> */}
-        <MistakeButton prop={'id: ' + item.id} />
+        <MistakeButton prop={`id: ${item.id}`} />
 
         <View
           style={{
@@ -153,6 +142,7 @@ export default function ExplanationPopup({ item }: { item: Item }) {
             marginHorizontal: 10,
           }}
         />
+
         <Animated.View style={{ transform: [{ scale }], opacity }}>
           {saved ? (
             <Ionicons
