@@ -6,7 +6,6 @@ import {
   Button,
   BackHandler,
   FlatList,
-  StatusBar,
   Pressable,
 } from 'react-native'
 import { setColor } from '../utils/functions'
@@ -31,6 +30,7 @@ import {
   ResultModal,
 } from '../components/molecules/_ReusableComponents'
 import { useNavigation } from '@react-navigation/native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
@@ -206,15 +206,11 @@ const navigation = useNavigation()
   )
 
   return (
-    <React.Fragment>
+    <SafeAreaView>
       {/* <Text>
         Your score is {correctNr}/{resultsArray.length}
         </Text> */}
-      <StatusBar
-        // backgroundColor="#6200EE" // Change this to the desired color
-        // barStyle="light-content" // Change this to "dark-content" for dark text
-        translucent={false} // Ensure the status bar is not transparent
-      />
+
 
       <FlatList
         data={resultsArray}
@@ -234,7 +230,7 @@ const navigation = useNavigation()
         userChoices={item.userChoices} // Access userChoices similarly
       /> */}
 
-    {/* this could be replaced by ResultModal, but there is an issue */}
+      {/* this could be replaced by ResultModal, but there is an issue */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -262,6 +258,6 @@ const navigation = useNavigation()
           )}
         />
       </Modal>
-    </React.Fragment>
+    </SafeAreaView>
   )
 }
