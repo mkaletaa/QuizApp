@@ -10,10 +10,11 @@ type Type =
   | 'Code'
   | 'Quote'
   | 'Spoiler'
+  | 'Divider'
 
 export type Component = {
   type: Type
-  value: string
+  value?: string //it is optional due to Divider
   props?: any
   id?: string
 }

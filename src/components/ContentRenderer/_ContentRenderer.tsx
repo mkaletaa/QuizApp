@@ -18,7 +18,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
   // console.log("🚀 ~ renderComponent ~ dataComponent:", JSON.stringify(dataComponent))
 
   //key is stringified object itself (20 first characters)
-  const key: string = JSON.stringify(value).slice(0, 50)
+  let key: string
+  if (value) key = JSON.stringify(value).slice(0, 50)
 
   // console.log('🚀 ~ key:', key)
 
@@ -82,6 +83,18 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'Block':
       return <Block value={value} type={props.type} key={key} />
+
+    case 'Divider':
+      return (
+        <View
+          style={{
+            width: '100%',
+            height: 1,
+            backgroundColor: 'black',
+            opacity: 0.2,
+          }}
+        ></View>
+      )
 
     case 'Quote':
       return (

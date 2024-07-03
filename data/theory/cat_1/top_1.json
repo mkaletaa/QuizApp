@@ -26,6 +26,9 @@
         }
       },
       {
+        "type": "Divider"
+      },
+      {
         "type": "Text",
         "value": "Na samym wstępie coś o strukturze. Plik z teorią podzielony jest na segmenty. Segmenty są oddzielony nagłówkami, które się przyklejają do góry ekranu a miarę scrollowania. Oto jak wygląda to w kodzie:"
       },
