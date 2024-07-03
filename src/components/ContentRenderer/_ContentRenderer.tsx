@@ -25,7 +25,9 @@ export const renderComponent = (dataComponent: Component, width: number) => {
   switch (componentType) {
     case 'Text':
       let modifiedValue =
-        `<span style=" font-size: 18px; color: ${textColor}; line-height: 25px;">` +
+        `<span style=" font-size: 18px; color: ${textColor}; line-height: 25px; width: ${
+          props?.toLeft ? width * 0.9 : null
+        }px">` +
         value +
         '</span>'
 
@@ -103,10 +105,10 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       )
     case 'Math': //tutaj już przygotować odpowiednio width
       return <Math width={width} value={value} props={props} />
-    
+
     case 'Spoiler':
-      return <Spoiler value={value}/>
-    
+      return <Spoiler value={value} props={props} />
+
     case 'Code':
       const codeContainerStyle = {
         // ...styles.codeContainer,

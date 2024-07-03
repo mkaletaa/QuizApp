@@ -8,8 +8,9 @@ import { noInternetMessage } from './data/texts'
 import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
 import * as Updates from 'expo-updates'
 import * as Sentry from '@sentry/react-native'
-import {  Provider } from 'react-native-paper'
+import { Provider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 Sentry.init({
   // dsn: "https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640",
@@ -63,19 +64,20 @@ const App = () => {
         }
       }
     >
-      <Provider>
-        <NavigationContainer>
-          <MyStack />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <Provider>
+          <NavigationContainer>
+            <MyStack />
 
-          <CustomModal
-            visible={showModal}
-            text={noInternetMessage}
-            icon={"wifi-off"}
-            onRequestClose={() => setShowModal(false)}
-          >
-            {/* <Button title="OK" onPress={() => setShowModal(false)} /> */}
-          </CustomModal>
-          {/* <Snackbar
+            <CustomModal
+              visible={showModal}
+              text={noInternetMessage}
+              icon={'wifi-off'}
+              onRequestClose={() => setShowModal(false)}
+            >
+              {/* <Button title="OK" onPress={() => setShowModal(false)} /> */}
+            </CustomModal>
+            {/* <Snackbar
           visible={showTitleSnackbar}
           duration={700}
           onDismiss={()=>{}}
@@ -83,13 +85,14 @@ const App = () => {
             label: 'Undo',
             onPress: () => {
               // Do something
-            },
-          }}
-        > 
-          Hey there! I'm a Snackbar.
-        </Snackbar>*/}
-        </NavigationContainer>
-      </Provider>
+              },
+              }}
+              > 
+              Hey there! I'm a Snackbar.
+              </Snackbar>*/}
+          </NavigationContainer>
+        </Provider>
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   )
 }

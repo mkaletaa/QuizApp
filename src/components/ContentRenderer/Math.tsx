@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from 'react-native'
 // import MathJax from 'react-native-mathjax'
 import WebView from 'react-native-webview'
 
@@ -10,7 +11,7 @@ export default function Math({ width = 325, value, props }) {
   html += '</div></div>'
 
   return (
-    // <View style={{ height: 70, width: '100%', backgroundColor: 'blue' }}>
+    <View style={{ height: 70, width: '100%', backgroundColor: 'lightblue', position: 'relative' }}>
 
     <WebView
       onStartShouldSetResponder={() => true}
@@ -26,6 +27,6 @@ export default function Math({ width = 325, value, props }) {
       }}
       //scalesPageToFit={true}
     />
-    //</View>
+    </View>
   )
 }

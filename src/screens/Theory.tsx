@@ -19,6 +19,7 @@ import TheoryPopup from '../components/molecules/TheoryPopup'
 import QuizButton from '../components/molecules/atoms/QuizButton'
 import { boldTextColor, borderColor, buttonDark, screenBackground, sectionHeaderBG, spinner, surfaceBg } from '../utils/constants'
 import useStore from '../utils/store'
+import Spoiler from '../components/ContentRenderer/Spoiler'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -243,6 +244,7 @@ export default function Theory({ route }) {
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
+        {/* <Spoiler></Spoiler> */}
       </React.Fragment>
     ) : (
       <View

@@ -6,9 +6,24 @@
         "value": [
           {
             "type": "Text",
-            "value": "Zawartość spoilera"
+            "value": "Zawartość spoilera",
+            "props": {
+              "toLeft": true
+            }
+          },
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/vHL8D75v/image.png"
           }
         ]
+      },
+      {
+        "type": "Math",
+        "value": "`sum(wwwwwwwwwwwwwwwwwwwwwwwwwwwww)`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
       },
       {
         "type": "Text",
@@ -25,7 +40,7 @@
       }
     ]
   },
-    {
+  {
     "title": "Block",
     "data": [
       {
@@ -303,5 +318,3 @@
     ]
   }
 ]
-
-

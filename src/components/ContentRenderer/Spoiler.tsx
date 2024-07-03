@@ -1,52 +1,81 @@
-import React, { useRef, useMemo, useCallback } from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
 import BottomSheet from '@gorhom/bottom-sheet'
+import React, { useEffect, useRef } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import {
+    GestureHandlerRootView,
+    PanGestureHandler,
+    State,
+} from 'react-native-gesture-handler'
+import { Button, Portal } from 'react-native-paper'
+import { gradient, surfaceBg } from '../../utils/constants'
+import ContentRenderer from './_ContentRenderer'
 
-export default function Spoiler({value}) {
-  // ref to access the Bottom Sheet
+export default function Spoiler({ value, props }) {
   const bottomSheetRef = useRef(null)
+  const snapPoints = ['25%', '50%', '75%']
 
-  // variables to define Bottom Sheet snap points
-  const snapPoints = useMemo(() => ['10%', '50%', '90%'], [])
-
-  // callback to handle Bottom Sheet state changes
-  const handleSheetChanges = useCallback(index => {
-    console.log('handleSheetChanges', index)
-  }, [])
-
-  // function to open the Bottom Sheet
   const openBottomSheet = () => {
-    bottomSheetRef.current?.snapToIndex(0) // opens to the first snap point
+    bottomSheetRef.current.expand()
   }
 
+  const handleGestureEvent = event => {
+    if (event.nativeEvent.state === State.ACTIVE) {
+      bottomSheetRef.current.close()
+    }
+  }
+
+  useEffect(() => {
+    console.log(value)
+  }, [])
+
   return (
-    <View style={styles.container}>
-      <Button title="Show Spoiler" onPress={openBottomSheet} />
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={-1} // initially closed
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}
-        enablePanDownToClose={true} // allows closing by panning down
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <PanGestureHandler
+        onGestureEvent={handleGestureEvent}
+        // minDeltaX={10} // Minimalny przeskok po osi X, który ma uruchomić zdarzenie
+        // minDeltaY={10} // Minimalny przeskok po osi Y, który ma uruchomić zdarzenie
       >
-        <View style={styles.contentContainer}>
-          <Text style={styles.spoilerText}>This is a spoiler!</Text>
+        <View style={{ flex: 1 }}>
+          <Button
+            mode="contained"
+            onPress={() => bottomSheetRef.current.snapToIndex(0)}
+          >
+            Pokaż spoiler
+          </Button>
+
+          <Portal>
+            <BottomSheet
+              ref={bottomSheetRef}
+              index={-1}
+              snapPoints={snapPoints}
+              onChange={() => {}}
+              enablePanDownToClose
+              handleStyle={{
+                backgroundColor: gradient,
+                borderTopLeftRadius: 8,
+                borderTopRightRadius: 8,
+              }} // Set handle (indicator) color here
+              backgroundStyle={{ backgroundColor: surfaceBg }}
+            >
+              <View style={styles.contentContainer}>
+                <Text style={styles.spoilerText}>This is a spoiler!</Text>
+                {value.map(item => (
+                  <ContentRenderer content={[item]} />
+                ))}
+              </View>
+            </BottomSheet>
+          </Portal>
         </View>
-      </BottomSheet>
-    </View>
+      </PanGestureHandler>
+    </GestureHandlerRootView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'grey',
-  },
   contentContainer: {
     flex: 1,
     alignItems: 'center',
+    gap: 10
   },
   spoilerText: {
     fontSize: 18,
