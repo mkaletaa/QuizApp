@@ -10,7 +10,7 @@ export default function About() {
   useEffect(() => {
     //@ts-ignore
     setContent(about)
-    console.log(about)
+    // console.log(about)
   }, [])
   return (
     <ScrollView

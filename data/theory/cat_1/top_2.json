@@ -6,8 +6,22 @@
         "value": "Dupa"
       },
       {
-        "type": "Image",
-        "value": "https://i.postimg.cc/TP99hbh5/image.png"
+        "type": "Spoiler",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Supa"
+          },
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/TP99hbh5/image.png"
+          },
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/TP99hbh5/image.png"
+          }
+        ],
+        "props": { "index": 1 }
       },
       {
         "type": "Image",
@@ -33,19 +47,23 @@
         "type": "Image",
         "value": "https://i.postimg.cc/TP99hbh5/image.png"
       },
-            {
+      {
         "type": "Image",
         "value": "https://i.postimg.cc/TP99hbh5/image.png"
       },
-            {
+      {
         "type": "Image",
         "value": "https://i.postimg.cc/TP99hbh5/image.png"
       },
-            {
+      {
         "type": "Image",
         "value": "https://i.postimg.cc/TP99hbh5/image.png"
       },
-      
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/TP99hbh5/image.png"
+      },
+
       {
         "type": "Block",
         "value": [

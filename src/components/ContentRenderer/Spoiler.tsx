@@ -1,10 +1,10 @@
-import BottomSheet from '@gorhom/bottom-sheet'
-import React, { useEffect, useRef } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { StyleSheet, Text, View, BackHandler } from 'react-native'
 import {
-    GestureHandlerRootView,
-    PanGestureHandler,
-    State,
+  GestureHandlerRootView,
+  PanGestureHandler,
+  State,
 } from 'react-native-gesture-handler'
 import { Button, Portal } from 'react-native-paper'
 import { gradient, surfaceBg } from '../../utils/constants'
@@ -13,14 +13,21 @@ import ContentRenderer from './_ContentRenderer'
 export default function Spoiler({ value, props }) {
   const bottomSheetRef = useRef(null)
   const snapPoints = ['25%', '50%', '75%']
+  const [isOpen, setIsOpen] = useState(false)
 
   const openBottomSheet = () => {
-    bottomSheetRef.current.expand()
+    setIsOpen(true)
+    bottomSheetRef.current.snapToIndex(props ? props.index : 0)
+  }
+
+  const closeBottomSheet = () => {
+    setIsOpen(false)
+    bottomSheetRef.current.close()
   }
 
   const handleGestureEvent = event => {
     if (event.nativeEvent.state === State.ACTIVE) {
-      bottomSheetRef.current.close()
+      closeBottomSheet()
     }
   }
 
@@ -28,39 +35,70 @@ export default function Spoiler({ value, props }) {
     console.log(value)
   }, [])
 
+  const renderBackdrop = useCallback(
+    props => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={-1}
+        appearsOnIndex={0}
+        opacity={0.5}
+      />
+    ),
+    []
+  )
+
+  useEffect(() => {
+    const backAction = () => {
+      if (isOpen) {
+        closeBottomSheet()
+        return true
+      }
+      return false
+    }
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    )
+
+    return () => backHandler.remove()
+  }, [isOpen])
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <PanGestureHandler
-        onGestureEvent={handleGestureEvent}
-        // minDeltaX={10} // Minimalny przeskok po osi X, który ma uruchomić zdarzenie
-        // minDeltaY={10} // Minimalny przeskok po osi Y, który ma uruchomić zdarzenie
-      >
+      <PanGestureHandler onGestureEvent={handleGestureEvent}>
         <View style={{ flex: 1 }}>
-          <Button
-            mode="contained"
-            onPress={() => bottomSheetRef.current.snapToIndex(0)}
-          >
+          <Button mode="contained" onPress={openBottomSheet}>
             Pokaż spoiler
           </Button>
 
           <Portal>
             <BottomSheet
+              //* wkrótce będzie można ustawić synamiczne snappointy
               ref={bottomSheetRef}
               index={-1}
               snapPoints={snapPoints}
-              onChange={() => {}}
+              onChange={index => {
+                if (index === -1) {
+                  setIsOpen(false)
+                }
+              }}
               enablePanDownToClose
               handleStyle={{
-                backgroundColor: gradient,
-                borderTopLeftRadius: 8,
-                borderTopRightRadius: 8,
-              }} // Set handle (indicator) color here
+                backgroundColor: 'rgb(225, 225, 255)',
+                borderTopLeftRadius: 18,
+                borderTopRightRadius: 18,
+              }}
+              handleIndicatorStyle={{
+                backgroundColor: 'rgb(200,205,245)',
+              }}
               backgroundStyle={{ backgroundColor: surfaceBg }}
+              backdropComponent={renderBackdrop}
             >
               <View style={styles.contentContainer}>
-                <Text style={styles.spoilerText}>This is a spoiler!</Text>
-                {value.map(item => (
-                  <ContentRenderer content={[item]} />
+                {/* <Text style={styles.spoilerText}>This is a spoiler!</Text> */}
+                {value.map((item, index) => (
+                  <ContentRenderer key={index} content={[item]} />
                 ))}
               </View>
             </BottomSheet>
@@ -75,11 +113,12 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     alignItems: 'center',
-    gap: 10
+    gap: 10,
+    paddingTop: 20,
   },
-  spoilerText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 20,
-  },
+  // spoilerText: {
+  //   fontSize: 18,
+  //   fontWeight: 'bold',
+  //   marginTop: 20,
+  // },
 })
