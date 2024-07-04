@@ -5,6 +5,8 @@ import { Item } from '../utils/types'
 // import Question from './Question'
 import { gradient, surfaceBg } from '../utils/constants'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
+import { TouchableRipple } from 'react-native-paper'
+import React from 'react'
 
 export default function Tile({
   item,
@@ -69,7 +71,8 @@ export default function Tile({
         },
       ]}
     >
-      <Pressable
+      <TouchableRipple
+        rippleColor="rgb(225, 225, 255)"
         style={{
           paddingTop: 20,
           // backgroundColor: 'red',
@@ -81,25 +84,27 @@ export default function Tile({
           handlePress(item)
         }}
       >
-        <View style={{ width: '90%' }}>
-          {/* <Question question={item.question} /> */}
-          <ContentRenderer content={item.question} width={viewWidth} />
+        <React.Fragment>
+          <View style={{ width: '90%' }}>
+            {/* <Question question={item.question} /> */}
+            <ContentRenderer content={item.question} width={viewWidth} />
 
-          {/* {questionData.map(questionComponent => (
+            {/* {questionData.map(questionComponent => (
         <ContentRenderer data={questionComponent}></ContentRenderer>
-      ))} */}
-        </View>
-        <LinearGradient
-          // Button Linear Gradient
-          colors={['transparent', 'transparent', setGradientColor(color)]}
-          style={{
-            width: '100%',
-            height: '100%', //has to be 100% cuz if Math component, Tile cannot be pressed
-            position: 'absolute',
-            bottom: 0,
-          }}
-        ></LinearGradient>
-      </Pressable>
+        ))} */}
+          </View>
+          <LinearGradient
+            // Button Linear Gradient
+            colors={['transparent', 'transparent', setGradientColor(color)]}
+            style={{
+              width: '100%',
+              height: '100%', //has to be 100% cuz if Math component, Tile cannot be pressed
+              position: 'absolute',
+              bottom: 0,
+            }}
+          ></LinearGradient>
+        </React.Fragment>
+      </TouchableRipple>
     </View>
   )
 }
