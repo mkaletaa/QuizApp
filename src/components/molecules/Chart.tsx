@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { PieChart } from 'react-native-chart-kit';
 import { surfaceBg, textColor } from '../../utils/constants';
+import Gradient from './atoms/Gradient';
 
 export default function Chart({resultsArray}){
       const transformData = data => {
@@ -44,21 +45,22 @@ export default function Chart({resultsArray}){
           borderRadius: 10,
           elevation: 2,
           paddingVertical: 0,
-          padding: 20,
-          alignItems: 'center'
+        //   padding: 20,
+          alignItems: 'center',
         }}
       >
         {/* <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}>
           Quiz Results
         </Text> */}
+        <Gradient/>
         <PieChart
           data={transformData(resultsArray)}
           width={300}
-          height={200}
+          height={180}
           chartConfig={{
-            backgroundColor: '#1cc910',
+            backgroundColor: '#fe23ff',
             backgroundGradientFrom: '#eff3ff',
-            backgroundGradientTo: '#efefef',
+            backgroundGradientTo: '#fe23ff',
             decimalPlaces: 2,
             color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
             style: {

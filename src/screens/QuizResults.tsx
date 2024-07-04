@@ -9,10 +9,11 @@ import { Divider, Button as PaperButton } from 'react-native-paper'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { retake, retakeWrong } from '../../data/texts'
 import { PieChart } from 'react-native-chart-kit'
-import { surfaceBg } from '../utils/constants'
+import { screenBackground, surfaceBg } from '../utils/constants'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Chart from '../components/molecules/Chart'
+import Gradient from '../components/molecules/atoms/Gradient'
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
@@ -92,7 +93,12 @@ export default function QuizResults({ route }) {
     <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
       <PaperButton
         mode="outlined"
-        style={{ borderColor: 'slateblue', paddingVertical: 3, width: 230  }}
+        style={{
+          borderColor: 'slateblue',
+          paddingVertical: 3,
+          width: 230,
+          backgroundColor: surfaceBg,
+        }}
         onPress={() => retakeQuiz()}
       >
         <Text>{retake}</Text>
@@ -101,7 +107,12 @@ export default function QuizResults({ route }) {
       {resultsArray.every(el => el.isCorrect === 'correct') ? null : (
         <PaperButton
           mode="outlined"
-          style={{ borderColor: 'slateblue', paddingVertical: 3, width: 230  }}
+          style={{
+            borderColor: 'slateblue',
+            paddingVertical: 3,
+            width: 230,
+            backgroundColor: surfaceBg,
+          }}
           onPress={() => retakeQuiz(true)}
         >
           <Text>{retakeWrong}</Text>
@@ -110,7 +121,11 @@ export default function QuizResults({ route }) {
 
       <PaperButton
         mode="elevated"
-        style={{ backgroundColor: 'slateblue', paddingVertical: 1, marginTop: 20 }}
+        style={{
+          backgroundColor: 'slateblue',
+          paddingVertical: 1,
+          marginTop: 20,
+        }}
         onPress={() => navigation.goBack()}
       >
         <Text style={{ color: 'white' }}>Wyjdź</Text>
@@ -120,6 +135,8 @@ export default function QuizResults({ route }) {
 
   return (
     <SafeAreaView>
+      <Gradient />
+
       <FlatList
         data={resultsArray}
         renderItem={renderItem}
