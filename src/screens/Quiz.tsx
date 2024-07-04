@@ -9,21 +9,11 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  View,
   Text,
+  View,
 } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
-import CustomModal from '../components/CustomModal'
-// import GeneralResults from '../components/GeneralResults'
-import ItemResult from '../components/ItemResult'
-import Options from '../components/Options'
-import Line from '../components/molecules/atoms/Line'
-import useNextQuestion from '../hooks/useNextQuestion'
-import { returnIsCorrect } from '../utils/functions'
-import { Option, Result } from '../utils/types'
-// import useQuizData from '../utils/useQuizData'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import {
   areYouSure,
   nah,
@@ -33,15 +23,23 @@ import {
   summary,
   yesQuit,
 } from '../../data/texts'
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
+import CustomModal from '../components/CustomModal'
+import ItemResult from '../components/ItemResult'
+import Options from '../components/Options'
+import Line from '../components/molecules/atoms/Line'
+import useNextQuestion from '../hooks/useNextQuestion'
 import { buttonDark, screenBackground, spinner } from '../utils/constants'
+import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
+import { Option, Result } from '../utils/types'
 import { getValue } from '../utils/utilStorage'
 
+//list of route params is in useOpenQuiz
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
-  // const { countItemsInTopic } = useQuizData()
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
@@ -52,19 +50,15 @@ export default function Quiz({ route }) {
 
   const {
     item,
-    setItem,
     getNextItem,
     nextBtnPress,
     whichItem,
-    setWhichItem,
     showResultModal,
     setShowResultModal,
     chosenOptions,
     setChosenOptions,
     resultsArray,
     setResultsArray,
-    // showGeneralResults,
-    // setShowGeneralResults,
   } = useNextQuestion({
     chapName: route.params.chapName,
     topName: route.params.topName,
@@ -73,33 +67,11 @@ export default function Quiz({ route }) {
     shuffle: route.params.shuffle,
   })
 
-  useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      handleBackPress
-    )
-    return () => backHandler.remove() // Cleanup the event listener on unmount
-  }, [])
-  // useEffect(() => {
-  //       return () => {
-  //         const clearImages = useStore.getState().clearImages // Pobierz funkcję clearImages ze stanu
-  //         clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
-  //       }
-  // }, []);
   //for some reason this useEffect runs right after mounting
   //it also is triggered after next Btn press, because it is updated there
   useEffect(() => {
     getNextItem() // pobranie pierwszego itema
   }, [whichItem])
-
-  // useEffect(() => {
-  //   const backHandler = BackHandler.addEventListener(
-  //     'hardwareBackPress',
-  //     handleBackPress
-  //   )
-
-  //   return () => backHandler.remove() // Cleanup the event listener on unmount
-  // }, [showExitModal, navigation])
 
   function handleOptionPress(option: Option, action: 'add' | 'remove'): void {
     //jeśli opcja została zaznaczona i jest multichoice
@@ -145,6 +117,14 @@ export default function Quiz({ route }) {
     navigation.goBack() // powrót do poprzedniego ekranu
   }
 
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      handleBackPress
+    )
+    return () => backHandler.remove() // Cleanup the event listener on unmount
+  }, [])
+
   const handleBackPress = () => {
     if (showExitModal) {
       // If the exit modal or general results are already visible, close them
@@ -159,7 +139,7 @@ export default function Quiz({ route }) {
     // Prevent default behavior of the back button
     return true
   }
-  // StatusBar.setHidden(false)
+
   const scrollViewRef = useRef(null)
 
   useEffect(() => {
@@ -233,7 +213,6 @@ export default function Quiz({ route }) {
               </PaperButton>
             ) : (
               <>
-                
                 <Options
                   item={item}
                   chosenOptions={chosenOptions}
@@ -254,28 +233,17 @@ export default function Quiz({ route }) {
               </>
             )}
 
-            {/* <Button
-              title={submit}
-              onPress={() => {
-                setResults()
-              }} //jak Infinity mode to nie ustawiaj rezultów
-              disabled={chosenOptions.length === 0}
-            /> */}
           </React.Fragment>
         )}
 
         {!item && <ActivityIndicator size={50} color={spinner} />}
 
-        {/* {showGeneralResults && <GeneralResults resultsArray={resultsArray} />} */}
-
-        {/* <View style={{height: 100, width: 100, backgroundColor: 'red'}}></View> */}
       </ScrollView>
       <Modal
         animationType="fade"
         transparent={true}
         visible={showResultModal}
         onRequestClose={() => nextBtnPress()}
-        // statusBarTranslucent={true}
       >
         <ItemResult
           // showQuestion={false}
