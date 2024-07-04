@@ -112,7 +112,7 @@ export default function QuizResults({ route }) {
       itemsArray = resultsArray.map(el => el.item)
     }
     openQuiz({
-      chapterName: '__Saved__', // todo: change
+      chapterName: '__Again__', 
       itemsArray: itemsArray,
       howManyItems: itemsArray.length,
       isRetake: true

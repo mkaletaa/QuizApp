@@ -8,7 +8,7 @@ import useStore from '../../../utils/store'
 export default function QuizButton({ topicName, chapterName }) {
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
 
   return (
     <React.Fragment>
@@ -24,7 +24,7 @@ export default function QuizButton({ topicName, chapterName }) {
         mode="elevated"
         onPress={() => {
           openQuiz({ topicName, chapterName })
-          setShowPopup(false)
+          // setShowPopup(false)
         }}
         // disabled={chosenOptions.length === 0}
         elevation={5}

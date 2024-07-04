@@ -7,6 +7,9 @@ import { Item } from '../utils/types'
 import { getValue } from '../utils/utilStorage'
 import { StackActions } from '@react-navigation/native'
 
+{
+  /* this hook is used always before Quiz screen is opened */
+}
 const useOpenQuiz = () => {
   const navigation = useNavigation()
   const [showNoQuestionsModal, setShowNoQuestionsModal] = useState(false)
@@ -14,12 +17,27 @@ const useOpenQuiz = () => {
   type openQuizPropType = {
     topicName?: string
     chapterName: string
-    howManyItems?: number
-    shuffle?: boolean
-    itemsArray?: Item[]
-    isRetake?: boolean
+    howManyItems?: number //used when retaking or saved
+    shuffle?: boolean //true if InfinityMode, otherwise undefined
+    itemsArray?: Item[] //used when retaking or saved
+    isRetake?: boolean //true if retaking quiz, undefined otherwise
   }
 
+  //? Kiedy Quiz z pojedynczego topika
+  //? Jeśli klikniemy na kartę topika lub przycik otwarcia quizu z Theory to trafiają tu tylko chapterName i topicName
+
+  //? Kiedy Quiz z zapisanych pytań
+  //? trafiają tu tylko chapterName = "__Saved__" , itemsArray: Item[] (zapisane pytania) , howManyItems = liczba zapisanych pytań
+
+  //? Kiedy Quiz z inifinityMode
+  //? Jeśli klikniemy na RandomQuestionButton to trafiają tu tylko chapterName i topicName='', chapterName, howManyItems = Infinity, shuffle= true
+
+  //? Kiedy Quiz poprawkowy
+  //? Trafiają tu chapterName = "__Again__", itemsArray: Item[] (tablica pytań do ponownego zagrania), howManyItems - wiadomo, isRetake = true
+
+  //* kiedy jest infinityMode to nazwa topika jest równa ""
+
+  //this function prepares necessary data for the quiz
   const openQuiz = ({
     topicName,
     chapterName,
@@ -29,14 +47,13 @@ const useOpenQuiz = () => {
     isRetake = false, //czy user poprawia quiz
   }: openQuizPropType): void => {
     //jeśli jest rozdział i wybrano infinity mode
-    //* kiedy jest infinityMode to nazwa topika jest równa ""
     if (howManyItems === Infinity) {
-      shuffle = true
+      // shuffle = true //infinityMode ma zawsze shuffle więc zakomentowałem tę linię
       navigate()
-      //jeśli jest pytania z saved lub rozdział i dany topik ma quiz
+      //jeśli jest pytania z saved lub retake lub Card/Theory (rozdział i dany topik ma quiz)
     } else if (itemsArray || quiz[chapterName][topicName]) {
-      // console.log(itemsArray)
-      ;(async function gV() {
+      // sprawdź czy pytania mają być pomieszane
+      ;(async function() {
         shuffle = await getValue('shuffle')
         navigate()
       })()
@@ -45,46 +62,38 @@ const useOpenQuiz = () => {
       setShowNoQuestionsModal(true)
     }
 
+    //this function changes screen to Quiz.
     function navigate() {
-      if (isRetake) {
-        navigation.dispatch(
-          StackActions.replace('Quiz', {
-            topName: topicName,
-            chapName: chapterName,
-            howManyItems: howManyItems,
-            shuffle,
-            itemsArray,
-          })
-        )
-        return
-      }
-      // console.log("dd")
-      //@ts-ignore
-      navigation.navigate('Quiz', {
+      const quizParams = {
         topName: topicName,
         chapName: chapterName,
         howManyItems: howManyItems,
         shuffle,
         itemsArray,
-      })
-      const state = navigation.getState()
-      console.log('Previous Screens:', state.routes)
+      }
+
+      //if user retakes quiz (buttons in QuizResults)
+      if (isRetake) {
+        navigation.dispatch(
+          //must be replace instead of navigate because otherwise Quiz screen woludn't be refreshed
+          StackActions.replace('Quiz', quizParams)
+        )
+        return
+      }
+
+      //@ts-ignore
+      navigation.navigate('Quiz', quizParams)
     }
   }
 
+  //if no quiz is associated with a given topic this component appears on screen
   const noQuestionModal = () => {
     return (
-      // null
       <CustomModal
         visible={showNoQuestionsModal}
         onRequestClose={() => setShowNoQuestionsModal(false)}
         text={noQuestions}
-      >
-        {/* <Button
-          title="ok"
-          onPress={() => setShowNoQuestionsModal(false)}
-        ></Button> */}
-      </CustomModal>
+      />
     )
   }
 

@@ -24,7 +24,7 @@ const useNextQuestion = ({
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   // const [showGeneralResults, setShowGeneralResults] = useState(false) //pokaz wyniki wszystkich pytań
   const [randomNrArray, setRandomNrArray] = useState([]) //
-  //* zapisane pytania mają chapName ==='__Saved__'
+  //* zapisane pytania mają chapName ==='__Saved__', a poprawiane mają __Again__
   const navigation = useNavigation()
   useEffect(() => {
     console.log('🚀 ~ useNextQuestion ~ useEffect:', itemsCount)
