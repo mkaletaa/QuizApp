@@ -127,19 +127,19 @@ export default function QuizResults({ route }) {
   }
   // Renderowanie elementu listy
   const renderItem = ({ item, index }) => (
-    <RenderItem item={item.item} index={index} seeFullQuestion={seeFullQuestion} />
-    // <View
-    //   style={{
-    //     width: '100%',
-    //     alignItems: 'center',
-    //   }}
-    // >
-    //   <Tile
-    //     item={item.item}
-    //     handlePress={() => handlePress(item.item, item.userChoices, index)}
-    //     color={setColor(item)}
-    //   />
-    // </View>
+    // <RenderItem item={item.item} index={index} seeFullQuestion={seeFullQuestion} />
+    <View
+      style={{
+        width: '100%',
+        alignItems: 'center',
+      }}
+    >
+      <Tile
+        item={item.item}
+        handlePress={() => handlePress(item.item, item.userChoices, index)}
+        color={setColor(item)}
+      />
+    </View>
   )
 
   const ListHeader = () => (

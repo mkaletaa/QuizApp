@@ -8,7 +8,7 @@
             "type": "Text",
             "value": "Zawartość spoilera",
             "props": {
-              "toLeft": true
+              "toLeft": false
             }
           },
           {

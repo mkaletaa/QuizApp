@@ -22,8 +22,8 @@ export type Component = {
 export type Option = {
   id: string
   val: string
-  correct: boolean
-  props?: {}
+  correct?: boolean
+  // props?: {}
   isMarked?: boolean
 }
 

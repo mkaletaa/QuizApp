@@ -68,7 +68,7 @@
     "multiChoice": true,
     "question": "What is your name?",
     "options": [
-      { "id": 21, "val": "Carl", "correct": false },
+      { "id": 21, "val": "Carl" },
       { "id": 22, "val": "Emily", "correct": true },
       { "id": 23, "val": "Eva", "correct": true }
     ],
