@@ -36,9 +36,9 @@ export function sendAnEmail(arg) {
   Linking.openURL(`mailto:${email}?subject=${subject}&body=${body}`)
 }
 
-export function setColor(result: Result): 'green' | 'red' | 'orange' {
-  if (result.isCorrect === 'correct') return 'green'
-  if (result.isCorrect === 'incorrect') return 'red'
+export function setColor(result: Result): 'rgba(50, 199, 31, 1)' | 'rgba(255, 35, 35, 1)' | 'orange' {
+  if (result.isCorrect === 'correct') return 'rgba(50, 199, 31, 1)'
+  if (result.isCorrect === 'incorrect') return 'rgba(255, 35, 35, 1)'
   if (result.isCorrect === 'kindof') return 'orange'
 }
 

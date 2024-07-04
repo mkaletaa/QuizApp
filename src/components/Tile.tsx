@@ -33,12 +33,12 @@ export default function Tile({
 
   function setGradientColor(color: string): string {
     switch (color) {
-      case 'red':
+      case 'rgba(255, 35, 35, 1)': //incorrect
         return 'rgb(190, 0, 0)'
-      case 'orange':
+      case 'orange': //correct
         return 'rgb(215, 132, 0)'
-      case 'green':
-        return 'rgb(0, 90, 0)'
+      case 'rgba(50, 199, 31, 1)': //correct
+        return 'rgba(49, 165, 34, 1)'
       default:
         return gradient
     }
@@ -59,7 +59,13 @@ export default function Tile({
           // justifyContent: 'center',
 
           borderRadius: 10,
-          elevation: 3,
+          elevation: 2,
+
+          // borderWidth: 2,
+          // borderTopColor: 'rgba(0,205, 0, .1)',
+          // borderBottomColor: 'rgba(0,205, 0, .3)',
+          // borderRightColor: 'rgba(0,205, 0, .1)',
+          // borderLeftColor: 'rgba(0,205, 0, .1)',
         },
       ]}
     >

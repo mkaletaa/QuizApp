@@ -1,36 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
-import {
-  Modal,
-  View,
-  Text,
-  Button,
-  BackHandler,
-  FlatList,
-  Pressable,
-} from 'react-native'
+import { Modal, View, Text, FlatList } from 'react-native'
 import { setColor } from '../utils/functions'
 import { Item, Option } from '../utils/types'
 import ItemResult from '../components/ItemResult'
 import Tile from '../components/Tile'
 import { close } from '../../data/texts'
-import { Button as PaperButton } from 'react-native-paper'
+import { Divider, Button as PaperButton } from 'react-native-paper'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { retake, retakeWrong } from '../../data/texts'
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit'
+import { PieChart } from 'react-native-chart-kit'
 import { surfaceBg } from '../utils/constants'
-import {
-  RenderItem,
-  ResultModal,
-} from '../components/molecules/_ReusableComponents'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import Chart from '../components/molecules/Chart'
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
@@ -48,43 +30,9 @@ export default function QuizResults({ route }) {
       if (result.isCorrect === 'correct') correct++
     })
     setCorrectNr(correct)
-    console.log(route.params.resultsArray)
-    // const backHandler = BackHandler.addEventListener('hardwareBackPress', null)
-    // return () => backHandler.remove()
-
-
   }, [])
 
-  const transformData = data => {
-    const counts = data.reduce((acc, item) => {
-      acc[item.isCorrect] = (acc[item.isCorrect] || 0) + 1
-      return acc
-    }, {})
 
-    return [
-      {
-        name: 'Correct',
-        population: counts.correct || 0,
-        color: 'rgb(131, 167, 234)',
-        legendFontColor: '#7F7F7F',
-        legendFontSize: 15,
-      },
-      {
-        name: 'Kind of',
-        population: counts.kindof || 0,
-        color: '#F00',
-        legendFontColor: '#7F7F7F',
-        legendFontSize: 15,
-      },
-      {
-        name: 'Incorrect',
-        population: counts.incorrect || 0,
-        color: 'rgb(0, 0, 255)',
-        legendFontColor: '#7F7F7F',
-        legendFontSize: 15,
-      },
-    ]
-  }
 
   function handlePress(item: Item, choices: Option[], index: number) {
     setIndex(index)
@@ -112,22 +60,14 @@ export default function QuizResults({ route }) {
       itemsArray = resultsArray.map(el => el.item)
     }
     openQuiz({
-      chapterName: '__Again__', 
+      chapterName: '__Again__',
       itemsArray: itemsArray,
       howManyItems: itemsArray.length,
-      isRetake: true
+      isRetake: true,
     })
   }
-  
-  //this fires after tapping on a Tile
-  function seeFullQuestion(item: Item, index: number): void {
-    setModalItem(item)
-    setShowModal(true)
-    setIndex(index)
-  }
-  // Renderowanie elementu listy
+
   const renderItem = ({ item, index }) => (
-    // <RenderItem item={item.item} index={index} seeFullQuestion={seeFullQuestion} />
     <View
       style={{
         width: '100%',
@@ -143,75 +83,43 @@ export default function QuizResults({ route }) {
   )
 
   const ListHeader = () => (
-    <View
-      style={{
-        backgroundColor: surfaceBg,
-        margin: 20,
-        borderRadius: 10,
-        elevation: 1,
-      }}
-    >
-      <PieChart
-        data={transformData(resultsArray)}
-        width={300}
-        height={220}
-        chartConfig={{
-          backgroundColor: '#1cc910',
-          backgroundGradientFrom: '#eff3ff',
-          backgroundGradientTo: '#efefef',
-          decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-          style: {
-            borderRadius: 16,
-          },
-        }}
-        accessor={'population'}
-        backgroundColor={'transparent'}
-        paddingLeft={'15'}
-        center={[10, 50]}
-        absolute
-      ></PieChart>
-    </View>
+    <Chart resultsArray={resultsArray}/>
   )
-const navigation = useNavigation()
+
+  const navigation = useNavigation()
+
   const ListFooter = () => (
-    <View style={{ marginVertical: 20, alignItems: 'center', gap: 20 }}>
+    <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
       <PaperButton
-        mode="contained"
-        style={{ backgroundColor: 'slateblue', paddingVertical: 10, flex: 1 }}
+        mode="outlined"
+        style={{ borderColor: 'slateblue', paddingVertical: 3, width: 230  }}
         onPress={() => retakeQuiz()}
       >
-        <Text style={{ color: 'white' }}>{retake}</Text>
+        <Text>{retake}</Text>
       </PaperButton>
 
-      {resultsArray.every(el => el.isCorrect === 'correct') ? null : ( //jeśli we wszystkich elementach itemsArray klucz isCorrect ma wartość correct to ukryj button
+      {resultsArray.every(el => el.isCorrect === 'correct') ? null : (
         <PaperButton
-          mode="contained"
-          style={{ backgroundColor: 'slateblue', paddingVertical: 10, flex: 1 }}
+          mode="outlined"
+          style={{ borderColor: 'slateblue', paddingVertical: 3, width: 230  }}
           onPress={() => retakeQuiz(true)}
         >
-          <Text style={{ color: 'white' }}>{retakeWrong}</Text>
+          <Text>{retakeWrong}</Text>
         </PaperButton>
       )}
 
       <PaperButton
-        mode="contained"
-        style={{ backgroundColor: 'slateblue', paddingVertical: 10, flex: 1 }}
+        mode="elevated"
+        style={{ backgroundColor: 'slateblue', paddingVertical: 1, marginTop: 20 }}
         onPress={() => navigation.goBack()}
       >
-        <Text style={{ color: 'white' }}>wróć</Text>
+        <Text style={{ color: 'white' }}>Wyjdź</Text>
       </PaperButton>
-
     </View>
   )
 
   return (
     <SafeAreaView>
-      {/* <Text>
-        Your score is {correctNr}/{resultsArray.length}
-        </Text> */}
-
-
       <FlatList
         data={resultsArray}
         renderItem={renderItem}
@@ -221,16 +129,6 @@ const navigation = useNavigation()
         style={{}}
       />
 
-      {/* <ResultModal
-        items={resultsArray}
-        index={index}
-        modalItem={modalItem}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        userChoices={item.userChoices} // Access userChoices similarly
-      /> */}
-
-      {/* this could be replaced by ResultModal, but there is an issue */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -241,17 +139,12 @@ const navigation = useNavigation()
           pagingEnabled
           horizontal={true}
           ref={flatListRef}
-          // contentContainerStyle={{
-          //   width: '100%',
-          // }}
-          data={resultsArray} // Pass resultsArray directly to data prop
-          keyExtractor={(item, index) => index.toString()} // Use a unique key for each item
-          renderItem={(
-            { item } // Destructure item from the object passed by FlatList
-          ) => (
+          data={resultsArray}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
             <ItemResult
-              item={item.item} // Assuming item is structured as { item: Item, userChoices: Option[] }
-              chosenOptions={item.userChoices} // Access userChoices similarly
+              item={item.item}
+              chosenOptions={item.userChoices}
               handleBtnPress={() => setShowModal(false)}
               btnTitle={close}
             />
