@@ -1,6 +1,6 @@
 import NetInfo from '@react-native-community/netinfo'
 import { NavigationContainer } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import 'react-native-gesture-handler'
 import MyStack from './src/Stack'
 import CustomModal from './src/components/CustomModal'
@@ -11,6 +11,7 @@ import * as Sentry from '@sentry/react-native'
 import { Provider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import * as SplashScreen from 'expo-splash-screen'
 
 Sentry.init({
   // dsn: "https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640",
@@ -24,8 +25,13 @@ Sentry.init({
   },
 })
 
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync()
+
 const App = () => {
   const [showModal, setShowModal] = useState(false)
+  const [appIsReady, setAppIsReady] = useState(false)
+
   async function onFetchUpdateAsync() {
     try {
       const update = await Updates.checkForUpdateAsync()
@@ -40,6 +46,21 @@ const App = () => {
   }
 
   useEffect(() => {
+    const prepare = async () => {
+      try {
+        // Pre-load fonts, make any API calls you need to do here
+        // Artificially delay for two seconds to simulate a slow loading experience. Please remove this if you copy and paste the code!
+        await new Promise(resolve => setTimeout(resolve, 2000))
+      } catch (e) {
+        console.warn(e)
+      } finally {
+        // Tell the application to render
+        setAppIsReady(true)
+      }
+    }
+
+    prepare()
+
     const unsubscribe = NetInfo.addEventListener(state => {
       setShowModal(!state.isConnected)
       console.log('Is connected?', state.isConnected)
@@ -56,15 +77,24 @@ const App = () => {
     }
   }, [])
 
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      // This tells the splash screen to hide immediately! If we call this after
+      // `setAppIsReady`, then we may see a blank screen while the app is
+      // loading its initial state and rendering its first pixels. So instead,
+      // we hide the splash screen once we know the root view has already
+      // performed layout.
+      await SplashScreen.hideAsync()
+    }
+  }, [appIsReady])
+
+  if (!appIsReady) {
+    return null
+  }
+
   return (
-    <SafeAreaProvider
-      style={
-        {
-          // backgroundColor: 'yellow'
-        }
-      }
-    >
-      <GestureHandlerRootView style={{ flex: 1 }}>
+    <SafeAreaProvider>
+      <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <Provider>
           <NavigationContainer>
             <MyStack />
@@ -74,28 +104,12 @@ const App = () => {
               text={noInternetMessage}
               icon={'wifi-off'}
               onRequestClose={() => setShowModal(false)}
-            >
-              {/* <Button title="OK" onPress={() => setShowModal(false)} /> */}
-            </CustomModal>
-            {/* <Snackbar
-          visible={showTitleSnackbar}
-          duration={700}
-          onDismiss={()=>{}}
-          action={{
-            label: 'Undo',
-            onPress: () => {
-              // Do something
-              },
-              }}
-              > 
-              Hey there! I'm a Snackbar.
-              </Snackbar>*/}
+            ></CustomModal>
           </NavigationContainer>
         </Provider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   )
 }
-//!prod
+
 export default Sentry.wrap(App)
-// export default App
