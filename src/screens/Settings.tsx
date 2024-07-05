@@ -19,7 +19,6 @@ import {
   textColor,
 } from '../utils/constants'
 import { getValue, setValue } from '../utils/utilStorage'
-import MyBottomSheet from '../components/BottomSheet'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 const Settings = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =

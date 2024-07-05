@@ -1,9 +1,9 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text, TouchableRipple } from 'react-native-paper'
+import { Chip, Text, TouchableRipple } from 'react-native-paper'
 import { multiChoice as multiChoiceText } from '../../data/texts'
-import { gradient } from '../utils/constants'
+import { gradient, textColor } from '../utils/constants'
 import { Option } from '../utils/types'
 const OptionComponent = ({ option }: { option: Option }) => {
   const { val: answerValue } = option
@@ -38,9 +38,27 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
     <View style={styles.wrapper}>
       {multiChoice ? (
         <React.Fragment>
-          {/* <Chip mode="outlined">{multiChoiceText}</Chip> */}
+          <Chip
+            mode="outlined"
+            style={{
+              backgroundColor: 'rgba(255,165,0, .85)',
+              borderColor: 'rgba(249, 105, 14, .65)',
+              marginBottom: 15,
+            }}
+            icon={() => (
+              <AntDesign
+                name="warning"
+                size={16}
+                color="black"
+                style={{ marginRight: 5 }}
+              />
+            )}
+            textStyle={{ color: textColor }}
+          >
+            {multiChoiceText}
+          </Chip>
 
-          <View style={styles.alert}>
+          {/* <View style={styles.alert}>
             <AntDesign
               name="warning"
               size={16}
@@ -53,7 +71,7 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
             >
               {multiChoiceText}
             </Text>
-          </View>
+          </View> */}
         </React.Fragment>
       ) : null}
 
