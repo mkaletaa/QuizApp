@@ -28,6 +28,7 @@ import {
   Button as PaperButton,
   Text as PaperText,
   TouchableRipple,
+  Snackbar,
 } from 'react-native-paper'
 import {
   surfaceBg,
@@ -55,7 +56,6 @@ export function ResultModal({
     if (showModal === true) scrollToIndex(index)
   }, [showModal])
 
-
   const flatListRef = useRef(null)
   const scrollToIndex = index => {
     flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
@@ -77,7 +77,6 @@ export function ResultModal({
         // }}
         data={items} // Pass resultsArray directly to data prop
         keyExtractor={(item, index) => index.toString()} // Use a unique key for each item
-
         renderItem={(
           { item } // Destructure item from the object passed by FlatList
         ) => (
@@ -152,9 +151,22 @@ export function EmptyState({
             height: screenHeight - headerHeight,
           }}
         >
-          <Text style={{ opacity: 0.7 }}>
-            {parent === 'Saved' ? youDontHaveAnySavedQuestions : noQuestions}
-          </Text>
+          <Snackbar
+            visible={true}
+            onDismiss={() => null}
+            elevation={0}
+            style={{ bottom: 10 }}
+          >
+            <Text
+              style={{
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
+              {parent === 'Saved' ? youDontHaveAnySavedQuestions : noQuestions}
+            </Text>
+          </Snackbar>
+          <Text style={{ opacity: 0.7 }}></Text>
           {parent === 'Saved' ? (
             <Ionicons
               style={{

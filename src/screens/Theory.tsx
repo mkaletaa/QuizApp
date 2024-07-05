@@ -17,10 +17,19 @@ import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import TheoryPopup from '../components/molecules/TheoryPopup'
 import QuizButton from '../components/molecules/atoms/QuizButton'
-import { boldTextColor, borderColor, buttonDark, screenBackground, sectionHeaderBG, spinner, surfaceBg } from '../utils/constants'
+import {
+  boldTextColor,
+  borderColor,
+  buttonDark,
+  screenBackground,
+  sectionHeaderBG,
+  spinner,
+  surfaceBg,
+} from '../utils/constants'
 import useStore from '../utils/store'
 import Spoiler from '../components/ContentRenderer/Spoiler'
 import { AntDesign } from '@expo/vector-icons'
+import { Snackbar } from 'react-native-paper'
 export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
@@ -76,45 +85,45 @@ export default function Theory({ route }) {
     //     setShowPopup(false)
     //   }}
     // >
-      <View
-        style={[
-          styles.header,
-          { borderBottomWidth: theoryData[1]?.title ? 1 : 0 },
-        ]}
-      >
-        {theoryData.map(
-          (a, i) =>
-            a.title && (
-              <View
-                key={i.toString()}
-                style={{
-                  alignItems: 'flex-start',
-                  width: '100%',
-                  paddingHorizontal: 20,
-                  gap: 20,
+    <View
+      style={[
+        styles.header,
+        { borderBottomWidth: theoryData[1]?.title ? 1 : 0 },
+      ]}
+    >
+      {theoryData.map(
+        (a, i) =>
+          a.title && (
+            <View
+              key={i.toString()}
+              style={{
+                alignItems: 'flex-start',
+                width: '100%',
+                paddingHorizontal: 20,
+                gap: 20,
+              }}
+            >
+              <Pressable
+                onPress={() => {
+                  scrollToSection(i)
+                  // setShowPopup(false)
                 }}
               >
-                <Pressable
-                  onPress={() => {
-                    scrollToSection(i)
-                    // setShowPopup(false)
+                <Text
+                  style={{
+                    fontSize: 21,
+                    textDecorationLine: 'underline',
+                    color: boldTextColor,
                   }}
                 >
-                  <Text
-                    style={{
-                      fontSize: 21,
-                      textDecorationLine: 'underline',
-                      color: boldTextColor,
-                    }}
-                  >
-                    {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
-                    {theoryData[0]?.title ? i + 1 : i} {a.title}
-                  </Text>
-                </Pressable>
-              </View>
-            )
-        )}
-      </View>
+                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
+                  {theoryData[0]?.title ? i + 1 : i} {a.title}
+                </Text>
+              </Pressable>
+            </View>
+          )
+      )}
+    </View>
     // </TouchableWithoutFeedback>
   )
 
@@ -126,27 +135,27 @@ export default function Theory({ route }) {
         //     setShowPopup(false)
         //   }}
         // >
-          <View
-            style={{
-              padding: 10,
-              paddingLeft: 30,
-              paddingRight: 30,
+        <View
+          style={{
+            padding: 10,
+            paddingLeft: 30,
+            paddingRight: 30,
 
-              // backgroundColor: 'red',
-              backgroundColor: sectionHeaderBG,
-              borderTopWidth: 1,
-              // borderTopColor: 'lightgray',
-              borderTopColor: borderColor,
+            // backgroundColor: 'red',
+            backgroundColor: sectionHeaderBG,
+            borderTopWidth: 1,
+            // borderTopColor: 'lightgray',
+            borderTopColor: borderColor,
 
-              // elevation: 1,
-              // shadowColor: '#000', // Kolor cienia
-              // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
-              // shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
-              // shadowRadius: 3, // Promień cienia
-            }}
-          >
-            <Text style={styles.sectionHeaderText}>{section.title}</Text>
-          </View>
+            // elevation: 1,
+            // shadowColor: '#000', // Kolor cienia
+            // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
+            // shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
+            // shadowRadius: 3, // Promień cienia
+          }}
+        >
+          <Text style={styles.sectionHeaderText}>{section.title}</Text>
+        </View>
         // </TouchableWithoutFeedback>
       )
     }
@@ -159,15 +168,15 @@ export default function Theory({ route }) {
     //     setShowPopup(false)
     //   }}
     // >
-      <View
-        style={{
-          paddingBottom: 20,
-          paddingHorizontal: 20,
-          paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
-        }}
-      >
-        <ContentRenderer content={[item]} />
-      </View>
+    <View
+      style={{
+        paddingBottom: 20,
+        paddingHorizontal: 20,
+        paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
+      }}
+    >
+      <ContentRenderer content={[item]} />
+    </View>
     // </TouchableWithoutFeedback>
   )
 
@@ -177,15 +186,14 @@ export default function Theory({ route }) {
     //     setShowPopup(false)
     //   }}
     // >
-      <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
-        <QuizButton chapterName={chapterName} topicName={topicName} />
-      </View>
+    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
+      <QuizButton chapterName={chapterName} topicName={topicName} />
+    </View>
     // </TouchableWithoutFeedback>
   )
 
   const scrollToSection = sectionIndex => {
-    try{
-
+    try {
       if (sectionListRef.current) {
         //@ts-ignore
         sectionListRef.current.scrollToLocation({
@@ -194,7 +202,7 @@ export default function Theory({ route }) {
           sectionIndex,
         })
       }
-    } catch(e){
+    } catch (e) {
       //do nothing
     }
   }
@@ -255,7 +263,21 @@ export default function Theory({ route }) {
           height: screenHeight - headerHeight,
         }}
       >
-        <Text>{thereIsNothingHere}</Text>
+        <Snackbar
+          visible={true}
+          onDismiss={() => null}
+          elevation={0}
+          style={{ bottom: 10 }}
+        >
+          <Text
+            style={{
+              color: 'white',
+              textAlign: 'center',
+            }}
+          >
+            <Text>{thereIsNothingHere}</Text>
+          </Text>
+        </Snackbar>
         <Text style={{ fontWeight: 'bold', fontSize: 150, opacity: 0.1 }}>
           404
         </Text>
@@ -277,7 +299,6 @@ export default function Theory({ route }) {
         ]}
       />
 
-
       <AntDesign
         name="up"
         size={40}
@@ -288,7 +309,6 @@ export default function Theory({ route }) {
         ]}
         onPress={() => scrollToTop()}
       />
- 
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
