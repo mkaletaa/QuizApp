@@ -186,7 +186,7 @@ export default function Quiz({ route }) {
             }}
             onPress={() => handleBackPress()}
           >
-            <AntDesign name="arrowleft" size={27} color="black" />
+            <AntDesign name="left" size={27} color="black" />
           </TouchableRipple>
         }
 
@@ -232,14 +232,13 @@ export default function Quiz({ route }) {
                 </PaperButton>
               </>
             )}
-
           </React.Fragment>
         )}
 
         {!item && <ActivityIndicator size={50} color={spinner} />}
-
       </ScrollView>
       <Modal
+        statusBarTranslucent
         animationType="fade"
         transparent={true}
         visible={showResultModal}

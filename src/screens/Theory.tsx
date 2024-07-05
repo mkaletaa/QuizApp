@@ -20,7 +20,7 @@ import QuizButton from '../components/molecules/atoms/QuizButton'
 import { boldTextColor, borderColor, buttonDark, screenBackground, sectionHeaderBG, spinner, surfaceBg } from '../utils/constants'
 import useStore from '../utils/store'
 import Spoiler from '../components/ContentRenderer/Spoiler'
-
+import { AntDesign } from '@expo/vector-icons'
 export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
@@ -277,22 +277,18 @@ export default function Theory({ route }) {
         ]}
       />
 
-      {/* <TouchableWithoutFeedback
-        onPress={() => {
-          setShowPopup(false)
-        }}
-      > */}
-        <Entypo
-          name="arrow-up"
-          size={40}
-          color={boldTextColor}
-          style={[
-            styles.goUp,
-            { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
-          ]}
-          onPress={() => scrollToTop()}
-        />
-      {/* </TouchableWithoutFeedback> */}
+
+      <AntDesign
+        name="up"
+        size={40}
+        color={boldTextColor}
+        style={[
+          styles.goUp,
+          { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
+        ]}
+        onPress={() => scrollToTop()}
+      />
+ 
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
