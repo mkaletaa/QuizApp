@@ -1,182 +1,100 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import {
-  Dimensions,
-  Pressable,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native'
+import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
 
-import { AntDesign, Feather, Ionicons } from '@expo/vector-icons'
-import {
-  Tooltip
-} from 'react-native-paper'
+import { AntDesign, Feather, Ionicons, FontAwesome6 } from '@expo/vector-icons'
+import { Tooltip } from 'react-native-paper'
 import { boldTextColor } from '../utils/constants'
-import useStore from '../utils/store'
 
-// import { useRoute } from '@react-navigation/native'
 export default function Header({ title }) {
   const navigation = useNavigation()
-  // const setShowPopup = useStore(state => state.setShowPopup)
-
-  // Pobieranie wartości 'name' z obiektu 'route.params'
 
   return (
-    //todo: popraw Header
-    <Pressable
+    <View
       style={{
-        // backgroundColor: 'red',
-        // width: 320,
+        flexDirection: 'row',
+        paddingRight: 20,
+        alignItems: 'center',
         height: '100%',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
-      }}
-      onPress={() => {
-        // setShowPopup(false)
-        console.log('first')
+        width: Dimensions.get('window').width,
       }}
     >
-      <View
-        style={{
-          flexDirection: 'row',
-          // backgroundColor: screenBackground,
-
-          // gap: 20,
-          paddingRight: 20,
-          alignItems: 'center',
-          height: '100%',
-          width: Dimensions.get('window').width,
-          // justifyContent: 'center',
-        }}
-      >
-        {/* <Tooltip title={'wróć'} theme={{ colors: { primary: 'green' } }}> */}
-        {navigation.canGoBack() && (
-          <TouchableOpacity
-            // borderless
-            // onStartShouldSetResponder={() => true}
-
-            onPress={() => {
-              navigation.goBack()
-            }}
-            style={
-              {
-                width: 60,
-                height: '100%',
-                justifyContent: 'center',
-                // backgroundColor: 'red',
-              }
-            }
-          >
-            <AntDesign
-              name="left"
-              size={28}
-              color={boldTextColor}
-              style={{
-                textAlign: 'center',
-              }}
-            />
-          </TouchableOpacity>
-        )}
-        {/* </Tooltip> */}
-        {/* 
-        <IconButton
-          icon="chevron-left"
-          size={30}
+      {navigation.canGoBack() && (
+        <TouchableOpacity
           onPress={() => {
             navigation.goBack()
-            console.log('wróć')
           }}
           style={{
-            borderRadius: 50,
-            marginLeft: 15,
+            width: 60,
+            height: '100%',
+            justifyContent: 'center',
           }}
-        /> */}
-
-        <React.Fragment>
-          <View
+        >
+          <AntDesign
+            name="left"
+            size={28}
+            color={boldTextColor}
             style={{
-              flex: 1,
-              height: '100%',
-              justifyContent: 'center',
+              textAlign: 'center',
             }}
-          >
-            <Tooltip title={title}>
-              {/* <TouchableWithoutFeedback style={{}}> */}
-              <Text
-                style={{
-                  // backgroundColor: 'red',
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  // paddingLeft: 10,
-                  color: boldTextColor,
-                  textAlign: 'center',
-                }}
-                numberOfLines={1}
-              >
-                {title}
-              </Text>
-              {/* </TouchableWithoutFeedback> */}
-            </Tooltip>
-          </View>
-          {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
-          {/* <View style={{ flexDirection: 'row', gap: 1 }}>
+          />
+        </TouchableOpacity>
+      )}
+
+      <React.Fragment>
+        <View
+          style={{
+            flex: 1,
+            height: '100%',
+            justifyContent: 'center',
+          }}
+        >
+          <Tooltip title={title}>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 'bold',
+                color: boldTextColor,
+                textAlign: 'center',
+              }}
+              numberOfLines={1}
+            >
+              {title}
+            </Text>
+          </Tooltip>
+        </View>
+        {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
+        {/* <View style={{ flexDirection: 'row', gap: 1 }}>
           <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
           <Octicons name="flame" size={26} color="orange" />
         </View> */}
 
-          {/* <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" /> */}
-          <View
-            style={{
-              flexDirection: 'row',
-              // paddingHorizontal: 10,
-              gap: 15,
+        {/* <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" /> */}
+        <View
+          style={{
+            flexDirection: 'row',
+            gap: 15,
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => {
+              //@ts-ignore
+              navigation.navigate('Saved')
             }}
           >
-            <Ionicons
-              style={
-                {
-                  // backgroundColor: 'yellow',
-                }
-              }
-              name="bookmark-outline"
-              size={30}
-              color={boldTextColor}
-              onPress={() => {
-                //@ts-ignore
-                navigation.navigate('Saved')
-                // setShowPopup(false)
-              }}
-            />
+            <Ionicons name="bookmark-outline" size={30} color={boldTextColor} />
+          </TouchableOpacity>
 
-            <Feather
-              name="sliders"
-              size={28}
-              color={boldTextColor}
-              onPress={() => {
-                //@ts-ignore
-                navigation.navigate('Settings')
-                // setShowPopup(false)
-              }}
-            />
-          </View>
-          {/*
-        <Feather
-          name="sliders"
-          size={28}
-          color="black"
-          //@ts-ignore
-          onPress={() => navigation.navigate('Settings2')}
-        />
-        <Feather
-          name="sliders"
-          size={28}
-          color="black"
-          //@ts-ignore
-          onPress={() => navigation.navigate('Settings3')}
-        /> */}
-        </React.Fragment>
-      </View>
-    </Pressable>
+          <TouchableOpacity
+            onPress={() => {
+              //@ts-ignore
+              navigation.navigate('Settings')
+            }}
+          >
+            <Feather name="sliders" size={28} color={boldTextColor} />
+          </TouchableOpacity>
+        </View>
+      </React.Fragment>
+    </View>
   )
 }
