@@ -51,6 +51,7 @@ export default function ItemResult({
       // onStartShouldSetResponder={() => true}
       onScroll={() => setShowPopup(false)}
     >
+      <ExplanationPopup item={item}></ExplanationPopup>
       <TouchableWithoutFeedback
         style={
           {
@@ -69,7 +70,6 @@ export default function ItemResult({
         >
           {/* <Pressable onPress={()=>setShowPopup(true)}> */}
 
-          <ExplanationPopup item={item}></ExplanationPopup>
 
           {/* </Pressable> */}
           {returnIsCorrect(item, chosenOptions) === 'correct' && (

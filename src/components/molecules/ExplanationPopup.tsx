@@ -103,12 +103,13 @@ export default function ExplanationPopup({ item }) {
         style={{
           justifyContent: 'flex-end',
           flexDirection: 'row',
-          marginBottom: 30,
+          marginTop: 30,
           paddingRight: 10,
           width: '100%',
           backgroundColor: 'transparent',
           height: 1,
           zIndex: 1,
+          // position: 'absolute'
         }}
       >
         <TouchableRipple
