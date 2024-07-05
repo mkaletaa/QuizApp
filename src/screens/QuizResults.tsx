@@ -1,19 +1,17 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
-import { Modal, View, Text, FlatList } from 'react-native'
-import { setColor } from '../utils/functions'
-import { Item, Option } from '../utils/types'
+import { FlatList, Modal, Text, View } from 'react-native'
+import { Button as PaperButton } from 'react-native-paper'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { close, retake, retakeWrong } from '../../data/texts'
 import ItemResult from '../components/ItemResult'
 import Tile from '../components/Tile'
-import { close } from '../../data/texts'
-import { Divider, Button as PaperButton } from 'react-native-paper'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import { retake, retakeWrong } from '../../data/texts'
-import { PieChart } from 'react-native-chart-kit'
-import { screenBackground, surfaceBg } from '../utils/constants'
-import { useNavigation } from '@react-navigation/native'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import Chart from '../components/molecules/Chart'
 import Gradient from '../components/molecules/atoms/Gradient'
+import useOpenQuiz from '../hooks/useOpenQuiz'
+import { surfaceBg } from '../utils/constants'
+import { setColor } from '../utils/functions'
+import { Item, Option } from '../utils/types'
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
@@ -84,7 +82,8 @@ export default function QuizResults({ route }) {
   )
 
   const ListHeader = () => (
-    <Chart resultsArray={resultsArray}/>
+    // <Chart resultsArray={resultsArray}/>
+    null
   )
 
   const navigation = useNavigation()

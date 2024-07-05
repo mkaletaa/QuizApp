@@ -67,6 +67,7 @@ export function ResultModal({
       transparent={true}
       visible={showModal}
       onRequestClose={() => setShowModal(false)}
+      statusBarTranslucent
     >
       <FlatList
         pagingEnabled

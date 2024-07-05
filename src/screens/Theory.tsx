@@ -30,6 +30,8 @@ import useStore from '../utils/store'
 import Spoiler from '../components/ContentRenderer/Spoiler'
 import { AntDesign } from '@expo/vector-icons'
 import { Snackbar } from 'react-native-paper'
+import { useFocusEffect } from '@react-navigation/native';
+
 export default function Theory({ route }) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
@@ -78,6 +80,10 @@ export default function Theory({ route }) {
       // useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
     }
   }, [])
+
+  useFocusEffect(()=>{
+
+  })
 
   const renderHeader = () => (
     // <TouchableWithoutFeedback
