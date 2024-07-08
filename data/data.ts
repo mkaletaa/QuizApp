@@ -1,42 +1,25 @@
 //if a name consists of more than one words, separate them with underscore
 export const chapters = [
   {
-    name: 'cat_1',
-    image: 'https://reactjs.org/logo-og.png',
-    des: 'short descirtption of a cat_1. Lorem ipsum dolor sit amet. Większość wziąłem sta i stad. Jak coś to pretensje nie do mnie. Powowdzeni ade iue duoe ydi ',
+    name: 'analiza',
+    image: 'https://i.postimg.cc/Df9Ht5kQ/image.png',
+    des: 'Analiza matematyczna to dziedzina matematyki zajmująca się badaniem granic, pochodnych, całek oraz ciągłości funkcji, kluczowych dla modelowania i rozumienia zmian w różnych kontekstach.',
   },
   {
-    name: 'cat_2',
-    image: 'https://reactjs.org/logo-og.png',
-    des: 'short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2',
+    name: 'algebra',
+    image: 'https://i.postimg.cc/1zmN0WDG/image.png',
+    des: 'Algebra to dział matematyki zajmujący się badaniem struktur, relacji i operacji na zbiorach liczb i symboli.',
   },
 ]
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
 export const topics = {
-  cat_1: [
+  analiza: [
     {
-      name: 'top_1',
-      image:
-        'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg',
+      name: 'granice',
+      image: 'https://i.postimg.cc/3NYr1hBN/image.png',
     },
-    { name: 'top_2', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_3', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'pochodne', image: 'https://i.postimg.cc/yN4McPnY/image.png' },
+    { name: 'całki', image: 'https://i.postimg.cc/L8MP54X0/ca-ka.png' },
   ],
-  cat_2: [
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-
-    { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_22', image: 'https://reactjs.org/logo-og.png' },
-  ]
 }

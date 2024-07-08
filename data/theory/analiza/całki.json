@@ -1,0 +1,149 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "Całki są fundamentalnym narzędziem w matematyce, które znajdują zastosowanie w różnych dziedzinach nauki i inżynierii. W tym artykule przedstawimy podstawowe pojęcia związane z całkami, zaprezentujemy podstawowe wzory, a także rozwiążemy przykładowe zadanie."
+      }
+    ]
+  },
+  {
+    "title": "Czym jest całka?",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Całka to narzędzie matematyczne, które pozwala na obliczanie pola pod wykresem funkcji. Jest to proces odwrotny do różniczkowania. W matematyce całki dzielimy na dwa główne typy:"
+      },
+      {
+        "type": "List",
+        "value": [
+          {
+            "type": "ListElement",
+            "value": "<b>Całka nieoznaczona</b> - reprezentuje rodzinę funkcji pierwotnych, czyli funkcji, których pochodna jest równa danej funkcji."
+          },
+          {
+            "type": "ListElement",
+            "value": "<b>Całka oznaczona</b> - pozwala na obliczenie pola pod wykresem funkcji na określonym przedziale."
+          }
+        ]
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/7L1NMxmf/image.png",
+        "props": { "description": "Całka jako pole powierzchni obszaru pod krzywą." }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/hjpb62Fn/image.png",
+        "props": { "description": "Całkę oznaczoną na przedziale [a,b] z funkcji f można interpretować jako różnicę pól powierzchni figur ograniczonych prostymi x = a, x = b, wykresem funkcji f oraz osią x: części nad osią oraz pod nią." }
+      }
+    ]
+  },
+  {
+    "title": "Podstawowe wzory",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Całka z funkcji stałej:"
+      },
+      {
+        "type": "Math",
+        "value": "`int a dx = ax+C`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Całka z funkcji potęgowej:"
+      },
+      {
+        "type": "Math",
+        "value": "`int x^n dx =(x^(n+1))/(n+1)+C` dla `n!=-1`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Całka z funkcji wykładniczej:"
+      },
+      {
+        "type": "Math",
+        "value": "`int e^x dx = e^x + C`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Całka z funkcji trygonometrycznej:"
+      },
+      {
+        "type": "Math",
+        "value": "`int sinx dx = -cosx + C`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Math",
+        "value": "`int cosx dx = sinx + C`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Znajdź całkę oznaczoną poniższej funkcji:"
+          },
+          {
+            "type": "Math",
+            "value": "`f(x) = 3x^2`",
+            "props": { 
+              "height": 70,
+              "fontSize": 15
+            }
+          },
+          {
+            "type": "Text",
+            "value": "Na przedziale [1, 3]. Poniżej znajduje się odpowiedź"
+          },
+          {
+            "type": "Spoiler",
+            "value": [
+              {
+                "type": "Text",
+                "value": "26"
+              }
+            ]
+          }
+        ],
+        "props": {
+          "type": "task"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Dalsza nauka",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Aby lepiej zrozumieć podstawy całek, zachęcam do obejrzenia poniższego filmu z YouTube:"
+      },
+      {
+        "type": "YouTube",
+        "value": "LOF1YddNe2U"
+      }
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-import { cat_1 } from './cat_1/cat_1'
-import { cat_2 } from './cat_2/cat_2'
+import { analiza } from './analiza/analiza'
+// import { algebra } from './algebra/algebra'
 
-export const theory = { cat_1, cat_2 }
+export const theory = { analiza,  }
