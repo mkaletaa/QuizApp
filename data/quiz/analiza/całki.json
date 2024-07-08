@@ -1,61 +1,53 @@
 [
   {
-    "id": "cat_1|top_3|1",
-    "multiChoice": false,
-    "question": "what is RGB?",
-    "options": [
-      { "id": 11, "val": "Red Green Blue", "correct": true },
-      { "id": 21, "val": "Rome, Greece, Berlin", "correct": false }
-    ],
-    "explanation": [
+    "id": "analiza|całki|1",
+    "question": [
       {
-        "type": "Text", 
-        "value": "French capital"
-      },
-      {
-        "type": "Text", 
-        "value": " is definitely Paris"
-      },
-      {
-        "type": "Image", 
-        "value": "https://legacy.reactjs.org/logo-og.png"
+        "type": "Math",
+        "value": "`int sinx dx =`"
       }
+    ],
+    "options": [
+      { "id": "1", "val": "cosx + c", "correct": false },
+      { "id": "2", "val": "-cosx + c", "correct": true },
+      { "id": "3", "val": "sinx + c", "correct": false },
+      { "id": "3", "val": "-sinx + c", "correct": false }
     ]
   },
   {
-    "id": "cat_1|top_3|2",
-    "multiChoice": true,
-    "question": "8th question",
-    "options": [
-      { "id": 11, "val": "qq", "correct": false },
-      { "id": 21, "val": "ww", "correct": true },
-      { "id": 31, "val": "ee", "correct": true }
-    ],
-    "explanation": "CRA is outdated"
-  },
-  {
-    "id": "cat_1|top_3|3",
-    "multiChoice": true,
+    "id": "analiza|całki|2",
     "question": [
       {
-        "type": "Text", 
-        "value": "9th"
-      },
-      {
-        "type": "Text", 
-        "value": "super questin"
+        "type": "Math",
+        "value": "`int cosx dx =`"
       }
     ],
     "options": [
+      { "id": "1", "val": "cosx + c", "correct": false },
+      { "id": "2", "val": "-cosx + c", "correct": false },
+      { "id": "3", "val": "sinx + c", "correct": true },
+      { "id": "3", "val": "-sinx + c", "correct": false }
+    ]
+  },
+  {
+    "id": "analiza|całki|3",
+    "question": [
       {
-        "id": 11,
-        "val": "yes",
-        "correct": true,
-        "type": "Text",
-        "props": {}
-      },
-      { "id": 21, "val": "no", "correct": true }
+        "type": "Math",
+        "value": "`int dx =`"
+      }
     ],
-    "explanation": "..."
+    "options": [
+      { "id": "1", "val": "1", "correct": false },
+      { "id": "2", "val": "0", "correct": false },
+      { "id": "3", "val": "x + c", "correct": true },
+      { "id": "3", "val": "ln|x| + c", "correct": false }
+    ],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": "Jak nie ma nic w całce to tak jakby było tam 1"
+      }
+    ]
   }
 ]
