@@ -1,56 +1,9 @@
 [
   {
-    "type": "Header",
-    "value": "Czym jest \"niezbędnik studenta\"?",
-    "props": { "size": "md" }
-  },
-  {
     "type": "Text",
-    "value": "Niezbędnik studenta to aplikacja mobilna dostępna na telefony z androidem przeznaczona dla studentów informatyki w inżynierii komputerowej na wydziale inżynierii elektrycznej i komputerowej Politechniki Krakowskeij.Ta aplikacja nie zastąpi ci wykładów ani ćwiczeń, ale zapewni minimum wiedzy potrzebnej, żeby przeczłapać się z semestru na semestr."
-  },
-  {
-    "type": "Header",
-    "value": "Dlaczego powstała?",
-    "props": { "size": "md" }
-  },
-  {
-    "type": "Text",
-    "value": "Niezbędnik studenta to aplikacja mobilna dostępna na telefony z androidem przeznaczona dla studentów informatyki w inżynierii komputerowej na wydziale cinżynierii elektrycznej i komputerowej Politechniki Krakowskeij.Ta aplikacja nie zastąpi ci wykładów ani ćwiczeń, ale zapewni minimum wiedzy potrzebnej, żeby przeczłapać się z semestru na semestr."
-  },
-  {
-    "type": "Header",
-    "value": "Po co mi quizy?",
-    "props": { "size": "md" }
-  },
-  {
-    "type": "Text",
-    "value": "Aplikacja została zaprojektowana tak, aby maksymalizować efektywność nauki. Najlepszym sposobem, by to osiągnąć jest testowanie nabytej wiedzy. By udowodnić, że nie są to słowa rzucane na wiatr, przedstawię analizę wykazującą, że testy pomagają w nauce. <br></br> Uczestnicy badania zostyali podzieleni na dwie grupy. Obie z nich przeprowadziły sesję czytania, ale po niej jedna z grup kontynuowała czytanie, a druga przystąpiła do testu. Po 5 minutach wszyscy wykonali test. Grupa, która przeprowadziła dwie sesje czytania poradziła sobie na nim nieco lepiej niż grupa, która przeprowadziła jedną sesję czytania i jedną testu. Jest to logiczne, gdyż mieli mniej czasu na naukę. <br></br>Ciekawiej się zrobiło, gdy obie grupy przystąpiły do testu 2 dni później. Wtedy grupa, która poświęciła mniej czasu na samo czytanie, a więcej na testowanie wiedzy wypadła znacznie lepiej. Na teście przeprowadzonym po tygodniu ta różnica się jescze pogłębiła. Jak można wyjaśnić ten paradoks?"
-  },
-  {
-    "type": "Image",
-    "value": "https://i.postimg.cc/FzwBgvwr/image.png"
-  },
-  {
-    "type": "Text",
-    "value": "Okazuje się, że testy wymuszają na nas przypominanie sobie informacji. Nawet jeśli podamy błędną odpowiedź, nauczy nas to wyciąganie z głowy informacji i w przyszłości pójdzie nam to sprawniej. Do tego pozwalają nam dowiedzieć się czego jeszcze nie umiemy i na co musimy zwrócić większą uwagę. <a href='https://uclalibrary.github.io/research-tips/sandbox/resource-playlist-study-tips/'>#Link</a>, <a href='https://www.aqa.org.uk/about-us/our-research/blog/post?path=do-tests-help-you-learn'>#Link</a> <br></br>Quizy nie zostały zatem dodane przeze mnie z nudów, a stoi za nimi głębsze przesłanie/kryje się za nimi głębszy cel i nie bez powodu stanowią rdzeń aplikacji."
-  },
-  {
-    "type": "Header",
-    "value": "Do nowych studentów:",
-    "props": { "size": "md" }
-  },
-  {
-    "type": "Text",
-    "value": "Niezbędnik studenta to aplikacja mobilna dostępna na telefony z androidem przeznaczona dla studentów informatyki w inżynierii komputerowej na wydziale inżynierii elektrycznej i komputerowej Politechniki Krakowskeij.Ta aplikacja nie zastąpi ci wykładów ani ćwiczeń, ale zapewni minimum wiedzy potrzebnej, żeby przeczłapać się z semestru na semestr.ww"
-  },
-  {
-    "type": "Header",
-    "value": "Powodzenia!",
-    "props": { "size": "sm" }
-  },
-  {
-    "type": "Image",
-    "value": "https://i.postimg.cc/h48fSggT/image.png",
-    "props": { "description": "Papiesh" }
+    "value": "Opis aplikacji",
+    "props": {
+      "toLeft": false
+    }
   }
 ]
