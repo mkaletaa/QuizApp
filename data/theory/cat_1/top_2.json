@@ -2,6 +2,11 @@
   {
     "data": [
       {
+        "type": "Code",
+        "value": "let str1 = 'Hello' \nlet str2 = 'World' \nconsole.log(str1 + str2) //Hello World!!!!!!!!!!!!!!!!\nrld \nde de\n  de d \nede\nd\neded \nd\nede",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
         "type": "Header",
         "value": "Dupa"
       },

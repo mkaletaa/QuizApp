@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
 import CodeHighlighter from 'react-native-code-highlighter'
 import RenderHtml from 'react-native-render-html'
 import YoutubePlayer from 'react-native-youtube-iframe'
@@ -131,7 +131,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         // <ScrollView horizontal={true} contentContainerStyle={{overflow: 'auto', elevation: 10, backgroundColor: 'transparent', width: 320}}>
         <View
           key={key}
-          style={{ width: '100%', paddingBottom: 0 }} //można jeszcze określić maxWidth dla większych ekranów
+          style={{ width: '105%', paddingBottom: 0  }} //można jeszcze określić maxWidth dla większych ekranów
+          // horizontal
         >
           <CodeHighlighter
             hljsStyle={nightOwl}
@@ -139,7 +140,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             language={props.language}
             //@ts-ignore
             customStyle={styles.code}
-            containerStyle={{ padding: 10, width: '100%' }}
+            containerStyle={{ paddingVertical: 10, }}//used to be width 100%
           >
             {value}
           </CodeHighlighter>
@@ -194,7 +195,9 @@ const styles = StyleSheet.create({
   },
 
   code: {
-    padding: 6,
+    // paddingVertical: 6,
+    // paddingLeft: 12,
+    overflow: 'hidden',
     borderRadius: 7,
     backgroundColor: '#111133',
     elevation: 10,
