@@ -1,16 +1,52 @@
-// // yourFunction.test.js
-// import useQuizData from "../src/hooks/useQuizData"
+import useStore from '../src/utils/store'
 
-// const {countItemsInTopics} = useQuizData()// Importuj funkcję do testów
+describe('useStore', () => {
+  beforeEach(() => {
+    const store = useStore.getState()
+    store.clearImages()
+    store.disableCarousel()
+  })
 
-// describe('Your function', () => {
-//   test('should return the correct result', () => {
-//     // Przykładowe testowanie
-//     const result = countItemsInTopics(["top_1"], "cat_1") //
+  test('should add an image', () => {
+    const { addImage } = useStore.getState()
+    addImage('http://example.com/image1.jpg', 'Image 1')
+    const { images } = useStore.getState()
+    expect(images).toEqual([
+      { url: 'http://example.com/image1.jpg', des: 'Image 1' },
+    ])
+  })
 
-//     // Oczekiwany wynik
-//     expect(result).toEqual(3)
+//   test('should remove an image', () => {
+//     const { addImage, removeImage } = useStore.getState()
+//     addImage('http://example.com/image1.jpg', 'Image 1')
+//     addImage('http://example.com/image2.jpg', 'Image 2')
+//     removeImage('http://example.com/image1.jpg')
+//     const { images } = useStore.getState()
+//     expect(images).toEqual([
+//       { url: 'http://example.com/image2.jpg', des: 'Image 1' },
+//     ])
 //   })
 
-//   // Dodaj więcej testów w miarę potrzeb
-// })
+  test('should clear all images', () => {
+    const { addImage, clearImages } = useStore.getState()
+    addImage('http://example.com/image1.jpg', 'Image 1')
+    addImage('http://example.com/image2.jpg', 'Image 2')
+    clearImages()
+    const { images } = useStore.getState()
+    expect(images).toEqual([])
+  })
+
+  test('should enable the carousel', () => {
+    const { enableCarousel } = useStore.getState()
+    enableCarousel()
+    const { carousel } = useStore.getState()
+    expect(carousel).toBe(true)
+  })
+
+  test('should disable the carousel', () => {
+    const { disableCarousel } = useStore.getState()
+    disableCarousel()
+    const { carousel } = useStore.getState()
+    expect(carousel).toBe(false)
+  })
+})
