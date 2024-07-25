@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
   block: {
     width: Dimensions.get('window').width * 0.9, //maxWidth
     padding: 5,
-    borderTopRightRadius: 6,
-    borderBottomRightRadius: 6,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
     borderLeftWidth: 4,
 
     // flexDirection: 'row',

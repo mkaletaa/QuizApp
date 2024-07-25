@@ -104,11 +104,12 @@ const ImageComponent = ({
         <View style={styles.modalContainer}>
           <AntDesign
             onPress={closeModal}
-            name="arrowleft"
+            name="left"
             size={24}
             color="white"
             style={styles.closeButton}
           />
+          
           <ImageViewer
             imageUrls={images.length !== 0 ? images : [{ url: value }]}
             onChange={i =>
@@ -187,10 +188,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 20,
-    padding: 5,
+    padding: 8,
     zIndex: 1,
-    textShadowColor: 'rgba(0, 0, 0, .9)',
+    // textShadowColor: 'rgba(0, 0, 0, .9)',
     textShadowRadius: 7,
+    backgroundColor: 'rgba(0, 0, 0, .5)',
+    borderRadius: 50,
+    // textAlign: 'justify',
+    paddingRight: 10
   },
 })
 
