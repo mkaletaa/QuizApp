@@ -2,41 +2,70 @@
   {
     "data": [
       {
-        "type": "Text",
-        "value": "   "
+        "type": "Spoiler",
+        "value": [
+          {
+            "type": "Divider"
+          },
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/TP99hbh5/image.png"
+          },
+          {
+            "type": "Code",
+            "value": "let a = 4",
+            "props": { "language": "javascript" }
+          },
+          {
+            "type": "Header",
+            "value": "qqq iuh doeh douwegiudw ediuw geiduywe",
+            "props": { "size": "lg" }
+          },
+          {
+            "type": "Math",
+            "value": "`2+2+2+2+2+2+2+2+2+2+2+2`",
+            "props": {
+              "height": 70,
+              "fontSize": 15
+            }
+          },
+          {
+            "type": "YouTube",
+            "value": "x28XdyME968"
+          },
+          {
+            "type": "Text",
+            "value": "www w wwwww www  w w w w w w w i  .f . . . . . . wwwwff",
+            "props": {
+              "toLeft": true 
+            }
+          }
+        ]
       },
       {
         "type": "Block",
-        "value": [
-          
-        ],
+        "value": [],
         "props": {
           "type": "warning"
         }
       },
       {
         "type": "Block",
-        "value": [
-          
-        ],
+        "value": [],
         "props": {
           "type": "important"
         }
       },
       {
         "type": "Block",
-        "value": [
-          
-        ],
+        "value": [],
         "props": {
           "type": "task"
         }
       },
       {
         "type": "Block",
-        "value": [
-          
-        ],
+        "value": [],
         "props": {
           "type": "info"
         }
@@ -58,7 +87,7 @@
           {
             "type": "Code",
             "value": "let a = 4",
-            "props": {  "language": "javascript" }
+            "props": { "language": "javascript" }
           },
           {
             "type": "Header",
@@ -68,20 +97,12 @@
           {
             "type": "Math",
             "value": "`2+2+2+2+2+2+2+2+2+2+2+2`",
-            "props": { 
+            "props": {
               "height": 70,
               "fontSize": 15
             }
           },
-          {
-            "type": "Spoiler",
-            "value": [
-              {
-                "type": "Text",
-                "value": "www"
-              }
-            ]
-          },
+
           {
             "type": "YouTube",
             "value": "x28XdyME968"

@@ -1,6 +1,6 @@
-import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet'
+import BottomSheet, { BottomSheetBackdrop, BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { StyleSheet, Text, View, BackHandler } from 'react-native'
+import { StyleSheet, Text, View, BackHandler, ScrollView } from 'react-native'
 import {
   GestureHandlerRootView,
   PanGestureHandler,
@@ -94,13 +94,14 @@ export default function Spoiler({ value, props }) {
               }}
               backgroundStyle={{ backgroundColor: surfaceBg }}
               backdropComponent={renderBackdrop}
+              style={{flex:1}}
             >
-              <View style={styles.contentContainer}>
+              <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
                 {/* <Text style={styles.spoilerText}>This is a spoiler!</Text> */}
                 {value.map((item, index) => (
                   <ContentRenderer key={index} content={[item]} />
                 ))}
-              </View>
+              </BottomSheetScrollView>
             </BottomSheet>
           </Portal>
         </View>
@@ -111,10 +112,10 @@ export default function Spoiler({ value, props }) {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     gap: 10,
-    paddingTop: 20,
+    padding: 20,
   },
   // spoilerText: {
   //   fontSize: 18,
