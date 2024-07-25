@@ -1,12 +1,12 @@
 import { AntDesign, Feather, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons'
 import React, { useEffect, useRef, useState } from 'react'
-import { StyleSheet, View, useWindowDimensions } from 'react-native'
+import { Dimensions, StyleSheet, View, useWindowDimensions } from 'react-native'
 import { Octicons } from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesome6 } from '@expo/vector-icons'
 
-import { renderComponent } from './_ContentRenderer'
+import ContentRenderer, { renderComponent } from './_ContentRenderer'
 import { textColor } from '../../utils/constants'
 type blockType = 'info' | 'warning' | 'important' | 'task' | 'tip'
 
@@ -17,7 +17,7 @@ export default function Block({
   value: any
   type: blockType
 }) {
-  const { width } = useWindowDimensions()
+  // const { width } = useWindowDimensions()
 
   function setBgColor(type: blockType): string {
     if (type === 'info') return 'lightblue'
@@ -80,21 +80,21 @@ export default function Block({
     }
   }
 
-  const viewRef = useRef(null)
-  const [viewWidth, setViewWidth] = useState(0)
+  // const viewRef = useRef(null)
+  // const [viewWidth, setViewWidth] = useState(0)
 
-  useEffect(() => {
-    if (viewRef.current) {
-      viewRef.current.measure((x, y, width, height, pageX, pageY) => {
-        setViewWidth(width)
-        console.log('szerokość bloku: ', width)
-      })
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (viewRef.current) {
+  //     viewRef.current.measure((x, y, width, height, pageX, pageY) => {
+  //       setViewWidth(width)
+  //       console.log('szerokość bloku: ', width)
+  //     })
+  //   }
+  // }, [])
 
   return (
     <View
-      ref={viewRef}
+      // ref={viewRef}
       style={[
         styles.block,
         {
@@ -114,10 +114,10 @@ export default function Block({
               gap: 10,
             }}
           >
-            {
-              //@ts-ignore
-              value.map((item, index) => renderComponent(item, viewWidth - 14)) //minus 14 because 2x5px of padding + 2x2px of border
-            }
+            <ContentRenderer
+              content={value}
+              width={Dimensions.get('window').width * 0.9 - 8} 
+            ></ContentRenderer>
           </View>
         </React.Fragment>
       }
@@ -127,7 +127,7 @@ export default function Block({
 
 const styles = StyleSheet.create({
   block: {
-    width: '100%', //maxWidth
+    width: Dimensions.get('window').width * 0.9, //maxWidth
     padding: 5,
     borderTopRightRadius: 6,
     borderBottomRightRadius: 6,

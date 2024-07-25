@@ -23,7 +23,10 @@ const ImageComponent = ({
   const [modalVisible, setModalVisible] = useState(false)
   const [indexState, setIndexState] = useState(0)
   const images = useStore(state => state.images)
-  const [imageSize, setImageSize] = useState({ width: 0, height: 0 })
+  const [imageSize, setImageSize] = useState({
+    width: Dimensions.get('window').width * 0.9,
+    height: Dimensions.get('window').width * 0.9,
+  })
   // const [loading, setLoading] = useState(true)
 
   const ratio = 0.9 // ratio between width of the image to screen (or container) width

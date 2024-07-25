@@ -131,7 +131,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         // <ScrollView horizontal={true} contentContainerStyle={{overflow: 'auto', elevation: 10, backgroundColor: 'transparent', width: 320}}>
         <View
           key={key}
-          style={{ width: '105%', paddingBottom: 0  }} //można jeszcze określić maxWidth dla większych ekranów
+          style={{ width: width*.93, paddingBottom: 0  }} //można jeszcze określić maxWidth dla większych ekranów
           // horizontal
         >
           <CodeHighlighter
