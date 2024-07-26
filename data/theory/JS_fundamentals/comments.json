@@ -1,0 +1,40 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "<p>As you know how to run code it’s time to learn how to comment it.</p><p>Comments are essential for making your code more understandable and for leaving notes to yourself or other developers. In JavaScript, there are two ways to add comments:</p><p><b>1. Single-Line Comments</b>: Use // to add comments on a single line.</p>"
+      },
+      {
+        "type": "Code",
+        "value": "// console.log('Hello World')",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>2. Multi-Line Comments</b>: Enclose multi-line comments between /* and */"
+      },
+      {
+        "type": "Code",
+        "value": "/* console.log('Hello World') \nconsole.log('Hello World') */",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Why use comments?</b> <ul><li>Documentation: Comments provide information about the purpose and functionality of your code, making it easier for others (or yourself) to understand.</li><li>Debugging: Comments can be used to temporarily disable lines of code for debugging purposes without deleting them.</li><li>Explanation: Use comments to explain complex logic or algorithms in your code.</li></ul>"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Best practices</b> <ul><li>Be Clear and Concise: Write comments that are easy to understand. Avoid unnecessary comments that simply restate the code.</li><li>Regularly Update Comments: Keep your comments up to date. If you change the code, make sure to update any relevant comments.</li><li>Avoid Over-Commenting: While comments are helpful, code should ideally be self-explanatory. Avoid overusing comments for simple and obvious code.</li></ul>"
+      },
+      {
+        "type": "Text",
+        "value": "<p>Now that you've grasped the basics of commenting, you'll find it beneficial for enhancing the readability and maintainability of your code.0/<p>"
+      },
+      {
+        "type": "Text",
+        "value": "<p>jeszcze że komentarze pozwalają czasowo 'usunąć' kod, JSDoc i rozszerzenia do vscode</p> "
+      }
+    ]
+  }
+]

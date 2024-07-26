@@ -1,0 +1,100 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "<p>Sometimes you may want a piecie of code to be executed only if soem condition is satisfied. In JavaScript there are three ways to acheive it.</p>"
+      }
+    ]
+  },
+  {
+    "title": "'If' instruction",
+    "data": [
+      {
+        "type": "Text",
+        "value": "<p>The if statement in JavaScript is the most common conditional statement that allows you to execute a block of code if a specified condition evaluates to true. The basic syntax is as follows:</p>"
+      },
+      {
+        "type": "Code",
+        "value": "if (condition) {// code to be executed if the condition is true}",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, condition is an expression that is evaluated. If the result of this expression is true, the code inside the curly braces is executed. If the condition is false, the code block is skipped.Optionally, you can include an else statement to specify a block of code to be executed if the condition is false:"
+      },
+      {
+        "type": "Code",
+        "value": "if (condition) {// code to be executed if the condition is true} else {// code to be executed if the condition is false}",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can also chain multiple conditions using else if:"
+      },
+      {
+        "type": "Code",
+        "value": "if (condition1) { // code to be executed if condition1 is true } else if (condition2) { // code to be executed if condition2 is true } else { // code to be executed if none of the conditions are true }",
+        "props": { "height": 200, "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "The ternary operator",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The ternary operator in JavaScript is a concise way to write conditional statements. It's often referred to as the \"conditional operator\" or \"ternary conditional operator.\" The syntax of the ternary operator is:"
+      },
+      {
+        "type": "Code",
+        "value": "condition ? expression_if_true : expression_if_false;",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here's a breakdown of how it works:<ul><li>The condition is evaluated.</li><li>If the condition is true, the expression before the colon (:) is executed.</li><li>If the condition is false, the expression after the colon is executed.</li></ul>Here's an example:"
+      },
+      {
+        "type": "Code",
+        "value": "let isSunny = true;let weather = isSunny ? 'It is sunny!' : 'It is not sunny.';console.log(weather);",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<p>In this example, if isSunny is true, the weather variable will be assigned the value 'It is sunny!'. If isSunny is false, it will be assigned the value 'It is not sunny.'.</p><p>The ternary operator is a concise way to write simple conditional statements, and it's often used when the conditions are straightforward. However, for more complex conditions, the traditional if-else statement might be more readable.</p>"
+      }
+    ]
+  },
+  {
+    "title": "Switch",
+    "data":[
+      {
+        "type": "Text",
+        "value": "The switch statement in JavaScript provides a way to handle multiple conditions in a more organized and readable manner compared to a series of if-else statements. It is particularly useful when you have a single expression whose value needs to be tested against multiple possible cases.<p>Here's the basic syntax of the switch statement:</p>"
+      },
+      {
+        "type": "Code",
+        "value": "switch (expression) { case value1: // code to be executed if expression === value1 break; case value2: // code to be executed if expression === value2 break; // additional cases as needed default: // code to be executed if none of the cases match }",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<p>Here's a breakdown of how it works:</p>"
+      },
+      {
+        "type": "Text",
+        "value": "<ul><li>The expression is evaluated once.</li><li>The value of the expression is then compared with the values of each case.</li><li>If a match is found, the code block associated with that case is executed.</li><li>The break statement is used to exit the switch block. If omitted, execution will continue to the next case regardless of whether it matches.</li><li>The default case is optional and is executed if none of the case values match the expression.</li></ul>Here's an example:"
+      },
+      {
+        "type": "Code",
+        "value": "let day = 'Monday'; switch (day) { case 'Monday': console.log('It's the start of the week.'); break; case 'Friday': console.log('It's almost the weekend!'); break; default: console.log('It's a regular day.'); }",
+        "props": { "height": 200, "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, if day is 'Monday', it will log \"It's the start of the week.\" If day is 'Friday', it will log \"It's almost the weekend!\" Otherwise, it will log \"It's a regular day.\"The switch statement is a powerful tool for handling multiple conditions when you have distinct values to compare."
+      }
+    ]
+  }
+]
