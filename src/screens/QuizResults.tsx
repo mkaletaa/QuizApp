@@ -40,14 +40,14 @@ export default function QuizResults({ route }) {
     setModalChoices(choices)
   }
 
-  useEffect(() => {
-    if (showModal === true) scrollToIndex(index)
-  }, [showModal])
+  // useEffect(() => {
+  //   if (showModal === true) scrollToIndex(index)
+  // }, [showModal])
 
-  const flatListRef = useRef(null)
-  const scrollToIndex = index => {
-    flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
-  }
+  // const flatListRef = useRef(null)
+  // const scrollToIndex = index => {
+  //   flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
+  // }
 
   function retakeQuiz(incorrectOnly = false) {
     let itemsArray
@@ -151,21 +151,21 @@ export default function QuizResults({ route }) {
         visible={showModal}
         onRequestClose={() => setShowModal(false)}
       >
-        <FlatList
+        {/* <FlatList
           pagingEnabled
           horizontal={true}
           ref={flatListRef}
           data={resultsArray}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <ItemResult
-              item={item.item}
-              chosenOptions={item.userChoices}
-              handleBtnPress={() => setShowModal(false)}
-              btnTitle={close}
-            />
           )}
-        />
+        /> */}
+          <ItemResult
+            item={modalItem}
+            chosenOptions={modalChoices}
+            handleBtnPress={() => setShowModal(false)}
+            btnTitle={close}
+          />
       </Modal>
     </SafeAreaView>
   )

@@ -52,14 +52,14 @@ export function ResultModal({
   items: Array<Item>
   index: number
 }) {
-  useEffect(() => {
-    if (showModal === true) scrollToIndex(index)
-  }, [showModal])
+  // useEffect(() => {
+  //   if (showModal === true) scrollToIndex(index)
+  // }, [showModal])
 
-  const flatListRef = useRef(null)
-  const scrollToIndex = index => {
-    flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
-  }
+  // const flatListRef = useRef(null)
+  // const scrollToIndex = index => {
+  //   flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
+  // }
   return (
     <Modal
       // duration={1000}
@@ -69,7 +69,7 @@ export function ResultModal({
       onRequestClose={() => setShowModal(false)}
       statusBarTranslucent
     >
-      <FlatList
+      {/* <FlatList
         pagingEnabled
         horizontal={true}
         ref={flatListRef}
@@ -81,14 +81,14 @@ export function ResultModal({
         renderItem={(
           { item } // Destructure item from the object passed by FlatList
         ) => (
-          <ItemResult
-            item={item} // Assuming item is structured as { item: Item, userChoices: Option[] }
-            chosenOptions={null} // Access userChoices similarly
-            handleBtnPress={() => setShowModal(false)}
-            btnTitle={close}
-          />
         )}
-      />
+      /> */}
+        <ItemResult
+          item={modalItem} // Assuming item is structured as { item: Item, userChoices: Option[] }
+          chosenOptions={null} // Access userChoices similarly
+          handleBtnPress={() => setShowModal(false)}
+          btnTitle={close}
+        />
     </Modal>
   )
 }
