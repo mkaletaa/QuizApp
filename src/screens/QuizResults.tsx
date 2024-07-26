@@ -31,8 +31,6 @@ export default function QuizResults({ route }) {
     setCorrectNr(correct)
   }, [])
 
-
-
   function handlePress(item: Item, choices: Option[], index: number) {
     setIndex(index)
     setShowModal(true)
@@ -81,10 +79,9 @@ export default function QuizResults({ route }) {
     </View>
   )
 
-  const ListHeader = () => (
+  const ListHeader = () =>
     // <Chart resultsArray={resultsArray}/>
     null
-  )
 
   const navigation = useNavigation()
 
@@ -134,39 +131,39 @@ export default function QuizResults({ route }) {
 
   return (
     <SafeAreaView>
-      <Gradient />
-
-      <FlatList
-        data={resultsArray}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
-        ListHeaderComponent={ListHeader}
-        ListFooterComponent={ListFooter}
-        style={{}}
-      />
-
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={showModal}
-        onRequestClose={() => setShowModal(false)}
-      >
-        {/* <FlatList
-          pagingEnabled
-          horizontal={true}
-          ref={flatListRef}
+      <View style={{height:"100%"}}>
+        <Gradient />
+        <FlatList
           data={resultsArray}
+          renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-          )}
-        /> */}
+          ListHeaderComponent={ListHeader}
+          ListFooterComponent={ListFooter}
+          contentContainerStyle={{paddingTop: 20}}
+        />
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={showModal}
+          onRequestClose={() => setShowModal(false)}
+        >
+          {/* <FlatList
+            pagingEnabled
+            horizontal={true}
+            ref={flatListRef}
+            data={resultsArray}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+            )}
+          /> */}
           <ItemResult
             item={modalItem}
             chosenOptions={modalChoices}
             handleBtnPress={() => setShowModal(false)}
             btnTitle={close}
           />
-      </Modal>
+        </Modal>
+      </View>
     </SafeAreaView>
   )
 }
