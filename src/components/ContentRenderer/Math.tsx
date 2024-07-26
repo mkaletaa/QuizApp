@@ -39,23 +39,23 @@ export default function Math({ width, value, props }) {
     <View
       style={{
         width: width,
+        height: props?.height ? props.height : 70,
       }}
       onStartShouldSetResponder={event => true}
       onTouchEnd={e => {
         e.stopPropagation()
       }}
     >
-
-        <WebView
-          onStartShouldSetResponder={() => true}
-          scrollEnabled={false}
-          source={{ html }}
-          style={{
-            width: width,
-            height: props?.height ? props.height : 70,
-            backgroundColor: 'transparent',
-          }}
-        />
+      <WebView
+        onStartShouldSetResponder={() => true}
+        scrollEnabled={false}
+        source={{ html }}
+        style={{
+          width: width,
+          height: props?.height ? props.height : 70,
+          backgroundColor: 'transparent',
+        }}
+      />
     </View>
   )
 }

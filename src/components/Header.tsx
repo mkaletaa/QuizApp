@@ -2,6 +2,8 @@ import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
 
+import { SimpleLineIcons } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
 import { AntDesign, Feather, Ionicons, FontAwesome6 } from '@expo/vector-icons'
 import { Tooltip } from 'react-native-paper'
 import { boldTextColor } from '../utils/constants'
@@ -91,7 +93,8 @@ export default function Header({ title }) {
               navigation.navigate('Settings')
             }}
           >
-            <Feather name="sliders" size={28} color={boldTextColor} />
+            {/* <Feather name="sliders" size={28} color={boldTextColor} /> */}
+            <SimpleLineIcons name="menu" size={25} color={boldTextColor} />
           </TouchableOpacity>
         </View>
       </React.Fragment>

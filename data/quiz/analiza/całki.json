@@ -11,7 +11,7 @@
       { "id": "1", "val": "cosx + c", "correct": false },
       { "id": "2", "val": "-cosx + c", "correct": true },
       { "id": "3", "val": "sinx + c", "correct": false },
-      { "id": "3", "val": "-sinx + c", "correct": false }
+      { "id": "4", "val": "-sinx + c", "correct": false }
     ]
   },
   {
@@ -26,7 +26,7 @@
       { "id": "1", "val": "cosx + c", "correct": false },
       { "id": "2", "val": "-cosx + c", "correct": false },
       { "id": "3", "val": "sinx + c", "correct": true },
-      { "id": "3", "val": "-sinx + c", "correct": false }
+      { "id": "4", "val": "-sinx + c", "correct": false }
     ]
   },
   {
@@ -41,7 +41,7 @@
       { "id": "1", "val": "1", "correct": false },
       { "id": "2", "val": "0", "correct": false },
       { "id": "3", "val": "x + c", "correct": true },
-      { "id": "3", "val": "ln|x| + c", "correct": false }
+      { "id": "4", "val": "ln|x| + c", "correct": false }
     ],
     "explanation": [
       {

@@ -1,9 +1,14 @@
 import { AntDesign, Feather, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons'
 import React, { useEffect, useRef, useState } from 'react'
-import { StyleSheet, View, useWindowDimensions } from 'react-native'
+import { Dimensions, StyleSheet, View, useWindowDimensions } from 'react-native'
+import { Octicons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
+import { FontAwesome6 } from '@expo/vector-icons'
 
-import { renderComponent } from './_ContentRenderer'
-type blockType = 'info' | 'warning' | 'important' | 'task'
+import ContentRenderer, { renderComponent } from './_ContentRenderer'
+import { textColor } from '../../utils/constants'
+type blockType = 'info' | 'warning' | 'important' | 'task' | 'tip'
 
 export default function Block({
   value,
@@ -12,32 +17,29 @@ export default function Block({
   value: any
   type: blockType
 }) {
-  const { width } = useWindowDimensions()
+  // const { width } = useWindowDimensions()
 
   function setBgColor(type: blockType): string {
     if (type === 'info') return 'lightblue'
-    else if (type === 'warning') return '#ffae17'
-    else if (type === 'important') return 'tomato'
+    else if (type === 'warning') return '#fcc964'
+    else if (type === 'important') return '#ff765b'
     else if (type === 'task') return '#80ff8e'
+    else if (type === 'tip') return '#fcf283'
   }
 
   function setBorderColor(type: blockType): string {
     if (type === 'info') return '#7dadfa'
-    else if (type === 'warning') return '#ff8b17'
-    else if (type === 'important') return 'red'
+    else if (type === 'warning') return 'orange'
+    else if (type === 'important') return '#fc4835'
     else if (type === 'task') return '#3dd14e'
+    else if (type === 'tip') return '#f9e104'
   }
 
   function returnIcon(type: blockType) {
     switch (type) {
       case 'info':
         return (
-          <SimpleLineIcons
-            name="info"
-            size={24}
-            color="black"
-            style={styles.icon}
-          />
+          <Ionicons name="information-circle-outline" size={32} color="black" style={styles.icon}/>
         )
       case 'important':
         return (
@@ -66,24 +68,33 @@ export default function Block({
             style={styles.icon}
           />
         )
+      case 'tip':
+        return (
+          <FontAwesome6
+            name="lightbulb"
+            size={24}
+            color="black"
+            style={styles.icon}
+          />
+        )
     }
   }
 
-  const viewRef = useRef(null)
-  const [viewWidth, setViewWidth] = useState(0)
+  // const viewRef = useRef(null)
+  // const [viewWidth, setViewWidth] = useState(0)
 
-  useEffect(() => {
-    if (viewRef.current) {
-      viewRef.current.measure((x, y, width, height, pageX, pageY) => {
-        setViewWidth(width)
-        console.log('szerokość bloku: ', width)
-      })
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (viewRef.current) {
+  //     viewRef.current.measure((x, y, width, height, pageX, pageY) => {
+  //       setViewWidth(width)
+  //       console.log('szerokość bloku: ', width)
+  //     })
+  //   }
+  // }, [])
 
   return (
     <View
-      ref={viewRef}
+      // ref={viewRef}
       style={[
         styles.block,
         {
@@ -99,14 +110,14 @@ export default function Block({
             style={{
               flexWrap: 'wrap',
               // backgroundColor: 'tomato',
-              width: '90%', //maxWidth
+              width: '100%', //maxWidth
               gap: 10,
             }}
           >
-            {
-              //@ts-ignore
-              value.map((item, index) => renderComponent(item, viewWidth - 14)) //minus 14 because 2x5px of padding + 2x2px of border
-            }
+            <ContentRenderer
+              content={value}
+              width={Dimensions.get('window').width * 0.9 - 8} 
+            ></ContentRenderer>
           </View>
         </React.Fragment>
       }
@@ -116,12 +127,13 @@ export default function Block({
 
 const styles = StyleSheet.create({
   block: {
-    width: '100%', //maxWidth
+    width: Dimensions.get('window').width * 0.9, //maxWidth
     padding: 5,
-    borderRadius: 3,
-    borderWidth: 2,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
+    borderLeftWidth: 4,
 
-    flexDirection: 'row',
+    // flexDirection: 'row',
     // flexGrow: 1,
     // gap: 5,
   },
@@ -129,7 +141,10 @@ const styles = StyleSheet.create({
     width: '10%',
     justifyContent: 'center',
     marginTop: 1,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: textColor,
     // backgroundColor: 'green',
-    // textAlign: 'center',
+    // padding:0
   },
 })

@@ -94,7 +94,7 @@ export default function Theory({ route }) {
     <View
       style={[
         styles.header,
-        { borderBottomWidth: theoryData[1]?.title ? 1 : 0 },
+        { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
       ]}
     >
       {theoryData.map(
@@ -119,7 +119,7 @@ export default function Theory({ route }) {
                   style={{
                     fontSize: 21,
                     textDecorationLine: 'underline',
-                    color: boldTextColor,
+                    color: '#54039b',
                   }}
                 >
                   {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
@@ -350,7 +350,7 @@ const styles = StyleSheet.create({
   header: {
     padding: 10,
     borderColor: borderColor,
-    // borderBottomWidth: 1,
+    // borderBottomWidth: 3,
     alignItems: 'center',
     gap: 5,
     // color: "red",
