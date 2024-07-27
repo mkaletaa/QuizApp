@@ -1,42 +1,39 @@
 [
   {
     "id": "general_information|about_JavaScript|1",
-    "multiChoice": false,
     "question": "Who said: <i>”Any application that can be written in JavaScript, will eventually be written in JavaScript”?</i>",
     "options": [
-      { "id": 1, "answer": "Thomas Dohmke", "correct": false },
-      { "id": 2, "answer": "Jeff Atwood", "correct": true },
-      { "id": 3, "answer": "Brendan Eich", "correct": false },
-      { "id": 4, "answer": "Bill Gates", "correct": false }
-    ],
-    "explanation": []
+      { "id": 1, "val": "Thomas Dohmke", "correct": false },
+      { "id": 2, "val": "Jeff Atwood", "correct": true },
+      { "id": 3, "val": "Brendan Eich", "correct": false },
+      { "id": 4, "val": "Bill Gates", "correct": false }
+    ]
   },
   {
     "id": "general_information|about_JavaScript|2",
     "multiChoice": true,
     "question": "What can be built using JavaScript?",
     "options": [
-      { "id": 21, "answer": "frontend apps", "correct": true },
-      { "id": 22, "answer": "backend apps", "correct": true },
-      { "id": 23, "answer": "mobile apps", "correct": true },
-      { "id": 24, "answer": "desktop apps", "correct": true },
-      { "id": 25, "answer": "TV apps", "correct": true }
+      { "id": 21, "val": "frontend apps", "correct": true },
+      { "id": 22, "val": "backend apps", "correct": true },
+      { "id": 23, "val": "mobile apps", "correct": true },
+      { "id": 24, "val": "desktop apps", "correct": true },
+      { "id": 25, "val": "TV apps", "correct": true }
     ],
     "explanation": "JavaScript was originally designed for use in frontend applications, but with the help of runtimes like Node, it can also be employed as a backend language. Utilizing frameworks such as Electron or Tauri allows you to develop desktop applications, while React Native enables the creation of mobile and TV apps."
   },
   {
     "id": "general_information|about_JavaScript|3",
-    "multiChoice": false,
     "question": "JS is a single-threaded language",
     "options": [
       {
         "id": 31,
-        "answer": "true",
+        "val": "true",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "false",
+        "val": "false",
         "correct": false
       }
     ],
@@ -44,17 +41,16 @@
   },
   {
     "id": "general_information|about_JavaScript|4",
-    "multiChoice": false,
     "question": "JS is a statically typed language",
     "options": [
       {
         "id": 31,
-        "answer": "true",
+        "val": "true",
         "correct": false
       },
       {
         "id": 32,
-        "answer": "false",
+        "val": "false",
         "correct": true
       }
     ],
@@ -62,51 +58,48 @@
   },
   {
     "id": "general_information|about_JavaScript|5",
-    "multiChoice": false,
     "question": "JS is an interpreted language",
     "options": [
       {
         "id": 31,
-        "answer": "true",
+        "val": "true",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "false",
+        "val": "false",
         "correct": false
       }
     ]
   },
   {
     "id": "general_information|about_JavaScript|6",
-    "multiChoice": false,
     "question": "JS is a weakly typed language",
     "options": [
       {
         "id": 31,
-        "answer": "true",
+        "val": "true",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "false",
+        "val": "false",
         "correct": false
       }
     ]
   },
   {
     "id": "general_information|about_JavaScript|7",
-    "multiChoice": false,
     "question": "JS is a weakly typed language",
     "options": [
       {
         "id": 31,
-        "answer": "true",
+        "val": "true",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "false",
+        "val": "false",
         "correct": false
       }
     ]
@@ -118,17 +111,17 @@
     "options": [
       {
         "id": 31,
-        "answer": "imperative",
+        "val": "imperative",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "object-oriented",
+        "val": "object-oriented",
         "correct": true
       },
        {
          "id": 33,
-         "answer": "functional",
+         "val": "functional",
          "correct": true
        }
     ]

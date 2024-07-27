@@ -9,7 +9,7 @@
       {
         "type": "Code",
         "value": "for (initialization; condition; iteration) {// code to be executed in each iteration}",
-        "props": { "height": 200, "language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
