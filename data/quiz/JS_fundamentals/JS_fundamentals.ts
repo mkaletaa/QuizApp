@@ -1,5 +1,14 @@
-import Hello_World from './Hello_World.json'
+import comments from './comments.json'
 
 export const JS_fundamentals = {
-  Hello_World,
+  comments,
 }
+//** A **//
+
+/*\n
+\t//B\n
+*/
+
+// D // D
+
+/* * ** E */
