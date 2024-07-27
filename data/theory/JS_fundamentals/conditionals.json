@@ -17,7 +17,7 @@
       {
         "type": "Code",
         "value": "if (condition) {// code to be executed if the condition is true}",
-        "props": { "height": 200, "language": "javascript" }
+        "props": {  "language": "javascript" }
       },
       {
         "type": "Text",

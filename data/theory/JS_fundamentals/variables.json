@@ -71,7 +71,7 @@
       },
       {
         "type": "Code",
-        "value": "//these are examples of bad variable names:\nlet my@variable = 1\nlet my variable = 2\nlet my-variable = 3",
+        "value": "//these are examples of bad variable names:\nlet my@variable = 1\nlet my variable = 2\nlet my-variable = 3\n\nlet my_variable //this one is good though\nlet $myVariable //this is good too",
         "props": { "language": "javascript" }
       },
       {
@@ -183,8 +183,34 @@
         "value": "<ul><li><b>var</b> is the oldest of these keywords and can be found in older JavaScript sources. However, since ES6 was introduced in 2015, it is not advisable to use var anymore. The reasons for this recommendation will be explained later.</li><li><b>let</b> is a newer keyword introduced in ES6 and is generally preferred over var. It offers more predictable scoping behavior and is considered an improvement in terms of variable declaration.</li><li><b>const</b> was also introduced in ES6. It is an abbreviation for \"constant\", signifying that variables declared with this keyword cannot be reassigned after their initial assignment in the code. This helps enforce immutability and is particularly useful when you want to ensure that a variable remains constant throughout the program. Aside from this, const behaves similarly to let</li></ul>"
       },
       {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Note the difference between definition, declaration and assignment. <br></br>A <b>declaration</b> is a statement that introduces a variable, function, or other identifier into a program. It tells the compiler or interpreter that a variable or function exists.<br></br>A <b>definition</b> provides the actual implementation or value for a variable, function, or other identifier. In JavaScript, a variable declaration with an assignment can be considered a definition.<br></br>An <b>assignment</b> is the act of giving a value to a variable. This can be done at the time of declaration (which then combines declaration and assignment) or separately."
+          },
+          {
+            "type": "Code",
+            "value": "//declaration:\nlet myVariable\n\n//definition (and declaration):\nlet myOtherVariable = 20\n\n//assignment:\nlet yetAnotherVariable\nyetAnotherVariable = 10",
+            "props": {"language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
         "type": "Text",
         "value": "<b>Differences</b>"
+      },
+      {
+        "type": "Text",
+        "value": "<p>0. Reassignment</p><p>Variables preceded with var and let can be reassigned, while those preceded with const cannot.</p>"
+      },
+      {
+        "type": "Code",
+        "value": "var a = 1\nlet b = 2\nconst c = 3\n\na=11 // ok\nb=12 // ok\nc=13 //Uncaught TypeError: Assignment to constant variable",
+        "props": {"language": "javascript" }
       },
       {
         "type": "Text",
@@ -193,6 +219,11 @@
       {
         "type": "Code",
         "value": "function example() {\n\t\t\t{\n\t\t\t\t\t\tvar x = 5;\n\t\t\t\t\t\tlet y = 10n\n\t\t\t\t\t\tconst z = 20;\n\t\t\t}\n\t\t\tconsole.log(x); // 5\n\t\t\tconsole.log(y) // Error: y is not defined\n\t\t\tconsole.log(z); // Error: z is not defined\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "var a = 1\nlet b = 2 \nconst c = 3\n\n{\n    var a  = 10\n    let b = 20\n    const c = 30 \n\n    console.log(a) //10\n    console.log(b) //20\n    console.log(c) //30\n}\n\nconsole.log(a)   //10\nconsole.log(b)   //2\nconsole.log(c)   //3",
         "props": { "language": "javascript" }
       },
       {
@@ -206,11 +237,11 @@
       },
       {
         "type": "Text",
-        "value": "<p>2. Hoisting</p><p>var is subject to hoisting, which means that the variable is lifted to the top of its scope and can be used before its declaration. let is also hoisted but is in a \"temporal dead zone\" (TDZ), meaning that it cannot be used before its declaration, even though it is lifted.</p>"
+        "value": "<p>2. Hoisting</p><p>var is subject to hoisting, which means that the variable is lifted to the top of its scope and can be used before its declaration, although its value will be undefined until the assignment. Let and const are also hoisted but are in a \"temporal dead zone\" (TDZ), meaning that they cannot be used before its declaration, even though it is lifted to the top of its block. Attempting to access a let or const variable before its declaration will result in a ReferenceError</p>"
       },
       {
         "type": "Code",
-        "value": "console.log(a); // undefined\nvar a = 5;\nconsole.log(b); // Error: b is not defined\nlet b = 10;",
+        "value": "console.log(a); // undefined\nvar a = 5;\nconsole.log(b); // Uncaught ReferenceError: Cannot access 'b' before initialization \nlet b = 10\nconsole.log(c) //Uncaught ReferenceError: c is not defined ",
         "props": { "language": "javascript" }
       },
       {
@@ -230,6 +261,14 @@
         "type": "Code",
         "value": "var a = 10\nlet b = 20\nconsole.log(window.a) // 10\nconsole.log(window.b) // undefined",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Don't worry if you don't understand some concepts mentioned here, like functions, context or strict mode. Later on you'll learn about them and everything will start to make more sense. At the end, take a look at this graphic that summarizes all the differences between var, let, and const in one place: <a href='https://rixong.medium.com/var-let-and-const-28ab64ac2460'>source</a>"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/pXm5XTRs/image.png"
       }
     ]
   }
