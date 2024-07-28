@@ -9,8 +9,8 @@ export const JS_fundamentals = {
   Hello_World,
   comments,
   variables,
+  operators,
   conditionals,
   loops,
-  operators,
 }
 

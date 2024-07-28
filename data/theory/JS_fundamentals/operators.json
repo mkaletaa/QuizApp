@@ -9,6 +9,20 @@
     ]
   },
   {
+    "title": "Mathematical operators",
+    "data": [
+        {
+          "type": "Text",
+          "value": "You can perform basic mathematical operations in JavaScript, but be cautious with very large or very small numbers, as they may lead to precision issues and unexpected results."
+        },
+        {
+            "type": "Code",
+            "value": "console.log(3 + 4); //7\nconsole.log(3 - 2); //1\nconsole.log(3 * 3); //9\nconsole.log(3 / 2); //1.5\n\n// % - modulo, which is the remainder of division\nconsole.log(3 % 2); //1\nconsole.log(9 % 3); //0\n\n// ** - exponentiation\nconsole.log(3 ** 2); //9 - same as Math.pow(a, 2)",
+            "props": {"language": "javascript" }
+        }
+    ]
+  },
+  {
     "title": "Logical operators",
     "data": [
       {
@@ -79,6 +93,10 @@
         "type": "Code",
         "value": "let a = null; let b = undefined; let c = 'hello'; console.log(a ?? b); // undefined because both a and b are null or undefined console.log(a ?? c); // 'hello' because c is the first defined value console.log(a ?? b ?? 5); // 5 because both a and b are null or undefined",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can have multiple "
       },
       {
         "type": "Header",

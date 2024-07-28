@@ -94,6 +94,11 @@
       {
         "type": "Text",
         "value": "<p>In this example, if isSunny is true, the weather variable will be assigned the value 'It is sunny!'. If isSunny is false, it will be assigned the value 'It is not sunny.'.</p><p>The ternary operator is a concise way to write simple conditional statements, and it's often used when the conditions are straightforward. However, for more complex conditions, the traditional if-else statement might be more readable.</p>"
+      },
+      {
+        "type": "Code",
+        "value": "//poorly readable\nlet age = 25\nlet category = age < 13 ? 'child' : age < 20 ? 'teen' : age < 65 ? 'adult' : 'senior'\nconsole.log(category)",
+        "props": {"language": "javascript" }
       }
     ]
   },
@@ -120,11 +125,15 @@
       {
         "type": "Code",
         "value": "let day = 'Monday'; switch (day) { case 'Monday': console.log('It's the start of the week.'); break; case 'Friday': console.log('It's almost the weekend!'); break; default: console.log('It's a regular day.'); }",
-        "props": { "height": 200, "language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
         "value": "In this example, if day is 'Monday', it will log \"It's the start of the week.\" If day is 'Friday', it will log \"It's almost the weekend!\" Otherwise, it will log \"It's a regular day.\"The switch statement is a powerful tool for handling multiple conditions when you have distinct values to compare."
+      },
+      {
+        "type": "Text",
+        "value": ""
       }
     ]
   }
