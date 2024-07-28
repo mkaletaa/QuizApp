@@ -16,17 +16,17 @@
       },
       {
         "type": "Code",
-        "value": "if (condition) {// code to be executed if the condition is true}",
-        "props": {  "language": "javascript" }
+        "value": "if (condition) {\n   // code to be executed if the condition is true\n}",
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "Here, condition is an expression that is evaluated. If the result of this expression is true, the code inside the curly braces is executed. If the condition is false, the code block is skipped.Optionally, you can include an else statement to specify a block of code to be executed if the condition is false:"
+        "value": "Here, condition is an expression that is evaluated. If the result of this expression is true, the code inside the curly braces is executed. If the condition is false, the code block is skipped. Optionally, you can include an else statement to specify a block of code to be executed if the condition is false:"
       },
       {
         "type": "Code",
-        "value": "if (condition) {// code to be executed if the condition is true} else {// code to be executed if the condition is false}",
-        "props": { "height": 200, "language": "javascript" }
+        "value": "if (condition) {\n   // code to be executed if the condition is true\n} else {\n   // code to be executed if the condition is false\n}",
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
@@ -34,8 +34,39 @@
       },
       {
         "type": "Code",
-        "value": "if (condition1) { // code to be executed if condition1 is true } else if (condition2) { // code to be executed if condition2 is true } else { // code to be executed if none of the conditions are true }",
-        "props": { "height": 200, "language": "javascript" }
+        "value": "if (condition1) {\n // code to be executed if condition1 is true \n} else if (condition2) {\n // code to be executed if condition2 is true \n} else {\n  // code to be executed if none of the conditions are true \n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Else-if is not the same as multiple if statements one after another. When one of the conditions in an if-else statement is fulfilled, the rest won't be evaluated. In contrast, with multiple if statements, each condition is checked independently, regardless of whether previous conditions were true or false. This means that with multiple if statements, more than one block can be executed if their conditions are met."
+      },
+      {
+        "type": "Code",
+        "value": "let num = 15;\n\nif (num > 20) {\n  console.log('Number is greater than 20');\n} else if (num > 10) {\n  console.log('Number is greater than 10 but less than or equal to 20');\n} else if (num > 5) {\n  console.log('Number is greater than 5 but less than or equal to 10');\n} else {\n  console.log('Number is 5 or less');\n}\n\n//Output: Number is greater than 10 but less than or equal to 20",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "let num = 15;\n\nif (num > 20) {\n  console.log('Number is greater than 20');\n}\nif (num > 10) {\n  console.log('Number is greater than 10 but less than or equal to 20');\n}\nif (num > 5) {\n  console.log('Number is greater than 5 but less than or equal to 10');\n}\nif (num <= 5) {\n  console.log('Number is 5 or less');\n}\n\n//Output:\n//Number is greater than 10 but less than or equal to 20\n//Number is greater than 5 but less than or equal to 10",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "You can nest if statements, however it is not advisable as it decreases the readability of the code. Use 'early return' technique instead"
+          },
+          {
+            "type": "Code",
+            "value": "//bad\n",
+            "props": { "language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "tip"
+        }
       }
     ]
   },
@@ -49,7 +80,7 @@
       {
         "type": "Code",
         "value": "condition ? expression_if_true : expression_if_false;",
-        "props": { "height": 200, "language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
@@ -57,8 +88,8 @@
       },
       {
         "type": "Code",
-        "value": "let isSunny = true;let weather = isSunny ? 'It is sunny!' : 'It is not sunny.';console.log(weather);",
-        "props": { "height": 200, "language": "javascript" }
+        "value": "let isSunny = true\nlet weather = isSunny ? 'It is sunny!' : 'It is not sunny.'\nconsole.log(weather);",
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
@@ -68,15 +99,15 @@
   },
   {
     "title": "Switch",
-    "data":[
+    "data": [
       {
         "type": "Text",
         "value": "The switch statement in JavaScript provides a way to handle multiple conditions in a more organized and readable manner compared to a series of if-else statements. It is particularly useful when you have a single expression whose value needs to be tested against multiple possible cases.<p>Here's the basic syntax of the switch statement:</p>"
       },
       {
         "type": "Code",
-        "value": "switch (expression) { case value1: // code to be executed if expression === value1 break; case value2: // code to be executed if expression === value2 break; // additional cases as needed default: // code to be executed if none of the cases match }",
-        "props": { "height": 200, "language": "javascript" }
+        "value": "switch (expression) {\n case value1:\n // code to be executed if expression === value1 \nbreak;\n case value2:\n // code to be executed if expression === value2 break; // additional cases as needed default: // code to be executed if none of the cases match }",
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
