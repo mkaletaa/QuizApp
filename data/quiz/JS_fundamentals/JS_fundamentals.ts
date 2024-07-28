@@ -9,5 +9,3 @@ export const JS_fundamentals = {
   operators,
   conditionals,
 }
-
-//operators ^ jako potęga vs xor

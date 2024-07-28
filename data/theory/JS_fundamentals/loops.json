@@ -8,7 +8,7 @@
       },
       {
         "type": "Code",
-        "value": "for (initialization; condition; iteration) {// code to be executed in each iteration}",
+        "value": "for (initialization; condition; iteration) {\n   // code to be executed in each iteration\n}",
         "props": { "language": "javascript" }
       },
       {
@@ -17,26 +17,89 @@
       },
       {
         "type": "Code",
-        "value": "for (let i = 1; i <= 5; i++) {console.log(i);}",
-        "props": { "height": 200, "language": "javascript" }
+        "value": "for (let i = 1; i <= 5; i++) {\n  console.log(i) // 1, 2, 3, 4, 5\n}",
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
         "value": "In this example:<ul><li>let i = 1 initializes the loop variable i to 1.</li><li>i <= 5 is the condition. The loop will continue as long as i is less than or equal to 5.</li><li>i++ increments i by 1 after each iteration.</li></ul>The loop will print the numbers 1 through 5 to the console."
+      },
+      {
+        "type": "Text",
+        "value": "If you want to have an infinite for loop you can go as follows:"
+      },
+      {
+        "type": "Code",
+        "value": "for (;;) {\n   ...\n}",
+        "props": { "language": "javascript" }
       }
     ]
   },
   {
-    "title": "while loop",
+    "title": "while loops",
     "data": [
+      {
+        "type": "Header",
+        "value": "basic while loop",
+        "props": { "size": "md" }
+      },
       {
         "type": "Text",
         "value": "The while loop in JavaScript is used to repeatedly execute a block of code as long as a specified condition is true. The basic syntax of the while loop is as follows:"
       },
       {
         "type": "Code",
-        "value": "while (condition) {  // code to be executed}",
-        "props": { "height": 200, "language": "javascript" }
+        "value": "while (condition) {\n  // code to be executed\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example:"
+      },
+      {
+        "type": "Code",
+        "value": "let i = 0\nwhile(i < 5){\n  console.log(i) //0, 1, 2, 3, 4\n  i++\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "do-while loop",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The do-while loop in JavaScript is similar to the while loop, but it guarantees that the code block will be executed at least once before checking the condition. The basic syntax of the do-while loop is as follows:"
+      },
+      {
+        "type": "Code",
+        "value": "do {\n  // code to be executed\n} while (condition);",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example:"
+      },
+      {
+        "type": "Code",
+        "value": "let i = 0\ndo {\n  console.log(i) // 0, 1, 2, 3, 4\n  i++\n} while (i < 5);",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the code inside the do block is executed first, then the condition i < 5 is checked. As long as the condition is true, the loop continues to execute."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/RFn5bVhh/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "If you want to achieve infinite while loop, you can go as follows:"
+      },
+      {
+        "type": "Code",
+        "value": "while(true){\n   ...\n}\n\ndo{\n   ...\n}while(19)  //any truthy value is ok",
+        "props": { "language": "javascript" }
       }
     ]
   },
@@ -45,11 +108,44 @@
     "data": [
       {
         "type": "Text",
-        "value": "dede",
-        "props": {
-          "toLeft": false
-        }
-      }
+        "value": "The break and continue statements in JavaScript are used to control the flow of loops. They allow you to terminate a loop or skip an iteration based on certain conditions."
+      },
+      {
+        "type": "Header",
+        "value": "break",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The break statement is used to exit a loop prematurely when a specific condition is met. It can be used in loops such as for, while, and do...while."
+      },
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 10; i++) {\n  if (i === 5) break;\n  console.log(i); // 0, 1, 2, 3, 4\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the loop terminates when the value of i is 5. The break statement stops the loop and the remaining iterations are not executed."
+      },
+      {
+        "type": "Header",
+        "value": "continue",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The continue statement is used to skip the current iteration of the loop and continue with the next one. It can also be used in loops such as for, while, and do...while."
+      },
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 10; i++) {\n  if (i % 2 === 0) continue;\n  console.log(i); // 1, 3, 5, 7, 9\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the above code, the continue statement skips the current iteration when the value of i is even. The loop continues with the next iteration without executing the remaining code within the loop body for that iteration. <br></br>When used in nested loops, break and continue work only on the loop that they were used in. If you want to use these statements from body of one loop to affect the behavior of another loop you should use labels."
+      } 
     ]
   },
   {
@@ -57,10 +153,66 @@
     "data": [
       {
         "type": "Text",
-        "value": "dede",
-        "props": {
-          "toLeft": false
-        }
+        "value": "Labels in JavaScript are used to name loops or blocks of code, allowing you to use break and continue statements more flexibly. A label is an identifier followed by a colon (:) that appears before a statement or a block of code."
+      },
+      {
+        "type": "Code",
+        "value": "labelName: {\n  // code block\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "using labels with break",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can use a label with the break statement to exit not only the current loop but also any outer loops or code blocks."
+      },
+      {
+        "type": "Code",
+        "value": "outerLoop: for (let i = 0; i < 5; i++) {\n  for (let j = 0; j < 5; j++) {\n    if (i === 2 && j === 3) break outerLoop;\n    console.log('i =', i, 'j =', j);\n  }\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The outerLoop label is used with the break statement to exit both loops when i is 2 and j is 3."
+      },
+      {
+        "type": "Header",
+        "value": "using labels with continue",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can also use a label with the continue statement to skip the current iteration of not only the current loop but also any outer loops."
+      },
+      {
+        "type": "Code",
+        "value": "outerLoop: for (let i = 0; i < 5; i++) {\n  for (let j = 0; j < 5; j++) {\n    if (i === 2 && j === 3) continue outerLoop;\n    console.log('i =', i, 'j =', j);\n  }\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The outerLoop label is used with the continue statement to skip the current iteration of the outer loop when i is 2 and j is 3."
+      },
+      {
+        "type": "Header",
+        "value": "labels with blocks",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Labels can also be used with blocks of code to break out of the block."
+      },
+      {
+        "type": "Code",
+        "value": "labelName: {\n  console.log('Inside the block');\n  break labelName;\n  console.log('This will not be executed');\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the labelName label is used with the break statement to exit the block of code immediately after the first console.log statement."
       }
     ]
   },
@@ -69,10 +221,218 @@
     "data": [
       {
         "type": "Text",
-        "value": "dede",
-        "props": {
-          "toLeft": false
-        }
+        "value": "Arrays and objects mentioned below will be discussed widely in a different chapter. If you don't feel proficient with them, feel free to skip the following loops and come back here later."
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "The map() method in JavaScript is used to create a new array by applying a function to each element of an existing array. The basic syntax of the map() method is as follows:"
+      },
+      {
+        "type": "Code",
+        "value": "array.map(function(currentValue, index, arr), thisValue)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example:"
+      },
+      {
+        "type": "Code",
+        "value": "const numbers = [1, 2, 3, 4, 5];\nconst doubled = numbers.map(function(num) {\n  return num * 2;\n});\nconsole.log(doubled); // [2, 4, 6, 8, 10]",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the map() method is used to double the values in the numbers array. A new array, doubled, is created, containing the results of applying the function to each element in the numbers array. <br></br>The map() method is specifically designed for arrays and cannot be used to iterate over other data structures directly. However, you can convert other iterable objects, such as NodeLists or Sets, into arrays using Array.from() or the spread operator (...) and then apply the map() method."
+      },
+      {
+        "type": "Code",
+        "value": "const set = new Set([1, 2, 3, 4, 5]);\nconst doubledSet = Array.from(set).map(num => num * 2);\nconsole.log(doubledSet); // [2, 4, 6, 8, 10]",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, a Set is converted into an array using Array.from() and then the map() method is applied to create a new array with doubled values."
+      }
+    ]
+  },
+  {
+    "title": "for...of Loop",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The for...of loop in JavaScript is used to iterate over iterable objects like arrays, strings, Maps, Sets, and more. It allows you to loop through the values of an iterable without needing to access the index or keys."
+      },
+      {
+        "type": "Code",
+        "value": "for (variable of iterable) {\n  // code to be executed\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example, using for...of with an array:"
+      },
+      {
+        "type": "Code",
+        "value": "const numbers = [1, 2, 3, 4, 5];\nfor (const num of numbers) {\n  console.log(num); // 1, 2, 3, 4, 5\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the for...of loop iterates over each value in the numbers array and logs it to the console."
+      },
+      {
+        "type": "Text",
+        "value": "You can also use for...of with other iterable objects like strings:"
+      },
+      {
+        "type": "Code",
+        "value": "const str = 'hello';\nfor (const char of str) {\n  console.log(char); // h, e, l, l, o\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the for...of loop iterates over each character in the string and logs it to the console."
+      },
+      {
+        "type": "Text",
+        "value": "The for...of loop cannot be used to iterate over objects directly. For iterating over the properties of an object, use a for...in loop or Object.keys(), Object.values(), or Object.entries()."
+      },
+      {
+        "type": "Code",
+        "value": "const obj = {a: 1, b: 2, c: 3};\nfor (const key in obj) {\n  console.log(key, obj[key]); // a 1, b 2, c 3\n}",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "for...in Loop",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The for...in loop in JavaScript is used to iterate over the enumerable properties of an object. This loop is useful for going through the keys of an object."
+      },
+      {
+        "type": "Code",
+        "value": "for (variable in object) {\n  // code to be executed\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example, using for...in with an object:"
+      },
+      {
+        "type": "Code",
+        "value": "const obj = {a: 1, b: 2, c: 3};\nfor (const key in obj) {\n  console.log(key, obj[key]); // a 1, b 2, c 3\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the for...in loop iterates over each key in the obj object and logs the key and its corresponding value to the console."
+      },
+      {
+        "type": "Text",
+        "value": "You can also use for...in to iterate over arrays, though this is generally not recommended as it iterates over the array indices, not the values."
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3, 4, 5];\nfor (const index in arr) {\n  console.log(index, arr[index]); // 0 1, 1 2, 2 3, 3 4, 4 5\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the for...in loop iterates over each index in the arr array and logs the index and its corresponding value to the console."
+      },
+      {
+        "type": "Text",
+        "value": "For arrays, it is generally better to use a for...of loop or a standard for loop to iterate over the values."
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3, 4, 5];\nfor (const value of arr) {\n  console.log(value); // 1, 2, 3, 4, 5\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The for...in loop can also be used with built-in objects like String and Array to iterate over their enumerable properties."
+      },
+      {
+        "type": "Code",
+        "value": "const str = 'hello';\nfor (const index in str) {\n  console.log(index, str[index]); // 0 h, 1 e, 2 l, 3 l, 4 o\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the for...in loop iterates over each index in the str string and logs the index and its corresponding character to the console."
+      }
+    ]
+  },
+  {
+    "title": "forEach()",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The forEach() method in JavaScript is used to execute a provided function once for each array element. It is a more concise way to iterate over arrays compared to traditional for loops."
+      },
+      {
+        "type": "Code",
+        "value": "array.forEach(function(currentValue, index, array) {\n  // code to be executed\n});",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example, using forEach with an array:"
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3, 4, 5];\narr.forEach(function(value) {\n  console.log(value); // 1, 2, 3, 4, 5\n});",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the forEach method iterates over each element in the arr array and logs the value to the console."
+      },
+      {
+        "type": "Text",
+        "value": "The forEach method can also use the index and the array as additional arguments:"
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3, 4, 5];\narr.forEach(function(value, index, array) {\n  console.log(index, value); // 0 1, 1 2, 2 3, 3 4, 4 5\n});",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the forEach method iterates over each element in the arr array and logs the index and value to the console."
+      },
+      {
+        "type": "Text",
+        "value": "The forEach method does not return a new array, it simply executes the provided function for each element in the array."
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3, 4, 5];\narr.forEach(function(value, index, array) {\n  array[index] = value * 2;\n});\nconsole.log(arr); // [2, 4, 6, 8, 10]",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the forEach method is used to multiply each element in the arr array by 2."
+      },
+      {
+        "type": "Text",
+        "value": "Unlike some other array methods, forEach does not allow for breaking out of the loop early. If you need to stop the iteration based on a condition, you should use a different loop, such as a traditional for loop or a for...of loop."
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3, 4, 5];\nfor (const value of arr) {\n  if (value > 3) break;\n  console.log(value); // 1, 2, 3\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the for...of loop is used to break out of the loop when the value is greater than 3."
       }
     ]
   }
