@@ -1,0 +1,238 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Operators are symbols or keywords in programming that are used to perform operations on variables and values. They are fundamental building blocks in programming and are used to manipulate data and variables."
+      }
+    ]
+  },
+  {
+    "title": "Logical operators",
+    "data": [
+      {
+        "type": "Header",
+        "value": "! (not)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "It is used to negate a boolean value. If the value is true, applying ! will make it false, and vice versa."
+      },
+      {
+        "type": "Code",
+        "value": "let a = 2; let b = 0; console.log(!true); // false console.log(!false); // true console.log(a && b); // false because b === 0 console.log(!(a && b)); // true",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "&& (and)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The && operator evaluates from left to right and returns the first <b>falsy</b> value it encounters. If no falsy value is found, it returns the last value, whatever it is."
+      },
+      {
+        "type": "Code",
+        "value": "let a = 2; let b = 0; console.log(a && b); // false because b === 0 console.log(a && true); // true because all values are truthy console.log(a && 1 && 'hello'); // 'hello' because all values are truthy",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "We'll talk more about falsy values in the Data structures chapter. For now you need to know that in JS such values as false, 0, \"\", null, or undefined are considered as falsy. Any number other than 0 and any string that is not empty is considered as truthy."
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "type": "Header",
+        "value": "|| (or)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The || operator evaluates from left to right and returns the first <b>truthy</b> value it encounters. If no truthy value is found, it returns the last value, whatever it is."
+      },
+      {
+        "type": "Code",
+        "value": "let a = 2; let b = 0; console.log(a || b); // 2 because a === 2 (truthy) console.log(b || false); // false because both values are falsy console.log(null || undefined || 'hello'); // 'hello' because it's the first truthy value",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "?? (nullish coalescing)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The ?? operator evaluates from left to right and returns the first defined value that is not null or undefined. If all values are null or undefined, it returns the last value."
+      },
+      {
+        "type": "Code",
+        "value": "let a = null; let b = undefined; let c = 'hello'; console.log(a ?? b); // undefined because both a and b are null or undefined console.log(a ?? c); // 'hello' because c is the first defined value console.log(a ?? b ?? 5); // 5 because both a and b are null or undefined",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "^ (bitwise XOR)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The ^ operator is known as the bitwise XOR (exclusive OR) operator. It operates on the binary representations of numbers and compares each corresponding bit of its operands. The result bit is 1 if and only if exactly one of the corresponding bits of the operands is 1. If both bits are 0 or both are 1, the result bit is 0."
+      },
+      {
+        "type": "Text",
+        "value": "In other words, the bitwise XOR operation outputs 1 only when the inputs differ. This makes it useful for various operations, such as toggling bits or performing certain arithmetic operations."
+      },
+      {
+        "type": "Text",
+        "value": "Consider the following example, where the XOR operator is applied to two integers:"
+      },
+      {
+        "type": "Code",
+        "value": "let a = 5; // binary: 0101 let b = 3; // binary: 0011 let result = a ^ b; console.log(result); // binary: 0110 (6 in decimal)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Explanation: \n- a (0101 in binary) \n- b (0011 in binary) \n- XOR result (0110 in binary, which is 6 in decimal) \n\nEach bit is compared: \n- 0 XOR 0 = 0 \n- 1 XOR 0 = 1 \n- 0 XOR 1 = 1 \n- 1 XOR 1 = 0"
+      },
+      {
+        "type": "Text",
+        "value": "The bitwise XOR can also be used in a variety of programming techniques, such as swapping values without a temporary variable:"
+      },
+      {
+        "type": "Code",
+        "value": "let x = 10; let y = 5; x = x ^ y; y = x ^ y; x = x ^ y; console.log(x); // 5 console.log(y); // 10",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here’s a step-by-step breakdown of how the swap works using XOR: \n- Initially: x = 10 (1010 in binary), y = 5 (0101 in binary) \n- Step 1: x = x ^ y; \n  - x becomes 1010 ^ 0101 = 1111 (15 in decimal) \n- Step 2: y = x ^ y; \n  - y becomes 1111 ^ 0101 = 1010 (10 in decimal) \n- Step 3: x = x ^ y; \n  - x becomes 1111 ^ 1010 = 0101 (5 in decimal)"
+      },
+      {
+        "type": "Text",
+        "value": "In this way, the XOR operator provides an efficient way to perform certain operations at the bit level. While it’s not as commonly used in everyday coding as logical operators, it’s powerful in specific contexts such as cryptography, error detection, and low-level programming."
+      }
+    ]
+  },
+  {
+    "title": "Assignment operators",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You've already encountered the '=' sign. This is the assignment operator, which assigns the value on its right to the variable on its left. In JavaScript, there are more assignment operators that allow you to perform various operations and assign the result to a variable in a concise manner"
+      },
+      {
+        "type": "Code",
+        "value": "{ let a = 5; a += 3; console.log(a); } // equivalent to a = a + 3\n{ let a = 5; a -= 3; console.log(a); } // equivalent to a = a - 3\n{ let a = 5; a *= 3; console.log(a); } // equivalent to a = a * 3 //15\n{ let a = 12; a /= 3; console.log(a); } // equivalent to a = a / 3 //4\n{ let a = 11; a %= 3; console.log(a); } // equivalent to a = a % 3 //2",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "increment and decrement operators",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Code",
+        "value": "let x = 10\nx++\nconsole.log(x) //11 (post-increment)\n++x\nconsole.log(x) //12 (pre-increment)\nlet y = 10\ny--\nconsole.log(y) //9 (post-decrement)\n--y\nconsole.log(y) //8 (pre-decrement)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "From the above code, one might get the impression that x++ is equivalent to ++x, just as y-- is equivalent to --y, but this is not true. The difference lies in when the increment or decrement operation takes effect relative to the expression evaluation: <br></br> x++ : The current value of x is used in the expression, and then x is incremented by 1. <br></br>++x : x is incremented by 1 first, and then the new value of x is used in the expression. <br></br>The same goes with decrement operators."
+      },
+      {
+        "type": "Code",
+        "value": "let x = 10\nif(--x<10){\n   console.log(x) //9\n}\n\nlet y = 10\nif(y--<10){\n//won't meet the condition\n   console.log(y)\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The code above is equivalent to this:"
+      },
+      {
+        "type": "Code",
+        "value": "let x = 10\nx=x-1\nif(x<10){\n   console.log(x) //9\n}\n\nlet y = 10\nif(y<10){\n//won't meet the condition\n   console.log(y)\n} y=y-1",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "&&= (Logical AND Assignment Operator)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The logical AND assignment operator (&&=) performs a logical AND operation on the variable and assigns the result to that variable. This means it combines the logical AND (&&) with assignment (=), which results in the variable taking the value of the logical AND operation."
+      },
+      {
+        "type": "Code",
+        "value": "let a = true; let b = false; a &&= b; // Equivalent to a = a && b; console.log(a); // Output: false",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the above example:\n1. Initially, a is true and b is false.\n2. The operation a &&= b performs a logical AND operation between a and b, which results in false.\n3. The result of the logical AND operation is then assigned back to a.\n4. After the operation, a is false."
+      },
+      {
+        "type": "Header",
+        "value": "||= (Logical OR Assignment Operator)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The logical OR assignment operator (||=) performs a logical OR operation on the variable and assigns the result to that variable. This means it combines the logical OR (||) with assignment (=), which results in the variable taking the value of the logical OR operation."
+      },
+      {
+        "type": "Code",
+        "value": "let a = false; let b = true; a ||= b; // Equivalent to a = a || b; console.log(a); // Output: true",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the above example:\n1. Initially, a is false and b is true.\n2. The operation a ||= b performs a logical OR operation between a and b, which results in true.\n3. The result of the logical OR operation is then assigned back to a.\n4. After the operation, a is true."
+      },
+      {
+        "type": "Header",
+        "value": "??= (Nullish Coalescing Assignment Operator)",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The nullish coalescing assignment operator (??=) assigns the right-hand value to the variable if the variable is null or undefined. This combines the nullish coalescing operator (??) with assignment (=), ensuring that a variable is only assigned a new value if it is currently null or undefined."
+      },
+      {
+        "type": "Code",
+        "value": "let a = null; let b = 'default'; a ??= b; // Equivalent to a = a ?? b; console.log(a); // Output: 'default'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the above example:\n1. Initially, a is null and b is 'default'.\n2. The operation a ??= b performs a nullish coalescing operation between a and b, which results in 'default'.\n3. The result of the nullish coalescing operation is then assigned back to a.\n4. After the operation, a is 'default'."
+      }
+    ]
+  },
+  {
+    "title": "Comparison operators",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Comparison operators are used to compare the left side to the right side. They always return true or false."
+      },
+      {
+        "type": "Code",
+        "value": "{//== - compares both values without comparing their types\nlet a = 10\nconsole.log(a == 10) //true\nconsole.log(a == \"10\") //true\n}{//!= - checks if values are different without checking type\nlet a = 10\nconsole.log(a != 20) //true\nconsole.log(a != 10) //false\nconsole.log(a != \"10\") //false\n}{//=== - compares both values and their types\nlet a = 10\nconsole.log(a === 10) //true\nconsole.log(a === \"10\") //false\n}{//!== - checks if values or types are different\nlet a = 10\nconsole.log(a !== 10) //false\nconsole.log(a !== \"10\") //true\n}{//< and > - less than and greater than\nlet a = 10\nlet b = 20\nconsole.log(a < 20) //true\nconsole.log(a < b) //true\nconsole.log(a > b) //false\n}{//<= and >= - less than or equal to and greater than or equal to\nlet a = 10\nlet b = 20\nlet c = 10\nconsole.log(a <= b) //true\nconsole.log(a <= c) //true\n}",
+        "props": { "language": "javascript" }
+      }
+    ]
+  }
+]
