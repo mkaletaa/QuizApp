@@ -111,12 +111,12 @@
       },
       {
         "type": "Code",
-        "value": "switch (expression) {\n case value1:\n // code to be executed if expression === value1 \nbreak;\n case value2:\n // code to be executed if expression === value2 break; // additional cases as needed default: // code to be executed if none of the cases match }",
+        "value": "switch (expression) {\n   case value1:\n      // code to be executed if expression === value1\n      break;\n   case value2:\n      // code to be executed if expression === value2\n      break;\n      //additional cases as needed\n   default:\n      // code to be executed if none of the cases match\n }",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "<p>Here's a breakdown of how it works:</p>"
+        "value": "<p>Here's a breakdown of how it works:mhgv</p>"
       },
       {
         "type": "Text",
@@ -124,7 +124,7 @@
       },
       {
         "type": "Code",
-        "value": "let day = 'Monday'; switch (day) { case 'Monday': console.log('It's the start of the week.'); break; case 'Friday': console.log('It's almost the weekend!'); break; default: console.log('It's a regular day.'); }",
+        "value": "let day = 'Monday'\n\nswitch (day) {\n   case 'Monday':\n      console.log(\"It's the start of the week.\");\n      break;\n   case 'Friday':\n      console.log(\"It's almost the weekend!\");\n      break;\n    default:\n      console.log(\"It's a regular day.\");\n }",
         "props": { "language": "javascript" }
       },
       {

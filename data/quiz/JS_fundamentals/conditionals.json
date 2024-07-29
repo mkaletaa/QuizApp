@@ -47,7 +47,7 @@
       },
       {
         "type": "Code",
-        "value": "let day = 3\nlet dayName\n\nswitch (day) {\n  case 1:\n    dayName = 'Monday'\n  case 2:\n    dayName = 'Tuesday'\n    break\n  case 3:\n    dayName = 'Wednesday'\n  case 4:\n    dayName = 'Thursday'\n  case 5:\n    dayName = 'Friday'\n    break\n  case 6:\n    dayName = 'Saturday'\n    break\n  case 7:\n    dayName = 'Sunday'\n  default:\n    dayName = 'Invalid day'\n}\n\nconsole.log(dayName)",
+        "value": "const day = 3\nlet dayName\n\nswitch (day) {\n  case 1:\n    dayName = 'Monday'\n  case 2:\n    dayName = 'Tuesday'\n    break\n  case 3:\n    dayName = 'Wednesday'\n  case 4:\n    dayName = 'Thursday'\n  case 5:\n    dayName = 'Friday'\n    break\n  case 6:\n    dayName = 'Saturday'\n    break\n  case 7:\n    dayName = 'Sunday'\n  default:\n    dayName = 'Invalid day'\n}\n\nconsole.log(dayName)",
         "props": { "language": "javascript" }
       }
     ],
@@ -55,9 +55,9 @@
       { "id": "1", "val": "Monday", "correct": false },
       { "id": "2", "val": "Tuesday", "correct": false },
       { "id": "3", "val": "Wednesday", "correct": false },
-      { "id": "3", "val": "Thursday", "correct": false },
-      { "id": "3", "val": "Friday", "correct": true },
-      { "id": "4", "val": "Invalid day", "correct": false }
+      { "id": "4", "val": "Thursday", "correct": false },
+      { "id": "5", "val": "Friday", "correct": true },
+      { "id": "6", "val": "Invalid day", "correct": false }
     ],
     "explanation": "The output of this code is \"Friday\" because there are no break statements after the first matched case (Wednesday), causing fall-through to subsequent cases. The code assigns dayName to 'Wednesday', then 'Thursday', and finally 'Friday', where it encounters a break statement."
   },
@@ -70,7 +70,7 @@
       },
       {
         "type": "Code",
-        "value": "let color = 'red'\nlet message\n\nswitch (color) {\n  case 'red':\n    message = 'Stop'\n  case 'yellow':\n    message = 'Caution'\n  case 'green':\n    message = 'Go'\n  default:\n    message = 'Invalid color'\n}\n\nconsole.log(message)",
+        "value": "const color = 'red'\nlet message\n\nswitch (color) {\n  case 'red':\n    message = 'Stop'\n  case 'yellow':\n    message = 'Caution'\n  case 'green':\n    message = 'Go'\n  default:\n    message = 'Invalid color'\n}\n\nconsole.log(message)",
         "props": { "language": "javascript" }
       }
     ],
@@ -91,7 +91,7 @@
       },
       {
         "type": "Code",
-        "value": "let season = 'spring'\nlet message\n\nswitch (season) {\n  case 'summer':\n    message = 'It is hot'\n    break\n  case 'autumn':\n    message = 'Leaves are falling'\n    break\n  case 'winter':\n    message = 'It is cold'\n    break\n  }\n\nconsole.log(message)",
+        "value": "const season = 'spring'\nlet message\n\nswitch (season) {\n  case 'summer':\n    message = 'It is hot'\n    break\n  case 'autumn':\n    message = 'Leaves are falling'\n    break\n  case 'winter':\n    message = 'It is cold'\n    break\n  }\n\nconsole.log(message)",
         "props": { "language": "javascript" }
       }
     ],
@@ -112,7 +112,7 @@
       },
       {
         "type": "Code",
-        "value": "let age = 10\nswitch (age) {\n  case age >= 18:\n    console.log('adult')\n    break\n  case age < 18:\n    console.log('child')\n}",
+        "value": "let age = 10\n\nswitch (age) {\n  case age >= 18:\n    console.log('adult')\n    break\n  case age < 18:\n    console.log('child')\n}",
         "props": { "language": "javascript" }
       }
     ],
@@ -128,7 +128,7 @@
       },
       {
         "type": "Code",
-        "value": "let age = 10\nswitch (true) {\n  case age >= 18:\n    console.log('adult')\n    break\n  case age < 18:\n    console.log('child')\n}",
+        "value": "let age = 10\n\nswitch (true) {\n  case age >= 18:\n    console.log('adult')\n    break\n  case age < 18:\n    console.log('child')\n}",
         "props": { "language": "javascript" }
       }
     ]
@@ -142,7 +142,7 @@
       },
       {
         "type": "Code",
-        "value": "let a = 20\n\nif(a>10){\n  console.log(\"greater than 10\")\n} else if(a>15){\n  console.log(\"greater than 15\")\n} else if(a>=20) {\n  console.log(\"greater or equal 20\")\n} else {\n  console.log(\"less or equal 10\")\n}",
+        "value": "let a = 20\n\nif(a > 10){\n  console.log(\"greater than 10\")\n} else if(a > 15){\n  console.log(\"greater than 15\")\n} else if(a >= 20) {\n  console.log(\"greater or equal 20\")\n} else {\n  console.log(\"less or equal 10\")\n}",
         "props": { "language": "javascript" }
       }
     ],
