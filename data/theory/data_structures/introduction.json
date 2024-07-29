@@ -130,6 +130,15 @@
         "type": "Code",
         "value": "let variable1 = [1, 2, 3]\nlet variable2 = 123\n\nconsole.log(Array.isArray(variable1)) //true\nconsole.log(Array.isArray(variable2)) //false",
         "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Another alternative is the instanceof keyword. It doesn't tell the type directly but checks if an object is an instance of a particular constructor function, which can help determine the specific type of an object. However, it will return true for all objects that inherit from the constructor's prototype."
+      },
+      {
+        "type": "Code",
+        "value": "// Define a constructor function\nfunction Person(name) {\n  this.name = name\n}\n\n// Create an instance of Person\nlet person1 = new Person('Alice')\n\nconsole.log(person1 instanceof Person) // true\nconsole.log(person1 instanceof Object) // true\n\nlet date = new Date()\nconsole.log(date instanceof Date) // true\nconsole.log(date instanceof Object) // true\nconsole.log(date instanceof Person) // false\n\nlet arr = []\nconsole.log(arr instanceof Array) // true\nconsole.log(arr instanceof Object) // true\nconsole.log(arr instanceof Date) // false",
+        "props": {"language": "javascript" }
       }
     ]
   }

@@ -38,5 +38,6 @@ export const topics = {
   ],
   data_structures: [
     { name: 'introduction', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'type_conversion', image: 'https://reactjs.org/logo-og.png' },
   ],
 }
