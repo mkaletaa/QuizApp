@@ -11,6 +11,12 @@ export const chapters = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTa673aG483dj7Rw6OeKA3xJPz9i-RloR_g&usqp=CAU',
     des: 'short descirtption of a JS_fundamentals',
   },
+  {
+    name: 'data_structures',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTa673aG483dj7Rw6OeKA3xJPz9i-RloR_g&usqp=CAU',
+      des: 'Some say in JavaScript everything is an object. Is that true? You\'ll find an answer in this chapter.'
+  },
 ]
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
@@ -29,5 +35,8 @@ export const topics = {
     { name: 'loops', image: 'https://reactjs.org/logo-og.png' },
     { name: 'functions', image: 'https://reactjs.org/logo-og.png' },
     { name: 'functions #2', image: 'https://reactjs.org/logo-og.png' },
+  ],
+  data_structures: [
+    { name: 'introduction', image: 'https://reactjs.org/logo-og.png' },
   ],
 }
