@@ -28,5 +28,6 @@ export const topics = {
     { name: 'conditionals', image: 'https://reactjs.org/logo-og.png' },
     { name: 'loops', image: 'https://reactjs.org/logo-og.png' },
     { name: 'functions', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'functions #2', image: 'https://reactjs.org/logo-og.png' },
   ],
 }
