@@ -28,6 +28,18 @@
         "type": "Code",
         "value": "// Number.isFinite(value): Determines whether the value is a finite number\nconsole.log(Number.isFinite(123)) // true\nconsole.log(Number.isFinite(Infinity)) // false\nconsole.log(Number.isFinite(NaN)) // false\n\n// Number.isInteger(value): Determines whether the value is an integer\nconsole.log(Number.isInteger(123)) // true\nconsole.log(Number.isInteger(123.45)) // false\nconsole.log(Number.isInteger('123')) // false\n\n// Number.isNaN(value): Determines whether the value is NaN (Not-a-Number)\nconsole.log(Number.isNaN(NaN)) // true\nconsole.log(Number.isNaN(123)) // false\n\n// Number.isSafeInteger(value): Determines whether the value is a safe integer\nconsole.log(Number.isSafeInteger(9007199254740991)) // true (Max safe integer)\nconsole.log(Number.isSafeInteger(9007199254740992)) // false (Not a safe integer)\n\n// Number.parseFloat(string): Parses a string argument and returns a floating point number\nconsole.log(Number.parseFloat('123.456abc')) // 123.456\nconsole.log(Number.parseFloat('abc123.456')) // NaN\n\n// Number.parseInt(string, radix): Parses a string argument and returns an integer of the specified radix\nconsole.log(Number.parseInt('101', 2)) // 5 (binary to decimal)\nconsole.log(Number.parseInt('15', 8)) // 13 (octal to decimal)\nconsole.log(Number.parseInt('123abc')) // 123 (parses until a non-digit character)",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "NaN is ironically of type Number"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
       }
     ]
   },
