@@ -11,6 +11,7 @@ type Type =
   | 'Quote'
   | 'Spoiler'
   | 'Divider'
+  | 'BulletPoint' //the same as ListElement
 
 export type Component = {
   type: Type

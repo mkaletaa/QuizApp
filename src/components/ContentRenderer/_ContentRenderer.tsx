@@ -80,6 +80,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'ListElement':
       return <ListElement value={value} width={width} key={key} />
+    case 'BulletPoint':
+      return <ListElement value={value} width={width} key={key} />
 
     case 'Block':
       return <Block value={value} type={props.type} key={key} />
