@@ -36,7 +36,7 @@
       },
       {
         "type": "Code",
-        "value": "let a = 2; let b = 0; console.log(!true); // false console.log(!false); // true console.log(a && b); // false because b === 0 console.log(!(a && b)); // true",
+        "value": "let a = 2;\nlet b = 0;\nconsole.log(!true); // false \nconsole.log(!false); // true \nconsole.log(a && b); // false because b === 0 \nconsole.log(!(a && b)); // true",
         "props": { "language": "javascript" }
       },
       {
@@ -50,7 +50,7 @@
       },
       {
         "type": "Code",
-        "value": "let a = 2; let b = 0; console.log(a && b); // false because b === 0 console.log(a && true); // true because all values are truthy console.log(a && 1 && 'hello'); // 'hello' because all values are truthy",
+        "value": "let a = 2; \nlet b = 0; \nconsole.log(a && b); // false because b === 0 \nconsole.log(a && true); // true because all values are truthy \nconsole.log(a && 1 && 'hello'); // 'hello' because all values are truthy",
         "props": { "language": "javascript" }
       },
 
@@ -77,7 +77,7 @@
       },
       {
         "type": "Code",
-        "value": "let a = 2; let b = 0; console.log(a || b); // 2 because a === 2 (truthy) console.log(b || false); // false because both values are falsy console.log(null || undefined || 'hello'); // 'hello' because it's the first truthy value",
+        "value": "let a = 2; \nlet b = 0; \nconsole.log(a || b); // 2 because a === 2 (truthy) \nconsole.log(b || false); // false because both values are falsy \nconsole.log(null || undefined || 'hello'); // 'hello' because it's the first truthy value",
         "props": { "language": "javascript" }
       },
       {
@@ -87,11 +87,11 @@
       },
       {
         "type": "Text",
-        "value": "The ?? operator evaluates from left to right and returns the first defined value that is not null or undefined. If all values are null or undefined, it returns the last value."
+        "value": "The ?? operator evaluates from left to right and returns the first value that is not null or undefined. If all values are null or undefined, it returns the last value."
       },
       {
         "type": "Code",
-        "value": "let a = null; let b = undefined; let c = 'hello'; console.log(a ?? b); // undefined because both a and b are null or undefined console.log(a ?? c); // 'hello' because c is the first defined value console.log(a ?? b ?? 5); // 5 because both a and b are null or undefined",
+        "value": "let a = null; \nlet b = undefined; \nlet c = 'hello'; \nconsole.log(a ?? b); // undefined because both a and b are null or undefined \nconsole.log(a ?? c); // 'hello' because c is the first defined value \nconsole.log(a ?? b ?? 5); // 5 because both a and b are null or undefined",
         "props": { "language": "javascript" }
       },
       {
@@ -152,7 +152,7 @@
       },
       {
         "type": "Code",
-        "value": "{ let a = 5; a += 3; console.log(a); } // equivalent to a = a + 3\n{ let a = 5; a -= 3; console.log(a); } // equivalent to a = a - 3\n{ let a = 5; a *= 3; console.log(a); } // equivalent to a = a * 3 //15\n{ let a = 12; a /= 3; console.log(a); } // equivalent to a = a / 3 //4\n{ let a = 11; a %= 3; console.log(a); } // equivalent to a = a % 3 //2",
+        "value": "{\n  let a = 5;\n  a += 3; // equivalent to a = a + 3\n  console.log(a); // 8\n}\n\n{\n  let a = 5;\n  a -= 3; // equivalent to a = a - 3\n  console.log(a); // 2\n}\n\n{\n  let a = 5;\n  a *= 3; // equivalent to a = a * 3\n  console.log(a); // 15\n}\n\n{\n  let a = 12;\n  a /= 3; // equivalent to a = a / 3\n  console.log(a); // 4\n}\n\n{\n  let a = 11;\n  a %= 3; // equivalent to a = a % 3\n  console.log(a); // 2\n}", 
         "props": { "language": "javascript" }
       },
       {
@@ -162,7 +162,7 @@
       },
       {
         "type": "Code",
-        "value": "let x = 10\nx++\nconsole.log(x) //11 (post-increment)\n++x\nconsole.log(x) //12 (pre-increment)\nlet y = 10\ny--\nconsole.log(y) //9 (post-decrement)\n--y\nconsole.log(y) //8 (pre-decrement)",
+        "value": "let x = 10\nx++\nconsole.log(x) //11 (post-increment)\n++x\nconsole.log(x) //12 (pre-increment)\n\nlet y = 10\ny--\nconsole.log(y) //9 (post-decrement)\n--y\nconsole.log(y) //8 (pre-decrement)",
         "props": { "language": "javascript" }
       },
       {

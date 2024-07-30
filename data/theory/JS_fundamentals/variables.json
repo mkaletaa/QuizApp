@@ -26,7 +26,7 @@
       {
         "type": "Code",
         "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
-        "props": {  "language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
@@ -35,7 +35,7 @@
       {
         "type": "Code",
         "value": "//before:\nconsole.log(\"John's age:\", 12)\nconsole.log('Approximate number of hours in a year: ', 2 * 12 * 30 * 12)\n\n//after:\nlet johnsAge = 12\nlet hoursOnClock = 12\nlet daysInMonth = 30\nlet monthsInYear = 12\nconsole.log(\"John's age:'\", johnsAge)\nconsole.log( 'Approximate number of hours in a year: ', 2 * hoursOnClock * daysInMonth * monthsInYear )",
-        "props": {"language": "javascript" } 
+        "props": { "language": "javascript" }
       }
     ]
   },
@@ -153,7 +153,7 @@
           {
             "type": "Code",
             "value": "//these are two different variables:\nlet name = 'John'\nlet Name = 'John'",
-            "props": {"language": "javascript" }
+            "props": { "language": "javascript" }
           }
         ],
         "props": {
@@ -187,7 +187,7 @@
         "value": [
           {
             "type": "Text",
-            "value": "Note the difference between definition, declaration and assignment. <br></br>A <b>declaration</b> is a statement that introduces a variable, function, or other identifier into a program. It tells the compiler or interpreter that a variable or function exists.<br></br>An <b>assignment</b> is the act of giving a value to a variable. This can be done at the time of declaration or separately.<br></br>A <b>definition</b> provides the actual implementation or value for a variable, function, or other identifier. In JavaScript, a variable declaration with an assignment can be considered a definition."
+            "value": "Note the difference between definition, declaration and assignment. <br></br>A <b>declaration</b> is a statement that introduces a variable, function, or other identifier into a program. It tells the compiler or interpreter that a variable or function exists.<br></br>An <b>assignment</b> is the act of giving a value to a variable. This can be done at the time of declaration or separately. The first assignment is called <b>initialization</b>.<br></br>A <b>definition</b> provides the actual implementation or value for a variable, function, or other identifier. In JavaScript, a variable declaration with an assignment can be considered a definition."
           },
           {
             "type": "Code",
@@ -303,7 +303,7 @@
       {
         "type": "Code",
         "value": "// no strict mode\n var for = 5\nconsole.log(for) //5\n\nlet false = 10 // SyntaxError: Unexpected token 'false'",
-        "props": {"language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Divider"
@@ -335,7 +335,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Don't forget to include variables in your code. Make sure they have decent names. When declaring a variable always preceed its name by either let or const. Use let for variables you expect to change their value in the future and const for variables you don't want their value to change. Avoid using var as you risk overwriting something from the global object or another variable you created."
+        "value": "Don't forget to include variables in your code. Make sure they have decent names. When declaring a variable always proceed its name by either let or const. Use let for variables you expect to change their value in the future and const for variables you don't want their value to change. Avoid using var as you risk overwriting something from the global object or another variable you created."
       }
     ]
   }

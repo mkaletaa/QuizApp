@@ -20,19 +20,20 @@
     "question": [
       {
         "type": "Text",
-        "value": "Is this code correct?"
+        "value": "Whit is the output of the code below?"
       },
       {
         "type": "Code",
-        "value": "const name = 'John'\nName = 'Alice'",
+        "value": "const name = 'John'\nconsole.log(Name)",
         "props": { "language": "javascript" }
       }
     ],
     "options": [
-      { "id": "1", "val": "yes", "correct": true },
-      { "id": "2", "val": "no", "correct": false }
+      { "id": "1", "val": "John", "correct": false },
+      { "id": "2", "val": "undefined", "correct": false },
+      { "id": "3", "val": "Error", "correct": true }
     ],
-    "explanation": "You cannot reassign a variable defined with a const keyword, however Name is totally different variable than name as it is spelled differently. Ine second line in fact a new variable is created."
+    "explanation": "JavaScript is case-sensitive. Name is a completely different variable than name. On line 2, a new variable is indeed declared, but since it wasn't preceded by any keyword, console.log will result in an error. If var, let, or const had been used, the result would be undefined."
   },
   {
     "id": "JS_fundamentals|variables|3",
@@ -247,6 +248,7 @@
   },
   {
     "id": "JS_fundamentals|variables|10",
+    "multiChoice": true,
     "question": [
       {
         "type": "Text",
@@ -276,7 +278,7 @@
   },
   {
     "id": "JS_fundamentals|variables|11",
-    "question": "What is the term used to describe the place above const or let declaration?",
+    "question": "What term is used to describe the place above const or let declaration?",
     "options": [
       { "id": "1", "val": "hoisting zone", "correct": false },
       { "id": "2", "val": "context execution zone", "correct": false },
@@ -293,25 +295,49 @@
       },
       {
         "type": "Code",
-        "value": "{\n   var a = 10\n}\n\n{\n   var a = 10\n\n}",
+        "value": "var a = 10\n\n{\n   var a = 20\n}\n\nconsole.log(a)",
         "props": { "language": "javascript" }
       }
     ],
     "options": [
-      { "id": "1", "val": "10", "correct": true },
-      { "id": "2", "val": "20", "correct": false },
-      { "id": "3", "val": "ReferenceError", "correct": false },
-      { "id": "4", "val": "undefined", "correct": false }
+      { "id": "1", "val": "10", "correct": false },
+      { "id": "2", "val": "20", "correct": true }
     ],
     "explanation": [
       {
         "type": "Text",
-        "value": "Var has function scope, not block. This means curly brackets are 'invisible' for it, like that:"
+        "value": "Var has functional scope, not block. This means curly brackets are 'invisible' for it, like that:"
       },
       {
         "type": "Code",
-        "value": "var a = 10\nvar a = 10\n",
+        "value": "var a = 10\n\nvar a = 20\n",
         "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|variables|13",
+    "question": [
+      {
+        "type": "Text",
+        "value": "What is the output of the following code?"
+      },
+      {
+        "type": "Code",
+        "value": "let a = 10\n\n{\n   console.log(a)\n   let a = 20\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "10", "correct": false },
+      { "id": "2", "val": "20", "correct": false },
+      { "id": "3", "val": "undefined", "correct": false },
+      { "id": "4", "val": "Error", "correct": true }
+    ],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": "In the code snippet, a declared inside the block with let shadows the global a. When you attempt to console.log(a) inside the block before the let a = 20 declaration, it results in a ReferenceError because the block-scoped a is in a \"temporal dead zone\" until it's declared."
       }
     ]
   }
