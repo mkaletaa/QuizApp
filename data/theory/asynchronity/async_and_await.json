@@ -1,0 +1,94 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "Async/await is a feature in JavaScript that allows you to write asynchronous code in a synchronous style. It is built on top of promises and makes it easier to handle asynchronous operations."
+      }
+    ]
+  },
+  {
+    "title": "Async Function",
+    "data": [
+      {
+        "type": "Text",
+        "value": "An `async` function is a function that implicitly returns a promise and allows the use of the `await` keyword inside it. The `async` keyword is placed before a function declaration or expression."
+      },
+      {
+        "type": "Code",
+        "value": "async function fetchData() {\n  return 'Data';\n}\n\nfetchData().then(result => {\n  console.log(result); // Logs: 'Data'\n});",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Await Keyword",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The `await` keyword is used inside `async` functions to pause the execution of the function until the promise is resolved or rejected. It makes asynchronous code look synchronous and easier to read."
+      },
+      {
+        "type": "Code",
+        "value": "async function getData() {\n  let result = await fetchData();\n  console.log(result); // Logs: 'Data'\n}\n\ngetData();",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Error Handling",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Error handling in `async` functions is done using `try` and `catch` blocks. This is similar to synchronous code and allows you to handle errors gracefully."
+      },
+      {
+        "type": "Code",
+        "value": "async function getData() {\n  try {\n    let result = await fetchData();\n    console.log(result);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n\ngetData();",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Chaining Async Functions",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You can chain multiple `async` functions together. Each `async` function will wait for the previous one to complete before proceeding."
+      },
+      {
+        "type": "Code",
+        "value": "async function fetchData() {\n  return 'Data';\n}\n\nasync function processData() {\n  let data = await fetchData();\n  console.log('Processing:', data);\n}\n\nprocessData();",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Using Async/Await with Promises",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You can use `async`/`await` to work with promises in a more readable manner compared to traditional `then`/`catch` methods."
+      },
+      {
+        "type": "Code",
+        "value": "function fetchData() {\n  return new Promise((resolve) => {\n    setTimeout(() => resolve('Data'), 1000);\n  });\n}\n\nasync function getData() {\n  let data = await fetchData();\n  console.log(data); // Logs: 'Data'\n}\n\ngetData();",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Parallel Async Operations",
+    "data": [
+      {
+        "type": "Text",
+        "value": "To perform multiple asynchronous operations in parallel and wait for all of them to complete, use `Promise.all` inside an `async` function."
+      },
+      {
+        "type": "Code",
+        "value": "async function fetchData1() {\n  return 'Data 1';\n}\n\nasync function fetchData2() {\n  return 'Data 2';\n}\n\nasync function getAllData() {\n  let [data1, data2] = await Promise.all([fetchData1(), fetchData2()]);\n  console.log(data1, data2); // Logs: 'Data 1 Data 2'\n}\n\ngetAllData();",
+        "props": { "language": "javascript" }
+      }
+    ]
+  }
+]
