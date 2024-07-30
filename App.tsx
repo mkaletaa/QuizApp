@@ -64,9 +64,8 @@ const App = () => {
     const unsubscribe = NetInfo.addEventListener(state => {
       setShowModal(!state.isConnected)
       console.log('Is connected?', state.isConnected)
+      if (state.isConnected) onFetchUpdateAsync() //if no internet connection - don't try to fetch updates
     })
-
-    onFetchUpdateAsync()
 
     //*dev mode
     // saveItemsRecursively(0)
