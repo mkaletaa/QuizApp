@@ -11,19 +11,42 @@
     {
         "title": "`this` keyword",
         "data": [
-            {
-              "type": "Text",
-              "value": "`this` tells the context.<br></br>Normally, the context is the global object which is window for browsers and global in Node"
-            },
-            {
-                "type": "Code",
-                "value": "console.log(this); //window",
-                "props": {"language": "javascript" }
-            },
-            {
-              "type": "Text",
-              "value": "For functions it's more complicated"
-            }
+          {
+            "type": "Text",
+            "value": "`this` tells the context.<br></br>Normally, the context is the global object which is window for browsers and global in Node"
+          },
+          {
+            "type": "Code",
+            "value": "console.log(this); //window",
+            "props": { "language": "javascript" }
+          },
+          {
+            "type": "Text",
+            "value": "For functions it's more complicated. Normally 'this' in functions points the global object."
+          },
+          {
+            "type": "Code",
+            "value": "function init() {\n  console.log(this) //window\n}\ninit()",
+            "props": { "language": "javascript" }
+          },
+          {
+            "type": "Text",
+            "value": "However in strict mode it is undefined"
+          },
+          {
+            "type": "Code",
+            "value": "'use strict'\n\nfunction init() {\n  console.log(this) //undefined  \n}\ninit()",
+            "props": { "language": "javascript" }
+          },
+          {
+            "type": "Text",
+            "value": "If a function is an object method, this points out the object. However object methods that are arrow functions don't have 'this' binding and show undefined."
+          },
+          {
+            "type": "Code",
+            "value": "const obj = {\n  value: 42,\n  regularFunction: function () {\n    console.log(this.value) // 42\n  },\n  arrowFunction: () => {\n    console.log(this.value) // undefined\n  },\n}\n\nobj.regularFunction() // Output: 42\nobj.arrowFunction() // Output: undefined",
+            "props": {"language": "javascript" }
+          }
         ]
     }
 ]
