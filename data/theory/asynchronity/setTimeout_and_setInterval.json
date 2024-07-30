@@ -1,0 +1,69 @@
+[
+    {
+        "title": "setTimeout",
+        "data": [
+            {
+              "type": "Text",
+              "value": "Let's assume we want some piece of code to be executed after some time. For this purpose, we use setTimeout(). It takes at least two arguments. The first is the callback function we want to execute, and the second is the time in milliseconds that specifies how long we have to wait for the callback to be called."
+            },
+            {
+                "type": "Code",
+                "value": "setTimeout(() => {\n  console.log('This message is logged after 2 seconds')\n}, 2000)",
+                "props": {"language": "javascript" }
+            },
+            {
+              "type": "Text",
+              "value": "If the callback needs some arguments we can pass them as the next arguments to setTimeout."
+            },
+            {
+                "type": "Code",
+                "value": "setTimeout(\n  (name, age) => {\n    console.log('My name is ' + name + ' and I am ' + age + ' years old.')\n  },\n  2000,\n  'Monica',\n  20\n)",
+                "props": {"language": "javascript" }
+            },
+            {
+              "type": "Text",
+              "value": "Of course we can define a callback function somewhere else."
+            },
+            {
+                "type": "Code",
+                "value": "function callback(name, age) {\n  console.log('My name is ' + name + ' and I am ' + age + ' years old.')\n}\n\nsetTimeout(callback, 2000, 'Monica', 20)",
+                "props": {"language": "javascript" }
+            },
+            {
+              "type": "Text",
+              "value": "If you assign a setTimeout to variable (function expression) you can clear it before the callback is executed."
+            },
+            {
+                "type": "Code",
+                "value": "const timeoutId = setTimeout(() => {\n  console.log('Hello, World!')\n}, 3000)\n\n// Clear the timeout before it executes\nclearTimeout(timeoutId)",
+                "props": {"language": "javascript" }
+            }
+        ]
+    },
+    {
+        "title": "setInterval",
+        "data": [
+            {
+              "type": "Text",
+              "value": "While setTimeout executes the callback function once after a specified delay, setInterval repeatedly executes the callback at consistent intervals. All the rules described above regarding timeouts also apply to intervals."
+            },
+            {
+                "type": "Code",
+                "value": "const intervalId = setInterval(\n  name => {\n    console.log('Hello, ', name)\n  },\n  3000,\n  'Mike'\n)",
+                "props": {"language": "javascript" }
+            },
+            {
+              "type": "Text",
+              "value": "We can clear interval from its body."
+            },
+            {
+                "type": "Code",
+                "value": "let count = 5\n\nconst intervalId = setInterval(() => {\n  console.log(count)\n\n  if (count === 1) clearInterval(intervalId) // we defused the bomb one second before it exploded\n\n  if (count === 0) {\n    console.log('Kaboom!')\n  }\n\n  count--\n}, 1000)",
+                "props": {"language": "javascript" }
+            },
+            {
+              "type": "Divider"
+            }
+        ]
+    }
+]
