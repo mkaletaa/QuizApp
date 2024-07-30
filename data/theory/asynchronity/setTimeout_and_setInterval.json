@@ -60,9 +60,6 @@
                 "type": "Code",
                 "value": "let count = 5\n\nconst intervalId = setInterval(() => {\n  console.log(count)\n\n  if (count === 1) clearInterval(intervalId) // we defused the bomb one second before it exploded\n\n  if (count === 0) {\n    console.log('Kaboom!')\n  }\n\n  count--\n}, 1000)",
                 "props": {"language": "javascript" }
-            },
-            {
-              "type": "Divider"
             }
         ]
     }
