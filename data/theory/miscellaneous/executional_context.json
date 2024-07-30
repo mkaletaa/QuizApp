@@ -1,0 +1,29 @@
+[
+    {
+        "title": "",
+        "data": [
+            {
+              "type": "Text",
+              "value": "An execution context in JavaScript is an abstract concept that represents the environment in which code is executed. It contains everything necessary to execute a piece of code, including the variables, the this keyword, the outer environment reference, and the code currently being executed. "
+            }
+        ]
+    },
+    {
+        "title": "`this` keyword",
+        "data": [
+            {
+              "type": "Text",
+              "value": "`this` tells the context.<br></br>Normally, the context is the global object which is window for browsers and global in Node"
+            },
+            {
+                "type": "Code",
+                "value": "console.log(this); //window",
+                "props": {"language": "javascript" }
+            },
+            {
+              "type": "Text",
+              "value": "For functions it's more complicated"
+            }
+        ]
+    }
+]
