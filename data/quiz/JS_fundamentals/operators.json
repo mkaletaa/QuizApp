@@ -166,15 +166,13 @@
             },
             {
                 "type": "Code",
-                "value": "console.log(true === 'true')",
+                "value": "console.log(1 === '1')",
                 "props": {"language": "javascript" }
             }
         ],
         "options": [
             { "id": "1", "val": "true", "correct": false },
-            { "id": "2", "val": "false", "correct": true },
-            { "id": "3", "val": "'true'", "correct": false },
-            { "id": "4", "val": "'false'", "correct": false }
+            { "id": "2", "val": "false", "correct": true }
         ],
         "explanation":"When three equal signs are used, both the value and the type are compared. In this case, the values are the same, but the types are not."
     },
@@ -187,15 +185,13 @@
             },
             {
                 "type": "Code",
-                "value": "console.log(false !== 'false')",
+                "value": "console.log(10 !== '10')",
                 "props": {"language": "javascript" }
             }
         ],
         "options": [
             { "id": "1", "val": "true", "correct": true },
-            { "id": "2", "val": "false", "correct": false },
-            { "id": "3", "val": "'true'", "correct": false },
-            { "id": "4", "val": "'false'", "correct": false }
+            { "id": "2", "val": "false", "correct": false }
         ],
         "explanation":""
     },
@@ -269,7 +265,7 @@
           },
           {
             "type": "Code",
-            "value": "let username = ''\nusername ||= 'Guest'\nconsole.log(username)",
+            "value": "let username = '' //empty string\nusername ||= 'Guest'\nconsole.log(username)",
             "props": { "language": "javascript" }
           }
         ],
@@ -342,7 +338,7 @@
             },
             {
                 "type": "Code",
-                "value": "console.log(2 ** 3); // This will output 8",
+                "value": "console.log(2 ** 3); // This will print 8",
                 "props": {"language": "javascript" }
             }
         ]

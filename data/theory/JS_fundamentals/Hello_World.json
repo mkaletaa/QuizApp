@@ -73,12 +73,12 @@
       },
       {
         "type": "Code",
-        "value": "<!DOCTYPE html>\n <html lang=\"en\">\n <head>\n \t   <meta charset=\"UTF-8\"> \n\t   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n \t    <title>Document</title>\n \t    <script type=\"text/javascript\" src=\"./app.js\"/>\n </head>\n <body>\n </body>\n </html>",
-        "props": { "language": "html" }
+        "value": "<!-- index.html -->\n<!DOCTYPE html>\n <html lang=\"en\">\n <head>\n \t   <meta charset=\"UTF-8\"> \n\t   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n \t    <title>Document</title>\n \t    <script type=\"text/javascript\" src=\"./app.js\"/>\n </head>\n <body>\n </body>\n </html>",
+        "props": { "language": "html" }  
       },
       {
         "type": "Code",
-        "value": "console.log('Hello from another file')",
+        "value": "// app.js\nconsole.log('Hello from another file')",
         "props": { "language": "javascript" }
       }
     ]
