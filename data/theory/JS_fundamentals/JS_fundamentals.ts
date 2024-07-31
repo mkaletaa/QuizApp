@@ -18,4 +18,3 @@ export const JS_fundamentals = {
   ['functions #2']: functions2,
 }
 
-

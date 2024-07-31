@@ -3,7 +3,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "<p>Sometimes you may want a piece of code to be executed only if some condition is satisfied. In JavaScript there are three ways to achieve it.</p>"
+        "value": "Sometimes you may want a piece of code to be executed only if some condition is satisfied. In JavaScript there are three ways to achieve it."
       }
     ]
   },
@@ -112,6 +112,23 @@
         "type": "Code",
         "value": "//poorly readable\nlet age = 25\nlet category = age < 13 ? 'child' : age < 20 ? 'teen' : age < 65 ? 'adult' : 'senior'",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "In the React library, the ternary operator is often used to conditionally render components, along with the && operator."
+          },
+          {
+            "type": "Code",
+            "value": "let condition = true\ncondition && console.log(\"Hello\") // Hello",
+            "props": {"language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
       }
     ]
   },
