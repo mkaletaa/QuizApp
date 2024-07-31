@@ -18,8 +18,4 @@ export const JS_fundamentals = {
   ['functions #2']: functions2,
 }
 
-let myVariable // declaration
 
-myVariable = 10 // assignment
-
-let anotherVariable = 5 // definition (declaration + assignment)

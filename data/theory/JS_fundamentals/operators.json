@@ -11,34 +11,51 @@
   {
     "title": "Mathematical operators",
     "data": [
-        {
-          "type": "Text",
-          "value": "You can perform basic mathematical operations in JavaScript, but be cautious with very large or very small numbers, as they may lead to precision issues and unexpected results."
-        },
-        {
-            "type": "Code",
-            "value": "console.log(3 + 4); //7\nconsole.log(3 - 2); //1\nconsole.log(3 * 3); //9\nconsole.log(3 / 2); //1.5\n\n// % - modulo, which is the remainder of division\nconsole.log(3 % 2); //1\nconsole.log(9 % 3); //0\n\n// ** - exponentiation\nconsole.log(3 ** 2); //9 - same as Math.pow(a, 2)",
-            "props": {"language": "javascript" }
-        }
+      {
+        "type": "Text",
+        "value": "You can perform basic mathematical operations in JavaScript, but be cautious with very large or very small numbers, as they may lead to precision issues and unexpected results."
+      },
+      {
+        "type": "Code",
+        "value": "console.log(3 + 4); //7\nconsole.log(3 - 2); //1\nconsole.log(3 * 3); //9\nconsole.log(3 / 2); //1.5\n\n// % - modulo, which is the remainder of division\nconsole.log(3 % 2); //1\nconsole.log(9 % 3); //0\n\n// ** - exponentiation\nconsole.log(3 ** 2); //9 - same as Math.pow(a, 2)\nconsole.log(4 ** .5) //2 - same as Math.sqrt(2)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The order of operations is the same as in mathematics."
+      },
+      {
+        "type": "Code",
+        "value": "console.log(2 + 2 * 2) //6",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Comparison operators",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Comparison operators are used to compare the left side to the right side. They always return either true or false. Due to dynamically typed nature of JavaScript, comparison process is trickier than in statically typed languages."
+      },
+      {
+        "type": "Code",
+        "value": "//== - compares both values without comparing their types\nconsole.log(10 == 10) //true\nconsole.log(10 == \"10\") //true\n\n//!= - checks if values are different without checking type\nconsole.log(10 != 20) //true\nconsole.log(10 != 10) //false\nconsole.log(10 != \"10\") //false\n\n//=== - compares both values and their types\nconsole.log(10 === 10) //true\nconsole.log(10 === \"10\") //false\n\n//!== - checks if values or types are different\nconsole.log(10 !== 10) //false\nconsole.log(10 !== \"10\") //true\n\n//< and > - less than and greater than\nconsole.log(10 < 20) //true\nconsole.log(10 > 20) //false\nconsole.log(10 > 10) //false\nconsole.log(10 > \"5\") //true\n\n//<= and >= - less than or equal to and greater than or equal to\nconsole.log(10 <= 10) //true\nconsole.log(10 >= 20) //false\nconsole.log(10 >= \"text\") //false\nconsole.log(10 <= \"text\") //false",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "When you use the == operator, JavaScript performs type coercion to convert the operands to the same type before making the comparison. In most cases you should use === operator to avoid unexpected behavior. <br></br>I know this might seem illogical for you at first glance. If you still feel confused I encourage you to watch this video:"
+      },
+      {
+        "type": "YouTube",
+        "value": "XWNq7XJuwoo"
+      }
     ]
   },
   {
     "title": "Logical operators",
     "data": [
-      {
-        "type": "Header",
-        "value": "! (not)",
-        "props": { "size": "md" }
-      },
-      {
-        "type": "Text",
-        "value": "It is used to negate a boolean value. If the value is true, applying ! will make it false, and vice versa."
-      },
-      {
-        "type": "Code",
-        "value": "let a = 2;\nlet b = 0;\nconsole.log(!true); // false \nconsole.log(!false); // true \nconsole.log(a && b); // false because b === 0 \nconsole.log(!(a && b)); // true",
-        "props": { "language": "javascript" }
-      },
       {
         "type": "Header",
         "value": "&& (and)",
@@ -95,51 +112,30 @@
         "props": { "language": "javascript" }
       },
       {
-        "type": "Text",
-        "value": "You can have multiple "
-      },
-      {
         "type": "Header",
-        "value": "^ (bitwise XOR)",
+        "value": "! (not)",
         "props": { "size": "md" }
       },
       {
         "type": "Text",
-        "value": "The ^ operator is known as the bitwise XOR (exclusive OR) operator. It operates on the binary representations of numbers and compares each corresponding bit of its operands. The result bit is 1 if and only if exactly one of the corresponding bits of the operands is 1. If both bits are 0 or both are 1, the result bit is 0."
-      },
-      {
-        "type": "Text",
-        "value": "In other words, the bitwise XOR operation outputs 1 only when the inputs differ. This makes it useful for various operations, such as toggling bits or performing certain arithmetic operations."
-      },
-      {
-        "type": "Text",
-        "value": "Consider the following example, where the XOR operator is applied to two integers:"
+        "value": "It is used to negate a boolean value. If the value is true, applying ! will make it false, and vice versa."
       },
       {
         "type": "Code",
-        "value": "let a = 5; // binary: 0101 let b = 3; // binary: 0011 let result = a ^ b; console.log(result); // binary: 0110 (6 in decimal)",
+        "value": "let a = 2;\nlet b = 0;\nconsole.log(!true); // false \nconsole.log(!false); // true \nconsole.log(a && b); // false because b === 0 \nconsole.log(!(a && b)); // true",
         "props": { "language": "javascript" }
       },
       {
-        "type": "Text",
-        "value": "Explanation: \n- a (0101 in binary) \n- b (0011 in binary) \n- XOR result (0110 in binary, which is 6 in decimal) \n\nEach bit is compared: \n- 0 XOR 0 = 0 \n- 1 XOR 0 = 1 \n- 0 XOR 1 = 1 \n- 1 XOR 1 = 0"
+        "type": "Divider"
       },
       {
         "type": "Text",
-        "value": "The bitwise XOR can also be used in a variety of programming techniques, such as swapping values without a temporary variable:"
+        "value": "You can use different types of operators in a single expression, but keep in mind their precedence. ! has the highest precedence, followed by &&, then ||, and finally ??. If you want to use ?? with other operators, you'll need parentheses; otherwise, a SyntaxError will occur."
       },
       {
         "type": "Code",
-        "value": "let x = 10; let y = 5; x = x ^ y; y = x ^ y; x = x ^ y; console.log(x); // 5 console.log(y); // 10",
+        "value": "console.log(true || false && 0) // true; the same as console.log(true || (false && 0))\n\nconsole.log(true || false ?? 0)  //Uncaught SyntaxError: missing ) after argument list ",
         "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "Here’s a step-by-step breakdown of how the swap works using XOR: \n- Initially: x = 10 (1010 in binary), y = 5 (0101 in binary) \n- Step 1: x = x ^ y; \n  - x becomes 1010 ^ 0101 = 1111 (15 in decimal) \n- Step 2: y = x ^ y; \n  - y becomes 1111 ^ 0101 = 1010 (10 in decimal) \n- Step 3: x = x ^ y; \n  - x becomes 1111 ^ 1010 = 0101 (5 in decimal)"
-      },
-      {
-        "type": "Text",
-        "value": "In this way, the XOR operator provides an efficient way to perform certain operations at the bit level. While it’s not as commonly used in everyday coding as logical operators, it’s powerful in specific contexts such as cryptography, error detection, and low-level programming."
       }
     ]
   },
@@ -152,8 +148,26 @@
       },
       {
         "type": "Code",
-        "value": "{\n  let a = 5;\n  a += 3; // equivalent to a = a + 3\n  console.log(a); // 8\n}\n\n{\n  let a = 5;\n  a -= 3; // equivalent to a = a - 3\n  console.log(a); // 2\n}\n\n{\n  let a = 5;\n  a *= 3; // equivalent to a = a * 3\n  console.log(a); // 15\n}\n\n{\n  let a = 12;\n  a /= 3; // equivalent to a = a / 3\n  console.log(a); // 4\n}\n\n{\n  let a = 11;\n  a %= 3; // equivalent to a = a % 3\n  console.log(a); // 2\n}", 
+        "value": "{\n  let a = 5;\n  a += 3; // equivalent to a = a + 3\n  console.log(a); // 8\n}\n\n{\n  let a = 5;\n  a -= 3; // equivalent to a = a - 3\n  console.log(a); // 2\n}\n\n{\n  let a = 5;\n  a *= 3; // equivalent to a = a * 3\n  console.log(a); // 15\n}\n\n{\n  let a = 12;\n  a /= 3; // equivalent to a = a / 3\n  console.log(a); // 4\n}\n\n{\n  let a = 11;\n  a %= 3; // equivalent to a = a % 3\n  console.log(a); // 2\n}",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can use multiple assignment operators in a single line in JavaScript. This allows you to chain assignments together, assigning the same value to multiple variables or updating multiple variables at once."
+      },
+      {
+        "type": "Code",
+        "value": "let a, b, c;\na = b = c = 5; // All variables a, b, and c are assigned the value 5",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "let x = 5;\nlet y = 10;\nlet z = 15;\n\nx += y -= z = 3; \n// z is assigned 3, \n//y is updated to y - z (10 - 3 = 7), \n//x is updated to x + y (5 + 7 = 12)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, the assignments are evaluated from right to left, following the usual operator precedence and associativity rules. However, while it is syntactically valid, using multiple assignments in a single line can sometimes reduce code readability and should be done with care."
       },
       {
         "type": "Header",
@@ -171,7 +185,7 @@
       },
       {
         "type": "Code",
-        "value": "let x = 10\nif(--x<10){\n   console.log(x) //9\n}\n\nlet y = 10\nif(y--<10){\n//won't meet the condition\n   console.log(y)\n}",
+        "value": "let x = 10\nif(--x<10){\n   console.log(x) //9\n}\n\nlet y = 10\nif(y--<10){\n   //won't meet the condition\n   console.log(y)\n}",
         "props": { "language": "javascript" }
       },
       {
@@ -180,7 +194,7 @@
       },
       {
         "type": "Code",
-        "value": "let x = 10\nx=x-1\nif(x<10){\n   console.log(x) //9\n}\n\nlet y = 10\nif(y<10){\n//won't meet the condition\n   console.log(y)\n} y=y-1",
+        "value": "let x = 10\nx=x-1\nif(x<10){\n   console.log(x) //9\n}\n\nlet y = 10\nif(y<10){\n   //won't meet the condition\n   console.log(y)\n} y=y-1",
         "props": { "language": "javascript" }
       },
       {
@@ -194,7 +208,7 @@
       },
       {
         "type": "Code",
-        "value": "let a = true; let b = false; a &&= b; // Equivalent to a = a && b; console.log(a); // Output: false",
+        "value": "let a = true; \nlet b = false; \na &&= b; // Equivalent to a = a && b; \nconsole.log(a); // Output: false",
         "props": { "language": "javascript" }
       },
       {
@@ -212,7 +226,7 @@
       },
       {
         "type": "Code",
-        "value": "let a = false; let b = true; a ||= b; // Equivalent to a = a || b; console.log(a); // Output: true",
+        "value": "let a = false; \nlet b = true; \na ||= b; // Equivalent to a = a || b; \nconsole.log(a); // Output: true",
         "props": { "language": "javascript" }
       },
       {
@@ -230,7 +244,7 @@
       },
       {
         "type": "Code",
-        "value": "let a = null; let b = 'default'; a ??= b; // Equivalent to a = a ?? b; console.log(a); // Output: 'default'",
+        "value": "let a = null; \nlet b = 'default'; \na ??= b; // Equivalent to a = a ?? b; \nconsole.log(a); // Output: 'default'",
         "props": { "language": "javascript" }
       },
       {
@@ -240,15 +254,15 @@
     ]
   },
   {
-    "title": "Comparison operators",
+    "title": "Bitwise operators",
     "data": [
       {
         "type": "Text",
-        "value": "Comparison operators are used to compare the left side to the right side. They always return true or false."
+        "value": "Bitwise operators in JavaScript perform operations on binary representations of numbers. These operators work directly at the bit level, manipulating the individual bits within the number's binary form. Unlike arithmetic operators, which deal with whole numbers, bitwise operators operate on each bit of a number, providing a low-level way to perform efficient computations. "
       },
       {
         "type": "Code",
-        "value": "{//== - compares both values without comparing their types\nlet a = 10\nconsole.log(a == 10) //true\nconsole.log(a == \"10\") //true\n}{//!= - checks if values are different without checking type\nlet a = 10\nconsole.log(a != 20) //true\nconsole.log(a != 10) //false\nconsole.log(a != \"10\") //false\n}{//=== - compares both values and their types\nlet a = 10\nconsole.log(a === 10) //true\nconsole.log(a === \"10\") //false\n}{//!== - checks if values or types are different\nlet a = 10\nconsole.log(a !== 10) //false\nconsole.log(a !== \"10\") //true\n}{//< and > - less than and greater than\nlet a = 10\nlet b = 20\nconsole.log(a < 20) //true\nconsole.log(a < b) //true\nconsole.log(a > b) //false\n}{//<= and >= - less than or equal to and greater than or equal to\nlet a = 10\nlet b = 20\nlet c = 10\nconsole.log(a <= b) //true\nconsole.log(a <= c) //true\n}",
+        "value": "// AND (&)\n// Compares each bit of two numbers and returns 1 only if both bits are 1\nlet a = 5 // 0101 in binary\nlet b = 3 // 0011 in binary\nconsole.log(a & b) // 1 (0001 in binary)\n// Only the last bit is 1 in both numbers, resulting in 0001 (binary) which is 1.\n\n// OR (|)\n// Compares each bit of two numbers and returns 1 if at least one of the bits is 1\na = 5 // 0101 in binary\nb = 3 // 0011 in binary\nconsole.log(a | b) // 7 (0111 in binary)\n// All bits except the last bit are 1 in at least one number, resulting in 0111 (binary) which is 7.\n\n// XOR (^)\n// Compares each bit of two numbers and returns 1 only if the bits are different\na = 5 // 0101 in binary\nb = 3 // 0011 in binary\nconsole.log(a ^ b) // 6 (0110 in binary)\n// The first and third bits are different in the two numbers, resulting in 0110 (binary) which is 6.\n\n// NOT (~)\n// Inverts all the bits of the number (1 becomes 0 and 0 becomes 1)\na = 5 // 0101 in binary\nconsole.log(~a) // -6\n// Inverting all bits of 0101 gives 1010 in binary, which is -6 in two's complement representation.",
         "props": { "language": "javascript" }
       }
     ]
