@@ -27,7 +27,7 @@
       {
         "type": "Code",
         "value": "function tag(strings, ...values) {\n  console.log(strings) // [\"Hello, \",\". You are \",\" years old.\"]\n  console.log(values) // [\"Alice\",30]\n  return (\n    'Processed template: ' +\n    strings[0] +\n    values[0] +\n    strings[1] +\n    values[1] +\n    strings[2]\n  )\n}\n\nconst name = 'Alice'\nconst age = 30\n\nconst result = tag`Hello, ${name}. You are ${age} years old.`\nconsole.log(result) // \"Processed template: Hello, Alice. You are 30 years old.\"",
-        "props": {"language": "javascript" }
+        "props": { "language": "javascript" }
       }
     ]
   },
@@ -40,156 +40,160 @@
       },
       {
         "type": "Text",
-        "value": "1. **`length`**: Returns the length of the string."
+        "value": "<b>length</b>: returns the length of the string."
       },
       {
         "type": "Code",
         "value": "const text = 'Hello';\nconsole.log(text.length); // 5",
         "props": { "language": "javascript" }
       },
+
       {
         "type": "Text",
-        "value": "2. **`charAt(index)`**: Returns the character at the specified index."
+        "value": "<b>charAt()</b>: returns the character at the specified index."
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello';\nconsole.log(text.charAt(1)); // 'e'",
+        "value": "const text = 'Hello';\nconsole.log(text.charAt(1)); // 'e', same as text[1]",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>toUpperCase()</b>: returns the string converted to uppercase."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello';\nconsole.log(text.toUpperCase()); // 'HELLO'",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>toLowerCase()</b>: returns the string converted to lowercase."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello';\nconsole.log(text.toLowerCase()); // 'hello'",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>indexOf()</b>: returns the index of the first occurrence of the specified substring, or -1 if not found."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world';\nconsole.log(text.indexOf('world')); // 6",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>lastIndexOf()</b>: returns the index of the last occurrence of the specified substring, or -1 if not found."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world, world';\nconsole.log(text.lastIndexOf('world')); // 13",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>split()</b>: splits the string into an array of substrings based on the specified delimiter."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world';\nconsole.log(text.split(' ')); // ['Hello', 'world']",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>startsWith()</b>: checks if the string starts with the specified substring."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world';\nconsole.log(text.startsWith('Hello')); // true",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>endsWith()</b>: checks if the string ends with the specified substring."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world';\nconsole.log(text.endsWith('world')); // true",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>replace()</b>: returns a new string with some or all matches of a pattern replaced by a replacement."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world';\nconsole.log(text.replace('world', 'JavaScript')); // 'Hello JavaScript'",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>repeat()</b>: returns a new string with a specified number of copies of the original string."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello';\nconsole.log(text.repeat(3)); // 'HelloHelloHello'",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>trim()</b>: removes whitespace from both ends of the string."
+      },
+      {
+        "type": "Code",
+        "value": "const text = '  Hello world  ';\nconsole.log(text.trim()); // 'Hello world'",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>includes()</b>: checks if the string contains the specified substring."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world';\nconsole.log(text.includes('world')); // true",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "3. **`charCodeAt(index)`**: Returns the Unicode value of the character at the specified index."
+        "value": "<b>substring</b>: returns a subset of the string between the start and end indices (end index not included). If start is greater than end, the method swaps the two arguments."
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello';\nconsole.log(text.charCodeAt(0)); // 72",
+        "value": "const text = 'Hello world';\nconsole.log(text.substring(0, 5)); // 'Hello'\nconsole.log(text.substring(6)); // 'world'\nconsole.log(text.substring(5, 0)); // 'Hello'",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>slice</b>: returns a section of the string, extracted from start to end indices (end index not included). It supports negative indices, which count from the end of the string."
+      },
+      {
+        "type": "Code",
+        "value": "const text = 'Hello world';\nconsole.log(text.slice(0, 5)); // 'Hello'\nconsole.log(text.slice(-5)); // 'world'\nconsole.log(text.slice(2, -1)); // 'llo worl'",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "4. **`concat(...strings)`**: Joins multiple strings into one."
+        "value": "These are the most often used string methods but this list is not complete. Keep in mind none of these methods modify the original string."
       },
       {
         "type": "Code",
-        "value": "const text1 = 'Hello';\nconst text2 = 'World';\nconsole.log(text1.concat(' ', text2)); // 'Hello World'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "5. **`includes(substring)`**: Checks if the string contains the specified substring."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.includes('World')); // true",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "6. **`indexOf(substring)`**: Returns the first index at which the substring is found, or -1 if not found."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.indexOf('World')); // 6",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "7. **`lastIndexOf(substring)`**: Returns the last index at which the substring is found, or -1 if not found."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World World';\nconsole.log(text.lastIndexOf('World')); // 12",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "8. **`replace(searchValue, newValue)`**: Replaces the first occurrence of `searchValue` with `newValue`."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.replace('World', 'Universe')); // 'Hello Universe'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "9. **`slice(beginIndex, endIndex)`**: Extracts a portion of the string from `beginIndex` to `endIndex`."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.slice(0, 5)); // 'Hello'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "10. **`split(separator)`**: Splits the string into an array of substrings using the specified `separator`."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.split(' ')); // ['Hello', 'World']",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "11. **`toLowerCase()`**: Converts the string to lowercase."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.toLowerCase()); // 'hello world'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "12. **`toUpperCase()`**: Converts the string to uppercase."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.toUpperCase()); // 'HELLO WORLD'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "13. **`trim()`**: Removes whitespace from both ends of the string."
-      },
-      {
-        "type": "Code",
-        "value": "const text = '  Hello World  ';\nconsole.log(text.trim()); // 'Hello World'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "14. **`startsWith(searchString)`**: Checks if the string starts with the specified `searchString`."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.startsWith('Hello')); // true",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "15. **`endsWith(searchString)`**: Checks if the string ends with the specified `searchString`."
-      },
-      {
-        "type": "Code",
-        "value": "const text = 'Hello World';\nconsole.log(text.endsWith('World')); // true",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "16. **`padStart(targetLength, padString)`**: Pads the string from the start until it reaches the specified `targetLength`, using the `padString`."
-      },
-      {
-        "type": "Code",
-        "value": "const text = '5';\nconsole.log(text.padStart(3, '0')); // '005'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "17. **`padEnd(targetLength, padString)`**: Pads the string from the end until it reaches the specified `targetLength`, using the `padString`."
-      },
-      {
-        "type": "Code",
-        "value": "const text = '5';\nconsole.log(text.padEnd(3, '0')); // '500'",
-        "props": { "language": "javascript" }
+        "value": "let text = 'HELLO WORLD'\n\nlet modifiedText = text.toLowerCase()\n\nconsole.log(text) // 'HELLO WORLD'\nconsole.log(modifiedText) // 'hello world'",
+        "props": {"language": "javascript" }
       }
     ]
   }

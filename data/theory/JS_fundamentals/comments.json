@@ -34,16 +34,32 @@
       },
       {
         "type": "Text",
-        "value":"JSDoc is a popular format for commenting code in many languages, which allows for the generation of documentation for source code. Using JSDoc helps maintain code clarity, document functions, parameters, return values, and other code elements. With JSDoc, documentation generation tools can automatically create detailed and readable documents."
+        "value": "JSDoc is a popular format for commenting code in many languages, which allows for the generation of documentation for source code. Using JSDoc helps maintain code clarity, document functions, parameters, return values, and other code elements. With JSDoc, documentation generation tools can automatically create detailed and readable documents."
       },
       {
         "type": "Code",
         "value": "/**\n* Returns the sum of two numbers .\n*\n* @param {number} a - The first number.\n* @param {number} b - the second number.\n* @returns {number} - The sum of a and b.\n*/\n function add(a, b) {\n \t\t  return a + b;\n } ",
-        "props": {"language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
         "value": "Now that you've grasped the basics of commenting, you'll find it beneficial for enhancing the readability and maintainability of your code"
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "You can enhance you comments when you install VS Code extension called 'Better Comments'"
+          },
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/zBqg1Q1T/image.png"
+          }
+        ],
+        "props": {
+          "type": "tip"
+        }
       }
     ]
   }

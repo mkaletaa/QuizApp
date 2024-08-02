@@ -15,7 +15,7 @@ export const chapters = [
     name: 'data_structures',
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTa673aG483dj7Rw6OeKA3xJPz9i-RloR_g&usqp=CAU',
-      des: 'Some say in JavaScript everything is an object. Is that true? You\'ll find an answer in this chapter.'
+    des: "Some say in JavaScript everything is an object. Is that true? You'll find an answer in this chapter.",
   },
 ]
 //also id of questions should go like "cat_1|top_1|1"
@@ -39,5 +39,9 @@ export const topics = {
   data_structures: [
     { name: 'introduction', image: 'https://reactjs.org/logo-og.png' },
     { name: 'type_conversion', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'numbers', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'strings', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'arrays', image: 'https://reactjs.org/logo-og.png' },
   ],
 }
+

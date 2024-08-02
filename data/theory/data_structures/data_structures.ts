@@ -14,4 +14,8 @@ export const data_structures = {
   other_types,
 }
 
-
+// casual comment
+//* Important information
+//! Deprecated method, do not use
+//? Should this function be removed?
+//todo: refactor this method
