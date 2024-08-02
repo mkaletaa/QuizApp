@@ -1,10 +1,10 @@
 [
   {
-    "title": "Creating strings",
+    "title": "Template strings",
     "data": [
       {
         "type": "Text",
-        "value": "There are three ways to define a string literal. One of them requires \"double quotes\", the second one requires 'single quotes' and the third one requires `backticks`. The first two work exactly the same but using backticks offers two more features. <br></br><b>Multi-line Strings:</b> Strings defined with backticks can span multiple lines without needing special line continuation characters. "
+        "value": "There are three ways to define a string literal. One of them requires \"double quotes\", the second one requires 'single quotes' and the third one requires `backticks`. The first two work exactly the same but the last which is called template strings or template literals offers three more features. <br></br><b>Multi-line Strings:</b> Strings defined with backticks can span multiple lines without needing special line continuation characters. "
       },
       {
         "type": "Code",
@@ -13,12 +13,21 @@
       },
       {
         "type": "Text",
-        "value": "String Interpolation: Backticks allow for embedded expressions, using ${expression}, which lets you include variables and expressions within the string."
+        "value": "<b>String Interpolation</b>: Backticks allow for embedded expressions, using ${expression}, which lets you include variables and expressions within the string."
       },
       {
         "type": "Code",
         "value": "const name = 'Alice'\nconst age = 25\nconst greeting = `Hello, my name is ${name} and I am ${age} years old.`\nconsole.log(greeting) //Hello, my name is Alice and I am 25 years old.",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Tag functions</b>: in JavaScript they are a special type of function used in conjunction with template literals. They allow for custom processing of template literal strings before they're ultimately formatted. This feature can be used for advanced string manipulations, such as formatting or filtering, "
+      },
+      {
+        "type": "Code",
+        "value": "function tag(strings, ...values) {\n  console.log(strings) // [\"Hello, \",\". You are \",\" years old.\"]\n  console.log(values) // [\"Alice\",30]\n  return (\n    'Processed template: ' +\n    strings[0] +\n    values[0] +\n    strings[1] +\n    values[1] +\n    strings[2]\n  )\n}\n\nconst name = 'Alice'\nconst age = 30\n\nconst result = tag`Hello, ${name}. You are ${age} years old.`\nconsole.log(result) // \"Processed template: Hello, Alice. You are 30 years old.\"",
+        "props": {"language": "javascript" }
       }
     ]
   },
