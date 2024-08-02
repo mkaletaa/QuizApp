@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "There are three ways to define a string. One of them requires \"double quotes\", the second one requires 'single quotes' and the third one requires `backticks`. The first two work exactly the same but using backticks offers two more features. <br></br><b>Multi-line Strings:</b> Strings defined with backticks can span multiple lines without needing special line continuation characters. "
+        "value": "There are three ways to define a string literal. One of them requires \"double quotes\", the second one requires 'single quotes' and the third one requires `backticks`. The first two work exactly the same but using backticks offers two more features. <br></br><b>Multi-line Strings:</b> Strings defined with backticks can span multiple lines without needing special line continuation characters. "
       },
       {
         "type": "Code",

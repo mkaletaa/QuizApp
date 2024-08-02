@@ -56,5 +56,32 @@
         "props": { "language": "javascript" }
       }
     ]
+  },
+  {
+    "title": "Precision issues",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In JavaScript, as in many other programming languages, there can be inaccuracies in numerical calculations, particularly with floating-point arithmetic. This is due to the way numbers are represented in binary format according to the IEEE 754 standard, which JavaScript uses for its Number type. JavaScript uses a 64-bit floating-point representation, which provides approximately 15-17 decimal digits of precision. However, some numbers cannot be represented exactly in binary, leading to small errors in calculations. For example:"
+      },
+      {
+        "type": "Code",
+        "value": "console.log(0.1 + 0.2); // 0.30000000000000004",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, the expected result of 0.1 + 0.2 is 0.3, but due to precision limitations, JavaScript returns 0.30000000000000004. <br></br>These small inaccuracies can accumulate and result in noticeable errors, especially in complex calculations or over many iterations. For example:"
+      },
+      {
+        "type": "Code",
+        "value": "let sum = 0\nfor (let i = 0; i < 10; i++) {\n  sum += 0.1\n}\nconsole.log(sum) //0.9999999999999999 instead of 1",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "JavaScript can accurately handle numbers between Number.MIN_VALUE (approximately 5e-324) and Number.MAX_VALUE (approximately 1.79e+308). Numbers outside this range can lead to underflow or overflow, where the result is zero or Infinity. <br></br>In applications like financial software, even small inaccuracies can be significant. To avoid these issues, developers often use integer arithmetic (e.g., handling money in cents instead of dollars) or specialized libraries for precise decimal arithmetic."
+      }
+    ]
   }
 ]

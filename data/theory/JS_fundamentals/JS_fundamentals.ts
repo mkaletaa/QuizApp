@@ -18,6 +18,7 @@ export const JS_fundamentals = {
   ['functions #2']: functions2,
 }
 
+/**
 
 //*kolejność
 //Hello, World
@@ -42,7 +43,7 @@ function greet(age, surname, name) {
 
 greet('John', 'Doe', 12)
 
-//**brak jednego argumentu */
+//**brak jednego argumentu 
 //Helen, undefined
 //undefined, Helen
 //an Error will occur
@@ -53,7 +54,7 @@ function displayData(age, name) {
 
 displayData('Helen')
 
-//**o jeden argument za dużo */
+//**o jeden argument za dużo 
 //Jackson, Michael
 //Michael, Jackson
 //an Error will occur
@@ -66,7 +67,7 @@ function displayData(name, age) {
   console.log(name)
 }
 
-displayData('Michael', 'Jackson', 40) 
+displayData('Michael', 'Jackson', 40)
 
 //* domyślne argumenty
 //John, Doe, undefined
@@ -80,7 +81,7 @@ function displayData(name, age = 20, surname) {
   console.log(surname)
 }
 
-displayData('John', 'Doe') 
+displayData('John', 'Doe')
 
 //* brak return
 //What will be printed by this console.log()?
@@ -89,7 +90,7 @@ function exp(b, a) {
   a ** b
 }
 
-console.log(exp(2, 3)) 
+console.log(exp(2, 3))
 
 //* co po return
 //John, user data
@@ -120,7 +121,6 @@ fun(1, 2, 3)
 // to co po return nie jest brane pod uwagę
 // nie wiem co jeszcze
 
-
 //**powtarzające się argumenty
 //1, 2, Error
 function fun(b, b) {
@@ -129,12 +129,9 @@ function fun(b, b) {
 
 fun(1, 2)
 
-
-//** scope */
-
+//** scope 
 
 //! ----------------------------------------------------------------
-
 
 //*hoisting
 //Will this code print 'Hello World'?
@@ -145,7 +142,7 @@ function myFun() {
   return 'Hello World'
 }
 
-//******** */
+//******** 
 //no, yes
 console.log(fun())
 
@@ -153,7 +150,7 @@ const fun = function () {
   return 'Hello World'
 }
 
-//** */
+//** 
 //no, yes
 const fun = function myFun() {
   return 'Hello World'
@@ -167,7 +164,6 @@ console.log(myFun())
 // an arrow function is created with '->' symbol
 // arrow function is the only type of function that can be used as an argument of another function
 
-
 //* ------
 //This is an example of...
 //function expression
@@ -178,6 +174,4 @@ const fun = function () {
   return 'Hello World'
 }
 
-
-
-
+ */
