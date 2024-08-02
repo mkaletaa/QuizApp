@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "In JavaScript there are a few ways to define a function. One of them was studies in the previous lesson. It was the most basic of them called function declaration. Another type of function is function expression. It is basically a function that is assigned to a variable."
+        "value": "In JavaScript there are a few ways to define a function. One of them was studied in the previous lesson. It was the most basic of them called function declaration. Another type of function is function expression. It is basically a function that is assigned to a variable."
       },
       {
         "type": "Code",
@@ -27,7 +27,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Anonymous functions are functions that don't have a name. They are often used as an argument of another function. Their purpose is to shorten the code."
+        "value": "Anonymous functions are functions that don't have a name. They are often used as an argument of another function but also can be assigned to a variable. Their purpose is to shorten the code."
       },
       {
         "type": "Code",
@@ -45,12 +45,12 @@
         },
         {
             "type": "Code",
-            "value": "// function expression with an arrow function\nconst fun1 = () => {\n  console.log('Hello World')\n}\n\n// if there's only one argument we can abandon parentesis\nconst fun2 = e => {\n  console.log('Hello ' , e)\n}\n\n//if there are no arguments or more than one, we must add parentesis\nconst fun3 = (e, f) => {\n  console.log('Hello ' , e, ' and ', f)\n}\n\n//if an arrow function has only one instruction in its body, we don't need to add curly brackets\nconst fun4 = e => console.log('Hello ' , e)\n\n//if an arrow function has only one instruction in its body and it is return statement we don't need to type 'return'\nconst fun5 = e => ++e\n\n// if a function return an object we need to take that object into parentesis, otherwise there's a confusion between brackets of a function body and brackets of an object\nconst fun6 = () => { key1: 'value1', key2: 'value2' } // wrong\n\nconst fun7 = () => ({ key1: 'value1', key2: 'value2' }) // correct",
+            "value": "// function expression with an arrow function\nconst fun1 = () => {\n  console.log('Hello World')\n}\n\n// if there's only one argument we can abandon parenthesis\nconst fun2 = e => {\n  console.log('Hello ' , e)\n}\n\n//if there are no arguments or more than one, we must add parenthesis\nconst fun3 = (e, f) => {\n  console.log('Hello ' , e, ' and ', f)\n}\n\n//if an arrow function has only one instruction in its body, we don't need to add curly brackets\nconst fun4 = e => console.log('Hello ' , e)\n\n//if an arrow function has only one instruction in its body and it is return statement we don't need to type 'return'\nconst fun5 = e => ++e\n\n// if a function return an object we need to take that object into parenthesis, otherwise there's a confusion between brackets of a function body and brackets of an object\nconst fun6 = () => { key1: 'value1', key2: 'value2' } // wrong\n\nconst fun7 = () => ({ key1: 'value1', key2: 'value2' }) // correct",
             "props": {"language": "javascript" }
         },
         {
           "type": "Text",
-          "value": "Arrow functions have distinct characteristics that may require a deeper understanding of JavaScript. As your JS skills improve, you can revisit this topic to explore all the details."
+          "value": "Arrow functions have distinct characteristics that may require a deeper understanding of JavaScript. As your JS skills improve, you can revisit this topic to explore all the details:"
         },
         {
           "type": "Text",

@@ -8,7 +8,7 @@
       },
       {
         "type": "Code",
-        "value": "// Code without using functions, leading to redundancy\n// Displaying user details for User 1\nlet userName1 = 'Alice'\nlet userAge1 = 25\nlet userOccupation1 = 'Engineer'\nconsole.log('User 1: Name is ' + userName1)\nconsole.log('User 1: Age is ' + userAge1)\nconsole.log('User 1: Occupation is ' + userOccupation1)\n// Displaying user details for User 2\nlet userName2 = 'Bob'\nlet userAge2 = 30\nlet userOccupation2 = 'Designer'\nconsole.log('User 2: Name is ' + userName2)\nconsole.log('User 2: Age is ' + userAge2)\nconsole.log('User 2: Occupation is ' + userOccupation2)\n// Displaying user details for User 3\nlet userName3 = 'Charlie'\nlet userAge3 = 28\nlet userOccupation3 = 'Teacher'\nconsole.log('User 3: Name is ' + userName3)\nconsole.log('User 3: Age is ' + userAge3)\nconsole.log('User 3: Occupation is ' + userOccupation3)",
+        "value": "// Code without using functions, leading to redundancy\n\n// Displaying user details for User 1\nlet userName1 = 'Alice'\nlet userAge1 = 25\nlet userOccupation1 = 'Engineer'\nconsole.log('User 1: Name is ' + userName1)\nconsole.log('User 1: Age is ' + userAge1)\nconsole.log('User 1: Occupation is ' + userOccupation1)\n\n// Displaying user details for User 2\nlet userName2 = 'Bob'\nlet userAge2 = 30\nlet userOccupation2 = 'Designer'\nconsole.log('User 2: Name is ' + userName2)\nconsole.log('User 2: Age is ' + userAge2)\nconsole.log('User 2: Occupation is ' + userOccupation2)\n\n// Displaying user details for User 3\nlet userName3 = 'Charlie'\nlet userAge3 = 28\nlet userOccupation3 = 'Teacher'\nconsole.log('User 3: Name is ' + userName3)\nconsole.log('User 3: Age is ' + userAge3)\nconsole.log('User 3: Occupation is ' + userOccupation3)",
         "props": { "language": "javascript" }
       },
       {
@@ -17,7 +17,7 @@
       },
       {
         "type": "Code",
-        "value": "// Code using a function to avoid redundancy\nfunction displayUserDetails(name, age, occupation) {\n  console.log('User: Name is ' + name)\n  console.log('User: Age is ' + age)\n  console.log('User: Occupation is ' + occupation)\n}\n// Displaying user details for User 1\ndisplayUserDetails('Alice', 25, 'Engineer')\n// Displaying user details for User 2\ndisplayUserDetails('Bob', 30, 'Designer')\n// Displaying user details for User 3\ndisplayUserDetails('Charlie', 28, 'Teacher')",
+        "value": "// Code using a function to avoid redundancy\nfunction displayUserDetails(name, age, occupation) {\n  console.log('User: Name is ' + name)\n  console.log('User: Age is ' + age)\n  console.log('User: Occupation is ' + occupation)\n}\n\n// Displaying user details for User 1\ndisplayUserDetails('Alice', 25, 'Engineer')\n// Displaying user details for User 2\ndisplayUserDetails('Bob', 30, 'Designer')\n// Displaying user details for User 3\ndisplayUserDetails('Charlie', 28, 'Teacher')",
         "props": { "language": "javascript" }
       }
     ]
@@ -39,6 +39,9 @@
         "value": "Function declarations start with the 'function' keyword, followed by a name. You can call it whatever you want as long as the name complies with the rules learned in the lesson about variables and their names. After the name, there are parentheses, and inside them, you can place as many arguments as you want, including none. This is the head of the function. Then, you specify the body of the function using curly brackets. This is where all its logic is performed. Inside the body, there is a 'return' keyword, which specifies the value that the function will return when it is called. Return is optional so if a function doesn't return anything you don't have to include it."
       },
       {
+        "type": "Divider"
+      },
+      {
         "type": "Header",
         "value": "The arguments",
         "props": { "size": "lg" }
@@ -49,7 +52,7 @@
       },
       {
         "type": "Code",
-        "value": "function greet(name, age) {\n   console.log('Hello, ma name is ', name, 'and I am ', age, ' years old')\n}\n\ngreet(30, 'Alice')\n//Output: Hello, my name is 30 and I am Alice years old",
+        "value": "function greet(name, age) {\n   console.log('Hello, my name is ', name, 'and I am ', age, ' years old')\n}\n\ngreet(30, 'Alice')\n//Output: Hello, my name is 30 and I am Alice years old",
         "props": { "language": "javascript" }
       },
       {
@@ -58,12 +61,12 @@
       },
       {
         "type": "Code",
-        "value": "function fn(a, b){\n  console.log(a)\n  console.log(b)\n}\nfn('Bob', 'Nick') //Bob, Nick\nfn('Kate', 'Alice', 'Josh') //Kate, Alice\nfn('Mario') //Mario, undefined",
+        "value": "function fn(a, b){\n  console.log(a)\n  console.log(b)\n}\n\nfn('Bob', 'Nick') //Bob, Nick\nfn('Kate', 'Alice', 'Josh') //Kate, Alice\nfn('Mario') //Mario, undefined",
         "props": { "language": "javascript" }
       },
       {
         "type": "Header",
-        "value": "Default values",
+        "value": "default values",
         "props": { "size": "sm" }
       },
       {
@@ -72,7 +75,7 @@
       },
       {
         "type": "Code",
-        "value": "function showDetails(name = 'Guest', age = 25) {\n  console.log('Name: ', name, ' , age: ', age)\n}\nshowDetails('Bob', 12) //Name: Bob, age: 12\nshowDetails('Kate') //Name: Kate, age: 25\nshowDetails(undefined, 36) //Name: Guest, age: 36",
+        "value": "function showDetails(name = 'Guest', age = 25) {\n  console.log('Name: ', name, ' , age: ', age)\n}\n\nshowDetails('Bob', 12) //Name: Bob, age: 12\nshowDetails('Kate') //Name: Kate, age: 25\nshowDetails(undefined, 36) //Name: Guest, age: 36",
         "props": { "language": "javascript" }
       },
       {
@@ -86,7 +89,7 @@
       },
       {
         "type": "Code",
-        "value": "function fun() {\n  console.log(arguments) //get all the arguments\n  console.log(arguments.length) //get number of arguments\n  console.log(arguments[0]) //get the first argument\n}\nfun('Bob', 12) // ['Bob', 12]",
+        "value": "function fun() {\n  console.log(arguments) //get all the arguments as an arrayish structure\n  console.log(arguments.length) //get number of arguments\n  console.log(arguments[0]) //get the first argument\n}\n\nfun('Bob', 12)", 
         "props": { "language": "javascript" }
       },
       {
@@ -100,16 +103,28 @@
       },
       {
         "type": "Code",
-        "value": "function fun(...args) {\n  console.log(args) // get all the arguments as an array\n  console.log(args.length) // get the number of arguments\n  console.log(args[0]) // get the first argument\n}\nfun('Bob', 12) // ['Bob', 12]",
+        "value": "function fun(...args) {\n  console.log(args) // get all the arguments as an array\n  console.log(args.length) // get the number of arguments\n  console.log(args[0]) // get the first argument\n}\n\nfun('Bob', 12) ",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Rest parameter doesn't have to be the only argument of a function but it always must be the last one."
+      },
+      {
+        "type": "Code",
+        "value": "function exampleFunction(firstParam, ...restParams) {\n  console.log(firstParam) // 1\n  console.log(restParams) // [2, 3, 4]\n}\n\nexampleFunction(1, 2, 3, 4)",
+        "props": {"language": "javascript" }
       },
       {
         "type": "Text",
         "value": "Rest parameters simplify the process of working with variable numbers of arguments and are preferred over the traditional 'arguments' object due to their straightforward syntax and better integration with modern JavaScript features."
       },
       {
+        "type": "Divider"
+      },
+      {
         "type": "Header",
-        "value": "return",
+        "value": "Return",
         "props": { "size": "md" }
       },
       {
@@ -118,13 +133,13 @@
       },
       {
         "type": "Code",
-        "value": "function add(a, b) {\n  return a + b\n  console.log('This will never be printed')\n}\nconsole.log(add(2, 3)) // 5\nfunction fun() {\n  console.log('This function does not have a return statement')\n}\nconsole.log(fun()) // undefined",
+        "value": "function add(a, b) {\n  return a + b\n  console.log('This will never be printed')\n}\n\nconsole.log(add(2, 3)) // 5\n\nfunction fun() {\n  console.log('This function does not have a return statement')\n}\n\nconsole.log(fun()) // undefined",
         "props": { "language": "javascript" }
       }
     ]
   },
   {
-    "title": "scope",
+    "title": "Scope",
     "data": [
       {
         "type": "Text",
@@ -132,7 +147,7 @@
       },
       {
         "type": "Code",
-        "value": "let global = 'I am a global variable'\nfunction fun(){\n  let local = 'I am a local variable'\n  console.log(local) //'I am a local variable'\n  console.log(global) //'I am a global variable'\n}\nfun()\nconsole.log(local) //Uncaught ReferenceError: local is not defined",
+        "value": "let global = 'I am a global variable'\n\nfunction fun(){\n  let local = 'I am a local variable'\n  console.log(local) //'I am a local variable'\n  console.log(global) //'I am a global variable'\n}\n\nfun()\nconsole.log(local) //Uncaught ReferenceError: local is not defined",
         "props": { "language": "javascript" }
       },
       {
