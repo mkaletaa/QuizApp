@@ -106,8 +106,8 @@
       },
       {
         "type": "Code",
-        "value": "// here is an array of falsy values in JS:\nconst falsyValuesInJs = [\n  false, // false boolean\n  0, // 0 number\n  -0,\n  0n,\n  \"\", // empty strings\n  '',\n  ``,\n  NaN, // Not a Number\n  undefined,\n  null\n]",
-        "props": { "language": "javascript" }
+        "value": "// here is an array of falsy values in JS:\nconst falsyValuesInJs = [\n  false, // false boolean\n   // 0 number\n  0, \n  -0,  // yea\n  0n,\n  // empty strings\n   \"\",\n   '',\n   ``,\n  NaN, // Not a Number\n  undefined,\n  null\n]",
+        "props": { "language": "javascript" } 
       },
       {
         "type": "Text",

@@ -53,7 +53,7 @@
       },
       {
         "type": "Code",
-        "value": "for (variable of iterable) {\n  // code to be executed\n}",
+        "value": "for (const variable of iterable) {\n  // code to be executed\n}",
         "props": { "language": "javascript" }
       },
       {
