@@ -63,7 +63,7 @@
     ]
   },
   {
-    "title": "Mutability",
+    "title": "Mutability and reference",
     "data": [
       {
         "type": "Text",
@@ -94,11 +94,29 @@
         "props": {
           "type": "info"
         }
+      },
+      {
+        "type": "Text",
+        "value": "As a consequence of this, if we assign the same object to two or more variables, they will point to the same entity: any change made through one variable will be reflected when accessing the object through the other variables. For instance, if we change a property of the object, this change will be visible in all variables referencing that object."
+      },
+      {
+        "type": "Code",
+        "value": "const a = { name: 'Adam' }\nconst b = a\n\nb.age = 32\n\nconsole.log(a, b); //{name: 'Adam', age: 32}, {name: 'Adam', age: 32}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "If we use === to check if two objects are equal we would get false even if both look exactly the same. This is because variables that hold objects store references to the memory location where the object is stored, not the actual object itself. Thus, even if two objects have identical properties and values, they are considered different entities in memory. Think of those identical objects like identical twins; they look the same but are still two different people."
+      },
+      {
+        "type": "Code",
+        "value": "const person1 = { name: 'Adam', age: 32 }\nconst person2 = { name: 'Adam', age: 32 }\n\nconsole.log(person1 === person2) //false",
+        "props": {"language": "javascript" }
       }
     ]
   },
   {
-    "title": "truthy and falsy",
+    "title": "Truthy and falsy",
     "data": [
       {
         "type": "Text",
@@ -107,7 +125,7 @@
       {
         "type": "Code",
         "value": "// here is an array of falsy values in JS:\nconst falsyValuesInJs = [\n  false, // false boolean\n   // 0 number\n  0, \n  -0,  // yea\n  0n,\n  // empty strings\n   \"\",\n   '',\n   ``,\n  NaN, // Not a Number\n  undefined,\n  null\n]",
-        "props": { "language": "javascript" } 
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
@@ -145,7 +163,7 @@
       },
       {
         "type": "Text",
-        "value": "Finding out a varable's type in JavaScript may be a tricky task. The most common way to do so is to use <b>typeof</b> keyword:"
+        "value": "Finding out a variable's type in JavaScript may be a tricky task. The most common way to do so is to use <b>typeof</b> keyword:"
       },
       {
         "type": "Code",
@@ -154,7 +172,7 @@
       },
       {
         "type": "Text",
-        "value": "TThere are some issues with this approach. typeof can be successfully used to find out simple types. However, when it comes to complex ones, it is not a good choice as it will almost always return 'object', which in some cases isn't precise enough. The only exception is functions. Yes, in JavaScript, functions are objects.<br></br>The other issue is the type of null is object. We know null is a primitive type. How can it be an object then? The reason for this is rooted in JavaScript's history. When JavaScript was first created, values were stored in a format that could encode both the type of the value and the actual data of the value. The type tag for objects was 0, and for null, it was 0 as well, which is why typeof null returns 'object'."
+        "value": "There are some issues with this approach. typeof can be successfully used to find out simple types. However, when it comes to complex ones, it is not a good choice as it will almost always return 'object', which in some cases isn't precise enough. The only exception is functions. Yes, in JavaScript, functions are objects.<br></br>The other issue is the type of null is object. We know null is a primitive type. How can it be an object then? The reason for this is rooted in JavaScript's history. When JavaScript was first created, values were stored in a format that could encode both the type of the value and the actual data of the value. The type tag for objects was 0, and for null, it was 0 as well, which is why typeof null returns 'object'."
       },
       {
         "type": "Header",

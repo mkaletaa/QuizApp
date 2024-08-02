@@ -1,0 +1,120 @@
+[
+  {
+    "title": "What are objects and how to create them?",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In programming, not everything can be represented as a simple variable. For instance, we can use a number to store someone's age or a string to store their name. But how do we represent something more complex, like a person or an animal? To handle this, we use complex types, particularly objects. Objects allow us to group together multiple pieces of information, such as different primitive data types (like numbers and strings) or even other objects, into a single, organized structure. This way, we can describe more complex entities in a clear and comprehensive manner. Every object in JavaScript is built up from keys and values. These keys and values are always paired together, meaning that each key corresponds to exactly one value, and each value is associated with exactly one key. Each pair must be separated with a comma. Adding a comma after the last pair is optional."
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Keys</b>: A key is a unique identifier for a property within an object. It is used to access or modify the value associated with that key. Keys are always strings or numbers (or Symbols in more advanced usage). In JavaScript, keys can be used as strings, and if they are written as identifiers, they are automatically converted to strings. It is important to note that keys should be unique within an object; you cannot have two properties with the same key, except in the situation when the keys are in different nested objects. Each key must correspond to exactly one value."
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Values</b>: A value is the data or information associated with a key in an object. Values can be of any data type, including numbers, strings, arrays, other objects, or functions."
+      },
+      {
+        "type": "Text",
+        "value": "For example, let's consider how we might represent a cat in a program. A cat has various attributes, such as a name and age. They are called <b>properties</b>. We can use an object to group all this information together in one place."
+      },
+      {
+        "type": "Code",
+        "value": "const cat = {\n  name: 'Whiskers',\n  age: 2,\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Moreover, cats are able to perform some actions, like meowing. In context of objects they are called <b>methods</b>"
+      },
+      {
+        "type": "Code",
+        "value": "const cat = {\n  name: 'Whiskers',\n  age: 2,\n  meow: function() {\n    console.log('Meow!')\n  }\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Now our cat has two properties which are name and age. There is also one method: meow. Name, age and meow are the keys and 'Whiskers', 2, and an anonymous function are the values."
+      }
+    ]
+  },
+  {
+    "title": "Accessing object's properties",
+    "data": [
+      {
+        "type": "Text",
+        "value": "We can access an object's properties in two ways: by using a dot or square brackets."
+      },
+      {
+        "type": "Code",
+        "value": "const cat = {\n  name: 'Whiskers',\n  age: 2,\n  meow: function() {\n    console.log('Meow!')\n  },\n}\n\nconsole.log(cat.name, cat.age) // 'Whiskers' 2\ncat.meow() // 'Meow!'\n\nconsole.log(cat['name'], cat['age']) // 'Whiskers' 2\ncat['meow']() // 'Meow!'\n\n// By the way - console.log() is calling 'log()' method of the 'console' object",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In most situations you should use dot notation because of its simplicity. Bracket notation is helpful when keys are numbers or are dynamic or contain forbidden characters discussed in the lesson about variables and their names. This syntax is very similar to accessing elements of an array, because arrays are, in fact, objects with numbers as keys."
+      },
+      {
+        "type": "Code",
+        "value": "const obj1 = { 0: 'value' }\n\nconsole.log(obj.0) // Error\nconsole.log(obj1[0]) // 'value'\nconsole.log(obj1['0']) // 'value'\n\nconst obj2 = {\n  key-with-dashes: 'value' // Error - key name cannot contain dashes\n}\n\nconst dynamicKey = 'key_name'\n\nconst obj3 = {\n  ['key-with-dashes']: 'value',\n  'key with spaces' : 'another value',\n  [dynamicKey]: 'yet another value'\n}\n\nconsole.log(obj3['key-with-dashes']) // 'value'\nconsole.log(obj3['key with spaces']) // 'another value'\nconsole.log(obj3.key_name) // 'yet another value'\nconsole.log(obj3.dynamicKey) // Error",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Modifying objects",
+    "data": [
+      {
+        "type": "Text",
+        "value": "We don't have to add methods and properties at the time of creating an object. We can do it later."
+      },
+      {
+        "type": "Code",
+        "value": "const cat = {\n  name: 'Whiskers',\n  age: 2,\n  meow: function() {\n    console.log('Meow!')\n  },\n}\n\ncat.hobbies = ['sleeping', 'hunting', 'climbing trees']\nconsole.log(cat.hobbies) // ['sleeping','hunting','climbing trees']",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "We can even change or delete methods and properties. And this is regardless of whether we used the const keyword to define the object. If you don't know why, visit the introduction lesson of Data structures chapter."
+      },
+      {
+        "type": "Code",
+        "value": "const cat = {\n  name: 'Whiskers',\n  age: 2,\n  meow: function () {\n    console.log('Meow!')\n  },\n}\n\ncat.age = 3\nconsole.log(cat.age) // 3\n\ndelete cat.meow\ncat.meow() // Uncaught TypeError: cat.meow is not a function",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Shortened syntax",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In JavaScript, you can use shorthand syntax to simplify object definitions. Here are a few ways to shorten the notation for defining objects. If the property name is the same as the variable name, you can omit the value and just write the property name."
+      },
+      {
+        "type": "Code",
+        "value": "// Before:\nconst name = 'Whiskers'\nconst age = 2\n\nconst cat = {\n  name: name,\n  age: age,\n  meow: function () {\n    console.log('Meow!')\n  },\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "// After:\nconst name = 'Whiskers'\nconst age = 2\n\nconst cat = {\n  name, // shorthand for name: name\n  age, // shorthand for age: age\n  meow() {\n    // shorthand for meow: function() { ... }\n    console.log('Meow!')\n  },\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For defining methods within an object, you can omit the function keyword and use the shorthand syntax."
+      },
+      {
+        "type": "Code",
+        "value": "// Before:\nconst cat = {\n  name: 'Whiskers',\n  age: 2,\n  meow: function () {\n    console.log('Meow!')\n  },\n",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "// After:\nconst cat = {\n  name: 'Whiskers',\n  age: 2,\n  meow() {\n    console.log('Meow!')\n  },\n}",
+        "props": { "language": "javascript" }
+      }
+    ]
+  }
+]
