@@ -53,12 +53,47 @@
       },
       {
         "type": "Text",
-        "value": "The reason why this code works fine is that at the moment of accessing the length property, the string is temporarily converted to an object. This process is known as autoboxing. In JavaScript, primitive values like strings, numbers, and booleans do not inherently possess properties or methods. However, JavaScript can automatically convert these primitives into their corresponding object wrappers (e.g., String, Number, Boolean) when you attempt to access a property or method. <br></br>In other programming languages like Python this mechanism doesn't exist"
+        "value": "The reason why this code works fine is that at the moment of accessing the length property, the string is temporarily converted to an object. This process is known as autoboxing. In JavaScript, primitive values like strings, numbers, and booleans do not inherently possess properties or methods. However, JavaScript can automatically convert these primitives into their corresponding object wrappers (e.g., String, Number, Boolean) when you attempt to access a property or method. <br></br>In other programming languages like Python this mechanism doesn't exist."
       },
       {
         "type": "Code",
         "value": "str = \"Hello\"\nprint(len(str)) # the way of getting a string length in Python",
         "props": { "language": "python" }
+      }
+    ]
+  },
+  {
+    "title": "Mutability",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Take a look at this code:"
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3]\n\narr[2] = 4\n\nconsole.log(arr) // [1, 2, 4]",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "If you studied the 'variables' lesson from the previous chapter, this code might seem strange to you. Variables declared with the const keyword can't have their value reassigned. However, in the case of complex variables like arrays, the value of the variable refers to the reference or address of the object in memory, not its contents. This means that while you can't reassign the entire array to a new array or value, you can still modify the elements within the array or object properties. For example, you can add, remove, or change elements in an array even if it's declared with const."
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "If you want to prevent modifying elements of an object you can use 'as const' but this works only in TypeScript"
+          },
+          {
+            "type": "Code",
+            "value": "const arr = [1, 2, 3] as const\n\narr[2] = 4 // Cannot assign to '2' because it is a read-only property.",
+            "props": { "language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
       }
     ]
   },
