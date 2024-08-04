@@ -4,10 +4,6 @@
     "data": [
       {
         "type": "Text",
-        "value": "TODO: mutability"
-      },
-      {
-        "type": "Text",
         "value": "So far in this app we've used some data structures like numbers and strings. They are primitive types which means they have only one property which is a value. We also explored a bit array and objects that are complex types. They may have multiple properties. Here are more examples of data structures in JS:"
       },
       {
@@ -62,59 +58,7 @@
       }
     ]
   },
-  {
-    "title": "Mutability and reference",
-    "data": [
-      {
-        "type": "Text",
-        "value": "Take a look at this code:"
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3]\n\narr[2] = 4\n\nconsole.log(arr) // [1, 2, 4]",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "If you studied the 'variables' lesson from the previous chapter, this code might seem strange to you. Variables declared with the const keyword can't have their value reassigned. However, in the case of complex variables like arrays, the value of the variable refers to the reference or address of the object in memory, not its contents. This means that while you can't reassign the entire array to a new array or value, you can still modify the elements within the array or object properties. For example, you can add, remove, or change elements in an array even if it's declared with const."
-      },
-      {
-        "type": "Block",
-        "value": [
-          {
-            "type": "Text",
-            "value": "If you want to prevent modifying elements of an object you can use 'as const' but this works only in TypeScript"
-          },
-          {
-            "type": "Code",
-            "value": "const arr = [1, 2, 3] as const\n\narr[2] = 4 // Cannot assign to '2' because it is a read-only property.",
-            "props": { "language": "javascript" }
-          }
-        ],
-        "props": {
-          "type": "info"
-        }
-      },
-      {
-        "type": "Text",
-        "value": "As a consequence of this, if we assign the same object to two or more variables, they will point to the same entity: any change made through one variable will be reflected when accessing the object through the other variables. For instance, if we change a property of the object, this change will be visible in all variables referencing that object."
-      },
-      {
-        "type": "Code",
-        "value": "const a = { name: 'Adam' }\nconst b = a\n\nb.age = 32\n\nconsole.log(a, b); //{name: 'Adam', age: 32}, {name: 'Adam', age: 32}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "If we use === to check if two objects are equal we would get false even if both look exactly the same. This is because variables that hold objects store references to the memory location where the object is stored, not the actual object itself. Thus, even if two objects have identical properties and values, they are considered different entities in memory. Think of those identical objects like identical twins; they look the same but are still two different people."
-      },
-      {
-        "type": "Code",
-        "value": "const person1 = { name: 'Adam', age: 32 }\nconst person2 = { name: 'Adam', age: 32 }\n\nconsole.log(person1 === person2) //false",
-        "props": {"language": "javascript" }
-      }
-    ]
-  },
+
   {
     "title": "Truthy and falsy",
     "data": [
@@ -195,6 +139,59 @@
       {
         "type": "Code",
         "value": "// Define a constructor function\nfunction Person(name) {\n  this.name = name\n}\n\n// Create an instance of Person\nlet person1 = new Person('Alice')\n\nconsole.log(person1 instanceof Person) // true\nconsole.log(person1 instanceof Object) // true\n\nlet date = new Date()\nconsole.log(date instanceof Date) // true\nconsole.log(date instanceof Object) // true\nconsole.log(date instanceof Person) // false\n\nlet arr = []\nconsole.log(arr instanceof Array) // true\nconsole.log(arr instanceof Object) // true\nconsole.log(arr instanceof Date) // false",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Mutability and reference",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Take a look at this code:"
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3]\n\narr[2] = 4\n\nconsole.log(arr) // [1, 2, 4]",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "If you studied the 'variables' lesson from the previous chapter, this code might seem strange to you. Variables declared with the const keyword can't have their value reassigned. However, in the case of complex variables like arrays, the value of the variable refers to the reference or address of the object in memory, not its contents. This means that while you can't reassign the entire array to a new array or value, you can still modify the elements within the array or object properties. For example, you can add, remove, or change elements in an array even if it's declared with const."
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "If you want to prevent modifying elements of an object you can use 'as const' but this works only in TypeScript"
+          },
+          {
+            "type": "Code",
+            "value": "const arr = [1, 2, 3] as const\n\narr[2] = 4 // Cannot assign to '2' because it is a read-only property.",
+            "props": { "language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      },
+      {
+        "type": "Text",
+        "value": "As a consequence of this, if we assign the same object to two or more variables, they will point to the same entity: any change made through one variable will be reflected when accessing the object through the other variables. For instance, if we change a property of the object, this change will be visible in all variables referencing that object."
+      },
+      {
+        "type": "Code",
+        "value": "const a = { name: 'Adam' }\nconst b = a\n\nb.age = 32\n\nconsole.log(a, b); //{name: 'Adam', age: 32}, {name: 'Adam', age: 32}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "If we use === to check if two objects are equal we would get false even if both look exactly the same. This is because variables that hold objects store references to the memory location where the object is stored, not the actual object itself. Thus, even if two objects have identical properties and values, they are considered different entities in memory. Think of those identical objects like identical twins; they look the same but are still two different people."
+      },
+      {
+        "type": "Code",
+        "value": "const person1 = { name: 'Adam', age: 32 }\nconst person2 = { name: 'Adam', age: 32 }\n\nconsole.log(person1 === person2) //false",
         "props": { "language": "javascript" }
       }
     ]
