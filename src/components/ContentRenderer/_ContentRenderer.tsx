@@ -1,15 +1,21 @@
 import React from 'react'
-import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native'
 import CodeHighlighter from 'react-native-code-highlighter'
-import RenderHtml from 'react-native-render-html'
+
 import YoutubePlayer from 'react-native-youtube-iframe'
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { boldTextColor } from '../../utils/constants'
 import { Component } from '../../utils/types'
 import Block from './Block'
 import ImageComponent from './ImageComponent'
 import { List, ListElement } from './List'
 import Math from './Math'
-import { boldTextColor, textColor } from '../../utils/constants'
+import Paragraph from './Paragraph'
 import Spoiler from './Spoiler'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
@@ -25,20 +31,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
   switch (componentType) {
     case 'Text':
-      let modifiedValue =
-        `<span style=" font-size: 18px; color: ${textColor}; line-height: 25px; width: ${
-          props?.toLeft ? width * 0.9 : null
-        }px">` +
-        value +
-        '</span>'
-
-      return (
-        <RenderHtml
-          key={key}
-          contentWidth={width}
-          source={{ html: modifiedValue }}
-        />
-      )
+      return <Paragraph value={value} width={width} key={key} props={props} />
 
     case 'Header':
       function setFontSize(): number {
@@ -133,7 +126,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         // <ScrollView horizontal={true} contentContainerStyle={{overflow: 'auto', elevation: 10, backgroundColor: 'transparent', width: 320}}>
         <View
           key={key}
-          style={{ width: width*.93, paddingBottom: 0  }} //można jeszcze określić maxWidth dla większych ekranów
+          style={{ width: width * 0.93, paddingBottom: 0 }} //można jeszcze określić maxWidth dla większych ekranów
           // horizontal
         >
           <CodeHighlighter
@@ -142,7 +135,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             language={props.language}
             //@ts-ignore
             customStyle={styles.code}
-            containerStyle={{ paddingVertical: 10, }}//used to be width 100%
+            containerStyle={{ paddingVertical: 10 }} //used to be width 100%
           >
             {value}
           </CodeHighlighter>
