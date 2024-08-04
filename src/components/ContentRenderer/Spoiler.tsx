@@ -1,6 +1,9 @@
-import BottomSheet, { BottomSheetBackdrop, BottomSheetScrollView } from '@gorhom/bottom-sheet'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { StyleSheet, Text, View, BackHandler, ScrollView } from 'react-native'
+import BottomSheet, {
+  BottomSheetBackdrop,
+  BottomSheetScrollView,
+} from '@gorhom/bottom-sheet'
+import React, { useCallback, useEffect, useRef } from 'react'
+import { StyleSheet, Text, View, BackHandler } from 'react-native'
 import {
   GestureHandlerRootView,
   PanGestureHandler,
@@ -9,20 +12,27 @@ import {
 import { Button, Portal } from 'react-native-paper'
 import { gradient, surfaceBg } from '../../utils/constants'
 import ContentRenderer from './_ContentRenderer'
+import useStore from '../../utils/store'
 
-export default function Spoiler({ value, props }) {
+export default function Spoiler() {
   const bottomSheetRef = useRef(null)
   const snapPoints = ['25%', '50%', '75%']
-  const [isOpen, setIsOpen] = useState(false)
+  const showBottomSheet = useStore(state => state.showBottomSheet)
+  const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
+  const bottomSheetContent = useStore.getState().bottomSheetContent
 
   const openBottomSheet = () => {
-    setIsOpen(true)
-    bottomSheetRef.current.snapToIndex(props ? props.index : 0)
+    if (bottomSheetRef.current) {
+      setShowBottomSheet(true)
+      bottomSheetRef.current.snapToIndex( 0)
+    }
   }
 
   const closeBottomSheet = () => {
-    setIsOpen(false)
-    bottomSheetRef.current.close()
+    if (bottomSheetRef.current) {
+      setShowBottomSheet(false)
+      bottomSheetRef.current.close()
+    }
   }
 
   const handleGestureEvent = event => {
@@ -32,8 +42,35 @@ export default function Spoiler({ value, props }) {
   }
 
   useEffect(() => {
-    console.log(value)
-  }, [])
+    console.log(bottomSheetContent)
+  }, []);
+
+  useEffect(() => {
+    if (showBottomSheet) {
+      openBottomSheet()
+    } else {
+      closeBottomSheet()
+    }
+    // console.log(value)
+  }, [showBottomSheet])
+
+
+  useEffect(() => {
+    const backAction = () => {
+      if (showBottomSheet) {
+        closeBottomSheet()
+        return true
+      }
+      return false
+    }
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    )
+
+    return () => backHandler.remove()
+  }, [showBottomSheet])
 
   const renderBackdrop = useCallback(
     props => (
@@ -47,40 +84,22 @@ export default function Spoiler({ value, props }) {
     []
   )
 
-  useEffect(() => {
-    const backAction = () => {
-      if (isOpen) {
-        closeBottomSheet()
-        return true
-      }
-      return false
-    }
-
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction
-    )
-
-    return () => backHandler.remove()
-  }, [isOpen])
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <PanGestureHandler onGestureEvent={handleGestureEvent}>
         <View style={{ flex: 1 }}>
-          <Button mode="contained" onPress={openBottomSheet}>
+          {/* <Button mode="contained" onPress={openBottomSheet}>
             Pokaż spoiler
-          </Button>
+          </Button> */}
 
           <Portal>
             <BottomSheet
-              //* wkrótce będzie można ustawić synamiczne snappointy
               ref={bottomSheetRef}
               index={-1}
               snapPoints={snapPoints}
               onChange={index => {
                 if (index === -1) {
-                  setIsOpen(false)
+                  setShowBottomSheet(false)
                 }
               }}
               enablePanDownToClose
@@ -94,11 +113,12 @@ export default function Spoiler({ value, props }) {
               }}
               backgroundStyle={{ backgroundColor: surfaceBg }}
               backdropComponent={renderBackdrop}
-              style={{flex:1}}
+              style={{ flex: 1 }}
             >
-              <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
-                {/* <Text style={styles.spoilerText}>This is a spoiler!</Text> */}
-                {value.map((item, index) => (
+              <BottomSheetScrollView
+                contentContainerStyle={styles.contentContainer}
+              >
+                {bottomSheetContent?.map((item, index) => (
                   <ContentRenderer key={index} content={[item]} />
                 ))}
               </BottomSheetScrollView>
@@ -112,14 +132,8 @@ export default function Spoiler({ value, props }) {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    // flex: 1,
     alignItems: 'center',
     gap: 10,
     padding: 20,
   },
-  // spoilerText: {
-  //   fontSize: 18,
-  //   fontWeight: 'bold',
-  //   marginTop: 20,
-  // },
 })

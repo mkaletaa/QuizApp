@@ -2,22 +2,6 @@
   {
     "data": [
       {
-        "type": "Spoiler",
-        "value": [
-          {
-            "type": "Text",
-            "value": "Zawartość spoilera",
-            "props": {
-              "toLeft": false
-            }
-          },
-          {
-            "type": "Image",
-            "value": "https://i.postimg.cc/vHL8D75v/image.png"
-          }
-        ]
-      },
-      {
         "type": "Math",
         "value": "`sum(wwwwwwwwwwwwwwwwwwwwwwwwwwiwwwvvv)`",
         "props": { 
@@ -30,7 +14,7 @@
       },
       {
         "type": "Text",
-        "value": "Na samym wstępie coś o strukturze. Plik z teorią podzielony jest na segmenty. Segmenty są oddzielony nagłówkami, które się przyklejają do góry ekranu a miarę scrollowania. Oto jak wygląda to w kodzie:"
+        "value": "<ins id='test'>&nbsp;Test&nbsp;</ins> Na samym wstępie coś o strukturze.<ins id='hello'>&nbsp;Hello World&nbsp;</ins> Plik z teorią podzielony jest na segmenty. Segmenty są oddzielony nagłówkami, które się przyklejają do góry ekranu a miarę scrollowania. Oto jak wygląda to w kodzie:"
       },
       {
         "type": "Code",

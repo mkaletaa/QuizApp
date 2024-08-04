@@ -114,8 +114,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
     case 'Math': //tutaj już przygotować odpowiednio width
       return <Math width={width} value={value} props={props} />
 
-    case 'Spoiler':
-      return <Spoiler value={value} props={props} />
+    // case 'Spoiler':
+    //   return <Spoiler value={value} props={props} />
 
     case 'Code':
       const codeContainerStyle = {

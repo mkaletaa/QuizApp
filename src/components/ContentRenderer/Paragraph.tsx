@@ -2,28 +2,34 @@ import React from 'react'
 import RenderHtml from 'react-native-render-html'
 import { textColor } from '../../utils/constants'
 import { Alert } from 'react-native'
+import glossary from '../../../data/glossary.json'
+// import Spoiler from './Spoiler'
+import useStore from '../../utils/store'
 
 export default function Paragraph({ value, width, props }) {
+    const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
+    const setBottomSheetContent = useStore(state => state.setBottomSheetContent)
+
   let modifiedValue =
     `<span id="customSpan" style="font-size: 18px; color: ${textColor}; line-height: 25px; width: ${
       props?.toLeft ? width * 0.9 : 'auto'
     }px">` +
-    '<ins style="color: purple" data-role="admin" id="customId">Press me!</ins> ' +
+    // '<ins data-role="admin" id="hello">Press me!</ins> ' +
     value +
     '</span>'
 
-  function getObjectKeys(obj, seen = new Set()) {
-    // Iteracja przez klucze obiektu
-    for (const key in obj) {
-      // Sprawdzanie, czy obiekt ma dany klucz (pomijanie dziedziczonych)
-      if (obj.hasOwnProperty(key)) {
-        // Sprawdzanie, czy wartość klucza nie jest `undefined`
-        if (obj[key] !== undefined) {
-          console.log(key) // Wypisanie klucza
-        }
-      }
-    }
-  }
+//   function getObjectKeys(obj, seen = new Set()) {
+//     // Iteracja przez klucze obiektu
+//     for (const key in obj) {
+//       // Sprawdzanie, czy obiekt ma dany klucz (pomijanie dziedziczonych)
+//       if (obj.hasOwnProperty(key)) {
+//         // Sprawdzanie, czy wartość klucza nie jest `undefined`
+//         if (obj[key] !== undefined) {
+//           console.log(key) // Wypisanie klucza
+//         }
+//       }
+//     }
+//   }
 
   function InsRenderer({ TDefaultRenderer, ...props }) {
     const {
@@ -46,15 +52,21 @@ export default function Paragraph({ value, width, props }) {
     } = props
     // const id = domNode
 
+    const id = tnode.init.domNode.attribs['id']
     const onPress = () => {
-      console.log(`Props: ${JSON.stringify(tnode.init.domNode.attribs['id'])}`)
+        
+    //   Alert.alert(`${glossary[id]}`)
+
+    setBottomSheetContent(glossary[id])
+      setShowBottomSheet(true)
+    //   Alert.alert(`Props: ${JSON.stringify(tnode.init.domNode.attribs['id'])}`)
     }
 
     return (
       <TDefaultRenderer
         {...props}
         onPress={onPress}
-        style={{ color: 'blue', textDecorationLine: 'underline' }} // Optional: Styling for interactivity
+        style={{ color: 'red', textDecorationLine: 'none', backgroundColor: 'rgba(255, 0, 0, .1)' }} // Optional: Styling for interactivity
       />
     )
   }
@@ -64,10 +76,13 @@ export default function Paragraph({ value, width, props }) {
   }
 
   return (
+    <>
     <RenderHtml
       contentWidth={width}
       source={{ html: modifiedValue }}
       renderers={renderers}
-    />
+      />
+      {/* <Spoiler value={[]} props={null} /> */}
+    </>
   )
 }

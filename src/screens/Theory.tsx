@@ -30,7 +30,7 @@ import useStore from '../utils/store'
 import Spoiler from '../components/ContentRenderer/Spoiler'
 import { AntDesign } from '@expo/vector-icons'
 import { Snackbar } from 'react-native-paper'
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/native'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -81,9 +81,7 @@ export default function Theory({ route }) {
     }
   }, [])
 
-  useFocusEffect(()=>{
-
-  })
+  useFocusEffect(() => {})
 
   const renderHeader = () => (
     // <TouchableWithoutFeedback
@@ -320,7 +318,10 @@ export default function Theory({ route }) {
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
       )}
       {shouldMemoize ? (
-        memoizedComponents
+        <React.Fragment>
+          <Spoiler />
+          {memoizedComponents}
+        </React.Fragment>
       ) : (
         <ActivityIndicator
           size={50}
