@@ -1,0 +1,326 @@
+{
+  "tags": {
+    "meter": {
+      "tagName": "meter",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "progress": {
+      "tagName": "progress",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "select": {
+      "tagName": "select",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false,
+      "reactNativeProps": {
+        "native": {
+          "accessible": true,
+          "accessibilityRole": "combobox"
+        }
+      }
+    },
+    "details": {
+      "tagName": "details",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "dialog": {
+      "tagName": "dialog",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "output": {
+      "tagName": "output",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "summary": {
+      "tagName": "summary",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "textarea": {
+      "tagName": "textarea",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "accesskey": {
+      "tagName": "accesskey",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "caption": {
+      "tagName": "caption",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "col": {
+      "tagName": "col",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "colgroup": {
+      "tagName": "colgroup",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "datalist": {
+      "tagName": "datalist",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "source": {
+      "tagName": "source",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "track": {
+      "tagName": "track",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "optgroup": {
+      "tagName": "optgroup",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "option": {
+      "tagName": "option",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "param": {
+      "tagName": "param",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "area": {
+      "tagName": "area",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "map": {
+      "tagName": "map",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    },
+    "base": {
+      "tagName": "base",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "head": {
+      "tagName": "head",
+      "contentModel": "none",
+      "isOpaque": true,
+      "isVoid": false
+    },
+    "link": {
+      "tagName": "link",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "meta": {
+      "tagName": "meta",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": true
+    },
+    "title": {
+      "tagName": "title",
+      "contentModel": "none",
+      "isOpaque": false,
+      "isVoid": false
+    }
+  },
+  "classesStyles": {},
+  "tagsStyles": {},
+  "idsStyles": {},
+  "enableCSSInlineProcessing": true,
+  "enableUserAgentStyles": true,
+  "baseStyles": {
+    "nativeTextFlow": {
+      "fontSize": 14
+    },
+    "nativeBlockFlow": {},
+    "webTextFlow": {
+      "whiteSpace": "normal"
+    }
+  },
+  "removeLineBreaksAroundEastAsianDiscardSet": false,
+  "domNode": {
+    "type": "tag",
+    "parent": {
+      "type": "tag",
+      "parent": {
+        "type": "tag",
+        "parent": {
+          "type": "root",
+          "parent": null,
+          "prev": null,
+          "next": null,
+          "startIndex": null,
+          "endIndex": null,
+          "children": [null]
+        },
+        "prev": null,
+        "next": null,
+        "startIndex": null,
+        "endIndex": null,
+        "children": [null],
+        "name": "body",
+        "attribs": {}
+      },
+      "prev": null,
+      "next": null,
+      "startIndex": null,
+      "endIndex": null,
+      "children": [null, {
+        "type": "text",
+        "next": {
+          "type": "tag",
+          "next": null,
+          "startIndex": null,
+          "endIndex": null,
+          "children": [{
+            "type": "text",
+            "prev": null,
+            "next": null,
+            "startIndex": null,
+            "endIndex": null,
+            "data": "short descirtption of a cat_1. Lorem ipsum dolor sit amet. Większość wziąłem sta i stad. Jak coś to pretensje nie do mnie. Powowdzeni ade iue duoe ydi"
+          }],
+          "name": "span",
+          "attribs": {
+            "style": "font-size:16px"
+          }
+        },
+        "startIndex": null,
+        "endIndex": null,
+        "data": " "
+      }, null],
+      "name": "span",
+      "attribs": {
+        "style": "font-size: 18px; color: rgb(40, 40, 55); line-height: 25px; width: autopx"
+      }
+    },
+    "prev": null,
+    "startIndex": null,
+    "endIndex": null,
+    "children": [{
+      "type": "text",
+      "prev": null,
+      "next": null,
+      "startIndex": null,
+      "endIndex": null,
+      "data": "Press me!"
+    }],
+    "name": "ins",
+    "attribs": {
+      "style": "color: purple",
+      "data-role": "admin",
+      "id": "customId"
+    }
+  },
+  "parent": {
+    "init": {
+      "nodeIndex": 0,
+      "parent": {
+        "init": {
+          "nodeIndex": 0,
+          "parent": {
+            "init": {},
+            "classes": [],
+            "markers": {},
+            "children": [null],
+            "context": {
+              "baseHref": "about:blank",
+              "baseTarget": "_self",
+              "charset": "utf-8",
+              "title": "",
+              "links": [],
+              "meta": []
+            },
+            "__trimmedLeft": true,
+            "__trimmedRight": true,
+            "__nativeStyles": {},
+            "__nativeProps": null
+          }
+        },
+        "styles": {
+          "nativeTextFlow": {
+            "fontSize": 14
+          },
+          "webTextFlow": {
+            "whiteSpace": "normal"
+          }
+        },
+        "children": [{
+          "init": {
+            "elementModel": null,
+            "parent": null
+          },
+          "markers": {},
+          "styles": {
+            "nativeTextFlow": {
+              "fontSize": 14
+            },
+            "webTextFlow": {
+              "whiteSpace": "normal"
+            }
+          },
+          "children": [null],
+          "__trimmedLeft": true,
+          "__trimmedRight": true,
+          "__nodeIndex": 0,
+          "__nativeStyles": {
+            "fontSize": 14
+          }
+        }],
+        "__nodeIndex": 0,
+        "__trimmedLeft": true,
+        "__trimmedRight": true,
+        "__nativeStyles": {},
+        "__nativeProps": null
+      },
+      "styles": {
+        "nativeTextFlow": {
+          "fontSize": 18,
+          "color": "rgb(40, 40, 55)",
+          "lineHeight": "25px",
+          "width": "autopx"
+        }
+      },
+      "children": [null],
+      "__trimmedLeft": true,
+      "__trimmedRight": true,
+      "__nodeIndex": 0,
+      "__nativeStyles": {},
+      "__nativeProps": null
+    }
+  }
+}
