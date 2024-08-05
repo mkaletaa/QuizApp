@@ -110,8 +110,9 @@ export default function Block({
             style={{
               flexWrap: 'wrap',
               // backgroundColor: 'tomato',
-              width: '100%', //maxWidth
+              width: '95%', //maxWidth
               gap: 10,
+              marginHorizontal: 'auto',
             }}
           >
             <ContentRenderer

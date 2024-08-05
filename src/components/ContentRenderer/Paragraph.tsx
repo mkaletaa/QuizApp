@@ -13,7 +13,7 @@ export default function Paragraph({ value, width, props }) {
 
   let modifiedValue =
     `<span id="customSpan" style="font-size: 18px; color: ${textColor}; line-height: 25px; width: ${
-      props?.toLeft ? width * 0.9 : 'auto'
+      props?.center ? 'auto' : width * 0.9 
     }px">` +
     value +
     '</span>'

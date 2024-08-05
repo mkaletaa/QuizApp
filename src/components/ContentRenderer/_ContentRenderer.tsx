@@ -169,7 +169,7 @@ export default function ContentRenderer({
   // if a question is text only, turn it into one element array
   const contentArray: Component[] = Array.isArray(content)
     ? content
-    : [{ type: 'Text', value: content }]
+    : [{ type: 'Text', value: content, props:{center: true} }]
 
   if (!width) width = Dimensions.get('window').width
 

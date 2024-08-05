@@ -53,7 +53,9 @@
         "value": [
           {
             "type": "Text",
-            "value": "edede w loirem ipsum neriuf i i i i i i i i .  erberf befh erbfuih r"
+            "value": "edede w loirem ipsum  f befh erbfuih r",
+            "props": {"center": true}
+          
           },
           {
             "type": "Divider"
