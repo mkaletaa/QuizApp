@@ -3,7 +3,11 @@
     "data": [
       {
         "type": "Text",
-        "value": "<ins id='hello'>&nbsp;wswswsw&nbsp;</ins>"
+        "value": "<ins data-def='hello' class='def'>&nbsp;wswswsw&nbsp;</ins>"
+      },
+      {
+        "type": "Text",
+        "value": "<ins data-destination='Saved' class='nav'>&nbsp;navigate to&nbsp;</ins>"
       },
       {
         "type": "Block",

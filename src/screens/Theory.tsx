@@ -1,5 +1,6 @@
-import { Entypo } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
 import { useHeaderHeight } from '@react-navigation/elements'
+import { useFocusEffect } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
@@ -9,11 +10,12 @@ import {
   SectionList,
   StyleSheet,
   Text,
-  TouchableWithoutFeedback,
-  View,
+  View
 } from 'react-native'
+import { Snackbar } from 'react-native-paper'
 import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
+import Spoiler from '../components/ContentRenderer/Spoiler'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import TheoryPopup from '../components/molecules/TheoryPopup'
 import QuizButton from '../components/molecules/atoms/QuizButton'
@@ -27,10 +29,7 @@ import {
   surfaceBg,
 } from '../utils/constants'
 import useStore from '../utils/store'
-import Spoiler from '../components/ContentRenderer/Spoiler'
-import { AntDesign } from '@expo/vector-icons'
-import { Snackbar } from 'react-native-paper'
-import { useFocusEffect } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
 export default function Theory({ route }) {
   const sectionListRef = useRef()
@@ -42,6 +41,20 @@ export default function Theory({ route }) {
   const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
+
+
+    const navigateTo = useStore(state => state.navigateTo)
+    const setNavigateTo = useStore(state => state.setNavigateTo)
+
+    const navigation = useNavigation()
+    useEffect(() => {
+      if (navigateTo) {
+        //   setTimeout(() => {
+        navigation.navigate(navigateTo)
+        setNavigateTo(null)
+        //   }, 0)
+      }
+    }, [navigateTo])
   // const { images, addImage, removeImage } = useStore()
 
   // const setShowPopup = useStore(state => state.setShowPopup)
@@ -375,3 +388,6 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
 })
+function useNavigate() {
+  throw new Error('Function not implemented.')
+}

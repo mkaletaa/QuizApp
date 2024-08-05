@@ -24,7 +24,7 @@ export default function Spoiler() {
   const openBottomSheet = () => {
     if (bottomSheetRef.current) {
       setShowBottomSheet(true)
-      bottomSheetRef.current.snapToIndex( 0)
+      bottomSheetRef.current.snapToIndex(0)
     }
   }
 
@@ -41,9 +41,7 @@ export default function Spoiler() {
     }
   }
 
-  useEffect(() => {
-    console.log(bottomSheetContent)
-  }, []);
+
 
   useEffect(() => {
     if (showBottomSheet) {
@@ -53,7 +51,6 @@ export default function Spoiler() {
     }
     // console.log(value)
   }, [showBottomSheet])
-
 
   useEffect(() => {
     const backAction = () => {
