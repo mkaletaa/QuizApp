@@ -7,8 +7,9 @@
       },
       {
         "type": "Text",
-        "value": "<ins data-destination='Saved' class='nav'>&nbsp;navigate to&nbsp;</ins>"
+        "value": "<ins data-destination='Theory' data-chapter='cat_1' data-topic='top_1' class='nav'>&nbsp;navigate to&nbsp;</ins>"
       },
+
       {
         "type": "Block",
         "value": [],

@@ -10,7 +10,7 @@ import {
   SectionList,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native'
 import { Snackbar } from 'react-native-paper'
 import { thereIsNothingHere } from '../../data/texts'
@@ -42,22 +42,20 @@ export default function Theory({ route }) {
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
 
+  // const navigateTo = useStore(state => state.navigateTo)
+  // const setNavigateTo = useStore(state => state.setNavigateTo)
+  // const navigation = useNavigation()
 
-    const navigateTo = useStore(state => state.navigateTo)
-    const setNavigateTo = useStore(state => state.setNavigateTo)
+  // useEffect(() => {
+  // if (navigateTo) {
+  //   const { destination, topic, chapter } = navigateTo
 
-    const navigation = useNavigation()
-    useEffect(() => {
-      if (navigateTo) {
-        //   setTimeout(() => {
-        navigation.navigate(navigateTo)
-        setNavigateTo(null)
-        //   }, 0)
-      }
-    }, [navigateTo])
-  // const { images, addImage, removeImage } = useStore()
-
-  // const setShowPopup = useStore(state => state.setShowPopup)
+  //   // navigation.navigate("Theory", { topicName: "top_1", chapterName: "cat_1" })
+  //   navigation.navigate(destination, { topicName: topic, chapterName: chapter })
+ 
+  //   setNavigateTo(undefined)
+  // }
+  // }, [navigateTo])
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])

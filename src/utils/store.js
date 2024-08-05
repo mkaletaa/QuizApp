@@ -6,7 +6,7 @@ const useStore = create(set => ({
   // showPopup: false, // should a popup in Theory/ItemResult be shown
   showBottomSheet: false,
   bottomSheetContent: [],
-  navigateTo: undefined,
+  // navigateTo: undefined,
   addImage: (imageUrl, imageDes) => {
     set(state => ({
       images: [...state.images, { url: imageUrl, des: imageDes }],
@@ -19,10 +19,7 @@ const useStore = create(set => ({
   disableCarousel: () => set(state => ({ carousel: false })),
   setShowBottomSheet: show => set({ showBottomSheet: show }),
   setBottomSheetContent: state => set({ bottomSheetContent: state }),
-  setNavigateTo: state => {
-    console.log('Setting navigateTo:', state)
-    set({ navigateTo: state })
-  },
+  // setNavigateTo: (destination, chapter, topic) => set({ navigateTo: {destination, chapter, topic} }),
 }))
 
 export default useStore

@@ -21,20 +21,20 @@ export default function Paragraph({ value, width, props }) {
     const { tnode } = props
 
     const className = tnode.init.domNode.attribs.class
-    const destination = tnode.init.domNode.attribs['data-destination']
     const def = tnode.init.domNode.attribs['data-def']
+    // const destination = tnode.init.domNode.attribs['data-destination']
+    // const chapter = tnode.init.domNode.attribs['data-chapter']
+    // const topic = tnode.init.domNode.attribs['data-topic']
 
     const onPress = () => {
-      console.log("🚀 ~ onPress ~ destination:", destination)
       
-      if (destination) {
-        setNavigateTo('Settings')
-        return
-      }
-      // if(destination) {
-      //   // Alert.alert(`${JSON.stringify(tnode.init.domNode.attribs)}`)
+      // if (destination) {
+      //   setNavigateTo(destination, chapter, topic)
       //   return
       // }
+      if(className !== 'def')
+        return
+
       setBottomSheetContent(glossary[def])
       setShowBottomSheet(true)
     }
@@ -44,9 +44,9 @@ export default function Paragraph({ value, width, props }) {
         {...props}
         onPress={onPress}
         style={{
-          color: 'red',
+          color: className === 'def' ? 'red' : 'blue',
           textDecorationLine: 'none',
-          backgroundColor: 'rgba(255, 0, 0, .1)',
+          backgroundColor: className === 'def' ? 'rgba(255, 0, 0, .1)' : 'rgba(0, 0, 255, .1)',
         }}
       />
     )
