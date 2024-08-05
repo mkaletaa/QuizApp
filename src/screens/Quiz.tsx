@@ -192,9 +192,9 @@ export default function Quiz({ route }) {
 
         {item && (
           <React.Fragment>
-            <View style={{ marginTop: 50, width: '90%' }}>
+            <View style={{ marginTop: 50, width: '80%' }}>
               {/* <Question question={item?.question} /> */}
-              <ContentRenderer content={item?.question} />
+              <ContentRenderer content={item?.question} width={screenWidth * .9} />
             </View>
 
             {hideAnswers ? (
