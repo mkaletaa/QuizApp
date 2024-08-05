@@ -20,8 +20,8 @@ export default function Math({ width, value, props }) {
         #math-container {
           overflow-x: auto;
           max-width: 100%;
-          font-size: ${props?.fontSize ? props.fontSize : 15}px;
-          height: ${props?.height ? props.height : 70}px;
+          font-size: ${props?.fontSize || 15}px;
+          height: ${props?.height || 70}px;
           display: flex;
           align-items: center;
           padding-right: ${width * 0.05}px !important;
@@ -39,7 +39,7 @@ export default function Math({ width, value, props }) {
     <View
       style={{
         width: width,
-        height: props?.height ? props.height : 70,
+        height: props?.height || 70,
       }}
       onStartShouldSetResponder={event => true}
       onTouchEnd={e => {

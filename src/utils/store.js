@@ -5,6 +5,7 @@ const useStore = create(set => ({
   images: [], //images to display in the carousel
   // showPopup: false, // should a popup in Theory/ItemResult be shown
   showBottomSheet: false,
+  bottomSheetSnapIndex: 0,
   bottomSheetContent: [],
   // navigateTo: undefined,
   addImage: (imageUrl, imageDes) => {
@@ -18,6 +19,7 @@ const useStore = create(set => ({
   enableCarousel: () => set(state => ({ carousel: true })),
   disableCarousel: () => set(state => ({ carousel: false })),
   setShowBottomSheet: show => set({ showBottomSheet: show }),
+  setBottomSheetSnapIndex: index => set({ bottomSheetSnapIndex: index }),
   setBottomSheetContent: state => set({ bottomSheetContent: state }),
   // setNavigateTo: (destination, chapter, topic) => set({ navigateTo: {destination, chapter, topic} }),
 }))

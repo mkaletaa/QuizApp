@@ -12,17 +12,8 @@
             "type": "Text",
             "value": "dede"
           }
-        ]
-      },
-      {
-        "type": "Spoiler",
-        "id": "qqq",
-        "value": [
-          {
-            "type": "Text",
-            "value": "dupa dupa duap"
-          }
-        ]
+        ],
+        "props": {"index": 1, "text": "poka "}
       },
       {
         "type": "Text",

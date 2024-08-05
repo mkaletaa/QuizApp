@@ -3,34 +3,40 @@ import BottomSheet, {
   BottomSheetScrollView,
 } from '@gorhom/bottom-sheet'
 import React, { useCallback, useEffect, useRef } from 'react'
-import { StyleSheet, Text, View, BackHandler } from 'react-native'
+import { BackHandler, StyleSheet, View } from 'react-native'
 import {
   GestureHandlerRootView,
   PanGestureHandler,
   State,
 } from 'react-native-gesture-handler'
-import { Button, Portal } from 'react-native-paper'
-import { gradient, surfaceBg } from '../../utils/constants'
-import ContentRenderer from './_ContentRenderer'
+import { Portal } from 'react-native-paper'
+import { surfaceBg } from '../../utils/constants'
 import useStore from '../../utils/store'
+import ContentRenderer from './_ContentRenderer'
 
-export default function Spoiler({ value, props }) {
+export default function Spoiler() {
   const bottomSheetRef = useRef(null)
   const snapPoints = ['25%', '50%', '75%']
+
   const showBottomSheet = useStore(state => state.showBottomSheet)
-  const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
+  const snapIndex = useStore.getState().bottomSheetSnapIndex
   const bottomSheetContent = useStore.getState().bottomSheetContent
+  const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
+  const setBottomSheetSnapIndex = useStore(
+    state => state.setBottomSheetSnapIndex
+  )
 
   const openBottomSheet = () => {
     if (bottomSheetRef.current) {
       setShowBottomSheet(true)
-      bottomSheetRef.current.snapToIndex(0)
+      bottomSheetRef.current.snapToIndex(snapIndex || 0)
     }
   }
 
   const closeBottomSheet = () => {
     if (bottomSheetRef.current) {
       setShowBottomSheet(false)
+      setBottomSheetSnapIndex(0)
       bottomSheetRef.current.close()
     }
   }
