@@ -3,6 +3,7 @@ import { Image as ExpoImage } from 'expo-image'
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { useEffect, useState } from 'react'
 import {
+  ActivityIndicator,
   Dimensions,
   Image,
   Modal,
@@ -13,6 +14,7 @@ import {
 } from 'react-native'
 import ImageViewer from 'react-native-image-zoom-viewer'
 import useStore from '../../utils/store'
+import { spinner } from '../../utils/constants'
 
 const ImageComponent = ({
   width: containerWidth,
@@ -102,6 +104,15 @@ const ImageComponent = ({
         statusBarTranslucent={true}
       >
         <View style={styles.modalContainer}>
+          <ActivityIndicator
+            style={{
+              position: 'absolute',
+              zIndex: 0,
+            }}
+            size={50}
+            color={spinner}
+          />
+
           <AntDesign
             onPress={closeModal}
             name="left"
@@ -109,7 +120,7 @@ const ImageComponent = ({
             color="white"
             style={styles.closeButton}
           />
-          
+
           <ImageViewer
             imageUrls={images.length !== 0 ? images : [{ url: value }]}
             onChange={i =>
@@ -195,7 +206,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, .5)',
     borderRadius: 50,
     // textAlign: 'justify',
-    paddingRight: 10
+    paddingRight: 10,
   },
 })
 
