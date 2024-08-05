@@ -4,6 +4,7 @@ import { textColor } from '../../utils/constants'
 import { Alert } from 'react-native'
 import glossary from '../../../data/glossary.json'
 import useStore from '../../utils/store'
+// import {theory} from '../../../data/theory/theory'
 
 export default function Paragraph({ value, width, props }) {
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
@@ -21,6 +22,7 @@ export default function Paragraph({ value, width, props }) {
     const { tnode } = props
 
     const className = tnode.init.domNode.attribs.class
+    const id = tnode.init.domNode.attribs['data-id']
     const def = tnode.init.domNode.attribs['data-def']
     // const destination = tnode.init.domNode.attribs['data-destination']
     // const chapter = tnode.init.domNode.attribs['data-chapter']
@@ -32,6 +34,14 @@ export default function Paragraph({ value, width, props }) {
       //   setNavigateTo(destination, chapter, topic)
       //   return
       // }
+      if(className==='spoiler'){
+        // let content = null //może zrobić że w Theory theory jest przekazywane do Spoiler bo 
+        // content ||= theory.find(el=>el.type==='Spoiler' && el.id===id) 
+        // setBottomSheetContent(content)
+        setShowBottomSheet(true)
+        return
+      }
+
       if(className !== 'def')
         return
 

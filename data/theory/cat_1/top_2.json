@@ -6,6 +6,25 @@
         "value": "<ins data-def='hello' class='def'>&nbsp;wswswsw&nbsp;</ins>"
       },
       {
+        "type": "Spoiler",
+        "value": [
+          {
+            "type": "Text",
+            "value": "dede"
+          }
+        ]
+      },
+      {
+        "type": "Spoiler",
+        "id": "qqq",
+        "value": [
+          {
+            "type": "Text",
+            "value": "dupa dupa duap"
+          }
+        ]
+      },
+      {
         "type": "Text",
         "value": "<ins data-destination='Theory' data-chapter='cat_1' data-topic='top_1' class='nav'>&nbsp;navigate to&nbsp;</ins>"
       },

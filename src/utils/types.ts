@@ -9,7 +9,7 @@ type Type =
   | 'YouTube'
   | 'Code'
   | 'Quote'
-  // | 'Spoiler'
+  | 'Spoiler'
   | 'Divider'
   | 'BulletPoint' //the same as ListElement
 

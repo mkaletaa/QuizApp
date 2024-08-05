@@ -17,6 +17,7 @@ import { List, ListElement } from './List'
 import Math from './Math'
 import Paragraph from './Paragraph'
 import Spoiler from './Spoiler'
+import SpoilerButton from './SpoilerButton'
 
 //questionComponent is a string (if a question doesn't have any images etc.) or an object of a single question component like {"componentType": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
@@ -114,8 +115,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
     case 'Math': //tutaj już przygotować odpowiednio width
       return <Math width={width} value={value} props={props} />
 
-    // case 'Spoiler':
-    //   return <Spoiler value={value} props={props} />
+    case 'Spoiler':
+      return <SpoilerButton value={value} props={props} />
 
     case 'Code':
       const codeContainerStyle = {

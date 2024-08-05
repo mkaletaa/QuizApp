@@ -14,7 +14,7 @@ import { gradient, surfaceBg } from '../../utils/constants'
 import ContentRenderer from './_ContentRenderer'
 import useStore from '../../utils/store'
 
-export default function Spoiler() {
+export default function Spoiler({ value, props }) {
   const bottomSheetRef = useRef(null)
   const snapPoints = ['25%', '50%', '75%']
   const showBottomSheet = useStore(state => state.showBottomSheet)
@@ -40,8 +40,6 @@ export default function Spoiler() {
       closeBottomSheet()
     }
   }
-
-
 
   useEffect(() => {
     if (showBottomSheet) {
@@ -85,9 +83,7 @@ export default function Spoiler() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <PanGestureHandler onGestureEvent={handleGestureEvent}>
         <View style={{ flex: 1 }}>
-          {/* <Button mode="contained" onPress={openBottomSheet}>
-            Pokaż spoiler
-          </Button> */}
+
 
           <Portal>
             <BottomSheet
