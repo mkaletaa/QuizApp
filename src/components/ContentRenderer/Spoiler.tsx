@@ -10,6 +10,7 @@ import {
   State,
 } from 'react-native-gesture-handler'
 import { Portal } from 'react-native-paper'
+
 import { surfaceBg } from '../../utils/constants'
 import useStore from '../../utils/store'
 import ContentRenderer from './_ContentRenderer'
@@ -22,8 +23,34 @@ export default function Spoiler() {
   const snapIndex = useStore.getState().bottomSheetSnapIndex
   const bottomSheetContent = useStore.getState().bottomSheetContent
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
+
+  useEffect(() => {
+    if (showBottomSheet) {
+      openBottomSheet()
+    } else {
+      closeBottomSheet()
+    }
+  }, [showBottomSheet])
+
+  useEffect(() => {
+    const backAction = () => {
+      if (showBottomSheet) {
+        closeBottomSheet()
+        return true
+      }
+      return false
+    }
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    )
+
+    return () => backHandler.remove()
+  }, [showBottomSheet])
+
   const setBottomSheetSnapIndex = useStore(
-    state => state.setBottomSheetSnapIndex
+    state => state.setBottomSheetSnapIndex,
   )
 
   const openBottomSheet = () => {
@@ -47,32 +74,6 @@ export default function Spoiler() {
     }
   }
 
-  useEffect(() => {
-    if (showBottomSheet) {
-      openBottomSheet()
-    } else {
-      closeBottomSheet()
-    }
-    // console.log(value)
-  }, [showBottomSheet])
-
-  useEffect(() => {
-    const backAction = () => {
-      if (showBottomSheet) {
-        closeBottomSheet()
-        return true
-      }
-      return false
-    }
-
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction
-    )
-
-    return () => backHandler.remove()
-  }, [showBottomSheet])
-
   const renderBackdrop = useCallback(
     props => (
       <BottomSheetBackdrop
@@ -82,15 +83,13 @@ export default function Spoiler() {
         opacity={0.5}
       />
     ),
-    []
+    [],
   )
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <PanGestureHandler onGestureEvent={handleGestureEvent}>
         <View style={{ flex: 1 }}>
-
-
           <Portal>
             <BottomSheet
               ref={bottomSheetRef}

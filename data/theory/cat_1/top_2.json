@@ -3,7 +3,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "<ins data-def='hello' class='def'>&nbsp;wswswsw&nbsp;</ins>"
+        "value": "<ins data-key='hello' class='hint'>&nbsp;wswswsw&nbsp;</ins>"
       },
       {
         "type": "Spoiler",

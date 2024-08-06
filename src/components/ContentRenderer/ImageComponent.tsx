@@ -13,23 +13,26 @@ import {
   View,
 } from 'react-native'
 import ImageViewer from 'react-native-image-zoom-viewer'
-import useStore from '../../utils/store'
+
 import { spinner } from '../../utils/constants'
+import useStore from '../../utils/store'
 
 const ImageComponent = ({
   width: containerWidth,
   description,
   value,
-  orientation = null,
 }) => {
+  const images = useStore(state => state.images)
+
   const [modalVisible, setModalVisible] = useState(false)
   const [indexState, setIndexState] = useState(0)
-  const images = useStore(state => state.images)
   const [imageSize, setImageSize] = useState({
     width: Dimensions.get('window').width * 0.9,
     height: Dimensions.get('window').width * 0.9,
   })
-  // const [loading, setLoading] = useState(true)
+  const [descriptionState, setDescriptionState] = useState<string | undefined>(
+    undefined,
+  )
 
   const ratio = 0.9 // ratio between width of the image to screen (or container) width
 
@@ -47,28 +50,21 @@ const ImageComponent = ({
         const scaledWidth = containerWidth * ratio
         const scaledHeight = (height / width) * scaledWidth
         setImageSize({ width: scaledWidth, height: scaledHeight })
-        // setLoading(false)
       },
       error => {
         console.error(`Failed to get image size: ${error.message}`)
-        // setLoading(false)
-      }
+      },
     )
   }, [value, containerWidth, ratio])
 
-  const [descriptionState, setDescriptionState] = useState<string | undefined>(
-    undefined
-  )
 
   useEffect(() => {
     setDescriptionState(description || images[indexState]?.des)
   }, [modalVisible, indexState])
 
-  // const setShowPopup = useStore(state => state.setShowPopup)
 
   const openModal = () => {
     setModalVisible(true)
-    // setShowPopup(false)
   }
 
   const closeModal = () => {
@@ -125,7 +121,7 @@ const ImageComponent = ({
             imageUrls={images.length !== 0 ? images : [{ url: value }]}
             onChange={i =>
               setDescriptionState(
-                images.length !== 0 ? images[i]?.des : description
+                images.length !== 0 ? images[i]?.des : description,
               )
             }
             style={{ width: '100%' }}
@@ -201,11 +197,9 @@ const styles = StyleSheet.create({
     left: 20,
     padding: 8,
     zIndex: 1,
-    // textShadowColor: 'rgba(0, 0, 0, .9)',
     textShadowRadius: 7,
     backgroundColor: 'rgba(0, 0, 0, .5)',
     borderRadius: 50,
-    // textAlign: 'justify',
     paddingRight: 10,
   },
 })

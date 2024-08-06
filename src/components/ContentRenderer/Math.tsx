@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Pressable, TouchableWithoutFeedback } from 'react-native'
+import { View } from 'react-native'
 import WebView from 'react-native-webview'
 
 export default function Math({ width, value, props }) {
@@ -41,7 +41,7 @@ export default function Math({ width, value, props }) {
         width: width,
         height: props?.height || 70,
       }}
-      onStartShouldSetResponder={event => true}
+      onStartShouldSetResponder={e => true}
       onTouchEnd={e => {
         e.stopPropagation()
       }}

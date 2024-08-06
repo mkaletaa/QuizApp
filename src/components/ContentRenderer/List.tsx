@@ -1,23 +1,22 @@
+import { Entypo } from '@expo/vector-icons'
 import React from 'react'
 import { View } from 'react-native'
-import { renderComponent } from './_ContentRenderer'
-import { Entypo } from '@expo/vector-icons'
 import RenderHtml from 'react-native-render-html'
+
 import { boldTextColor, textColor } from '../../utils/constants'
+import { renderComponent } from './_ContentRenderer'
 
 export function List({ value, width }) {
   return (
     <React.Fragment>
       <View
         style={{
-          // backgroundColor: 'lightblue',
           maxWidth: '100%',
           gap: 5,
-          //
         }}
       >
         {
-          //@ts-ignore tutaj można też ListElement zamiast renderComponent
+          //@ts-ignore
           value.map((item, index) => renderComponent(item, width))
         }
       </View>
@@ -26,22 +25,21 @@ export function List({ value, width }) {
 }
 
 export function ListElement({ value, width }) {
-  // console.warn(value)
   let listValue =
-    `<span style="margin-bottom: 0px;  font-size: 18px; color: ${textColor}">` + value + '</span>'
+    `<span style="margin-bottom: 0px;  font-size: 18px; color: ${textColor}">` +
+    value +
+    '</span>'
   return (
     <View
       style={{
         flexDirection: 'row',
         width: '100%',
-        // backgroundColor: 'blue',
       }}
     >
       <View
         style={{
           width: '10%',
           alignItems: 'center',
-          // backgroundColor: 'red',
         }}
       >
         <Entypo name="dot-single" size={26} color={boldTextColor} />
