@@ -3,11 +3,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FlatList, Modal, Text, View } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { close, retake, retakeWrong } from '../../data/texts'
+
+import { close, exit, retake, retakeWrong } from '../../data/texts'
 import ItemResult from '../components/ItemResult'
-import Tile from '../components/Tile'
-import Chart from '../components/molecules/Chart'
 import Gradient from '../components/molecules/atoms/Gradient'
+import Chart from '../components/molecules/Chart'
+import Tile from '../components/Tile'
 import useOpenQuiz from '../hooks/useOpenQuiz'
 import { surfaceBg } from '../utils/constants'
 import { setColor } from '../utils/functions'
@@ -18,9 +19,11 @@ export default function QuizResults({ route }) {
   const [correctNr, setCorrectNr] = useState(0)
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState<Item>()
-  const [modalChoices, setModalChoices] = useState<Option[]>()
-  const { openQuiz } = useOpenQuiz()
   const [index, setIndex] = useState(0)
+  const [modalChoices, setModalChoices] = useState<Option[]>()
+
+  const { openQuiz } = useOpenQuiz()
+  const navigation = useNavigation()
 
   useEffect(() => {
     setResultsArray(route.params.resultsArray)
@@ -83,8 +86,6 @@ export default function QuizResults({ route }) {
     // <Chart resultsArray={resultsArray}/>
     null
 
-  const navigation = useNavigation()
-
   const ListFooter = () => (
     <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
       <PaperButton
@@ -124,14 +125,14 @@ export default function QuizResults({ route }) {
         }}
         onPress={() => navigation.goBack()}
       >
-        <Text style={{ color: 'white' }}>Wyjdź</Text>
+        <Text style={{ color: 'white' }}>{exit}</Text>
       </PaperButton>
     </View>
   )
 
   return (
     <SafeAreaView>
-      <View style={{height:"100%"}}>
+      <View style={{ height: '100%' }}>
         <Gradient />
         <FlatList
           data={resultsArray}
@@ -139,7 +140,7 @@ export default function QuizResults({ route }) {
           keyExtractor={(item, index) => index.toString()}
           ListHeaderComponent={ListHeader}
           ListFooterComponent={ListFooter}
-          contentContainerStyle={{paddingTop: 20}}
+          contentContainerStyle={{ paddingTop: 20 }}
         />
         <Modal
           animationType="fade"

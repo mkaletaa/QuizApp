@@ -1,20 +1,21 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import { ScrollView, View } from 'react-native'
+
 import { chapters, topics } from '../../data/data'
 import Card from '../components/Card'
-import ChapterDescription from '../components/molecules/ChapterDescription'
-import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import utilStyles from '../utils/styles'
-import { screenBackground } from '../utils/constants'
 import Gradient from '../components/molecules/atoms/Gradient'
+import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
+import ChapterDescription from '../components/molecules/ChapterDescription'
+import useOpenQuiz from '../hooks/useOpenQuiz'
+import { screenBackground } from '../utils/constants'
+import utilStyles from '../utils/styles'
+
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
-  const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
+  const [topicsToShow, setTopicsToShow] = useState([]) 
   const navigation = useNavigation()
-  const [showStats, setShowStats] = useState(false)
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export default function Topics({ route }) {
     setChapterDes(
       chapter
         ? "<span style='font-size:16px'>" + chapter + '</span>'
-        : undefined
+        : undefined,
     )
     if (chapterName && topics[chapterName]) {
       setChapterName(chapterName)
@@ -42,7 +43,7 @@ export default function Topics({ route }) {
     openQuiz({ topicName, chapterName })
   }
 
-  const [pressedTopic, setPressedTopic] = useState<string>()
+  // const [pressedTopic, setPressedTopic] = useState<string>()
   function handleLongPress(pressedTopicName: string) {
     // setPressedTopic(pressedTopicName)
     // setShowStats(true)

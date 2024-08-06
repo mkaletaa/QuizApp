@@ -14,6 +14,7 @@ import {
 } from 'react-native'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
+
 import {
   areYouSure,
   nah,
@@ -26,8 +27,8 @@ import {
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
-import Options from '../components/Options'
 import Line from '../components/molecules/atoms/Line'
+import Options from '../components/Options'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { buttonDark, screenBackground, spinner } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
@@ -45,7 +46,7 @@ export default function Quiz({ route }) {
   const [itemsCount, setItemsCount] = useState<number>(
     route.params.howManyItems
       ? route.params.howManyItems
-      : countItemsInTopic(route.params.topName, route.params.chapName)
+      : countItemsInTopic(route.params.topName, route.params.chapName),
   )
 
   const {
@@ -67,33 +68,32 @@ export default function Quiz({ route }) {
     shuffle: route.params.shuffle,
   })
 
-  //for some reason this useEffect runs right after mounting
-  //it also is triggered after next Btn press, because it is updated there
+  //it is triggered after next Btn press, because it is updated there
   useEffect(() => {
-    getNextItem() // pobranie pierwszego itema
+    getNextItem() // retrieving the first item
   }, [whichItem])
 
   function handleOptionPress(option: Option, action: 'add' | 'remove'): void {
-    //jeśli opcja została zaznaczona i jest multichoice
+    // if an options has been marked and multichoice
     if (action === 'add' && item.multiChoice) {
       setChosenOptions(prev => [...prev, option])
       return
     }
-
-    //jeśli opcja została zaznaczona i nie jest multichoice
+    
+    // if an options has been marked and no multichoice
     if (action === 'add' && !item.multiChoice) {
       setChosenOptions([option])
       return
     }
-
-    //jeśli opcja została odznaczona
+    
+    // if an options has been unmarked
     if (action === 'remove') {
       let chosenOptions2 = chosenOptions.filter(el => el.id !== option.id)
       setChosenOptions(chosenOptions2)
     }
   }
 
-  //activated after pressing zatwierdź button
+  //activated after pressing submit button
   function setResults() {
     let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' =
       returnIsCorrect(item, chosenOptions)
@@ -114,13 +114,13 @@ export default function Quiz({ route }) {
 
   function closeModalAndGoBack(): void {
     setShowExitModal(false)
-    navigation.goBack() // powrót do poprzedniego ekranu
+    navigation.goBack() 
   }
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
-      handleBackPress
+      handleBackPress,
     )
     return () => backHandler.remove() // Cleanup the event listener on unmount
   }, [])
@@ -129,8 +129,7 @@ export default function Quiz({ route }) {
     if (showExitModal) {
       // If the exit modal or general results are already visible, close them
       setShowExitModal(false)
-      // setShowGeneralResults(false)
-      navigation.goBack() // powrót do poprzedniego ek
+      navigation.goBack() 
     } else {
       // Otherwise, show the exit modal
       setShowExitModal(true)
@@ -173,7 +172,6 @@ export default function Quiz({ route }) {
           },
         ]}
       >
-        {/* <Gradient></Gradient> */}
         {
           <TouchableRipple
             borderless
@@ -193,8 +191,10 @@ export default function Quiz({ route }) {
         {item && (
           <React.Fragment>
             <View style={{ marginTop: 50, width: '80%' }}>
-              {/* <Question question={item?.question} /> */}
-              <ContentRenderer content={item?.question} width={screenWidth * .9} />
+              <ContentRenderer
+                content={item?.question}
+                width={screenWidth * 0.9}
+              />
             </View>
 
             {hideAnswers ? (
@@ -245,7 +245,6 @@ export default function Quiz({ route }) {
         onRequestClose={() => nextBtnPress()}
       >
         <ItemResult
-          // showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}
           handleBtnPress={nextBtnPress}

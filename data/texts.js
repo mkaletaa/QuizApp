@@ -38,3 +38,4 @@ export const hideAnswersExplain =
   'Uczymy się skuteczniej, gdy próbujemy przypomnieć sobie odpowiedź samemu, bez sugerowania się dostępnymi opcjami'
 export const showOptions = 'Pokaż odpowiedzi'
 export const showSpoiler = 'Pokaż spoiler'
+export const exit = 'Wyjdź'

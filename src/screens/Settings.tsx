@@ -1,8 +1,10 @@
 import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { List, Switch as PaperSwitch } from 'react-native-paper'
+
 import {
   aboutTheApp,
   contact,
@@ -19,12 +21,14 @@ import {
   textColor,
 } from '../utils/constants'
 import { getValue, setValue } from '../utils/utilStorage'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+
 const Settings = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
-    useState<boolean>()
+  useState<boolean>()
   const [isHideAnswersSwitchEnabled, setIsHideAnswersSwitchEnabled] =
-    useState<boolean>()
+  useState<boolean>()
+
+  const navigation = useNavigation()
 
   useEffect(() => {
     async function checkPreferences() {
@@ -37,14 +41,6 @@ const Settings = () => {
     }
     checkPreferences()
   }, [])
-
-  function setShuffleStorage() {
-    setIsShuffleSwitchEnabled(prev => !prev)
-  }
-
-  function setHideAnswersStorage() {
-    setIsHideAnswersSwitchEnabled(prev => !prev)
-  }
 
   useEffect(() => {
     try {
@@ -62,7 +58,13 @@ const Settings = () => {
     }
   }, [isHideAnswersSwitchEnabled])
 
-  const navigation = useNavigation()
+  function setShuffleStorage() {
+    setIsShuffleSwitchEnabled(prev => !prev)
+  }
+
+  function setHideAnswersStorage() {
+    setIsHideAnswersSwitchEnabled(prev => !prev)
+  }
 
   return (
     <View style={styles.container}>
@@ -100,9 +102,7 @@ const Settings = () => {
           style={{
             borderBottomWidth: 1,
             borderBottomColor: borderColor,
-            // height: 60,
             marginTop: -8,
-
             justifyContent: 'center',
           }}
           titleStyle={{ color: textColor }}
@@ -126,7 +126,6 @@ const Settings = () => {
           borderBottomColor: borderColor,
           paddingLeft: 15,
           marginTop: -8,
-          // height: 60
         }}
         titleStyle={{ color: textColor }}
       />
@@ -149,7 +148,6 @@ const Settings = () => {
           borderBottomColor: borderColor,
           paddingLeft: 15,
           marginTop: 0,
-          // height: 60
         }}
         titleStyle={{ color: textColor }}
       />
@@ -157,7 +155,6 @@ const Settings = () => {
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
-      {/* <MyBottomSheet /> */}
     </View>
   )
 }
@@ -165,7 +162,6 @@ const Settings = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingHorizontal: 15,
     paddingTop: 15,
     backgroundColor: screenBackground,
   },

@@ -2,14 +2,13 @@ import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { ScrollView, View } from 'react-native'
+
 import { chapters } from '../../data/data'
 import Card from '../components/Card'
-import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
-import utilStyles from '../utils/styles'
-// import { Canvas, Patch, vec, Oval, Blur } from '@shopify/react-native-skia'
 import Gradient from '../components/molecules/atoms/Gradient'
+import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
 import { screenBackground } from '../utils/constants'
-// import MyBottomSheet from '../components/BottomSheet'
+import utilStyles from '../utils/styles'
 
 export default function Chapters() {
   const navigation = useNavigation()
@@ -18,26 +17,6 @@ export default function Chapters() {
     // @ts-ignore
     navigation.navigate('Topics', { chapterName: chapName })
   }
-
-  const colors = ['#61dafb', '#fb61da', '#61fbcf', '#dafb61']
-  const width = 360
-  const height = 600
-  // const topLeft = { pos: vec(0, 0), c1: vec(0, 0), c2: vec(width, 0) }
-  // const topRight = {
-  //   pos: vec(width, 0),
-  //   c1: vec(width, height),
-  //   c2: vec(width, 0),
-  // }
-  // const bottomRight = {
-  //   pos: vec(width, height),
-  //   c1: vec(width, height),
-  //   c2: vec(width, height),
-  // }
-  // const bottomLeft = {
-  //   pos: vec(0, height),
-  //   c1: vec(0, height),
-  //   c2: vec(width, height),
-  // }
 
   return (
     <View

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import { Item, Option, Result } from '../utils/types'
 import { useNavigation } from '@react-navigation/native'
 import { StackActions } from '@react-navigation/native'
+import { useEffect, useState } from 'react'
+
 import { importItem, importItemInfinityMode } from '../utils/getQuizData'
+import { Item, Option, Result } from '../utils/types'
 
 const useNextQuestion = ({
   chapName,
@@ -22,9 +23,8 @@ const useNextQuestion = ({
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
   const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
   const [resultsArray, setResultsArray] = useState<Result[]>([])
-  const [randomNrArray, setRandomNrArray] = useState([]) 
+  const [randomNrArray, setRandomNrArray] = useState([])
 
-  
   //* zapisane pytania mają chapName ==='__Saved__', a poprawiane mają __Again__
   const navigation = useNavigation()
 
@@ -89,7 +89,7 @@ const useNextQuestion = ({
       // prepareForTheNextItem(newItem)
       // return
     }
-    
+
     //retake or saved
     if (itemsArray && !shuffle) {
       newItem = itemsArray[whichItem]
@@ -103,7 +103,7 @@ const useNextQuestion = ({
       // getNextRandomItem(randomNrArray, whichItem)
       newItem = importItem(chapName, topName, randomNrArray[whichItem])
     }
-    
+
     //Card/Theory
     if (!itemsArray && !shuffle)
       newItem = importItem(chapName, topName, whichItem)

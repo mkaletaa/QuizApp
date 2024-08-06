@@ -1,18 +1,19 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { savedQuestions, aboutTheApp, settings } from '../data/texts'
+
+import { aboutTheApp, savedQuestions, settings } from '../data/texts'
 import Header from './components/Header'
+import About from './screens/About'
 import Chapters from './screens/Chapters'
+import Questions from './screens/Questions'
 import Quiz from './screens/Quiz'
 import QuizResults from './screens/QuizResults'
 import Saved from './screens/Saved'
 import Settings from './screens/Settings'
 import Theory from './screens/Theory'
 import Topics from './screens/Topics'
-import { removeUnderscores } from './utils/functions'
-import About from './screens/About'
-import Questions from './screens/Questions'
 import { borderColor, screenBackground } from './utils/constants'
+import { removeUnderscores } from './utils/functions'
 
 const Stack = createStackNavigator()
 
@@ -25,14 +26,10 @@ const MyStack = () => {
 
   const headerOptions = {
     title: null,
-
     headerStyle: {
       backgroundColor: screenBackground,
-
       elevation: 0,
       borderBottomColor: borderColor,
-      // borderColor: borderColor,
-
       borderBottomWidth: 0.5,
     },
     headerTintColor: 'black',
@@ -46,7 +43,6 @@ const MyStack = () => {
     <Stack.Navigator
       screenOptions={{
         headerTitle: null,
-        // headerTransparent: true,
         headerLeft: null,
       }}
     >
@@ -63,6 +59,7 @@ const MyStack = () => {
       <Stack.Screen
         name="Topics"
         component={Topics}
+        //@ts-ignore
         options={({ route }) => ({
           ...header({
             //@ts-ignore
@@ -75,6 +72,7 @@ const MyStack = () => {
       <Stack.Screen
         name="Theory"
         component={Theory}
+        //@ts-ignore
         options={({ route }) => ({
           ...header({
             //@ts-ignore
@@ -94,44 +92,48 @@ const MyStack = () => {
         name="QuizResults"
         component={QuizResults}
         options={{ headerShown: false }}
-      />
+        />
 
       <Stack.Screen
         name="Saved"
         component={Saved}
+        //@ts-ignore
         options={({ route }) => ({
           ...header({
             title: savedQuestions,
           }),
           ...headerOptions,
         })}
-      />
+        />
 
       <Stack.Screen
         name="About"
         component={About}
+        //@ts-ignore
         options={({ route }) => ({
           ...header({
             title: aboutTheApp,
           }),
           ...headerOptions,
         })}
-      />
+        />
 
       <Stack.Screen
         name="Settings"
         component={Settings}
+        //@ts-ignore
         options={({ route }) => ({
           ...header({
             title: settings,
           }),
           ...headerOptions,
         })}
-      />
+        />
 
       <Stack.Screen
         name="Questions"
         component={Questions}
+        //@ts-ignore
         options={({ route }) => ({
           ...header({
             //@ts-ignore
