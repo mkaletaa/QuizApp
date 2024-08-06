@@ -35,9 +35,9 @@ export default function Paragraph({ value, width, props }) {
       //   return
       // }
       // if (className === 'spoiler') {
-        // let content = null //może zrobić że w Theory theory jest przekazywane do Spoiler bo
-        // content ||= theory.find(el=>el.type==='Spoiler' && el.id===id)
-        // setBottomSheetContent(content)
+      // let content = null //może zrobić że w Theory theory jest przekazywane do Spoiler bo
+      // content ||= theory.find(el=>el.type==='Spoiler' && el.id===id)
+      // setBottomSheetContent(content)
       //   setShowBottomSheet(true)
       //   return
       // }
@@ -53,15 +53,21 @@ export default function Paragraph({ value, width, props }) {
         {...props}
         onPress={onPress}
         style={{
-          color: className === 'def' ? 'red' : 'blue',
-          textDecorationLine: 'none',
+          color: className === 'hint' ? 'rgb(130, 0, 150)' : 'blue',
+          // textDecorationLine: 'underline',
           backgroundColor:
-            className === 'def' ? 'rgba(255, 0, 0, .1)' : 'rgba(0, 0, 255, .1)',
+            className === 'hint'
+              ? 'rgba(130, 0, 180, .08)'
+              : 'rgba(0, 0, 255, .1)',
+              // height: 100,
+              paddingHorizontal: 10
+          // fontWeight: 'bold',
+          // textDecoration: 'underline'
         }}
       />
     )
   }
-  
+
   const renderers = {
     ins: InsRenderer,
   }
