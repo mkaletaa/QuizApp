@@ -1,14 +1,14 @@
 import { useNavigation } from '@react-navigation/native'
+import { StackActions } from '@react-navigation/native'
 import { useState } from 'react'
+
 import { quiz } from '../../data/quiz/quizModule'
 import { noQuestions } from '../../data/texts'
 import CustomModal from '../components/CustomModal'
 import { Item } from '../utils/types'
 import { getValue } from '../utils/utilStorage'
-import { StackActions } from '@react-navigation/native'
 
-
-  //** this hook is used always before Quiz screen is opened */
+//** this hook is used always before Quiz screen is opened
 const useOpenQuiz = () => {
   const navigation = useNavigation()
   const [showNoQuestionsModal, setShowNoQuestionsModal] = useState(false)
@@ -22,21 +22,21 @@ const useOpenQuiz = () => {
     isRetake?: boolean //true if retaking quiz, undefined otherwise
   }
 
-  /*
-  ? Kiedy Quiz z pojedynczego topika
-  ? Jeśli klikniemy na kartę topika lub przycik otwarcia quizu z Theory to trafiają tu tylko chapterName i topicName
+  /* 
+  * When quiz id from a single Topic
+  * If we press the topic Card or quiz button from Theory, only chapterName and topicName are passed here
 
-  ? Kiedy Quiz z zapisanych pytań
-  ? trafiają tu tylko chapterName = "__Saved__" , itemsArray: Item[] (zapisane pytania) , howManyItems = liczba zapisanych pytań
+  * When quiz from saved questions
+  * Here are passed only props like: chapterName = "__Saved__" , itemsArray: Item[] (saved questions) , howManyItems = number of saved questions
 
-  ? Kiedy Quiz z inifinityMode
-  ? Jeśli klikniemy na RandomQuestionButton to trafiają tu tylko chapterName i topicName='', chapterName, howManyItems = Infinity, shuffle= true
+  * When quiz from random question button (infinity mode)
+  * If we press RandomQuestionButton here are passed only chapterName and topicName = '', howManyItems = Infinity, shuffle= true
 
-  ? Kiedy Quiz poprawkowy
-  ? Trafiają tu chapterName = "__Again__", itemsArray: Item[] (tablica pytań do ponownego zagrania), howManyItems - wiadomo, isRetake = true
+  * When retaking a quiz
+  * Here are passed chapterName = "__Again__", itemsArray: Item[] (array of questions to answer again), howManyItems - you know, isRetake = true
   */
 
-  //* kiedy jest infinityMode to nazwa topika jest równa ""
+  //* when infinity mode is enabled, topic name is an empty string ("")
 
   //this function prepares necessary data for the quiz
   const openQuiz = ({
@@ -47,23 +47,23 @@ const useOpenQuiz = () => {
     itemsArray,
     isRetake = false, // if user is retaking the same quiz
   }: openQuizPropType): void => {
+    
     //if there is a chapter and infinity mode has been chosen
     if (howManyItems === Infinity) {
-      navigate()
-      //jeśli jest pytania z saved lub retake lub Card/Theory (rozdział i dany topik ma quiz)
+      navigateToQuiz()
+      //if  retake or saved or pressed Card/Quiz button from Theory (chapter and given topic have a quiz)
     } else if (itemsArray || quiz[chapterName][topicName]) {
       // check if questions should be shuffled
-      ;(async function() {
+      ;(async () => {
         shuffle = await getValue('shuffle')
-        navigate()
+        navigateToQuiz()
       })()
     } else {
-      //if pressed topic doesn not have a quiz
+      //if pressed topic does not have a quiz
       setShowNoQuestionsModal(true)
     }
 
-    //this function changes screen to Quiz.
-    function navigate() {
+    function navigateToQuiz() {
       const quizParams = {
         topName: topicName,
         chapName: chapterName,
@@ -75,8 +75,8 @@ const useOpenQuiz = () => {
       //if user retakes quiz (buttons in QuizResults)
       if (isRetake) {
         navigation.dispatch(
-          //must be replace instead of navigate because otherwise Quiz screen woludn't be refreshed
-          StackActions.replace('Quiz', quizParams)
+          //must be replace instead of navigate because otherwise Quiz screen wouldn't be refreshed
+          StackActions.replace('Quiz', quizParams),
         )
         return
       }

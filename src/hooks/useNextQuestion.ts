@@ -21,11 +21,11 @@ const useNextQuestion = ({
   const [item, setItem] = useState<Item>(null)
   const [whichItem, setWhichItem] = useState(0)
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
-  const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
+  const [showResultModal, setShowResultModal] = useState(false) //show modal with one question result
   const [resultsArray, setResultsArray] = useState<Result[]>([])
   const [randomNrArray, setRandomNrArray] = useState([])
 
-  //* zapisane pytania mają chapName ==='__Saved__', a poprawiane mają __Again__
+  //* saved questions have chapName ==='__Saved__', and retaken have __Again__
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -154,11 +154,9 @@ const useNextQuestion = ({
 
   return {
     item,
-    // setItem,
     getNextItem,
     nextBtnPress,
     whichItem,
-    // setWhichItem,
     showResultModal,
     setShowResultModal,
     chosenOptions,
