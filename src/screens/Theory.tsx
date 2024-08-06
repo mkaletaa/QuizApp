@@ -1,36 +1,46 @@
-import { AntDesign } from '@expo/vector-icons';
-import { useHeaderHeight } from '@react-navigation/elements';
-import { useFocusEffect } from '@react-navigation/native';
-// import { useNavigation } from '@react-navigation/native'
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, Dimensions, Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
-import { Snackbar } from 'react-native-paper';
+import { AntDesign } from '@expo/vector-icons'
+import { useHeaderHeight } from '@react-navigation/elements'
+import { useFocusEffect } from '@react-navigation/native'
+import { StatusBar } from 'expo-status-bar'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import {
+  ActivityIndicator,
+  Dimensions,
+  Pressable,
+  SectionList,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
+import { Snackbar } from 'react-native-paper'
 
-
-
-import { thereIsNothingHere } from '../../data/texts';
-import { theory } from '../../data/theory/theory';
-import ContentRenderer from '../components/ContentRenderer/_ContentRenderer';
-import Spoiler from '../components/ContentRenderer/Spoiler';
-import QuizButton from '../components/molecules/atoms/QuizButton';
-import TheoryPopup from '../components/molecules/TheoryPopup';
-import { boldTextColor, borderColor, buttonDark, screenBackground, sectionHeaderBG, spinner, surfaceBg } from '../utils/constants';
-import useStore from '../utils/store';
-
+import { thereIsNothingHere } from '../../data/texts'
+import { theory } from '../../data/theory/theory'
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
+import Spoiler from '../components/ContentRenderer/Spoiler'
+import QuizButton from '../components/molecules/atoms/QuizButton'
+import TheoryPopup from '../components/molecules/TheoryPopup'
+import {
+  boldTextColor,
+  borderColor,
+  buttonDark,
+  screenBackground,
+  sectionHeaderBG,
+  spinner,
+  surfaceBg,
+} from '../utils/constants'
+import useStore from '../utils/store'
 
 export default function Theory({ route }) {
+  const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [chapterName, setChapterName] = useState('')
   const [theoryData, setTheoryData] = useState([])
   const [scrollPercentage, setScrollPercentage] = useState(0)
   const [showGoUp, setShowGoUp] = useState(false)
   const [shouldMemoize, setShouldMemoize] = useState(false)
-
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-
-  const sectionListRef = useRef()
 
   // const navigateTo = useStore(state => state.navigateTo)
   // const setNavigateTo = useStore(state => state.setNavigateTo)
@@ -84,44 +94,12 @@ export default function Theory({ route }) {
 
   useFocusEffect(() => {})
 
-  const scrollToSection = sectionIndex => {
-    try {
-      if (sectionListRef.current) {
-        //@ts-ignore
-        sectionListRef.current.scrollToLocation({
-          animated: true,
-          itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
-          sectionIndex,
-        })
-      }
-    } catch (e) {
-      // do nothing
-      // previously app crashed after user wanted to scroll to the sections that hasn't been rendered yet
-    }
-  }
-
-  const scrollToTop = () => {
-    if (sectionListRef.current) {
-      //@ts-ignore
-      sectionListRef.current.scrollToLocation({
-        animated: true,
-        sectionIndex: 0,
-        itemIndex: 0,
-        viewOffset: 0,
-      })
-    }
-  }
-
-  const handleScroll = event => {
-    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
-    const percent =
-      (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
-    setScrollPercentage(percent)
-    if (contentOffset.y > 100) setShowGoUp(true)
-    else setShowGoUp(false)
-  }
-
   const renderHeader = () => (
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
     <View
       style={[
         styles.header,
@@ -143,6 +121,7 @@ export default function Theory({ route }) {
               <Pressable
                 onPress={() => {
                   scrollToSection(i)
+                  // setShowPopup(false)
                 }}
               >
                 <Text
@@ -152,6 +131,7 @@ export default function Theory({ route }) {
                     color: '#54039b',
                   }}
                 >
+                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
                   {theoryData[0]?.title ? i + 1 : i} {a.title}
                 </Text>
               </Pressable>
@@ -159,46 +139,124 @@ export default function Theory({ route }) {
           ),
       )}
     </View>
+    // </TouchableWithoutFeedback>
   )
 
   const renderSectionHeader = ({ section }) => {
     if (section.title) {
       return (
+        // <TouchableWithoutFeedback
+        //   onPress={() => {
+        //     setShowPopup(false)
+        //   }}
+        // >
         <View
           style={{
             padding: 10,
             paddingLeft: 30,
             paddingRight: 30,
+
+            // backgroundColor: 'red',
             backgroundColor: sectionHeaderBG,
             borderTopWidth: 1,
+            // borderTopColor: 'lightgray',
             borderTopColor: borderColor,
+
+            // elevation: 1,
+            // shadowColor: '#000', // Kolor cienia
+            // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
+            // shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
+            // shadowRadius: 3, // Promień cienia
           }}
         >
           <Text style={styles.sectionHeaderText}>{section.title}</Text>
         </View>
+        // </TouchableWithoutFeedback>
       )
     }
-    return null // No header for the section with no title
+    return null // Brak nagłówka dla sekcji bez tytułu
   }
 
   const renderItem = ({ item, index }) => (
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
     <View
       style={{
         paddingBottom: 20,
         paddingHorizontal: 20,
-        paddingTop: index === 0 && 10, //set marginTop for the first element from a segment
+        paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
       }}
     >
       <ContentRenderer content={[item]} />
     </View>
+    // </TouchableWithoutFeedback>
   )
+
+  const renderFooter = () => (
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
+    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
+      <QuizButton chapterName={chapterName} topicName={topicName} />
+    </View>
+    // </TouchableWithoutFeedback>
+  )
+
+  const scrollToSection = sectionIndex => {
+    try {
+      if (sectionListRef.current) {
+        //@ts-ignore
+        sectionListRef.current.scrollToLocation({
+          animated: true,
+          itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
+          sectionIndex,
+        })
+      }
+    } catch (e) {
+      //do nothing
+    }
+  }
+
+  const scrollToTop = () => {
+    // Przewiń do nagłówka listy
+    if (sectionListRef.current) {
+      //@ts-ignore
+      sectionListRef.current.scrollToLocation({
+        animated: true,
+        sectionIndex: 0,
+        itemIndex: 0, // Dla nagłówka listy itemIndex powinien być ustawiony na 0
+        viewOffset: 0, // Opcjonalne: Offset od góry widoku
+      })
+    }
+  }
+
+  const handleScroll = event => {
+    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
+    const percent =
+      (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
+    setScrollPercentage(percent)
+    if (contentOffset.y > 100) setShowGoUp(true)
+    else setShowGoUp(false)
+  }
 
   const memoizedComponents = useMemo(() => {
     return theoryData ? (
       <React.Fragment>
         <SectionList
           onStartShouldSetResponder={() => true}
+          contentContainerStyle={
+            {
+              // backgroundColor: screenBackground,
+              // height: '100%',
+            }
+          }
           onScroll={handleScroll}
+          // onScrollBeginDrag={() => setShowPopup(false)}
           ref={sectionListRef}
           sections={theoryData}
           scrollEventThrottle={15}
@@ -209,6 +267,7 @@ export default function Theory({ route }) {
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
+        {/* <Spoiler></Spoiler> */}
       </React.Fragment>
     ) : (
       <View
@@ -241,12 +300,6 @@ export default function Theory({ route }) {
     )
   }, [topicName])
 
-  const renderFooter = () => (
-    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
-      <QuizButton chapterName={chapterName} topicName={topicName} />
-    </View>
-  )
-
   return (
     <View
       style={{ minHeight: screenHeight, backgroundColor: screenBackground }}
@@ -265,7 +318,10 @@ export default function Theory({ route }) {
         name="up"
         size={40}
         color={boldTextColor}
-        style={[styles.goUp, { bottom: showGoUp ? 120 : -70 }]}
+        style={[
+          styles.goUp,
+          { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
+        ]}
         onPress={() => scrollToTop()}
       />
 
@@ -289,6 +345,13 @@ export default function Theory({ route }) {
 }
 
 const styles = StyleSheet.create({
+  // container: {
+  //   flexGrow: 1,
+  //   backgroundColor: screenBackground,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   paddingBottom: 50,
+  // },
   progressBarContainer: {
     height: 5,
     backgroundColor: buttonDark,
@@ -299,14 +362,18 @@ const styles = StyleSheet.create({
   header: {
     padding: 10,
     borderColor: borderColor,
+    // borderBottomWidth: 3,
     alignItems: 'center',
     gap: 5,
+    // color: "red",
   },
   sectionHeaderText: {
     fontSize: 18,
     fontWeight: 'bold',
+    // color: 'black',
     color: boldTextColor,
     textAlign: 'center',
+    // paddingRight:10
   },
   goUp: {
     padding: 8,
@@ -319,3 +386,4 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
 })
+
