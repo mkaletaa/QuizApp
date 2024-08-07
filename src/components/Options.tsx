@@ -2,9 +2,11 @@ import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Chip, Text, TouchableRipple } from 'react-native-paper'
+
 import { multiChoice as multiChoiceText } from '../../data/texts'
-import { gradient, textColor } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { Option } from '../utils/types'
+
 const OptionComponent = ({ option }: { option: Option }) => {
   const { val: answerValue } = option
 
@@ -53,7 +55,7 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
                 style={{ marginRight: 5 }}
               />
             )}
-            textStyle={{ color: textColor }}
+            textStyle={{ color: Colors.text }}
           >
             {multiChoiceText}
           </Chip>
@@ -111,7 +113,7 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
               {
                 backgroundColor: chosenOptions.some(el => el.id === option.id)
                   ? 'lightblue'
-                  : gradient,
+                  : Colors.gradientLight,
                 borderColor: chosenOptions.some(el => el.id === option.id)
                   ? 'rgb(50, 200, 255)'
                   : 'rgb(210, 210, 240)',
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
   answerContainer: {
     // width: 300,
     alignItems: 'center',
-    elevation: 5
+    elevation: 5,
     // backgroundColor: 'red',
     // marginBottom: 50
   },
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginVertical: 5,
     borderWidth: 2.5,
-    
+
     // borderColor: 'grey',
     width: '50%',
     minWidth: 250, //
@@ -167,7 +169,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     paddingVertical: 7,
-    borderWidth:2,
+    borderWidth: 2,
     borderColor: 'rgba(249, 105, 14, .65)',
   },
 })

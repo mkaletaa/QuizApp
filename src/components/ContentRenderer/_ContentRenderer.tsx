@@ -6,7 +6,7 @@ import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
 
-import { boldTextColor } from '../../utils/constants';
+import { Colors} from '../../utils/constants';
 import { Component } from '../../utils/types';
 import Block from './Block';
 import ImageComponent from './ImageComponent';
@@ -56,7 +56,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             style={{
               fontSize: setFontSize(),
               fontWeight: 'bold',
-              color: boldTextColor,
+              color: Colors.boldText,
             }}
           >
             {value}

@@ -1,6 +1,6 @@
 import { Modal, View, StyleSheet } from 'react-native'
 import { Button, Dialog, Portal, Text } from 'react-native-paper'
-import { buttonLight, screenBackground } from '../utils/constants'
+import { Colors } from '../utils/constants'
 export default function CustomModal({
   children = null,
   visible,
@@ -35,7 +35,7 @@ export default function CustomModal({
     <Portal>
       <Dialog
         style={{
-          backgroundColor: screenBackground,
+          backgroundColor: Colors.screenBg,
           // borderRadius: 22
         }}
         visible={visible}
@@ -58,7 +58,7 @@ export default function CustomModal({
         </Dialog.Content>
         <Dialog.Actions>
           {!children && <Button onPress={onRequestClose}>
-            <Text style={{fontSize: 20, color:buttonLight}}>
+            <Text style={{fontSize: 20, color: '#7d609f'}}>
 
             Ok
             </Text>

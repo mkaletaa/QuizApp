@@ -6,7 +6,7 @@ import { SimpleLineIcons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
 import { AntDesign, Feather, Ionicons, FontAwesome6 } from '@expo/vector-icons'
 import { Tooltip } from 'react-native-paper'
-import { boldTextColor } from '../utils/constants'
+import { Colors } from '../utils/constants'
 
 export default function Header({ title }) {
   const navigation = useNavigation()
@@ -35,7 +35,7 @@ export default function Header({ title }) {
           <AntDesign
             name="left"
             size={28}
-            color={boldTextColor}
+            color={Colors.boldText}
             style={{
               textAlign: 'center',
             }}
@@ -56,7 +56,7 @@ export default function Header({ title }) {
               style={{
                 fontSize: 20,
                 fontWeight: 'bold',
-                color: boldTextColor,
+                color: Colors.boldText,
                 textAlign: 'center',
               }}
               numberOfLines={1}
@@ -84,7 +84,7 @@ export default function Header({ title }) {
               navigation.navigate('Saved')
             }}
           >
-            <Ionicons name="bookmark-outline" size={30} color={boldTextColor} />
+            <Ionicons name="bookmark-outline" size={30} color={Colors.boldText} />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -93,8 +93,8 @@ export default function Header({ title }) {
               navigation.navigate('Settings')
             }}
           >
-            {/* <Feather name="sliders" size={28} color={boldTextColor} /> */}
-            <SimpleLineIcons name="menu" size={25} color={boldTextColor} />
+            {/* <Feather name="sliders" size={28} color={Colors.boldText} /> */}
+            <SimpleLineIcons name="menu" size={25} color={Colors.boldText} />
           </TouchableOpacity>
         </View>
       </React.Fragment>

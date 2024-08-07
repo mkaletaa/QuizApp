@@ -1,17 +1,18 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Pressable, View } from 'react-native'
-import { Item } from '../utils/types'
-// import Question from './Question'
-import { gradient, surfaceBg } from '../utils/constants'
-import ContentRenderer from './ContentRenderer/_ContentRenderer'
-import { TouchableRipple } from 'react-native-paper'
 import React from 'react'
+import { Pressable, View } from 'react-native'
+import { TouchableRipple } from 'react-native-paper'
+
+// import Question from './Question'
+import { Colors } from '../utils/constants'
+import { Item } from '../utils/types'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
 
 export default function Tile({
   item,
   handlePress,
-  color = surfaceBg,
+  color = Colors.surfaceBg,
 }: {
   item: Item
   handlePress: any
@@ -42,7 +43,7 @@ export default function Tile({
       case 'rgba(50, 199, 31, 1)': //correct
         return 'rgba(49, 165, 34, 1)'
       default:
-        return gradient
+        return Colors.gradientLight
     }
   }
 

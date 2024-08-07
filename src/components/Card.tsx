@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { TouchableRipple } from 'react-native-paper'
 import { read } from '../../data/texts'
-import { boldTextColor, borderColor, surfaceBg, surfaceRipple } from "../utils/constants"
+import { Colors} from "../utils/constants"
 import { removeUnderscores } from '../utils/functions'
 const screenWidthDim = Dimensions.get('window').width
 
@@ -50,7 +50,7 @@ export default function Card({
   return (
     <View style={[styles.card, cardSize]} key={data.name}>
       <TouchableRipple
-        rippleColor={surfaceRipple}
+        rippleColor={Colors.ripple}
         onPress={handlePress}
         onLongPress={handleLongPress}
         style={{ width: '100%', height: '100%' }}
@@ -93,7 +93,7 @@ export default function Card({
 const styles = StyleSheet.create({
   card: {
     overflow: 'hidden',
-    backgroundColor: surfaceBg,
+    backgroundColor: Colors.surfaceBg,
     borderRadius: 10,
     margin: 10,
     elevation: 2,
@@ -126,12 +126,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     paddingHorizontal: 15,
-    color : boldTextColor ,
+    color : Colors.boldText ,
   },
   separator: {
     borderRadius: 10,
     borderTopWidth: 1,
-    borderColor: borderColor,
+    borderColor: Colors.border,
     width: '70%',
   },
   readText: {

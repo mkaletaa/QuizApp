@@ -1,19 +1,22 @@
-import { createStackNavigator } from '@react-navigation/stack'
-import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 
-import { aboutTheApp, savedQuestions, settings } from '../data/texts'
-import Header from './components/Header'
-import About from './screens/About'
-import Chapters from './screens/Chapters'
-import Questions from './screens/Questions'
-import Quiz from './screens/Quiz'
-import QuizResults from './screens/QuizResults'
-import Saved from './screens/Saved'
-import Settings from './screens/Settings'
-import Theory from './screens/Theory'
-import Topics from './screens/Topics'
-import { borderColor, screenBackground } from './utils/constants'
-import { removeUnderscores } from './utils/functions'
+
+
+import { aboutTheApp, savedQuestions, settings } from '../data/texts';
+import Header from './components/Header';
+import About from './screens/About';
+import Chapters from './screens/Chapters';
+import Questions from './screens/Questions';
+import Quiz from './screens/Quiz';
+import QuizResults from './screens/QuizResults';
+import Saved from './screens/Saved';
+import Settings from './screens/Settings';
+import Theory from './screens/Theory';
+import Topics from './screens/Topics';
+import { Colors } from './utils/constants';
+import { removeUnderscores } from './utils/functions';
+
 
 const Stack = createStackNavigator()
 
@@ -27,9 +30,9 @@ const MyStack = () => {
   const headerOptions = {
     title: null,
     headerStyle: {
-      backgroundColor: screenBackground,
+      backgroundColor: Colors.screenBg,
       elevation: 0,
-      borderBottomColor: borderColor,
+      borderBottomColor: Colors.border,
       borderBottomWidth: 0.5,
     },
     headerTintColor: 'black',

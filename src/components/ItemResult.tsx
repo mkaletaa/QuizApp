@@ -1,25 +1,22 @@
-import {
-  Dimensions,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View
-} from 'react-native'
-import { Item, Option } from '../utils/types'
-import ContentRenderer from './ContentRenderer/_ContentRenderer'
 // import Question from './Question'
-import { FontAwesome, Foundation } from '@expo/vector-icons'
-import React, { useEffect, useState } from 'react'
+import { FontAwesome, Foundation } from '@expo/vector-icons';
+import React, { useEffect, useState } from 'react';
+import { Dimensions, ScrollView, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 // import {  } from 'react-native-gesture-handler'
 // import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Button as PaperButton } from 'react-native-paper'
-import { correctAnswers, yourAnswers } from '../../data/texts'
-import { boldTextColor, buttonDark } from '../utils/constants'
-import { returnIsCorrect } from '../utils/functions'
-import useStore from '../utils/store'
-import ExpandableView from './ExpandableView'
-import ExplanationPopup from './molecules/ExplanationPopup'
+import { Button as PaperButton } from 'react-native-paper';
+
+
+
+import { correctAnswers, yourAnswers } from '../../data/texts';
+import { Colors } from '../utils/constants';
+import { returnIsCorrect } from '../utils/functions';
+import useStore from '../utils/store';
+import { Item, Option } from '../utils/types';
+import ContentRenderer from './ContentRenderer/_ContentRenderer';
+import ExpandableView from './ExpandableView';
+import ExplanationPopup from './molecules/ExplanationPopup';
+
 
 export default function ItemResult({
   item,
@@ -137,13 +134,13 @@ export default function ItemResult({
               // disabled={chosenOptions.length === 0}
               elevation={5}
               style={{
-                borderColor: buttonDark,
+                borderColor: Colors.primary,
                 borderWidth: 1.5,
               }}
             >
               <Text
                 style={{
-                  color: buttonDark,
+                  color: Colors.primary,
                 }}
               >
                 {btnTitle}
@@ -183,7 +180,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: boldTextColor,
+    color: Colors.boldText,
   },
   nextItem: {
     marginTop: 20,

@@ -1,26 +1,17 @@
-import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { List, Switch as PaperSwitch } from 'react-native-paper'
+import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { List, Switch as PaperSwitch } from 'react-native-paper';
 
-import {
-  aboutTheApp,
-  contact,
-  hideAnswers,
-  hideAnswersExplain,
-  randomOrder,
-  savedQuestions,
-} from '../../data/texts'
-import Gradient from '../components/molecules/atoms/Gradient'
-import {
-  borderColor,
-  screenBackground,
-  surfaceRipple,
-  textColor,
-} from '../utils/constants'
-import { getValue, setValue } from '../utils/utilStorage'
+
+
+import { aboutTheApp, contact, hideAnswers, hideAnswersExplain, randomOrder, savedQuestions } from '../../data/texts';
+import Gradient from '../components/molecules/atoms/Gradient';
+import { Colors} from '../utils/constants';
+import { getValue, setValue } from '../utils/utilStorage';
+
 
 const Settings = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
@@ -72,7 +63,7 @@ const Settings = () => {
       <List.Item
         title={randomOrder}
         onPress={setShuffleStorage}
-        rippleColor={surfaceRipple}
+        rippleColor={Colors.ripple}
         right={() => (
           <PaperSwitch
             value={isShuffleSwitchEnabled}
@@ -81,18 +72,18 @@ const Settings = () => {
         )}
         style={{
           borderBottomWidth: 1,
-          borderBottomColor: borderColor,
+          borderBottomColor: Colors.border,
           height: 60,
           justifyContent: 'center',
         }}
-        titleStyle={{ color: textColor }}
+        titleStyle={{ color: Colors.text }}
       />
 
       <List.Section>
         <List.Item
           title={hideAnswers}
           onPress={setHideAnswersStorage}
-          rippleColor={surfaceRipple}
+          rippleColor={Colors.ripple}
           right={() => (
             <PaperSwitch
               value={isHideAnswersSwitchEnabled}
@@ -101,11 +92,11 @@ const Settings = () => {
           )}
           style={{
             borderBottomWidth: 1,
-            borderBottomColor: borderColor,
+            borderBottomColor: Colors.border,
             marginTop: -8,
             justifyContent: 'center',
           }}
-          titleStyle={{ color: textColor }}
+          titleStyle={{ color: Colors.text }}
           description={() => (
             <Text style={{ opacity: 0.6 }}>{hideAnswersExplain}</Text>
           )}
@@ -113,25 +104,25 @@ const Settings = () => {
       </List.Section>
 
       <List.Item
-        rippleColor={surfaceRipple}
+        rippleColor={Colors.ripple}
         title={savedQuestions}
         left={() => (
           <Ionicons name="bookmark-outline" size={24} color={'#714696'} />
         )}
-        right={() => <AntDesign name="right" size={24} color={borderColor} />}
+        right={() => <AntDesign name="right" size={24} color={Colors.border} />}
         //@ts-ignore
         onPress={() => navigation.navigate('Saved')}
         style={{
           borderBottomWidth: 1,
-          borderBottomColor: borderColor,
+          borderBottomColor: Colors.border,
           paddingLeft: 15,
           marginTop: -8,
         }}
-        titleStyle={{ color: textColor }}
+        titleStyle={{ color: Colors.text }}
       />
 
       <List.Item
-        rippleColor={surfaceRipple}
+        rippleColor={Colors.ripple}
         title={aboutTheApp}
         left={() => (
           <MaterialCommunityIcons
@@ -140,16 +131,16 @@ const Settings = () => {
             color="#714696"
           />
         )}
-        right={() => <AntDesign name="right" size={24} color={borderColor} />}
+        right={() => <AntDesign name="right" size={24} color={Colors.border} />}
         //@ts-ignore
         onPress={() => navigation.navigate('About')}
         style={{
           borderBottomWidth: 1,
-          borderBottomColor: borderColor,
+          borderBottomColor: Colors.border,
           paddingLeft: 15,
           marginTop: 0,
         }}
-        titleStyle={{ color: textColor }}
+        titleStyle={{ color: Colors.text }}
       />
 
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
@@ -163,7 +154,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: screenBackground,
+    backgroundColor: Colors.screenBg,
   },
 })
 

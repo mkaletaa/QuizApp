@@ -11,7 +11,7 @@ import {
 } from 'react-native-gesture-handler'
 import { Portal } from 'react-native-paper'
 
-import { surfaceBg } from '../../utils/constants'
+import { Colors } from '../../utils/constants'
 import useStore from '../../utils/store'
 import ContentRenderer from './_ContentRenderer'
 
@@ -109,7 +109,7 @@ export default function Spoiler() {
               handleIndicatorStyle={{
                 backgroundColor: 'rgb(200,205,245)',
               }}
-              backgroundStyle={{ backgroundColor: surfaceBg }}
+              backgroundStyle={{ backgroundColor: Colors.surfaceBg }}
               backdropComponent={renderBackdrop}
               style={{ flex: 1 }}
             >

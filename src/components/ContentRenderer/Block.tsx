@@ -8,7 +8,7 @@ import {
 import React from 'react'
 import { Dimensions, StyleSheet, View } from 'react-native'
 
-import { textColor } from '../../utils/constants'
+import { Colors } from '../../utils/constants'
 import ContentRenderer from './_ContentRenderer'
 
 type blockType = 'info' | 'warning' | 'important' | 'task' | 'tip'
@@ -134,6 +134,6 @@ const styles = StyleSheet.create({
     marginTop: 1,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: textColor,
+    color: Colors.text,
   },
 })

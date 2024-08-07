@@ -1,9 +1,12 @@
-import React from 'react'
-import RenderHtml from 'react-native-render-html'
+import React from 'react';
+import RenderHtml from 'react-native-render-html';
 
-import glossary from '../../../data/glossary.json'
-import { textColor } from '../../utils/constants'
-import useStore from '../../utils/store'
+
+
+import glossary from '../../../data/glossary.json';
+import useStore from '../../utils/store';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+
 
 // import {theory} from '../../../data/theory/theory'
 
@@ -14,7 +17,7 @@ export default function Paragraph({ value, width, props }) {
   console.log('value: ', value, 'props: ',JSON.stringify(props) )
 
   let modifiedValue =
-    `<span id="customSpan" style="font-size: 18px; color: ${textColor}; line-height: 25px; width: ${
+    `<span id="customSpan" style="font-size: 18px; color: ${Colors.text}; line-height: 25px; width: ${
       props?.center ? 'auto' : width * 0.9
     }px; letter-spacing: .3px">` +
     value +

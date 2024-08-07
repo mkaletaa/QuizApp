@@ -7,7 +7,7 @@ import { chapters } from '../../data/data'
 import Card from '../components/Card'
 import Gradient from '../components/molecules/atoms/Gradient'
 import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
-import { screenBackground } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import utilStyles from '../utils/styles'
 
 export default function Chapters() {
@@ -22,7 +22,7 @@ export default function Chapters() {
     <View
       style={{
         alignItems: 'center',
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
       }}
     >
       <Gradient />

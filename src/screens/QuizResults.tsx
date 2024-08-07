@@ -9,10 +9,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { close, exit, retake, retakeWrong } from '../../data/texts';
 import ItemResult from '../components/ItemResult';
 import Gradient from '../components/molecules/atoms/Gradient';
-import Chart from '../components/molecules/Chart';
+// import Chart from '../components/molecules/Chart';
 import Tile from '../components/Tile';
 import useOpenQuiz from '../hooks/useOpenQuiz';
-import { buttonDark, surfaceBg } from '../utils/constants';
+import { Colors } from '../utils/constants';
 import { setColor } from '../utils/functions';
 import { Item, Option } from '../utils/types';
 
@@ -92,44 +92,44 @@ export default function QuizResults({ route }) {
   const ListFooter = () => (
     <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
       <PaperButton
-        mode="outlined"
-        // buttonColor={buttonDark}
+        mode="elevated"
+        rippleColor="thistle"
         style={{
-          borderColor: buttonDark,
+          backgroundColor: Colors.primary,
           paddingVertical: 3,
           width: 230,
-          backgroundColor: surfaceBg,
         }}
         onPress={() => retakeQuiz()}
       >
-        <Text>{retake}</Text>
+        <Text style={{ color: 'white' }}>{retake}</Text>
       </PaperButton>
 
       {resultsArray.every(el => el.isCorrect === 'correct') ? null : (
         <PaperButton
-          mode="outlined"
+          rippleColor="thistle"
+          mode="elevated"
           style={{
-            borderColor: buttonDark,
-            paddingVertical: 3,
+            backgroundColor: Colors.primary,
+            paddingVertical: 4,
             width: 230,
-            backgroundColor: surfaceBg,
           }}
           onPress={() => retakeQuiz(true)}
         >
-          <Text>{retakeWrong}</Text>
+          <Text style={{ color: 'white' }}>{retakeWrong}</Text>
         </PaperButton>
       )}
 
       <PaperButton
-        mode="elevated"
+        mode="outlined"
         style={{
-          backgroundColor: buttonDark,
-          paddingVertical: 1,
+          borderColor: Colors.primary,
+          borderWidth: 1.5,
+          // paddingVertical: 0,
           marginTop: 20,
         }}
         onPress={() => navigation.goBack()}
       >
-        <Text style={{ color: 'white' }}>{exit}</Text>
+        <Text style={{ color: Colors.primary }}>{exit}</Text>
       </PaperButton>
     </View>
   )

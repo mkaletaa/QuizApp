@@ -14,7 +14,7 @@ import {
 } from 'react-native'
 import ImageViewer from 'react-native-image-zoom-viewer'
 
-import { spinner } from '../../utils/constants'
+import { Colors } from '../../utils/constants'
 import useStore from '../../utils/store'
 
 const ImageComponent = ({
@@ -106,7 +106,7 @@ const ImageComponent = ({
               zIndex: 0,
             }}
             size={50}
-            color={spinner}
+            color={Colors.primary}
           />
 
           <AntDesign

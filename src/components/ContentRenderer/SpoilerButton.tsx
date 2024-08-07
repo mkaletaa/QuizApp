@@ -3,7 +3,7 @@ import { Button } from 'react-native-paper'
 
 import { showSpoiler } from '../../../data/texts'
 import useStore from '../../utils/store'
-import { buttonDark } from '../../utils/constants'
+import { Colors } from '../../utils/constants'
 
 export default function SpoilerButton({ value, props }) {
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
@@ -19,7 +19,7 @@ export default function SpoilerButton({ value, props }) {
   }
 
   return (
-    <Button mode="contained" buttonColor={buttonDark} onPress={openBottomSheet}>
+    <Button mode="contained" buttonColor={Colors.primary} onPress={openBottomSheet}>
       {props?.text || showSpoiler}
     </Button>
   )

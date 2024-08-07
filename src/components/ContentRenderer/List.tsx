@@ -1,11 +1,14 @@
-import { Entypo } from '@expo/vector-icons'
-import React from 'react'
-import { View } from 'react-native'
-// import RenderHtml from 'react-native-render-html'
+import { Entypo } from '@expo/vector-icons';
+import React from 'react';
+import { View } from 'react-native';
 
-import { boldTextColor, textColor } from '../../utils/constants'
-import { renderComponent } from './_ContentRenderer'
-import Paragraph from './Paragraph'
+
+
+// import RenderHtml from 'react-native-render-html'
+import {  Colors } from '../../utils/constants';
+import { renderComponent } from './_ContentRenderer';
+import Paragraph from './Paragraph';
+
 
 export function List({ value, width }) {
   return (
@@ -27,7 +30,7 @@ export function List({ value, width }) {
 
 export function ListElement({ value, width }) {
   let listValue =
-    `<span style="margin-bottom: 0px;  font-size: 18px; color: ${textColor}">` +
+    `<span style="margin-bottom: 0px;  font-size: 18px; color: ${Colors.text}">` +
     value +
     '</span>'
   return (
@@ -43,7 +46,7 @@ export function ListElement({ value, width }) {
           alignItems: 'center',
         }}
       >
-        <Entypo name="dot-single" size={26} color={boldTextColor} />
+        <Entypo name="dot-single" size={26} color={Colors.boldText} />
       </View>
       <View
         style={{

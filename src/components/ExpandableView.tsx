@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { explanation as explText } from '../../data/texts'
-import { boldTextColor } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import useStore from '../utils/store'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
 export default function ExpandableView({ data, showHeader = false }) {
@@ -46,7 +46,7 @@ export default function ExpandableView({ data, showHeader = false }) {
             }}
             name="down"
             size={34}
-            color={boldTextColor}
+            color={Colors.boldText}
             style={{
               // backgroundColor: 'red',
               position: 'absolute',

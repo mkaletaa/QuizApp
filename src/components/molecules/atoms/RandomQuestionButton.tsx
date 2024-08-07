@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
 import { randomQuestion } from '../../../../data/texts'
 import useOpenQuiz from '../../../hooks/useOpenQuiz'
-import { buttonDark } from '../../../utils/constants'
+import { Colors } from '../../../utils/constants'
 export default function RandomQuestionButton({ chapName }) {
   const navigation = useNavigation()
   const { openQuiz } = useOpenQuiz()
@@ -48,7 +48,7 @@ export default function RandomQuestionButton({ chapName }) {
       icon="dice-5"
       onPress={instantQuestion}
       elevation={5}
-      buttonColor={buttonDark}
+      buttonColor={Colors.primary}
       textColor="white"
       style={{
         // backgroundColor: 'orange',

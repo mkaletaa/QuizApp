@@ -30,7 +30,7 @@ import ItemResult from '../components/ItemResult'
 import Line from '../components/molecules/atoms/Line'
 import Options from '../components/Options'
 import useNextQuestion from '../hooks/useNextQuestion'
-import { buttonDark, screenBackground, spinner } from '../utils/constants'
+import {Colors } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
 import { Option, Result } from '../utils/types'
@@ -202,7 +202,7 @@ export default function Quiz({ route }) {
                 mode="outlined"
                 elevation={5}
                 style={{
-                  borderColor: buttonDark,
+                  borderColor: Colors.primary,
                   borderWidth: 1.5,
                 }}
                 onPress={() => {
@@ -226,7 +226,7 @@ export default function Quiz({ route }) {
                   }}
                   disabled={chosenOptions.length === 0}
                   elevation={5}
-                  buttonColor={buttonDark}
+                  buttonColor={Colors.primary}
                 >
                   {submit}
                 </PaperButton>
@@ -235,7 +235,7 @@ export default function Quiz({ route }) {
           </React.Fragment>
         )}
 
-        {!item && <ActivityIndicator size={50} color={spinner} />}
+        {!item && <ActivityIndicator size={50} color={Colors.primary} />}
       </ScrollView>
       <Modal
         statusBarTranslucent
@@ -279,7 +279,7 @@ export default function Quiz({ route }) {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: screenBackground,
+    backgroundColor: Colors.screenBg,
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingBottom: 50,

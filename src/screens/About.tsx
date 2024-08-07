@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native'
 import about from '../../data/about.json'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import Gradient from '../components/molecules/atoms/Gradient'
-import { screenBackground } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { Component } from '../utils/types'
 
 export default function About() {
@@ -19,7 +19,7 @@ export default function About() {
     <ScrollView
       contentContainerStyle={{
         padding: 20,
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
         //
       }}
     >

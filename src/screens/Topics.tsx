@@ -8,7 +8,7 @@ import Gradient from '../components/molecules/atoms/Gradient'
 import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
 import ChapterDescription from '../components/molecules/ChapterDescription'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import { screenBackground } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import utilStyles from '../utils/styles'
 
 export default function Topics({ route }) {
@@ -58,7 +58,7 @@ export default function Topics({ route }) {
     <View
       style={{
         alignItems: 'center',
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
       }}
     >
       <Gradient />

@@ -10,7 +10,7 @@ import {
   ResultModal,
 } from '../components/molecules/_ReusableComponents'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import { screenBackground } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { countItemsInTopic, importItem } from '../utils/getQuizData'
 import { Item } from '../utils/types'
 
@@ -63,7 +63,7 @@ export default function Questions({ route }) {
   return (
     <View
       style={{
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
         height: '100%',
       }}
     >

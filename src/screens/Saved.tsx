@@ -11,7 +11,7 @@ import {
 } from '../components/molecules/_ReusableComponents'
 import useFetchSavedItems from '../hooks/useFetchSavedItems'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import { screenBackground, spinner } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { Item } from '../utils/types'
 
 export default function Saved() {
@@ -56,7 +56,7 @@ export default function Saved() {
   return (
     <View
       style={{
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
         height: '100%',
       }}
     >
@@ -101,7 +101,7 @@ export default function Saved() {
             showLoadingMoreSpinner && (
               <ActivityIndicator
                 size={50}
-                color={spinner}
+                color={Colors.primary}
                 style={{ marginTop: 10 }}
               />
             )
