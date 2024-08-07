@@ -1,3 +1,5 @@
+// * This file contains functions for debugging, they are used only in dev mode
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 //* dev mode *//

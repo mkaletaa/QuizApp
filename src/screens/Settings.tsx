@@ -21,15 +21,17 @@ const Settings = () => {
 
   const navigation = useNavigation()
 
+  async function checkPreferences() {
+    const shouldShuffle = await getValue('shuffle')
+    const shouldHide = await getValue('hide')
+    console.log("🚀 ~ checkPreferences ~ shouldShuffle:", shouldShuffle)
+    if (shouldShuffle === null) setIsShuffleSwitchEnabled(false)
+    else setIsShuffleSwitchEnabled(shouldShuffle)
+    if (shouldHide === null) setIsHideAnswersSwitchEnabled(false)
+    else setIsHideAnswersSwitchEnabled(shouldHide)
+  }
+  
   useEffect(() => {
-    async function checkPreferences() {
-      const shouldShuffle = await getValue('shuffle')
-      const shouldHide = await getValue('hide')
-      if (shouldShuffle === null) setIsShuffleSwitchEnabled(false)
-      else setIsShuffleSwitchEnabled(shouldShuffle)
-      if (shouldHide === null) setIsHideAnswersSwitchEnabled(false)
-      else setIsHideAnswersSwitchEnabled(shouldHide)
-    }
     checkPreferences()
   }, [])
 

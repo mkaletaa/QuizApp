@@ -1,6 +1,6 @@
 //* This file contains all functions that are needed for the app in order to perform memory operations
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export async function getValue(key) {
   try {
@@ -15,7 +15,7 @@ export async function getValue(key) {
   } catch (error) {
     //remove the key if it hasn't been found
     removeItemValue(key)
-    console.error('Could not get the item:', error, key)
+    console.error('Could not get the item: ', error, key)
     return null // return null in case of an error
   }
 }
@@ -23,31 +23,34 @@ export async function getValue(key) {
 export async function removeKey(key) {
   try {
     await AsyncStorage.removeItem(key)
-    console.log('The key has been deleted successfully ', key)
+    console.log('The key has been deleted successfully: ', key)
   } catch (e) {
-    console.log('An error occured while removing the key:', e)
+    console.log('An error occurred while removing the key:', e)
   }
 }
 
 export async function setValue(key, value) {
   try {
     await AsyncStorage.setItem(key, JSON.stringify(value))
-    console.log('Nowy klucz został pomyślnie ustawiony!')
+    console.log('New value has been set successfully: ', key, value)
   } catch (e) {
-    console.log('Wystąpił błąd podczas ustawiania nowego klucza:', e)
+    console.log('An error occurred while setting the key: ', e)
   }
 }
 
 export const removeQuestion = async id => {
   try {
     const savedItems = await AsyncStorage.getItem('savedItems')
+    // console.log("🚀 ~ removeQuestion ~ savedItems:", savedItems)
     let parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
+    // console.log("🚀 ~ removeQuestion ~ parsedSavedItems:", parsedSavedItems)
+    
 
     parsedSavedItems = parsedSavedItems.filter(savedItem => savedItem !== id)
 
     await AsyncStorage.setItem('savedItems', JSON.stringify(parsedSavedItems))
   } catch (error) {
-    console.error('Error removing item:', error)
+    console.error('Error removing item: ', error)
   }
 }
 
@@ -108,7 +111,7 @@ export const removeQuestion = async id => {
 //     )
 //       savedTopicStat.bestResult = (nrOfCorrect / resultsArray.length) * 100
 
-//     console.log('🚀 ~ useAsyncStorage ~ savedTopicStat:', savedTopicStat)
+// //     console.log('🚀 ~ useAsyncStorage ~ savedTopicStat:', savedTopicStat)
 //     //zapisz jeszcze kiedy ostatnio kiedy ostatnio zrobiono quiz w ogóle i może kiedy ostatnio zrobiono tę kategorię
 
 //     await AsyncStorage.setItem(topicName, JSON.stringify(savedTopicStat))

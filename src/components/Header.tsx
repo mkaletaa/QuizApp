@@ -78,14 +78,14 @@ export default function Header({ title }) {
             gap: 15,
           }}
         >
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => {
               //@ts-ignore
               navigation.navigate('Saved')
             }}
           >
             <Ionicons name="bookmark-outline" size={30} color={Colors.boldText} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity
             onPress={() => {
