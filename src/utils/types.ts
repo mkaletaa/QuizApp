@@ -1,5 +1,6 @@
 type Type =
   | 'Text'
+  | 'CText' //centered text
   | 'Block'
   | 'Header'
   | 'List'

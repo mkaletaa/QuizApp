@@ -1,17 +1,20 @@
-import React from 'react'
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import CodeHighlighter from 'react-native-code-highlighter'
-import YoutubePlayer from 'react-native-youtube-iframe'
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import React from 'react';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import CodeHighlighter from 'react-native-code-highlighter';
+import YoutubePlayer from 'react-native-youtube-iframe';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import { boldTextColor } from '../../utils/constants'
-import { Component } from '../../utils/types'
-import Block from './Block'
-import ImageComponent from './ImageComponent'
-import { List, ListElement } from './List'
-import Math from './Math'
-import Paragraph from './Paragraph'
-import SpoilerButton from './SpoilerButton'
+
+
+import { boldTextColor } from '../../utils/constants';
+import { Component } from '../../utils/types';
+import Block from './Block';
+import ImageComponent from './ImageComponent';
+import { List, ListElement } from './List';
+import Math from './Math';
+import Paragraph from './Paragraph';
+import SpoilerButton from './SpoilerButton';
+
 
 //dataComponent is an object of a single component, eg. {"type": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
@@ -24,6 +27,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
   switch (componentType) {
     case 'Text':
       return <Paragraph value={value} width={width} key={key} props={props} />
+    case 'CText':
+      return <Paragraph value={value} width={width} key={key} props={{"center": true}} />
 
     case 'Header':
       function setFontSize(): number {
@@ -58,9 +63,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           </Text>
         </View>
       )
-
-      //! deprecated
-    case 'List':
+     
+    case 'List': //! deprecated
       return <List value={value} width={width} key={key} />
 
     case 'ListElement':

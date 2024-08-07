@@ -1,18 +1,21 @@
-import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useRef, useState } from 'react'
-import { FlatList, Modal, Text, View } from 'react-native'
-import { Button as PaperButton } from 'react-native-paper'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useRef, useState } from 'react';
+import { FlatList, Modal, Text, View } from 'react-native';
+import { Button as PaperButton } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { close, exit, retake, retakeWrong } from '../../data/texts'
-import ItemResult from '../components/ItemResult'
-import Gradient from '../components/molecules/atoms/Gradient'
-import Chart from '../components/molecules/Chart'
-import Tile from '../components/Tile'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import { surfaceBg } from '../utils/constants'
-import { setColor } from '../utils/functions'
-import { Item, Option } from '../utils/types'
+
+
+import { close, exit, retake, retakeWrong } from '../../data/texts';
+import ItemResult from '../components/ItemResult';
+import Gradient from '../components/molecules/atoms/Gradient';
+import Chart from '../components/molecules/Chart';
+import Tile from '../components/Tile';
+import useOpenQuiz from '../hooks/useOpenQuiz';
+import { buttonDark, surfaceBg } from '../utils/constants';
+import { setColor } from '../utils/functions';
+import { Item, Option } from '../utils/types';
+
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
@@ -90,8 +93,9 @@ export default function QuizResults({ route }) {
     <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
       <PaperButton
         mode="outlined"
+        // buttonColor={buttonDark}
         style={{
-          borderColor: 'slateblue',
+          borderColor: buttonDark,
           paddingVertical: 3,
           width: 230,
           backgroundColor: surfaceBg,
@@ -105,7 +109,7 @@ export default function QuizResults({ route }) {
         <PaperButton
           mode="outlined"
           style={{
-            borderColor: 'slateblue',
+            borderColor: buttonDark,
             paddingVertical: 3,
             width: 230,
             backgroundColor: surfaceBg,
@@ -119,7 +123,7 @@ export default function QuizResults({ route }) {
       <PaperButton
         mode="elevated"
         style={{
-          backgroundColor: 'slateblue',
+          backgroundColor: buttonDark,
           paddingVertical: 1,
           marginTop: 20,
         }}

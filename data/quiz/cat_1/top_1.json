@@ -23,39 +23,12 @@
     "explanation": [
       {
         "type": "Text",
-        "value": "Expl?"
+        "value": "Expl?",
+        "props": {"center": true}
       },
       {
-        "type": "Text",
-        "value": " Anation"
-      },
-      {
-        "type": "Text",
-        "value": " Anation"
-      },
-      {
-        "type": "Text",
-        "value": " Anation"
-      },
-      {
-        "type": "Text",
-        "value": " Anation"
-      },
-      {
-        "type": "Text",
-        "value": " Anation"
-      },
-      {
-        "type": "Text",
-        "value": " Anation"
-      },
-      {
-        "type": "Text",
-        "value": " Anation"
-      },
-      {
-        "type": "Text",
-        "value": " Anation"
+        "type": "CText",
+        "value": " ddddAnation"
       },
       {
         "type": "Text",

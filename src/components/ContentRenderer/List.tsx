@@ -1,10 +1,11 @@
 import { Entypo } from '@expo/vector-icons'
 import React from 'react'
 import { View } from 'react-native'
-import RenderHtml from 'react-native-render-html'
+// import RenderHtml from 'react-native-render-html'
 
 import { boldTextColor, textColor } from '../../utils/constants'
 import { renderComponent } from './_ContentRenderer'
+import Paragraph from './Paragraph'
 
 export function List({ value, width }) {
   return (
@@ -49,7 +50,12 @@ export function ListElement({ value, width }) {
           width: '90%',
         }}
       >
-        <RenderHtml contentWidth={width} source={{ html: listValue }} />
+        <Paragraph
+          width={width * 0.9 - 5}
+          value={listValue}
+          props={undefined}
+        ></Paragraph>
+        {/* <RenderHtml contentWidth={width} source={{ html: listValue }} /> */}
       </View>
     </View>
   )

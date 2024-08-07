@@ -23,7 +23,6 @@ export default function About() {
         //
       }}
     >
-      <Gradient />
       <ContentRenderer content={content} />
     </ScrollView>
   )

@@ -24,9 +24,9 @@ import { getValue, setValue } from '../utils/utilStorage'
 
 const Settings = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
-  useState<boolean>()
+    useState<boolean>()
   const [isHideAnswersSwitchEnabled, setIsHideAnswersSwitchEnabled] =
-  useState<boolean>()
+    useState<boolean>()
 
   const navigation = useNavigation()
 
@@ -116,7 +116,7 @@ const Settings = () => {
         rippleColor={surfaceRipple}
         title={savedQuestions}
         left={() => (
-          <Ionicons name="bookmark-outline" size={24} color={'slateblue'} />
+          <Ionicons name="bookmark-outline" size={24} color={'#714696'} />
         )}
         right={() => <AntDesign name="right" size={24} color={borderColor} />}
         //@ts-ignore
@@ -137,7 +137,7 @@ const Settings = () => {
           <MaterialCommunityIcons
             name="information-variant"
             size={26}
-            color="slateblue"
+            color="#714696"
           />
         )}
         right={() => <AntDesign name="right" size={24} color={borderColor} />}

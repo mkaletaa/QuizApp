@@ -7,7 +7,7 @@
       },
       {
         "type": "Code",
-        "value": "[\n   {\n      \"title\": \"tytuł segmentu (opcjonalny)\",\n      \"data\": [\n         //tutaj znajduje się tablica komponentów danego segmentu\n      ]\n}\n//[kolejny segment]", 
+        "value": "[\n   {\n      \"title\": \"tytuł segmentu (opcjonalny)\",\n      \"data\": [\n         //tutaj znajduje się tablica komponentów danego segmentu\n      ]\n}\n//[kolejny segment]",
         "props": { "language": "json" }
       },
       {
@@ -27,7 +27,7 @@
       {
         "type": "Text",
         "value": "Ten jest wyśrodkowany",
-        "props": {"center": true}
+        "props": { "center": true }
       },
       {
         "type": "Text",
@@ -107,21 +107,16 @@
     "title": "List i ListElement",
     "data": [
       {
-        "type": "List",
-        "value": [
-          {
-            "type": "ListElement",
-            "value": "służy do wyświetlania list"
-          },
-          {
-            "type": "ListElement",
-            "value": "wartością ListElement może być tylko tekst, włączając w to <u>znaczniki htmla</u>"
-          },
-          {
-            "type": "ListElement",
-            "value": "Nie powinno tu być żadnych obrazów itp. Jeśli chcesz żeby element listy zawierał obraz wstaw go pod komponentem ListElement"
-          }
-        ]
+        "type": "ListElement",
+        "value": "służy do wyświetlania list"
+      },
+      {
+        "type": "ListElement",
+        "value": "<ins data-key='hello' class='hint'>&nbsp;gggg&nbsp;</ins> wartością ListElement może być tylko tekst, włączając w to <u>znaczniki htmla</u>"
+      },
+      {
+        "type": "ListElement",
+        "value": "Nie powinno tu być żadnych obrazów itp. Jeśli chcesz żeby element listy zawierał obraz wstaw go pod komponentem ListElement"
       },
       {
         "type": "Image",
@@ -355,11 +350,11 @@
         "type": "Text",
         "value": "Hint właściwie nie jest komponentem. Działa podobnie jak SpoilerButton z tym że nie jest on oddzielnym przyciskiem, a jest wbudowany w tekst. <ins data-key='hello' class='hint'>Kliknij mnie</ins> ."
       },
-      
+
       {
         "type": "Code",
         "value": "{\n  \"type\": \"Text\",\n  \"value\": \"<ins data-key='klucz' class='hint'>&nbsp;zawartość&nbsp;</ins>\"\n}",
-        "props": {"language": "json" }
+        "props": { "language": "json" }
       },
       {
         "type": "Text",
@@ -368,7 +363,7 @@
       {
         "type": "Code",
         "value": "{\n  \"klucz\": [\n    {\n      \"type\": \"Text\",\n      \"value\": \"Hello World\"\n    }\n  ]\n}",
-        "props": {"language": "json" }
+        "props": { "language": "json" }
       }
     ]
   }

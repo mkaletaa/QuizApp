@@ -17,7 +17,7 @@ import ContentRenderer from './_ContentRenderer'
 
 export default function Spoiler() {
   const bottomSheetRef = useRef(null)
-  const snapPoints = ['25%', '50%', '75%']
+  const snapPoints = ['31%', '50%', '75%']
 
   const showBottomSheet = useStore(state => state.showBottomSheet)
   const snapIndex = useStore.getState().bottomSheetSnapIndex

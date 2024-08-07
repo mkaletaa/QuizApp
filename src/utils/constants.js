@@ -1,6 +1,6 @@
 const primary1 = '#6b4891' //iwik
 const primary2 = '#7d609f' //iwik light
-const primary3 = '#6A5ACD' //slateblue
+const primary3 = '#714696' //used to be #6A5ACD
 // const primary4 = 'thistle'
 // const primary5 = '#800080' //purple
 // const primary6 = '#663399' //rebeccapurple

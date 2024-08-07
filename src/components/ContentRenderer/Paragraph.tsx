@@ -11,11 +11,12 @@ export default function Paragraph({ value, width, props }) {
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
   const setBottomSheetContent = useStore(state => state.setBottomSheetContent)
   // const setNavigateTo = useStore(state => state.setNavigateTo)
+  console.log('value: ', value, 'props: ',JSON.stringify(props) )
 
   let modifiedValue =
     `<span id="customSpan" style="font-size: 18px; color: ${textColor}; line-height: 25px; width: ${
       props?.center ? 'auto' : width * 0.9
-    }px">` +
+    }px; letter-spacing: .3px">` +
     value +
     '</span>'
 
