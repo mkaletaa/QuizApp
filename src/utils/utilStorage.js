@@ -1,6 +1,5 @@
 //* This file contains all functions that are needed for the app in order to perform memory operations
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export async function getValue(key) {
   try {
@@ -56,24 +55,21 @@ export const removeQuestion = async id => {
 
 export const setStats = async id => {
   try {
-
     // Pobierz wartość z AsyncStorage
     let goodAnsCount = await AsyncStorage.getItem('goodAnsCount')
-    goodAnsCount = goodAnsCount
-    ? JSON.parse(goodAnsCount) + 1
-    : 1
-    
+    goodAnsCount = goodAnsCount ? JSON.parse(goodAnsCount) + 1 : 1
+
     // Zapisz zaktualizowaną wartość do AsyncStorage
     await AsyncStorage.setItem('goodAnsCount', JSON.stringify(goodAnsCount))
-    
+
     //-------
-    
+
     const [chapter, topic] = id.split('|')
 
     // console.log("🚀 ~ setStats ~ --------------")
     // console.log("🚀 ~ setStats ~ topic:", topic)
     // console.log("🚀 ~ setStats ~ chapter:", chapter)
-    
+
     // console.log("🚀 ~ setStats ~ goodAnsCount:", goodAnsCount)
     {
       const key = `${chapter}|goodAnsCount`
@@ -81,9 +77,9 @@ export const setStats = async id => {
       // console.log("🚀 ~ setStats ~ key:", key)
       let chapterGoodAnsCount = await AsyncStorage.getItem(key)
       chapterGoodAnsCount = chapterGoodAnsCount
-      ? JSON.parse(chapterGoodAnsCount) + 1
-      : 1
-      
+        ? JSON.parse(chapterGoodAnsCount) + 1
+        : 1
+
       await AsyncStorage.setItem(key, JSON.stringify(chapterGoodAnsCount))
       // console.log("🚀 ~ setStats ~ chapterGoodAnsCount:", chapterGoodAnsCount)
     }
@@ -96,9 +92,9 @@ export const setStats = async id => {
       // console.log("🚀 ~ setStats ~ key:", key)
       let topicGoodAnsCount = await AsyncStorage.getItem(key)
       topicGoodAnsCount = topicGoodAnsCount
-      ? JSON.parse(topicGoodAnsCount) + 1
-      : 1
-      
+        ? JSON.parse(topicGoodAnsCount) + 1
+        : 1
+
       await AsyncStorage.setItem(key, JSON.stringify(topicGoodAnsCount))
       // console.log("🚀 ~ setStats ~ topicGoodAnsCount:", topicGoodAnsCount)
     }
@@ -107,6 +103,25 @@ export const setStats = async id => {
   }
 }
 
+export const setFinishedQuizStats = async function (chapter, topic) {
+  try {
+    const key = `${chapter}|${topic}|allGoodAnsCount`
+
+    // console.log("🚀 ~ setStats ~ key:", key)
+    let topicAllGoodAnsCount = await AsyncStorage.getItem(key)
+    topicAllGoodAnsCount = topicAllGoodAnsCount
+      ? JSON.parse(topicAllGoodAnsCount) + 1
+      : 1
+
+    await AsyncStorage.setItem(key, JSON.stringify(topicAllGoodAnsCount))
+    console.log(
+      '🚀 ~ setFinishedQuizStat ~ topicAllGoodAnsCount:',
+      topicAllGoodAnsCount,
+    )
+  } catch (error) {
+    console.error('Error using setFinishedQuizStat', error)
+  }
+}
 // export default function useAsyncStorage() {
 //do zapisywania w storage po udzieleniu odpowiedzi na pytanie
 
