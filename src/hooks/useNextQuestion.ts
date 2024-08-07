@@ -5,7 +5,7 @@ import { Alert } from 'react-native'
 
 import { importItem, importItemInfinityMode } from '../utils/getQuizData'
 import { Item, Option, Result } from '../utils/types'
-import { setFinishedQuizStats } from '../utils/utilStorage'
+import { setDailyStreak, setFinishedQuizStats } from '../utils/utilStorage'
 
 const useNextQuestion = ({
   chapName,
@@ -154,6 +154,7 @@ const useNextQuestion = ({
         setFinishedQuizStats(chapName, topName)
       }
 
+      setDailyStreak()
       prepareForGeneralResults()
       return
     }

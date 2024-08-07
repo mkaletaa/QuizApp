@@ -16,6 +16,7 @@ import Theory from './screens/Theory';
 import Topics from './screens/Topics';
 import { Colors } from './utils/constants';
 import { removeUnderscores } from './utils/functions';
+import Achievements from './screens/Achievements';
 
 
 const Stack = createStackNavigator()
@@ -112,6 +113,18 @@ const MyStack = () => {
       <Stack.Screen
         name="About"
         component={About}
+        //@ts-ignore
+        options={({ route }) => ({
+          ...header({
+            title: aboutTheApp,
+          }),
+          ...headerOptions,
+        })}
+        />
+
+      <Stack.Screen
+        name="Achievements"
+        component={Achievements}
         //@ts-ignore
         options={({ route }) => ({
           ...header({

@@ -178,14 +178,13 @@ export const getDailyStreak = async function (): Promise<number> {
     const { shouldReset } = calculateStreakUpdate(today, lastDate, streak)
 
     if (shouldReset) {
-      console.log('Zresetowano streak!')
       return 0
     } else {
       return streak
     }
   } catch (error) {
     console.error('Error getting daily streak', error)
-    return 0
+    return -1
   }
 }
 
