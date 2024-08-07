@@ -1,10 +1,13 @@
 //* This file contains other utility functions 
+import { Linking } from 'react-native';
 
-import { Linking } from 'react-native'
-import { Item, Option, Result } from './types'
+
+
+import settings from "../../data/settings.json";
 // import Constants from 'expo-constants'
-import { mailSubject, mailBody } from '../../data/texts'
-import settings from "../../data/settings.json"
+import { mailBody, mailSubject } from '../../data/texts';
+import { Item, Option, Result } from './types';
+
 
 export function removeUnderscores(
   str: string,
@@ -44,7 +47,7 @@ export function setColor(result: Result): 'rgba(50, 199, 31, 1)' | 'rgba(255, 35
 
 export function returnIsCorrect(
   item: Item,
-  chosenOptions: Option[]
+  chosenOptions: Option[],
 ): 'correct' | 'incorrect' | 'kindof' {
   if (!chosenOptions) return null
   //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true
