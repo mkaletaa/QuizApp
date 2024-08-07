@@ -87,7 +87,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         ></View>
       )
 
-    case 'Quote':
+    case 'Quote': //? Maybe make a Block type of quote
       return (
         <View style={styles.quote} key={key}>
           {

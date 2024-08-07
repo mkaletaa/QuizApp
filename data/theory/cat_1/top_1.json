@@ -32,6 +32,11 @@
       {
         "type": "Text",
         "value": "A ten od lewej"
+      },
+      "A ten to sam string. On jest zawsze wyśrodkowany.",
+      {
+        "type": "CText",
+        "value": "Jest jeszcze CText, który też jest zawsze wyśrodkowany"
       }
     ]
   },

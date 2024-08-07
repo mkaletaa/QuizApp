@@ -5,7 +5,8 @@ import RenderHtml from 'react-native-render-html';
 
 import glossary from '../../../data/glossary.json';
 import useStore from '../../utils/store';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Colors } from '../../utils/constants';
+
 
 
 // import {theory} from '../../../data/theory/theory'

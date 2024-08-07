@@ -181,7 +181,7 @@ export default function Theory({
         paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
       }}
     >
-      <ContentRenderer content={[item]} />
+      <ContentRenderer content={typeof item === 'string' ? item : [item]} />
     </View>
     // </TouchableWithoutFeedback>
   )
