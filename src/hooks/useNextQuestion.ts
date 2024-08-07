@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackActions } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
 
 
 
@@ -132,7 +133,7 @@ const useNextQuestion = ({
 
     //! symulacja długiego ładowania pytania
     // setTimeout(() => {
-    if(newItem.mix===true) newItem.options = shuffleArray(newItem.options)
+    if(newItem?.mix===true) newItem.options = shuffleArray(newItem.options)
     setItem(newItem)
     // }, 2000)
   }
@@ -148,6 +149,10 @@ const useNextQuestion = ({
     //jeśli już wszystkie itemy zostały wykorzystane
     if (resultsArray.length === itemsCount) {
       //   storeFinishedQuizStat(topName, resultsArray)
+      if(resultsArray.every(result => result.isCorrect==='correct') && !chapName.startsWith('__')){
+        // todo: zapisz do async storage //Alert.alert(chapName) 
+      }
+
       prepareForGeneralResults()
       return
     }

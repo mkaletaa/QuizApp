@@ -37,7 +37,7 @@
   {
     "id": "cat_1|top_2|2",
     "multiChoice": true,
-    "question": "React CLI?",
+    "question": "React CLI? eiug fiuwe wye fgiwe fgwefi g",
     "options": [
       { "id": 11, "val": "create react app", "correct": false },
       { "id": 21, "val": "create next app", "correct": true },
@@ -50,11 +50,11 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "What can be put on pizza"
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Except pineapple ofc"
       },
       {

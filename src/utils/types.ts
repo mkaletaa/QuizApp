@@ -1,6 +1,6 @@
 type Type =
   | 'Text'
-  | 'CText' //centered text
+  | 'CText' //centered text // use it in quiz files instead of Text
   | 'Block'
   | 'Header'
   | 'List'
@@ -51,5 +51,5 @@ export type Result = {
   id: string
   userChoices?: Option[]
   item: Item
-  isCorrect: 'correct' | 'incorrect' | 'kindof'
+  isCorrect: 'correct' | 'incorrect' | 'kindof' //todo: change name to status
 }

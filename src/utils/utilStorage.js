@@ -41,16 +41,69 @@ export async function setValue(key, value) {
 export const removeQuestion = async id => {
   try {
     const savedItems = await AsyncStorage.getItem('savedItems')
-    // console.log("🚀 ~ removeQuestion ~ savedItems:", savedItems)
+    // // console.log("🚀 ~ removeQuestion ~ savedItems:", savedItems)
     let parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
-    // console.log("🚀 ~ removeQuestion ~ parsedSavedItems:", parsedSavedItems)
-    
+    // // console.log("🚀 ~ removeQuestion ~ parsedSavedItems:", parsedSavedItems)
 
     parsedSavedItems = parsedSavedItems.filter(savedItem => savedItem !== id)
 
     await AsyncStorage.setItem('savedItems', JSON.stringify(parsedSavedItems))
+    console.log('Removed question successfully!')
   } catch (error) {
     console.error('Error removing item: ', error)
+  }
+}
+
+export const setStats = async id => {
+  try {
+
+    // Pobierz wartość z AsyncStorage
+    let goodAnsCount = await AsyncStorage.getItem('goodAnsCount')
+    goodAnsCount = goodAnsCount
+    ? JSON.parse(goodAnsCount) + 1
+    : 1
+    
+    // Zapisz zaktualizowaną wartość do AsyncStorage
+    await AsyncStorage.setItem('goodAnsCount', JSON.stringify(goodAnsCount))
+    
+    //-------
+    
+    const [chapter, topic] = id.split('|')
+
+    // console.log("🚀 ~ setStats ~ --------------")
+    // console.log("🚀 ~ setStats ~ topic:", topic)
+    // console.log("🚀 ~ setStats ~ chapter:", chapter)
+    
+    // console.log("🚀 ~ setStats ~ goodAnsCount:", goodAnsCount)
+    {
+      const key = `${chapter}|goodAnsCount`
+
+      // console.log("🚀 ~ setStats ~ key:", key)
+      let chapterGoodAnsCount = await AsyncStorage.getItem(key)
+      chapterGoodAnsCount = chapterGoodAnsCount
+      ? JSON.parse(chapterGoodAnsCount) + 1
+      : 1
+      
+      await AsyncStorage.setItem(key, JSON.stringify(chapterGoodAnsCount))
+      // console.log("🚀 ~ setStats ~ chapterGoodAnsCount:", chapterGoodAnsCount)
+    }
+
+    //--------
+
+    {
+      const key = `${chapter}|${topic}|goodAnsCount`
+
+      // console.log("🚀 ~ setStats ~ key:", key)
+      let topicGoodAnsCount = await AsyncStorage.getItem(key)
+      topicGoodAnsCount = topicGoodAnsCount
+      ? JSON.parse(topicGoodAnsCount) + 1
+      : 1
+      
+      await AsyncStorage.setItem(key, JSON.stringify(topicGoodAnsCount))
+      // console.log("🚀 ~ setStats ~ topicGoodAnsCount:", topicGoodAnsCount)
+    }
+  } catch (error) {
+    console.error(('Error setting achievement stat: ', error))
   }
 }
 
@@ -111,7 +164,7 @@ export const removeQuestion = async id => {
 //     )
 //       savedTopicStat.bestResult = (nrOfCorrect / resultsArray.length) * 100
 
-// //     console.log('🚀 ~ useAsyncStorage ~ savedTopicStat:', savedTopicStat)
+// // //     console.log('🚀 ~ useAsyncStorage ~ savedTopicStat:', savedTopicStat)
 //     //zapisz jeszcze kiedy ostatnio kiedy ostatnio zrobiono quiz w ogóle i może kiedy ostatnio zrobiono tę kategorię
 
 //     await AsyncStorage.setItem(topicName, JSON.stringify(savedTopicStat))

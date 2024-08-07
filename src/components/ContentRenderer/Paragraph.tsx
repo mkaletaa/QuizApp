@@ -15,7 +15,7 @@ export default function Paragraph({ value, width, props }) {
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
   const setBottomSheetContent = useStore(state => state.setBottomSheetContent)
   // const setNavigateTo = useStore(state => state.setNavigateTo)
-  console.log('value: ', value, 'props: ',JSON.stringify(props) )
+  // console.log('value: ', value, 'props: ',JSON.stringify(props) )
 
   let modifiedValue =
     `<span id="customSpan" style="font-size: 18px; color: ${Colors.text}; line-height: 25px; width: ${

@@ -30,11 +30,11 @@ import ItemResult from '../components/ItemResult'
 import Line from '../components/molecules/atoms/Line'
 import Options from '../components/Options'
 import useNextQuestion from '../hooks/useNextQuestion'
-import {Colors } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
 import { Option, Result } from '../utils/types'
-import { getValue } from '../utils/utilStorage'
+import { getValue, setStats } from '../utils/utilStorage'
 
 //list of route params is in useOpenQuiz
 export default function Quiz({ route }) {
@@ -79,13 +79,13 @@ export default function Quiz({ route }) {
       setChosenOptions(prev => [...prev, option])
       return
     }
-    
+
     // if an options has been marked and no multichoice
     if (action === 'add' && !item.multiChoice) {
       setChosenOptions([option])
       return
     }
-    
+
     // if an options has been unmarked
     if (action === 'remove') {
       let chosenOptions2 = chosenOptions.filter(el => el.id !== option.id)
@@ -97,6 +97,8 @@ export default function Quiz({ route }) {
   function setResults() {
     let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' =
       returnIsCorrect(item, chosenOptions)
+
+    if (thisQuestionResult === 'correct') setStats(item.id)
 
     let result: Result
     if (itemsCount !== Infinity) {
@@ -114,7 +116,7 @@ export default function Quiz({ route }) {
 
   function closeModalAndGoBack(): void {
     setShowExitModal(false)
-    navigation.goBack() 
+    navigation.goBack()
   }
 
   useEffect(() => {
@@ -129,7 +131,7 @@ export default function Quiz({ route }) {
     if (showExitModal) {
       // If the exit modal or general results are already visible, close them
       setShowExitModal(false)
-      navigation.goBack() 
+      navigation.goBack()
     } else {
       // Otherwise, show the exit modal
       setShowExitModal(true)
