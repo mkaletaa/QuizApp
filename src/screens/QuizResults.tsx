@@ -1,21 +1,18 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useRef, useState } from 'react';
-import { FlatList, Modal, Text, View } from 'react-native';
-import { Button as PaperButton } from 'react-native-paper';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native'
+import React, { useEffect, useRef, useState } from 'react'
+import { FlatList, Modal, Text, View } from 'react-native'
+import { Button as PaperButton } from 'react-native-paper'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-
-
-import { close, exit, retake, retakeWrong } from '../../data/texts';
-import ItemResult from '../components/ItemResult';
-import Gradient from '../components/molecules/atoms/Gradient';
+import { close, exit, retake, retakeWrong } from '../../data/texts'
+import ItemResult from '../components/ItemResult'
+import Gradient from '../components/molecules/atoms/Gradient'
 // import Chart from '../components/molecules/Chart';
-import Tile from '../components/Tile';
-import useOpenQuiz from '../hooks/useOpenQuiz';
-import { Colors } from '../utils/constants';
-import { setColor } from '../utils/functions';
-import { Item, Option } from '../utils/types';
-
+import Tile from '../components/Tile'
+import useOpenQuiz from '../hooks/useOpenQuiz'
+import { Colors } from '../utils/constants'
+import { setColor } from '../utils/functions'
+import { Item, Option } from '../utils/types'
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
@@ -136,16 +133,25 @@ export default function QuizResults({ route }) {
 
   return (
     <SafeAreaView>
-      <View style={{ height: '100%' }}>
+      <View style={{ height: '100%', justifyContent: 'flex-end' }}>
         <Gradient />
-        <FlatList
-          data={resultsArray}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          ListHeaderComponent={ListHeader}
-          ListFooterComponent={ListFooter}
-          contentContainerStyle={{ paddingTop: 20 }}
-        />
+        <View>
+          {' '}
+          {
+            //todo: try to remove this View and see what happens
+          }
+          <FlatList
+            data={resultsArray}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            ListHeaderComponent={ListHeader}
+            ListFooterComponent={ListFooter}
+            contentContainerStyle={{
+              paddingTop: 20,
+              //backgroundColor: 'red'
+            }}
+          />
+        </View>
         <Modal
           animationType="fade"
           transparent={true}

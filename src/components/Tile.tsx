@@ -37,11 +37,11 @@ export default function Tile({
   function setGradientColor(color: string): string {
     switch (color) {
       case 'rgba(255, 35, 35, 1)': //incorrect
-        return 'rgb(190, 0, 0)'
+        return 'rgba(190, 0, 0, .2)'
       case 'orange': //correct
-        return 'rgb(215, 132, 0)'
+        return 'rgba(215, 132,0, 0.2)'
       case 'rgba(50, 199, 31, 1)': //correct
-        return 'rgba(49, 165, 34, 1)'
+        return 'rgba(49, 165, 34, .2)'
       default:
         return Colors.gradientLight
     }
@@ -52,7 +52,7 @@ export default function Tile({
       ref={viewRef}
       style={[
         {
-          backgroundColor: color,
+          backgroundColor: Colors.gradientLight,
           width: '60%',
           minWidth: 260,
           height: 80, //100
@@ -66,7 +66,7 @@ export default function Tile({
 
           // borderWidth: 2,
           // borderTopColor: 'rgba(0,205, 0, .1)',
-          // borderBottomColor: 'rgba(0,205, 0, .3)',
+          borderColor: 'rgba(255, 35, 35, .5)',
           // borderRightColor: 'rgba(0,205, 0, .1)',
           // borderLeftColor: 'rgba(0,205, 0, .1)',
         },
