@@ -136,10 +136,10 @@ export default function QuizResults({ route }) {
       <View style={{ height: '100%', justifyContent: 'flex-end' }}>
         <Gradient />
         <View>
-          {' '}
           {
             //todo: try to remove this View and see what happens
           }
+
           <FlatList
             data={resultsArray}
             renderItem={renderItem}

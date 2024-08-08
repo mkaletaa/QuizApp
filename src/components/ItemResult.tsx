@@ -9,7 +9,7 @@ import { Button as PaperButton } from 'react-native-paper';
 
 
 import { correctAnswers, yourAnswers } from '../../data/texts';
-import { Colors } from '../utils/constants';
+import { COLOR, Colors } from '../utils/constants';
 import { returnIsCorrect } from '../utils/functions';
 import useStore from '../utils/store';
 import { Item, Option } from '../utils/types';
@@ -70,17 +70,17 @@ export default function ItemResult({
 
           {/* </Pressable> */}
           {returnIsCorrect(item, chosenOptions) === 'correct' && (
-            <Foundation name="check" size={54} color="green" />
+            <Foundation name="check" size={54} color={COLOR.GREEN} />
           )}
 
           {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
-            <FontAwesome name="remove" size={54} color="red" />
+            <FontAwesome name="remove" size={54} color={COLOR.RED} />
           )}
 
           {returnIsCorrect(item, chosenOptions) === 'kindof' && (
             <View style={{ flexDirection: 'row' }}>
-              <Foundation name="check" size={54} color="orange" />
-              <FontAwesome name="remove" size={54} color="orange" />
+              <Foundation name="check" size={54} color={COLOR.ORANGE} />
+              <FontAwesome name="remove" size={54} color={COLOR.ORANGE} />
             </View>
           )}
 

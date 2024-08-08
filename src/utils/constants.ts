@@ -70,7 +70,13 @@ export const Colors = {
   border: '#D6D0E2',
   gradient: 'rgb(220,225,255)',
   gradientLight: 'rgb(230, 230, 255)', //Tile, quiz option button
-  screenBg: '#F0F0FA',
+  screenBg: '#F0F0FA', //Card, Tile, ChapterDescription
   ripple: '#CBC0E0',
   surfaceBg: secondary22,
 }
+
+export const COLOR = {
+  GREEN: 'rgba(76, 186, 0, 1)',
+  ORANGE: 'orange',
+  RED: 'rgba(255, 35, 35, 1)',
+} as const
