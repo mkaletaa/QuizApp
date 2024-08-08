@@ -69,7 +69,7 @@ export const Colors = {
   boldText: 'rgb(20, 20, 60)',
   border: '#D6D0E2',
   gradient: 'rgb(220,225,255)',
-  gradientLight: 'rgb(230, 230, 255)', //Tile, quiz option button
+  gradientLight: 'rgb(230, 230, 255)', //Tile, Options
   screenBg: '#F0F0FA', //Card, Tile, ChapterDescription
   ripple: '#CBC0E0',
   surfaceBg: secondary22,

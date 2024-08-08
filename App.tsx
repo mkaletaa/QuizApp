@@ -1,17 +1,22 @@
-import NetInfo from '@react-native-community/netinfo'
-import { NavigationContainer } from '@react-navigation/native'
-import React, { useCallback, useEffect, useState } from 'react'
-import 'react-native-gesture-handler'
-import MyStack from './src/Stack'
-import CustomModal from './src/components/CustomModal'
-import { noInternetMessage } from './data/texts'
+import NetInfo from '@react-native-community/netinfo';
+import { NavigationContainer } from '@react-navigation/native';
+import * as Sentry from '@sentry/react-native';
+// import * as DevClient from 'expo-dev-client';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Updates from 'expo-updates';
+import React, { useCallback, useEffect, useState } from 'react';
+import 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Provider } from 'react-native-paper';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+
+
+import { noInternetMessage } from './data/texts';
+import CustomModal from './src/components/CustomModal';
+import MyStack from './src/Stack';
 import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
-import * as Updates from 'expo-updates'
-import * as Sentry from '@sentry/react-native'
-import { Provider } from 'react-native-paper'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import * as SplashScreen from 'expo-splash-screen'
+
 
 Sentry.init({
   // dsn: "https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640",

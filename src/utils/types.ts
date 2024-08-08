@@ -13,6 +13,7 @@ type Type =
   | 'Spoiler'
   | 'Divider'
   | 'BulletPoint' //the same as ListElement
+  | 'Ad'
 
 export type Component = {
   type: Type

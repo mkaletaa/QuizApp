@@ -1,20 +1,18 @@
-import React from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import CodeHighlighter from 'react-native-code-highlighter';
-import YoutubePlayer from 'react-native-youtube-iframe';
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import React from 'react'
+import { Dimensions, StyleSheet, Text, View } from 'react-native'
+import CodeHighlighter from 'react-native-code-highlighter'
+import YoutubePlayer from 'react-native-youtube-iframe'
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
-
-
-import { Colors} from '../../utils/constants';
-import { Component } from '../../utils/types';
-import Block from './Block';
-import ImageComponent from './ImageComponent';
-import { List, ListElement } from './List';
-import Math from './Math';
-import Paragraph from './Paragraph';
-import SpoilerButton from './SpoilerButton';
-
+import { Colors } from '../../utils/constants'
+import { Component } from '../../utils/types'
+import Ad from './Ad'
+import Block from './Block'
+import ImageComponent from './ImageComponent'
+import { List, ListElement } from './List'
+import Math from './Math'
+import Paragraph from './Paragraph'
+import SpoilerButton from './SpoilerButton'
 
 //dataComponent is an object of a single component, eg. {"type": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
@@ -28,7 +26,14 @@ export const renderComponent = (dataComponent: Component, width: number) => {
     case 'Text':
       return <Paragraph value={value} width={width} key={key} props={props} />
     case 'CText':
-      return <Paragraph value={value} width={width} key={key} props={{"center": true}} />
+      return (
+        <Paragraph
+          value={value}
+          width={width}
+          key={key}
+          props={{ center: true }}
+        />
+      )
 
     case 'Header':
       function setFontSize(): number {
@@ -63,7 +68,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           </Text>
         </View>
       )
-     
+
     case 'List': //! deprecated
       return <List value={value} width={width} key={key} />
 
@@ -101,12 +106,12 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       return (
         <ImageComponent
           key={key}
-          width={width} 
+          width={width}
           description={props?.description || null}
           value={value}
         />
       )
-    case 'Math': 
+    case 'Math':
       return <Math width={width} value={value} props={props} />
 
     case 'Spoiler':
@@ -146,6 +151,10 @@ export const renderComponent = (dataComponent: Component, width: number) => {
           onChangeState={() => {}}
         />
       )
+
+    case 'Ad': return(
+      <Ad width={width}/>
+    )
   }
 }
 
@@ -177,7 +186,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     gap: 10,
-    width: '100%', 
+    width: '100%',
   },
   code: {
     overflow: 'hidden',

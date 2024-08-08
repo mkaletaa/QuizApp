@@ -13,7 +13,10 @@
             "value": "dede"
           }
         ],
-        "props": {"index": 1, "text": "poka "}
+        "props": { "index": 1, "text": "poka " }
+      },
+      {
+        "type": "Ad"
       },
       {
         "type": "Text",
@@ -54,8 +57,7 @@
           {
             "type": "Text",
             "value": "edede w loirem ipsum  f befh erbfuih r",
-            "props": {"center": true}
-          
+            "props": { "center": true }
           },
           {
             "type": "Divider"
