@@ -229,11 +229,18 @@ export default function Quiz({ route }) {
                   disabled={chosenOptions.length === 0}
                   elevation={5}
                   buttonColor={Colors.primary}
+                  style={{
+                    marginBottom: 40
+                  }}
                 >
                   {submit}
                 </PaperButton>
               </>
             )}
+            {/* <View id="ad"
+              style={{ width: '100%', height: 70, backgroundColor: 'red', position: 'absolute', bottom:0 }}
+            >
+            </View> */}
           </React.Fragment>
         )}
 

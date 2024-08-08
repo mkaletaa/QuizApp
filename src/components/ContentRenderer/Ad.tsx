@@ -16,10 +16,10 @@ export default function Ad({ width }) {
         alignItems: 'center',
       }}
     >
-      <BannerAd
+      {/* <BannerAd
         unitId={TestIds.BANNER}
         size={BannerAdSize.LARGE_BANNER}
-      ></BannerAd>
+      ></BannerAd> */}
     </View>
   )
 }
