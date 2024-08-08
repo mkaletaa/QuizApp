@@ -1,12 +1,14 @@
+import { SimpleLineIcons } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
+import { AntDesign, Feather, FontAwesome6, Ionicons } from '@expo/vector-icons'
+import Octicons from '@expo/vector-icons/Octicons'
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
-
-import { SimpleLineIcons } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
-import { AntDesign, Feather, Ionicons, FontAwesome6 } from '@expo/vector-icons'
 import { Tooltip } from 'react-native-paper'
+
 import { Colors } from '../utils/constants'
+import Flame from './molecules/Flame'
 
 export default function Header({ title }) {
   const navigation = useNavigation()
@@ -65,11 +67,6 @@ export default function Header({ title }) {
             </Text>
           </Tooltip>
         </View>
-        {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
-        {/* <View style={{ flexDirection: 'row', gap: 1 }}>
-          <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
-          <Octicons name="flame" size={26} color="orange" />
-        </View> */}
 
         {/* <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" /> */}
         <View
@@ -78,6 +75,7 @@ export default function Header({ title }) {
             gap: 15,
           }}
         >
+          <Flame />
           {/* <TouchableOpacity
             onPress={() => {
               //@ts-ignore
