@@ -3,11 +3,12 @@ import BottomSheet, {
   BottomSheetScrollView,
 } from '@gorhom/bottom-sheet'
 import React, { useCallback, useEffect, useRef } from 'react'
-import { BackHandler, StyleSheet, View } from 'react-native'
+import { BackHandler, Dimensions, StyleSheet, Text, View } from 'react-native'
 import {
   GestureHandlerRootView,
   PanGestureHandler,
   State,
+  ScrollView, FlatList
 } from 'react-native-gesture-handler'
 import { Portal } from 'react-native-paper'
 
@@ -115,7 +116,7 @@ export default function Spoiler() {
             >
               <BottomSheetScrollView
                 contentContainerStyle={styles.contentContainer}
-              >
+                >
                 {bottomSheetContent?.map((item, index) => (
                   <ContentRenderer key={index} content={[item]} />
                 ))}
@@ -133,5 +134,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
     padding: 20,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scrollContainer: {
+    paddingHorizontal: 10,
+  },
+  box: {
+    width: Dimensions.get('window').width * 0.7, // 80% szerokości ekranu
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    borderRadius: 10,
+  },
+  text: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
 })
