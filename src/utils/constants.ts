@@ -70,9 +70,9 @@ export const Colors = {
   border: '#D6D0E2',
   gradient: 'rgb(220,225,255)',
   gradientLight: 'rgb(230, 230, 255)', //Tile, Options
-  screenBg: '#F0F0FA', //Card, Tile, ChapterDescription
+  screenBg: '#F0F0FA', 
   ripple: '#CBC0E0',
-  surfaceBg: secondary22,
+  surfaceBg: secondary22, //Card, Tile, ChapterDescription
 }
 
 export const COLOR = {

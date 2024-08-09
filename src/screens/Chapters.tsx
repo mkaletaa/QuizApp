@@ -41,60 +41,6 @@ export default function Chapters() {
           />
         ))}
       </ScrollView>
-
-      {/* <Modal
-        statusBarTranslucent
-        animationType="fade"
-        transparent={false}
-        visible={true}
-        onRequestClose={() => {}}
-        // style={{}}
-      >
-        <View style={{height: 100, marginTop: 100 }}>
-          <ScrollView horizontal style={{ height: 100, }}>
-            <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: 'pink',
-                borderWidth: 1,
-              }}
-            ></View>
-            <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: 'pink',
-                borderWidth: 1,
-              }}
-            ></View>
-            <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: 'pink',
-                borderWidth: 1,
-              }}
-            ></View>
-            <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: 'pink',
-                borderWidth: 1,
-              }}
-            ></View>
-            <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: 'pink',
-                borderWidth: 1,
-              }}
-            ></View>
-          </ScrollView>
-        </View>
-      </Modal> */}
     </View>
   )
 }
