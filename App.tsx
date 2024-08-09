@@ -1,22 +1,18 @@
-import NetInfo from '@react-native-community/netinfo';
-import { NavigationContainer } from '@react-navigation/native';
-import * as Sentry from '@sentry/react-native';
-// import * as DevClient from 'expo-dev-client';
-import * as SplashScreen from 'expo-splash-screen';
-import * as Updates from 'expo-updates';
-import React, { useCallback, useEffect, useState } from 'react';
-import 'react-native-gesture-handler';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Provider } from 'react-native-paper';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import NetInfo from '@react-native-community/netinfo'
+import { NavigationContainer } from '@react-navigation/native'
+import * as Sentry from '@sentry/react-native'
+import * as SplashScreen from 'expo-splash-screen'
+import * as Updates from 'expo-updates'
+import React, { useCallback, useEffect, useState } from 'react'
+import 'react-native-gesture-handler'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { Provider } from 'react-native-paper'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-
-
-import { noInternetMessage } from './data/texts';
-import CustomModal from './src/components/CustomModal';
-import MyStack from './src/Stack';
+import { noInternetMessage } from './data/texts'
+import CustomModal from './src/components/CustomModal'
+import MyStack from './src/Stack'
 import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
-
 
 Sentry.init({
   // dsn: "https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640",
@@ -55,7 +51,8 @@ const App = () => {
       try {
         // Pre-load fonts, make any API calls you need to do here
         // Artificially delay for two seconds to simulate a slow loading experience. Please remove this if you copy and paste the code!
-        await new Promise(resolve => setTimeout(resolve, 2000))
+        onFetchUpdateAsync() 
+        // await new Promise(resolve => setTimeout(resolve, 2000))
       } catch (e) {
         console.warn(e)
       } finally {
@@ -68,10 +65,9 @@ const App = () => {
 
     const unsubscribe = NetInfo.addEventListener(state => {
       setShowModal(!state.isConnected)
-      console.log('Is connected?', state.isConnected)
-      if (state.isConnected) onFetchUpdateAsync() //if no internet connection - don't try to fetch updates
+      // console.log('Is connected?', state.isConnected)
     })
-
+    
     //*dev mode
     // saveItemsRecursively(0)
     // clearAsyncStorage()

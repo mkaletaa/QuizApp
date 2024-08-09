@@ -14,6 +14,7 @@ type Type =
   | 'Divider'
   | 'BulletPoint' //the same as ListElement
   | 'Ad'
+  | 'Comment' //experimental
 
 export type Component = {
   type: Type

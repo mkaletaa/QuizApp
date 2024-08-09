@@ -1,22 +1,18 @@
-import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
-import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { List, Switch as PaperSwitch } from 'react-native-paper'
+import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { List, Switch as PaperSwitch } from 'react-native-paper';
 
-import {
-  aboutTheApp,
-  contact,
-  hideAnswers,
-  hideAnswersExplain,
-  randomOrder,
-  savedQuestions,
-} from '../../data/texts'
-import Gradient from '../components/molecules/atoms/Gradient'
-import { Colors } from '../utils/constants'
-import { getValue, setValue } from '../utils/utilStorage'
+
+
+import { aboutTheApp, contact, hideAnswers, hideAnswersExplain, randomOrder, savedQuestions } from '../../data/texts';
+import Gradient from '../components/molecules/atoms/Gradient';
+import { Colors } from '../utils/constants';
+import { getValue, setValue } from '../utils/utilStorage';
+
 
 const Settings = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
@@ -173,6 +169,10 @@ const Settings = () => {
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
+      <Button title="Test Sentry" onPress={()=>{
+        throw new Error('My first Sentry error!')
+      }}></Button>
+      {__DEV__ && <Button title="Test Sentry"></Button>}
     </View>
   )
 }

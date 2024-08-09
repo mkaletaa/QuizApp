@@ -253,6 +253,7 @@ export default function Quiz({ route }) {
         visible={showResultModal}
         onRequestClose={() => nextBtnPress()}
       >
+        {/* <ContentRenderer content={item?.question} /> */}
         <ItemResult
           item={item}
           chosenOptions={chosenOptions}

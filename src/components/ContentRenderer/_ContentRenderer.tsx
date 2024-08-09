@@ -152,9 +152,8 @@ export const renderComponent = (dataComponent: Component, width: number) => {
         />
       )
 
-    case 'Ad': return(
-      <Ad width={width}/>
-    )
+    case 'Ad':
+      return <Ad width={width} />
   }
 }
 

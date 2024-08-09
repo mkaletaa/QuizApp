@@ -43,8 +43,7 @@
     "react-native-youtube-iframe": "^2.3.0",
     "react-syntax-highlighter": "^15.5.0",
     "typescript": "^5.3.0",
-    "zustand": "^4.5.2",
-    "expo-dev-client": "~4.0.21"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",

@@ -6,11 +6,28 @@
         "value": "<ins data-key='hello' class='hint'>&nbsp;wswswsw&nbsp;</ins>"
       },
       {
+        "type": "Comment",
+        "value": "dewcwehcouew"
+      },
+      {
+        "type": "Comment",
+        "value": "dewcwehcouew"
+      },
+      {
+        "type": "Comment",
+        "value": "dewcwehcouew"
+      },
+      {
         "type": "Spoiler",
         "value": [
           {
             "type": "Text",
             "value": "dede"
+          },
+          {
+            "type": "Code",
+            "value": "console.log('To jest bardzo długi napis wewnątrz console.log bo chcę sprawdzić czy da się przewijać Code snippety wewnątrz spoilera\n\n\n ')",
+            "props": {"language": "javascript" }
           }
         ],
         "props": { "index": 1, "text": "poka " }

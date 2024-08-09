@@ -1,13 +1,10 @@
-import React from 'react';
-import RenderHtml from 'react-native-render-html';
+import React from 'react'
+import { FlatList, ScrollView, Text, View } from 'react-native'
+import RenderHtml from 'react-native-render-html'
 
-
-
-import glossary from '../../../data/glossary.json';
-import useStore from '../../utils/store';
-import { Colors } from '../../utils/constants';
-
-
+import glossary from '../../../data/glossary.json'
+import { Colors } from '../../utils/constants'
+import useStore from '../../utils/store'
 
 // import {theory} from '../../../data/theory/theory'
 
@@ -64,8 +61,8 @@ export default function Paragraph({ value, width, props }) {
             className === 'hint'
               ? 'rgba(130, 0, 180, .08)'
               : 'rgba(0, 0, 255, .1)',
-              // height: 100,
-              paddingHorizontal: 10
+          // height: 100,
+          paddingHorizontal: 10,
           // fontWeight: 'bold',
           // textDecoration: 'underline'
         }}
