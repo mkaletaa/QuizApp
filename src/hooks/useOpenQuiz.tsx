@@ -47,7 +47,21 @@ const useOpenQuiz = () => {
     itemsArray,
     isRetake = false, // if user is retaking the same quiz
   }: openQuizPropType): void => {
-    
+    console.warn(chapterName)
+    // console.warn(quiz.hasOwnProperty(chapterName))
+    // return
+
+    if (
+      !quiz.hasOwnProperty(chapterName) &&
+      chapterName !== '__Saved__' &&
+      chapterName !== '__Again__'&&
+      chapterName !== '__All__' 
+    ) {
+      //when a chapter does not have any quiz
+      setShowNoQuestionsModal(true)
+      return
+    } // do not merge it with ifs below because for some reason it doesn't work good
+
     //if there is a chapter and infinity mode has been chosen
     if (howManyItems === Infinity) {
       navigateToQuiz()
