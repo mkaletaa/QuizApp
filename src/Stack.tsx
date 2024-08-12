@@ -17,6 +17,7 @@ import Topics from './screens/Topics';
 import { Colors } from './utils/constants';
 import { removeUnderscores } from './utils/functions';
 import Achievements from './screens/Achievements';
+import Donate from './screens/Donate';
 
 
 const Stack = createStackNavigator()
@@ -154,6 +155,19 @@ const MyStack = () => {
           ...header({
             //@ts-ignore
             title: removeUnderscores(route.params?.topicName, true),
+          }),
+          ...headerOptions,
+        })}
+      />
+
+      <Stack.Screen
+        name="Donate"
+        component={Donate}
+        //@ts-ignore
+        options={({ route }) => ({
+          ...header({
+            //@ts-ignore
+            title: null,
           }),
           ...headerOptions,
         })}

@@ -1,14 +1,10 @@
-import { SimpleLineIcons } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
-import { AntDesign, Feather, FontAwesome6, Ionicons } from '@expo/vector-icons'
-import Octicons from '@expo/vector-icons/Octicons'
+import { AntDesign, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
 import { Tooltip } from 'react-native-paper'
 
 import { Colors } from '../utils/constants'
-import Flame from './molecules/Flame'
 
 export default function Header({ title }) {
   const navigation = useNavigation()
@@ -68,22 +64,21 @@ export default function Header({ title }) {
           </Tooltip>
         </View>
 
-        {/* <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" /> */}
         <View
           style={{
             flexDirection: 'row',
             gap: 15,
           }}
         >
-          <Flame />
-          {/* <TouchableOpacity
+          <TouchableOpacity
             onPress={() => {
               //@ts-ignore
-              navigation.navigate('Saved')
+              navigation.navigate('Donate')
             }}
           >
-            <Ionicons name="bookmark-outline" size={30} color={Colors.boldText} />
-          </TouchableOpacity> */}
+          <FontAwesome6 name="circle-dollar-to-slot" size={25} color="#1e542a"  />
+          </TouchableOpacity>
+
 
           <TouchableOpacity
             onPress={() => {
@@ -91,7 +86,6 @@ export default function Header({ title }) {
               navigation.navigate('Settings')
             }}
           >
-            {/* <Feather name="sliders" size={28} color={Colors.boldText} /> */}
             <SimpleLineIcons name="menu" size={25} color={Colors.boldText} />
           </TouchableOpacity>
         </View>
