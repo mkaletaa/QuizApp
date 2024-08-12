@@ -14,8 +14,8 @@ const useOpenQuiz = () => {
   const [showNoQuestionsModal, setShowNoQuestionsModal] = useState(false)
 
   type openQuizPropType = {
-    topicName?: string
-    chapterName: string
+    topicName?: '' | string
+    chapterName: '__All__' | '__Again__' | '__Saved__' | string
     howManyItems?: number //used when retaking or saved
     shuffle?: boolean //true if InfinityMode, otherwise undefined
     itemsArray?: Item[] //used when retaking or saved
@@ -47,9 +47,7 @@ const useOpenQuiz = () => {
     itemsArray,
     isRetake = false, // if user is retaking the same quiz
   }: openQuizPropType): void => {
-    console.warn(chapterName)
-    // console.warn(quiz.hasOwnProperty(chapterName))
-    // return
+
 
     if (
       !quiz.hasOwnProperty(chapterName) &&
