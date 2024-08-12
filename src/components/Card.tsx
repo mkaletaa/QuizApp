@@ -1,14 +1,19 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { TouchableRipple } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native'
+import React from 'react'
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { TouchableRipple } from 'react-native-paper'
 
-
-
-import { read } from '../../data/texts';
-import { Colors } from "../utils/constants";
-import { removeUnderscores } from '../utils/functions';
-
+import { read } from '../../data/texts'
+import { COLOR, Colors } from '../utils/constants'
+import { removeUnderscores } from '../utils/functions'
 
 const screenWidthDim = Dimensions.get('window').width
 
@@ -47,9 +52,38 @@ export default function Card({
 
   return (
     <View style={[styles.card, cardSize]} key={data.name}>
+      {data.soon && (
+        <View
+          style={{
+            backgroundColor: 'rgba(41, 41, 41, .2)',
+            height: '100%',
+            width: '100%',
+            position: 'absolute',
+            justifyContent: 'center',
+            zIndex: 2,
+            alignItems: 'center',
+          }}
+        >
+          <Text
+            style={{
+              color: COLOR.RED,
+              fontWeight: 'bold',
+              fontSize: 20,
+              transform: [{ rotate: '-10deg' }],
+              textShadowColor: '#212121', // Kolor cienia
+              textShadowOffset: { width: 2, height: 2 }, // Przesunięcie cienia
+              textShadowRadius: 10, // Promień rozmycia cienia
+              width: '100%',
+              textAlign: 'center',
+            }}
+          >
+            COMING SOON
+          </Text>
+        </View>
+      )}
       <TouchableRipple
         rippleColor={Colors.ripple}
-        onPress={handlePress}
+        onPress={data.soon ? null : handlePress}
         onLongPress={handleLongPress}
         style={{ width: '100%', height: '100%' }}
       >
@@ -75,7 +109,7 @@ export default function Card({
               <TouchableOpacity
                 activeOpacity={0.75}
                 style={{ alignItems: 'center', flex: 1 }}
-                onPress={() => showTheory()}
+                onPress={data.soon ? null : () => showTheory()}
               >
                 <View style={styles.separator}></View>
                 <Text style={styles.readText}>{read}</Text>

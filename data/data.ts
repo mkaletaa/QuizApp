@@ -22,7 +22,7 @@ export const topics = {
         'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg',
     },
     { name: 'top_2', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'top_3', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'top_3', image: 'https://reactjs.org/logo-og.png', soon: true },
   ],
   cat_2: [
     { name: 'top_21', image: 'https://reactjs.org/logo-og.png' },
