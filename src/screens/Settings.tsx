@@ -146,33 +146,9 @@ const Settings = () => {
         titleStyle={{ color: Colors.text }}
       />
 
-      <List.Item
-        rippleColor={Colors.ripple}
-        title={'Acheiemenfsf'}
-        left={() => (
-          <FontAwesome6 name="medal" size={22} color="#714696" />
-          // <MaterialCommunityIcons name="medal-outline" size={24} color="#714696" />
-        )}
-        right={() => <AntDesign name="right" size={24} color={Colors.border} />}
-
-        //@ts-ignore
-        onPress={() => navigation.navigate('Achievements')}
-        style={{
-          borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
-          paddingLeft: 15,
-          marginTop: 0,
-        }}
-        titleStyle={{ color: Colors.text }}
-      />
-
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
-      <Button title="Test Sentry" onPress={()=>{
-        throw new Error('My first Sentry error!')
-      }}></Button>
-      {__DEV__ && <Button title="Test Sentry"></Button>}
     </View>
   )
 }

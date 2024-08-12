@@ -25,6 +25,7 @@ import {
   yesQuit,
 } from '../../data/texts'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
+import Ad from '../components/ContentRenderer/Ad'
 import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
 import Line from '../components/molecules/atoms/Line'
@@ -230,22 +231,30 @@ export default function Quiz({ route }) {
                   elevation={5}
                   buttonColor={Colors.primary}
                   style={{
-                    marginBottom: 40
+                    marginBottom: 40,
                   }}
                 >
                   {submit}
                 </PaperButton>
               </>
             )}
-            {/* <View id="ad"
-              style={{ width: '100%', height: 70, backgroundColor: 'red', position: 'absolute', bottom:0 }}
-            >
-            </View> */}
           </React.Fragment>
         )}
 
         {!item && <ActivityIndicator size={50} color={Colors.primary} />}
       </ScrollView>
+      <View
+        id="ad"
+        style={{
+          width: '100%',
+          height: 70,
+          backgroundColor: 'yellow',
+          position: 'absolute',
+          bottom: 0,
+        }}
+      >
+        <Ad width={'100%'}></Ad>
+      </View>
       <Modal
         statusBarTranslucent
         animationType="fade"

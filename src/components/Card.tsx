@@ -1,17 +1,15 @@
-import { useNavigation } from '@react-navigation/native'
-import React from 'react'
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native'
-import { TouchableRipple } from 'react-native-paper'
-import { read } from '../../data/texts'
-import { Colors} from "../utils/constants"
-import { removeUnderscores } from '../utils/functions'
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { TouchableRipple } from 'react-native-paper';
+
+
+
+import { read } from '../../data/texts';
+import { Colors } from "../utils/constants";
+import { removeUnderscores } from '../utils/functions';
+
+
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -96,9 +94,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.surfaceBg,
     borderRadius: 10,
     margin: 10,
-    elevation: 2,
     alignItems: 'center',
     gap: 5,
+    elevation: 2,
+    // borderWidth: 1,
+    // borderColor: Colors.border
     // shadowColor: '#000',
     // shadowOffset: {
     //   width: 0,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     paddingHorizontal: 15,
-    color : Colors.boldText ,
+    color: Colors.boldText,
   },
   separator: {
     borderRadius: 10,
@@ -141,6 +141,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: '100%',
     height: '100%',
-    color: 'dimgray',
+    color: '#756789', //#756789 //#8f8a96
+    letterSpacing: 0.5,
   },
 })
