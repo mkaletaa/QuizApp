@@ -1,28 +1,29 @@
 import { Entypo, Ionicons } from '@expo/vector-icons'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { useEffect, useState } from 'react'
-import { Animated, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { Animated, Modal, TouchableWithoutFeedback, View } from 'react-native'
 import { TouchableRipple } from 'react-native-paper'
 import useAnimatePopup from '../../hooks/useAnimatePopup'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
-import { Item } from '../../utils/types'
 import MistakeButton from './atoms/MistakeButton'
 
-export default function ExplanationPopup({ item }: { item: Item }) {
-  const [saved, setSaved] = useState(false) // Czy pytanie jest zapisane
-  const showPopup = useStore(state => state.showPopup)
-  const setShowPopup = useStore(state => state.setShowPopup)
-  const { popupScale, transform } = useAnimatePopup(showPopup)
-  const [animation] = useState(new Animated.Value(0)) // Stan animacji
-
-  useEffect(() => {
-    setShowPopup(showPopup)
-  }, [])
+export default function ExplanationPopup({ item }) {
+  const [saved, setSaved] = useState(false)
+  // const showPopup = useStore(state => state.showPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
+  const [showPopup, setShowPopup] = useState(false)
+  const { popupOpacity, transform } = useAnimatePopup(showPopup)
+  const [animation] = useState(new Animated.Value(0))
 
   useEffect(() => {
     checkIfSaved()
-  }, [saved, item.id])
+  }, [])
+
+
+  useEffect(() => {
+    // setShowPopup(showPopup)
+  }, [showPopup])
 
   const checkIfSaved = async () => {
     try {
@@ -65,7 +66,7 @@ export default function ExplanationPopup({ item }: { item: Item }) {
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
       setSaved(true)
-      animateIcon() // Rozpocznij animację po zapisaniu
+      animateIcon()
     } catch (error) {
       console.error('Error saving item:', error)
     }
@@ -97,53 +98,109 @@ export default function ExplanationPopup({ item }: { item: Item }) {
   })
 
   return (
-    <View
-      style={{
-        justifyContent: 'flex-end',
-        flexDirection: 'row',
-        marginBottom: 30,
-        paddingRight: 10,
-        width: '100%',
-        backgroundColor: 'transparent',
-        height: 1,
-        zIndex: 1,
-      }}
-    >
-      <TouchableRipple
-        onPress={() => {
-          setShowPopup(!showPopup)
-        }}
+    <React.Fragment>
+      <View
         style={{
-          position: 'absolute',
-          top: 30,
-          right: 20,
-          padding: 5,
+          justifyContent: 'flex-end',
+          flexDirection: 'row',
+          marginTop: 30,
+          paddingRight: 10,
+          width: '100%',
+          backgroundColor: 'transparent',
+          height: 1,
+          zIndex: 1,
+          // position: 'absolute'
         }}
-        borderless
       >
-        <Entypo name="dots-three-vertical" size={28} color="black" />
-      </TouchableRipple>
-      <Animated.View
+        <TouchableRipple
+          onPress={() => setShowPopup(true)}
+          style={{
+            position: 'absolute',
+            top: 30,
+            right: 20,
+            padding: 5,
+          }}
+          borderless
+        >
+          <Entypo name="dots-three-vertical" size={28} color="black" />
+        </TouchableRipple>
+      </View>
+
+      <Modal
+        visible={showPopup}
+        transparent={true}
+        animationType="fade"
+        statusBarTranslucent
+      >
+        {/* <StatusBar backgroundColor="rgba(0, 0, 0, 0.5)" translucent={true} /> */}
+        <TouchableWithoutFeedback onPress={() => setShowPopup(false)}>
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the opacity as needed
+              justifyContent: 'center',
+              alignItems: 'center',
+              // gap: 20,
+            }}
+          >
+            <TouchableWithoutFeedback>
+              <Animated.View
+                style={[
+                  utilStyles.popup,
+                  {
+                    opacity: popupOpacity,
+                    transform,
+                    flexDirection: 'row',
+                    top: 75,
+                  },
+                ]}
+              >
+                <MistakeButton prop={`id: ${item.id}`} />
+
+                <View
+                  style={{
+                    height: '100%',
+                    width: 1,
+                    backgroundColor: '#ccc',
+                    marginHorizontal: 10,
+                  }}
+                />
+
+                <Animated.View style={{ transform: [{ scale }], opacity }}>
+                  {saved ? (
+                    <Ionicons
+                      name="bookmark"
+                      size={35}
+                      color="orange"
+                      onPress={() => removeItem()}
+                    />
+                  ) : (
+                    <Ionicons
+                      name="bookmark-outline"
+                      size={35}
+                      color="black"
+                      onPress={() => saveItem()}
+                    />
+                  )}
+                </Animated.View>
+              </Animated.View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+
+      {/* <Animated.View
         style={[
           utilStyles.popup,
           {
-            opacity: popupScale,
+            opacity: popupOpacity,
             transform,
-
             flexDirection: 'row',
             top: 75,
           },
         ]}
       >
-        {/* <Button
-          title={reportAMistake}
-          color="red"
-          onPress={() => {
-            sendAnEmail('id: ' + item.id)
-            setShowPopup(false)
-          }}
-        /> */}
-        <MistakeButton prop={'id: ' + item.id} />
+        <MistakeButton prop={`id: ${item.id}`} />
 
         <View
           style={{
@@ -153,6 +210,7 @@ export default function ExplanationPopup({ item }: { item: Item }) {
             marginHorizontal: 10,
           }}
         />
+
         <Animated.View style={{ transform: [{ scale }], opacity }}>
           {saved ? (
             <Ionicons
@@ -170,7 +228,7 @@ export default function ExplanationPopup({ item }: { item: Item }) {
             />
           )}
         </Animated.View>
-      </Animated.View>
-    </View>
+      </Animated.View> */}
+    </React.Fragment>
   )
 }

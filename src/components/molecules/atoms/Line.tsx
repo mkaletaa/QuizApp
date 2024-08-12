@@ -1,9 +1,6 @@
-import { View, Dimensions } from 'react-native'
-import { Result } from '../../../utils/types'
+import { Dimensions, StatusBar, View } from 'react-native'
 import { setColor } from '../../../utils/functions'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { useHeaderHeight } from '@react-navigation/elements'
-import { StatusBar } from 'react-native'
+import { Result } from '../../../utils/types'
 
 export default function Line({
   resultsArray,

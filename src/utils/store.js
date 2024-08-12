@@ -1,9 +1,13 @@
-import {create} from 'zustand'
+import { create } from 'zustand'
 
 const useStore = create(set => ({
   carousel: false, // should the carousel be enabled or not
   images: [], //images to display in the carousel
-  showPopup: false, // should a popup in Theory/ItemResult be shown
+  // showPopup: false, // should a popup in Theory/ItemResult be shown
+  showBottomSheet: false,
+  bottomSheetSnapIndex: 0,
+  bottomSheetContent: [],
+  // navigateTo: undefined,
   addImage: (imageUrl, imageDes) => {
     set(state => ({
       images: [...state.images, { url: imageUrl, des: imageDes }],
@@ -14,7 +18,10 @@ const useStore = create(set => ({
   clearImages: () => set({ images: [] }),
   enableCarousel: () => set(state => ({ carousel: true })),
   disableCarousel: () => set(state => ({ carousel: false })),
-  setShowPopup: value => set({ showPopup: value }),
+  setShowBottomSheet: show => set({ showBottomSheet: show }),
+  setBottomSheetSnapIndex: index => set({ bottomSheetSnapIndex: index }),
+  setBottomSheetContent: state => set({ bottomSheetContent: state }),
+  // setNavigateTo: (destination, chapter, topic) => set({ navigateTo: {destination, chapter, topic} }),
 }))
 
 export default useStore

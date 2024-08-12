@@ -1,28 +1,28 @@
-import { Entypo } from '@expo/vector-icons'
-import { useHeaderHeight } from '@react-navigation/elements'
-import { StatusBar } from 'expo-status-bar'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
-import {
-  ActivityIndicator,
-  Dimensions,
-  Pressable,
-  SectionList,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native'
-import { thereIsNothingHere } from '../../data/texts'
-import { theory } from '../../data/theory/theory'
-import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
-import QuizButton from '../components/molecules/atoms/QuizButton'
-import TheoryPopup from '../components/molecules/TheoryPopup'
-import { removeUnderscores } from '../utils/functions'
-import useStore from '../utils/store'
-import { boldTextColor, borderColor, buttonDark, buttonLight, goUpBackground, gradient, sectionHeaderBG, spinner, surfaceBg, surfaceRipple } from '../utils/constants'
-import { screenBackground } from '../utils/constants'
+import { AntDesign } from '@expo/vector-icons';
+import { useHeaderHeight } from '@react-navigation/elements';
+import { useFocusEffect } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ActivityIndicator, Dimensions, Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
+import { Snackbar } from 'react-native-paper';
 
-export default function Theory({ route }) {
+
+
+import { thereIsNothingHere } from '../../data/texts';
+import { theory } from '../../data/theory/theory';
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer';
+import Spoiler from '../components/ContentRenderer/Spoiler';
+import QuizButton from '../components/molecules/atoms/QuizButton';
+import TheoryPopup from '../components/molecules/TheoryPopup';
+import { Colors } from '../utils/constants';
+import useStore from '../utils/store';
+
+
+export default function Theory({
+  route,
+}: {
+  route: { params: { chapterName: string; topicName: string } }
+}) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [chapterName, setChapterName] = useState('')
@@ -32,9 +32,21 @@ export default function Theory({ route }) {
   const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-  // const { images, addImage, removeImage } = useStore()
 
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const navigateTo = useStore(state => state.navigateTo)
+  // const setNavigateTo = useStore(state => state.setNavigateTo)
+  // const navigation = useNavigation()
+
+  // useEffect(() => {
+  // if (navigateTo) {
+  //   const { destination, topic, chapter } = navigateTo
+
+  //   // navigation.navigate("Theory", { topicName: "top_1", chapterName: "cat_1" })
+  //   navigation.navigate(destination, { topicName: topic, chapterName: chapter })
+
+  //   setNavigateTo(undefined)
+  // }
+  // }, [navigateTo])
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
@@ -67,131 +79,137 @@ export default function Theory({ route }) {
       useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
       // clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
       useStore.getState().disableCarousel()
-      useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
+      // useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
     }
   }, [])
 
+  useFocusEffect(() => {})
+
   const renderHeader = () => (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        setShowPopup(false)
-      }}
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
+    <View
+      style={[
+        styles.header,
+        { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
+      ]}
     >
-      <View
-        style={[
-          styles.header,
-          { borderBottomWidth: theoryData[1]?.title ? 1 : 0 },
-        ]}
-      >
-        {theoryData.map(
-          (a, i) =>
-            a.title && (
-              <View
-                key={i.toString()}
-                style={{
-                  alignItems: 'flex-start',
-                  width: '100%',
-                  paddingHorizontal: 20,
-                  gap: 20,
+      {theoryData.map(
+        (a, i) =>
+          a.title && (
+            <View
+              key={i.toString()}
+              style={{
+                alignItems: 'flex-start',
+                width: '100%',
+                paddingHorizontal: 20,
+                gap: 20,
+              }}
+            >
+              <Pressable
+                onPress={() => {
+                  scrollToSection(i)
+                  // setShowPopup(false)
                 }}
               >
-                <Pressable
-                  onPress={() => {
-                    scrollToSection(i)
-                    setShowPopup(false)
+                <Text
+                  style={{
+                    fontSize: 21,
+                    textDecorationLine: 'underline',
+                    color: '#54039b',
                   }}
                 >
-                  <Text
-                    style={{
-                      fontSize: 21,
-                      textDecorationLine: 'underline',
-                      color: boldTextColor,
-                    }}
-                  >
-                    {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
-                    {theoryData[0]?.title ? i + 1 : i} {a.title}
-                  </Text>
-                </Pressable>
-              </View>
-            )
-        )}
-      </View>
-    </TouchableWithoutFeedback>
+                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
+                  {theoryData[0]?.title ? i + 1 : i} {a.title}
+                </Text>
+              </Pressable>
+            </View>
+          ),
+      )}
+    </View>
+    // </TouchableWithoutFeedback>
   )
 
   const renderSectionHeader = ({ section }) => {
     if (section.title) {
       return (
-        <TouchableWithoutFeedback
-          onPress={() => {
-            setShowPopup(false)
+        // <TouchableWithoutFeedback
+        //   onPress={() => {
+        //     setShowPopup(false)
+        //   }}
+        // >
+        <View
+          style={{
+            padding: 10,
+            paddingLeft: 30,
+            paddingRight: 30,
+
+            // backgroundColor: 'red',
+            backgroundColor: Colors.screenBg,
+            borderTopWidth: 1,
+            // borderTopColor: 'lightgray',
+            borderTopColor: Colors.border,
+
+            // elevation: 1,
+            // shadowColor: '#000', // Kolor cienia
+            // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
+            // shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
+            // shadowRadius: 3, // Promień cienia
           }}
         >
-          <View
-            style={{
-              padding: 10,
-              paddingLeft: 30,
-              paddingRight: 30,
-
-              // backgroundColor: 'red',
-              backgroundColor: sectionHeaderBG,
-              borderTopWidth: 1,
-              // borderTopColor: 'lightgray',
-              borderTopColor: borderColor,
-
-              // elevation: 1,
-              // shadowColor: '#000', // Kolor cienia
-              // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
-              // shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
-              // shadowRadius: 3, // Promień cienia
-            }}
-          >
-            <Text style={styles.sectionHeaderText}>{section.title}</Text>
-          </View>
-        </TouchableWithoutFeedback>
+          <Text style={styles.sectionHeaderText}>{section.title}</Text>
+        </View>
+        // </TouchableWithoutFeedback>
       )
     }
     return null // Brak nagłówka dla sekcji bez tytułu
   }
 
   const renderItem = ({ item, index }) => (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        setShowPopup(false)
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
+    <View
+      style={{
+        paddingBottom: 20,
+        paddingHorizontal: 20,
+        paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
       }}
     >
-      <View
-        style={{
-          paddingBottom: 20,
-          paddingHorizontal: 20,
-          paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
-        }}
-      >
-        <ContentRenderer content={[item]} />
-      </View>
-    </TouchableWithoutFeedback>
+      <ContentRenderer content={typeof item === 'string' ? item : [item]} />
+    </View>
+    // </TouchableWithoutFeedback>
   )
 
   const renderFooter = () => (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        setShowPopup(false)
-      }}
-    >
-      <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
-        <QuizButton chapterName={chapterName} topicName={topicName} />
-      </View>
-    </TouchableWithoutFeedback>
+    // <TouchableWithoutFeedback
+    //   onPress={() => {
+    //     setShowPopup(false)
+    //   }}
+    // >
+    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
+      <QuizButton chapterName={chapterName} topicName={topicName} />
+    </View>
+    // </TouchableWithoutFeedback>
   )
 
   const scrollToSection = sectionIndex => {
-    if (sectionListRef.current) {
-      //@ts-ignore
-      sectionListRef.current.scrollToLocation({
-        animated: true,
-        itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
-        sectionIndex,
-      })
+    try {
+      if (sectionListRef.current) {
+        //@ts-ignore
+        sectionListRef.current.scrollToLocation({
+          animated: true,
+          itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
+          sectionIndex,
+        })
+      }
+    } catch (e) {
+      //do nothing
     }
   }
 
@@ -229,7 +247,7 @@ export default function Theory({ route }) {
             }
           }
           onScroll={handleScroll}
-          onScrollBeginDrag={() => setShowPopup(false)}
+          // onScrollBeginDrag={() => setShowPopup(false)}
           ref={sectionListRef}
           sections={theoryData}
           scrollEventThrottle={15}
@@ -240,17 +258,33 @@ export default function Theory({ route }) {
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
+        <Spoiler></Spoiler>
       </React.Fragment>
     ) : (
       <View
         style={{
           justifyContent: 'center',
-
+          // height: 'auto',
           alignItems: 'center',
           height: screenHeight - headerHeight,
+          // backgroundColor: 'red'
         }}
       >
-        <Text>{thereIsNothingHere}</Text>
+        <Snackbar
+          visible={true}
+          onDismiss={() => null}
+          elevation={0}
+          style={{ bottom: 10 }}
+        >
+          <Text
+            style={{
+              color: 'white',
+              textAlign: 'center',
+            }}
+          >
+            <Text>{thereIsNothingHere}</Text>
+          </Text>
+        </Snackbar>
         <Text style={{ fontWeight: 'bold', fontSize: 150, opacity: 0.1 }}>
           404
         </Text>
@@ -260,7 +294,7 @@ export default function Theory({ route }) {
 
   return (
     <View
-      style={{ minHeight: screenHeight, backgroundColor: screenBackground }}
+      style={{ minHeight: screenHeight, backgroundColor: Colors.screenBg }}
     >
       <StatusBar style="auto" />
       <View
@@ -272,32 +306,29 @@ export default function Theory({ route }) {
         ]}
       />
 
-      <TouchableWithoutFeedback
-        onPress={() => {
-          setShowPopup(false)
-        }}
-      >
-        <Entypo
-          name="arrow-up"
-          size={40}
-          color={boldTextColor}
-          style={[
-            styles.goUp,
-            { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
-          ]}
-          onPress={() => scrollToTop()}
-        />
-      </TouchableWithoutFeedback>
+      <AntDesign
+        name="up"
+        size={40}
+        color={Colors.boldText}
+        style={[
+          styles.goUp,
+          { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
+        ]}
+        onPress={() => scrollToTop()}
+      />
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
       )}
       {shouldMemoize ? (
-        memoizedComponents
+        <React.Fragment>
+          {/* <Spoiler /> */}
+          {memoizedComponents}
+        </React.Fragment>
       ) : (
         <ActivityIndicator
           size={50}
-          color={spinner}
+          color={Colors.primary}
           style={{ top: screenHeight / 2 - 50 }}
         />
       )}
@@ -315,15 +346,15 @@ const styles = StyleSheet.create({
   // },
   progressBarContainer: {
     height: 5,
-    backgroundColor: buttonDark,
+    backgroundColor: Colors.primary,
     position: 'absolute',
     top: 0,
     zIndex: 2,
   },
   header: {
     padding: 10,
-    borderColor: borderColor,
-    // borderBottomWidth: 1,
+    borderColor: Colors.border,
+    // borderBottomWidth: 3,
     alignItems: 'center',
     gap: 5,
     // color: "red",
@@ -332,13 +363,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     // color: 'black',
-    color: boldTextColor,
+    color: Colors.boldText,
     textAlign: 'center',
     // paddingRight:10
   },
   goUp: {
     padding: 8,
-    backgroundColor: surfaceBg,
+    backgroundColor: Colors.surfaceBg,
     position: 'absolute',
     bottom: 20,
     left: 30,

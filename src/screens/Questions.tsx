@@ -1,17 +1,19 @@
 import { useHeaderHeight } from '@react-navigation/elements'
 import { useEffect, useState } from 'react'
 import { FlatList, View } from 'react-native'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import { countItemsInTopic, importItem } from '../utils/getQuizData'
-import { Item } from '../utils/types'
+
 import {
+  contentContainerStyle,
   EmptyState,
   ListHeaderComponent,
   RenderItem,
   ResultModal,
-  contentContainerStyle,
 } from '../components/molecules/_ReusableComponents'
-import { screenBackground } from '../utils/constants'
+import useOpenQuiz from '../hooks/useOpenQuiz'
+import { Colors } from '../utils/constants'
+import { countItemsInTopic, importItem } from '../utils/getQuizData'
+import { Item } from '../utils/types'
+
 export default function Questions({ route }) {
   const [itemsCount, setItemsCount] = useState(0)
   const [items, setItems] = useState<Item[]>([])
@@ -21,16 +23,19 @@ export default function Questions({ route }) {
 
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
+  const [index, setIndex] = useState(0) //index of item to show
 
-  function seeFullQuestion(item: Item): void {
+  //this fires after tapping on a Tile
+  function seeFullQuestion(item: Item, index: number): void {
     setModalItem(item)
     setShowModal(true)
+    setIndex(index)
   }
 
   useEffect(() => {
     const n_items = countItemsInTopic(
       route.params.topicName,
-      route.params.chapterName
+      route.params.chapterName,
     )
 
     setItemsCount(n_items)
@@ -40,7 +45,7 @@ export default function Questions({ route }) {
       const item: Item = importItem(
         route.params.chapterName,
         route.params.topicName,
-        i
+        i,
       )
       itemsArray.push(item)
     }
@@ -58,11 +63,13 @@ export default function Questions({ route }) {
   return (
     <View
       style={{
-        backgroundColor: screenBackground,
-        height: "100%"
+        backgroundColor: Colors.screenBg,
+        height: '100%',
       }}
     >
       <ResultModal
+        items={items}
+        index={index}
         modalItem={modalItem}
         showModal={showModal}
         setShowModal={setShowModal}
@@ -71,8 +78,12 @@ export default function Questions({ route }) {
       {itemsCount > 0 ? (
         <FlatList
           data={items}
-          renderItem={({ item }) => (
-            <RenderItem item={item} seeFullQuestion={seeFullQuestion} />
+          renderItem={({ item, index }) => (
+            <RenderItem
+              item={item}
+              index={index}
+              seeFullQuestion={seeFullQuestion}
+            />
           )}
           keyExtractor={item => item.id.toString()}
           ListHeaderComponent={() => (

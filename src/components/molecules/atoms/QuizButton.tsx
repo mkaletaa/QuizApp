@@ -1,14 +1,14 @@
-import { Button, Text } from 'react-native'
-import useOpenQuiz from '../../../hooks/useOpenQuiz'
-import { takeAQuiz } from '../../../../data/texts'
 import React from 'react'
-import useStore from '../../../utils/store'
+import { Text } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
-import { buttonDark } from '../../../utils/constants'
+import { takeAQuiz } from '../../../../data/texts'
+import useOpenQuiz from '../../../hooks/useOpenQuiz'
+import { Colors } from '../../../utils/constants'
+import useStore from '../../../utils/store'
 export default function QuizButton({ topicName, chapterName }) {
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 
-  const setShowPopup = useStore(state => state.setShowPopup)
+  // const setShowPopup = useStore(state => state.setShowPopup)
 
   return (
     <React.Fragment>
@@ -24,11 +24,11 @@ export default function QuizButton({ topicName, chapterName }) {
         mode="elevated"
         onPress={() => {
           openQuiz({ topicName, chapterName })
-          setShowPopup(false)
+          // setShowPopup(false)
         }}
         // disabled={chosenOptions.length === 0}
         elevation={5}
-        buttonColor={buttonDark}
+        buttonColor={Colors.primary}
         style={{
           borderRadius: 4,
         }}

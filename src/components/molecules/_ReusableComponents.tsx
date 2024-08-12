@@ -8,6 +8,7 @@ import {
   Text,
   Button,
   Pressable,
+  FlatList,
 } from 'react-native'
 import ItemResult from '.././ItemResult'
 import { Item } from '../../utils/types'
@@ -27,18 +28,34 @@ import {
   Button as PaperButton,
   Text as PaperText,
   TouchableRipple,
+  Snackbar,
 } from 'react-native-paper'
-import { surfaceBg, buttonDark, buttonLight, spinner, boldTextColor } from './../../utils/constants'
+import {
+  Colors
+} from './../../utils/constants'
+import { useEffect, useRef } from 'react'
 
 export function ResultModal({
   modalItem,
   showModal,
   setShowModal,
+  items,
+  index,
 }: {
   modalItem: Item
   showModal: boolean
   setShowModal: any
+  items: Array<Item>
+  index: number
 }) {
+  // useEffect(() => {
+  //   if (showModal === true) scrollToIndex(index)
+  // }, [showModal])
+
+  // const flatListRef = useRef(null)
+  // const scrollToIndex = index => {
+  //   flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
+  // }
   return (
     <Modal
       // duration={1000}
@@ -46,16 +63,28 @@ export function ResultModal({
       transparent={true}
       visible={showModal}
       onRequestClose={() => setShowModal(false)}
+      statusBarTranslucent
     >
-      <ItemResult
-        //   showQuestion={true}
-        item={modalItem}
-        chosenOptions={null}
-        handleBtnPress={() => {
-          setShowModal(false)
-        }}
-        btnTitle={close}
-      />
+      {/* <FlatList
+        pagingEnabled
+        horizontal={true}
+        ref={flatListRef}
+        // contentContainerStyle={{
+        //   width: '100%',
+        // }}
+        data={items} // Pass resultsArray directly to data prop
+        keyExtractor={(item, index) => index.toString()} // Use a unique key for each item
+        renderItem={(
+          { item } // Destructure item from the object passed by FlatList
+        ) => (
+        )}
+      /> */}
+        <ItemResult
+          item={modalItem} // Assuming item is structured as { item: Item, userChoices: Option[] }
+          chosenOptions={null} // Access userChoices similarly
+          handleBtnPress={() => setShowModal(false)}
+          btnTitle={close}
+        />
     </Modal>
   )
 }
@@ -63,9 +92,11 @@ export function ResultModal({
 export function RenderItem({
   item,
   seeFullQuestion,
+  index,
 }: {
   item: Item
-  seeFullQuestion: (i: Item) => void
+  seeFullQuestion: (item: Item, index: number) => void
+  index: number
 }) {
   return (
     <View
@@ -74,7 +105,11 @@ export function RenderItem({
         alignItems: 'center',
       }}
     >
-      <Tile item={item} handlePress={seeFullQuestion} />
+      <Tile
+        item={item}
+        handlePress={() => seeFullQuestion(item, index)}
+        // handlePress={() => handlePress(item.item, item.userChoices, index)}
+      />
     </View>
   )
 }
@@ -99,7 +134,7 @@ export function EmptyState({
             height: screenHeight - headerHeight,
           }}
         >
-          <ActivityIndicator size={50} color={spinner} />
+          <ActivityIndicator size={50} color={Colors.primary} />
         </View>
       ) : (
         <View
@@ -113,9 +148,22 @@ export function EmptyState({
             height: screenHeight - headerHeight,
           }}
         >
-          <Text style={{ opacity: 0.7 }}>
-            {parent === 'Saved' ? youDontHaveAnySavedQuestions : noQuestions}
-          </Text>
+          <Snackbar
+            visible={true}
+            onDismiss={() => null}
+            elevation={0}
+            style={{ bottom: 10 }}
+          >
+            <Text
+              style={{
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
+              {parent === 'Saved' ? youDontHaveAnySavedQuestions : noQuestions}
+            </Text>
+          </Snackbar>
+          <Text style={{ opacity: 0.7 }}></Text>
           {parent === 'Saved' ? (
             <Ionicons
               style={{
@@ -178,7 +226,7 @@ export function ListHeaderComponent({
         // disabled={chosenOptions.length === 0}
         elevation={5}
         style={{
-          backgroundColor: 'slateblue',
+          backgroundColor: Colors.primary,
         }}
         rippleColor="thistle"
       >
@@ -206,10 +254,12 @@ export function ListHeaderComponent({
           <Switch
             onValueChange={onToggleSwitch}
             value={isEnabled}
-            color={buttonDark} // Kolor włączonego przycisku
+            color={Colors.primary} // Kolor włączonego przycisku
             // uncheckedColor="gray" // Kolor wyłączonego przycisku
           />
-          <PaperText variant={"labelMedium"} style={{ color: boldTextColor }}>{reverseTheOrder}</PaperText>
+          <PaperText variant={'labelMedium'} style={{ color: Colors.boldText }}>
+            {reverseTheOrder}
+          </PaperText>
         </Pressable>
       )}
     </View>

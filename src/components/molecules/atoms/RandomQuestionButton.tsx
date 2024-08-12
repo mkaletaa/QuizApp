@@ -1,11 +1,9 @@
-import { Dimensions, Pressable, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { FontAwesome5 } from '@expo/vector-icons'
-import useOpenQuiz from '../../../hooks/useOpenQuiz'
+import { Dimensions } from 'react-native'
+import { AnimatedFAB, Button as PaperButton } from 'react-native-paper'
 import { randomQuestion } from '../../../../data/texts'
-import { Button as PaperButton } from 'react-native-paper'
-import { buttonDark, buttonLight } from '../../../utils/constants'
-import { LinearGradient } from 'expo-linear-gradient'
+import useOpenQuiz from '../../../hooks/useOpenQuiz'
+import { Colors } from '../../../utils/constants'
 export default function RandomQuestionButton({ chapName }) {
   const navigation = useNavigation()
   const { openQuiz } = useOpenQuiz()
@@ -45,35 +43,53 @@ export default function RandomQuestionButton({ chapName }) {
     //   }}
     // >
     //todo: use FAB from paper
-    // <PaperButton
-    //   mode="elevated"
-    //   icon="dice-5"
-    //   onPress={instantQuestion}
-    //   elevation={5}
-    //   buttonColor={buttonDark}
-    //   textColor="white"
-    //   style={{
-    //     // backgroundColor: 'orange',
-    //     alignItems: 'center',
-    //     // elevation: 3,
-    //     borderRadius: 10,
-    //     // height: 40,
-    //     justifyContent: 'center',
-    //     bottom: 40,
-    //     // marginRight: 15,
-    //     position: 'absolute',
-    //     zIndex: 2,
-    //     flexDirection: 'row',
-    //     // gap: 15,
-    //     // paddingHorizontal: 10,
-    //   }}
-    // >
-    //   {}
-    //   {/* <FontAwesome5 name="dice" size={20} color="white" />
-    //     <Text> </Text>*/}
-    //   {randomQuestion}
-    // </PaperButton>
-    null
+      //     <AnimatedFAB
+      //   icon={'dice-5'}
+      //   label={'randomQuestion'}
+      //   extended={true}
+      //   onPress={() => console.log('Pressed')}
+      //   visible={true}
+      //   animateFrom={'right'}
+      //   iconMode={'static'}
+      //   color={'white'}
+      //    style={{
+      //   backgroundColor: Colors.primary,
+      //   borderRadius: 10,
+      //   bottom: 30,
+      //   right: 20,
+      //   zIndex: 2,
+      //   paddingHorizontal: 10,
+      // }}
+      // />
+
+    <PaperButton
+      mode="elevated"
+      icon="dice-5"
+      onPress={instantQuestion}
+      elevation={5}
+      buttonColor={Colors.primary}
+      textColor="white"
+      style={{
+        // backgroundColor: 'orange',
+        alignItems: 'center',
+        // elevation: 3,
+        borderRadius: 10,
+        // height: 40,
+        justifyContent: 'center',
+        bottom: 40,
+        // marginRight: 15,
+        position: 'absolute',
+        zIndex: 2,
+        flexDirection: 'row',
+        // gap: 15,
+        // paddingHorizontal: 10,
+      }}
+    >
+      
+      {/* <FontAwesome5 name="dice" size={20} color="white" />
+        <Text> </Text>*/}
+      {randomQuestion}
+    </PaperButton>
     // </LinearGradient>
   )
 }

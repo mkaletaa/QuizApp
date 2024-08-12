@@ -1,12 +1,12 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { Chip, Text, TouchableRipple } from 'react-native-paper'
+
 import { multiChoice as multiChoiceText } from '../../data/texts'
+import { Colors } from '../utils/constants'
 import { Option } from '../utils/types'
-import { Chip, TouchableRipple } from 'react-native-paper'
-import { Button } from 'react-native-paper'
-import { Text } from 'react-native-paper'
-import { boldTextColor, gradient, textColor } from '../utils/constants'
+
 const OptionComponent = ({ option }: { option: Option }) => {
   const { val: answerValue } = option
 
@@ -40,9 +40,27 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
     <View style={styles.wrapper}>
       {multiChoice ? (
         <React.Fragment>
-          {/* <Chip mode="outlined">{multiChoiceText}</Chip> */}
+          <Chip
+            mode="outlined"
+            style={{
+              backgroundColor: 'rgba(255,165,0, .85)',
+              borderColor: 'rgba(249, 105, 14, .65)',
+              marginBottom: 15,
+            }}
+            icon={() => (
+              <AntDesign
+                name="warning"
+                size={16}
+                color="black"
+                style={{ marginRight: 5 }}
+              />
+            )}
+            textStyle={{ color: Colors.text }}
+          >
+            {multiChoiceText}
+          </Chip>
 
-          <View style={styles.alert}>
+          {/* <View style={styles.alert}>
             <AntDesign
               name="warning"
               size={16}
@@ -55,7 +73,7 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
             >
               {multiChoiceText}
             </Text>
-          </View>
+          </View> */}
         </React.Fragment>
       ) : null}
 
@@ -95,7 +113,7 @@ const Options = ({ item, multiChoice, chosenOptions, handleOptionPress }) => {
               {
                 backgroundColor: chosenOptions.some(el => el.id === option.id)
                   ? 'lightblue'
-                  : gradient,
+                  : Colors.gradientLight,
                 borderColor: chosenOptions.some(el => el.id === option.id)
                   ? 'rgb(50, 200, 255)'
                   : 'rgb(210, 210, 240)',
@@ -117,7 +135,7 @@ const styles = StyleSheet.create({
   answerContainer: {
     // width: 300,
     alignItems: 'center',
-    elevation: 5
+    elevation: 5,
     // backgroundColor: 'red',
     // marginBottom: 50
   },
@@ -126,7 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginVertical: 5,
     borderWidth: 2.5,
-    
+
     // borderColor: 'grey',
     width: '50%',
     minWidth: 250, //
@@ -151,7 +169,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     paddingVertical: 7,
-    borderWidth:2,
+    borderWidth: 2,
     borderColor: 'rgba(249, 105, 14, .65)',
   },
 })

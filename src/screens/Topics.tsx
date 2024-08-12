@@ -1,31 +1,31 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { ScrollView, View } from 'react-native'
+
 import { chapters, topics } from '../../data/data'
 import Card from '../components/Card'
-import ChapterDescription from '../components/molecules/ChapterDescription'
+import Gradient from '../components/molecules/atoms/Gradient'
 import RandomQuestionButton from '../components/molecules/atoms/RandomQuestionButton'
+import ChapterDescription from '../components/molecules/ChapterDescription'
 import useOpenQuiz from '../hooks/useOpenQuiz'
+import { Colors } from '../utils/constants'
 import utilStyles from '../utils/styles'
-import { removeUnderscores } from '../utils/functions'
-import useStore from '../utils/store'
-import { screenBackground } from '../utils/constants'
-import Gradient from '../components/molecules/Gradient'
+
 export default function Topics({ route }) {
   const [chapterName, setChapterName] = useState('')
   const [chapterDes, setChapterDes] = useState('')
-  const [topicsToShow, setTopicsToShow] = useState([]) //all topics plus __All__
+  const [topicsToShow, setTopicsToShow] = useState([]) 
   const navigation = useNavigation()
-  const [showStats, setShowStats] = useState(false)
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 
   useEffect(() => {
     const chapterName: string = route.params.chapterName
-    // const chapter = chapters.find(chapter => chapter.name === chapterName)
+
+    const chapter = chapters.find(chapter => chapter.name === chapterName).des
     setChapterDes(
-      "<span style='font-size:15`px'>" +
-        chapters.find(chapter => chapter.name === chapterName).des +
-        '</span>'
+      chapter
+        ? "<span style='font-size:16px'>" + chapter + '</span>'
+        : undefined,
     )
     if (chapterName && topics[chapterName]) {
       setChapterName(chapterName)
@@ -43,7 +43,7 @@ export default function Topics({ route }) {
     openQuiz({ topicName, chapterName })
   }
 
-  const [pressedTopic, setPressedTopic] = useState<string>()
+  // const [pressedTopic, setPressedTopic] = useState<string>()
   function handleLongPress(pressedTopicName: string) {
     // setPressedTopic(pressedTopicName)
     // setShowStats(true)
@@ -58,14 +58,16 @@ export default function Topics({ route }) {
     <View
       style={{
         alignItems: 'center',
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
       }}
     >
       <Gradient />
 
       <RandomQuestionButton chapName={chapterName} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
-        <ChapterDescription chapterDescription={chapterDes} />
+        {chapterDes !== undefined && (
+          <ChapterDescription chapterDescription={chapterDes} />
+        )}
 
         {topicsToShow.map(topic => (
           <Card
