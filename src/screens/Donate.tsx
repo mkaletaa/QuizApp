@@ -31,10 +31,10 @@ export default function Donate() {
           padding: 10,
           borderRadius: 10,
           gap: 20,
-        //   elevation: 1,
+          elevation: 5,
           marginTop: '5%',
           width: '90%',
-          borderWidth: 1.5,
+          borderWidth: 2,
           borderColor: Colors.border,
           zIndex: 2,
           alignSelf: 'center',
@@ -43,8 +43,7 @@ export default function Donate() {
         }}
       >
         <Text style={{ fontSize: 17, color: Colors.text, lineHeight: 23 }}>
-          Aplikacja jest darmowa i nie posiada reklam. Jeśli chcesz wyrazić
-          wdzięczność za trud wzłożony w jej rozwój, możesz przekazać darowiznę.
+          Aplikacja jest darmowa i nie posiada reklam. Jeśli okazała się pomocna i chcesz wyrazić wdzięczność za trud wzłożony w jej rozwój, możesz przelać grosza. Zignoruj jeśli chcesz, żeby kiciuś był smutny.
         </Text>
         <Button
           mode="elevated"
@@ -60,7 +59,7 @@ export default function Donate() {
             Alert.alert('dd')
           }}
         >
-          <Text style={{ color: 'white' }}>Podziękuj</Text>
+          <Text style={{ color: 'white' }}>Wesprzyj</Text>
         </Button>
       </View>
       {/* </ScrollView> */}

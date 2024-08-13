@@ -4,7 +4,7 @@ import { elektrotechnika } from './elektrotechnika/elektrotechnika'
 import { AiA } from './AiA/AiA'
 
 export const quiz = {
-  C,
+  // C,
   AiA,
   elektronika,
   elektrotechnika,

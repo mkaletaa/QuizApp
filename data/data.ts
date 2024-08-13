@@ -3,6 +3,7 @@ export const chapters = [
   {
     name: 'C',
     image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
+    des: ''
   },
   {
     name: 'AiA',
@@ -19,10 +20,11 @@ export const chapters = [
     image: 'https://i.postimg.cc/B6XZwN99/image.png',
     des: 'Jeśli chodzi o laboratoria, to z Prusakiem zdasz z palcem wiadomo gdzie, a z Chrabąszczem choćbyś przepisał słowo w słowo jego notatki to i tak nie dostaniesz 5 (nie żartuję). Gość potrafi uwalić cię za jedno źle użyte słowo (tutaj też nie żartuję). Na szczęście we wszystkich grupach i na wszystkich termianch pytania były te same. <br></br>Jeśli chodzi o ćwiczenia, to na początku pyta kilka osób, ale bez spiny, to nie żabulec. Kolokwia z ćwiczeń już nie sprawdza tak surowo. <br></br>Tak, na okładce to Chrabąszcz',
   },
-  // {
-  //   name: 'metody_programowania',
-  //   image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-  // },
+  {
+    name: 'metody_programowania',
+    image: 'https://i.postimg.cc/cJjqYrV8/image.png',
+    des: 'Tego przedmiotu miało tu nie być, ale że Kokos bierze te zadania z dupy jelenia uznałem, że przyda się je omówić.'
+  },
   // {
   //   name: 'VHDL',
   //   image: 'https://i.postimg.cc/cJjqYrV8/image.png',
@@ -111,29 +113,29 @@ export const topics = {
       name: 'egzamin',
       image: 'https://i.postimg.cc/tTMQZHM8/image.png',
     },
+  ], 
+  metody_programowania: [
+    {
+      name: 'złożoność_obliczeniowa',
+      image: '',
+    },
+    {
+      name: 'rekurencja',
+      image: '',
+    },
+    {
+      name: 'liczby_losowe',
+      image: '',
+    },
+    {
+      name: 'alg._plecakowy',
+      image: '',
+    },
+    {
+      name: 'huffman',
+      image: '',
+    },
   ],
-  // metody_programowania: [
-  //   {
-  //     name: 'złożoność_obliczeniowa',
-  //     image: '',
-  //   },
-  //   {
-  //     name: 'rekurencja',
-  //     image: '',
-  //   },
-  //   {
-  //     name: 'liczby_losowe',
-  //     image: '',
-  //   },
-  //   {
-  //     name: 'alg._plecakowy',
-  //     image: '',
-  //   },
-  //   {
-  //     name: 'alg._huffmanna',
-  //     image: '',
-  //   },
-  // ],
   // VHDL: [
   //   {
   //     name: 'kolos',

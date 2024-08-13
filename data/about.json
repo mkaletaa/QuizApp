@@ -6,16 +6,7 @@
   },
   {
     "type": "Text",
-    "value": "Niezbędnik studenta to aplikacja mobilna dostępna na telefony z androidem przeznaczona dla studentów informatyki w inżynierii komputerowej na wydziale inżynierii elektrycznej i komputerowej Politechniki Krakowskeij.Ta aplikacja nie zastąpi ci wykładów ani ćwiczeń, ale zapewni minimum wiedzy potrzebnej, żeby przeczłapać się z semestru na semestr."
-  },
-  {
-    "type": "Header",
-    "value": "Dlaczego powstała?",
-    "props": { "size": "md" }
-  },
-  {
-    "type": "Text",
-    "value": "Niezbędnik studenta to aplikacja mobilna dostępna na telefony z androidem przeznaczona dla studentów informatyki w inżynierii komputerowej na wydziale cinżynierii elektrycznej i komputerowej Politechniki Krakowskeij.Ta aplikacja nie zastąpi ci wykładów ani ćwiczeń, ale zapewni minimum wiedzy potrzebnej, żeby przeczłapać się z semestru na semestr."
+    "value": "Niezbędnik studenta to aplikacja mobilna dostępna na telefony z androidem przeznaczona dla studentów informatyki w inżynierii komputerowej na wydziale inżynierii elektrycznej i komputerowej Politechniki Krakowskiej.Ta aplikacja nie zastąpi ci wykładów ani ćwiczeń, ale zapewni minimum wiedzy potrzebnej, by przeczłapać się z semestru na semestr."
   },
   {
     "type": "Header",
@@ -33,15 +24,6 @@
   {
     "type": "Text",
     "value": "Okazuje się, że testy wymuszają na nas przypominanie sobie informacji. Nawet jeśli podamy błędną odpowiedź, nauczy nas to wyciąganie z głowy informacji i w przyszłości pójdzie nam to sprawniej. Do tego pozwalają nam dowiedzieć się czego jeszcze nie umiemy i na co musimy zwrócić większą uwagę. <a href='https://uclalibrary.github.io/research-tips/sandbox/resource-playlist-study-tips/'>#Link</a>, <a href='https://www.aqa.org.uk/about-us/our-research/blog/post?path=do-tests-help-you-learn'>#Link</a> <br></br>Quizy nie zostały zatem dodane przeze mnie z nudów, a stoi za nimi głębsze przesłanie/kryje się za nimi głębszy cel i nie bez powodu stanowią rdzeń aplikacji."
-  },
-  {
-    "type": "Header",
-    "value": "Do nowych studentów:",
-    "props": { "size": "md" }
-  },
-  {
-    "type": "Text",
-    "value": "Niezbędnik studenta to aplikacja mobilna dostępna na telefony z androidem przeznaczona dla studentów informatyki w inżynierii komputerowej na wydziale inżynierii elektrycznej i komputerowej Politechniki Krakowskeij.Ta aplikacja nie zastąpi ci wykładów ani ćwiczeń, ale zapewni minimum wiedzy potrzebnej, żeby przeczłapać się z semestru na semestr.ww"
   },
   {
     "type": "Header",

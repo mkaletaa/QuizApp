@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Podstawowe informacje",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/2S2g6Q8q/image.png",
+        "props": { "description": "2023 poprawa" }
+      },
+      {
+        "type": "Text",
+        "value": "Najsampierw tworzymy n drzew składających się  samego korzenia uporządkowanych od najmniejszej wagi do największej. W kolejnych krokach łączymy dwa korzenie o najmniejszych wagach i ustawiamy w odpowiedniej kolejności względem reszty drzew. Jeśli dwa korzenie mają taką samą wagę, nie ma znaczenia który zapiszemy jako pierwszy, bo algorytm Huffmana jest niedeterministyczny. Powtarzamy do momentu otrzymania jednego drzewa."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/Gh9XQWcp/IMG-20240813-183321.jpg"
+      },
+      {
+        "type": "Text",
+        "value": "Jak już skończymy, to krawędzie z lewej podpisujemy zerami, a z prawej jedynkami. Na tej podstawie można wyznaczyć kod każdej z liter i odkodować ciąg zer i jedynek."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/HsJt5b2c/IMG-20240813-183428.jpg"
+      },
+      {
+        "type": "Header",
+        "value": "Jaką znaną metodę programowania reprezentuje algorytm Huffmana? Opisz ją krótko i podaj praktyczny przykład zastosowania tego algorytmu.",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Reprezentuje metodę programowania zachłannego. Chodzi w nim o to, że lokalnie dokonujemy najlepszych wyborów w nadziei, że globalnie przyniesie to najlepszy rezultat. Wykorzystywany jest do kompresji plików."
+      }
+    ]
+  },
+  {
+    "title": "Oszczędność",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Może też pojawić się pytanie o procent oszczędności po zastsowaniu tego algorytmu. Nie mam pojęcia jak się to liczy, ale ChatGPT mówi coś takiego: <br></br>Obliczamy średnią długość kodu L<sub>K</sub> czyli tą po kompresji. Jest to suma iloczynów częstości i liczby zer i jedynek wchodzących w skład kodu litery. W naszym przypadku:"
+      },
+      {
+        "type": "Math",
+        "value": "`L_K=40*1 + 25*2 + 11*4 + 9*4 + 8*4 + 7*4 = 230 `",
+        "props": {
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Potem wyznaczamy stałą długość kodu L<sub>S</sub> czyli przed kompresją. Wtym celu: "
+      },
+      {
+        "type": "ListElement",
+        "value": "Liczymy ile jest unikalnych liter. W naszym przypadku to 6, bo F się powtarza."
+      },
+      {
+        "type": "ListElement",
+        "value": "Zastanawiamy się ile co najmniej bitów potrzeba, by zakodować te 6 liter. Za pomocą jednego bitu można zakodować tylko dwie litery, dla dwóch bitów to już 4 litery, dla trzech bitów 8 liter - czyli wystarczająco, by zakodować nasze 6 znaków. Matematycznie byśmy to zapisali tak:"
+      },
+      {
+        "type": "Math",
+        "value": "`|~log_2 n~| = |~log_2 6~| = |~2.584...~| = 3`",
+        "props": {
+          "height": 70,
+          "fontSize": 17
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Gdzie n to liczba unikalnych znaków. Przykładowe kody liter przed kompresją: H - 000; U - 001; F - 010; M - 011; A - 100; N - 101. Nie są potrzebne do wyznaczenia oszczędności, ale zapisałem je żeby lepiej zrozumieć o co biega. Teraz sumujemy iloczyny częstości i długości kodu każdej z liter."
+      },
+      {
+        "type": "Math",
+        "value": "`L_S = 40*3 + 25*3 + 11*3 + 9*3 + 8*3 + 7*3 = 300`",
+        "props": {
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Teraz kiedy już mamy długość kodu przed kompresją (L<sub>S</sub>) i po kompresji (L<sub>K</sub>) możemy wreszcie obliczyć procentową oszczędność:"
+      },
+      {
+        "type": "Math",
+        "value": "`S = ((L_S - L_K)/L_S)*100% = ((300-230)/300)*100% = 23.33% `",
+        "props": { 
+            "height": 70,
+            "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Może się też zdażyć, że zamiast częstości będziemy mieli prawdopodobieństwa, ale to liczy się tak samo."
+      }
+    ]
+  },
+  {
+    "title": "Pozostałe zadania",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/htN4vRGQ/image.png",
+        "props": { "description": "2023" }
+      }
+    ]
+  }
+]
