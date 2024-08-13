@@ -135,6 +135,10 @@ export const topics = {
       name: 'huffman',
       image: '',
     },
+    {
+      name: 'drzewa',
+      image: '',
+    },
   ],
   // VHDL: [
   //   {

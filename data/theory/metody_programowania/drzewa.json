@@ -1,0 +1,73 @@
+[
+  {
+    "title": "Kopce",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/y896J6b4/image.png",
+        "props": { "description": "2024" }
+      },
+      {
+        "type": "Text",
+        "value": "Binarne kopce zupełne (ang. complete binary heaps) to struktury danych w postaci drzew binarnych, które spełniają dwa kluczowe warunki:"
+      },
+      {
+        "type": "ListElement",
+        "value": "Właściwość kopca: Dla maksymalnego kopca (max-heap), wartość każdego węzła jest większa lub równa wartości jego dzieci. Dla minimalnego kopca (min-heap), wartość każdego węzła jest mniejsza lub równa wartości jego dzieci."
+      },
+      {
+        "type": "ListElement",
+        "value": "Struktura zupełnego drzewa: Drzewo jest zupełnie wypełnione na wszystkich poziomach z wyjątkiem być może ostatniego, który jest wypełniony od lewej do prawej strony."
+      },
+      {
+        "type": "Text",
+        "value": "Sposoby reprezentacji binarnego kopca zupełnego: tablica, lista jednokierunkowa, stos. <b>dokończyć opisywanie ich</b>"
+      },
+      {
+        "type": "Text",
+        "value": "<a href='https://eduinf.waw.pl/inf/alg/003_sort/0015.php'>Tutaj</a> możesz se przeczytać jak sie tworzy kopce. Następnie zbuduj kopiec z zadania i porównaj z moim rysunkiem. Pamiętaj, że litery, które znajdują się dalej w alfabecie mają większą wagę."
+      },
+      {
+        "type": "Spoiler",
+        "value": [
+          {
+            "type": "Image",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "Podobne zadania:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/MZL47LM1/image.png"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/q7pZBVSH/image.png",
+        "props": { "description": "2023 poprawa" }
+      }
+    ]
+  },
+  {
+    "title": "Drzewa",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/qRrNNQ0K/image.png",
+        "props": { "description": "2019 poprawa" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/QMNTShHt/image.png",
+        "props": { "description": "2022" }
+      },
+      {
+        "type": "Text",
+        "value": "Drzewo t-narne to drzewo, w którym każdy węzeł może mieć maksymalnie t dzieci. Drzewo binarne to drzewo 2-narne czyli każdy węzeł może mieć co najwyżej dwoje dzieci. <br></br>Węzeł wewnętrzny to wierzchołek który nie jest izolowany. W przypadku drzew wszystkie węzły są wewnętrzne. Maksymalnie drzewo może mieć wysokość N-1, gdzie N to liczba węzłów. Wtedy każdy wierzchołek z wyjątkiem ostatniego ma dokładnie jednego potomka. Wysokość liczymy od 0. Jeśli chodzi o minimalną wysokość to nie wiem."
+      }
+    ]
+  }
+]
