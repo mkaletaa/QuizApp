@@ -6,12 +6,15 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { TouchableRipple } from 'react-native-paper'
+
 import { read } from '../../data/texts'
-import { Colors} from "../utils/constants"
+import { COLOR, Colors } from '../utils/constants'
 import { removeUnderscores } from '../utils/functions'
+
 const screenWidthDim = Dimensions.get('window').width
 
 const calculateCardSize = () => {
@@ -49,9 +52,38 @@ export default function Card({
 
   return (
     <View style={[styles.card, cardSize]} key={data.name}>
+      {data.soon && (
+        <View
+          style={{
+            backgroundColor: 'rgba(41, 41, 41, .2)',
+            height: '100%',
+            width: '100%',
+            position: 'absolute',
+            justifyContent: 'center',
+            zIndex: 2,
+            alignItems: 'center',
+          }}
+        >
+          <Text
+            style={{
+              color: COLOR.RED,
+              fontWeight: 'bold',
+              fontSize: 20,
+              transform: [{ rotate: '-10deg' }],
+              textShadowColor: '#212121', // Kolor cienia
+              textShadowOffset: { width: 2, height: 2 }, // Przesunięcie cienia
+              textShadowRadius: 10, // Promień rozmycia cienia
+              width: '100%',
+              textAlign: 'center',
+            }}
+          >
+            COMING SOON
+          </Text>
+        </View>
+      )}
       <TouchableRipple
         rippleColor={Colors.ripple}
-        onPress={handlePress}
+        onPress={data.soon ? null : handlePress}
         onLongPress={handleLongPress}
         style={{ width: '100%', height: '100%' }}
       >
@@ -77,7 +109,7 @@ export default function Card({
               <TouchableOpacity
                 activeOpacity={0.75}
                 style={{ alignItems: 'center', flex: 1 }}
-                onPress={() => showTheory()}
+                onPress={data.soon ? null : () => showTheory()}
               >
                 <View style={styles.separator}></View>
                 <Text style={styles.readText}>{read}</Text>
@@ -96,9 +128,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.surfaceBg,
     borderRadius: 10,
     margin: 10,
-    elevation: 2,
     alignItems: 'center',
     gap: 5,
+    elevation: 2,
+    // borderWidth: 1,
+    // borderColor: Colors.border
     // shadowColor: '#000',
     // shadowOffset: {
     //   width: 0,
@@ -126,7 +160,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     paddingHorizontal: 15,
-    color : Colors.boldText ,
+    color: Colors.boldText,
   },
   separator: {
     borderRadius: 10,
@@ -141,6 +175,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: '100%',
     height: '100%',
-    color: 'dimgray',
+    color: '#756789', //#756789 //#8f8a96
+    letterSpacing: 0.5,
   },
 })

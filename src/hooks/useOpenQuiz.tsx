@@ -14,8 +14,8 @@ const useOpenQuiz = () => {
   const [showNoQuestionsModal, setShowNoQuestionsModal] = useState(false)
 
   type openQuizPropType = {
-    topicName?: string
-    chapterName: string
+    topicName?: '' | string
+    chapterName: '__All__' | '__Again__' | '__Saved__' | string
     howManyItems?: number //used when retaking or saved
     shuffle?: boolean //true if InfinityMode, otherwise undefined
     itemsArray?: Item[] //used when retaking or saved
@@ -47,7 +47,19 @@ const useOpenQuiz = () => {
     itemsArray,
     isRetake = false, // if user is retaking the same quiz
   }: openQuizPropType): void => {
-    
+
+
+    if (
+      !quiz.hasOwnProperty(chapterName) &&
+      chapterName !== '__Saved__' &&
+      chapterName !== '__Again__'&&
+      chapterName !== '__All__' 
+    ) {
+      //when a chapter does not have any quiz
+      setShowNoQuestionsModal(true)
+      return
+    } // do not merge it with ifs below because for some reason it doesn't work good
+
     //if there is a chapter and infinity mode has been chosen
     if (howManyItems === Infinity) {
       navigateToQuiz()
