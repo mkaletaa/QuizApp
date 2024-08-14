@@ -1,5 +1,126 @@
 [
   {
+    "title": "Drzewa",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/qRrNNQ0K/image.png",
+        "props": { "description": "2019 poprawa" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/QMNTShHt/image.png",
+        "props": { "description": "2022" }
+      },
+      {
+        "type": "Header",
+        "value": "Co to drzewo binarne i t-narne?",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Drzewo t-narne to drzewo, w którym każdy węzeł może mieć maksymalnie t dzieci. Drzewo binarne to drzewo 2-narne czyli każdy węzeł może mieć co najwyżej dwoje dzieci."
+      },
+      {
+        "type": "Header",
+        "value": "Jaka jest wysokość drzewa o N węzłach?",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Maksymalnie drzewo może mieć wysokość N-1, gdzie N to liczba węzłów. Wtedy każdy wierzchołek z wyjątkiem ostatniego ma dokładnie jednego potomka. Wysokość liczymy od 0. Jeśli chodzi o minimalną wysokość to nie wiem."
+      },
+      {
+        "type": "Header",
+        "value": "Narysuj drzewo 3-narne o 5 węzłach wewnętrznych",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Węzeł wewnętrzny to wierzchołek o stopniu przynajmniej 2 czyli ma co najmniej jedno dziecko."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/wBk8FBXP/IMG-20240814-132712.jpg"
+      },
+      {
+        "type": "Header",
+        "value": "Jak można reprezentować w tablicy drzewo t-narne?",
+        "props": { "size": "sm" }
+      },
+
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/bJCXcFF9/IMG-20240814-133119.jpg",
+        "props": {
+          "description": "drzewo 3-narne o 3 węzłach wewnętrznych i jego reprezentacja tablicowa"
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Korzeń jest przechowywany w indeksie zerowym, reszta węzłów jest rozmieszczana w tablicy na indeksach według wzorów opisanych niżej."
+      },
+      {
+        "type": "Header",
+        "value": "Podaj wzory pozwalające na wyznaczenie rodzica i potomków w drzewie t-narnym",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Jeśli węzeł znajduje się na pozycji i w tablicy, jego dzieci można znaleźć według następującego wzoru:"
+      },
+      {
+        "type": "Math",
+        "value": "`n_k = t*i + k, k={1, 2, ..., t}`"
+      },
+      {
+        "type": "Text",
+        "value": "Przykład: Jeśli węzeł znajduje się w indeksie 2 i t=3, to jego dzieci będą znajdować się w indeksach:"
+      },
+      {
+        "type": "ListElement",
+        "value": "n<sub>1</sub> = 3*2 + 1 = 7"
+      },
+      {
+        "type": "ListElement",
+        "value": "n<sub>2</sub> = 3*2 + 2= 8"
+      },
+      {
+        "type": "ListElement",
+        "value": "n<sub>3</sub> = 3*2 + 3 = 9"
+      },
+      {
+        "type": "Text",
+        "value": "Jeśli węzeł znajduje się na pozycji i w tablicy, jego rodzica można znaleźć według następującego wzoru:"
+      },
+      {
+        "type": "Math",
+        "value": "`floor((i - 1) / t)`"
+      },
+      {
+        "type": "Text",
+        "value": "Przykład: Jeśli węzeł znajduje się w indeksie 8 i t=3, to jego rodzic będzie znajdować się w indeksie:"
+      },
+      {
+        "type": "Math",
+        "value": "`floor((8 - 1) / 3) = floor(7/3) = 2`"
+      },
+      {
+        "type": "Header",
+        "value": "Liczba liści",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Liczbę liści pełnego drzewa t-narnego o wysokości h wyliczamy ze wzoru:"
+      },
+      {
+        "type": "Math",
+        "value": "`L = t^h`"
+      }
+    ]
+  },
+  {
     "title": "Kopce",
     "data": [
       {
@@ -21,20 +142,77 @@
       },
       {
         "type": "Text",
-        "value": "Sposoby reprezentacji binarnego kopca zupełnego: tablica, lista jednokierunkowa, stos. <b>dokończyć opisywanie ich</b>"
+        "value": "Sposoby reprezentacji binarnego kopca zupełnego: tablica, lista jednokierunkowa, stos."
       },
       {
+        "type": "Header",
+        "value": "tablica",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>reprezentacja</b> - korzeń jest przechowywany w pierwszym elemencie tablicy (indeks 0). Dla dowolnego węzła na pozycji i:<br></br>- lewe dziecko znajduje się na pozycji 2i + 1 <br></br>- prawe dziecko znajduje się na pozycji 2i + 2"
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Zalety</b>: Prosta i efektywna implementacja. Operacje dostępu i modyfikacji węzłów są bardzo szybkie, ponieważ odwołania do elementów są wykonywane w czasie O(1)."
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Wady</b>: Marnowanie przestrzeni w przypadku dużych, rozrzedzonych drzew. W przypadku dynamicznej zmiany wielkości kopca, konieczne może być kosztowne przenoszenie elementów do nowej tablicy."
+      },
+      {
+        "type": "Header",
+        "value": "lista jednokierunkowa",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>reprezentacja</b> - Każdy węzeł zawiera wartość oraz wskaźniki na swoje dzieci (lewe i prawe) oraz, opcjonalnie, wskaźnik na rodzica."
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Zalety</b>: Elastyczność w dynamicznym dodawaniu i usuwaniu węzłów. Nie marnuje przestrzeni na niewykorzystane węzły."
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Wady</b>: Wolniejsze operacje dostępu i modyfikacji węzłów w porównaniu do reprezentacji tablicowej. Dodatkowy narzut pamięci na przechowywanie wskaźników."
+      },
+      {
+        "type": "Header",
+        "value": "stos",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>reprezentacja</b> - Stos jest zazwyczaj implementowany jako lista (statyczna lub dynamiczna) lub tablica. Ostatni dodany element jest na wierzchu stosu, a wszystkie operacje są wykonywane z końca."
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Zalety</b>: Prosta implementacja i operacje na stosie. Wydajny dostęp do ostatnio dodanego elementu. Przydatny w wielu algorytmach, takich jak wycofywanie operacji (undo) czy przechodzenie struktur danych."
+      },
+      {
+        "type": "ListElement",
+        "value": "<b>Wady</b>: Ograniczony dostęp do danych - tylko ostatni element może być przetworzony bezpośrednio. Niekorzystny do struktur, w których potrzebny jest szybki dostęp do elementów w środku stosu."
+      },
+
+      {
         "type": "Text",
-        "value": "<a href='https://eduinf.waw.pl/inf/alg/003_sort/0015.php'>Tutaj</a> możesz se przeczytać jak sie tworzy kopce. Następnie zbuduj kopiec z zadania i porównaj z moim rysunkiem. Pamiętaj, że litery, które znajdują się dalej w alfabecie mają większą wagę."
+        "value": "<a href='https://eduinf.waw.pl/inf/alg/003_sort/0015.php'>Tutaj</a> możesz se przeczytać jak sie tworzy kopce. Następnie zbuduj kopiec z zadania i porównaj z moim szkicem. Pamiętaj, że litery, które znajdują się dalej w alfabecie mają większą wagę."
       },
       {
         "type": "Spoiler",
         "value": [
           {
             "type": "Image",
-            "value": ""
+            "value": "https://i.postimg.cc/qMYkCgwx/IMG-20240814-131512.jpg"
+          },
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/ZK9mZ4mB/IMG-20240814-131530.jpg"
           }
-        ]
+        ],
+        "props": { "index": 2 }
       },
       {
         "type": "Text",
@@ -42,31 +220,13 @@
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/MZL47LM1/image.png"
+        "value": "https://i.postimg.cc/MZL47LM1/image.png",
+        "props": { "description": "?" }
       },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/q7pZBVSH/image.png",
         "props": { "description": "2023 poprawa" }
-      }
-    ]
-  },
-  {
-    "title": "Drzewa",
-    "data": [
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/qRrNNQ0K/image.png",
-        "props": { "description": "2019 poprawa" }
-      },
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/QMNTShHt/image.png",
-        "props": { "description": "2022" }
-      },
-      {
-        "type": "Text",
-        "value": "Drzewo t-narne to drzewo, w którym każdy węzeł może mieć maksymalnie t dzieci. Drzewo binarne to drzewo 2-narne czyli każdy węzeł może mieć co najwyżej dwoje dzieci. <br></br>Węzeł wewnętrzny to wierzchołek który nie jest izolowany. W przypadku drzew wszystkie węzły są wewnętrzne. Maksymalnie drzewo może mieć wysokość N-1, gdzie N to liczba węzłów. Wtedy każdy wierzchołek z wyjątkiem ostatniego ma dokładnie jednego potomka. Wysokość liczymy od 0. Jeśli chodzi o minimalną wysokość to nie wiem."
       }
     ]
   }
