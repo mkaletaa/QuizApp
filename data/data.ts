@@ -23,7 +23,7 @@ export const chapters = [
   {
     name: 'metody_programowania',
     image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-    des: 'Tego przedmiotu miało tu nie być, ale że Kokos bierze te zadania z dupy jelenia uznałem, że przyda się je omówić.'
+    des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić.'
   },
   // {
   //   name: 'VHDL',
@@ -113,7 +113,7 @@ export const topics = {
       name: 'egzamin',
       image: 'https://i.postimg.cc/tTMQZHM8/image.png',
     },
-  ], 
+  ],
   metody_programowania: [
     {
       name: 'złożoność_obliczeniowa',
@@ -132,11 +132,19 @@ export const topics = {
       image: '',
     },
     {
+      name: 'drzewa_i_kopce',
+      image: 'https://i.postimg.cc/qMmGcH6L/image.png',
+    },
+    {
       name: 'huffman',
+      image: 'https://i.postimg.cc/rsf595sm/image.png',
+    },
+    {
+      name: 'pozostałe',
       image: '',
     },
     {
-      name: 'drzewa',
+      name: 'egzaminy',
       image: '',
     },
   ],
