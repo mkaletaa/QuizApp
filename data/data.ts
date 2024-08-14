@@ -117,7 +117,7 @@ export const topics = {
   metody_programowania: [
     {
       name: 'złożoność_obliczeniowa',
-      image: '',
+      image: 'https://i.postimg.cc/5ycbXrbq/image.png',
     },
     {
       name: 'rekurencja',
