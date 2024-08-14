@@ -95,9 +95,13 @@ export default function Card({
                 height: cardSize.height * 0.6,
               },
             ]}
-            source={{
-              uri: data.image,
-            }}
+            source={
+              data.image
+                ? {
+                    uri: data.image,
+                  }
+                : require('../../assets/failImage.png')
+            }
           />
 
           <View style={styles.footer}>
