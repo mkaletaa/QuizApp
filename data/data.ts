@@ -121,15 +121,15 @@ export const topics = {
     },
     {
       name: 'rekurencja',
-      image: '',
+      image: 'https://i.postimg.cc/ncJH0Pg9/image.png',
     },
     {
       name: 'liczby_losowe',
       image: '',
     },
     {
-      name: 'alg._plecakowy',
-      image: '',
+      name: 'plecakowy',
+      image: 'https://i.postimg.cc/hPbLhNVS/image.png',
     },
     {
       name: 'drzewa_i_kopce',

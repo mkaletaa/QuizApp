@@ -1,0 +1,37 @@
+[
+  {
+    "title": "programowanie dynamiczne",
+    "data": [
+        {
+          "type": "Text",
+          "value": "Problem plecakowy jest przykładem programowania dynamicznego. Polega na "
+        }
+    ]
+  },
+  {
+    "title": "bez nawrotów",
+    "data": [
+      {
+        "type": "YouTube",
+        "value": "nLmhmB6NzcM"
+      },
+      {
+        "type": "Text",
+        "value": "Hindus ci wszystko wytłumaczy. Jedyna różnica jest taka, że on nie bierze pod uwagę, że można zapakować do plecaka więcej niż jedną sztukę jakiegoś przedmiotu."
+      }
+    ]
+  },
+  {
+    "title": "z nawrotami",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Nigdy się nie pojawił na egzaminie, pewnie dlatego, że jest zbyt dojebany i obliczenie tego wszystkiego zajęłoby połowę czasu. Ale na wszelki wypadek zamieszczę trochę info."
+      },
+      {
+        "type": "Text",
+        "value": "2023"
+      }
+    ]
+  }
+]

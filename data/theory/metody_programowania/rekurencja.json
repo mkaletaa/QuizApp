@@ -1,0 +1,19 @@
+[
+    {
+        "data": [
+            {
+              "type": "Text",
+              "value": "Rekurencja to pewniaczek, pojawia się nie każdym egzaminie. Warto jest ją dobrze opanować."
+            }
+        ]
+    },
+    {
+        "title": "tw. o rekurencji uniwersalnej",
+        "data": [
+            {
+              "type": "Text",
+              "value": "Jest to najłatwiejszy sposób na rozwiązanie rekurencji. Niestety nie każde równanie da się rozwiązać za jego pomocą."
+            }
+        ]
+    }
+]

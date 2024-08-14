@@ -170,6 +170,10 @@
     "title": "zadania z szybkości",
     "data": [
       {
+        "type": "Comment",
+        "value": "2017 i 2019"
+      },
+      {
         "type": "Image",
         "value": "https://i.postimg.cc/HLHLcC6Q/image.png",
         "props": { "description": "2023", "orientation": "horizontal" }
