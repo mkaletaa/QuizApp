@@ -2,10 +2,18 @@
   {
     "title": "programowanie dynamiczne",
     "data": [
-        {
-          "type": "Text",
-          "value": "Problem plecakowy jest przykładem programowania dynamicznego. Jest to sposób projektowania algorytmów wymyślony przez Richarda Bellmana, stosowany przeważnie do rozwiązywania zagadnień optymalizacyjnych. Opiera się na podziale rozwiązywanego problemu na podproblemy względem kilku parametrów. Konstrukcja programu wykorzystującego zasadę programowania dynamicznego może być sformułowana w trzech etapach: koncepcji inicjacji i progresji. <a href='https://pdfhost.io/v/sddQgRZ9~_pr_dynamiczne'>Więcej info (pdf)</a>"
-        }
+      {
+        "type": "Text",
+        "value": "Problem plecakowy jest przykładem programowania dynamicznego. Jest to sposób projektowania algorytmów wymyślony przez Richarda Bellmana, stosowany przeważnie do rozwiązywania zagadnień optymalizacyjnych. Opiera się na podziale rozwiązywanego problemu na podproblemy względem kilku parametrów. Konstrukcja programu wykorzystującego zasadę programowania dynamicznego może być sformułowana w trzech etapach: koncepcji inicjacji i progresji. <a href='https://pdfhost.io/v/sddQgRZ9~_pr_dynamiczne'>Więcej info (pdf)</a>"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/HkCCZVLt/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "Rozwiązanie problemu plecakowego jest przykładem programowania dynamicznego, bo problem jest dzielony na podproblemy - analizujemy najpierw jaki byłby wynik dla mniejszych nośności plecaka i mniejszych zbiorów przedmiotów, a potem stopniowo je zwiększamy, aż dochodzimy do ostatecznego wyniku."
+      }
     ]
   },
   {
@@ -21,7 +29,7 @@
       },
       {
         "type": "Text",
-        "value": "Jedyna różnica jest taka, że on nie bierze pod uwagę, że można zapakować do plecaka więcej niż jedną sztukę jakiegoś przedmiotu. No i nas jeszcze uczą żeby zbudować jakąś drugą tabelkę, która ma niby przechowywać wybrane przedmioty. Z tego co patrzę po necie, to w zasadzie nikt tego nie robi."
+        "value": "Jedyna różnica jest taka, że on nie bierze pod uwagę, że można zapakować do plecaka więcej niż jedną sztukę jakiegoś przedmiotu - czyli rozpatruje odmianę problemu plecakowego o nazwie 0/1 knapsack problem. Na labach mamy mniej popularną wersję o nazwie unbounded knapsack problem, która pozwala na pakowanie wielu sztuk tego samego przedmiotu. No i nas jeszcze uczą żeby zbudować jakąś drugą tabelkę, która ma niby przechowywać wybrane przedmioty. Z tego co patrzę po necie, to w zasadzie nikt tego nie robi."
       },
       {
         "type": "Image",
@@ -29,18 +37,22 @@
         "props": { "description": "2023" }
       },
       {
-        "type": "Image",
-        "value": "",
-        "props": { "description": "metodą Hindusa" }
+        "type": "Text",
+        "value": "Po prawej stronie od tabeli zapisywałem jakie przedmioty składają się na ostanią komórkę każdego wiersza. Rozwiązanie znajduje się oczywiście w ostatnim wierszu."
       },
       {
         "type": "Image",
-        "value": "",
-        "props": { "description": "metodą Nowakowskiego" }
+        "value": "https://i.postimg.cc/rshV4cTr/image.png",
+        "props": { "description": "metodą Hindusa (0/1 knapsack)" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/g2LzxfTx/image.png",
+        "props": { "description": "metodą Nowakowskiego (unbounded knapsack)" }
       },
       {
         "type": "Text",
-        "value": "No i pozostaje kwestia tej drugiej tabelki. Chuj wie jak to wypełniać, ale zamieszczę zdjęcie z ćwieczeń to może ktoś to rozkmini."
+        "value": "Czyli jeśli możemy zapakować tylko jeden przedmiot danego rodzaju to wynikiem jest 45 (przedmiot p1, p2 i p3). Jeśli przyjmiemy, że można pakować więcej niż jedną sztukę danego przedmiotu to wynik to 50 (pięć przedmiotów p1 lub dwa przedmioty p1 i dwa przedmioty p2). Który z tych sposobów użyć do rozwiązania zadania? Uczą nas tego drugiego, więc raczej jego.<br></br>No i pozostaje kwestia tej drugiej, pomocniczej tabelki. Tam chyba zapisujesz indeks przedmiotu włożonego do plecaka, który znajduje się najniżej w tabeli. W sumie nie wiem po co to jest bo można obejść sie bez tego. Niżej zamieszczam przykład z ćwiczeń."
       },
       {
         "type": "Image",
