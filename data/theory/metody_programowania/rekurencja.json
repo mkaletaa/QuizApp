@@ -3,7 +3,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Rekurencja to pewniaczek, pojawia się nie każdym egzaminie. Warto jest ją dobrze opanować."
+        "value": "Rekurencja to pewniaczek, pojawia się na niemal każdym egzaminie. Warto jest ją dobrze opanować."
       }
     ]
   },
@@ -83,7 +83,7 @@
       },
       {
         "type": "Text",
-        "value": "Czyli wpierw budujesz drzewo, gdzie każdy węzeł ma tyle dzieci ile wynosi a. Liście mają wartość T(1). Liczymy łączną wartość wszystkich liści L<sub>C</sub>, a potem łączną wartość reszty węzłów I<sub>C</sub>. Wynikiem jest suma L<sub>C</sub> i I<sub>C</sub> <br></br>Metoda drzewka umożliwia rozwiązanie rekurencji, gdzie po prawej stronie równania masz więcej niż jedno odwołanie rekurencyjne (chyba tak to się nazywa). Chodzi mi o coś takiego:"
+        "value": "Czyli wpierw budujesz drzewo, gdzie korzeń ma wartość f(n), a każdy węzeł ma tyle dzieci ile wynosi a. Liście mają wartość T(1) i jest ich a^k, gdzie k to wysokość drzewa liczona od 0. Liczymy łączną wartość wszystkich liści L<sub>C</sub>, mnożąć a^k przez T(1), a potem liczymy łączną wartość reszty węzłów I<sub>C</sub>. W tym celu przyda się wzór na sumę ciągu geometrycznego. Wynikiem jest suma L<sub>C</sub> i I<sub>C</sub> <br></br>Metoda drzewka umożliwia rozwiązanie rekurencji, gdzie po prawej stronie równania masz więcej niż jedno odwołanie rekurencyjne (chyba tak to się nazywa). Chodzi mi o coś takiego:"
       },
       {
         "type": "Math",
@@ -98,20 +98,46 @@
   {
     "title": "metoda iteracyjna",
     "data": [
-        {
-          "type": "Text",
-          "value": "W tej metodzie najpierw wykonujesz trzy kroki iteracyjne, a potem możesz skorzystać z tego, co umiesz z metody drzewka. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
-        },
-        {
-            "type": "Math",
-            "value": "``"
-        }
+      {
+        "type": "Text",
+        "value": "W tej metodzie najpierw wykonujesz trzy kroki iteracyjne, a potem możesz skorzystać z tego, co umiesz z metody drzewka. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
+      },
+      {
+        "type": "Math",
+        "value": "``"
+      }
+    ]
+  },
+  {
+    "title": "metoda podstawienia",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Rzadko spotykana, na egzaminie pojawiła się raz, w 2019. Jej rozwiązanie wymaga użycia indukcji. Niestety niewiele o niej wiem, więc nie mogę zbytnio pomóc. Kokos czasem powtarza zadania, więc gdyby miało się pojawić to, możesz się nauczyć na pamięć rozwiązania albo spróbowac ściągnąć."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/L43hJLnK/image.png",
+        "props": { "description": "2019 poprawa" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/ncVrBrDs/image.png"
+      },
+      {
+        "type": "Image",
+        "value": "",
+        "props": { "description": "dodać rysunek drzewka" }
+      }
     ]
   },
   {
     "title": "zadania",
     "data": [
-        
+      {
+        "type": "Text",
+        "value": "Wreszcie przyszła pora na "
+      }
     ]
   }
 ]
