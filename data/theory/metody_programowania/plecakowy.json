@@ -4,7 +4,7 @@
     "data": [
         {
           "type": "Text",
-          "value": "Problem plecakowy jest przykładem programowania dynamicznego. Polega na "
+          "value": "Problem plecakowy jest przykładem programowania dynamicznego. Jest to sposób projektowania algorytmów wymyślony przez Richarda Bellmana, stosowany przeważnie do rozwiązywania zagadnień optymalizacyjnych. Opiera się na podziale rozwiązywanego problemu na podproblemy względem kilku parametrów. Konstrukcja programu wykorzystującego zasadę programowania dynamicznego może być sformułowana w trzech etapach: koncepcji inicjacji i progresji. <a href='https://pdfhost.io/v/sddQgRZ9~_pr_dynamiczne'>Więcej info (pdf)</a>"
         }
     ]
   },
@@ -12,12 +12,39 @@
     "title": "bez nawrotów",
     "data": [
       {
+        "type": "Text",
+        "value": "Hindus ci wszystko wytłumaczy."
+      },
+      {
         "type": "YouTube",
         "value": "nLmhmB6NzcM"
       },
       {
         "type": "Text",
-        "value": "Hindus ci wszystko wytłumaczy. Jedyna różnica jest taka, że on nie bierze pod uwagę, że można zapakować do plecaka więcej niż jedną sztukę jakiegoś przedmiotu."
+        "value": "Jedyna różnica jest taka, że on nie bierze pod uwagę, że można zapakować do plecaka więcej niż jedną sztukę jakiegoś przedmiotu. No i nas jeszcze uczą żeby zbudować jakąś drugą tabelkę, która ma niby przechowywać wybrane przedmioty. Z tego co patrzę po necie, to w zasadzie nikt tego nie robi."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/MKRfCzMt/image.png",
+        "props": { "description": "2023" }
+      },
+      {
+        "type": "Image",
+        "value": "",
+        "props": { "description": "metodą Hindusa" }
+      },
+      {
+        "type": "Image",
+        "value": "",
+        "props": { "description": "metodą Nowakowskiego" }
+      },
+      {
+        "type": "Text",
+        "value": "No i pozostaje kwestia tej drugiej tabelki. Chuj wie jak to wypełniać, ale zamieszczę zdjęcie z ćwieczeń to może ktoś to rozkmini."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/XvvJYWJR/image.png"
       }
     ]
   },
@@ -26,11 +53,31 @@
     "data": [
       {
         "type": "Text",
-        "value": "Nigdy się nie pojawił na egzaminie, pewnie dlatego, że jest zbyt dojebany i obliczenie tego wszystkiego zajęłoby połowę czasu. Ale na wszelki wypadek zamieszczę trochę info."
+        "value": "Nigdy się nie pojawił na egzaminie, pewnie dlatego, że jest zbyt dojebany i obliczenie tego wszystkiego zajęłoby połowę czasu. Ale kto wie, może kiedyś będzie ten pierwszy raz."
       },
       {
         "type": "Text",
-        "value": "2023"
+        "value": "Rozwiązanie z nawrotami też wymaga zbudowania tabelki, ale pierwsze skrzypce gra drzewko binarne. Przedmioty w tabeli muszą być ułożone w taki sposób, że najwyżej znajduje się ten, którego stosuenk wartości p do wagi w jest największy, a im niżej, tym ten stosunek staje się mniejszy.<br></br>Algorytm składa się z kilku kroków:<br></br><b>1)</b> policz profit p i wagę w zapakowanych przedmiotów.<br></br><b>2)</b> porównaj w z maksymalną wagą W jaka może zmieścić się do plecaka. Jeśli w < W to węzeł jest obiecujący, liczymy dalej. Jeśli w >= W to węzeł nie jest obiecujący, cofamy się na drzewku i zaczynamu kroki algorytmu od nowa.<br></br><b>3)</b> wyznaczamy k koraz i. k to indeks przedmiotu, dla którego przekroczymy nośność plecaka W. Zaś i to poziom drzewa, na którym się aktualnie znajdujemy.<br></br><b>4)</b> oblicz totalweight ze wzoru:"
+      },
+      {
+        "type": "Math",
+        "value": "`\"totweight\" = w + sum_(j=i+1)^(k-1) w_j`"
+      },
+      {
+        "type": "Text",
+        "value": "<b>5)</b> Oblicz bound ze wzoru:"
+      },
+      {
+        "type": "Math",
+        "value": "`bound = profit + sum_(j=i+1)^(k-1) p_j + (w - \"totweight\")*(p_k/w_k)`"
+      },
+      {
+        "type": "Text",
+        "value": "Jeżeli bound > max_profit to węzeł jest obiecujący i przechodzimy do jego dziecka. Jeśli nie, znaczy że węzeł jest nieobiecujący i trzeba się cofnąć."
+      },
+      {
+        "type": "Text",
+        "value": "Ten algorytm jest w chuj dojebany i dokładniejsze go opisanie + rozpisanie przykładowego zadania zajęłoby mi z tydzień, więc dam linka do pdf-a, gdzie są obliczenia dla pierwszych kilku węzłów i końcowe drzewko. <a href='https://pdfhost.io/v/EX63gGCQB_Przyklad_z_Laboratorium'>Klikaj tu</a>"
       }
     ]
   }
