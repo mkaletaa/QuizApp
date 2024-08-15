@@ -1,19 +1,117 @@
 [
-    {
-        "data": [
-            {
-              "type": "Text",
-              "value": "Rekurencja to pewniaczek, pojawia się nie każdym egzaminie. Warto jest ją dobrze opanować."
-            }
-        ]
-    },
-    {
-        "title": "tw. o rekurencji uniwersalnej",
-        "data": [
-            {
-              "type": "Text",
-              "value": "Jest to najłatwiejszy sposób na rozwiązanie rekurencji. Niestety nie każde równanie da się rozwiązać za jego pomocą."
-            }
-        ]
-    }
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "Rekurencja to pewniaczek, pojawia się nie każdym egzaminie. Warto jest ją dobrze opanować."
+      }
+    ]
+  },
+  {
+    "title": "tw. o rekurencji uniwersalnej",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Jest to najłatwiejszy sposób na rozwiązanie rekurencji. Niestety nie każde równanie da się rozwiązać za jego pomocą. <br></br>Równanie rekurencyjne można zapisać w następujący sposób:"
+      },
+      {
+        "type": "Math",
+        "value": "`T(n) = a*T(n/b) + f(n)`"
+      },
+      "na przykład:",
+      {
+        "type": "Math",
+        "value": "`T(n) = 2*T(n/3) + n^2`"
+      },
+      "w powyższym przykładzie a=2, b=3, f(n) = n^2",
+      {
+        "type": "Math",
+        "value": "`T(n) = T(4n)`"
+      },
+      "w powyższym przykładzie a=1, b=1/4, f(n) = 0",
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Math",
+        "value": "`text(porównujesz ze sobą ) n^(log_b a) text( oraz )  f(n)`"
+      },
+      {
+        "type": "Math",
+        "value": "`text(jeśli ) n^(log_b a) >  f(n) text( to rozwiązaniem jest ) n^(log_b a)`"
+      },
+      {
+        "type": "Math",
+        "value": "`text(jeśli ) n^(log_b a) <  f(n) text( to rozwiązaniem jest ) f(n)`"
+      },
+      {
+        "type": "Math",
+        "value": "`text(jeśli ) n^(log_b a) =  f(n) text( to rozwiązaniem jest ) f(n)*logn`"
+      },
+      {
+        "type": "Text",
+        "value": "Przykłady, gdzie ta metoda <u>nie</u> zadziała:"
+      },
+      {
+        "type": "Math",
+        "value": "`T(n) = -0.5*T(n/2)+n text( bo a musi być większe lub równe 1)`"
+      },
+      {
+        "type": "Math",
+        "value": "`T(n) = T((3n)/2)+n text( bo b musi być większe od 1)`"
+      },
+      {
+        "type": "Math",
+        "value": "`T(n) = 2^n*T(n/2)+n text( bo a musi być niezależna od n)`"
+      },
+      {
+        "type": "Math",
+        "value": "`T(n) = 2T(n/2)+sinn text( bo f(n) musi być większa lub równa 0 dla dostatecznie dużych n)`"
+      }
+    ]
+  },
+  {
+    "title": "metoda drzewka",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Ten film jest genialny:"
+      },
+      {
+        "type": "YouTube",
+        "value": "0D2-sYen23E"
+      },
+      {
+        "type": "Text",
+        "value": "Czyli wpierw budujesz drzewo, gdzie każdy węzeł ma tyle dzieci ile wynosi a. Liście mają wartość T(1). Liczymy łączną wartość wszystkich liści L<sub>C</sub>, a potem łączną wartość reszty węzłów I<sub>C</sub>. Wynikiem jest suma L<sub>C</sub> i I<sub>C</sub> <br></br>Metoda drzewka umożliwia rozwiązanie rekurencji, gdzie po prawej stronie równania masz więcej niż jedno odwołanie rekurencyjne (chyba tak to się nazywa). Chodzi mi o coś takiego:"
+      },
+      {
+        "type": "Math",
+        "value": "` T(n) = T(n/2) + T(n/3) + n`"
+      },
+      {
+        "type": "Text",
+        "value": "Wtedy każdy z węzłów będzie miał dwoje dzieci, gdzie wartość jednego będzie obliczana na podstawie T(n/2) a drugiego na podstawie T(n/3). Rozwiązanie powyższego równania nie jest możliwe za pomocą innych metod."
+      }
+    ]
+  },
+  {
+    "title": "metoda iteracyjna",
+    "data": [
+        {
+          "type": "Text",
+          "value": "W tej metodzie najpierw wykonujesz trzy kroki iteracyjne, a potem możesz skorzystać z tego, co umiesz z metody drzewka. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
+        },
+        {
+            "type": "Math",
+            "value": "``"
+        }
+    ]
+  },
+  {
+    "title": "zadania",
+    "data": [
+        
+    ]
+  }
 ]
