@@ -3,6 +3,7 @@ import egzaminy from './egzaminy.json';
 import huffman from './huffman.json';
 import liczby_losowe from './liczby_losowe.json';
 import plecakowy from './plecakowy.json';
+import pozostałe from './pozostałe.json';
 import rekurencja from './rekurencja.json';
 import złożoność_obliczeniowa from './złożoność_obliczeniowa.json';
 
@@ -15,4 +16,5 @@ export const metody_programowania = {
   plecakowy,
   rekurencja,
   liczby_losowe,
+  pozostałe,
 }

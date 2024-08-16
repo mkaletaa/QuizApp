@@ -1,0 +1,71 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "Tutaj znajdują się zadania, które tematyką nie wpasowują się w żadne z omawianych na laboratoriach zagadnień. "
+      }
+    ]
+  },
+  {
+    "title": "osiem hetmanów",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/GpL63ZBy/image.png",
+        "props": { "description": "2016, 2022" }
+      },
+      {
+        "type": "YouTube",
+        "value": "dUVZEWQA78s"
+      },
+      {
+        "type": "Text",
+        "value": "<b>Problem ośmiu hetmanów</b>: zadanie polegajace na ustawieniu na szachownicy ośmiu hetmanów tak, aby żaden z nich nie mógł zbić innego."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Problem skoczka szachowego</b>: zadanie polegające na obejściu wszystkich pól planszy w ten sposób, by na każdym polu stanąć dokładnie raz."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Algorytm z nawrotami</b> (ang. backtracking) – ogólny algorytm wyszukiwania wszystkich (lub kilku) rozwiązań niektórych problemów obliczeniowych, który stopniowo generuje kandydatów na rozwiązanie, jednak gdy stwierdzi, że znaleziony kandydat c nie może być poprawnym rozwiązaniem, nawraca (ang. backtracks) do punktu, gdzie może podjąć inną decyzję związaną z jego budową"
+      },
+      {
+        "type": "Header",
+        "value": "omówienie backtrackingu w kontekście hetmanów",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Zacznij od pierwszej kolumny i próbuj umieszczać hetmana w pierwszym wierszu. Sprawdź, czy umieszczenie hetmana w danym wierszu nie zagraża wcześniej umieszczonym hetmanom. Jeśli nie ma zagrożenia, przejdź do następnej kolumny i próbuj umieszczać kolejnego hetmana."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Jeśli nie możesz umieścić hetmana w żadnym wierszu aktualnej kolumny (bo wszystkie są zablokowane przez inne hetmany), wróć do poprzedniej kolumny i przesuń tam hetmana do następnego wiersza. Jeśli w poprzedniej kolumnie również nie ma możliwego ruchu, cofnij się o jeszcze jedną kolumnę, i tak dalej, aż znajdziesz bezpieczne miejsce lub dojdziesz do punktu, gdzie nie ma możliwego rozwiązania."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Kontynuuj proces, aż wszystkie hetmany zostaną bezpiecznie umieszczone na szachownicy lub zostanie potwierdzone, że żadne rozwiązanie nie istnieje."
+      },
+      {
+        "type": "Header",
+        "value": "przykłady rozwiązania",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/7PCx3TKW/het.png"
+      },
+      {
+        "type": "Header",
+        "value": "porównanie złożoności",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Złożoność czasowa problemu ośmiu hetmanów w najgorszym przypadku wynosi 8! = 40320 możliwych permutacji. W problemie skoczka figura ta ma 8 możliwych ruchów z każdego pola, a szachownicy jest 64, więc złożoność tego problemu wynosi 8^64. A zatem problem skoczka szachowego ma o wiele większą złożoność czasową dla najgorszego przypadku."
+      }
+    ]
+  }
+]

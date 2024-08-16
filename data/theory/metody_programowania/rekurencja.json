@@ -3,7 +3,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Rekurencja to pewniaczek, pojawia się na niemal każdym egzaminie. Warto jest ją dobrze opanować. Wzory ze szkoły, jakie mogą się przydać:"
+        "value": "Rekurencja to pewniaczek, pojawiła się na wielu egzaminach. Warto jest ją dobrze opanować. Wzory ze szkoły, jakie mogą się przydać:"
       },
       {
         "type": "Math",
@@ -99,7 +99,7 @@
       },
       {
         "type": "Text",
-        "value": "Wtedy każdy z węzłów będzie miał dwoje dzieci, gdzie wartość jednego będzie obliczana na podstawie T(n/2) a drugiego na podstawie T(n/3). Rozwiązanie powyższego równania nie jest możliwe za pomocą innych metod."
+        "value": "Wtedy każdy z węzłów będzie miał dwoje dzieci, gdzie wartość jednego będzie obliczana na podstawie T(n/2) a drugiego na podstawie T(n/3). Rozwiązanie powyższego równania nie jest możliwe za pomocą innych metod. <br></br>Jeszcze nie było zadania, w którym kazano rozwiązać całość za pomocą drzewka, a jedynie trzeba potrafic je narysować."
       }
     ]
   },
@@ -108,7 +108,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "W tej metodzie najpierw wykonujesz trzy kroki iteracyjne, a potem zauważasz, że n/b^k = 1. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
+        "value": "W tej metodzie najpierw wykonujesz dwa kroki iteracyjne, a potem zauważasz, że n/b^k = 1. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
       },
       {
         "type": "Image",
@@ -147,6 +147,18 @@
   {
     "title": "zadania",
     "data": [
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Jak nie masz pewności co do wyniku to rozwiąż sobie metodą uniwersalną (o ile się da) nawet jeśli nie było tego w poleceniu."
+          }
+        ],
+        "props": {
+          "type": "tip"
+        }
+      },
       {
         "type": "Text",
         "value": "Wreszcie przyszła pora na "
