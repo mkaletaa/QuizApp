@@ -137,6 +137,10 @@
       {
         "type": "BulletPoint",
         "value": "<b>Deterministyczność</b>: LCG są deterministyczne, co oznacza, że dla danego ziarna generują tę samą sekwencję liczb. Może to być niekorzystne w aplikacjach wymagających wysokiej jakości losowości."
+      },
+      {
+        "type": "Text",
+        "value": "Powyższe punkty tyczą się generowania wsystkich liczb, nie tylko ułamkowych, ale przecież ułamki też są liczbami, więc powinno przejść."
       }
     ]
   },
@@ -145,21 +149,104 @@
     "data": [
       {
         "type": "Text",
-        "value": "Additive congruence generator działa w oparciu o poniższy wzór:"
+        "value": "Czyli addytywny generator. "
       },
       {
-        "type": "Math",
-        "value": "``"
+        "type": "Image",
+        "value": "https://i.postimg.cc/kXMJZhsB/image.png"
       },
       {
-        "type": "Header",
-        "value": "zadania",
-        "props": { "size": "md" }
+        "type": "Text",
+        "value": "Jak coś to podsyłam pdf gdzie jest on omówiony, może coś z tego więcej zrouzmiesz niż ja. <a href='https://pdfhost.io/v/xX6kCoJz1_Addytywna_metoda_kongruencyjna_wyjasnienie_zasad'>LINK</a>"
       },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/Fz65tZg8/image.png",
         "props": { "description": "2023" }
+      },
+      {
+        "type": "Text",
+        "value": "Tworzymy nową tablicę Y, której elementy są takie same jak tablicy X, ale są ustawione w odwrotnej kolejności. Y = [3, 4, 7, 1, 5, 2]. Stosujemy wzór:"
+      },
+      {
+        "type": "Math",
+        "value": "`Y[k] = (Y[j] + Y[k])mod m`"
+      },
+      {
+        "type": "Text",
+        "value": "Potem zmniejszamy j oraz k o 1. Ważne jest, że tablica Y jest numerowana od 1, a nie od 0. A zatem j oraz k nie mogą przyjąć wartości 0. Zamiast tego przyjmują wartość n czyli rozmiar tablicy."
+      },
+      {
+        "type": "Header",
+        "value": "krok 1",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`Y[5] = (Y[2] + Y[5])mod m = (4+5)mod 8 = 1`"
+      },
+      {
+        "type": "Text",
+        "value": "nowa tablica: Y=[3, 4, 7, 1, 1, 2]; j=1; k=4"
+      },
+      {
+        "type": "Header",
+        "value": "krok 2",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`Y[4] = (Y[1] + Y[4])mod m = (3+1)mod 8 = 4`"
+      },
+      {
+        "type": "Text",
+        "value": "nowa tablica: Y=[3, 4, 7, 4, 1, 2]; j=6; k=3"
+      },
+      {
+        "type": "Header",
+        "value": "krok 3",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`Y[3] = (Y[6] + Y[3])mod m = (2+7)mod 8 = 1`"
+      },
+      {
+        "type": "Text",
+        "value": "nowa tablica: Y=[3, 4, 1, 4, 1, 2]; j=5; k=2"
+      },
+      {
+        "type": "Header",
+        "value": "krok 4",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`Y[2] = (Y[5] + Y[2])mod m = (1+4)mod 8 = 5`"
+      },
+      {
+        "type": "Text",
+        "value": "nowa tablica: Y=[3, 5, 1, 4, 1, 2]; j=4; k=1"
+      },
+      {
+        "type": "Header",
+        "value": "krok 5",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`Y[1] = (Y[4] + Y[1])mod m = (4+3)mod 8 = 7`"
+      },
+      {
+        "type": "Text",
+        "value": "nowa tablica: Y=[7, 5, 1, 4, 1, 2]; j=3; k=6"
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "5 pierwszych liczb generowanych w wyniku zastosowania ACG to: 1, 4, 1, 5, 7. Tablica Y po pięciu krokach wygląda tak: [7, 5, 1, 4, 1, 2]"
       }
     ]
   }
