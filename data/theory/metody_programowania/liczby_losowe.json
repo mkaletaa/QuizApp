@@ -78,10 +78,6 @@
         "value": "<b>Moduł</b> wpływa na największą możliwą liczbę. m = X<sub>max</sub> + 1 zatem X<sub>max</sub> = m -1. Nie znaczy to że w wygenerowanym ciągu zawsze ona wystąpi. <br></br><b>Ziarno</b> wpływa na miejsce w pierścieniu liczb pseudolosowych, od którego rozpocznie się generacja następnych liczb. Gdyby w pierwszym przykładzie zamiast 7 użyć ziarna 8, to ciąg wyglądałby: 7, 0, 5, 4, 15, 2, 1, 12, 17, 16, 9, 14, 13, 6, 11, 10, 3, 8 czyli byłby przesunięty o jedną liczbę. <br></br><b>Mnożnik a</b> jest używany do skalowania poprzedniej wartości pseudolosowej, co pomaga w rozpraszaniu wartości i tworzeniu bardziej złożonych wzorców w generowanej sekwencji liczb. <br></br><b>Dodatek c</b> jest używany do przesunięcia poprzedniej wartości w generowanej sekwencji, co pomaga w unikaniu pewnych cykli i wzorców, które mogą powstać przy zastosowaniu samego mnożnika."
       },
       {
-        "type": "Text",
-        "value": "zady i walety i zastosowanie"
-      },
-      {
         "type": "Header",
         "value": "Zadania",
         "props": { "size": "md" }
@@ -92,25 +88,79 @@
         "props": { "description": "2023 poprawa" }
       },
       {
+        "type": "Text",
+        "value": "Moim zdaniem najłatwiej będzie najpierw wygenerować liczby z zakresu <0, 11> a potem pododawać do nich 1. Moduł m = X<sub>max</sub> + 1 = 11 + 1 = 12. Wtedy mnożnik a = 7. Niech ziarno = 8, dodaktek c = 5. Otrzymamy wtedy tablicę liczb: [1, 0, 5, 4, 9, 8]. Jak stworzymy drugą tablicę i do każdego elementu dodamy 1, otrzymamy: [2, 1, 6, 5, 10, 9]. Uwaga: dodanie 1 bezpośrednio we wzorze nie zadziała - sprawdzałem."
+      },
+      {
         "type": "Image",
         "value": "https://i.postimg.cc/vm84Z8dy/image.png",
         "props": { "description": "?" }
+      },
+      {
+        "type": "Text",
+        "value": "Generujemy normalnie liczby, a potem je skalujemy dzieląc przez m. Wtedy otrzymamy liczby z zakresu [0, 1). Tak jak powyżej, trzeba stworzyć dwie tablice, bo dzielenie bezpośrednio we wzorze nie zadziała. Jeśli chcemy ułamki z przedziału [min, max) to wzór będzie wyglądał tak:"
+      },
+      {
+        "type": "Math",
+        "value": "`min + ((X_n/m)(max - min))`"
+      },
+      {
+        "type": "Header",
+        "value": "zastosowania LCG do generowania liczb ułamkowych",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "BulletPoint",
+        "value": "<b>Symulacje komputerowe</b>: Generowanie liczb ułamkowych jest istotne w symulacjach, które wymagają losowych zmiennych ciągłych w określonych zakresach, np. symulacje Monte Carlo"
+      },
+      {
+        "type": "BulletPoint",
+        "value": "<b>Gry komputerowe</b>: W grach liczby ułamkowe mogą być używane do generowania losowych pozycji, prędkości, czy innych parametrów fizycznych."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "<b>Grafika komputerowa</b>: W grafice komputerowej generowanie losowych liczb w przedziałach jest używane do takich celów jak teksturowanie, generowanie szumów, czy algorytmy losowego rozmieszczenia."
+      },
+      {
+        "type": "Header",
+        "value": "ograniczenia",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "BulletPoint",
+        "value": "<b>Krótkie okresy</b>: LCG mogą mieć stosunkowo krótkie okresy, co oznacza, że sekwencje liczb mogą się powtarzać. Okres LCG jest ograniczony przez moduł m, ale może być znacznie krótszy w praktyce, szczególnie jeśli parametry a i c nie są dobrze dobrane."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "<b>Jakość losowości</b>: LCG mogą mieć problemy z równomiernością rozkładu liczb pseudolosowych, co może prowadzić do zauważalnych wzorców, jeśli parametry nie są odpowiednio dobrane."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "<b>Deterministyczność</b>: LCG są deterministyczne, co oznacza, że dla danego ziarna generują tę samą sekwencję liczb. Może to być niekorzystne w aplikacjach wymagających wysokiej jakości losowości."
       }
     ]
   },
   {
     "title": "metoda ACG",
     "data": [
-        {
-            "type": "Header",
-            "value": "zadania",
-            "props": { "size": "md" }
-        },
-        {
-            "type": "Image",
-            "value": "https://i.postimg.cc/Fz65tZg8/image.png",
-            "props": { "description": "2023" }
-        }
+      {
+        "type": "Text",
+        "value": "Additive congruence generator działa w oparciu o poniższy wzór:"
+      },
+      {
+        "type": "Math",
+        "value": "``"
+      },
+      {
+        "type": "Header",
+        "value": "zadania",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/Fz65tZg8/image.png",
+        "props": { "description": "2023" }
+      }
     ]
   }
 ]
