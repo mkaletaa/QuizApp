@@ -67,5 +67,45 @@
         "value": "Złożoność czasowa problemu ośmiu hetmanów w najgorszym przypadku wynosi 8! = 40320 możliwych permutacji. W problemie skoczka figura ta ma 8 możliwych ruchów z każdego pola, a szachownicy jest 64, więc złożoność tego problemu wynosi 8^64. A zatem problem skoczka szachowego ma o wiele większą złożoność czasową dla najgorszego przypadku."
       }
     ]
+  },
+  {
+    "title": "stos Łukasiewicza",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/pXGBnrLk/image.png",
+        "props": { "description": "2020, 2023 poprawa, 2024" }
+      },
+      {
+        "type": "Text",
+        "value": "Tutaj masz podaną liczbę zapisaną w systemie ósemkowym i ją zamieniasz na dziesiętny."
+      },
+      {
+        "type": "Math",
+        "value": "`3246571_8 = 3*8^6 + 2*8^5 + 4*8^4 + 6*8^3 + 5*8^2 + 7*8^1 + 1*8^0 = 871801_{10}`"
+      },
+      {
+        "type": "Text",
+        "value": "Jawne użycie stosu może zapobiec jego przepełnieniu podczas wykonywania algorytmu, ponieważ pozwala na lepszą kontrolę nad zarządzaniem pamięcią i śledzeniem stanu rekursji. Przepełnienie stosu (ang. stack overflow) następuje, gdy rekurencja jest zbyt głęboka i przekracza ograniczenia pamięci stosu. Poprzez jawne użycie stosu zamiast polegania na automatycznej rekurencji, można wprowadzić pewne optymalizacje i techniki zarządzania pamięcią, które zmniejszają ryzyko przepełnienia. "
+      }
+    ]
+  },
+  {
+    "title": "rekurencja drzewiasta",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/ZKbWzLZD/image.png",
+        "props": { "description": "2022" }
+      },
+      {
+        "type": "Text",
+        "value": "Rekursja drzewiasta to rodzaj rekurencji, w której rozwiązanie problemu wymaga rozwiązania wielu podproblemów, a każdy z tych podproblemów może rozgałęziać się dalej. Jest to typowa cecha algorytmów rekurencyjnych, gdzie podproblemy są identyczne lub podobne do oryginalnego problemu, a ich liczba rośnie wykładniczo wraz z rozmiarem problemu."
+      },
+      {
+        "type": "Text",
+        "value": "dokończyć"
+      }
+    ]
   }
 ]
