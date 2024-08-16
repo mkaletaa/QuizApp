@@ -3,7 +3,15 @@
     "data": [
       {
         "type": "Text",
-        "value": "Rekurencja to pewniaczek, pojawia się na niemal każdym egzaminie. Warto jest ją dobrze opanować."
+        "value": "Rekurencja to pewniaczek, pojawia się na niemal każdym egzaminie. Warto jest ją dobrze opanować. Wzory ze szkoły, jakie mogą się przydać:"
+      },
+      {
+        "type": "Math",
+        "value": "suma ciągu geometrycznego: `S=(a_1/(1-q))`"
+      },
+      {
+        "type": "Math",
+        "value": "właściwość logarytmów: `a^(log_b n) = n^(log_b a)`"
       }
     ]
   },
@@ -100,7 +108,12 @@
     "data": [
       {
         "type": "Text",
-        "value": "W tej metodzie najpierw wykonujesz trzy kroki iteracyjne, a potem możesz skorzystać z tego, co umiesz z metody drzewka. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
+        "value": "W tej metodzie najpierw wykonujesz trzy kroki iteracyjne, a potem zauważasz, że n/b^k = 1. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
+      },
+      {
+        "type": "Image",
+        "value": "",
+        "props": { "description": "screen" }
       },
       {
         "type": "Math",

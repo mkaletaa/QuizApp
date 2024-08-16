@@ -1,14 +1,116 @@
 [
-    {
-        "title": "LCG",
-        "data": [
-            
-        ]
-    },
-    {
-        "title": "ACG",
-        "data": [
-            
-        ]
-    }
+  {
+    "title": "metoda LCG",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Linear congruence generator działa w oparciu o poniższy wzór:"
+      },
+      {
+        "type": "Math",
+        "value": "`X_n=(a*X_{n-1}+c)mod m`"
+      },
+      {
+        "type": "Text",
+        "value": "Gdzie: <br></br>a - mnożnik <br></br> X<sub>0</sub> - ziarno <br></br> c - krok/dodatek/przesunięcie/przyrost <br></br> m - moduł"
+      },
+      {
+        "type": "Header",
+        "value": "Wartości parametrów",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Najważniejsze to żeby m było większe od zera, zaś a, c, X0 większe lub równe zero i mniejsze od m (choć czasami widuję zapis że a nie może być równe 0 i może być większe od m więc już sam nie wiem). I taki generator by już zadziałał, ale istnieje ryzyko, że okres byłby mały. Dlatego trzeba lepiej zadbać o parametry."
+      },
+      {
+        "type": "ListElement",
+        "value": "moduł m w prawdziwych generatorach to zazwyczaj duża potęga dwójki, np. 2^32, ale gdybyś miał rozpisać na kartce, to możesz wybrać dowolną liczbę, np. 30"
+      },
+      {
+        "type": "ListElement",
+        "value": "c powinno być względnie pierwsze z m, czyli ich największy wspólny dzielnik to 1"
+      },
+      {
+        "type": "BulletPoint",
+        "value": "jeśli chodzi o mnożnik a, to tutaj jest kilka sposobów, ale najprostszym jest takie dobranie jego wartości, żeby b=a-1 było względnie pierwsze z dzielnikami modułu/ podzielne przez wszystkie czynniki pierwsze m"
+      },
+      {
+        "type": "BulletPoint",
+        "value": "ziarno dobierasz jak chcesz"
+      },
+      {
+        "type": "Header",
+        "value": "Przykład",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Niech m będzie równe 18, zaś X<sub>0</sub>=7. <br></br>Czynniki modułu to 1, 2, 3, 6, 9, 18 z czego liczbami pierwszymi są tylko 2 i 3. Liczba b, która jest podzielna przez zarówno 2 i 3 to na przykład 6. 6 = a - 1 => a = 7. <br></br>C musi być względnie pierwsze z 18, niech będzie to 5. <br></br>Wygenerowany w ten sposób ciąg liczb losowych wygląda tak: 0, 5, 4, 15, 2, 1, 12, 17, 16, 9, 14, 13, 6, 11, 10, 3, 8, 7. "
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "Pytanie co zrobić jeśli moduł jest liczbą pierwszą. To masz wtedy problem XD. Niektórzy po prostu dają a o 1 większe od m, ale nie wiem czy to przejdzie u Kokosa, bo niby nas uczą, że a nie może być większe od m. Tutaj musisz wyznaczyć mnożnik inną metodą. Rozpatrujemy wszystkich kandydatów a z zakresu [2, m) i dla każdego z nich wyznaczamy λ takie, że spełnione jest równanie:"
+      },
+      {
+        "type": "Math",
+        "value": "`a^λ mod m = 1`"
+      },
+      {
+        "type": "Text",
+        "value": "Na przykład dla m = 13:<br></br>a=2 → λ=12<br></br>a=3 → λ=3<br></br>a=4 → λ=6<br></br>a=5 → λ=4<br></br>a=6 → λ=12<br></br>a=7 → λ=12<br></br>a=8 → λ=4<br></br>a=9 → λ=3<br></br>a=10 → λ=6<br></br>a=11 → λ=12<br></br>a=12 → λ=2 <br></br>Ze wszystkich uzyskanych wyników wybieramy tylko te, dla których lambda jest największa:W naszym przypadku będą to 3 wyniki:<br></br>a=6 → λ=12<br></br>a=7 → λ=12<br></br>a=11 → λ=12 <br></br>I znich wybieramy największe a, czyli 11."
+      },
+      {
+        "type": "Code",
+        "value": "m = 13  # moduł\nx0 = 8  # ziarno\na = 11  # mnożnik\nc = 5  # dodatek\n\n\nfor i in range(m): \n    if i == 0:\n        x = (a * x0 + c) % m\n        print(x)\n        prev_x = x\n    else:\n        x = (a * prev_x + c) % m\n        print(x)\n        prev_x = x\n        \n# output: 2, 1, 3, 12, 7, 4, 10, 11, 9, 0, 5, 8, 2",
+        "props": { "language": "python" }
+      },
+      {
+        "type": "Header",
+        "value": "Na co wpływają parametry?",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Moduł</b> wpływa na największą możliwą liczbę. m = X<sub>max</sub> + 1 zatem X<sub>max</sub> = m -1. Nie znaczy to że w wygenerowanym ciągu zawsze ona wystąpi. <br></br><b>Ziarno</b> wpływa na miejsce w pierścieniu liczb pseudolosowych, od którego rozpocznie się generacja następnych liczb. Gdyby w pierwszym przykładzie zamiast 7 użyć ziarna 8, to ciąg wyglądałby: 7, 0, 5, 4, 15, 2, 1, 12, 17, 16, 9, 14, 13, 6, 11, 10, 3, 8 czyli byłby przesunięty o jedną liczbę. <br></br><b>Mnożnik a</b> jest używany do skalowania poprzedniej wartości pseudolosowej, co pomaga w rozpraszaniu wartości i tworzeniu bardziej złożonych wzorców w generowanej sekwencji liczb. <br></br><b>Dodatek c</b> jest używany do przesunięcia poprzedniej wartości w generowanej sekwencji, co pomaga w unikaniu pewnych cykli i wzorców, które mogą powstać przy zastosowaniu samego mnożnika."
+      },
+      {
+        "type": "Text",
+        "value": "zady i walety i zastosowanie"
+      },
+      {
+        "type": "Header",
+        "value": "Zadania",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/Mp83nNTt/image.png",
+        "props": { "description": "2023 poprawa" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/vm84Z8dy/image.png",
+        "props": { "description": "?" }
+      }
+    ]
+  },
+  {
+    "title": "metoda ACG",
+    "data": [
+        {
+            "type": "Header",
+            "value": "zadania",
+            "props": { "size": "md" }
+        },
+        {
+            "type": "Image",
+            "value": "https://i.postimg.cc/Fz65tZg8/image.png",
+            "props": { "description": "2023" }
+        }
+    ]
+  }
 ]
