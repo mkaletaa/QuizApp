@@ -92,5 +92,31 @@
         "value": "Ten algorytm jest w chuj dojebany i dokładniejsze go opisanie + rozpisanie przykładowego zadania zajęłoby mi z tydzień, więc dam linka do pdf-a, gdzie są obliczenia dla pierwszych kilku węzłów i końcowe drzewko. <a href='https://pdfhost.io/v/EX63gGCQB_Przyklad_z_Laboratorium'>Klikaj tu</a>"
       }
     ]
+  },
+  {
+    "title": "partition problem",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/y81f3m82/image.png",
+        "props": { "description": "2017, 2018, ?" }
+      },
+      {
+        "type": "Text",
+        "value": "W tym zadaniu chodzi o to, żeby podzielić ten zbiór na dwa podzbiory, w których suma liczb będzie taka sama. Na przykład dla zbioru S={1, 5, 11, 5} rozwiązaniem będzie S<sub>1</sub>={1, 5, 5} S<sub>2</sub>={11}. Co to ma wspólnego z problemem plecakowym? Okazuje się, że partition problem jest zagadnieniem z dziedziny programowania dynamicznego i można go rozwiązać tak samo jak rozwiazuje się 0/1 knapsack problem! Wystarczy, że potraktujemy liczby a<sub>1</sub> - a<sub>5</sub> jako przedmioty, których wartość i waga są równe wartościom tych liczb, a maksymalna nośność plecaka jest równa połowie sumy liczb. "
+      },
+      {
+        "type": "Text",
+        "value": "Na początek obliczamy sumę, u nas wynosi ona 20. Gdyby się okazało, że jest nieparzysta to znaczy, że zadanie nie ma rozwiązania, bo oczywiście nie da się podzielić liczby nieparzystej na dwie równe całkowite liczby. Potem rysujemy tabelę i przystępujemy do jej uzupełniania."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/4d2GjfFx/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "Zauważ, że nie trzeba nawet uzupełniać tabeli do końca, bo juz w przedostatnim wierszu ostatnia jego komórka ma porządaną przez nas wartość czyli 10. Rozwiązaniem tego zadania jest S<sub>1</sub>={a<sub>5</sub>=1, a<sub>2</sub>=4, a<sub>4</sub>=5} S<sub>2</sub>={a<sub>3</sub>=3, a<sub>1</sub>=7}"
+      }
+    ]
   }
 ]
