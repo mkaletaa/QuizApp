@@ -91,7 +91,7 @@
     ]
   },
   {
-    "title": "rekurencja drzewiasta",
+    "title": "Fibonacci",
     "data": [
       {
         "type": "Image",
@@ -113,6 +113,24 @@
       {
         "type": "Text",
         "value": "W metodzie tablicowej używamy tablicy do zapamiętania wyników obliczeń podproblemów, co eliminuje potrzebę ich wielokrotnego liczenia. Dla F(6) za pomocą programowania dynamicznego, każdy wynik jest obliczany tylko raz, a kolejne wartości są dodawane do tablicy"
+      }
+    ]
+  },
+  {
+    "title": "problem komiwojażera",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/HnBCbpbg/image.png",
+        "props": { "description": "2019 poprawa" }
+      },
+      {
+        "type": "Comment",
+        "value": "w 2020 też było podobne"
+      },
+      {
+        "type": "Text",
+        "value": "Problem komiwojażera polega na odnalezieniu minimalnego cyklu Hamiltona w grafie ważonym. Nazwa pochodzi od typowej ilustracji problemu, przedstawiającej go z punktu widzenia wędrownego sprzedawcy (komiwojażera): dane jest n miast, które komiwojażer ma odwiedzić, oraz odległość pomiędzy każdą parą miast. Celem jest znalezienie najkrótszej drogi łączącej wszystkie miasta, zaczynającej się i kończącej się w tym samym punkcie <br></br>Wyszukiwanie lokalne to technika, która zaczyna od jakiegoś początkowego rozwiązania (niekoniecznie optymalnego) i następnie próbuje je ulepszać, przechodząc do rozwiązań leżących w jego „sąsiedztwie” (lokalnych), aż do momentu, gdy nie można znaleźć lepszego sąsiedniego rozwiązania. <b>może kiedyś będzie coś więcej</b>"
       }
     ]
   }
