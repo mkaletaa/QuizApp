@@ -100,11 +100,19 @@
       },
       {
         "type": "Text",
-        "value": "Rekursja drzewiasta to rodzaj rekurencji, w której rozwiązanie problemu wymaga rozwiązania wielu podproblemów, a każdy z tych podproblemów może rozgałęziać się dalej. Jest to typowa cecha algorytmów rekurencyjnych, gdzie podproblemy są identyczne lub podobne do oryginalnego problemu, a ich liczba rośnie wykładniczo wraz z rozmiarem problemu."
+        "value": "Rekursja drzewiasta to rodzaj rekurencji, w której rozwiązanie problemu wymaga rozwiązania wielu podproblemów, a każdy z tych podproblemów może rozgałęziać się dalej. Jest to typowa cecha algorytmów rekurencyjnych, gdzie podproblemy są identyczne lub podobne do oryginalnego problemu, a ich liczba rośnie wykładniczo wraz z rozmiarem problemu. <br></br>Oto jak wygląda drzewko rekurencji drzewiastej podczas obliczania liczby Fibonacciego F(6):"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/L557PjDH/image.png"
       },
       {
         "type": "Text",
-        "value": "dokończyć"
+        "value": "Zauważmy, że F(3), F(2), F(1) są obliczane wielokrotnie. F(3) jest obliczane trzy razy, F(2) i F(1) pięć razy. A zatem rekursja drzewiasta jest nieefektywna, bo powoduje wielokrotne obliczanie tych samych wartości, co prowadzi do ogromnej liczby zbędnych obliczeń."
+      },
+      {
+        "type": "Text",
+        "value": "W metodzie tablicowej używamy tablicy do zapamiętania wyników obliczeń podproblemów, co eliminuje potrzebę ich wielokrotnego liczenia. Dla F(6) za pomocą programowania dynamicznego, każdy wynik jest obliczany tylko raz, a kolejne wartości są dodawane do tablicy"
       }
     ]
   }
