@@ -130,8 +130,92 @@
       },
       {
         "type": "Text",
-        "value": "Problem komiwojażera polega na odnalezieniu minimalnego cyklu Hamiltona w grafie ważonym. Nazwa pochodzi od typowej ilustracji problemu, przedstawiającej go z punktu widzenia wędrownego sprzedawcy (komiwojażera): dane jest n miast, które komiwojażer ma odwiedzić, oraz odległość pomiędzy każdą parą miast. Celem jest znalezienie najkrótszej drogi łączącej wszystkie miasta, zaczynającej się i kończącej się w tym samym punkcie <br></br>Wyszukiwanie lokalne to technika, która zaczyna od jakiegoś początkowego rozwiązania (niekoniecznie optymalnego) i następnie próbuje je ulepszać, przechodząc do rozwiązań leżących w jego „sąsiedztwie” (lokalnych), aż do momentu, gdy nie można znaleźć lepszego sąsiedniego rozwiązania. <b>może kiedyś będzie coś więcej</b>"
+        "value": "Problem komiwojażera polega na odnalezieniu minimalnego cyklu Hamiltona w grafie ważonym. Nazwa pochodzi od typowej ilustracji problemu, przedstawiającej go z punktu widzenia wędrownego sprzedawcy (komiwojażera): dane jest n miast, które komiwojażer ma odwiedzić, oraz odległość pomiędzy każdą parą miast. Celem jest znalezienie najkrótszej drogi łączącej wszystkie miasta, zaczynającej się i kończącej się w tym samym punkcie <br></br>Wyszukiwanie lokalne to technika, która zaczyna od jakiegoś początkowego rozwiązania (niekoniecznie optymalnego) i następnie próbuje je ulepszać, przechodząc do rozwiązań leżących w jego „sąsiedztwie” (lokalnych), aż do momentu, gdy nie można znaleźć lepszego sąsiedniego rozwiązania. <b>więcej nie umiem</b>"
       }
+    ]
+  },
+  {
+    "title": "10 cech dobrego kodu",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/3JYwKDfk/image.png",
+        "props": { "description": "2017" }
+      },
+      {
+        "type": "Text",
+        "value": "Wzięte z wykładu:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/DzThgVV8/zasady.png"
+      }
+    ]
+  },
+  {
+    "title": "przenośność programowania",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/Sxy7zrVC/image.png",
+        "props": { "description": "2017" }
+      },
+      {
+        "type": "Text",
+        "value": "Przenośność programowania oznacza zdolność aplikacji do działania na różnych platformach bez potrzeby zmiany kodu źródłowego lub z minimalnymi zmianami. "
+      },
+      [
+        {
+          "type": "Header",
+          "value": "Problemy związane z przenośnością:",
+          "props": { "size": "md" }
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>różnice w systemach operacyjnych</b> - Program napisany dla systemu Windows może nie działać poprawnie na systemie Linux lub macOS z powodu różnic w systemach plików, API systemowych, i zarządzaniu pamięcią."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>różnice w architekturze sprzętowej</b> - Kod optymalizowany pod kątem architektury x86 może nie działać na architekturze ARM. Różnice w sposobie zarządzania pamięcią i rejestrami mogą powodować problemy."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>różnice w bibliotekach i narzędziach</b> - Aplikacja korzystająca z bibliotek specyficznych dla jednej platformy (np. biblioteki WinAPI na Windowsie) może nie być w stanie działać na innej platformie, jeśli biblioteki te nie są dostępne."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>problemy z różnicami w wersjach języków programowania</b> - Wersje języków programowania mogą różnić się w różnych środowiskach, co może prowadzić do niezgodności składni i semantyki, np. różnice między wersjami Javy lub Pythona."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>problemy z kodowaniem znaków i lokalizacją</b> - Aplikacje mogą mieć problemy z interpretacją różnych kodowań znaków (np. UTF-8 vs. ASCII) oraz z różnymi ustawieniami lokalizacji (np. format daty, waluta)."
+        },
+        {
+          "type": "Header",
+          "value": "Metody zapewnienia przenośności:",
+          "props": { "size": "md" }
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>używanie standardów i bibliotek wieloplatformowych</b> - Korzystanie z języków programowania i bibliotek, które są zgodne z międzynarodowymi standardami, takich jak POSIX (Portable Operating System Interface) dla systemów Unix lub używanie bibliotek takich jak Boost dla C++. Standardowe biblioteki zapewniają jednolite API niezależnie od platformy."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>kompilacja krzyżowa</b> - Używanie kompilatorów, które wspierają wiele platform (np. GCC z obsługą wielu architektur) i konfiguracja środowiska do kompilacji kodu dla różnych platform bez potrzeby zmiany kodu źródłowego."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>używanie maszyn wirtualnych i środowisk uruchomieniowych</b> - Korzystanie z maszyn wirtualnych takich jak Java Virtual Machine (JVM) dla Javy, .NET Common Language Runtime (CLR) dla C# lub Pythona, co pozwala na uruchamianie aplikacji w różnych środowiskach bez zmiany kodu."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>używanie kontenerów</b> - Stosowanie technologii kontenerów, takich jak Docker, które izolują aplikacje od środowiska systemu operacyjnego i zapewniają, że aplikacja działa tak samo niezależnie od środowiska uruchomieniowego."
+        },
+        {
+          "type": "BulletPoint",
+          "value": "<b>programowanie z myślą o przenośności</b> - Przestrzeganie najlepszych praktyk w programowaniu, takich jak unikanie funkcji i bibliotek specyficznych dla jednej platformy, testowanie aplikacji na różnych systemach operacyjnych i architekturach, oraz używanie narzędzi do automatycznego testowania przenośności (np. Continuous Integration systems)."
+        }
+      ]
     ]
   }
 ]
