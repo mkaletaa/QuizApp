@@ -83,7 +83,7 @@
       },
       {
         "type": "Text",
-        "value": "Rząd funkcji będącej sumą innych funkcji jest zawsze równy rzędowi najszybciej rosnącej funkcji, czyli w naszym przypadku n!. To dlatego, że w miarę zbliżania się n do nieskończoności pozostałe funkcje przestają mieć znaczenie w porównaniu z najszybciej rosnacą. <br></br><i>Jeżeli f(n) jest wielomianem i g(n) można oszacować z góry przez funkcję wykładniczą h(n), to f(n) + g(n) można oszacować z dołu przez funkcję wykładniczą h(n).</i><br></br>Jeśli nie wiesz, która funkcja rośnie szybciej, a która wolniej, możesz je porównać wykorzystując regułę de l`Hopitala:"
+        "value": "Rząd funkcji będącej sumą innych funkcji jest zawsze równy rzędowi najszybciej rosnącej funkcji, czyli w naszym przypadku n!. To dlatego, że w miarę zbliżania się n do nieskończoności pozostałe funkcje przestają mieć znaczenie w porównaniu z najszybciej rosnacą. <br></br><i>Jeżeli f(n) jest wielomianem i g(n) można oszacować z góry przez funkcję wykładniczą h(n), to f(n) + g(n) można oszacować z dołu przez funkcję wykładniczą h(n).</i><br></br>Jeśli nie wiesz, która funkcja rośnie szybciej, a która wolniej, możesz je porównać wykorzystując regułę de l`Hopitala, tylko trzeba znać wzory na pochodne:"
       },
       {
         "type": "YouTube",
@@ -96,15 +96,23 @@
     "data": [
       {
         "type": "Text",
-        "value": "Jaki jest max rozmiar problemu n, który można rozwiązać w tym samym czasie c na komputerze 10 razy szybszym? Załóżmy, że złożoność algorytmu jest liniowa. Oznaczmy n jako liczbę danych wejściowych, a s jako szukaną liczbę danych wejściowych na szybszym komputerze.  Wtedy:"
+        "value": "Jaki jest max rozmiar <i>n</i> problemu, który można rozwiązać w tym samym czasie na komputerze 10 razy szybszym? Załóżmy, że złożoność algorytmu jest liniowa. Oznaczmy <i>n</i> jako liczbę danych wejściowych na wolnoejszym komputerze, a <i>s</i> jako szukaną liczbę danych wejściowych na szybszym komputerze.  Wtedy:"
       },
       {
         "type": "Math",
-        "value": "`n=s/10 => s=10n`"
+        "value": "`n=s/10 => s=10n`",
+        "props": { "fontSize": 15 } 
       },
       {
         "type": "Text",
-        "value": "Rozważmy teraz funkcję kwadratową:"
+        "value": "Z tego wynika, że na 10x szybszym komputerze maksymalny rozmiar problemu, który można rozwiązać w tym samym czasie wynosi 10n"
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "Rozważmy teraz algorytm o złożoności kwadratowej:"
       },
       {
         "type": "Math",
@@ -112,23 +120,35 @@
       },
       {
         "type": "Text",
-        "value": "Dla funkcji n^3:"
+        "value": "Przykładowo mamy tablicę n elementów i musimy ją posortować bubble sortem, którego złożoność czasowa jest kwadratowa. Na komputerze 10 razy szybszym w tym samym czasie można posortować tablicę o rozmiatrze √10*n czyli około 3,16 razy większą."
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "Dla złożoności n^3:"
       },
       {
         "type": "Math",
         "value": "`n^3=(s^3)/10 => s^3=10n^3 => s=root(3)(10)n`"
       },
+
       {
         "type": "Text",
         "value": "Uogólniając, dla funkcji wielomianowej n^w na komputerze t razy szybszym wynik będzie wynosił:"
       },
       {
         "type": "Math",
-        "value": "`s=root(w)(t)*n`"
+        "value": "`s=root(w)(t)*n`",
+        "props": { "fontSize": 20}
+      },
+      {
+        "type": "Divider"
       },
       {
         "type": "Text",
-        "value": "Teraz coś trudniejszego. Rozpatrzmy funkcję wykładniczą 2^n. Jaki jest max rozmiar problemu n, który można rozwiązać w tym samym czasie c na komputerze t razy szybszym?"
+        "value": "Teraz coś trudniejszego. Rozpatrzmy funkcję wykładniczą <i>2^n</i>. Jaki jest max rozmiar <i>n</i> problemu, który można rozwiązać w tym samym czasie na komputerze <i>t</i> razy szybszym?"
       },
       {
         "type": "Math",
@@ -148,7 +168,15 @@
       },
       {
         "type": "Math",
-        "value": "`s=log_2 t + n`"
+        "value": "`s=log_2 t + n`",
+        "props": { "fontSize": 20 } 
+      },
+      {
+        "type": "Text",
+        "value": "Odpowiedź: na komputerze <i>t</i> razy szybszym można rozwiązać problem o rozmiarze lg(t) + n w tym samym czasie co na komputzerze wolniejszym dla danych o rozmiarze <i>n</i>"
+      },
+      {
+        "type": "Divider"
       },
       {
         "type": "Text",
@@ -164,17 +192,28 @@
       },
       {
         "type": "Math",
-        "value": "`s=n^t`"
+        "value": "`s=n^t`",
+        "props": { "height": 30  }
+      },
+      {
+        "type": "Text",
+        "value": "Mam nadzieję że było zrozumiałe, jak nie to sory, starałem się. Na koniec tego segmentu przedstawiam dwa przydatne wzory z logarytmami, jakby ktoś zapomniał ze szkoły."
+      },
+      {
+        "type": "Math",
+        "value": "`a^(log_a b) = b`",
+        "props":{"height": 40 } 
+      }, 
+      {
+        "type": "Math",
+        "value": "`a*log_b c = log_b c^a` ",
+        "props": { "height": 40  }
       }
     ]
   },
   {
     "title": "reszta zadań",
     "data": [
-      {
-        "type": "Comment",
-        "value": "2017 i 2019"
-      },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/HLHLcC6Q/image.png",

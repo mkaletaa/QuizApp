@@ -18,7 +18,7 @@
     "@react-navigation/stack": "^6.3.21",
     "@sentry/react-native": "^5.22.0",
     "@types/react": "~18.2.79",
-    "expo": "~51.0.26",
+    "expo": "~51.0.28",
     "expo-image": "~1.12.13",
     "expo-insights": "~0.7.0",
     "expo-linear-gradient": "~13.0.2",
