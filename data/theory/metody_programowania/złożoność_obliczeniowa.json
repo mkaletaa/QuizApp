@@ -69,10 +69,6 @@
         "value": "Równość O()=Ω() oznacza, że górne i dolne oszacowanie sa takie same(?) Nic innego mi nie przychodzi do głowy."
       },
       {
-        "type": "Comment",
-        "value": "sprawdzić n! i n^n oraz dokończyć zadanie"
-      },
-      {
         "type": "Image",
         "value": "https://i.postimg.cc/zvk5KL35/image.png",
         "props": { "description": "2023", "orientation": "horizontal" }
@@ -240,12 +236,105 @@
         "props": { "description": "2017" }
       },
       {
-        "type": "Divider"
+        "type": "Text",
+        "value": "Dla O(n):"
+      },
+      {
+        "type": "Math",
+        "value": "`n=s/100 => s=100n => s/n = 100`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Dla O(n) wzrośnie stukrotnie <br></br>Dla O(n^3):"
+      },
+      {
+        "type": "Math",
+        "value": "`n^3 = s^3/100 => s^3 = n^3*100 => s=n*root(3)(100) => s/n = root(3)(100)`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Dla O(n^3) wzrośnie pierwiastek sześcienny ze 100 razy <br></br>Dla O(3^n):"
+      },
+      {
+        "type": "Math",
+        "value": "`3^n=3^s/100 => 3^s = 3^n*100 => 3^s = 3^n * 3^(log_3 100) = 3^(n+log_3 100)`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Math",
+        "value": "`s=n+log_3 100 => s/n = log_3 100`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Dla O(3^n) wzrośnie log<sub>3</sub>100 razy."
       },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/j5D4NMb8/image.png",
         "props": { "description": "2019" }
+      },
+      {
+        "type": "Text",
+        "value": "Dla O(n^2):"
+      },
+      {
+        "type": "Math",
+        "value": "`n^2 = s^2/k => s^2/n^2 = k => s/n = sqrt(k)`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Dla O(n^2) wzrośnie pierwiastek z k krotnie <br></br>Dla O(log<sub>2</sub>n): "
+      },
+      {
+        "type": "Math",
+        "value": "`log_2 n = (log_2 s)/k => log_2 s = k* log_2 n = log_2 n^k`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Podstawy logarytmów są takie same, więc:"
+      },
+      {
+        "type": "Math",
+        "value": "`s=n^k => k = log_n s`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Math",
+        "value": "`s/n = n^(k)/n = n^(k-1)`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Zwiększy się n^(k-1) razy <br></br>chyba jest dobrze xd "
       }
     ]
   }
