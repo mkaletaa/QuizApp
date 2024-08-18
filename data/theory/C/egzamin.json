@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Znajdują się tu pytania z egzaminu. Co roku są te same (albo prawie te same), przynajmniej jak masz z Bąkiem. Wszystkie wzięte z książki Grębosza <a href='https://ifj.edu.pl/private/grebosz/opus_php/wybor_rozdzialu.php'>LINK</a> <br></br> Tych pytań jest tam łącznie grubo ponad tysiąc, ale na egzaminie pojawia się sto kilkadziesiąt z nich. Poniżej przedstawiam te pytania, niestety ich lista jest niepełna, dlatego proszę o kontakt, żebym mógł uzupełnić kolekcję o nowe eksponaty, a jeszcze jak znajdziesz to pytanie w linku powyżej to już w ogóle super. Odpowiedzi do nich znajdują się w <a href='https://pdfhost.io/v/8AReVX9Pg_C'>tym pe de efie</a>. Zdarzają się w nim błędy i to co mogłem to poprawiłem, ale coś mogło mi umknąć, więc w razie czego, wiesz co robić.<br></br>Przy pytaniach wielokrotnego wyboru jak nie wiesz ile jest poprawnych odpowiedzi, to z tego co pamiętam wystarczy spojrzeć za ile punktów jest to pytanie i odpowiedzi będzie tyle samo. Ale przechodząc do meritum: obczaj sobie te pytanka. Pod każdym z nich masz poprawne odpowiedzi."
+        "value": "Znajdują się tu pytania z egzaminu. Co roku są te same (albo prawie te same), przynajmniej jak masz z Bąkiem. Wszystkie wzięte z książki Grębosza <a href='https://ifj.edu.pl/private/grebosz/opus_php/wybor_rozdzialu.php'>link do pytań</a> <br></br> Tych pytań jest tam łącznie grubo ponad tysiąc, ale na egzaminie pojawia się sto kilkadziesiąt z nich. Poniżej przedstawiam te pytania, niestety ich lista jest niepełna, dlatego proszę o kontakt, żebym mógł uzupełnić kolekcję o nowe eksponaty, A jeszcze jak znajdziesz to pytanie w linku powyżej to już w ogóle super, bo można mieć pewność, że odpowiedź jest poprawna. Odpowiedzi do nich znajdują się w <a href='https://pdfhost.io/v/8AReVX9Pg_C'>tym pe de efie</a>. Zdarzają się w nim błędy i to co mogłem to poprawiłem, ale coś mogło mi umknąć, więc w razie czego, wiesz co robić.<br></br>Przy pytaniach wielokrotnego wyboru jak nie wiesz ile jest poprawnych odpowiedzi, to z tego co pamiętam wystarczy spojrzeć za ile punktów jest to pytanie i poprawnych odpowiedzi będzie tyle samo. Ale przechodząc do meritum: obczaj sobie te pytanka. Pod każdym z nich masz poprawne (tak mi się wydaje) odpowiedzi."
       },
       {
         "type": "Text",
@@ -112,7 +112,12 @@
       },
       {
         "type": "Text",
-        "value": "<b>18.</b> Używają operatora static_cast do rzutowania statycznego pełna składnia tego operatora to:<br></br>static_cast<typ>(wyrażenie)"
+        "value": "<b>18.</b> Używają operatora static_cast do rzutowania statycznego pełna składnia tego operatora to:"
+      },
+      {
+        "type": "Code",
+        "value": "static_cast<typ>(wyrażenie)",
+        "props": {"language": "cpp" }
       },
       {
         "type": "Text",
@@ -334,7 +339,7 @@
       },
       {
         "type": "Text",
-        "value": "<b>71.</b> Zaznacz poprawną definicję obiektu klasy <br</br>Rectangle r{}<br></br>rectangle *r = new Rectangle();<br></br>Rectangle *r {new Rectangle()}"
+        "value": "<b>71.</b> Zaznacz poprawną definicję obiektu klasy <br></br>Rectangle r{}<br></br>rectangle *r = new Rectangle();<br></br>Rectangle *r {new Rectangle()}"
       },
       {
         "type": "Text",
@@ -382,9 +387,9 @@
         "value": "<b>77.</b> Co wyświetli się w konsoli po uruchomieniu poniższego programu?"
       },
       {
-        "type": "Image",
-        "value": "https://i.postimg.cc/nVS57PbZ/image.png",
-        "props": { "orientation": "portrait" }
+        "type": "Code",
+        "value": "#include <iostream>\nusing namespace std;\n\nclass A{\n   int x;\n};\n\nclass B : public A{\n   public:\n   void show() {\n      x=10;\n      cout << x;\n   }\n};\n\nint main(){\n   B b;\n   b.show();\n   return 0;\n}",
+        "props": {"language": "cpp" }
       },
       {
         "type": "Text",
@@ -412,8 +417,11 @@
         "value": "<b>81.</b> Co to jest konstruktor?<br></br>funkcja składowa wywoływana autmoatycznie w momencie tworzenia obiektu <br></br>specjalna funkcja składowa klasy, która tworzy nowy obiekt."
       },
       {
+        "type": "Divider"
+      },
+      {
         "type": "Text",
-        "value": "W klasie K jeden ze składników-danych ma przydomek mutable.  Jeśli stworzymy stały obiekt tej klasy, na co pozwoli nam  ten przydomek mutable? <br></br> Możemy dokonywać zmian tego składnika nawet z ciała  funkcji const. "
+        "value": "W klasie K jeden ze składników-danych ma przydomek mutable.  Jeśli stworzymy stały obiekt tej klasy, na co pozwoli nam  ten przydomek mutable? <br></br> Odp: Możemy dokonywać zmian tego składnika nawet z ciała  funkcji const. "
       }
     ]
   }

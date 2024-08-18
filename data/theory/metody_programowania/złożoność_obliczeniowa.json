@@ -193,7 +193,7 @@
       {
         "type": "Math",
         "value": "`s=n^t`",
-        "props": { "height": 30  }
+        "props": { "fontSize": 20, "height": 20  } 
       },
       {
         "type": "Text",

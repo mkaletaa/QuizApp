@@ -54,7 +54,7 @@
       },
       {
         "type": "Text",
-        "value": "Zadanie z liczbą e pojawiło się na kolokwium i na egzaminie."
+        "value": "Zadanie z liczbą e pojawiło się na kolokwium i na egzaminie, facet chyba ją lubi"
       },
       {
         "type": "Image",
@@ -83,7 +83,8 @@
       },
       {
         "type": "Math",
-        "value": "`=lim_{n->oo}((1+1/((5+3n)/-4))^((5+3n)/-4 * (-4)/(5+3n)))^(2n+9)=`"
+        "value": "`=lim_{n->oo}((1+1/((5+3n)/-4))^((5+3n)/-4 * (-4)/(5+3n)))^(2n+9)=`",
+        "props": { "height": 100  }
       },
       {
         "type": "Math",
