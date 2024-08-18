@@ -117,6 +117,59 @@
     ]
   },
   {
+    "title": "liczby Stirlinga",
+    "data": [
+      {
+        "type": "Header",
+        "value": "Wypełnij tablicę dwuwymiarową zawierające liczby Stirlinga drugiego rodzaju. Przeprowadź analizę złożoności rekursji w strukturach drzewiastych na podstawie liczb Stirlinga drugiego rodzaju. Udowodnij nieefektywność takiej rekursji. - 2016, 2018, 2020",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Liczby Stirlinga drugiego rodzaju oznaczamy jako S(n,k) i odpowiadają na pytanie: \"Ile jest sposobów podziału zbioru o n elementach na k niepustych podzbiorów?\" Na przykład S(3, 2) = 3 co oznacza, że istnieją 3 różne sposoby podziału zbioru 3-elementowego na 2 grupy. Są to: <br></br>{1} i {2, 3}; <br></br>{1, 2} i {3}; <br></br>{1, 3} i {2}."
+      },
+      {
+        "type": "Header",
+        "value": "charakterystyczne wzory:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "BulletPoint",
+        "value": "S(n,n)=1: Istnieje tylko jeden sposób podziału n-elementowego zbioru na n grup, każda grupa zawierająca jeden element."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "S(n,1)=1: Istnieje tylko jeden sposób podziału n-elementowego zbioru na 1 grupę, gdzie wszystkie n elementów są w jednej grupie."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "S(n,k)=0 dla k>n: Nie da się podzielić zbioru na więcej niepustych podzbiorów niż liczba elementów w tym zbiorze."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "S(0,0)=1"
+      },
+      {
+        "type": "BulletPoint",
+        "value": "S(n,k) = k⋅S(n-1, k) + S(n-1, k-1)"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/Y0BkXjsK/image.png",
+        "props": { "description": "tablica dwuwymiarowa z liczbami Stirlinga drugiego rodzaju" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/tJnZ61nK/image.png",
+        "props": { "description": "drzewko liczb Stirlinga" }
+      },
+      {
+        "type": "Text",
+        "value": "Widzimy, że niektóre z tych liczb są obliczane wielokrotnie, np S(1,1), S(1,0)"
+      }
+    ]
+  },
+  {
     "title": "problem komiwojażera",
     "data": [
       {
