@@ -34,7 +34,9 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/htMCh7c2/image.png",
-        "props": { "description": "porównanie złożoności różnych algorytmów sortowania" }
+        "props": {
+          "description": "porównanie złożoności różnych algorytmów sortowania"
+        }
       }
     ]
   },
@@ -90,7 +92,7 @@
     ]
   },
   {
-    "title": "szybkość wykonywania algorytmu",
+    "title": "czas wykonywania algorytmu",
     "data": [
       {
         "type": "Text",
@@ -167,7 +169,7 @@
     ]
   },
   {
-    "title": "zadania z szybkości",
+    "title": "reszta zadań",
     "data": [
       {
         "type": "Comment",
@@ -176,7 +178,7 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/HLHLcC6Q/image.png",
-        "props": { "description": "2023", "orientation": "horizontal" }
+        "props": { "description": "2023, 2024" }
       },
       {
         "type": "Text",
@@ -188,7 +190,23 @@
       },
       {
         "type": "Text",
-        "value": "<b>C)</b><br></br>Najpierw policzmy ile czasu zajmie to na wolniejszym komputerze K, a potem wynik podzielmy przez 256.<br></br>n^2 = 10^2 = 100 => 5 sekund <br></br>n<sub>2</sub>^2 = 8^2 = 64 => x sekund <br></br>x = 5*64/100 = 3,2 sekundy.<br></br>Zatem odpowiedź to 3,2/256 ≈ 0,0125 s.`"
+        "value": "<b>C)</b><br></br>Najpierw policzmy ile czasu zajmie to na wolniejszym komputerze K, a potem wynik podzielmy przez 256.<br></br>n^2 = 10^2 = 100 => 5 sekund <br></br>n<sub>2</sub>^2 = 8^2 = 64 => x sekund <br></br>x = 5*64/100 = 3,2 sekundy.<br></br>Zatem odpowiedź to 3,2/256 ≈ 0,0125 s."
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/kgysdVsy/image.png",
+        "props": { "description": "2017" }
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/j5D4NMb8/image.png",
+        "props": { "description": "2019" }
       }
     ]
   }

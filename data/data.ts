@@ -117,7 +117,7 @@ export const topics = {
   metody_programowania: [
     {
       name: 'złożoność_obliczeniowa',
-      image: 'https://i.postimg.cc/5ycbXrbq/image.png',
+      image: 'https://i.postimg.cc/3xjpDPDr/omeag.png',
     },
     {
       name: 'rekurencja',
@@ -125,7 +125,7 @@ export const topics = {
     },
     {
       name: 'liczby_losowe',
-      image: '',
+      image: 'https://i.postimg.cc/X7M2b6fQ/image.png',
     },
     {
       name: 'plecakowy',
@@ -145,7 +145,7 @@ export const topics = {
     },
     {
       name: 'egzaminy',
-      image: '',
+      image: 'https://i.postimg.cc/3wMSK5QK/image.png',
     },
   ],
   // VHDL: [
