@@ -3,4 +3,4 @@ import całki from './całki.json'
 import egzamin_teoria from './egzamin_teoria.json'
 import analiza_pozostałe from './analiza-pozostałe.json'
 
-export const AiA = { egzamin_teoria, pochodne, całki, analiza_pozostałe }
+export const analiza = { egzamin_teoria, pochodne, całki, analiza_pozostałe }

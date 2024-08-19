@@ -1,6 +1,6 @@
 [
   {
-    "id": "AiA|analiza-pozostałe|1",
+    "id": "analiza|analiza-pozostałe|1",
     "question": [
       {
         "type": "Text",
@@ -21,7 +21,7 @@
     ]
   },
   {
-    "id": "AiA|analiza-pozostałe|2",
+    "id": "analiza|analiza-pozostałe|2",
     "question": [
       {
         "type": "Text",
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "id": "AiA|analiza-pozostałe|3",
+    "id": "analiza|analiza-pozostałe|3",
     "question": [
       {
         "type": "Text",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "id": "AiA|analiza-pozostałe|6",
+    "id": "analiza|analiza-pozostałe|6",
     "question": [
       {
         "type": "Text",
@@ -94,7 +94,7 @@
     ]
   },
   {
-    "id": "AiA|analiza-pozostałe|4",
+    "id": "analiza|analiza-pozostałe|4",
     "question": [
       {
         "type": "Text",
@@ -125,7 +125,7 @@
     ]
   },
   {
-    "id": "AiA|analiza-pozostałe|5",
+    "id": "analiza|analiza-pozostałe|5",
     "question": [
       {
         "type": "Text",
@@ -157,7 +157,7 @@
   },
 
   {
-    "id": "AiA|analiza-pozostałe|7",
+    "id": "analiza|analiza-pozostałe|7",
     "question": [
       {
         "type": "Text",

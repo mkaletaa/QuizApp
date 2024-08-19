@@ -6,7 +6,7 @@ export const chapters = [
     des: ''
   },
   {
-    name: 'AiA',
+    name: 'analiza',
     image: 'https://i.postimg.cc/Df9Ht5kQ/image.png',
     des: 'Znajduje się tu tylko analiza, bo algebry mi się już nie chciało dodawać xD. Ale jak coś to okrutnie polecam <a href="https://www.youtube.com/watch?v=qoaaCboDWR8&list=PLl2G2wgLAhWA5pRMSfPd9ISEaqOGQoHtk">tę playlistę</a> o macierzach. Gość tłumaczy lepiej niż Piękosz.',
   },
@@ -18,7 +18,7 @@ export const chapters = [
   {
     name: 'elektrotechnika',
     image: 'https://i.postimg.cc/B6XZwN99/image.png',
-    des: 'Jeśli chodzi o laboratoria, to z Prusakiem zdasz z palcem wiadomo gdzie, a z Chrabąszczem choćbyś przepisał słowo w słowo jego notatki to i tak nie dostaniesz 5 (nie żartuję). Gość potrafi uwalić cię za jedno źle użyte słowo (tutaj też nie żartuję). Na szczęście we wszystkich grupach i na wszystkich termianch pytania były te same. <br></br>Jeśli chodzi o ćwiczenia, to na początku pyta kilka osób, ale bez spiny, to nie żabulec. Kolokwia z ćwiczeń już nie sprawdza tak surowo. <br></br>Tak, na okładce to Chrabąszcz',
+    des: 'Jeśli chodzi o laboratoria, choćbyś przepisał słowo w słowo notatkiz Teams to i tak nie dostaniesz 5 (nie żartuję). Gość potrafi uwalić cię za jedno źle użyte słowo (tutaj też nie żartuję). Na szczęście we wszystkich grupach i na wszystkich termianch pytania były te same. <br></br>Jeśli chodzi o ćwiczenia, to na początku pyta kilka osób, ale bez spiny, to nie żabulec. Kolokwia z ćwiczeń już nie sprawdza tak surowo. <br></br>Tak, na okładce to prof. Chrabąszcz',
   },
   {
     name: 'metody_programowania',
@@ -40,7 +40,7 @@ export const topics = {
       image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
     },
   ],
-  AiA: [
+  analiza: [
     {
       name: 'egzamin_teoria',
       image: 'https://i.postimg.cc/nVDqwG1t/image.png',

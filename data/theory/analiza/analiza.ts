@@ -4,7 +4,7 @@ import całki from './całki.json'
 import analiza_pozostałe from './analiza-pozostałe.json'
 import granice from './granice.json'
 
-export const AiA = {
+export const analiza = {
   egzamin_teoria,
   granice,
   pochodne,
