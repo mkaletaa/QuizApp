@@ -180,8 +180,9 @@
         "props": { "description": "2019 poprawa" }
       },
       {
-        "type": "Comment",
-        "value": "w 2020 też było podobne"
+        "type": "Image",
+        "value": "https://i.postimg.cc/9MXf78wv/image.png",
+        "props": { "description": "2020" }
       },
       {
         "type": "Text",
@@ -273,5 +274,4 @@
       ]
     ]
   }
-
 ]

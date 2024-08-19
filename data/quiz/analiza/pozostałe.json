@@ -3,7 +3,7 @@
     "id": "analiza|analiza-pozostałe|1",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "który z tych wzorów opisuje sinus hiperboliczny?"
       },
       {
@@ -24,7 +24,7 @@
     "id": "analiza|analiza-pozostałe|2",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "który z tych wzorów opisuje cosinus hiperboliczny?"
       },
       {
@@ -45,7 +45,7 @@
     "id": "analiza|analiza-pozostałe|3",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "który z tych wzorów opisuje długość krzywej?"
       },
       {
@@ -66,7 +66,7 @@
     "id": "analiza|analiza-pozostałe|6",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "który z tych wzorów opisuje pole bryły obrotowej względem osi OY?"
       },
       {
@@ -97,7 +97,7 @@
     "id": "analiza|analiza-pozostałe|4",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "który z tych wzorów opisuje pole bryły obrotowej względem osi OX?"
       },
       {
@@ -128,7 +128,7 @@
     "id": "analiza|analiza-pozostałe|5",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "który z tych wzorów opisuje objętość bryły obrotowej względem osi OX?"
       },
       {
@@ -160,7 +160,7 @@
     "id": "analiza|analiza-pozostałe|7",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "który z tych wzorów opisuje objętość bryły obrotowej względem osi OY?"
       },
       {

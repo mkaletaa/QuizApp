@@ -58,7 +58,7 @@ export const topics = {
       image: 'https://i.postimg.cc/c1rF13MD/image.png',
     },
     {
-      name: 'analiza_pozostałe',
+      name: 'pozostałe',
       image: 'https://i.postimg.cc/TwhJw8my/image.png',
     },
   ],

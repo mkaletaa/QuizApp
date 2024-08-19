@@ -33,7 +33,7 @@
     "id": "elektrotechnika|RLC|3",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Podaj wzór na równanie napięciowe"
       },
       {
@@ -73,7 +73,7 @@
     "id": "elektrotechnika|RLC|5",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Podaj wzór na impedancję cewki Z<sub>L</sub>"
       },
       {
@@ -114,7 +114,7 @@
      "id": "elektrotechnika|RLC|6",
      "question": [
        {
-         "type": "Text",
+         "type": "CText",
          "value": "Podaj wzór na impedancję kondensatora Z<sub>C</sub>"
        },
        {
@@ -156,7 +156,7 @@
     "multiChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Podaj wzór na napięcie wytwarzane przez źródło, E"
       },
       {

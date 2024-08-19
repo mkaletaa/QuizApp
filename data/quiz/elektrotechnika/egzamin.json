@@ -318,7 +318,7 @@
     "id": "elektrotechnika|egzamin|18",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Dla jakiej pulsacji w układzie równoległym LC wystąpi rezonans prądowy?"
       },
       {

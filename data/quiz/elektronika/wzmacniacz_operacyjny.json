@@ -3,7 +3,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|4",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Co to za schemat?"
       },
       {
@@ -26,7 +26,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|2",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Co to za schemat?"
       },
       {
@@ -49,7 +49,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|5",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Co to za schemat?"
       },
       {
@@ -72,7 +72,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|1",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Co to za schemat?"
       },
       {
@@ -95,7 +95,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|3",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Co to za schemat?"
       },
       {
@@ -118,7 +118,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|9",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
@@ -158,7 +158,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "To wzmacniacz różniczkujący"
       }
     ]
@@ -167,7 +167,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|7",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
@@ -207,7 +207,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "To wzmacniacz nieodwracający"
       }
     ]
@@ -216,7 +216,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|6",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
@@ -256,7 +256,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "To wzmacniacz odwracający"
       }
     ]
@@ -265,7 +265,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|8",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
@@ -305,7 +305,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "To wzmacniacz całkujący"
       }
     ]
@@ -314,7 +314,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|10",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla tego schematu?"
       },
       {
@@ -354,7 +354,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "To wzmacniacz sumujący"
       }
     ]
@@ -364,7 +364,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|12",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
@@ -384,7 +384,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|13",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
@@ -405,7 +405,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|15",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
@@ -425,7 +425,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|14",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
@@ -445,7 +445,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|11",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakiego wzmacniacza jest to zależność?"
       },
       {
@@ -466,7 +466,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|18",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza całkującego?"
       },
       {
@@ -518,7 +518,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|20",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza sumującego?"
       },
       {
@@ -550,7 +550,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|16",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza odwracającego?"
       },
       {
@@ -602,7 +602,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|17",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza nieodwracającego?"
       },
       {
@@ -647,7 +647,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Poprawny wzór to:"
       },
       {
@@ -661,7 +661,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|19",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak wygląda zależność Uwy=f(Uwe) dla wzmacniacza różniczkującego?"
       },
       {
@@ -714,7 +714,7 @@
     "id": "elektronika|wzmacniacz_operacyjny|21",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile rezystorów znajduje się we wtórniku napięciowym?"
       }
     ],
@@ -739,11 +739,11 @@
     "id": "elektronika|wzmacniacz_operacyjny|33",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Który z tych schematów przedstawia wzmacniacz odwracający?"
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "A)"
       },
       {
@@ -754,7 +754,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "B)"
       },
       {
@@ -765,7 +765,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "C)"
       },
       {
@@ -776,7 +776,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "D)"
       },
       {
@@ -787,7 +787,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "E)"
       },
       {
@@ -810,11 +810,11 @@
     "id": "elektronika|wzmacniacz_operacyjny|34",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Który z tych schematów przedstawia wzmacniacz nieodwracający?"
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "A)"
       },
       {
@@ -825,7 +825,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "B)"
       },
       {
@@ -836,7 +836,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "C)"
       },
       {
@@ -847,7 +847,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "D)"
       },
       {
@@ -858,7 +858,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "E)"
       },
       {
@@ -881,11 +881,11 @@
     "id": "elektronika|wzmacniacz_operacyjny|35",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Który z tych schematów przedstawia wzmacniacz całkujący?"
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "A)"
       },
       {
@@ -896,7 +896,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "B)"
       },
       {
@@ -907,7 +907,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "C)"
       },
       {
@@ -918,7 +918,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "D)"
       },
       {
@@ -929,7 +929,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "E)"
       },
       {
@@ -952,11 +952,11 @@
     "id": "elektronika|wzmacniacz_operacyjny|36",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Który z tych schematów przedstawia wzmacniacz różniczkujący?"
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "A)"
       },
       {
@@ -967,7 +967,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "B)"
       },
       {
@@ -978,7 +978,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "C)"
       },
       {
@@ -989,7 +989,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "D)"
       },
       {
@@ -1000,7 +1000,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "E)"
       },
       {
@@ -1023,11 +1023,11 @@
     "id": "elektronika|wzmacniacz_operacyjny|37",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Który z tych schematów przedstawia wzmacniacz sumujący?"
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "A)"
       },
       {
@@ -1038,7 +1038,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "B)"
       },
       {
@@ -1049,7 +1049,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "C)"
       },
       {
@@ -1060,7 +1060,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "D)"
       },
       {
@@ -1071,7 +1071,7 @@
         }
       },
       {
-        "type": "Text",
+        "type": "CText",
         "value": "E)"
       },
       {

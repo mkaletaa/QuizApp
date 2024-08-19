@@ -3,7 +3,7 @@
     "id": "elektrotechnika|oporniki|1",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakim wzorem wyraża się wypadkowa rezystancja oporników w układzie równoległym?"
       },
       {
@@ -24,7 +24,7 @@
     "id": "elektrotechnika|oporniki|2",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakim wzorem wyraża się wypadkowa rezystancja oporników w układzie szeregowym?"
       },
       {
@@ -81,7 +81,7 @@
     "id": "elektrotechnika|oporniki|5",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi wypadkowa rezystancja w tym układzie?"
       },
       {
@@ -111,7 +111,7 @@
     "id": "elektrotechnika|oporniki|6",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jaki to układ?"
       },
       {

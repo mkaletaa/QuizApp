@@ -3,7 +3,7 @@
     "id": "elektrotechnika|kondensatory|1",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakim wzorem wyraża się pojemność zastępcza kondensatorów w układzie szeregowym?"
       },
       {
@@ -24,7 +24,7 @@
     "id": "elektrotechnika|kondensatory|2",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jakim wzorem wyraża się pojemność zastępcza kondensatorów w układzie równoległym?"
       },
       {
@@ -81,7 +81,7 @@
     "id": "elektrotechnika|kondensatory|5",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi pojemność zastępcza w tym układzie?"
       },
       {

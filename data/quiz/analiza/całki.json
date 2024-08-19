@@ -13,12 +13,7 @@
       { "id": "3", "val": "x + c", "correct": true },
       { "id": "3", "val": "ln|x| + c", "correct": false }
     ],
-    "explanation": [
-      {
-        "type": "Text",
-        "value": "Jak nie ma nic w całce to tak jakby było tam 1"
-      }
-    ]
+    "explanation": "Jak nie ma nic w całce to tak jakby było tam 1"
   },
   {
     "id": "analiza|całki|2",

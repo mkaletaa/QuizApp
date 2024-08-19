@@ -3,7 +3,7 @@
     "id": "elektrotechnika|obwody|1",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile tutaj jest oczek?"
       },
       {
@@ -20,7 +20,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "2, bo po lewej mamy niezależne źródło prądu (strzałka w podwójnym kółku) czyli ignorujemy gałąź i wychodzą nam dwie zamknięte drogi przepływu prądu."
       },
       {
@@ -65,7 +65,7 @@
     "id": "elektrotechnika|obwody|4",
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Zapisując równanie dla oczka, z jakim znakiem będzie tutaj napięcie?"
       },
       {
@@ -79,7 +79,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "zwrot strzałki napięcia jest zawsze przeciwny do zwrotu prądu gałęziowego <i>i</i>. Czyli zwrot strzałki napięcia jest przeciwny do przyjętego obiegu przepływu prądu w oczku zaznaczonego pomarańczową strzałką."
       },
       {
@@ -93,7 +93,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Jak będzie wyglądało równanie napięciowe dla oczka po prawej?"
       },
       {

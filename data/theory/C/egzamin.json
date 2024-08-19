@@ -295,10 +295,6 @@
       },
       {
         "type": "Text",
-        "value": "<b>60.</b> Która definicja przepełnienia operatora przypisania jest poprawna?<br></br>TCoordinate& operator=(const TCoordinate & ) <b>(nie dokończone)</b>"
-      },
-      {
-        "type": "Text",
         "value": "<b>61.</b> Wybierz poprawną definicję operatora []:<br></br>wszystkie definicje są błędne"
       },
       {

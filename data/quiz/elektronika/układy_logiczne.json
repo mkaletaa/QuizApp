@@ -4,7 +4,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi napięcie w stanie 0 na wejściu układu?"
       }
     ],
@@ -20,7 +20,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi napięcie w stanie 0 na wyjściu układu?"
       }
     ],
@@ -36,7 +36,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi napięcie w stanie 1 na wejściu układu?"
       }
     ],
@@ -52,7 +52,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi napięcie w stanie 1 na wyjściu układu?"
       }
     ],
@@ -68,7 +68,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi napięcie zasilania Ucc?"
       }
     ],
@@ -84,7 +84,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi typowa moc rozproszenia bramki?"
       }
     ],
@@ -100,7 +100,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi typowa moc rozproszenia przerzutnika?"
       }
     ],
@@ -116,7 +116,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi temperatura pracy?"
       }
     ],
@@ -132,7 +132,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi obciążalność N?"
       }
     ],
@@ -148,7 +148,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi typowa odporność układu na działanie zakłóceń?"
       }
     ],
@@ -164,7 +164,7 @@
     "multiChoice": false,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Ile wynosi minimalna odporność układu na działanie zakłóceń?"
       }
     ],
@@ -180,7 +180,7 @@
     "multiChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Zaznacz wszystkie prawdziwe informacje na temat poniższej bramki:"
       },
       {
@@ -222,7 +222,7 @@
     "multiChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Zaznacz wszystkie prawdziwe informacje na temat bramki opisanej poniższym wzorem:"
       },
       {
@@ -263,7 +263,7 @@
     "multiChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Zaznacz wszystkie prawdziwe informacje na temat bramki, której tablica prawdy wygląda jak poniżej:"
       },
       {
@@ -306,7 +306,7 @@
     "multiChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Które z poniższych wzorów są prawdziwe?"
       },
       {
