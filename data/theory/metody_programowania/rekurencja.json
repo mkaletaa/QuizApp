@@ -7,11 +7,11 @@
       },
       {
         "type": "Math",
-        "value": "suma ciągu geometrycznego: `S=(a_1/(1-q))`"
+        "value": "`text(suma ciągu geometrycznego: ) S=(a_1/(1-q))`"
       },
       {
         "type": "Math",
-        "value": "właściwość logarytmów: `a^(log_b n) = n^(log_b a)`"
+        "value": "`text(właściwość logarytmów: ) a^(log_b n) = n^(log_b a)`"
       }
     ]
   },
@@ -62,19 +62,19 @@
       },
       {
         "type": "Math",
-        "value": "`T(n) = -0.5*T(n/2)+n text( bo a musi być większe lub równe 1)`"
+        "value": "`T(n) = -0.5*T(n/2)+n text( bo a musi być większe lub równe 1)  `"
       },
       {
         "type": "Math",
-        "value": "`T(n) = T((3n)/2)+n text( bo b musi być większe od 1)`"
+        "value": "`T(n) = T((3n)/2)+n text( bo b musi być większe od 1)  `"
       },
       {
         "type": "Math",
-        "value": "`T(n) = 2^n*T(n/2)+n text( bo a musi być niezależna od n)`"
+        "value": "`T(n) = 2^n*T(n/2)+n text( bo a musi być niezależna od n)  `"
       },
       {
         "type": "Math",
-        "value": "`T(n) = 2T(n/2)+sinn text( bo f(n) musi być większa lub równa 0 dla dostatecznie dużych n)`"
+        "value": "`T(n) = 2T(n/2)+sinn text( bo ) f(n) text( musi być większa lub równa 0 dla dostatecznie dużych n)`"
       }
     ]
   },
@@ -139,8 +139,7 @@
       },
       {
         "type": "Image",
-        "value": "",
-        "props": { "description": "dodać rysunek drzewka" }
+        "value": "https://i.postimg.cc/nLKqYPR2/IMG-20240815-204137.jpg"
       }
     ]
   },
