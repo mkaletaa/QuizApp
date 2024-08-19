@@ -3,7 +3,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Tutaj znajdują się zadania, które tematyką nie wpasowują się w żadne z omawianych na laboratoriach zagadnień. "
+        "value": "Tutaj znajdują się zadania, które tematyką nie wpasowują się w żadne z wcześniejszych tematów. "
       }
     ]
   },
@@ -156,7 +156,9 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/Y0BkXjsK/image.png",
-        "props": { "description": "tablica dwuwymiarowa z liczbami Stirlinga drugiego rodzaju" }
+        "props": {
+          "description": "tablica dwuwymiarowa z liczbami Stirlinga drugiego rodzaju"
+        }
       },
       {
         "type": "Image",
@@ -271,4 +273,5 @@
       ]
     ]
   }
+
 ]

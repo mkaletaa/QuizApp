@@ -140,6 +140,10 @@ export const topics = {
       image: 'https://i.postimg.cc/rsf595sm/image.png',
     },
     {
+      name: 'kombinatoryka',
+      image: ''
+    },
+    {
       name: 'pozostałe',
       image: '',
     },

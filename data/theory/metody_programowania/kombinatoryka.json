@@ -1,0 +1,121 @@
+[
+  {
+    "title": "wariacje",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/C5bdFHHr/image.png",
+        "props": { "description": "2016" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/prMzYds7/image.png",
+        "props": { "description": "2020" }
+      },
+      {
+        "type": "Text",
+        "value": "Są to <b>wariacje z powtórzeniami</b>. Potraktuj te obiekty jako kody PIN. Mogą się w nim powtarzać cyfry i ich kolejność ma znaczenie. Dlatego <1,2,1,3> jest zupełnie innym obiektem niż <1,2,3,1>."
+      },
+      {
+        "type": "Header",
+        "value": "algorytm",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Header",
+        "value": "pseudokod",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Mimo starań nie udało mi się wymyślić jak zapisać algorytmu i pseudokodu. Może ktoś mądrzejszy ode mnie podeśle odpowiedź."
+      }
+    ]
+  },
+  {
+    "title": "kombinacje",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/rpcPw8G8/image.png",
+        "props": { "description": "2017, 2018" }
+      },
+      {
+        "type": "Text",
+        "value": "Są to <b>kombinacje z powtórzeniami</b> - wyobraź sobie że masz wybrać ze sklepu 3 napoje do picia. Jedyne dostępne to Dzik, Harnaś i Perła biała pszeniczna. Czy wybierzesz <Harnasia, Dzika, Harnasia>; czy <Dzika, Harnasia, Harnasia> to jeden pies, bo kolejność nie ma znaczenia i koniec końców i tak wracasz z Dzikiem i dwoma Harnoldami. W zadaniu nie ma obiektu <1,2,1> ani <2,1,1> bo jest już <1,1,2>. Czaisz już? mam nadzieję"
+      },
+      {
+        "type": "Header",
+        "value": "algorytm",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Header",
+        "value": "1. inicjalizacja",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Ustaw początkowy obiekt na <1, 1, 1>"
+      },
+      {
+        "type": "Header",
+        "value": "2. generowanie kolejnych kombinacji",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Zacznij od ostatniego elementu (prawej strony obiektu)."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Zwiększ element, jeśli jest to możliwe. Maksymalna wartość każdego elementu to 3."
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Jeśli element osiągnie maksymalną wartość, spróbuj zwiększyć element L znajdujący się po lewej, a te po prawej od L ustaw na wartość równą elementowi L po zwiększeniu."
+      },
+      {
+        "type": "Header",
+        "value": "3. kontynuacja",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "BulletPoint",
+        "value": "Powtarzaj krok 2, aż wszystkie elementy osiągną maksymalną wartość 3."
+      },
+      {
+        "type": "Header",
+        "value": "pseudokod",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Code",
+        "value": "obiekt = [1, 1, 1]\n\nWHILE obiekt ≠ [3, 3, 3]:\n   // Iteracja od ostatniego do pierwszego elementu\n   FOR i FROM 2 TO 0:\n      IF obiekt[i] < 3 THEN:\n         // Zwiększ aktualny element\n         obiekt[i] = obiekt[i] + 1\n         \n         // Ustaw wszystkie elementy po prawej stronie na tę wartość\n         FOR j FROM i+1 TO 2:\n            obiekt[j] = obiekt[i]\n         \n         // Wypisz aktualną kombinację\n         print obiekt\n         \n         // Przerwij pętlę FOR i wróć do pętli WHILE\n         BREAK\n      END IF\n   END FOR\nEND WHILE",
+        "props": {"language": "" }
+      },
+      {
+        "type": "Text",
+        "value": "Nie gwarantuję że to co wyżej jest dobrze, ale lepsze to niż nic."
+      }
+    ]
+  },
+  {
+    "title": "pozostałe",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/PxmZrwHx/image.png",
+        "props": { "description": "2022, 2024" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Porządek leksykograficzny na zbiorze funkcji</b> wyboru to sposób porównywania dwóch funkcji poprzez porównywanie ich wartości na kolejnych elementach dziedziny, zaczynając od pierwszego. <br></br>Dla dwóch funkcji wyboru f i g, mówimy, że f jest mniejsza niż g w porządku leksykograficznym, jeśli istnieje pierwszy element x w dziedzinie funkcji, dla którego wartości tych funkcji się różnią, i wtedy f(x) jest mniejsze niż g(x). <br></br>Gdyby literom przypisać wartości liczbowe, można powiedzieć, że wyrazy w słowniku są zapisane w kolejności leksykograficznej."
+      },
+      {
+        "type": "Text",
+        "value": "Jeśli chodzi o resztę zadania to nie wiem jak go rozwiązać"
+      }
+    ]
+  }
+]
