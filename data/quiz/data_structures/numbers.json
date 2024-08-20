@@ -57,7 +57,7 @@
   {
     "id": "data_structures|numbers|4",
     "question": [
-      "What will be logged in the console?",
+      "How does the toFixed() affect the output?",
       {
         "type": "Code",
         "value": "let num = 34.57895\n\nconsole.log(num.toFixed(3))",
@@ -74,7 +74,7 @@
   {
     "id": "data_structures|numbers|5",
     "question": [
-      "What will be logged in the console?",
+      "How does the toPrecision() affect the output?",
       {
         "type": "Code",
         "value": "let num = 34.57895\n\nconsole.log(num.toPrecision(3))",

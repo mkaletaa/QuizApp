@@ -1,8 +1,8 @@
 {
   "lang": "en",
-  "name": "JavaScript",
-  "slug": "javascript",
+  "name": "Learn JavaScript",
+  "slug": "learn-javascript",
   "package": "com.mkaleta.JavaScript",
-  "projectId": "191fa6b4-fe87-4762-b84b-a71caf03250f",
-  "updates_url": ""
+  "projectId": "d55189fe-0738-476c-84dc-333b2abf83bd",
+  "updates_url": "https://u.expo.dev/d55189fe-0738-476c-84dc-333b2abf83bd"
 }
