@@ -1,13 +1,16 @@
-import { AntDesign, Feather, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons'
-import React, { useEffect, useRef, useState } from 'react'
-import { Dimensions, StyleSheet, View, useWindowDimensions } from 'react-native'
-import { Octicons } from '@expo/vector-icons'
-import { MaterialIcons } from '@expo/vector-icons'
-import { Ionicons } from '@expo/vector-icons'
-import { FontAwesome6 } from '@expo/vector-icons'
+import {
+  AntDesign,
+  Feather,
+  FontAwesome6,
+  Ionicons,
+  MaterialCommunityIcons,
+} from '@expo/vector-icons'
+import React from 'react'
+import { Dimensions, StyleSheet, View } from 'react-native'
 
-import ContentRenderer, { renderComponent } from './_ContentRenderer'
-import { textColor } from '../../utils/constants'
+import { Colors } from '../../utils/constants'
+import ContentRenderer from './_ContentRenderer'
+
 type blockType = 'info' | 'warning' | 'important' | 'task' | 'tip'
 
 export default function Block({
@@ -17,7 +20,6 @@ export default function Block({
   value: any
   type: blockType
 }) {
-  // const { width } = useWindowDimensions()
 
   function setBgColor(type: blockType): string {
     if (type === 'info') return 'lightblue'
@@ -39,7 +41,12 @@ export default function Block({
     switch (type) {
       case 'info':
         return (
-          <Ionicons name="information-circle-outline" size={32} color="black" style={styles.icon}/>
+          <Ionicons
+            name="information-circle-outline"
+            size={32}
+            color="black"
+            style={styles.icon}
+          />
         )
       case 'important':
         return (
@@ -80,21 +87,8 @@ export default function Block({
     }
   }
 
-  // const viewRef = useRef(null)
-  // const [viewWidth, setViewWidth] = useState(0)
-
-  // useEffect(() => {
-  //   if (viewRef.current) {
-  //     viewRef.current.measure((x, y, width, height, pageX, pageY) => {
-  //       setViewWidth(width)
-  //       console.log('szerokość bloku: ', width)
-  //     })
-  //   }
-  // }, [])
-
   return (
     <View
-      // ref={viewRef}
       style={[
         styles.block,
         {
@@ -110,13 +104,14 @@ export default function Block({
             style={{
               flexWrap: 'wrap',
               // backgroundColor: 'tomato',
-              width: '100%', //maxWidth
+              width: '95%',
               gap: 10,
+              marginHorizontal: 'auto',
             }}
           >
             <ContentRenderer
               content={value}
-              width={Dimensions.get('window').width * 0.9 - 8} 
+              width={Dimensions.get('window').width * 0.9 - 8}
             ></ContentRenderer>
           </View>
         </React.Fragment>
@@ -127,15 +122,11 @@ export default function Block({
 
 const styles = StyleSheet.create({
   block: {
-    width: Dimensions.get('window').width * 0.9, //maxWidth
+    width: Dimensions.get('window').width * 0.9, 
     padding: 5,
     borderTopRightRadius: 8,
     borderBottomRightRadius: 8,
     borderLeftWidth: 4,
-
-    // flexDirection: 'row',
-    // flexGrow: 1,
-    // gap: 5,
   },
   icon: {
     width: '10%',
@@ -143,8 +134,6 @@ const styles = StyleSheet.create({
     marginTop: 1,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: textColor,
-    // backgroundColor: 'green',
-    // padding:0
+    color: Colors.text,
   },
 })

@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Item, Option, Result } from '../utils/types'
 import { useNavigation } from '@react-navigation/native'
 import { StackActions } from '@react-navigation/native'
+import { useEffect, useState } from 'react'
+import { Alert } from 'react-native'
+
 import { importItem, importItemInfinityMode } from '../utils/getQuizData'
+import { Item, Option, Result } from '../utils/types'
+import { setDailyStreak, setFinishedQuizStats } from '../utils/utilStorage'
 
 const useNextQuestion = ({
   chapName,
@@ -20,12 +23,11 @@ const useNextQuestion = ({
   const [item, setItem] = useState<Item>(null)
   const [whichItem, setWhichItem] = useState(0)
   const [chosenOptions, setChosenOptions] = useState<Option[]>([]) //tablica id wybranych opcji
-  const [showResultModal, setShowResultModal] = useState(false) //pokaż modal z wynikiem jednego pytania
+  const [showResultModal, setShowResultModal] = useState(false) //show modal with one question result
   const [resultsArray, setResultsArray] = useState<Result[]>([])
-  const [randomNrArray, setRandomNrArray] = useState([]) 
+  const [randomNrArray, setRandomNrArray] = useState([])
 
-  
-  //* zapisane pytania mają chapName ==='__Saved__', a poprawiane mają __Again__
+  //* saved questions have chapName ==='__Saved__', and retaken have __Again__
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -54,6 +56,14 @@ const useNextQuestion = ({
       setRandomNrArray(arr)
     }
   }, [])
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[array[i], array[j]] = [array[j], array[i]]
+    }
+    return array
+  }
 
   //jak nie ma itemsArray i jest shuffle
   function getFirstRandomItem(array: Array<number>, index: number) {
@@ -89,7 +99,7 @@ const useNextQuestion = ({
       // prepareForTheNextItem(newItem)
       // return
     }
-    
+
     //retake or saved
     if (itemsArray && !shuffle) {
       newItem = itemsArray[whichItem]
@@ -103,10 +113,12 @@ const useNextQuestion = ({
       // getNextRandomItem(randomNrArray, whichItem)
       newItem = importItem(chapName, topName, randomNrArray[whichItem])
     }
-    
+
     //Card/Theory
     if (!itemsArray && !shuffle)
       newItem = importItem(chapName, topName, whichItem)
+    // newItem.options = shuffleArray(newItem.options)
+    // console.log("🚀 ~ getFirstRandomItem ~ newItem:", JSON.stringify(newItem.options))
 
     prepareForTheNextItem(newItem)
   }
@@ -118,6 +130,7 @@ const useNextQuestion = ({
 
     //! symulacja długiego ładowania pytania
     // setTimeout(() => {
+    if (newItem?.mix === true) newItem.options = shuffleArray(newItem.options)
     setItem(newItem)
     // }, 2000)
   }
@@ -133,6 +146,15 @@ const useNextQuestion = ({
     //jeśli już wszystkie itemy zostały wykorzystane
     if (resultsArray.length === itemsCount) {
       //   storeFinishedQuizStat(topName, resultsArray)
+      if (
+        resultsArray.every(result => result.isCorrect === 'correct') &&
+        !chapName.startsWith('__')
+      ) {
+        // todo: zapisz do async storage //Alert.alert(chapName)
+        setFinishedQuizStats(chapName, topName)
+      }
+
+      setDailyStreak()
       prepareForGeneralResults()
       return
     }
@@ -154,11 +176,9 @@ const useNextQuestion = ({
 
   return {
     item,
-    // setItem,
     getNextItem,
     nextBtnPress,
     whichItem,
-    // setWhichItem,
     showResultModal,
     setShowResultModal,
     chosenOptions,

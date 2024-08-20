@@ -1,38 +1,28 @@
-import { Entypo } from '@expo/vector-icons'
-import { useHeaderHeight } from '@react-navigation/elements'
-import { StatusBar } from 'expo-status-bar'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
-import {
-  ActivityIndicator,
-  Dimensions,
-  Pressable,
-  SectionList,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native'
-import { thereIsNothingHere } from '../../data/texts'
-import { theory } from '../../data/theory/theory'
-import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
-import TheoryPopup from '../components/molecules/TheoryPopup'
-import QuizButton from '../components/molecules/atoms/QuizButton'
-import {
-  boldTextColor,
-  borderColor,
-  buttonDark,
-  screenBackground,
-  sectionHeaderBG,
-  spinner,
-  surfaceBg,
-} from '../utils/constants'
-import useStore from '../utils/store'
-import Spoiler from '../components/ContentRenderer/Spoiler'
-import { AntDesign } from '@expo/vector-icons'
-import { Snackbar } from 'react-native-paper'
+import { AntDesign } from '@expo/vector-icons';
+import { useHeaderHeight } from '@react-navigation/elements';
 import { useFocusEffect } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ActivityIndicator, Dimensions, Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
+import { Snackbar } from 'react-native-paper';
 
-export default function Theory({ route }) {
+
+
+import { thereIsNothingHere } from '../../data/texts';
+import { theory } from '../../data/theory/theory';
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer';
+import Spoiler from '../components/ContentRenderer/Spoiler';
+import QuizButton from '../components/molecules/atoms/QuizButton';
+import TheoryPopup from '../components/molecules/TheoryPopup';
+import { Colors } from '../utils/constants';
+import useStore from '../utils/store';
+
+
+export default function Theory({
+  route,
+}: {
+  route: { params: { chapterName: string; topicName: string } }
+}) {
   const sectionListRef = useRef()
   const [topicName, setTopicName] = useState('')
   const [chapterName, setChapterName] = useState('')
@@ -42,9 +32,21 @@ export default function Theory({ route }) {
   const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
-  // const { images, addImage, removeImage } = useStore()
 
-  // const setShowPopup = useStore(state => state.setShowPopup)
+  // const navigateTo = useStore(state => state.navigateTo)
+  // const setNavigateTo = useStore(state => state.setNavigateTo)
+  // const navigation = useNavigation()
+
+  // useEffect(() => {
+  // if (navigateTo) {
+  //   const { destination, topic, chapter } = navigateTo
+
+  //   // navigation.navigate("Theory", { topicName: "top_1", chapterName: "cat_1" })
+  //   navigation.navigate(destination, { topicName: topic, chapterName: chapter })
+
+  //   setNavigateTo(undefined)
+  // }
+  // }, [navigateTo])
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
@@ -81,9 +83,7 @@ export default function Theory({ route }) {
     }
   }, [])
 
-  useFocusEffect(()=>{
-
-  })
+  useFocusEffect(() => {})
 
   const renderHeader = () => (
     // <TouchableWithoutFeedback
@@ -127,7 +127,7 @@ export default function Theory({ route }) {
                 </Text>
               </Pressable>
             </View>
-          )
+          ),
       )}
     </View>
     // </TouchableWithoutFeedback>
@@ -148,10 +148,10 @@ export default function Theory({ route }) {
             paddingRight: 30,
 
             // backgroundColor: 'red',
-            backgroundColor: sectionHeaderBG,
+            backgroundColor: Colors.screenBg,
             borderTopWidth: 1,
             // borderTopColor: 'lightgray',
-            borderTopColor: borderColor,
+            borderTopColor: Colors.border,
 
             // elevation: 1,
             // shadowColor: '#000', // Kolor cienia
@@ -181,7 +181,7 @@ export default function Theory({ route }) {
         paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
       }}
     >
-      <ContentRenderer content={[item]} />
+      <ContentRenderer content={typeof item === 'string' ? item : [item]} />
     </View>
     // </TouchableWithoutFeedback>
   )
@@ -258,15 +258,16 @@ export default function Theory({ route }) {
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
-        {/* <Spoiler></Spoiler> */}
+        <Spoiler></Spoiler>
       </React.Fragment>
     ) : (
       <View
         style={{
           justifyContent: 'center',
-
+          // height: 'auto',
           alignItems: 'center',
           height: screenHeight - headerHeight,
+          // backgroundColor: 'red'
         }}
       >
         <Snackbar
@@ -293,7 +294,7 @@ export default function Theory({ route }) {
 
   return (
     <View
-      style={{ minHeight: screenHeight, backgroundColor: screenBackground }}
+      style={{ minHeight: screenHeight, backgroundColor: Colors.screenBg }}
     >
       <StatusBar style="auto" />
       <View
@@ -308,7 +309,7 @@ export default function Theory({ route }) {
       <AntDesign
         name="up"
         size={40}
-        color={boldTextColor}
+        color={Colors.boldText}
         style={[
           styles.goUp,
           { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
@@ -320,11 +321,14 @@ export default function Theory({ route }) {
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
       )}
       {shouldMemoize ? (
-        memoizedComponents
+        <React.Fragment>
+          {/* <Spoiler /> */}
+          {memoizedComponents}
+        </React.Fragment>
       ) : (
         <ActivityIndicator
           size={50}
-          color={spinner}
+          color={Colors.primary}
           style={{ top: screenHeight / 2 - 50 }}
         />
       )}
@@ -342,14 +346,14 @@ const styles = StyleSheet.create({
   // },
   progressBarContainer: {
     height: 5,
-    backgroundColor: buttonDark,
+    backgroundColor: Colors.primary,
     position: 'absolute',
     top: 0,
     zIndex: 2,
   },
   header: {
     padding: 10,
-    borderColor: borderColor,
+    borderColor: Colors.border,
     // borderBottomWidth: 3,
     alignItems: 'center',
     gap: 5,
@@ -359,13 +363,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     // color: 'black',
-    color: boldTextColor,
+    color: Colors.boldText,
     textAlign: 'center',
     // paddingRight:10
   },
   goUp: {
     padding: 8,
-    backgroundColor: surfaceBg,
+    backgroundColor: Colors.surfaceBg,
     position: 'absolute',
     bottom: 20,
     left: 30,

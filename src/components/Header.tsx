@@ -1,12 +1,14 @@
+import { SimpleLineIcons } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons'
+import { AntDesign, Feather, FontAwesome6, Ionicons } from '@expo/vector-icons'
+import Octicons from '@expo/vector-icons/Octicons'
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
-
-import { SimpleLineIcons } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
-import { AntDesign, Feather, Ionicons, FontAwesome6 } from '@expo/vector-icons'
 import { Tooltip } from 'react-native-paper'
-import { boldTextColor } from '../utils/constants'
+
+import { Colors } from '../utils/constants'
+import Flame from './molecules/Flame'
 
 export default function Header({ title }) {
   const navigation = useNavigation()
@@ -35,7 +37,7 @@ export default function Header({ title }) {
           <AntDesign
             name="left"
             size={28}
-            color={boldTextColor}
+            color={Colors.boldText}
             style={{
               textAlign: 'center',
             }}
@@ -56,7 +58,7 @@ export default function Header({ title }) {
               style={{
                 fontSize: 20,
                 fontWeight: 'bold',
-                color: boldTextColor,
+                color: Colors.boldText,
                 textAlign: 'center',
               }}
               numberOfLines={1}
@@ -65,11 +67,6 @@ export default function Header({ title }) {
             </Text>
           </Tooltip>
         </View>
-        {/* <FontAwesome6 name="fire-flame-curved" size={26} color="black" /> */}
-        {/* <View style={{ flexDirection: 'row', gap: 1 }}>
-          <Text style={{ fontSize: 18, marginTop: -2 }}>10</Text>
-          <Octicons name="flame" size={26} color="orange" />
-        </View> */}
 
         {/* <FontAwesome6 name="circle-dollar-to-slot" size={24} color="black" /> */}
         <View
@@ -78,14 +75,15 @@ export default function Header({ title }) {
             gap: 15,
           }}
         >
-          <TouchableOpacity
+          <Flame />
+          {/* <TouchableOpacity
             onPress={() => {
               //@ts-ignore
               navigation.navigate('Saved')
             }}
           >
-            <Ionicons name="bookmark-outline" size={30} color={boldTextColor} />
-          </TouchableOpacity>
+            <Ionicons name="bookmark-outline" size={30} color={Colors.boldText} />
+          </TouchableOpacity> */}
 
           <TouchableOpacity
             onPress={() => {
@@ -93,8 +91,8 @@ export default function Header({ title }) {
               navigation.navigate('Settings')
             }}
           >
-            {/* <Feather name="sliders" size={28} color={boldTextColor} /> */}
-            <SimpleLineIcons name="menu" size={25} color={boldTextColor} />
+            {/* <Feather name="sliders" size={28} color={Colors.boldText} /> */}
+            <SimpleLineIcons name="menu" size={25} color={Colors.boldText} />
           </TouchableOpacity>
         </View>
       </React.Fragment>

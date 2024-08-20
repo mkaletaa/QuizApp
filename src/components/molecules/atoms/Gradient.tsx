@@ -1,10 +1,10 @@
 import { LinearGradient } from 'expo-linear-gradient'
-import { gradient } from '../../../utils/constants'
+import { Colors } from '../../../utils/constants'
 
 export default function Gradient() {
   return (
     <LinearGradient
-      colors={[gradient, 'transparent']}
+      colors={[Colors.gradient, 'transparent']}
       start={{ x: 1, y: 1 }}
       end={{ x: 1, y: 0 }}
       style={{

@@ -1,23 +1,20 @@
+// import Question from './Question'
+import { FontAwesome, Foundation } from '@expo/vector-icons'
+import React from 'react'
 import {
   Dimensions,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableWithoutFeedback,
   View
 } from 'react-native'
+import { Button as PaperButton } from 'react-native-paper'
+
+import { correctAnswers, yourAnswers } from '../../data/texts'
+import { COLOR, Colors } from '../utils/constants'
+import { returnIsCorrect } from '../utils/functions'
 import { Item, Option } from '../utils/types'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
-// import Question from './Question'
-import { FontAwesome, Foundation } from '@expo/vector-icons'
-import React, { useEffect, useState } from 'react'
-// import {  } from 'react-native-gesture-handler'
-// import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Button as PaperButton } from 'react-native-paper'
-import { correctAnswers, yourAnswers } from '../../data/texts'
-import { boldTextColor, buttonDark } from '../utils/constants'
-import { returnIsCorrect } from '../utils/functions'
-import useStore from '../utils/store'
 import ExpandableView from './ExpandableView'
 import ExplanationPopup from './molecules/ExplanationPopup'
 
@@ -32,126 +29,81 @@ export default function ItemResult({
   handleBtnPress: () => void
   btnTitle: string
 }) {
-  // const [showPrompt, setShowPopup] = useState(false)
-  // const [rerender, setRerender] = useState(true)
-  // Pobranie wartości showPrompt
-  // const showPrompt = useStore(state => state.showPrompt)
-
-  // Ustawienie wartości showPrompt
-  const [showPopup, setShowPopup] = useState(false)
-  useEffect(() => {
-    return () => {
-      setShowPopup(false)
-    }
-  }, [])
   return (
     // <SafeAreaView>
-    <ScrollView
-      contentContainerStyle={[styles.scrollContainer]}
-      // onStartShouldSetResponder={() => true}
-      onScroll={() => setShowPopup(false)}
-    >
+    <ScrollView contentContainerStyle={[styles.scrollContainer]}>
       <ExplanationPopup item={item}></ExplanationPopup>
-      <TouchableWithoutFeedback
-        style={
-          {
-            // backgroundColor: 'red',
-            // width: '100%',
-            // height: '100%',
-          }
-        }
-        onPress={() => {
-          setShowPopup(false)
-        }}
-      >
+
+      <View style={styles.contentContainer}>
+        {returnIsCorrect(item, chosenOptions) === 'correct' && (
+          <Foundation name="check" size={54} color={COLOR.GREEN} />
+        )}
+
+        {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
+          <FontAwesome name="remove" size={54} color={COLOR.RED} />
+        )}
+
+        {returnIsCorrect(item, chosenOptions) === 'kindof' && (
+          <View style={{ flexDirection: 'row' }}>
+            <Foundation name="check" size={54} color={COLOR.ORANGE} />
+            <FontAwesome name="remove" size={54} color={COLOR.ORANGE} />
+          </View>
+        )}
+
         <View
-          style={styles.contentContainer}
-          // onStartShouldSetResponder={() => true}
+          style={{
+            alignItems: 'center',
+            marginTop: 20,
+          }}
         >
-          {/* <Pressable onPress={()=>setShowPopup(true)}> */}
+          <ExpandableView data={item.question} />
+        </View>
 
+        <Text style={styles.heading}>{correctAnswers}:</Text>
+        {item?.options
+          .filter(option => option.correct === true)
+          .map((option, index) => (
+            <ContentRenderer content={option.val} key={option.id} />
+          ))}
 
-          {/* </Pressable> */}
-          {returnIsCorrect(item, chosenOptions) === 'correct' && (
-            <Foundation name="check" size={54} color="green" />
-          )}
+        {chosenOptions && chosenOptions.length > 0 && (
+          <React.Fragment>
+            <Text style={styles.heading}>{yourAnswers}:</Text>
+            {chosenOptions.map((option, index) => (
+              <ContentRenderer
+                content={option.val}
+                key={'chosen_' + option.id}
+              />
+            ))}
+          </React.Fragment>
+        )}
 
-          {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
-            <FontAwesome name="remove" size={54} color="red" />
-          )}
+        {item?.explanation && (
+          <ExpandableView data={item.explanation} showHeader={true} />
+        )}
 
-          {returnIsCorrect(item, chosenOptions) === 'kindof' && (
-            <View style={{ flexDirection: 'row' }}>
-              <Foundation name="check" size={54} color="orange" />
-              <FontAwesome name="remove" size={54} color="orange" />
-            </View>
-          )}
-
-          <View
+        <View style={styles.nextItem}>
+          <PaperButton
+            mode="outlined"
+            onPress={() => {
+              handleBtnPress()
+            }}
+            elevation={5}
             style={{
-              // backgroundColor: 'red',
-              alignItems: 'center',
-              marginTop: 20,
+              borderColor: Colors.primary,
+              borderWidth: 1.5,
             }}
           >
-            <ExpandableView data={item.question} />
-          </View>
-
-          <Text style={styles.heading}>{correctAnswers}:</Text>
-          {item?.options
-            .filter(option => option.correct === true)
-            .map((option, index) => (
-              <ContentRenderer content={option.val} key={option.id} />
-            ))}
-
-          {chosenOptions && chosenOptions.length > 0 && (
-            <React.Fragment>
-              <Text style={styles.heading}>{yourAnswers}:</Text>
-              {chosenOptions.map((option, index) => (
-                <ContentRenderer
-                  content={option.val}
-                  key={'chosen_' + option.id}
-                />
-              ))}
-            </React.Fragment>
-          )}
-
-          {item?.explanation && (
-            <ExpandableView data={item.explanation} showHeader={true} />
-          )}
-
-          <View style={styles.nextItem}>
-            {/* <Button
-              title={btnTitle}
-              onPress={() => {
-                handleBtnPress()
-                setShowPopup(false)
-              }}
-            /> */}
-            <PaperButton
-              mode="outlined"
-              onPress={() => {
-                handleBtnPress()
-                setShowPopup(false)
-              }}
-              // disabled={chosenOptions.length === 0}
-              elevation={5}
+            <Text
               style={{
-                borderColor: buttonDark,
-                borderWidth: 1.5,
+                color: Colors.primary,
               }}
             >
-              <Text
-                style={{
-                  color: buttonDark,
-                }}
-              >
-                {btnTitle}
-              </Text>
-            </PaperButton>
-          </View>
+              {btnTitle}
+            </Text>
+          </PaperButton>
         </View>
-      </TouchableWithoutFeedback>
+      </View>
     </ScrollView>
     // </SafeAreaView>
   )
@@ -183,7 +135,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: boldTextColor,
+    color: Colors.boldText,
   },
   nextItem: {
     marginTop: 20,

@@ -1,5 +1,6 @@
 type Type =
   | 'Text'
+  | 'CText' //centered text // use it in quiz files instead of Text
   | 'Block'
   | 'Header'
   | 'List'
@@ -8,9 +9,12 @@ type Type =
   | 'Math'
   | 'YouTube'
   | 'Code'
-  | 'Quote'
+  | 'Quote' //? maybe erase this
   | 'Spoiler'
   | 'Divider'
+  | 'BulletPoint' //the same as ListElement
+  | 'Ad'
+  | 'Comment' //experimental
 
 export type Component = {
   type: Type
@@ -49,5 +53,5 @@ export type Result = {
   id: string
   userChoices?: Option[]
   item: Item
-  isCorrect: 'correct' | 'incorrect' | 'kindof'
+  isCorrect: 'correct' | 'incorrect' | 'kindof' //todo: change name to status
 }

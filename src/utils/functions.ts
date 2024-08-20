@@ -1,14 +1,18 @@
-//* This file contains other utility functions 
+//* This file contains other utility functions
+import { Linking } from 'react-native';
 
-import { Linking } from 'react-native'
-import { Item, Option, Result } from './types'
+
+
+import settings from '../../data/settings.json';
 // import Constants from 'expo-constants'
-import { mailSubject, mailBody } from '../../data/texts'
-import settings from "../../data/settings.json"
+import { mailBody, mailSubject } from '../../data/texts';
+import { COLOR } from './constants';
+import { Item, Option, Result } from './types';
+
 
 export function removeUnderscores(
   str: string,
-  capitalizeFirstLetter = false
+  capitalizeFirstLetter = false,
 ): string {
   let modifiedStr = str
 
@@ -36,15 +40,15 @@ export function sendAnEmail(arg) {
   Linking.openURL(`mailto:${email}?subject=${subject}&body=${body}`)
 }
 
-export function setColor(result: Result): 'rgba(50, 199, 31, 1)' | 'rgba(255, 35, 35, 1)' | 'orange' {
-  if (result.isCorrect === 'correct') return 'rgba(50, 199, 31, 1)'
-  if (result.isCorrect === 'incorrect') return 'rgba(255, 35, 35, 1)'
-  if (result.isCorrect === 'kindof') return 'orange'
+export function setColor(result: Result): (typeof COLOR)[keyof typeof COLOR] {
+  if (result.isCorrect === 'correct') return COLOR.GREEN
+  if (result.isCorrect === 'incorrect') return COLOR.RED
+  if (result.isCorrect === 'kindof') return COLOR.ORANGE
 }
 
 export function returnIsCorrect(
   item: Item,
-  chosenOptions: Option[]
+  chosenOptions: Option[],
 ): 'correct' | 'incorrect' | 'kindof' {
   if (!chosenOptions) return null
   //zwróć incorrect jeśli żaden element tablicy itemUserChoices nie ma właściwości correct: true

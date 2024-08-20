@@ -1,17 +1,20 @@
 import { useHeaderHeight } from '@react-navigation/elements'
 import { useEffect, useState } from 'react'
 import { FlatList, View } from 'react-native'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import { countItemsInTopic, importItem } from '../utils/getQuizData'
-import { Item } from '../utils/types'
+
 import {
+  contentContainerStyle,
   EmptyState,
   ListHeaderComponent,
   RenderItem,
   ResultModal,
-  contentContainerStyle,
 } from '../components/molecules/_ReusableComponents'
-import { screenBackground } from '../utils/constants'
+import useOpenQuiz from '../hooks/useOpenQuiz'
+import { Colors } from '../utils/constants'
+import { countItemsInTopic, importItem } from '../utils/getQuizData'
+import { Item } from '../utils/types'
+import { quiz } from '../../data/quiz/quizModule'
+
 export default function Questions({ route }) {
   const [itemsCount, setItemsCount] = useState(0)
   const [items, setItems] = useState<Item[]>([])
@@ -21,7 +24,7 @@ export default function Questions({ route }) {
 
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
-  const [index, setIndex] = useState(0) //index of item to show 
+  const [index, setIndex] = useState(0) //index of item to show
 
   //this fires after tapping on a Tile
   function seeFullQuestion(item: Item, index: number): void {
@@ -31,9 +34,11 @@ export default function Questions({ route }) {
   }
 
   useEffect(() => {
+    if (!quiz.hasOwnProperty(route.params.chapterName)) return
+
     const n_items = countItemsInTopic(
       route.params.topicName,
-      route.params.chapterName
+      route.params.chapterName,
     )
 
     setItemsCount(n_items)
@@ -43,7 +48,7 @@ export default function Questions({ route }) {
       const item: Item = importItem(
         route.params.chapterName,
         route.params.topicName,
-        i
+        i,
       )
       itemsArray.push(item)
     }
@@ -61,7 +66,7 @@ export default function Questions({ route }) {
   return (
     <View
       style={{
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
         height: '100%',
       }}
     >

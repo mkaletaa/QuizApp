@@ -31,11 +31,7 @@ import {
   Snackbar,
 } from 'react-native-paper'
 import {
-  surfaceBg,
-  buttonDark,
-  buttonLight,
-  spinner,
-  boldTextColor,
+  Colors
 } from './../../utils/constants'
 import { useEffect, useRef } from 'react'
 
@@ -138,7 +134,7 @@ export function EmptyState({
             height: screenHeight - headerHeight,
           }}
         >
-          <ActivityIndicator size={50} color={spinner} />
+          <ActivityIndicator size={50} color={Colors.primary} />
         </View>
       ) : (
         <View
@@ -230,7 +226,7 @@ export function ListHeaderComponent({
         // disabled={chosenOptions.length === 0}
         elevation={5}
         style={{
-          backgroundColor: 'slateblue',
+          backgroundColor: Colors.primary,
         }}
         rippleColor="thistle"
       >
@@ -258,10 +254,10 @@ export function ListHeaderComponent({
           <Switch
             onValueChange={onToggleSwitch}
             value={isEnabled}
-            color={buttonDark} // Kolor włączonego przycisku
+            color={Colors.primary} // Kolor włączonego przycisku
             // uncheckedColor="gray" // Kolor wyłączonego przycisku
           />
-          <PaperText variant={'labelMedium'} style={{ color: boldTextColor }}>
+          <PaperText variant={'labelMedium'} style={{ color: Colors.boldText }}>
             {reverseTheOrder}
           </PaperText>
         </Pressable>

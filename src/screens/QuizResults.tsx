@@ -3,13 +3,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FlatList, Modal, Text, View } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { close, retake, retakeWrong } from '../../data/texts'
+
+import { close, exit, retake, retakeWrong } from '../../data/texts'
 import ItemResult from '../components/ItemResult'
-import Tile from '../components/Tile'
-import Chart from '../components/molecules/Chart'
 import Gradient from '../components/molecules/atoms/Gradient'
+// import Chart from '../components/molecules/Chart';
+import Tile from '../components/Tile'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import { surfaceBg } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { setColor } from '../utils/functions'
 import { Item, Option } from '../utils/types'
 
@@ -18,9 +19,11 @@ export default function QuizResults({ route }) {
   const [correctNr, setCorrectNr] = useState(0)
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState<Item>()
-  const [modalChoices, setModalChoices] = useState<Option[]>()
-  const { openQuiz } = useOpenQuiz()
   const [index, setIndex] = useState(0)
+  const [modalChoices, setModalChoices] = useState<Option[]>()
+
+  const { openQuiz } = useOpenQuiz()
+  const navigation = useNavigation()
 
   useEffect(() => {
     setResultsArray(route.params.resultsArray)
@@ -83,64 +86,72 @@ export default function QuizResults({ route }) {
     // <Chart resultsArray={resultsArray}/>
     null
 
-  const navigation = useNavigation()
-
   const ListFooter = () => (
     <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
       <PaperButton
-        mode="outlined"
+        mode="elevated"
+        rippleColor="thistle"
         style={{
-          borderColor: 'slateblue',
+          backgroundColor: Colors.primary,
           paddingVertical: 3,
           width: 230,
-          backgroundColor: surfaceBg,
         }}
         onPress={() => retakeQuiz()}
       >
-        <Text>{retake}</Text>
+        <Text style={{ color: 'white' }}>{retake}</Text>
       </PaperButton>
 
       {resultsArray.every(el => el.isCorrect === 'correct') ? null : (
         <PaperButton
-          mode="outlined"
+          rippleColor="thistle"
+          mode="elevated"
           style={{
-            borderColor: 'slateblue',
-            paddingVertical: 3,
+            backgroundColor: Colors.primary,
+            paddingVertical: 4,
             width: 230,
-            backgroundColor: surfaceBg,
           }}
           onPress={() => retakeQuiz(true)}
         >
-          <Text>{retakeWrong}</Text>
+          <Text style={{ color: 'white' }}>{retakeWrong}</Text>
         </PaperButton>
       )}
 
       <PaperButton
-        mode="elevated"
+        mode="outlined"
         style={{
-          backgroundColor: 'slateblue',
-          paddingVertical: 1,
+          borderColor: Colors.primary,
+          borderWidth: 1.5,
+          // paddingVertical: 0,
           marginTop: 20,
         }}
         onPress={() => navigation.goBack()}
       >
-        <Text style={{ color: 'white' }}>Wyjdź</Text>
+        <Text style={{ color: Colors.primary }}>{exit}</Text>
       </PaperButton>
     </View>
   )
 
   return (
     <SafeAreaView>
-      <View style={{height:"100%"}}>
+      <View style={{ height: '100%', justifyContent: 'flex-end' }}>
         <Gradient />
-        <FlatList
-          data={resultsArray}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          ListHeaderComponent={ListHeader}
-          ListFooterComponent={ListFooter}
-          contentContainerStyle={{paddingTop: 20}}
-        />
+        <View>
+          {
+            //todo: try to remove this View and see what happens
+          }
+
+          <FlatList
+            data={resultsArray}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            ListHeaderComponent={ListHeader}
+            ListFooterComponent={ListFooter}
+            contentContainerStyle={{
+              paddingTop: 20,
+              //backgroundColor: 'red'
+            }}
+          />
+        </View>
         <Modal
           animationType="fade"
           transparent={true}

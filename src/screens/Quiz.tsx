@@ -14,6 +14,7 @@ import {
 } from 'react-native'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
+
 import {
   areYouSure,
   nah,
@@ -24,16 +25,17 @@ import {
   yesQuit,
 } from '../../data/texts'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
+import Ad from '../components/ContentRenderer/Ad'
 import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
-import Options from '../components/Options'
 import Line from '../components/molecules/atoms/Line'
+import Options from '../components/Options'
 import useNextQuestion from '../hooks/useNextQuestion'
-import { buttonDark, screenBackground, spinner } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
 import { Option, Result } from '../utils/types'
-import { getValue } from '../utils/utilStorage'
+import { getValue, setStats } from '../utils/utilStorage'
 
 //list of route params is in useOpenQuiz
 export default function Quiz({ route }) {
@@ -45,7 +47,7 @@ export default function Quiz({ route }) {
   const [itemsCount, setItemsCount] = useState<number>(
     route.params.howManyItems
       ? route.params.howManyItems
-      : countItemsInTopic(route.params.topName, route.params.chapName)
+      : countItemsInTopic(route.params.topName, route.params.chapName),
   )
 
   const {
@@ -67,36 +69,37 @@ export default function Quiz({ route }) {
     shuffle: route.params.shuffle,
   })
 
-  //for some reason this useEffect runs right after mounting
-  //it also is triggered after next Btn press, because it is updated there
+  //it is triggered after next Btn press, because it is updated there
   useEffect(() => {
-    getNextItem() // pobranie pierwszego itema
+    getNextItem() // retrieving the first item
   }, [whichItem])
 
   function handleOptionPress(option: Option, action: 'add' | 'remove'): void {
-    //jeśli opcja została zaznaczona i jest multichoice
+    // if an options has been marked and multichoice
     if (action === 'add' && item.multiChoice) {
       setChosenOptions(prev => [...prev, option])
       return
     }
 
-    //jeśli opcja została zaznaczona i nie jest multichoice
+    // if an options has been marked and no multichoice
     if (action === 'add' && !item.multiChoice) {
       setChosenOptions([option])
       return
     }
 
-    //jeśli opcja została odznaczona
+    // if an options has been unmarked
     if (action === 'remove') {
       let chosenOptions2 = chosenOptions.filter(el => el.id !== option.id)
       setChosenOptions(chosenOptions2)
     }
   }
 
-  //activated after pressing zatwierdź button
+  //activated after pressing submit button
   function setResults() {
     let thisQuestionResult: 'correct' | 'incorrect' | 'kindof' =
       returnIsCorrect(item, chosenOptions)
+
+    if (thisQuestionResult === 'correct') setStats(item.id)
 
     let result: Result
     if (itemsCount !== Infinity) {
@@ -114,13 +117,13 @@ export default function Quiz({ route }) {
 
   function closeModalAndGoBack(): void {
     setShowExitModal(false)
-    navigation.goBack() // powrót do poprzedniego ekranu
+    navigation.goBack()
   }
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
-      handleBackPress
+      handleBackPress,
     )
     return () => backHandler.remove() // Cleanup the event listener on unmount
   }, [])
@@ -129,8 +132,7 @@ export default function Quiz({ route }) {
     if (showExitModal) {
       // If the exit modal or general results are already visible, close them
       setShowExitModal(false)
-      // setShowGeneralResults(false)
-      navigation.goBack() // powrót do poprzedniego ek
+      navigation.goBack()
     } else {
       // Otherwise, show the exit modal
       setShowExitModal(true)
@@ -173,7 +175,6 @@ export default function Quiz({ route }) {
           },
         ]}
       >
-        {/* <Gradient></Gradient> */}
         {
           <TouchableRipple
             borderless
@@ -192,9 +193,11 @@ export default function Quiz({ route }) {
 
         {item && (
           <React.Fragment>
-            <View style={{ marginTop: 50, width: '90%' }}>
-              {/* <Question question={item?.question} /> */}
-              <ContentRenderer content={item?.question} />
+            <View style={{ marginTop: 50, width: '80%' }}>
+              <ContentRenderer
+                content={item?.question}
+                width={screenWidth * 0.9}
+              />
             </View>
 
             {hideAnswers ? (
@@ -202,7 +205,7 @@ export default function Quiz({ route }) {
                 mode="outlined"
                 elevation={5}
                 style={{
-                  borderColor: buttonDark,
+                  borderColor: Colors.primary,
                   borderWidth: 1.5,
                 }}
                 onPress={() => {
@@ -226,7 +229,10 @@ export default function Quiz({ route }) {
                   }}
                   disabled={chosenOptions.length === 0}
                   elevation={5}
-                  buttonColor={buttonDark}
+                  buttonColor={Colors.primary}
+                  style={{
+                    marginBottom: 40,
+                  }}
                 >
                   {submit}
                 </PaperButton>
@@ -235,8 +241,20 @@ export default function Quiz({ route }) {
           </React.Fragment>
         )}
 
-        {!item && <ActivityIndicator size={50} color={spinner} />}
+        {!item && <ActivityIndicator size={50} color={Colors.primary} />}
       </ScrollView>
+      <View
+        id="ad"
+        style={{
+          width: '100%',
+          height: 70,
+          backgroundColor: 'yellow',
+          position: 'absolute',
+          bottom: 0,
+        }}
+      >
+        <Ad width={'100%'}></Ad>
+      </View>
       <Modal
         statusBarTranslucent
         animationType="fade"
@@ -244,8 +262,8 @@ export default function Quiz({ route }) {
         visible={showResultModal}
         onRequestClose={() => nextBtnPress()}
       >
+        {/* <ContentRenderer content={item?.question} /> */}
         <ItemResult
-          // showQuestion={false}
           item={item}
           chosenOptions={chosenOptions}
           handleBtnPress={nextBtnPress}
@@ -280,7 +298,7 @@ export default function Quiz({ route }) {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: screenBackground,
+    backgroundColor: Colors.screenBg,
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingBottom: 50,

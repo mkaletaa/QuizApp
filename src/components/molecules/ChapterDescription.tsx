@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, TouchableOpacity } from 'react-native'
-import { boldTextColor, gradient, surfaceBg } from '../../utils/constants'
+import { Colors } from '../../utils/constants'
 import ContentRenderer from '../ContentRenderer/_ContentRenderer'
 import { LinearGradient } from 'expo-linear-gradient'
 import { AntDesign } from '@expo/vector-icons'
@@ -46,7 +46,7 @@ export default function ChapterDescription({
       style={{
         zIndex: 1,
         width: '90%',
-        backgroundColor: surfaceBg,
+        backgroundColor: Colors.surfaceBg,
         elevation: 2,
         borderRadius: 10,
         padding: 5,

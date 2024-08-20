@@ -1,8 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useState } from 'react'
+
 import { importItemById } from '../utils/getQuizData'
-import { getValue } from '../utils/utilStorage'
 import { Item } from '../utils/types'
+import { getValue } from '../utils/utilStorage'
+
 const useFetchSavedItems = () => {
   const [savedItems, setSavedItems] = useState<Item[]>([])
   const [isPending, setIsPending] = useState(true) //are items still being retrieved from the memory

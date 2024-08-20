@@ -2,42 +2,43 @@ import { useHeaderHeight } from '@react-navigation/elements'
 import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, FlatList, RefreshControl, View } from 'react-native'
 
-import useFetchSavedItems from '../hooks/useFetchSavedItems'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import { Item } from '../utils/types'
 import {
+  contentContainerStyle,
   EmptyState,
   ListHeaderComponent,
   RenderItem,
   ResultModal,
-  contentContainerStyle,
 } from '../components/molecules/_ReusableComponents'
-import { screenBackground, spinner } from '../utils/constants'
+import useFetchSavedItems from '../hooks/useFetchSavedItems'
+import useOpenQuiz from '../hooks/useOpenQuiz'
+import { Colors } from '../utils/constants'
+import { Item } from '../utils/types'
 
 export default function Saved() {
-  const headerHeight = useHeaderHeight()
-  const { openQuiz } = useOpenQuiz()
-  const [showLoadingMoreSpinner, setShowLoadingMoreSpinner] = useState(true)
-  const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState(null)
+  const [showLoadingMoreSpinner, setShowLoadingMoreSpinner] = useState(true)
   const [index, setIndex] = useState(0)
+  const [isEnabled, setIsEnabled] = useState(false)
 
+  const headerHeight = useHeaderHeight()
+  const { openQuiz } = useOpenQuiz()
+  const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
+  
+  useEffect(() => {
+    fetchSavedItems()
+  }, [])
+  
+  useEffect(() => {
+    setRefreshing(false)
+  }, [savedItems])
+  
   function seeFullQuestion(item: Item, index: number): void {
     setModalItem(item)
     setShowModal(true)
     setIndex(index)
   }
-
-  useEffect(() => {
-    fetchSavedItems()
-  }, [])
-
-  useEffect(() => {
-    setRefreshing(false)
-  }, [savedItems])
-
-  const [isEnabled, setIsEnabled] = useState(false)
+  
 
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState)
@@ -55,7 +56,7 @@ export default function Saved() {
   return (
     <View
       style={{
-        backgroundColor: screenBackground,
+        backgroundColor: Colors.screenBg,
         height: '100%',
       }}
     >
@@ -100,7 +101,7 @@ export default function Saved() {
             showLoadingMoreSpinner && (
               <ActivityIndicator
                 size={50}
-                color={spinner}
+                color={Colors.primary}
                 style={{ marginTop: 10 }}
               />
             )

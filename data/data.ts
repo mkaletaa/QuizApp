@@ -1,4 +1,5 @@
 //if a name consists of more than one words, separate them with underscore
+// if a chapter does not have any description it should be an empty string
 export const chapters = [
   {
     name: 'general_information',
