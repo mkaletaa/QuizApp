@@ -1,0 +1,91 @@
+[
+  {
+    "id": "data_structures|numbers|1",
+    "question": "How do you create a BigInt in JavaScript?",
+    "options": [
+      {
+        "id": "2",
+        "val": "By appending b to the end of an integer literal or using the BigInt constructor"
+      },
+      {
+        "id": "1",
+        "val": "By appending n to the end of an integer literal or using the BigInt constructor",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "By appending f to the end of an integer literal or using the BigInt constructor"
+      },
+      {
+        "id": "4",
+        "val": "By using the BigInt constructor only"
+      }
+    ]
+  },
+  {
+    "id": "data_structures|numbers|2",
+    "question": "Is <b>0x1a</b> a valid number?",
+    "options": [
+      { "id": "1", "val": "yes", "correct": true },
+      { "id": "2", "val": "no", "correct": false }
+    ],
+    "explanation": "It is a valid number. The prefix '0x' indicates that it is a base 16 number, and '1a' is equivalent to 26 in decimal."
+  },
+  {
+    "id": "data_structures|numbers|3",
+    "question": "What is BigInt?",
+    "options": [
+      {
+        "id": "1",
+        "val": "A JavaScript library for high-precision arithmetic operations"
+      },
+      {
+        "id": "2",
+        "val": "A method for converting strings to numbers with high precision"
+      },
+      {
+        "id": "3",
+        "val": "An archaic way of defining numbers in JavaScript"
+      },
+      {
+        "id": "4",
+        "val": "A type of number that can handle large integers",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "data_structures|numbers|4",
+    "question": [
+      "What will be logged in the console?",
+      {
+        "type": "Code",
+        "value": "let num = 34.57895\n\nconsole.log(num.toFixed(3))",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "34.579", "correct": true },
+      { "id": "2", "val": "34.5", "correct": false },
+      { "id": "3", "val": "34.6", "correct": false },
+      { "id": "4", "val": "34.578", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|numbers|5",
+    "question": [
+      "What will be logged in the console?",
+      {
+        "type": "Code",
+        "value": "let num = 34.57895\n\nconsole.log(num.toPrecision(3))",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "34.579", "correct": false },
+      { "id": "2", "val": "34.5", "correct": false },
+      { "id": "3", "val": "34.6", "correct": true },
+      { "id": "4", "val": "34.578", "correct": false }
+    ]
+  }
+]
