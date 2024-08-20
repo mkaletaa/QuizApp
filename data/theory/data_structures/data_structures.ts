@@ -1,11 +1,12 @@
-import introduction from './introduction.json'
-import type_conversion from './type_conversion.json'
-import numbers from './numbers.json'
-import strings from './strings.json'
-import arrays from './arrays.json'
-import objects from './objects.json'
-import iteration_methods from './iteration_methods.json'
-import other_types from './other_types.json'
+import arrays from './arrays.json';
+import introduction from './introduction.json';
+import iteration_methods from './iteration_methods.json';
+import numbers from './numbers.json';
+import objects_fundamentals from './objects_fundamentals.json';
+import other_types from './other_types.json';
+import strings from './strings.json';
+import type_conversion from './type_conversion.json';
+
 
 export const data_structures = {
   introduction,
@@ -13,12 +14,10 @@ export const data_structures = {
   numbers,
   strings,
   arrays,
-  objects,
+  objects_fundamentals,
 
   // objects #2
   // descructuring
   // iteration_methods,
   // other_types,
 }
-
-

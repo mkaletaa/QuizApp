@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Where are many ways to turn non-string type into a string. The simplest is to use String constructor."
+        "value": "There are many ways to turn non-string type into a string. The simplest is to use String constructor."
       },
       {
         "type": "Header",
