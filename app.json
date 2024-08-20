@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "QuizApp",
-    "slug": "QuizApp",
-    "version": "3.0.0",
+    "name": "Learn JavaScript",
+    "slug": "learn-javascript",
+    "version": "1.0.0-alpha",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -21,14 +21,14 @@
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
-      "package": "com.mkaleta.QuizApp.Test"
+      "package": "com.mkaleta.QuizApp.JavaScript"
     },
     "web": {
       "favicon": "./assets/icon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "191fa6b4-fe87-4762-b84b-a71caf03250f"
+        "projectId": "d55189fe-0738-476c-84dc-333b2abf83bd"
       }
     },
     "plugins": [
@@ -44,7 +44,7 @@
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/191fa6b4-fe87-4762-b84b-a71caf03250f"
+      "url": "https://u.expo.dev/d55189fe-0738-476c-84dc-333b2abf83bd"
     }
   },
   "react-native-google-mobile-ads": {
