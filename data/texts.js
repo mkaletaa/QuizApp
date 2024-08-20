@@ -26,7 +26,7 @@ export const mailSubject = ' - a mistake'
 export const mailBody =
   "\n\nEven heroes make mistakes. Describe what is wrong and I'll fix it. \n(you can delete the body of this mail except the first line)"
 export const noQuestions = 'No questions available'
-export const randomOrder = 'shuffle questions'
+export const randomOrder = 'Shuffle questions'
 export const contact = 'Contact'
 export const aboutTheApp = 'About the app'
 export const settings = 'Settings'
@@ -36,3 +36,5 @@ export const hideAnswers = 'Hide answers'
 export const hideAnswersExplain =
   'Learning becomes more effective if you try to recall the correct answer yourself, without suggesting possible options'
 export const showOptions = 'Show answers'
+export const showSpoiler = 'Show spoiler'
+export const exit = 'Exit'

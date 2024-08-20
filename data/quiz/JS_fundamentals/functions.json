@@ -1,0 +1,181 @@
+[
+  {
+    "id": "JS_fundamentals|functions|1",
+    "question": [
+      "What is the order of output in this code?",
+      {
+        "type": "Code",
+        "value": "function fun() {\n  console.log('Hello')\n}\n\nconsole.log('World')\n\nfun()",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "Hello, World" },
+      { "id": "2", "val": "World, Hello", "correct": true }
+    ],
+    "explanation": ["'fun' function was called after console.log('World')"]
+  },
+  {
+    "id": "JS_fundamentals|functions|2",
+    "question": [
+      "What will be printed by this console.log()?",
+      {
+        "type": "Code",
+        "value": "function greet(age, surname, name) {\n  console.log('I am', name, surname, 'and I am', age, 'yo.')\n}\n\ngreet('John', 'Doe', 12)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "\"I am\" 12 \"John\" \"and I am\" \"Doe\" \"yo.\"" },
+      {
+        "id": "2",
+        "val": "\"I am\" 12 \"Doe\" \"and I am\" \"John\" \"yo.\"",
+        "correct": true
+      },
+      { "id": "3", "val": "\"I am\" \"Doe\" \"John\" \"and I am\" 12 \"yo.\"" },
+      { "id": "4", "val": "\"I am\" \"John\" \"Doe\" \"and I am\" 12 \"yo.\"" }
+    ],
+    "explanation": ["the order of the arguments given is important"]
+  },
+  {
+    "id": "JS_fundamentals|functions|3",
+    "question": [
+      "What is the output of the following code?",
+      {
+        "type": "Code",
+        "value": "function displayData(age, name) {\n  console.log(age)\n  console.log(name)\n}\n\ndisplayData('Helen')",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "an Error will occur" },
+      { "id": "2", "val": "undefined, Helen" },
+      { "id": "3", "val": "Helen, undefined", "correct": true }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|functions|4",
+    "question": [
+      "What is the output of the following code?",
+      {
+        "type": "Code",
+        "value": "function displayData(name, age) {\n  console.log(age)\n  console.log(name)\n}\n\ndisplayData('Michael', 'Jackson', 40)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "an Error will occur" },
+      { "id": "2", "val": "Michael, Jackson" },
+      { "id": "3", "val": "Jackson, Michael", "correct": true },
+      { "id": "4", "val": "Michael, 40" },
+      { "id": "5", "val": "40, Michael" },
+      { "id": "6", "val": "40, Jackson" },
+      { "id": "7", "val": "Jackson, 40" }
+    ],
+    "explanation": "the order of the arguments given is important"
+  },
+  {
+    "id": "JS_fundamentals|functions|5",
+    "question": [
+      "What is the output of the following code?",
+      {
+        "type": "Code",
+        "value": "function displayData(name, age = 20, surname) {\n  console.log(name)\n  console.log(age)\n  console.log(surname)\n}\n\ndisplayData('John', 'Doe')",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "John, Doe, 20" },
+      { "id": "2", "val": "John, undefined, Doe" },
+      { "id": "3", "val": "John, 20, Doe" },
+      { "id": "4", "val": "John, Doe, undefined", "correct": true },
+      { "id": "5", "val": "something else" }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|functions|6",
+
+    "question": [
+      "What will be printed by this console.log()?",
+      {
+        "type": "Code",
+        "value": "function exp(b, a) {\n  a ** b\n}\n\nconsole.log(exp(2, 3))",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "undefined" },
+      { "id": "2", "val": "8" },
+      { "id": "3", "val": "Error" },
+      { "id": "4", "val": "9", "correct": true }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|functions|7",
+    "question": [
+      "What is the output of the following code?",
+      {
+        "type": "Code",
+        "value": "function displayData(name, age) {\n  console.log(name)\n  return 'user data'\n  console.log(age)\n}\n\nconst data = displayData('John', 30)\nconsole.log(data)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "John, user data", "correct": true },
+      { "id": "2", "val": "John, user data, 30" },
+      { "id": "3", "val": "John, 30, user data" },
+      { "id": "4", "val": "user data, John, 30" }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|functions|8",
+    "question": [
+      "What will be printed by this console.log()?",
+      {
+        "type": "Code",
+        "value": "function fun(a, b, c, ...rest) {\n  console.log(rest)\n}\n\nfun(1, 2, 3)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "[]", "correct": true },
+      { "id": "2", "val": "undefined" },
+      { "id": "3", "val": "Error" }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|functions|9",
+    "question": [
+      "What will be printed by this console.log()?",
+      {
+        "type": "Code",
+        "value": "function fun(b, b) {\n  console.log(b)\n}\n\nfun(1, 2)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "2", "val": "1" },
+      { "id": "1", "val": "2", "correct": true },
+      { "id": "3", "val": "Error" }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|functions|10",
+    "multiChoice": true,
+    "question": "Which of these statements are true?",
+    "options": [
+      { "id": "1", "val": "'arguments' is an array", "correct": false },
+      {
+        "id": "2",
+        "val": "rest parameter always must be the last argument",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "instructions after 'return' are never executed",
+        "correct": true
+      },
+      { "id": "4", "val": "a function can return more than one value" }
+    ]
+  }
+]
