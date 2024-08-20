@@ -154,6 +154,16 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'Ad':
       return <Ad width={width} />
+
+    default: //same as CText
+      return (
+        <Paragraph
+          value={dataComponent}
+          width={width}
+          key={key}
+          props={{ center: true }}
+        />
+      )
   }
 }
 
