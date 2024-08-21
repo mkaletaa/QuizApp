@@ -111,6 +111,12 @@
         "type": "Image",
         "value": "https://i.postimg.cc/J7chxhr1/image.png",
         "props": { "description": "2020" }
+      },
+      {
+        "type": "Spoiler",
+        "value": [
+          "Jeśli się nie jebnąłem w obliczeniach to tutaj wychodzi ~26,27%"
+        ]
       }
     ]
   }

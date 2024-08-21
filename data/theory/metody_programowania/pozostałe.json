@@ -38,15 +38,15 @@
       },
       {
         "type": "BulletPoint",
-        "value": "Zacznij od pierwszej kolumny i próbuj umieszczać hetmana w pierwszym wierszu. Sprawdź, czy umieszczenie hetmana w danym wierszu nie zagraża wcześniej umieszczonym hetmanom. Jeśli nie ma zagrożenia, przejdź do następnej kolumny i próbuj umieszczać kolejnego hetmana."
+        "value": "<b>1.</b> Umieść pierwszego hetmana w pierwszym wierszu pierwszej kolumny."
       },
       {
         "type": "BulletPoint",
-        "value": "Jeśli nie możesz umieścić hetmana w żadnym wierszu aktualnej kolumny (bo wszystkie są zablokowane przez inne hetmany), wróć do poprzedniej kolumny i przesuń tam hetmana do następnego wiersza. Jeśli w poprzedniej kolumnie również nie ma możliwego ruchu, cofnij się o jeszcze jedną kolumnę, i tak dalej, aż znajdziesz bezpieczne miejsce lub dojdziesz do punktu, gdzie nie ma możliwego rozwiązania."
+        "value": "<b>2.</b> Umieść kolejnego hetmana w kolejnej kolumnie i sprawdź czy nie zagraża poprzednim hetmanom. Jeśli zagraża, przesuń go o jeden wiersz pozostając w tej samej kolumnie. Jeśli żaden wiersz kolumny się nie nadaje, wróć do poprzedniej kolumny i przesuń tam hetmana do następnego wiersza. Jeśli w poprzedniej kolumnie również nie ma możliwego ruchu, cofnij się o jeszcze jedną kolumnę, i tak dalej, aż znajdziesz bezpieczne miejsce."
       },
       {
         "type": "BulletPoint",
-        "value": "Kontynuuj proces, aż wszystkie hetmany zostaną bezpiecznie umieszczone na szachownicy lub zostanie potwierdzone, że żadne rozwiązanie nie istnieje."
+        "value": "<b>3.</b> Kontynuuj punkt 2, aż wszystkie hetmany zostaną bezpiecznie umieszczone na szachownicy lub zostanie potwierdzone, że żadne rozwiązanie nie istnieje."
       },
       {
         "type": "Header",
