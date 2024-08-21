@@ -155,6 +155,9 @@ export const renderComponent = (dataComponent: Component, width: number) => {
     case 'Ad':
       return <Ad width={width} />
 
+    case 'Comment':
+      return null
+      
     default: //same as CText
       return (
         <Paragraph
