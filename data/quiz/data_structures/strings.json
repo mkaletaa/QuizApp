@@ -138,8 +138,8 @@
     "question": "Which method can be used to convert a string to lowercase?",
     "options": [
       { "id": "3", "val": "toLower()" },
-      { "id": "4", "val": "makeLowerCase()" },
-      { "id": "1", "val": "lowerCaseify()" },
+      { "id": "4", "val": "lower()" },
+      { "id": "1", "val": "lowerCase()" },
       { "id": "2", "val": "toLowerCase()", "correct": true }
     ]
   },
