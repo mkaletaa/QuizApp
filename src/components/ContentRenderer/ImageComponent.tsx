@@ -4,12 +4,15 @@ import { LinearGradient } from 'expo-linear-gradient'
 import React, { useEffect, useState } from 'react'
 import {
   ActivityIndicator,
+  Alert,
   Dimensions,
   Image,
   Modal,
+  Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native'
 import ImageViewer from 'react-native-image-zoom-viewer'
@@ -17,11 +20,7 @@ import ImageViewer from 'react-native-image-zoom-viewer'
 import { Colors } from '../../utils/constants'
 import useStore from '../../utils/store'
 
-const ImageComponent = ({
-  width: containerWidth,
-  description,
-  value,
-}) => {
+const ImageComponent = ({ width: containerWidth, description, value }) => {
   const images = useStore(state => state.images)
 
   const [modalVisible, setModalVisible] = useState(false)
@@ -57,11 +56,9 @@ const ImageComponent = ({
     )
   }, [value, containerWidth, ratio])
 
-
   useEffect(() => {
     setDescriptionState(description || images[indexState]?.des)
   }, [modalVisible, indexState])
-
 
   const openModal = () => {
     setModalVisible(true)
@@ -100,14 +97,14 @@ const ImageComponent = ({
         statusBarTranslucent={true}
       >
         <View style={styles.modalContainer}>
-          <ActivityIndicator
+          {/* <ActivityIndicator
             style={{
               position: 'absolute',
               zIndex: 0,
             }}
             size={50}
             color={Colors.primary}
-          />
+          /> */}
 
           <AntDesign
             onPress={closeModal}
@@ -131,8 +128,28 @@ const ImageComponent = ({
             onCancel={() => {
               setModalVisible(false)
             }}
+            // menuContext={()=>{}}
+            menus={({ cancel }) => {
+              return (
+                <Pressable
+                  onPressIn={() => {
+                    cancel() // Anulowanie menu
+                  }}
+                  style={{ flex: 1 }}
+                ></Pressable>
+              )
+            }}
             loadingRender={() => {
-              return <Text>...</Text>
+              return (
+                <ActivityIndicator
+                  style={{
+                    position: 'absolute',
+                    zIndex: 0,
+                  }}
+                  size={50}
+                  color={Colors.primary}
+                />
+              )
             }}
           />
           {descriptionState && (
