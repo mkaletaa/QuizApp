@@ -1,0 +1,151 @@
+[
+  {
+    "id": "data_structures|introduction|1",
+    "question": [
+      "What would be the the output of comparing these two arrays?",
+      {
+        "type": "Code",
+        "value": "const arr1 = [1, 2, 3]\nconst arr2 = [1, 2, 3]\n\nconsole.log(arr1===arr2)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "true", "correct": false },
+      { "id": "2", "val": "false", "correct": true }
+    ],
+    "explanation": "When you compare complex types, in fact, what is compared are their references, not their actual values. Those two arrays have different references so the output is false"
+  },
+  {
+    "id": "data_structures|introduction|2",
+    "question": [
+      "What would be the the output of comparing these two numbers?",
+      {
+        "type": "Code",
+        "value": "const num1 = new Number(3)\nconst num2 = new Number(3)\n\nconsole.log(num1===num2)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "true", "correct": false },
+      { "id": "2", "val": "false", "correct": true }
+    ],
+    "explanation": "When you use a constructor to define a variable, it always is an object. Since comparing objects works differently from comparing primitive types, the result will be false."
+  },
+  {
+    "id": "data_structures|introduction|3",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const arr = ['potatoes', 'apples', 'cheese']\n\narr[0] = 'bread'\n\nconsole.log(arr[0]) //?",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "'potatoes'" },
+      { "id": "2", "val": "'bread'", "correct": true },
+      { "id": "3", "val": "Error" }
+    ],
+    "explanation": "Variables declared with the const keyword can't have their value reassigned. However, in the case of complex variables like arrays, the value of the variable refers to the reference or address of the object in memory, not its contents. This means that while you can't reassign the entire array to a new array or value, you can still modify the elements within the array or object properties."
+  },
+  {
+    "id": "data_structures|introduction|4",
+    "question": [
+      {
+        "type": "Code",
+        "value": "let a = {name: 'John', age: 26}\nlet b = a\nb.age = 15\n\nconsole.log(a.age === b.age)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "true", "correct": true },
+      { "id": "2", "val": "false" }
+    ],
+    "explanation": "The result is true because b is a reference to the same object as a. When you modify b.age, it directly changes the age property of the object that both a and b refer to. Therefore, a.age and b.age are the same, and the comparison a.age === b.age returns true."
+  },
+  {
+    "id": "data_structures|introduction|5",
+    "question": [
+      "Is 'Hello World' going to be printed?",
+      {
+        "type": "Code",
+        "value": "if(4){\n  console.log(\"Hello World\")\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "yes", "correct": true },
+      { "id": "2", "val": "no" }
+    ],
+    "explanation": "Any non-zero number (including 4) is considered a truthy value. Since the condition 4 evaluates to true, the code inside the if block is executed."
+  },
+  {
+    "id": "data_structures|introduction|6",
+    "question": [
+      "Is 'Hello World' going to be printed?",
+      {
+        "type": "Code",
+        "value": "if(new Boolean(false)){\n  console.log(\"Hello World\")\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "yes", "correct": true },
+      { "id": "2", "val": "no" }
+    ],
+    "explanation": "When you use a constructor to define a variable, it always is an object. Since objects are always truthy, 'Hello World' will be printed in the console."
+  },
+  {
+    "id": "data_structures|introduction|7",
+    "multiChoice": true,
+    "question": "Which of them are falsy?",
+    "options": [
+      { "id": "1", "val": "0n", "correct": true },
+      { "id": "2", "val": "null", "correct": true },
+      { "id": "3", "val": "[]", "correct": false },
+      { "id": "4", "val": "{}", "correct": false },
+      { "id": "5", "val": "NaN", "correct": true },
+      { "id": "6", "val": "``", "correct": true },
+      { "id": "7", "val": "'     ' (string of spaces)", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|introduction|8",
+    "multiChoice": true,
+    "question": "Which of them are nullish?",
+    "options": [
+      { "id": "1", "val": "0", "correct": false },
+      { "id": "2", "val": "null", "correct": true },
+      { "id": "3", "val": "undefined", "correct": true },
+      { "id": "4", "val": "NaN", "correct": false },
+      { "id": "5", "val": "``", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|introduction|9",
+    "question": [
+      "What is the type of null according to the 'typeof' keyword?",
+      {
+        "type": "Code",
+        "value": "console.log(typeof null)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "null" },
+      { "id": "2", "val": "object", "correct": true },
+      { "id": "3", "val": "undefined" }
+    ],
+    "explanation": "But remember, null is not an object; 'typeof' just acts weirdly sometimes ;)"
+  },
+  {
+    "id": "data_structures|introduction|10",
+    "question": [
+      "Functions are objects."
+    ],
+    "options": [
+      { "id": "true", "val": "true", "correct": true },
+      { "id": "false", "val": "false" }
+    ],
+    "explanation": "They are the only kind of object that can be executed."
+  }
+]
