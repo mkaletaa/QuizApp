@@ -7,6 +7,7 @@ import useAnimatePopup from '../../hooks/useAnimatePopup'
 import useStore from '../../utils/store'
 import utilStyles from '../../utils/styles'
 import MistakeButton from './atoms/MistakeButton'
+import { Colors } from '../../utils/constants'
 
 export default function ExplanationPopup({ item }) {
   const [saved, setSaved] = useState(false)
@@ -89,7 +90,7 @@ export default function ExplanationPopup({ item }) {
 
   const scale = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 1.5],
+    outputRange: [1, 1.3],
   })
 
   const opacity = animation.interpolate({
@@ -137,7 +138,7 @@ export default function ExplanationPopup({ item }) {
           <View
             style={{
               flex: 1,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the opacity as needed
+              backgroundColor: 'rgba(0, 0, 0, 0.1)', // Adjust the opacity as needed
               justifyContent: 'center',
               alignItems: 'center',
               // gap: 20,
@@ -161,7 +162,7 @@ export default function ExplanationPopup({ item }) {
                   style={{
                     height: '100%',
                     width: 1,
-                    backgroundColor: '#ccc',
+                    backgroundColor: Colors.border,
                     marginHorizontal: 10,
                   }}
                 />
