@@ -93,17 +93,17 @@
       },
       {
         "type": "Code",
-        "value": "// Before:\nconst name = 'Whiskers'\nconst age = 2\n\nconst cat = {\n  name: name,\n  age: age,\n  meow: function () {\n    console.log('Meow!')\n  },\n}",
+        "value": "// Before:\nconst name = 'Whiskers'\nconst age = 2\n\nconst cat = {\n  name: name,\n  age: age\n}",
         "props": { "language": "javascript" }
       },
       {
         "type": "Code",
-        "value": "// After:\nconst name = 'Whiskers'\nconst age = 2\n\nconst cat = {\n  name, // shorthand for name: name\n  age, // shorthand for age: age\n  meow() {\n    // shorthand for meow: function() { ... }\n    console.log('Meow!')\n  },\n}",
+        "value": "// After:\nconst name = 'Whiskers'\nconst age = 2\n\nconst cat = {\n  name, // shorthand for name: name\n  age, // shorthand for age: age\n}",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "For defining methods within an object, you can omit the function keyword and use the shorthand syntax."
+        "value": "For defining methods within an object, you can omit the function keyword."
       },
       {
         "type": "Code",
