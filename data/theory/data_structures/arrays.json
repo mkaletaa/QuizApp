@@ -322,120 +322,16 @@
       },
       {
         "type": "Text",
-        "value": "<b>Array.prototype.copyWithin()</b>: shallow copies part of an array to another location in the same array and returns the modified array."
+        "value": "There are of course many more static Array methods. Most of them are the same as their non-static equivalent. You can access them by typing `Array.prototype.<method name>.call(arrayName). For instance:"
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\narr.copyWithin(0, 3, 5);\nconsole.log(arr); // [4, 5, 3, 4, 5] // Modifies the original array\n// Returns: The modified array",
-        "props": { "language": "javascript" }
+        "value": "const arr = [2, 1, 4]\n\nArray.prototype.push.call(arr, 3)\nArray.prototype.sort.call(arr)\n\nconsole.log(arr) ",
+        "props": {"language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "<b>Array.prototype.fill()</b>: fills all the elements of an array from a start index to an end index with a static value and returns the modified array."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\narr.fill(0, 2, 4);\nconsole.log(arr); // [1, 2, 0, 0, 5] // Modifies the original array\n// Returns: The modified array",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.find()</b>: returns the first element in the array that satisfies the provided testing function. Otherwise, it returns `undefined`."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst found = arr.find(x => x > 3);\nconsole.log(found); // 4 // Does not modify the original array\n// Returns: The first element that satisfies the condition or `undefined`",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.findIndex()</b>: returns the index of the first element that satisfies the provided testing function. Otherwise, it returns `-1`."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst index = arr.findIndex(x => x > 3);\nconsole.log(index); // 3 // Does not modify the original array\n// Returns: The index of the first element that satisfies the condition or `-1`",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.flat()</b>: creates a new array with all sub-array elements concatenated into it recursively up to the specified depth."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, [2, [3, [4]]]];\nconsole.log(arr.flat(2)); // [1, 2, 3, [4]] // Does not modify the original array\n// Returns: A new array with elements flattened to the specified depth",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.flatMap()</b>: first maps each element using a mapping function, then flattens the result into a new array."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst newArr = arr.flatMap(x => [x, x * 2]);\nconsole.log(newArr); // [1, 2, 2, 4, 3, 6] // Does not modify the original array\n// Returns: A new array with the mapped and flattened results",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.map()</b>: creates a new array populated with the results of calling a provided function on every element in the calling array."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst newArr = arr.map(x => x * 2);\nconsole.log(newArr); // [2, 4, 6] // Does not modify the original array\n// Returns: A new array with the results of the mapping function",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.reduce()</b>: executes a reducer function (that you provide) on each element of the array, resulting in a single output value."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst sum = arr.reduce((acc, current) => acc + current, 0);\nconsole.log(sum); // 6 // Does not modify the original array\n// Returns: The final result of the reducer function",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.reduceRight()</b>: executes a reducer function on each element of the array, but from right to left, resulting in a single output value."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst result = arr.reduceRight((acc, current) => acc - current);\nconsole.log(result); // 0 // Does not modify the original array\n// Returns: The final result of the reducer function from right to left",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.some()</b>: tests whether at least one element in the array passes the test implemented by the provided function. Returns `true` if any elements pass the test, otherwise `false`."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst hasEven = arr.some(x => x % 2 === 0);\nconsole.log(hasEven); // true // Does not modify the original array\n// Returns: `true` if at least one element passes the test, otherwise `false`",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.every()</b>: tests whether all elements in the array pass the test implemented by the provided function. Returns `true` if all elements pass the test, otherwise `false`."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst allEven = arr.every(x => x % 2 === 0);\nconsole.log(allEven); // false // Does not modify the original array\n// Returns: `true` if all elements pass the test, otherwise `false`",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.forEach()</b>: executes a provided function once for each array element."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3];\narr.forEach(x => console.log(x)); // 1, 2, 3 // Does not modify the original array\n// Returns: `undefined`",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>Array.prototype.concat()</b>: merges two or more arrays and returns a new array. Does not change the existing arrays."
-      },
-      {
-        "type": "Code",
-        "value": "const arr1 = [1, 2];\nconst arr2 = [3, 4];\nconst newArr = arr1.concat(arr2);\nconsole.log(newArr); // [1, 2, 3, 4] // Does not modify the original arrays\n// Returns: A new array with the elements from the concatenated arrays",
-        "props": { "language": "javascript" }
+        "value": "If you don't know what `call` is, you can visit the lesson about execution context."
       }
     ]
   },

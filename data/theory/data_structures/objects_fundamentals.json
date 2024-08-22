@@ -114,6 +114,13 @@
         "type": "Code",
         "value": "// After:\nconst cat = {\n  name: 'Whiskers',\n  age: 2,\n  meow() {\n    console.log('Meow!')\n  },\n}",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "That was the most essential information about objects. For more advanced info visit the `Object Oriented Programming (OOP)` chapter."
       }
     ]
   }
