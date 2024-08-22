@@ -1,13 +1,21 @@
 import { Entypo } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import React, { useEffect, useState } from 'react'
 import {
   Animated,
   Modal,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  View
+  View,
 } from 'react-native'
+import { List } from 'react-native-paper'
+
+import { reportAMistake, takeAQuiz } from '../../../data/texts'
 import useAnimatePopup from '../../hooks/useAnimatePopup'
+import { Colors } from '../../utils/constants'
 import useStore from '../../utils/store'
 import MistakeButton from './atoms/MistakeButton'
 import QuizButton from './atoms/QuizButton'
@@ -17,11 +25,9 @@ export default function TheoryPopup({ topicName, chapterName }) {
   // const setShowPopup = useStore(state => state.setShowPopup)
   const [showPopup, setShowPopup] = useState(false)
 
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, [])
 
-  const { popupOpacity,  transform } = useAnimatePopup(showPopup)
+  const { popupOpacity, transform } = useAnimatePopup(showPopup)
 
   return (
     <React.Fragment>
@@ -45,7 +51,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
             justifyContent: 'center',
             // backgroundColor: 'red'
           }}
-          onPress={() => setShowPopup(e=>!e)}
+          onPress={() => setShowPopup(e => !e)}
         >
           <Entypo
             name="dots-three-vertical"
@@ -69,7 +75,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
           <View
             style={{
               flex: 1,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the opacity as needed
+              backgroundColor: 'rgba(0, 0, 0, 0.1)', // Adjust the opacity as needed
               justifyContent: 'center',
               alignItems: 'center',
               // gap: 20,
@@ -79,19 +85,56 @@ export default function TheoryPopup({ topicName, chapterName }) {
               <Animated.View
                 style={[
                   {
-                    top: 150,
-                    right: 10,
+                    top: 85,
+                    right: 15,
                     position: 'absolute',
                     opacity: popupOpacity,
                     transform,
                     zIndex: 1,
-                    gap: 20,
-                    borderRadius: 10, // Adjust the border radius as needed
+                    // gap: 20,
+                    borderRadius: 4, // Adjust the border radius as needed
+                    backgroundColor: Colors.screenBg,
+                    elevation: 3,
                   },
                 ]}
               >
-                <MistakeButton prop={topicName} />
-                <QuizButton chapterName={chapterName} topicName={topicName} />
+                <List.Item
+                  rippleColor={Colors.ripple}
+                  title={reportAMistake}
+                  right={() => (
+                    // <Entypo name="flag" size={24} color="tomato"/>
+                    // <FontAwesome6 name="font-awesome-flag" size={22} color="tomato" />
+                    <MaterialIcons
+                      style={{ marginLeft: 10 }}
+                      name="outlined-flag"
+                      size={24}
+                      color="tomato"
+                    />
+                    // <MaterialCommunityIcons name="flag-variant-outline" size={24} color="tomato" />
+                  )}
+                  //@ts-ignore
+                  onPress={() => navigation.navigate('About')}
+                  style={{
+                    borderBottomWidth: 1,
+                    borderBottomColor: Colors.border,
+                    // paddingLeft: 15,
+                    paddingRight: 20,
+                    marginTop: 0,
+                  }}
+                  titleStyle={{ color: Colors.text }}
+                />
+                <List.Item
+                  rippleColor={Colors.ripple}
+                  title={takeAQuiz}
+                  //@ts-ignore
+                  onPress={() => navigation.navigate('About')}
+                  style={{
+                    justifyContent: 'center',
+                  }}
+                  titleStyle={{ color: Colors.text }}
+                />
+                {/* <MistakeButton prop={topicName} /> */}
+                {/* <QuizButton chapterName={chapterName} topicName={topicName} /> */}
               </Animated.View>
             </TouchableWithoutFeedback>
           </View>
