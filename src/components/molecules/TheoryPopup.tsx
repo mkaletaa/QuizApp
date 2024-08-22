@@ -11,21 +11,22 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native'
-import { List } from 'react-native-paper'
+import { Divider, List } from 'react-native-paper'
 
 import { reportAMistake, takeAQuiz } from '../../../data/texts'
 import useAnimatePopup from '../../hooks/useAnimatePopup'
 import { Colors } from '../../utils/constants'
+import { removeUnderscores, sendAnEmail } from '../../utils/functions'
 import useStore from '../../utils/store'
 import MistakeButton from './atoms/MistakeButton'
 import QuizButton from './atoms/QuizButton'
+import QuizListItem from './atoms/QuizListItem'
 
 export default function TheoryPopup({ topicName, chapterName }) {
   // const showPopup = useStore(state => state.showPopup)
   // const setShowPopup = useStore(state => state.setShowPopup)
   const [showPopup, setShowPopup] = useState(false)
 
-  useEffect(() => {}, [])
 
   const { popupOpacity, transform } = useAnimatePopup(showPopup)
 
@@ -75,7 +76,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
           <View
             style={{
               flex: 1,
-              backgroundColor: 'rgba(0, 0, 0, 0.1)', // Adjust the opacity as needed
+              // backgroundColor: 'rgba(0, 0, 20, .1)', // Adjust the opacity as needed
               justifyContent: 'center',
               alignItems: 'center',
               // gap: 20,
@@ -92,7 +93,8 @@ export default function TheoryPopup({ topicName, chapterName }) {
                     transform,
                     zIndex: 1,
                     // gap: 20,
-                    borderRadius: 4, // Adjust the border radius as needed
+                    borderRadius: 3, // Adjust the border radius as needed
+                    // borderTopRightRadius:2,
                     backgroundColor: Colors.screenBg,
                     elevation: 3,
                   },
@@ -112,26 +114,33 @@ export default function TheoryPopup({ topicName, chapterName }) {
                     />
                     // <MaterialCommunityIcons name="flag-variant-outline" size={24} color="tomato" />
                   )}
+                  onPress={() => {
+                    sendAnEmail(removeUnderscores(topicName))
+                    setShowPopup(false)
+                  }}
                   //@ts-ignore
-                  onPress={() => navigation.navigate('About')}
                   style={{
-                    borderBottomWidth: 1,
-                    borderBottomColor: Colors.border,
+                    // borderBottomWidth: 1,
+                    // borderBottomColor: Colors.border,
                     // paddingLeft: 15,
                     paddingRight: 20,
                     marginTop: 0,
                   }}
                   titleStyle={{ color: Colors.text }}
                 />
-                <List.Item
-                  rippleColor={Colors.ripple}
-                  title={takeAQuiz}
-                  //@ts-ignore
-                  onPress={() => navigation.navigate('About')}
+                <View
                   style={{
-                    justifyContent: 'center',
+                    width: '85%',
+                    height: 0.5,
+                    backgroundColor: Colors.border,
+                    marginHorizontal: 10,
                   }}
-                  titleStyle={{ color: Colors.text }}
+                />
+                {/* <Divider></Divider> */}
+                <QuizListItem
+                  chapterName={chapterName}
+                  topicName={topicName}
+                  handlePress={() => setShowPopup(false)}
                 />
                 {/* <MistakeButton prop={topicName} /> */}
                 {/* <QuizButton chapterName={chapterName} topicName={topicName} /> */}
