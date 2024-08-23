@@ -158,5 +158,42 @@
       { "id": "3", "val": "1 2 3 4 5", "correct": false },
       { "id": "4", "val": "2 3 4 5", "correct": false }
     ]
+  },
+  {
+    "id": "JS_fundamentals|loops|10",
+    "multiChoice": true,
+    "question": "Mark all true statements",
+    "options": [
+      {
+        "id": "1",
+        "val": "you can nest for loop inside while loop",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "you can use labels only with for loops",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "when used in a nested loop, break stops the outer loop",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "you can exit from a loop using the return statement",
+        "correct": true
+      },
+      {
+        "id": "5",
+        "val": "only while loops can be infinite",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "the number of semicolons inside the head of a for loop must always be two",
+        "correct": true
+      }
+    ]
   }
 ]

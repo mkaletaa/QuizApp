@@ -44,7 +44,7 @@
       },
       {
         "type": "Code",
-        "value": "const obj = {\n  name: 'Charlie',\n  greet: () => {\n    console.log(this.name); // undefined (or global object's property in non-strict mode)\n  }\n};\nobj.greet();",
+        "value": "const obj = {\n  name: 'Charlie',\n  greet: () => {\n    console.log(this); // window/global\n  }\n}\n\nobj.greet();",
         "props": { "language": "javascript" }
       },
       {
@@ -62,7 +62,7 @@
       },
       {
         "type": "Code",
-        "value": "'use strict';\n\nfunction init() {\n  console.log(this); // undefined\n}\ninit();",
+        "value": "'use strict'\n\nfunction init() {\n  console.log(this); // undefined\n}\ninit();",
         "props": { "language": "javascript" }
       },
       {
@@ -81,7 +81,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The `apply`, `call`, and `bind` methods are used to manipulate the `this` context within a function. These methods are particularly useful when you want to borrow methods from other objects or control the execution context of a function."
+        "value": "The `apply`, `call`, and `bind` methods are used to manipulate the context. These methods are particularly useful when you want to borrow methods from other objects or control the execution context of a function."
       },
       {
         "type": "Header",
@@ -94,7 +94,7 @@
       },
       {
         "type": "Code",
-        "value": "const obj = { name: 'Alice' };\n\nfunction greet(greeting, punctuation) {\n  console.log(greeting + ', ' + this.name + punctuation);\n}\n\ngreet.apply(obj, ['Hello', '!']); // Output: Hello, Alice!",
+        "value": "const person = { name: 'Alice' };\n\nfunction greet(greeting, punctuation) {\n  console.log(greeting + ', ' + this.name + punctuation);\n}\n\ngreet.apply(person, ['Hello', '!']); // Output: Hello, Alice!",
         "props": { "language": "javascript" }
       },
       {
@@ -108,7 +108,7 @@
       },
       {
         "type": "Code",
-        "value": "const person = { name: 'Bob' };\n\ngreet.call(person, 'Hi', '.'); // Output: Hi, Bob.",
+        "value": "const person = { name: 'Bob' };\n\nfunction greet(greeting, punctuation) {\n  console.log(greeting + ', ' + this.name + punctuation);\n}\n\ngreet.call(person, 'Hi', '.'); // Output: Hi, Bob.",
         "props": { "language": "javascript" }
       },
       {
@@ -118,17 +118,18 @@
       },
       {
         "type": "Text",
-        "value": "The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. This method is particularly useful for setting the context in event handlers or callbacks."
+        "value": "The `bind()` method creates a new function (called in JS jargon a 'bound function') that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. This method is particularly useful for setting the context in event handlers or callbacks."
       },
       {
         "type": "Code",
-        "value": "const boundGreet = greet.bind(obj, 'Hey');\nboundGreet('?'); // Output: Hey, Alice?",
+        "value": "const person = {name: 'Nick'}\n\nfunction greet(greeting, punctuation){\n  console.log(greeting + ', '+ this.name + punctuation)\n}\n\nconst boundGreet = greet.bind(person, 'Hey', '!')\nboundGreet() //Output: Hey, Nick!\n\n//We don't have to pass the other arguments to the bind()\nconst boundGreetWithoutArgs = greet.bind(person)\n//We can do it at the moment of calling the bound function\nboundGreetWithoutArgs('Hi', '?') //Output: Hi, Nick?",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In summary, `apply()`, `call()`, and `bind()` are methods that allow you to specify the `this` value in a function, providing flexibility in managing function execution and context. `apply()` is suitable for arguments as an array, `call()` for individual arguments, and `bind()` for creating a new function with a preset `this` value."
+        "value": "In summary, `apply()` is suitable for arguments as an array, `call()` for individual arguments, and `bind()` for creating a new function with a preset `this` value. Notice, normally the greet function has a global context but thanks to these three special functions we changed its context to another object for a moment."
       }
     ]
   }
 ]
+

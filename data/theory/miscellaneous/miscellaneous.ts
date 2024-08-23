@@ -1,9 +1,9 @@
 import error_handling from './error_handling.json'
-import executional_context from './executional_context.json'
+import execution_context from './execution_context.json'
 import strict_mode from './strict_mode.json'
 
 export const miscellaneous = {
   error_handling,
-  executional_context,
+  execution_context,
   strict_mode,
 }

@@ -94,7 +94,7 @@ export const topics = {
   ],
   miscellaneous: [
     { name: 'error_handling', image: '' },
-    { name: 'executional_context', image: '' },
+    { name: 'execution_context', image: '' },
     { name: 'strict_mode', image: '' },
   ],
   TypeScript: [
