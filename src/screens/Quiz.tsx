@@ -12,9 +12,15 @@ import {
   Text,
   View,
 } from 'react-native'
+import {
+  AdEventType,
+  InterstitialAd,
+  TestIds,
+} from 'react-native-google-mobile-ads'
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import settings from '../../data/settings.json'
 import {
   areYouSure,
   nah,
@@ -36,6 +42,10 @@ import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
 import { Option, Result } from '../utils/types'
 import { getValue, setStats } from '../utils/utilStorage'
+
+const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
+  requestNonPersonalizedAdsOnly: true,
+})
 
 //list of route params is in useOpenQuiz
 export default function Quiz({ route }) {
@@ -115,17 +125,53 @@ export default function Quiz({ route }) {
     setShowResultModal(true)
   }
 
+  const [interstitialLoaded, setInterstitialLoaded] = useState(false)
+
+  const loadInterstatial = () => {
+    const unsubscribeLoaded = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setInterstitialLoaded(true)
+        interstitial.load()
+      },
+    )
+
+    const unsubscribeClosed = interstitial.addAdEventListener(
+      AdEventType.CLOSED,
+      () => {
+        setInterstitialLoaded(false)
+      },
+    )
+
+    interstitial.load()
+
+    return () => {
+      unsubscribeClosed()
+      unsubscribeLoaded()
+    }
+  }
+
+  // useEffect(() => {
+
+  // return unsubscribeInterstitialEvents
+  // }, [])
+
   function closeModalAndGoBack(): void {
     setShowExitModal(false)
     navigation.goBack()
   }
 
   useEffect(() => {
+    const unsubscribeInterstitialEvents = loadInterstatial()
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       handleBackPress,
     )
-    return () => backHandler.remove() // Cleanup the event listener on unmount
+    return () => {
+      settings.ads && interstitial.show()
+      unsubscribeInterstitialEvents()
+      backHandler.remove()
+    } // Cleanup the event listener on unmount
   }, [])
 
   const handleBackPress = () => {
@@ -231,7 +277,7 @@ export default function Quiz({ route }) {
                   elevation={5}
                   buttonColor={Colors.primary}
                   style={{
-                    marginBottom: 40,
+                    marginBottom: settings.ads ? 70 : 40,
                   }}
                 >
                   {submit}
@@ -243,18 +289,20 @@ export default function Quiz({ route }) {
 
         {!item && <ActivityIndicator size={50} color={Colors.primary} />}
       </ScrollView>
-      <View
-        id="ad"
-        style={{
-          width: '100%',
-          height: 70,
-          backgroundColor: 'yellow',
-          position: 'absolute',
-          bottom: 0,
-        }}
-      >
-        <Ad width={'100%'}></Ad>
-      </View>
+      {settings.ads && (
+        <View
+          id="ad"
+          style={{
+            width: '100%',
+            height: 50,
+            // backgroundColor: 'yellow',
+            position: 'absolute',
+            bottom: 0,
+          }}
+        >
+          <Ad width={'100%'}></Ad>
+        </View>
+      )}
       <Modal
         statusBarTranslucent
         animationType="fade"
