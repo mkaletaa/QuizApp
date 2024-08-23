@@ -7,3 +7,9 @@ export const miscellaneous = {
   execution_context,
   strict_mode,
 }
+
+//* czy można użyc '', "" ``
+//* "use strict" w funkcji, a poza nią i nad literałem ciche błędy
+//* długi kod z "strict mode" zamiast "use strict"
+//* coś z this
+//* pytanie o nazwę "silent errors", "invisible errors", "cos jeszcze"

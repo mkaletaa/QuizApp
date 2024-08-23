@@ -20,7 +20,7 @@ export const chapters = [
     des: "Some say everything is an object in JavaScript. Is that true? You'll find the answer in this chapter.",
   },
   {
-    name: 'OOP',
+    name: 'Object_oriented_JS',
     image: '',
     des: '',
     soon: true,
@@ -44,7 +44,7 @@ export const chapters = [
   {
     name: 'further_reading',
     image: '',
-    des: 'You\'ve already gained basic knowledge of JavaScript. Now it\'s time to choose the path you want to follow next.',
+    des: "You've already gained basic knowledge of JavaScript. Now it's time to choose the path you want to follow next.",
   },
 ]
 //also id of questions should go like "cat_1|top_1|1"
@@ -72,11 +72,11 @@ export const topics = {
     { name: 'strings', image: 'https://reactjs.org/logo-og.png' },
     { name: 'arrays', image: 'https://reactjs.org/logo-og.png' },
     { name: 'objects_fundamentals', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'other_types', image: '', soon: true },
+    { name: 'other_structures', image: '', soon: true },
     { name: 'destructuring', image: '', soon: true },
     { name: 'iteration_methods', image: '', soon: true },
   ],
-  OOP: [
+  Object_oriented_JS: [
     { name: 'objects_-_advanced_topics', image: '' }, //object_create
     { name: 'reference_and_copying', image: '' },
     { name: 'inheritance', image: '' },
@@ -87,7 +87,7 @@ export const topics = {
     { name: 'extending_inbuilt_objects', image: '' }, //Error extensions
   ],
   asynchronicity: [
-    { name: 'setTimeout_and_setInterval', image: '' },
+    { name: 'timeouts_and_intervals', image: '' },
     { name: 'promises', image: '' },
     { name: 'async_and_await', image: '' },
     { name: 'event_loop', image: '', soon: true },
@@ -96,6 +96,7 @@ export const topics = {
     { name: 'error_handling', image: '' },
     { name: 'execution_context', image: '' },
     { name: 'strict_mode', image: '' },
+    { name: 'eval', image: '', soon: true },
   ],
   TypeScript: [
     { name: 'introduction', image: '' }, //what is TS, why use it, how to download, Node and TS

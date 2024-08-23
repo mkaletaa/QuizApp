@@ -4,16 +4,21 @@
     "data": [
       {
         "type": "Text",
-        "value": "Strict mode is a feature in JavaScript that helps you write cleaner, more secure, and less error-prone code by enforcing stricter parsing and error handling rules. It can be applied to entire scripts or individual functions. Most importantly, it eliminates so called 'silent errors' which means it changes previously accepted \"bad syntax\" into real errors. <br></br>To take advantage of its benefits simply put a string 'use strict' where you want it to be applied."
+        "value": "Strict mode is a feature in JavaScript that helps you write cleaner, more secure, and less error-prone code by enforcing stricter parsing and error handling rules. It can be applied to entire scripts or individual functions. Most importantly, it eliminates so called 'silent errors' which means it changes previously accepted \"bad syntax\" into real errors."
+      }
+      
+    ]
+  },
+  {
+    "title": "Applying strict mode",
+    "data": [
+      {
+        "type": "Text",
+        "value": "To take advantage of its benefits simply put a string 'use strict' where you want it to be applied."
       },
       {
         "type": "Code",
-        "value": "'//code above isn't in strict mode\n'use strict'\n//applied globally",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Code",
-        "value": "{\n  \"use strict\"\n  //applied in block scope\n}",
+        "value": "//code above isn't in strict mode\n'use strict'\n//applied globally",
         "props": { "language": "javascript" }
       },
       {
@@ -22,12 +27,14 @@
         "props": { "language": "javascript" }
       },
       {
-        "type": "Divider"
-      },
-      {
         "type": "Text",
         "value": "But what exactly does it give us?"
-      },
+      }
+    ]
+  },
+  {
+    "title": "Strict mode restrictions",
+    "data": [
       {
         "type": "Header",
         "value": "`this` Binding",
@@ -42,11 +49,6 @@
         "type": "Code",
         "value": "'use strict'\nfunction example() {\n  console.log(this); // In strict mode, `this` is `undefined` if the function is called without an explicit context.\n}\nexample(); // Logs `undefined`.",
         "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Strict Mode Restrictions",
-        "props": { "size": "md" }
       },
       {
         "type": "Header",
@@ -70,38 +72,12 @@
       },
       {
         "type": "Header",
-        "value": "Octal Literals",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\n// Octal literals are not allowed in strict mode\n// This will throw an error:\nlet number = 075; // SyntaxError: Octal literals are not allowed in strict mode\n\n// Use decimal notation instead:\nlet number = 75;",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
         "value": "Usage of `eval`",
         "props": { "size": "sm" }
       },
       {
         "type": "Code",
-        "value": "'use strict'\n// `eval` and `with` have restricted usage in strict mode\n// The `eval` function is not allowed to create variables in the scope of the `eval` function:\nfunction example() {\n  eval('var x = 5;');\n  console.log(x); // ReferenceError: x is not defined\n}\n\nexample();",
-        "props": { "language": "javascript" }
-      },
-
-      {
-        "type": "Header",
-        "value": "`with` Statement",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "let obj = { a: 1 };\nwith (obj) {\n  console.log(a); // Allowed in non-strict mode.\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\nlet obj = { a: 1 };\nwith (obj) {\n  // SyntaxError: Strict mode code may not include a with statement\n}",
+        "value": "'use strict'\n// `eval` has restricted usage in strict mode\n// The `eval` function is not allowed to create variables in the scope of the `eval` function:\nfunction example() {\n  eval('var x = 5;');\n  console.log(x); // ReferenceError: x is not defined\n}\n\nexample();",
         "props": { "language": "javascript" }
       },
       {
@@ -123,6 +99,11 @@
         "type": "Header",
         "value": "Octal Literals",
         "props": { "size": "sm" }
+      },
+      {
+        "type": "Code",
+        "value": "'use strict'\n// Octal literals are not allowed in strict mode\n// This will throw an error:\nlet number = 075; // SyntaxError: Octal literals are not allowed in strict mode\n\n// Use decimal notation instead:\nlet number = 75;",
+        "props": { "language": "javascript" }
       },
       {
         "type": "Code",
@@ -181,11 +162,6 @@
       },
       {
         "type": "Header",
-        "value": "Additional Strict Mode Restrictions",
-        "props": { "size": "md" }
-      },
-      {
-        "type": "Header",
         "value": "Assignments to Non-existent Properties",
         "props": { "size": "sm" }
       },
@@ -222,26 +198,6 @@
       {
         "type": "Code",
         "value": "'use strict'\n// Duplicate function declarations in the same scope are not allowed:\nfunction example() {\n  function foo() {}\n  function foo() {} // SyntaxError: Duplicate function declaration\n}\n\n// Ensure unique function names:",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "`with` Statement",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\n// `with` statement is not allowed:\nlet obj = { x: 1 };\n// with (obj) { x = 2; } // SyntaxError: Strict mode code may not include a with statement\n\n// Use direct property access instead:\nobj.x = 2;",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "`arguments.callee`",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\n// `arguments.callee` is not allowed:\nfunction example() {\n  console.log(arguments.callee); // TypeError: Cannot access 'arguments.callee' in strict mode\n}\n\nexample();\n\n// Use named function expressions instead:",
         "props": { "language": "javascript" }
       }
     ]
