@@ -1,20 +1,162 @@
 [
-    {
-        "id": "JS_fundamentals|loops|1",
-        "question": [
-            {
-                "type": "Text",
-                "value": ""
-            }
-        ],
-        "options": [
-            { "id": "", "val": "", "correct": false }
-        ],
-        "explanation": [
-            {
-                "type": "Text",
-                "value": ""
-            }
-        ]
-    }
+  {
+    "id": "JS_fundamentals|loops|1",
+    "question": [
+      "What is the output of this code?",
+      {
+        "type": "Code",
+        "value": "for(var i = 0; i < 5; i++)\n  i++\n  console.log(i)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "Error", "correct": false },
+      { "id": "2", "val": "1 3", "correct": false },
+      { "id": "3", "val": "1 3 5", "correct": true },
+      { "id": "4", "val": "6", "correct": false }
+    ],
+    "explanation": "Due to the lack of curly brackets, only the second line is part of the loop's body; the console.log() statement is outside of it. Because of var's function scope, the output is 6. If let had been used instead, an error would have occurred."
+  },
+  {
+    "id": "JS_fundamentals|loops|2",
+    "question": [
+      "What is the output of this code?",
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 5; i++) {\n  i++\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "1 3 5", "correct": true },
+      { "id": "2", "val": "1 3", "correct": false },
+      { "id": "3", "val": "0 2 4", "correct": false },
+      { "id": "4", "val": "2 4", "correct": false }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|loops|3",
+    "question": [
+      "What is the value of `i` after this loop completes?",
+      {
+        "type": "Code",
+        "value": "let i;\nfor (i = 0; i < 5; i++) {\n  ///\n}\nconsole.log(i)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "4", "correct": false },
+      { "id": "2", "val": "5", "correct": true },
+      { "id": "3", "val": "undefined", "correct": false },
+      { "id": "4", "val": "0", "correct": false }
+    ],
+    "explanation": "The loop increments `i` up to 5, but the last value of `i` after the loop exits is 5."
+  },
+  {
+    "id": "JS_fundamentals|loops|4",
+    "question": [
+      "What is the output of this loop?",
+      {
+        "type": "Code",
+        "value": "for (let i = 10; i < 5 && i > 0; i--) {\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "10 9 8 7 6", "correct": false },
+      { "id": "2", "val": "10", "correct": false },
+      { "id": "3", "val": "nothing", "correct": true },
+      { "id": "4", "val": "0", "correct": false }
+    ],
+    "explanation": "The loop condition `i < 5 && i > 0` is false at the start, so the loop never executes."
+  },
+  {
+    "id": "JS_fundamentals|loops|5",
+    "question": [
+      "What is the output of this `do...while` loop?",
+      {
+        "type": "Code",
+        "value": "let i = 1\n\ndo {\n  console.log(i)\n} while (i < 0)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "1", "correct": true },
+      { "id": "2", "val": "nothing", "correct": false },
+      { "id": "3", "val": "0", "correct": false },
+      { "id": "4", "val": "undefined", "correct": false }
+    ],
+    "explanation": "The `do...while` loop executes the body at least once before checking the condition."
+  },
+  {
+    "id": "JS_fundamentals|loops|6",
+    "question": [
+      "What is the output of this `while` loop?",
+      {
+        "type": "Code",
+        "value": "let i = 0\nwhile (i >= 0) {\n  i--\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "0", "correct": false },
+      { "id": "2", "val": "-1", "correct": true },
+      { "id": "3", "val": "-1, -2", "correct": false },
+      { "id": "4", "val": "Infinite loop", "correct": false }
+    ],
+    "explanation": "The loop decrements `i` starting from 0, so the first output is -1 before the loop exits."
+  },
+  {
+    "id": "JS_fundamentals|loops|7",
+    "question": [
+      "What is the output of this `for` loop?",
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 5; i++) {\n  if (i === 2) {\n    continue\n  }\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "0 1 2 3 4", "correct": false },
+      { "id": "2", "val": "0 1 3 4", "correct": true },
+      { "id": "3", "val": "1 3 5", "correct": false },
+      { "id": "4", "val": "No output", "correct": false }
+    ],
+    "explanation": "The loop skips logging `2` due to the `continue` statement, so the output is `0 1 3 4`."
+  },
+  {
+    "id": "JS_fundamentals|loops|8",
+    "question": [
+      "What is the output of this `while` loop?",
+      {
+        "type": "Code",
+        "value": "let i = 0\nwhile (i < 5) {\n  if (i === 2) {\n    break\n  }\n  console.log(i)\n  i++\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "0 1 2 3 4", "correct": false },
+      { "id": "2", "val": "0 1 2", "correct": false },
+      { "id": "3", "val": "0 1", "correct": true },
+      { "id": "4", "val": "No output", "correct": false }
+    ],
+    "explanation": "The loop breaks when `i` equals 2, so only `0 1` are logged."
+  },
+  {
+    "id": "JS_fundamentals|loops|9",
+    "question": [
+      "What is the output of this `for` loop?",
+      {
+        "type": "Code",
+        "value": "let i = 1\nfor (; i < 5; i++) {\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "an Error will occur", "correct": false },
+      { "id": "2", "val": "1 2 3 4", "correct": true },
+      { "id": "3", "val": "1 2 3 4 5", "correct": false },
+      { "id": "4", "val": "2 3 4 5", "correct": false }
+    ]
+  }
 ]
