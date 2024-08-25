@@ -72,8 +72,8 @@ export default function Quiz({ route }) {
     resultsArray,
     setResultsArray,
   } = useNextQuestion({
-    chapName: route.params.chapName,
     topName: route.params.topName,
+    chapName: route.params.chapName,
     itemsArray: route.params.itemsArray,
     itemsCount,
     shuffle: route.params.shuffle,

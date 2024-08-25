@@ -1,12 +1,15 @@
-import { StackActions, useNavigation } from '@react-navigation/native'
-import { useState } from 'react'
-import { Alert } from 'react-native'
+import { StackActions, useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import { Alert } from 'react-native';
 
-import { quiz } from '../../data/quiz/quizModule'
-import { noQuestions } from '../../data/texts'
-import CustomModal from '../components/CustomModal'
-import { Item } from '../utils/types'
-import { getValue } from '../utils/utilStorage'
+
+
+import { quiz } from '../../data/quiz/quizModule';
+import { noQuestions } from '../../data/texts';
+import CustomModal from '../components/CustomModal';
+import { Item } from '../utils/types';
+import { getValue } from '../utils/utilStorage';
+
 
 //** This hook is used always before the Quiz screen is opened
 //** It prepares everything what is needed in order to start a quiz
@@ -32,14 +35,13 @@ const useOpenQuiz = () => {
 
   type openQuizPropType = {
     //? not sure if there should be `?` after topicName
-    topicName?: '' | string
+    topicName?: '' | string //equal to '' in all scenarios except 'Card'
     //todo: change __Again__ to __Retake__
     chapterName: '__All__' | '__Again__' | '__Saved__' | string
     // __All__ - scenario 2 (RQB)
     // __Again__ - scenario 3 (retake)
     // __Saved__ - scenario 4 (saved)
     // other - scenario 1 (Card)
-    //todo: change the name to smth else
     itemsCount?: number //used when retake or saved
     shuffle?: boolean //true if InfinityMode (RQB), otherwise undefined and will be set later on
     itemsArray?: Item[] //used when retake or saved, otherwise undefined
