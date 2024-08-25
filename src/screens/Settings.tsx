@@ -114,7 +114,7 @@ const Settings = () => {
         rippleColor={Colors.ripple}
         title={savedQuestions}
         left={() => (
-          <Ionicons name="bookmark-outline" size={24} color={'#714696'} />
+          <Ionicons name="bookmark-outline" size={24} color={'#745acd'} />
         )}
         right={() => <AntDesign name="right" size={24} color={Colors.border} />}
         //@ts-ignore
@@ -135,7 +135,7 @@ const Settings = () => {
           <MaterialCommunityIcons
             name="information-variant"
             size={26}
-            color="#714696"
+            color="#745acd"
           />
         )}
         right={() => <AntDesign name="right" size={24} color={Colors.border} />}

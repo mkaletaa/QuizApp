@@ -1,14 +1,11 @@
-import { Entypo } from '@expo/vector-icons';
-import React from 'react';
-import { View } from 'react-native';
-
-
+import { Entypo } from '@expo/vector-icons'
+import React from 'react'
+import { View } from 'react-native'
 
 // import RenderHtml from 'react-native-render-html'
-import {  Colors } from '../../utils/constants';
-import { renderComponent } from './_ContentRenderer';
-import Paragraph from './Paragraph';
-
+import { Colors } from '../../utils/constants'
+import { renderComponent } from './_ContentRenderer'
+import Paragraph from './Paragraph'
 
 export function List({ value, width }) {
   return (
@@ -19,10 +16,15 @@ export function List({ value, width }) {
           gap: 5,
         }}
       >
-        {
-          //@ts-ignore
-          value.map((item, index) => renderComponent(item, width))
-        }
+        {value.map((item, index) =>
+          typeof item === 'object' && item !== null ? (
+            // If item is an object, render using renderComponent
+            renderComponent(item, width)
+          ) : (
+            // If item is a string, render using ListElement
+            <ListElement key={index} value={item} width={width} />
+          ),
+        )}
       </View>
     </React.Fragment>
   )

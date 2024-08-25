@@ -76,7 +76,7 @@ export default function Header({ title }) {
               navigation.navigate('Donate')
             }}
           >
-          <FontAwesome6 name="circle-dollar-to-slot" size={25} color="rgb(77, 61, 178)" />
+          <FontAwesome6 name="circle-dollar-to-slot" size={25} color={Colors.primary} />
           </TouchableOpacity>
 
 

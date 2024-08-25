@@ -14,13 +14,12 @@ export default function Ad({ width }) {
         width: width,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red'
+        // backgroundColor: 'red'
       }}
     >
-      <View style={{width: '100%', height: 75}}></View>
       {/* <BannerAd
-        unitId={TestIds.BANNER}
-        size={BannerAdSize.LARGE_BANNER}
+        unitId={__DEV__ ? TestIds.BANNER : 'id'}
+        size={BannerAdSize.FULL_BANNER}
       ></BannerAd> */}
     </View>
   )
