@@ -42,12 +42,13 @@
       },
       {
         "type": "Code",
-        "value": "function example() {\n  console.log(this); // In non-strict mode, `this` is the global object or `undefined` in strict mode.\n}\nexample(); // In a browser, `this` would refer to the `window` object.",
+        "value": "function example(){\n  console.log(this) // window/global\n}\n\nexample()",
         "props": { "language": "javascript" }
       },
+
       {
         "type": "Code",
-        "value": "'use strict'\nfunction example() {\n  console.log(this); // In strict mode, `this` is `undefined` if the function is called without an explicit context.\n}\nexample(); // Logs `undefined`.",
+        "value": "\"use strict\"\nfunction example(){\n  console.log(this) // undefined\n}\n\nexample()",
         "props": { "language": "javascript" }
       },
       {
