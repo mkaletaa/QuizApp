@@ -28,7 +28,7 @@
       },
       {
         "type": "Text",
-        "value": "Mimo starań nie udało mi się wymyślić jak zapisać algorytmu i pseudokodu. Może ktoś mądrzejszy ode mnie podeśle odpowiedź."
+        "value": "Mimo starań nie udało mi się wymyślić jak zapisać algorytm i pseudokod. Może ktoś mądrzejszy ode mnie podeśle odpowiedź."
       }
     ]
   },
@@ -42,7 +42,7 @@
       },
       {
         "type": "Text",
-        "value": "Są to <b>kombinacje z powtórzeniami</b> - wyobraź sobie że masz wybrać ze sklepu 3 napoje do picia. Jedyne dostępne to Dzik, Harnaś i Perła biała pszeniczna. Czy wybierzesz <Harnasia, Dzika, Harnasia>; czy <Dzika, Harnasia, Harnasia> to jeden pies, bo kolejność nie ma znaczenia i koniec końców i tak wracasz z Dzikiem i dwoma Harnoldami. W zadaniu nie ma obiektu <1,2,1> ani <2,1,1> bo jest już <1,1,2>. Czaisz już? mam nadzieję"
+        "value": "Są to <b>kombinacje z powtórzeniami</b> - wyobraź sobie że masz wybrać ze sklepu 3 napoje do picia. Jedyne dostępne to Dzik, Harnaś i Perła biała pszeniczna. Czy wybierzesz [Harnasia, Dzika, Harnasia]; czy [Dzika, Harnasia, Harnasia] to jeden pies, bo kolejność nie ma znaczenia i koniec końców i tak wracasz z Dzikiem i dwoma Harnoldami. W zadaniu nie ma obiektu <1,2,1> ani <2,1,1> bo jest już <1,1,2>. Czaisz już? mam nadzieję"
       },
       {
         "type": "Header",

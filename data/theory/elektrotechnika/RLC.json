@@ -84,7 +84,7 @@
     ]
   },
   {
-    "title": "zadanie z kolokwium",
+    "title": "zadanie z kolokwium #1",
     "data": [
       {
         "type": "Image",
@@ -199,6 +199,29 @@
       {
         "type": "Text",
         "value": "Obliczyliśmy już wszystkie napięcia i prądy, czyli zadanie wykonane. Jakby ktoś się zastanawiał czemu mnożyłem przez (j/j) to po to, żeby pozbyć się jednostki urojonej z mianownika."
+      }
+    ]
+  },
+  {
+    "title": "zadanie z kolokwium #2",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/xTxw4FGQ/image.png",
+        "props": { "description": "2024" }
+      },
+      {
+        "type": "Spoiler",
+        "value": [
+          {
+            "type": "Image",
+            "value": "https://i.postimg.cc/jC0ZpPjz/IMG-20240825-104236.jpg"
+          }
+        ],
+        "props": {
+          "index": 2,
+          "text": "Pokaż rozwiązanie"
+        }
       }
     ]
   }

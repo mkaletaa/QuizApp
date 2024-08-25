@@ -4,28 +4,46 @@
     "data": [
       {
         "type": "Text",
-        "value": "Od 10 lat te same pytania. Jedynie różnią się liczby."
-      },
-
-      {
-        "type": "Image",
-        "value": "https://i.postimg.cc/6qdbRvjF/13-1.png",
-        "props": { "orientation": "portrait" }
+        "value": "Od 10 lat podobne pytania."
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/25KtfmL9/13-2.png",
-        "props": { "orientation": "portrait" }
+        "value": "https://i.postimg.cc/W3HB3sjX/elektro-1.png"
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/yxqrkPPF/13-3.png",
-        "props": { "orientation": "portrait" }
+        "value": "https://i.postimg.cc/wMRSRnjH/Bez-tytu-u1.png"
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/85f0p3hp/13-4.png",
-        "props": { "orientation": "portrait" }
+        "value": "https://i.postimg.cc/gcwJKJwc/Bez-tytu-u2.png"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/jqGj3bNH/Bez-tytu-u3.png"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/nM8N4TXm/Bez-tytu-u4.png"
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/6qdbRvjF/13-1.png"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/25KtfmL9/13-2.png"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/yxqrkPPF/13-3.png"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/85f0p3hp/13-4.png"
       },
       {
         "type": "Block",

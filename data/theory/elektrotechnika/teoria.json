@@ -88,13 +88,37 @@
       },
       {
         "type": "Header",
+        "value": "Podaj wzór na impedancję zespoloną układu szeregowego elementów RLC oraz określ wzorem warunek rezonansu szeregowego (rezonans napięć)",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Math",
+        "value": "`Z = R + jomegaL - j(1/(omegaC)) = R + Z_L + Z_C = R + j(X_L - X_C)`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Math",
+        "value": "warunek: `omega = 1/sqrt(LC)`",
+        "props": { 
+          "height": 70,
+          "fontSize": 15
+        }
+      },
+      {
+        "type": "Header",
         "value": "Narysuj przebieg sinusoidalny, zaznacz i opisz jego wielkości charakterystyczne oraz zdefiniuj wartość skuteczną dla przebiegu sinusoidalnego",
         "props": { "size": "sm" }
       },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/4dZ2FFgX/image.png",
-        "props": { "description": "Tutaj są zaznaczone okres i amplituda, można jeszcze zaznaczyć wartość maksymalną", "orientation": "horizontal" }
+        "props": {
+          "description": "Tutaj są zaznaczone okres i amplituda, można jeszcze zaznaczyć wartość maksymalną",
+          "orientation": "horizontal"
+        }
       },
       {
         "type": "Text",

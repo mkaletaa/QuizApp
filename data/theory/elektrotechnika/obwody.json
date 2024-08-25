@@ -9,7 +9,7 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/JhTKcqjT/oczko.png",
-        "props":{"description":"Mamy tu dwa oczka"}
+        "props": { "description": "Mamy tu dwa oczka" }
       },
       {
         "type": "Text",
@@ -18,7 +18,9 @@
       {
         "type": "Image",
         "value": "https://i.postimg.cc/85pcDR3V/obieg.png",
-        "props": { "description": "strzałka napięcia jest przeciwnego zwrotu co strzałka prądu gałęziowego"}
+        "props": {
+          "description": "strzałka napięcia jest przeciwnego zwrotu co strzałka prądu gałęziowego"
+        }
       },
       {
         "type": "Text",
@@ -27,12 +29,12 @@
     ]
   },
   {
-    "title": "zadanie z kolokwium",
+    "title": "zadanie z kolokwium #1",
     "data": [
       {
         "type": "Image",
         "value": "https://i.postimg.cc/qR7qMXTx/image.png",
-        "props": { "description":"2024", "orientation": "horizontal" }
+        "props": { "description": "2024", "orientation": "horizontal" }
       },
       {
         "type": "Text",
@@ -110,6 +112,29 @@
       {
         "type": "Text",
         "value": "Pamiętaj, że bardziej skomplikowane układy równań możesz rozwiazać metodą wyznacznikową."
+      }
+    ]
+  },
+  {
+    "title": "zadanie z kolokwium #2",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/SQ85rxRW/image.png",
+        "props": { "description": "2024" }
+      },
+      {
+        "type": "Spoiler",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Jeśli nic tu nie ma to znaczy że zapomniałem dodać rozwiązanie."
+          }
+        ],
+        "props": {
+          "index": 2,
+          "text": "Pokaż rozwiązanie"
+        }
       }
     ]
   }
