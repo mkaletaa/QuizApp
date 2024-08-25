@@ -1,5 +1,4 @@
-import { useNavigation } from '@react-navigation/native'
-import { StackActions } from '@react-navigation/native'
+import { StackActions, useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 
 import { quiz } from '../../data/quiz/quizModule'
@@ -47,13 +46,11 @@ const useOpenQuiz = () => {
     itemsArray,
     isRetake = false, // if user is retaking the same quiz
   }: openQuizPropType): void => {
-
-
     if (
       !quiz.hasOwnProperty(chapterName) &&
       chapterName !== '__Saved__' &&
-      chapterName !== '__Again__'&&
-      chapterName !== '__All__' 
+      chapterName !== '__Again__' &&
+      chapterName !== '__All__'
     ) {
       //when a chapter does not have any quiz
       setShowNoQuestionsModal(true)
