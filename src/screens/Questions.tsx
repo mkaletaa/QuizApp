@@ -2,6 +2,7 @@ import { useHeaderHeight } from '@react-navigation/elements'
 import { useEffect, useState } from 'react'
 import { FlatList, View } from 'react-native'
 
+import { quiz } from '../../data/quiz/quizModule'
 import {
   contentContainerStyle,
   EmptyState,
@@ -13,7 +14,6 @@ import useOpenQuiz from '../hooks/useOpenQuiz'
 import { Colors } from '../utils/constants'
 import { countItemsInTopic, importItem } from '../utils/getQuizData'
 import { Item } from '../utils/types'
-import { quiz } from '../../data/quiz/quizModule'
 
 export default function Questions({ route }) {
   const [itemsCount, setItemsCount] = useState(0)
@@ -97,7 +97,7 @@ export default function Questions({ route }) {
                   chapterName: route.params.chapterName,
                   //@ts-ignore
                   itemsArray: items,
-                  howManyItems: itemsCount,
+                  itemsCount: itemsCount,
                 })
               }}
               onToggleSwitch={null}

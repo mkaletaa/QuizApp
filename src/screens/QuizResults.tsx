@@ -62,7 +62,7 @@ export default function QuizResults({ route }) {
     openQuiz({
       chapterName: '__Again__',
       itemsArray: itemsArray,
-      howManyItems: itemsArray.length,
+      itemsCount: itemsArray.length,
       isRetake: true,
     })
   }

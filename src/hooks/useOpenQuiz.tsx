@@ -14,7 +14,7 @@ import { getValue } from '../utils/utilStorage'
 /*
  * There are a few scenarios where this hook is invoked:
  * 1 (aka 'Card') User pressed a Card in the `Topics` screen or pressed a button (there are 2 available) in a `Theory` screen.
- * 2 (aka 'RQB') User pressed RandomQuestionButton (RQButton) which opens InfinityMode
+ * 2 (aka 'RQB') User pressed RandomQuestionButton which opens quiz in InfinityMode
  * 3 (aka 'retake') User is in `QuizResults` screen and pressed one out of two buttons that enable to retake a quiz
  * 4 (aka 'saved') User pressed a button inside `Saved` screen and is taking a quiz out of saved questions (items)
  *
@@ -22,8 +22,8 @@ import { getValue } from '../utils/utilStorage'
  * Depending on the the scenario, different props are passed to the `openQuiz` function:
  *
  * 1: Only chapterName and topicName are passed. There is no more explanation needed
- * 2: Only chapterName, topicName = '', howManyItems = Infinity, shuffle= true. If it has been pressed in `Chapters` screen, chapterName = '__All__'
- * 3: chapterName = "__Again__", itemsArray, howManyItems, isRetake = true are passed. itemsArray is of type Item[] and it is simply an array of questions to answer again. howManyItems is the size of itemsArray
+ * 2: Only chapterName, itemsCount = Infinity, shuffle= true. If it has been pressed in `Chapters` screen, chapterName = '__All__'
+ * 3: chapterName = "__Again__", itemsArray, itemsCount, isRetake = true are passed. itemsArray is of type Item[] and it is simply an array of questions to answer again. itemsCount is the size of itemsArray
  * 4: Like 3, but chapterName = '__Saved__'
  */
 const useOpenQuiz = () => {
@@ -40,7 +40,7 @@ const useOpenQuiz = () => {
     // __Saved__ - scenario 4 (saved)
     // other - scenario 1 (Card)
     //todo: change the name to smth else
-    howManyItems?: number //used when retake or saved
+    itemsCount?: number //used when retake or saved
     shuffle?: boolean //true if InfinityMode (RQB), otherwise undefined and will be set later on
     itemsArray?: Item[] //used when retake or saved, otherwise undefined
     isRetake?: boolean //true if retaking quiz, otherwise undefined
@@ -48,30 +48,32 @@ const useOpenQuiz = () => {
 
   // this function prepares necessary data for the quiz
   const openQuiz = ({
-    topicName,
+    topicName = '',
     chapterName,
-    howManyItems,
+    itemsCount,
     shuffle,
     itemsArray,
     isRetake = false,
   }: openQuizPropType): void => {
-    //* executes in scenario 2 and there are no questions available
+    //* executes in scenario 'RQB' and there are no questions available OR in scenario 'Card' and whole chapter has no quizes
     if (
       !quiz.hasOwnProperty(chapterName) &&
       chapterName !== '__Saved__' &&
       chapterName !== '__Again__' &&
       chapterName !== '__All__'
     ) {
+      Alert.alert('RQB, no quiz available')
       setShowNoQuestionsModal(true)
-      return
-    } //? maybe try to merge it with ifs below?
-
-    //* executes in scenario 2 and there are questions available
-    if (howManyItems === Infinity) {
+      // return
+    } // merged this with the rest of if statements. I see no bugs yet
+    //* executes in scenario 'RQB' and there are questions available
+    else if (itemsCount === Infinity) {
+      Alert.alert('RQB, quiz available')
       navigateToQuiz()
     }
     //* executes in scenario 'Card' (and there is a quiz available) OR in scenario 3 'retake' OR in scenario 4 'saved'. This is the most common case
     else if (itemsArray || quiz[chapterName][topicName]) {
+      Alert.alert('Card (quiz available) OR retake OR saved, quiz available')
       // check if questions should be shuffled
       ;(async () => {
         shuffle = await getValue('shuffle')
@@ -80,6 +82,7 @@ const useOpenQuiz = () => {
     }
     //* executes in scenario 'Card' (and there is no quiz available)
     else {
+      Alert.alert('Card, no quiz available')
       setShowNoQuestionsModal(true)
     }
 
@@ -87,7 +90,7 @@ const useOpenQuiz = () => {
       const quizParams = {
         topName: topicName,
         chapName: chapterName,
-        howManyItems: howManyItems,
+        howManyItems: itemsCount,
         shuffle,
         itemsArray,
       }

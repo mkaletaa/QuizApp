@@ -10,9 +10,9 @@ export default function RandomQuestionButton({ chapName }) {
   function instantQuestion() {
     try {
       openQuiz({
-        topicName: '',
+        // topicName: '',
         chapterName: chapName,
-        howManyItems: Infinity,
+        itemsCount: Infinity,
         shuffle: true,
       })
     } catch (e) {
