@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Divider } from 'react-native-paper'
 
 import { topics } from '../../data/data'
 import { quiz } from '../../data/quiz/quizModule'
@@ -66,6 +67,10 @@ export default function Achievements() {
     fetchData()
   }, [])
 
+  const rangs = [
+    { name: 'expert', min: 72, max: 90 },
+    { name: 'laik', min: 0, max: 71 },
+  ]
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.heading}>Achievements</Text>
@@ -79,48 +84,129 @@ export default function Achievements() {
         Total number of correct answers:{' '}
         {goodAnsCount !== null ? goodAnsCount : 0}
       </Text>
+      {/* {
+        rangs.map(el => {
+          if (goodAnsCount >= el.min && goodAnsCount <= el.max) return
+        })
+      } */}
+      {rangs.map(el => {
+        if (goodAnsCount >= el.min && goodAnsCount <= el.max) {
+          return (
+            <>
+              <Text>Twoja ranga to: {el.name}</Text>
+              <View
+                style={{
+                  width: '100%',
+                  backgroundColor: 'grey',
+                  height: 15,
+                  borderRadius: 10,
+                  overflow: 'hidden',
+                }}
+              >
+                <View
+                  style={{
+                    width: `${(goodAnsCount / el.max) * 100}%`,
+                    backgroundColor: 'green',
+                    height: '100%',
+                    borderRadius: 10,
+                  }}
+                />
+              </View>
+            </>
+          )
+        }
+        return null // jeśli warunek nie jest spełniony, zwracamy null
+      })}
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Chapter Stats</Text>
         {chaptersGoodAnsCount !== null &&
-          chaptersGoodAnsCount.map(el => (
-            <Text key={el.name} style={styles.item}>
-              Number of correct answers for {el.name} chapter: {el.count}
-            </Text>
+          chaptersGoodAnsCount.map(chapter => (
+            <View key={chapter.name}>
+              {rangs.map(rang => {
+                if (chapter.count >= rang.min && chapter.count <= rang.max) {
+                  return (
+                    <View key={rang.name}>
+                      <Text>
+                        Twoja ranga w rozdziale {chapter.name} to: {rang.name}
+                      </Text>
+                      <Text key={chapter.name} style={styles.item}>
+                        Number of correct answers for {chapter.name} chapter:{' '}
+                        {chapter.count}
+                      </Text>
+                      <View
+                        style={{
+                          width: '100%',
+                          backgroundColor: 'grey',
+                          height: 15,
+                          borderRadius: 10,
+                          overflow: 'hidden',
+                        }}
+                      >
+                        <View
+                          style={{
+                            width: `${(chapter.count / rang.max) * 100}%`,
+                            backgroundColor: 'green',
+                            height: '100%',
+                            borderRadius: 10,
+                          }}
+                        />
+                      </View>
+                    </View>
+                  )
+                }
+                return null // jeśli warunek nie jest spełniony, zwracamy null
+              })}
+            </View>
           ))}
       </View>
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Topic Stats</Text>
         {topicsAllGoodAnsCount !== null &&
-          topicsAllGoodAnsCount.map(el => {
+          topicsAllGoodAnsCount.map((el, i) => {
             // console.log(topics[el.chapter].find(top=>top.name === el.topic).image)
             return (
-              <View
-                key={`${el.chapter}-${el.topic}`}
-                style={{ flexDirection: 'row', gap: 10 }}
-              >
-                <View>
-                  <Image
-                    style={{ width: 70, height: 70, tintColor: 'gray' }}
-                    source={{
-                      uri: `${topics[el.chapter].find(top => top.name === el.topic).image}`,
-                    }}
-                  />
-                  <Image
-                    style={{
-                      width: 70,
-                      height: 70,
-                      position: 'absolute',
-                      opacity: el.count>0 ? 1 : .2,
-                    }}
-                    source={{
-                      uri: `${topics[el.chapter].find(top => top.name === el.topic).image}`,
-                    }}
-                  />
+              <>
+                {i === 0 && <Text>{topicsAllGoodAnsCount[0].chapter}</Text>}
+
+                {topicsAllGoodAnsCount[i].chapter ===
+                  topicsAllGoodAnsCount[i + 1]?.chapter && (
+                  <Text>{topicsAllGoodAnsCount[i].chapter}</Text>
+                )}
+                <View
+                  key={`${el.chapter}-${el.topic}`}
+                  style={{ flexDirection: 'row', gap: 10 }}
+                >
+                  <View>
+                    <Image
+                      style={{
+                        width: 70,
+                        height: 70,
+                        tintColor: 'gray',
+                        borderRadius: 5,
+                      }}
+                      source={{
+                        uri: `${topics[el.chapter].find(top => top.name === el.topic).image}`,
+                      }}
+                    />
+                    <Image
+                      style={{
+                        width: 70,
+                        height: 70,
+                        position: 'absolute',
+                        opacity: el.count > 0 ? 1 : 0.2,
+                        borderRadius: 5,
+                      }}
+                      source={{
+                        uri: `${topics[el.chapter].find(top => top.name === el.topic).image}`,
+                      }}
+                    />
+                  </View>
+                  <Text style={styles.item}>
+                    {el.topic} | {el.count}
+                  </Text>
                 </View>
-                <Text style={styles.item}>
-                  Complete {el.topic} quiz ({el.chapter}) perfectly | {el.count}
-                </Text>
-              </View>
+              </>
             )
           })}
       </View>
