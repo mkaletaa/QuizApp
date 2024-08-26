@@ -18,6 +18,15 @@
         "type": "Code",
         "value": "async function fetchData(){\n  return 'some data'\n}\n\nasync function voidFunction(){\n  console.log(\"This function doesn't have any return statement\")\n}\n\nconst fetchDataResult = fetchData()\nconst voidFunctionResult = voidFunction()\n\nconsole.log(fetchDataResult instanceof Promise) // true\nconsole.log(voidFunctionResult instanceof Promise) // true",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Async functions are a good alternative to Promises because of their syntax which resembles synchronous code."
+      },
+      {
+        "type": "Code",
+        "value": "function myFunction() {\n    return Promise.resolve('success');\n}\n\nmyFunction()\n    .then(result => {\n        console.log(result);\n    })\n\n// the same as:\n\nasync function myFunction() {\n    return 'success';\n}\n\nmyFunction()\n    .then(result => {\n        console.log(result); // 'success'\n    });",
+        "props": {"language": "javascript" }
       }
     ]
   },
@@ -26,7 +35,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The `await` keyword is used inside `async` functions to pause the execution of the function until the promise is resolved or rejected. It makes asynchronous code look synchronous and easier to read."
+        "value": "The `await` keyword is used inside `async` functions to pause the execution of the function until the promise that goes after it is resolved or rejected. Technically, it could also be followed by something that is not a Promise, but this would be useless and would work as if `await` wasn't there."
       },
 
       {
@@ -36,7 +45,7 @@
       },
       {
         "type": "Text",
-        "value": "In the example above, the line with `await` keyword screams to the code below it: <i>\"Hey, guys, wait for me!\"</i> <br></br>Od niedawna słowa await można używać również poza funkcjami poprzedzonymi słowem async."
+        "value": "In the example above, the line with `await` keyword screams to the code below it: <i>\"Hey, guys, (a)wait for me to resolve!\"</i> Without it an unresolved Promise would be logged to the console.<br></br>Od niedawna słowa await można używać również poza funkcjami poprzedzonymi słowem async but as it is a new feature"
       },
       {
         "type": "Code",
@@ -46,57 +55,28 @@
     ]
   },
   {
-    "title": "Error Handling",
-    "data": [
-      {
-        "type": "Text",
-        "value": "Error handling in `async` functions is done using `try` and `catch` blocks. This is similar to synchronous code and allows you to handle errors gracefully."
-      },
-      {
-        "type": "Code",
-        "value": "async function getData() {\n  try {\n    let result = await fetchData();\n    console.log(result);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n\ngetData();",
-        "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Chaining Async Functions",
-    "data": [
-      {
-        "type": "Text",
-        "value": "You can chain multiple `async` functions together. Each `async` function will wait for the previous one to complete before proceeding."
-      },
-      {
-        "type": "Code",
-        "value": "async function fetchData() {\n  return 'Data';\n}\n\nasync function processData() {\n  let data = await fetchData();\n  console.log('Processing:', data);\n}\n\nprocessData();",
-        "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
     "title": "Using Async/Await with Promises",
     "data": [
       {
         "type": "Text",
-        "value": "You can use `async`/`await` to work with promises in a more readable manner compared to traditional `then`/`catch` methods."
+        "value": "Remember async functions always return a promise so you can use them alongside with other promises or chain multiple async functions together."
       },
-      {
-        "type": "Code",
-        "value": "function fetchData() {\n  return new Promise((resolve) => {\n    setTimeout(() => resolve('Data'), 1000);\n  });\n}\n\nasync function getData() {\n  let data = await fetchData();\n  console.log(data); // Logs: 'Data'\n}\n\ngetData();",
-        "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Parallel Async Operations",
-    "data": [
       {
         "type": "Text",
-        "value": "To perform multiple asynchronous operations in parallel and wait for all of them to complete, use `Promise.all` inside an `async` function."
+        "value": "For example, to perform multiple asynchronous operations in parallel and wait for all of them to complete, use `Promise.all` inside an `async` function."
       },
       {
         "type": "Code",
-        "value": "async function fetchData1() {\n  return 'Data 1';\n}\n\nasync function fetchData2() {\n  return 'Data 2';\n}\n\nasync function getAllData() {\n  let [data1, data2] = await Promise.all([fetchData1(), fetchData2()]);\n  console.log(data1, data2); // Logs: 'Data 1 Data 2'\n}\n\ngetAllData();",
+        "value": "async function fetchData1() {\n  return 'Data 1';\n}\n\nasync function fetchData2() {\n  return 'Data 2';\n}\n\nasync function getAllData() {\n  let [data1, data2] = await Promise.all([fetchData1(), fetchData2()]);\n  console.log(data1, data2); // 'Data 1','Data 2'\n}\n\ngetAllData();",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the code below each `async` function will wait for the previous one to complete before proceeding."
+      },
+      {
+        "type": "Code",
+        "value": "async function fetchData() {\n  return 'Data';\n}\n\nasync function processData() {\n  let data = await fetchData();\n  console.log('Processing:', data);\n}\n\nprocessData();",
         "props": { "language": "javascript" }
       }
     ]
