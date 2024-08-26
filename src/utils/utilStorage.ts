@@ -53,6 +53,17 @@ export const removeQuestion = async id => {
   }
 }
 
+export const compareInfiniteStreak = async (result: number) => {
+  try {
+    const bestInfiniteStreak = await getValue('infiniteStreak')
+    if (bestInfiniteStreak === null || result > bestInfiniteStreak)
+      setValue('infiniteStreak', result)
+    console.log('comparing infinite streak succeeded')
+  } catch (error) {
+    console.error('Error during comparing infinite streak: ', error)
+  }
+}
+
 export const setStats = async id => {
   try {
     // Pobierz wartość z AsyncStorage

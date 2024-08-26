@@ -13,6 +13,7 @@ import { getDailyStreak, getValue } from '../utils/utilStorage'
 //todo: topicGoodAnsCount raczej zlikiwdować
 export default function Achievements() {
   const [streak, setStreak] = useState<number | null>(null)
+  const [infiniteStreak, setInfiniteStreak] = useState<number | null>(null)
   const [goodAnsCount, setGoodAnsCount] = useState<number | null>(null)
   const [chaptersGoodAnsCount, setChaptersGoodAnsCount] = useState<
     { name: string; count: number }[] | null
@@ -27,6 +28,9 @@ export default function Achievements() {
         const streakResult = await getDailyStreak()
         setStreak(streakResult)
         console.log('🚀 ~ fetchData ~ streakResult:', streakResult)
+
+        const infiniteStreakResult = await getValue('infiniteStreak')
+        setInfiniteStreak(infiniteStreakResult)
 
         const goodAnsCountResult = await getValue('goodAnsCount')
         setGoodAnsCount(goodAnsCountResult)
@@ -80,6 +84,7 @@ export default function Achievements() {
       <Text style={styles.info}>
         Complete at least one quiz everyday to increase the streak
       </Text>
+      <Text>Infinite streak maximum: {infiniteStreak !== null ? infiniteStreak : 0}</Text>
       <Text style={styles.totalCorrectAnswers}>
         Total number of correct answers:{' '}
         {goodAnsCount !== null ? goodAnsCount : 0}

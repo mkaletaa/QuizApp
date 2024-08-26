@@ -40,8 +40,9 @@ import useNextQuestion from '../hooks/useNextQuestion'
 import { Colors } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
+import useStore from '../utils/store'
 import { Option, Result } from '../utils/types'
-import { getValue, setStats } from '../utils/utilStorage'
+import { compareInfiniteStreak, getValue, setStats } from '../utils/utilStorage'
 
 const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
   requestNonPersonalizedAdsOnly: true,
@@ -52,6 +53,9 @@ export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
+
+  const incrementInfiniteStreak = useStore.getState().incrementInfiniteStreak
+  const resetInfiniteStreak = useStore.getState().resetInfiniteStreak
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
@@ -111,6 +115,8 @@ export default function Quiz({ route }) {
 
     if (thisQuestionResult === 'correct') setStats(item.id)
 
+    if (route.params.chapName === '__All__') incrementInfiniteStreak()
+
     let result: Result
     if (itemsCount !== Infinity) {
       result = {
@@ -157,6 +163,9 @@ export default function Quiz({ route }) {
   // }, [])
 
   function closeModalAndGoBack(): void {
+    if (route.params.chapName === '__All__') {
+      resetInfiniteStreak()
+    }
     setShowExitModal(false)
     navigation.goBack()
   }

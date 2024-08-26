@@ -1,4 +1,9 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
+
+
+
+import { compareInfiniteStreak } from './utilStorage'
+
 
 const useStore = create(set => ({
   carousel: false, // should the carousel be enabled or not
@@ -7,6 +12,8 @@ const useStore = create(set => ({
   showBottomSheet: false,
   bottomSheetSnapIndex: 0,
   bottomSheetContent: [],
+  infiniteStreak: 0,
+  goodInfiniteStreak: 0,
   // navigateTo: undefined,
   addImage: (imageUrl, imageDes) => {
     set(state => ({
@@ -22,6 +29,16 @@ const useStore = create(set => ({
   setBottomSheetSnapIndex: index => set({ bottomSheetSnapIndex: index }),
   setBottomSheetContent: state => set({ bottomSheetContent: state }),
   // setNavigateTo: (destination, chapter, topic) => set({ navigateTo: {destination, chapter, topic} }),
+  incrementInfiniteStreak: () =>
+    set(state => {
+      console.log('infiniteStreak: ', state.infiniteStreak)
+      return { infiniteStreak: state.infiniteStreak + 1 }
+    }),
+  resetInfiniteStreak: () =>
+    set((state) => {
+      compareInfiniteStreak(state.infiniteStreak)
+      return { infiniteStreak: 0 }
+    }),
 }))
 
 export default useStore
