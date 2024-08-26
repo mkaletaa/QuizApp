@@ -8,29 +8,39 @@
     ]
   },
   {
-    "title": "Async Function",
+    "title": "Async functions",
     "data": [
       {
         "type": "Text",
-        "value": "An `async` function is a function that implicitly returns a promise and allows the use of the `await` keyword inside it. The `async` keyword is placed before a function declaration or expression."
+        "value": "An async function can be created by placing `async` keyword before `function` keyword. They always return a promise."
       },
       {
         "type": "Code",
-        "value": "async function fetchData() {\n  return 'Data';\n}\n\nfetchData().then(result => {\n  console.log(result); // Logs: 'Data'\n});",
+        "value": "async function fetchData(){\n  return 'some data'\n}\n\nasync function voidFunction(){\n  console.log(\"This function doesn't have any return statement\")\n}\n\nconst fetchDataResult = fetchData()\nconst voidFunctionResult = voidFunction()\n\nconsole.log(fetchDataResult instanceof Promise) // true\nconsole.log(voidFunctionResult instanceof Promise) // true",
         "props": { "language": "javascript" }
       }
     ]
   },
   {
-    "title": "Await Keyword",
+    "title": "Await keyword",
     "data": [
       {
         "type": "Text",
         "value": "The `await` keyword is used inside `async` functions to pause the execution of the function until the promise is resolved or rejected. It makes asynchronous code look synchronous and easier to read."
       },
+
       {
         "type": "Code",
-        "value": "async function getData() {\n  let result = await fetchData();\n  console.log(result); // Logs: 'Data'\n}\n\ngetData();",
+        "value": "async function example() {\n  const num = await Promise.resolve(42)\n  console.log(num); // 42\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the example above, the line with `await` keyword screams to the code below it: <i>\"Hey, guys, wait for me!\"</i> <br></br>Od niedawna słowa await można używać również poza funkcjami poprzedzonymi słowem async."
+      },
+      {
+        "type": "Code",
+        "value": "//przykład",
         "props": { "language": "javascript" }
       }
     ]

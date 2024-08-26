@@ -38,3 +38,7 @@ export const hideAnswersExplain =
 export const showOptions = 'Show answers'
 export const showSpoiler = 'Show spoiler'
 export const exit = 'Exit'
+
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.reject('Second')
+const promise3 = Promise.resolve('Third')

@@ -1,31 +1,39 @@
 [
   {
-    "title": "Promises in JavaScript",
+    "title": "Promises overview",
     "data": [
       {
         "type": "Text",
-        "value": "Promises are a modern JavaScript feature used to handle asynchronous operations more gracefully than traditional callbacks. A promise represents a value that may be available now, or in the future, or never. It is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value."
+        "value": "Promises are a modern JavaScript feature used to handle asynchronous operations. A promise represents a value that may be available now, or in the future, or never. It is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value."
       },
       {
         "type": "Text",
-        "value": "A promise has three states:\n\n1. **Pending**: The initial state, meaning the promise is still waiting for the asynchronous operation to complete.\n2. **Fulfilled**: The state when the asynchronous operation completes successfully, and the promise has a result value.\n3. **Rejected**: The state when the asynchronous operation fails, and the promise has a reason or error message."
+        "value": "A promise may be in on of three states:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<b>Pending</b>: The initial state, meaning the promise is still waiting for the asynchronous operation to complete.",
+          "<b>Fulfilled</b>: The state when the asynchronous operation completes successfully, and the promise has a result value.",
+          "<b>Rejected</b>: The state when the asynchronous operation fails, and the promise has a reason or error message."
+        ]
       },
       {
         "type": "Text",
-        "value": "To create a promise, you use the `Promise` constructor which takes a function with two parameters: `resolve` and `reject`. You call `resolve` when the operation is successful and `reject` when an error occurs."
+        "value": "How to create a Promise? Some functions, like fetch() or those preceded with `async` keyword always return one. You can also use the `Promise` constructor which takes a function with two parameters: `resolve` and `reject`. You call `resolve` when the operation is successful and `reject` when an error occurs."
       },
       {
         "type": "Code",
-        "value": "const myPromise = new Promise((resolve, reject) => {\n  // Simulate an asynchronous operation using setTimeout\n  setTimeout(() => {\n    const success = true; // Change to false to simulate an error\n    if (success) {\n      resolve('Operation was successful!');\n    } else {\n      reject('Operation failed!');\n    }\n  }, 2000);\n});",
+        "value": "const myPromise = new Promise((resolve, reject) => {\n  const success = true // change to false to simulate an error\n\n  if (success) \n    resolve('OK')\n  else \n    reject('something went wrong')\n})",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "Once a promise is created, you handle its result using `then` and `catch` methods. `then` is used to specify what to do when the promise is fulfilled, and `catch` is used to handle errors if the promise is rejected."
+        "value": "Once a promise is created, you handle its result using then, catch, and finally methods. then is used to specify what to do when the promise is fulfilled, catch is used to handle errors if the promise is rejected, and finally is used to specify a block of code that will execute regardless of whether the promise was fulfilled or rejected, making it useful for cleanup operations or final steps that need to happen no matter what."
       },
       {
         "type": "Code",
-        "value": "myPromise\n  .then(result => {\n    console.log(result); // Logs: 'Operation was successful!'\n  })\n  .catch(error => {\n    console.error(error); // Logs: 'Operation failed!'\n  });",
+        "value": "// ...\nmyPromise\n  .then(result => {\n    console.log(result)\n  })\n  .catch(error => {\n    console.log(error)\n  })\n  .finally(() => {\n    console.log('This runs regardless of success or failure')\n  })",
         "props": { "language": "javascript" }
       },
       {
@@ -34,114 +42,102 @@
       },
       {
         "type": "Code",
-        "value": "myPromise\n  .then(result => {\n    console.log(result);\n    return 'Next step';\n  })\n  .then(nextStep => {\n    console.log(nextStep);\n  })\n  .catch(error => {\n    console.error(error);\n  });",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "Promises also have utility methods like `Promise.all` for handling multiple promises simultaneously, and `Promise.race` for dealing with the first promise that settles."
-      },
-      {
-        "type": "Code",
-        "value": "const promise1 = Promise.resolve('First');\nconst promise2 = Promise.resolve('Second');\n\nPromise.all([promise1, promise2])\n  .then(results => {\n    console.log(results); // Logs: ['First', 'Second']\n  });",
+        "value": "// ...\nmyPromise\n  .then(result => {\n    console.log(result);\n    return 'Next step';\n  })\n  .then(nextStep => {\n    console.log(nextStep);\n  })\n  .catch(error => {\n    console.error(error);\n  });",
         "props": { "language": "javascript" }
       }
     ]
   },
   {
-    "title": "Promise.all",
+    "title": "Static methods",
     "data": [
+      {
+        "type": "Header",
+        "value": "Promise.resolve",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The `Promise.resolve` method returns a promise that is resolved with the given value. This can be useful for creating a promise that is already resolved. Notice we don't use `new` keyword."
+      },
+      {
+        "type": "Code",
+        "value": "const p = Promise.resolve('OK')\n\np.then(message => console.log(message)) // 'OK'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Promise.reject",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The `Promise.reject` method returns a promise that is rejected with the given reason. This can be useful for creating a promise that is already in a rejected state. Notice we don't use `new` keyword."
+      },
+      {
+        "type": "Code",
+        "value": "const p = Promise.reject('ERROR')\n\np.catch(message => console.log(message)) // 'ERROR'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Promise.all()",
+        "props": { "size": "md" }
+      },
       {
         "type": "Text",
         "value": "The `Promise.all` method takes an iterable (usually an array) of promises and returns a single promise that resolves when all of the promises in the iterable have resolved. If any of the promises in the array are rejected, the returned promise is immediately rejected with the reason of the first promise that was rejected."
       },
       {
         "type": "Code",
-        "value": "const promise1 = Promise.resolve('First');\nconst promise2 = Promise.resolve('Second');\nconst promise3 = new Promise((resolve) => setTimeout(() => resolve('Third'), 1000));\n\nPromise.all([promise1, promise2, promise3])\n  .then(results => {\n    console.log(results); // Logs: ['First', 'Second', 'Third']\n  })\n  .catch(error => {\n    console.error(error);\n  });",
+        "value": "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.resolve('Second')\nconst promise3 = Promise.resolve('Third')\n\nPromise.all([promise1, promise2, promise3])\n  .then(message => console.log(message)) // ['First','Second','Third']\n  .catch(err => console.log(err))",
         "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Promise.allSettled",
-    "data": [
+      },
+      {
+        "type": "Header",
+        "value": "Promise.allSettled",
+        "props": { "size": "md" }
+      },
+
       {
         "type": "Text",
         "value": "The `Promise.allSettled` method takes an iterable of promises and returns a single promise that resolves after all of the given promises have either resolved or rejected. It provides an array of objects that describe the outcome of each promise, including whether each promise was fulfilled or rejected."
       },
       {
         "type": "Code",
-        "value": "const promise1 = Promise.resolve('Success');\nconst promise2 = Promise.reject('Error');\n\nPromise.allSettled([promise1, promise2])\n  .then(results => {\n    results.forEach(result => {\n      if (result.status === 'fulfilled') {\n        console.log('Fulfilled with value:', result.value);\n      } else {\n        console.error('Rejected with reason:', result.reason);\n      }\n    });\n  });",
+        "value": "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.reject('Second')\nconst promise3 = Promise.resolve('Third')\n\nPromise.allSettled([promise1, promise2, promise3])\n   .then(message =>\n     console.log(message)\n    ) \n\n/* Output:\n[\n  {\n    \"status\": \"fulfilled\",\n    \"value\": \"First\"\n  },\n  {\n    \"status\": \"rejected\",\n    \"reason\": \"Second\"\n  },\n  {\n    \"status\": \"fulfilled\",\n    \"value\": \"Third\"\n  }\n]\n*/",
         "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Promise.race",
-    "data": [
+      },
+      {
+        "type": "Header",
+        "value": "Promise.race",
+        "props": { "size": "md" }
+      },
       {
         "type": "Text",
         "value": "The `Promise.race` method takes an iterable of promises and returns a single promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects. The returned promise resolves or rejects with the same value or reason as the first promise that settles."
       },
       {
         "type": "Code",
-        "value": "const promise1 = new Promise((resolve) => setTimeout(() => resolve('First'), 2000));\nconst promise2 = new Promise((resolve) => setTimeout(() => resolve('Second'), 1000));\n\nPromise.race([promise1, promise2])\n  .then(result => {\n    console.log(result); // Logs: 'Second'\n  });",
+        "value": "const promise1 = new Promise((resolve) =>\n    setTimeout(() => resolve('First'), 2000));\n\nconst promise2 = new Promise((resolve) =>\n    setTimeout(() => resolve('Second'), 1000));\n\nPromise.race([promise1, promise2])\n  .then(result => {\n    console.log(result); // 'Second'\n  });",
         "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Promise.finally",
-    "data": [
-      {
-        "type": "Text",
-        "value": "The `Promise.finally` method adds a final callback to be executed regardless of whether the promise is fulfilled or rejected. It is useful for cleaning up code or performing operations that should run whether or not the promise was successful."
       },
       {
-        "type": "Code",
-        "value": "const promise = new Promise((resolve, reject) => {\n  setTimeout(() => resolve('Done'), 1000);\n});\n\npromise\n  .then(result => {\n    console.log(result); // Logs: 'Done'\n  })\n  .catch(error => {\n    console.error(error);\n  })\n  .finally(() => {\n    console.log('This runs regardless of success or failure.');\n  });",
-        "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Promise.any",
-    "data": [
+        "type": "Header",
+        "value": "Promise.finally",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Header",
+        "value": "Promise.any",
+        "props": { "size": "md" }
+      },
       {
         "type": "Text",
         "value": "The `Promise.any` method returns a promise that resolves as soon as one of the promises in the iterable fulfills, or rejects if all of the promises are rejected."
       },
       {
         "type": "Code",
-        "value": "const promise1 = Promise.reject('Error 1');\nconst promise2 = Promise.resolve('Success');\nconst promise3 = Promise.reject('Error 2');\n\nPromise.any([promise1, promise2, promise3])\n  .then(result => {\n    console.log(result); // Logs: 'Success'\n  })\n  .catch(error => {\n    console.error(error);\n  });",
-        "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Promise.resolve",
-    "data": [
-      {
-        "type": "Text",
-        "value": "The `Promise.resolve` method returns a promise that is resolved with the given value. This can be useful for creating a promise that is already resolved."
-      },
-      {
-        "type": "Code",
-        "value": "Promise.resolve('Resolved value')\n  .then(result => {\n    console.log(result); // Logs: 'Resolved value'\n  });",
-        "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "Promise.reject",
-    "data": [
-      {
-        "type": "Text",
-        "value": "The `Promise.reject` method returns a promise that is rejected with the given reason. This can be useful for creating a promise that is already in a rejected state."
-      },
-      {
-        "type": "Code",
-        "value": "Promise.reject('Rejected reason')\n  .catch(error => {\n    console.error(error); // Logs: 'Rejected reason'\n  });",
+        "value": "const promise1 = Promise.reject('Error 1');\nconst promise2 = Promise.resolve('Success');\nconst promise3 = Promise.reject('Error 2');\n\nPromise.any([promise1, promise2, promise3])\n  .then(result => {\n    console.log(result); // 'Success'\n  })\n  .catch(error => {\n    console.error(error);\n  });",
         "props": { "language": "javascript" }
       }
     ]
