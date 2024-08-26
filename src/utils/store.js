@@ -1,9 +1,6 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
-
-
-import { compareInfiniteStreak } from './utilStorage'
-
+import { compareGoodInfiniteStreak, compareInfiniteStreak } from './utilStorage'
 
 const useStore = create(set => ({
   carousel: false, // should the carousel be enabled or not
@@ -35,9 +32,19 @@ const useStore = create(set => ({
       return { infiniteStreak: state.infiniteStreak + 1 }
     }),
   resetInfiniteStreak: () =>
-    set((state) => {
+    set(state => {
       compareInfiniteStreak(state.infiniteStreak)
       return { infiniteStreak: 0 }
+    }),
+  incrementGoodInfiniteStreak: () =>
+    set(state => {
+      console.log('good infiniteStreak: ', state.goodInfiniteStreak)
+      return { goodInfiniteStreak: state.goodInfiniteStreak + 1 }
+    }),
+  resetGoodInfiniteStreak: () =>
+    set(state => {
+      compareGoodInfiniteStreak(state.goodInfiniteStreak)
+      return { goodInfiniteStreak: 0 }
     }),
 }))
 

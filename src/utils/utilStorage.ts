@@ -63,6 +63,16 @@ export const compareInfiniteStreak = async (result: number) => {
     console.error('Error during comparing infinite streak: ', error)
   }
 }
+export const compareGoodInfiniteStreak = async (result: number) => {
+  try {
+    const bestGoodInfiniteStreak = await getValue('goodInfiniteStreak')
+    if (bestGoodInfiniteStreak === null || result > bestGoodInfiniteStreak)
+      setValue('goodInfiniteStreak', result)
+    console.log('comparing good infinite streak succeeded')
+  } catch (error) {
+    console.error('Error during comparing good infinite streak: ', error)
+  }
+}
 
 export const setStats = async id => {
   try {

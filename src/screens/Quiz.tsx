@@ -1,48 +1,29 @@
-import { AntDesign } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useRef, useState } from 'react'
-import {
-  ActivityIndicator,
-  BackHandler,
-  Dimensions,
-  Modal,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
-import {
-  AdEventType,
-  InterstitialAd,
-  TestIds,
-} from 'react-native-google-mobile-ads'
-import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, BackHandler, Dimensions, Modal, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { AdEventType, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
+import { Button as PaperButton, TouchableRipple } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import settings from '../../data/settings.json'
-import {
-  areYouSure,
-  nah,
-  nextQuestion,
-  showOptions,
-  submit,
-  summary,
-  yesQuit,
-} from '../../data/texts'
-import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
-import Ad from '../components/ContentRenderer/Ad'
-import CustomModal from '../components/CustomModal'
-import ItemResult from '../components/ItemResult'
-import Line from '../components/molecules/atoms/Line'
-import Options from '../components/Options'
-import useNextQuestion from '../hooks/useNextQuestion'
-import { Colors } from '../utils/constants'
-import { returnIsCorrect } from '../utils/functions'
-import { countItemsInTopic } from '../utils/getQuizData'
-import useStore from '../utils/store'
-import { Option, Result } from '../utils/types'
-import { compareInfiniteStreak, getValue, setStats } from '../utils/utilStorage'
+
+
+import settings from '../../data/settings.json';
+import { areYouSure, nah, nextQuestion, showOptions, submit, summary, yesQuit } from '../../data/texts';
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer';
+import Ad from '../components/ContentRenderer/Ad';
+import CustomModal from '../components/CustomModal';
+import ItemResult from '../components/ItemResult';
+import Line from '../components/molecules/atoms/Line';
+import Options from '../components/Options';
+import useNextQuestion from '../hooks/useNextQuestion';
+import { Colors } from '../utils/constants';
+import { returnIsCorrect } from '../utils/functions';
+import { countItemsInTopic } from '../utils/getQuizData';
+import useStore from '../utils/store';
+import { Option, Result } from '../utils/types';
+import { compareInfiniteStreak, getValue, setStats } from '../utils/utilStorage';
+
 
 const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
   requestNonPersonalizedAdsOnly: true,
@@ -55,7 +36,9 @@ export default function Quiz({ route }) {
   const [showExitModal, setShowExitModal] = useState(false)
 
   const incrementInfiniteStreak = useStore.getState().incrementInfiniteStreak
+  const incrementGoodInfiniteStreak = useStore.getState().incrementGoodInfiniteStreak
   const resetInfiniteStreak = useStore.getState().resetInfiniteStreak
+  const resetGoodInfiniteStreak = useStore.getState().resetGoodInfiniteStreak
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
@@ -116,6 +99,8 @@ export default function Quiz({ route }) {
     if (thisQuestionResult === 'correct') setStats(item.id)
 
     if (route.params.chapName === '__All__') incrementInfiniteStreak()
+    if (route.params.chapName === '__All__' && thisQuestionResult === 'correct')
+      incrementGoodInfiniteStreak()
 
     let result: Result
     if (itemsCount !== Infinity) {
@@ -165,6 +150,7 @@ export default function Quiz({ route }) {
   function closeModalAndGoBack(): void {
     if (route.params.chapName === '__All__') {
       resetInfiniteStreak()
+      resetGoodInfiniteStreak()
     }
     setShowExitModal(false)
     navigation.goBack()

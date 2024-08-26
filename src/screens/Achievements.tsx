@@ -14,6 +14,9 @@ import { getDailyStreak, getValue } from '../utils/utilStorage'
 export default function Achievements() {
   const [streak, setStreak] = useState<number | null>(null)
   const [infiniteStreak, setInfiniteStreak] = useState<number | null>(null)
+  const [goodInfiniteStreak, setGoodInfiniteStreak] = useState<number | null>(
+    null,
+  )
   const [goodAnsCount, setGoodAnsCount] = useState<number | null>(null)
   const [chaptersGoodAnsCount, setChaptersGoodAnsCount] = useState<
     { name: string; count: number }[] | null
@@ -31,6 +34,8 @@ export default function Achievements() {
 
         const infiniteStreakResult = await getValue('infiniteStreak')
         setInfiniteStreak(infiniteStreakResult)
+        const goodInfiniteStreakResult = await getValue('goodInfiniteStreak')
+        setGoodInfiniteStreak(goodInfiniteStreakResult)
 
         const goodAnsCountResult = await getValue('goodAnsCount')
         setGoodAnsCount(goodAnsCountResult)
@@ -72,7 +77,7 @@ export default function Achievements() {
   }, [])
 
   const rangs = [
-    { name: 'expert', min: 72, max: 90 },
+    { name: 'expert', min: 72, max: Infinity },
     { name: 'laik', min: 0, max: 71 },
   ]
   return (
@@ -84,7 +89,13 @@ export default function Achievements() {
       <Text style={styles.info}>
         Complete at least one quiz everyday to increase the streak
       </Text>
-      <Text>Infinite streak maximum: {infiniteStreak !== null ? infiniteStreak : 0}</Text>
+      <Text>
+        Infinite streak maximum: {infiniteStreak !== null ? infiniteStreak : 0}
+      </Text>
+      <Text>
+        Good Infinite streak maximum:{' '}
+        {goodInfiniteStreak !== null ? goodInfiniteStreak : 0}
+      </Text>
       <Text style={styles.totalCorrectAnswers}>
         Total number of correct answers:{' '}
         {goodAnsCount !== null ? goodAnsCount : 0}
@@ -110,7 +121,7 @@ export default function Achievements() {
               >
                 <View
                   style={{
-                    width: `${(goodAnsCount / el.max) * 100}%`,
+                    width: el.max===Infinity ? '100%' : `${(goodAnsCount / el.max) * 100}%`,
                     backgroundColor: 'green',
                     height: '100%',
                     borderRadius: 10,
@@ -150,7 +161,7 @@ export default function Achievements() {
                       >
                         <View
                           style={{
-                            width: `${(chapter.count / rang.max) * 100}%`,
+                            width: rang.max===Infinity ? '100%' :`${(chapter.count / rang.max) * 100}%`,
                             backgroundColor: 'green',
                             height: '100%',
                             borderRadius: 10,
