@@ -45,11 +45,11 @@
       },
       {
         "type": "Text",
-        "value": "In the example above, the line with `await` keyword screams to the code below it: <i>\"Hey, guys, (a)wait for me to resolve!\"</i> Without it an unresolved Promise would be logged to the console.<br></br>Od niedawna słowa await można używać również poza funkcjami poprzedzonymi słowem async but as it is a new feature"
+        "value": "In the example above, the line with `await` keyword screams to the code below it: <i>\"Hey, guys, (a)wait for me to resolve!\"</i> Without it an unresolved Promise would be logged to the console.<br></br>Recently, `await` can also be used outside of functions preceded by the word `async`."
       },
       {
         "type": "Code",
-        "value": "//przykład",
+        "value": "//global scope\nconst prom = await Promise.resolve('I'm a promise')\nconsole.log(prom) // 'I'm a promise'",
         "props": { "language": "javascript" }
       }
     ]

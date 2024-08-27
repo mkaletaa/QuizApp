@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Promises are a modern JavaScript feature used to handle asynchronous operations. A promise represents a value that may be available now, or in the future, or never. It is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value."
+        "value": "Promises are a modern JavaScript feature used to handle asynchronous operations more gracefully than callbacks. A promise represents a value that may be available now, or in the future, or never. It is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value."
       },
       {
         "type": "Text",
