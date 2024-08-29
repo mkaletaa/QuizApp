@@ -213,7 +213,9 @@
       {
         "type": "Image",
         "value": "",
-        "props": { "description": "tu będzie rozwiązanie jak nie zapomnę go dodać" }
+        "props": {
+          "description": "tu będzie rozwiązanie jak nie zapomnę go dodać"
+        }
       },
       {
         "type": "Text",
@@ -310,6 +312,31 @@
             "value": "<b>programowanie z myślą o przenośności</b> - Przestrzeganie najlepszych praktyk w programowaniu, takich jak unikanie funkcji i bibliotek specyficznych dla jednej platformy, testowanie aplikacji na różnych systemach operacyjnych i architekturach, oraz używanie narzędzi do automatycznego testowania przenośności (np. Continuous Integration systems)."
           }
         ]
+      }
+    ]
+  },
+  {
+    "title": "matroidy",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/kGcYNR0Q/image.png",
+        "props": { "description": "2017" }
+      },
+      {
+        "type": "Text",
+        "value": "Przeczytaj sb <a href='http://algorytmy.ency.pl/artykul/matroid'>ten</a> artykuł kilka razy. Ja dopiero za którymś razem zajarzyłem. <br></br><b>Matroid</b> – struktura matematyczna składająca się z niepustego zbioru elementów E i takiej rodziny jego podzbiorów I, że spełnione są następujące warunki:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "Jeśli jakiś zbiór należy do I, to wszystkie jego podzbiory także należą do I.",
+          "Jeśli weźmiemy dowolne dwa zbiory należące do I o różnej liczbie elementów, to jesteśmy w stanie dodać do mniejszego z nich taki element z większego (spośród tych, które nie należą do mniejszego), że utworzony w ten sposób zbiór także będzie należał do I"
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "Właściwość idealnej podstruktury mówi, że optymalne rozwiązanie problemu można uzyskać przez optymalne rozwiązania jego podproblemów. <br></br>Zarówna algorytm Prima, jak i Kruskala korzystają z tej właściości. Ale w przypadku algorytmu Prima proces znajdowania MST jest bardziej oparty na lokalnym rozszerzaniu drzewa, a nie na łączeniu mniejszych niezależnych poddrzew, jak w przypadku algorytmu Kruskala. Tak więc to algoyrtm Kruskala korzysta bezpośrednio z własności optymalnej podstruktury."
       }
     ]
   }
