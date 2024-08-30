@@ -116,6 +116,10 @@ export const topics = {
   ],
   metody_programowania: [
     {
+      name: 'egzaminy',
+      image: 'https://i.postimg.cc/3wMSK5QK/image.png',
+    },
+    {
       name: 'złożoność_obliczeniowa',
       image: 'https://i.postimg.cc/3xjpDPDr/omeag.png',
     },
@@ -144,12 +148,12 @@ export const topics = {
       image: ''
     },
     {
-      name: 'pozostałe',
+      name: 'pozostałe #1',
       image: '',
     },
     {
-      name: 'egzaminy',
-      image: 'https://i.postimg.cc/3wMSK5QK/image.png',
+      name: 'pozostałe #2',
+      image: '',
     },
   ],
   // VHDL: [

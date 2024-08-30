@@ -75,7 +75,7 @@
       },
       {
         "type": "Text",
-        "value": "Przykład: Jeśli węzeł znajduje się w indeksie 2 i t=3, to jego dzieci będą znajdować się w indeksach:"
+        "value": "Przykład: Jeśli węzeł znajduje się w indeksie 2, a t=3, to jego dzieci będą znajdować się w indeksach:"
       },
       {
         "type": "ListElement",
