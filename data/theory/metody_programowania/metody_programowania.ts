@@ -1,4 +1,4 @@
-import drzewa_i_kopce from './drzewa_i_kopce.json'
+import grafy from './grafy.json'
 import egzaminy from './egzaminy.json'
 import huffman from './huffman.json'
 import kombinatoryka from './kombinatoryka.json'
@@ -10,7 +10,7 @@ import złożoność_obliczeniowa from './złożoność_obliczeniowa.json'
 
 export const metody_programowania = {
   huffman,
-  drzewa_i_kopce,
+  grafy,
   złożoność_obliczeniowa,
   egzaminy,
   plecakowy,

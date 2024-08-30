@@ -132,7 +132,7 @@ export const topics = {
       image: 'https://i.postimg.cc/hPbLhNVS/image.png',
     },
     {
-      name: 'drzewa_i_kopce',
+      name: 'grafy',
       image: 'https://i.postimg.cc/qMmGcH6L/image.png',
     },
     {

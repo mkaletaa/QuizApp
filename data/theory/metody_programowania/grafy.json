@@ -229,5 +229,57 @@
         "props": { "description": "2023 poprawa" }
       }
     ]
+  },
+  {
+    "title": "Problem komiwojażera",
+    "data": [
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/HnBCbpbg/image.png",
+        "props": { "description": "2019 poprawa" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/9MXf78wv/image.png",
+        "props": { "description": "2020" }
+      },
+      {
+        "type": "Text",
+        "value": "Problem komiwojażera polega na odnalezieniu minimalnego cyklu Hamiltona w grafie ważonym. Nazwa pochodzi od typowej ilustracji problemu, przedstawiającej go z punktu widzenia wędrownego sprzedawcy (komiwojażera): dane jest n miast, które komiwojażer ma odwiedzić, oraz odległość pomiędzy każdą parą miast. Celem jest znalezienie najkrótszej drogi łączącej wszystkie miasta, zaczynającej się i kończącej się w tym samym punkcie <br></br>Wyszukiwanie lokalne to technika, która zaczyna od jakiegoś początkowego rozwiązania (niekoniecznie optymalnego) i następnie próbuje je ulepszać, przechodząc do rozwiązań leżących w jego „sąsiedztwie” (lokalnych), aż do momentu, gdy nie można znaleźć lepszego sąsiedniego rozwiązania."
+      },
+      {
+        "type": "Header",
+        "value": "Operacje na TSP",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>2-opt</b>: zamiana miejscami dwóch sąsiednich wierzchołków. <br></br>przed: 1-2-3-1 <br></br>po: 1-3-2-1 <br></br><b>3-opt</b>: zamiana miejscami dwóch wierchołków oddzielonych jednym wierzchołkiem <br></br>przed: 1-2-3-4-1 <br></br>po: 1-4-3-2-1 <br></br><b>swap</b>: uogólnienie n-opt <br></br><b>reversal</b>: zmiana kolejności pewnego zbioru wierzchołków. <br></br>przed: 1-2-3-4-5-6-1 <br></br>po: 1-5-4-3-2-6-1"
+      },
+      {
+        "type": "Text",
+        "value": "W naszym zadaniu nie mogą sąsiadować ze sobą dwa wierchołki parzyste ani nieparzyste, więc w zasadzie przyda nam się tylko 3-opt. Zauważmy, że kiedy 1 znajduje się na początku i na końcu, to zamienić się mogą ze sobą jedynie 3 i 5 a także 2, 4 i 6. Daje nam to 12 możliwych tras. Oto one:"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/kM05mLzP/image.png",
+        "props": { "description": "tu będzie zdjęcie jak nie zapomnę go dodać" }
+      },
+      {
+        "type": "Text",
+        "value": "A oto rozwiązanie zadania krok po kroku:"
+      },
+      {
+        "type": "Image",
+        "value": "",
+        "props": {
+          "description": "tu będzie rozwiązanie jak nie zapomnę go dodać"
+        }
+      },
+      {
+        "type": "Text",
+        "value": "Ja już rozpisałem sobie wcześniej możliwe kolejności odwiedzanych wierzchołków, więc wiem że minimalną wagą jest 10 i kiedy otrzymam tę liczbę już nie kombinuję dalej. Problem może pojawić się przy większej liczbie wierchołków, gdzie rozpisanie tego wszystkiego zajmie więcej czasu. Tutaj już nie wiem jak pomóc. <br></br><b>EDIT</b> jak tak teraz patrzę na to rozwiązanie to wydaje mi się że najlepszym rozwiązaniem zawsze będzie 1-2-3-...-n-1 i do niego należy dążyć. Wtedy waga będzie wynosiła 2(n-1)."
+      }
+    ]
   }
 ]
