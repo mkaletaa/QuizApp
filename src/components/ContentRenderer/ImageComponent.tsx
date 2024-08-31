@@ -125,6 +125,7 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
             renderIndicator={() => null}
             index={indexState}
             enableSwipeDown
+            swipeDownThreshold={100}
             onCancel={() => {
               setModalVisible(false)
             }}

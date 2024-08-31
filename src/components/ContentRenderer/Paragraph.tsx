@@ -55,16 +55,8 @@ export default function Paragraph({ value, width, props }) {
         {...props}
         onPress={onPress}
         style={{
-          color: className === 'hint' ? 'rgb(130, 0, 150)' : 'blue',
-          // textDecorationLine: 'underline',
-          backgroundColor:
-            className === 'hint'
-              ? 'rgba(130, 0, 180, .08)'
-              : 'rgba(0, 0, 255, .1)',
-          // height: 100,
-          paddingHorizontal: 10,
-          // fontWeight: 'bold',
-          // textDecoration: 'underline'
+          color: '#54039b',
+          backgroundColor: '#d7d2f1', //#e4e1f6 // #c9c3ed
         }}
       />
     )
