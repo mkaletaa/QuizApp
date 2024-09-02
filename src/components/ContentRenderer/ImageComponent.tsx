@@ -22,6 +22,7 @@ import useStore from '../../utils/store'
 
 const ImageComponent = ({ width: containerWidth, description, value }) => {
   const images = useStore(state => state.images)
+  const carousel = useStore(state => state.carousel)
 
   const [modalVisible, setModalVisible] = useState(false)
   const [indexState, setIndexState] = useState(0)
@@ -35,12 +36,23 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
 
   const ratio = 0.9 // ratio between width of the image to screen (or container) width
 
+  const addImage = useStore(state => state.addImage)
   useEffect(() => {
-    if (useStore.getState().carousel) {
-      useStore.getState().addImage(value, description)
+    if (carousel) {
+      console.log('Dodaje nowy obraz')
+      addImage(value, description)
+      // useStore.getState().addImage(value, description)
       setIndexState(useStore.getState().images.length - 1)
     }
+    // console.log(carousel)
   }, [])
+
+  useEffect(() => {
+    console.log('Carousel state changed:', carousel)
+    console.log('Images: ', images.length)
+  }, [modalVisible])
+
+
 
   useEffect(() => {
     Image.getSize(
@@ -115,10 +127,12 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
           />
 
           <ImageViewer
-            imageUrls={images.length !== 0 ? images : [{ url: value }]}
+            imageUrls={carousel ? images : [{ url: value }]}
             onChange={i =>
               setDescriptionState(
-                images.length !== 0 ? images[i]?.des : description,
+                useStore.getState().images.length !== 0
+                  ? images[i]?.des
+                  : description,
               )
             }
             style={{ width: '100%' }}

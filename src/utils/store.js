@@ -20,8 +20,8 @@ const useStore = create(set => ({
   removeImage: imageUrl =>
     set(state => ({ images: state.images.filter(img => img !== imageUrl) })),
   clearImages: () => set({ images: [] }),
-  enableCarousel: () => set(state => ({ carousel: true })),
-  disableCarousel: () => set(state => ({ carousel: false })),
+  enableCarousel: () => set(() => ({ carousel: true })),
+  disableCarousel: () => set(() => ({ carousel: false })),
   setShowBottomSheet: show => set({ showBottomSheet: show }),
   setBottomSheetSnapIndex: index => set({ bottomSheetSnapIndex: index }),
   setBottomSheetContent: state => set({ bottomSheetContent: state }),

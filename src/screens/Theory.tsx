@@ -2,7 +2,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { useFocusEffect } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Dimensions, Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
 import { Snackbar } from 'react-native-paper';
 
@@ -70,20 +70,38 @@ export default function Theory({
   //     }
   //   })
   // }, [theoryData])
-
-  useEffect(() => {
+  const enableCarousel = useStore(state => state.enableCarousel)
+  const disableCarousel = useStore(state => state.disableCarousel)
+  useFocusEffect(() => {
     //todo: dodaj do store carousel=true
-    useStore.getState().enableCarousel()
+    // useStore.getState().enableCarousel()
+    enableCarousel()
 
     return () => {
-      useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
+      // useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
       // clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
-      useStore.getState().disableCarousel()
+      disableCarousel()
       // useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
+    }
+  })
+
+  useEffect(()=>{
+    return()=>{
+      useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
     }
   }, [])
 
-  useFocusEffect(() => {})
+  // useLayoutEffect(() => {
+  //   return () => {
+  //     useStore.getState().disableCarousel()
+  //   }
+  // })
+  
+  // useFocusEffect(() => {
+  //   return () => {
+  //         useStore.getState().disableCarousel()
+  //   }
+  // })
 
   const renderHeader = () => (
     // <TouchableWithoutFeedback
@@ -293,9 +311,7 @@ export default function Theory({
   }, [topicName])
 
   return (
-    <View
-      style={{ minHeight: screenHeight, backgroundColor: Colors.screenBg }}
-    >
+    <View style={{ minHeight: screenHeight, backgroundColor: Colors.screenBg }}>
       <StatusBar style="auto" />
       <View
         style={[

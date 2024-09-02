@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Divider } from 'react-native-paper'
 
-import { topics } from '../../data/data'
+import { topics, chapters } from '../../data/data'
 import { quiz } from '../../data/quiz/quizModule'
 import Gradient from '../components/molecules/atoms/Gradient'
 import { Colors } from '../utils/constants'
@@ -77,18 +77,18 @@ export default function Achievements() {
   }, [])
 
   const rangs = [
-    { name: 'expert', min: 72, max: Infinity },
-    { name: 'laik', min: 0, max: 71 },
+    { name: 'expert', min: 110, max: Infinity },
+    { name: 'laik', min: 0, max: 109 },
   ]
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.heading}>Achievements</Text>
+      {/* <Text style={styles.heading}>Achievements</Text>
       <Text style={styles.streak}>
         Your Daily Streak is: {streak !== null ? streak : 0}
       </Text>
       <Text style={styles.info}>
         Complete at least one quiz everyday to increase the streak
-      </Text>
+      </Text> */}
       <Text>
         Infinite streak maximum: {infiniteStreak !== null ? infiniteStreak : 0}
       </Text>
@@ -113,7 +113,7 @@ export default function Achievements() {
               <View
                 style={{
                   width: '100%',
-                  backgroundColor: 'grey',
+                  backgroundColor: 'lightgrey',
                   height: 15,
                   borderRadius: 10,
                   overflow: 'hidden',
@@ -146,6 +146,16 @@ export default function Achievements() {
                       <Text>
                         Twoja ranga w rozdziale {chapter.name} to: {rang.name}
                       </Text>
+                      <Image
+                      style={{
+                        width: 70,
+                        height: 70,
+                        borderRadius: 5,
+                      }}
+                      source={{
+                        uri: `${chapters.find(chap => chap.name === chapter.name).image}`,
+                      }}
+                    />
                       <Text key={chapter.name} style={styles.item}>
                         Number of correct answers for {chapter.name} chapter:{' '}
                         {chapter.count}
@@ -153,7 +163,7 @@ export default function Achievements() {
                       <View
                         style={{
                           width: '100%',
-                          backgroundColor: 'grey',
+                          backgroundColor: 'lightgrey',
                           height: 15,
                           borderRadius: 10,
                           overflow: 'hidden',
@@ -261,7 +271,8 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: 16,
-    width: 200,
+    width: '100%',
+    // backgroundColor: 'red'
   },
   sectionTitle: {
     fontSize: 20,
