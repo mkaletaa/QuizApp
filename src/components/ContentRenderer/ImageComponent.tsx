@@ -4,7 +4,6 @@ import { LinearGradient } from 'expo-linear-gradient'
 import React, { useEffect, useState } from 'react'
 import {
   ActivityIndicator,
-  Alert,
   Dimensions,
   Image,
   Modal,
@@ -12,7 +11,6 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View,
 } from 'react-native'
 import ImageViewer from 'react-native-image-zoom-viewer'
@@ -39,20 +37,10 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
   const addImage = useStore(state => state.addImage)
   useEffect(() => {
     if (carousel) {
-      console.log('Dodaje nowy obraz')
       addImage(value, description)
-      // useStore.getState().addImage(value, description)
       setIndexState(useStore.getState().images.length - 1)
     }
-    // console.log(carousel)
   }, [])
-
-  useEffect(() => {
-    console.log('Carousel state changed:', carousel)
-    console.log('Images: ', images.length)
-  }, [modalVisible])
-
-
 
   useEffect(() => {
     Image.getSize(
@@ -109,15 +97,6 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
         statusBarTranslucent={true}
       >
         <View style={styles.modalContainer}>
-          {/* <ActivityIndicator
-            style={{
-              position: 'absolute',
-              zIndex: 0,
-            }}
-            size={50}
-            color={Colors.primary}
-          /> */}
-
           <AntDesign
             onPress={closeModal}
             name="left"
@@ -130,6 +109,7 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
             imageUrls={carousel ? images : [{ url: value }]}
             onChange={i =>
               setDescriptionState(
+                //? czy nie wystarczy samo images[i]?.des ?
                 useStore.getState().images.length !== 0
                   ? images[i]?.des
                   : description,
@@ -143,7 +123,6 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
             onCancel={() => {
               setModalVisible(false)
             }}
-            // menuContext={()=>{}}
             menus={({ cancel }) => {
               return (
                 <Pressable
