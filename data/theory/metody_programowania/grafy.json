@@ -262,8 +262,7 @@
       },
       {
         "type": "Image",
-        "value": "https://i.postimg.cc/kM05mLzP/image.png",
-        "props": { "description": "tu będzie zdjęcie jak nie zapomnę go dodać" }
+        "value": "https://i.postimg.cc/kM05mLzP/image.png"
       },
       {
         "type": "Text",
@@ -271,10 +270,7 @@
       },
       {
         "type": "Image",
-        "value": "",
-        "props": {
-          "description": "tu będzie rozwiązanie jak nie zapomnę go dodać"
-        }
+        "value": "https://i.postimg.cc/ZR9KrC0R/IMG-20240906-155045.jpg"
       },
       {
         "type": "Text",

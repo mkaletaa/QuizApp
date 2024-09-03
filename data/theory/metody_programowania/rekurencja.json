@@ -108,16 +108,11 @@
     "data": [
       {
         "type": "Text",
-        "value": "W tej metodzie najpierw wykonujesz dwa kroki iteracyjne, a potem zauważasz, że n/b^k = 1. Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
+        "value": "W tej metodzie najpierw wykonujesz dwa kroki iteracyjne, a potem zauważasz, że n/b^k = 1 i stosujesz wzór na sumę ciągu geometrycznego (patrz na samą górę).Proponuję sobie zapisać równanie w ten sposób, żeby f(n) znajdowało się na początku, żeby po drodze go nie zgubić."
       },
       {
         "type": "Image",
-        "value": "",
-        "props": { "description": "screen" }
-      },
-      {
-        "type": "Math",
-        "value": "``"
+        "value": "https://i.postimg.cc/ZnPfBQ5b/image.png"
       }
     ]
   },
@@ -159,8 +154,37 @@
         }
       },
       {
-        "type": "Text",
-        "value": "Wreszcie przyszła pora na "
+        "type": "Image",
+        "value": "https://i.postimg.cc/bJY8G2j4/image.png",
+        "props": { "description": "2023" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/bwK9NQ1N/2023.jpg"
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/ZnPJCk7K/image.png",
+        "props": { "description": "2023 poprawa" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/RFKBD5zQ/2023.jpg"
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/Y9fPFpHV/image.png",
+        "props": { "description": "2017, ?" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/vB5HJ6dK/2017.jpg"
       }
     ]
   }

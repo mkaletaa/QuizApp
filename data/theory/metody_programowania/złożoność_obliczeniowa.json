@@ -273,15 +273,11 @@
       },
       {
         "type": "Math",
-        "value": "`s=n+log_3 100 => s/n = log_3 100`",
+        "value": "`s=n+log_3 100`",
         "props": { 
           "height": 70,
           "fontSize": 15
         }
-      },
-      {
-        "type": "Text",
-        "value": "Dla O(3^n) wzrośnie log<sub>3</sub>100 razy."
       },
       {
         "type": "Image",

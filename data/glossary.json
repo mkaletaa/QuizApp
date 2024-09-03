@@ -1,21 +1,8 @@
 {
-  "hello": [
-    {
-      "type": "Text",
-      "value": "Hello Worldd"
-    }
-  ],
   "test": [
     {
-      "type": "Text",
-      "value": "Zawartość spoilera",
-      "props": {
-        "toLeft": false
-      }
-    },
-    {
-      "type": "Image",
-      "value": "https://i.postimg.cc/vHL8D75v/image.png"
+      "type": "CText",
+      "value": "Zawartość spoilera"
     }
   ]
 }

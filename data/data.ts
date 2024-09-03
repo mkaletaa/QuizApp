@@ -18,12 +18,12 @@ export const chapters = [
   {
     name: 'elektrotechnika',
     image: 'https://i.postimg.cc/B6XZwN99/image.png',
-    des: 'Jeśli chodzi o laboratoria, choćbyś przepisał słowo w słowo notatkiz Teams to i tak nie dostaniesz 5 (nie żartuję). Gość potrafi uwalić cię za jedno źle użyte słowo (tutaj też nie żartuję). Na szczęście we wszystkich grupach i na wszystkich termianch pytania były te same. <br></br>Jeśli chodzi o ćwiczenia, to na początku pyta kilka osób, ale bez spiny, to nie żabulec. Kolokwia z ćwiczeń już nie sprawdza tak surowo. <br></br>Tak, na okładce to prof. Chrabąszcz',
+    des: '',
   },
   {
     name: 'metody_programowania',
     image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-    des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić.'
+    des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić. I nie ma quizów, bo miałem ważniejszą sprawę na głowie.'
   },
   // {
   //   name: 'VHDL',

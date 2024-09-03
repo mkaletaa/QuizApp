@@ -85,7 +85,7 @@
       },
       {
         "type": "Text",
-        "value": "Jeżeli bound > max_profit to węzeł jest obiecujący i przechodzimy do jego dziecka. Jeśli nie, znaczy że węzeł jest nieobiecujący i trzeba się cofnąć."
+        "value": "Jeżeli bound > max_profit to węzeł jest obiecujący i przechodzimy do jego dziecka. Jeśli nie, znaczy że węzeł jest nieobiecujący i trzeba się cofnąć. <br></br>Rozwiązaniem chyba jest ten węzeł co ma największy max_profit i nie jest liściem."
       },
       {
         "type": "Text",
