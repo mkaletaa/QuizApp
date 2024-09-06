@@ -2,7 +2,7 @@
 // if a chapter does not have any description it should be an empty string
 export const chapters = [
   {
-    name: 'general_information',
+    name: 'about_JavaScript',
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTa673aG483dj7Rw6OeKA3xJPz9i-RloR_g&usqp=CAU',
     des: '',
@@ -50,10 +50,9 @@ export const chapters = [
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
 export const topics = {
-  general_information: [
+  about_JavaScript: [
     { name: 'historical_background', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'about_JavaScript', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'test', image: 'https://test.jpg' },
+    { name: 'general_information', image: 'https://reactjs.org/logo-og.png' },
   ],
   JS_fundamentals: [
     { name: 'Hello_World', image: 'https://reactjs.org/logo-og.png' },

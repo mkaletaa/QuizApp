@@ -1,6 +1,6 @@
 [
   {
-    "id": "general_information|about_JavaScript|1",
+    "id": "about_JavaScript|historical_background|1",
     "multiChoice": false,
     "question": "Who is the creator of JavaScipt",
     "options": [
@@ -12,7 +12,7 @@
     "explanation": "Ryan Dahl is the creator of Node.js and Jeff Atwood is the author of the famous Atwood's Law"
   },
   {
-    "id": "general_information|about_JavaScript|2",
+    "id": "about_JavaScript|historical_background|2",
     "multiChoice": false,
     "question": "When was JavaScript created?",
     "options": [
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|3",
+    "id": "about_JavaScript|historical_background|3",
     "multiChoice": false,
     "question": "JHow long did it take to create JavaScript?",
     "options": [
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|4",
+    "id": "about_JavaScript|historical_background|4",
     "multiChoice": false,
     "question": "What was JavaScript initially named?",
     "options": [
@@ -84,9 +84,9 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|5",
+    "id": "about_JavaScript|historical_background|5",
     "multiChoice": false,
-    "question": "What was very first browser taht could understand JavaScript code?",
+    "question": "What was very first browser that could understand JavaScript code?",
     "options": [
       {
         "id": 31,
@@ -106,7 +106,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|6",
+    "id": "about_JavaScript|historical_background|6",
     "multiChoice": false,
     "question": "Why is JavaScript called JavaScript?",
     "options": [
@@ -133,9 +133,9 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|7",
+    "id": "about_JavaScript|historical_background|7",
     "multiChoice": false,
-    "question": "What was the first JS frontend framewrok?",
+    "question": "What was the first JS frontend framework?",
     "options": [
       {
         "id": 31,
@@ -155,7 +155,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|8",
+    "id": "about_JavaScript|historical_background|8",
     "multiChoice": false,
     "question": "Which organization is responsible for standardizing JavaScript?",
     "options": [
@@ -182,7 +182,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|9",
+    "id": "about_JavaScript|historical_background|9",
     "multiChoice": false,
     "question": "When was ECMAScript 6 released?",
     "options": [
@@ -209,7 +209,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|10",
+    "id": "about_JavaScript|historical_background|10",
     "multiChoice": false,
     "question": "Which company mantains the development of the most popular JavaScript framework, React?",
     "options": [
@@ -236,7 +236,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|11",
+    "id": "about_JavaScript|historical_background|11",
     "multiChoice": false,
     "question": "What is the name of the JavaScript engine created by Google that is used in browsers like Google Chrome?",
     "options": [
@@ -263,7 +263,7 @@
     ]
   },
   {
-    "id": "general_information|about_JavaScript|12",
+    "id": "about_JavaScript|historical_background|12",
     "multiChoice": false,
     "question": "When was Node created?",
     "options": [
