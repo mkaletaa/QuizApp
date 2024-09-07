@@ -1,0 +1,214 @@
+[
+  {
+    "id": "asynchronicity|promises|1",
+    "question": "Which method is used to handle the result when a Promise is fulfilled?",
+    "options": [
+      { "id": "1", "val": "catch()", "correct": false },
+      { "id": "2", "val": "then()", "correct": true },
+      { "id": "3", "val": "finally()", "correct": false },
+      { "id": "4", "val": "resolve()", "correct": false }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|2",
+    "question": "Which method is used to handle an error when a Promise is rejected?",
+    "options": [
+      { "id": "1", "val": "catch()", "correct": true },
+      { "id": "2", "val": "then()", "correct": false },
+      { "id": "3", "val": "reject()", "correct": false },
+      { "id": "4", "val": "resolve()", "correct": false }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|3",
+    "question": "What are the possible states of a Promise in JavaScript?",
+    "options": [
+      { "id": "1", "val": "Fulfilled, Rejected, Pending", "correct": true },
+      { "id": "2", "val": "Finished, Unfinished", "correct": false },
+      { "id": "3", "val": "Success, Error, Pending", "correct": false },
+      { "id": "4", "val": "Completed, Undefined, Failed", "correct": false }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|4",
+    "question": "Which method is executed regardless of whether the Promise is fulfilled or rejected?",
+    "options": [
+      { "id": "1", "val": "finally()", "correct": true },
+      { "id": "2", "val": "finished()", "correct": false },
+      { "id": "3", "val": "then()", "correct": false },
+      { "id": "4", "val": "done()", "correct": false }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|5",
+    "question": [
+      {
+        "type": "Code",
+        "value": "Promise.resolve()\n    .then(() => console.log('First then'))\n    .then(() => console.log('Second then'))\n    .finally(() => console.log('Finally'))\n    .then(() => console.log('Third then'))",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "'First then', 'Second then', 'Finally', 'Third then'",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "'First then', 'Second then', 'Finally'",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "'First then', 'Finally'",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|6",
+    "question": "What can the parameters of a Promise's callback be named?",
+    "options": [
+      {
+        "id": "1",
+        "val": "any valid variable name is correct",
+        "correct": true
+      },
+      { "id": "2", "val": "resolve and reject only", "correct": false },
+      { "id": "3", "val": "res and rej only", "correct": false },
+      {
+        "id": "4",
+        "val": "resolve or res and reject or rej only",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|7",
+    "multiChoice": true,
+    "question": "Select all correct statements",
+    "options": [
+      {
+        "id": "1",
+        "val": "Promise's callback executes only after all synchronous code is done",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Promise.all() and Promise.allSettled() take an array as an argument",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Promises can be canceled after being created",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|8",
+    "question": "How does Promise.all() work?",
+    "options": [
+      {
+        "id": "1",
+        "val": "It resolves when the first promise in the array is fulfilled or rejected.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "It resolves immediately if any promise is rejected, returning the rejection reason.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "It resolves only when all promises in the array are fulfilled, and rejects when all promises fail.",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "It resolves when all promises in the array are fulfilled or rejects if any promise is rejected.",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|9",
+    "question": "How does Promise.allSettled() work?",
+    "options": [
+      {
+        "id": "1",
+        "val": "It resolves only when all promises in the array are fulfilled.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "It rejects immediately if any promise is rejected.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "It resolves when all promises in the array are either fulfilled or rejected, providing a summary of each promise's outcome.",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "It rejects only when all promises in the array fail.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|10",
+    "question": "How does Promise.race() work?",
+    "options": [
+      {
+        "id": "1",
+        "val": "It resolves only if all promises in the array resolve at the same time.",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "It resolves or rejects based on the outcome of the fastest promise, either fulfilled or rejected.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "It waits until all promises are settled, then returns the result of the last one.",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "It cancels all other promises once the first one resolves, returning the first fulfilled result.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|promises|11",
+    "question": "How does Promise.any() work?",
+    "options": [
+      {
+        "id": "1",
+        "val": "It resolves when the first promise is fulfilled, ignoring any rejections unless all promises are rejected.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "It resolves when all promises are fulfilled, but rejects if one fails.",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "It resolves only if at least one promise is rejected.",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "It waits until all promises are settled, then returns the result of the fastest one.",
+        "correct": false
+      }
+    ]
+  }
+]

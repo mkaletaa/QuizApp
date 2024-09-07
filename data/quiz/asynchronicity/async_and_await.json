@@ -1,0 +1,18 @@
+[
+  {
+    "id": "asynchronicity|async_and_await|1",
+    "question": [
+      {
+        "type": "Text",
+        "value": ""
+      }
+    ],
+    "options": [{ "id": "", "val": "", "correct": false }],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": ""
+      }
+    ]
+  }
+]

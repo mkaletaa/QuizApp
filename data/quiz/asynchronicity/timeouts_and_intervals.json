@@ -1,0 +1,112 @@
+[
+  {
+    "id": "asynchronicity|timeouts_and_intervals|1",
+    "question": [
+      {
+        "type": "Code",
+        "value": "setTimeout(()=>{\n  console.log(1)\n}, 100)\n\nsetTimeout(()=>{\n  console.log(2)\n}, 0)\n\nconsole.log(3)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "1, 2, 3", "correct": false },
+      { "id": "2", "val": "2, 3, 1", "correct": false },
+      { "id": "3", "val": "3, 2, 1", "correct": true },
+      { "id": "4", "val": "3, 1, 2", "correct": false }
+    ],
+    "explanation": "setTimeout's callback executes after all synchronous code is done, even of the second parameter is 0."
+  },
+  {
+    "id": "asynchronicity|timeouts_and_intervals|2",
+    "question": [
+      "Will this throw an error?",
+      {
+        "type": "Code",
+        "value": "setTimeout(callback(), 5000)\n\nfunction callback(){\n  console.log(\"Hello, World\")\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "yes", "correct": false },
+      { "id": "2", "val": "no", "correct": true }
+    ],
+    "explanation": [
+      {
+        "type": "CText",
+        "value": "Thanks to function hoisting this won't throw an error but 'callback' function is going to execute immediately, not after 5 seconds, because it is invoked inside setTimeout. If we want to print \"Hello World\" after 5 seconds, we should get rid of parentheses:"
+      },
+      {
+        "type": "Code",
+        "value": "setTimeout(callback, 5000)\n\nfunction callback(){\n  console.log(\"Hello, World\")\n}",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|timeouts_and_intervals|3",
+    "question": [
+      {
+        "type": "Code",
+        "value": "for(let i = 0; i<5; i++ ){\n  setTimeout(()=>{\n    console.log(i)\n  }, 0)\n}",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "0, 1, 2, 3, 4", "correct": true },
+      { "id": "2", "val": "0, 1, 2, 3, 4, 5", "correct": false },
+      { "id": "3", "val": "5, 5, 5, 5, 5", "correct": false },
+      { "id": "4", "val": "4, 4, 4, 4, 4", "correct": false }
+    ],
+    "explanation": []
+  },
+  {
+    "id": "asynchronicity|timeouts_and_intervals|4",
+    "question": [
+      {
+        "type": "Code",
+        "value": "let i = 0\nfor(i; i<5; i++ ){\n  setTimeout(()=>{\n    console.log(i)\n  }, 0)\n}",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "0, 1, 2, 3, 4", "correct": false },
+      { "id": "2", "val": "0, 1, 2, 3, 4, 5", "correct": false },
+      { "id": "3", "val": "5, 5, 5, 5, 5", "correct": true },
+      { "id": "4", "val": "4, 4, 4, 4, 4", "correct": false }
+    ],
+    "explanation": "In the code, the for loop increments `i` from 0 to 5, but because setTimeout is asynchronous, the callbacks only run after the loop has finished. By the time the callbacks are executed, `i` has already reached 5, so all five console.log(i) statements output 5. This happens because the same variable i is shared across all iterations. To fix this, using `let` in the loop declaration creates a new scope for `i` in each iteration, ensuring the correct value is logged."
+  },
+  {
+    "id": "asynchronicity|timeouts_and_intervals|5",
+    "question": "What function can be utilized to stop setInterval()?",
+    "options": [
+        { "id": "1", "val": "cancelInterval()", "correct": false },
+        { "id": "2", "val": "clearInterval()", "correct": true },
+        { "id": "3", "val": "cleanInterval()", "correct": false },
+        { "id": "4", "val": "breakInterval()", "correct": false }
+    ]
+  },
+  {
+    "id": "asynchronicity|timeouts_and_intervals|6",
+    "question": "What do setTimeout() and setInterval() return in a browser?",
+    "options": [
+        { "id": "1", "val": "undefined", "correct": false },
+        { "id": "2", "val": "a number", "correct": true },
+        { "id": "3", "val": "null", "correct": false },
+        { "id": "4", "val": "an object", "correct": false }
+    ]
+  },
+  {
+    "id": "asynchronicity|timeouts_and_intervals|7",
+    "question": "What do setTimeout() and setInterval() return in Node.js?",
+    "options": [
+        { "id": "1", "val": "undefined", "correct": false },
+        { "id": "2", "val": "a number", "correct": false },
+        { "id": "3", "val": "null", "correct": false },
+        { "id": "4", "val": "an object", "correct": true }
+    ]
+  }
+]

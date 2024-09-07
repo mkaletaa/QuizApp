@@ -44,6 +44,15 @@
         "type": "Code",
         "value": "// ...\nmyPromise\n  .then(result => {\n    console.log(result);\n    return 'Next step';\n  })\n  .then(nextStep => {\n    console.log(nextStep);\n  })\n  .catch(error => {\n    console.error(error);\n  });",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Just like setTimeout() and setInterval(), Promise's callback executes after all synchronous code is done."
+      },
+      {
+        "type": "Code",
+        "value": "const p = new Promise((res, rej)=>{\n  res(1)\n})\n\np.then((data)=>{\n  console.log(data)\n})\n\nconsole.log(2)",
+        "props": { "language": "javascript" }
       }
     ]
   },
