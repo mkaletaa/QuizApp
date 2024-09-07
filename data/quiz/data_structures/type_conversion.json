@@ -67,12 +67,12 @@
   {
     "id": "data_structures|type_conversion|7",
     "question": [
-      "What is the result of the expression?",
       {
         "type": "Code",
-        "value": "String({ name: 'Alice', age: 30 })",
+        "value": "const str = String({ name: 'Alice', age: 30 })\nconsole.log(str)",
         "props": { "language": "javascript" }
-      }
+      },
+      "What is the output of the code above?"
     ],
     "options": [
       { "id": "1", "val": "'{ name: 'Alice', age: 30 }'", "correct": false },

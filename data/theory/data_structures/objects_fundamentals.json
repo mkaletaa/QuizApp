@@ -7,12 +7,11 @@
         "value": "In programming, not everything can be represented as a simple variable. For instance, we can use a number to store someone's age or a string to store their name. But how do we represent something more complex, like a person or an animal? To handle this, we use complex types, particularly objects. Objects allow us to group together multiple pieces of information, such as different primitive data types (like numbers and strings) or even other objects, into a single, organized structure. This way, we can describe more complex entities in a clear and comprehensive manner. Every object in JavaScript is built up from keys and values. These keys and values are always paired together, meaning that each key corresponds to exactly one value, and each value is associated with exactly one key. Each pair must be separated with a comma. Adding a comma after the last pair is optional."
       },
       {
-        "type": "ListElement",
-        "value": "<b>Keys</b>: A key is a unique identifier for a property within an object. It is used to access or modify the value associated with that key. Keys are always strings or numbers (or Symbols in more advanced usage). In JavaScript, keys can be used as strings, and if they are written as identifiers, they are automatically converted to strings. It is important to note that keys should be unique within an object; you cannot have two properties with the same key, except in the situation when the keys are in different nested objects. Each key must correspond to exactly one value."
-      },
-      {
-        "type": "ListElement",
-        "value": "<b>Values</b>: A value is the data or information associated with a key in an object. Values can be of any data type, including numbers, strings, arrays, other objects, or functions."
+        "type": "List",
+        "value": [
+          "<b>Keys</b>: A key is a unique identifier for a property within an object. It is used to access or modify the value associated with that key. Keys are always strings or numbers (or Symbols in more advanced usage). In JavaScript, keys can be used as strings, and if they are written as identifiers, they are automatically converted to strings. It is important to note that keys should be unique within an object; you cannot have two properties with the same key, except in the situation when the keys are in different nested objects. Each key must correspond to exactly one value.",
+          "<b>Values</b>: A value is the data or information associated with a key in an object. Values can be of any data type, including numbers, strings, arrays, other objects, or functions."
+        ]
       },
       {
         "type": "Text",
@@ -119,7 +118,7 @@
         "type": "Divider"
       },
       {
-        "type": "Text",
+        "type": "Comment",
         "value": "That was the most essential information about objects. For more advanced info visit the `Object Oriented Programming (OOP)` chapter."
       }
     ]

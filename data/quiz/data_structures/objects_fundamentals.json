@@ -31,12 +31,12 @@
   {
     "id": "data_structures|objects_fundamentals|3",
     "question": [
-      "What will be logged to the console?",
       {
         "type": "Code",
         "value": "const key = 'myKey'\n\nconst obj = {\n  [key]: \"Hello World\"\n}\n\nconsole.log(obj.key)",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "'Hello World'", "correct": false },
@@ -49,12 +49,12 @@
   {
     "id": "data_structures|objects_fundamentals|4",
     "question": [
-      "What will be logged to the console?",
       {
         "type": "Code",
         "value": "const key = 'myKey'\n\nconst obj = {\n  [key]: \"Hello World\"\n}\n\nconsole.log(obj[key])",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "'Hello World'", "correct": true },
@@ -67,12 +67,12 @@
   {
     "id": "data_structures|objects_fundamentals|5",
     "question": [
-      "What will be logged to the console?",
       {
         "type": "Code",
         "value": "const key = 'myKey'\n\nconst obj = {\n  [key]: \"Hello World\"\n}\n\nconsole.log(obj['myKey'])",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "'Hello World'", "correct": true },

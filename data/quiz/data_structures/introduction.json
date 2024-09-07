@@ -36,7 +36,7 @@
     "question": [
       {
         "type": "Code",
-        "value": "const arr = ['potatoes', 'apples', 'cheese']\n\narr[0] = 'bread'\n\nconsole.log(arr[0]) //?",
+        "value": "const arr = ['potatoes', 'apples', 'cheese']\n\narr[0] = 'bread'\n\nconsole.log(arr[0]) //What will be printed?",
         "props": { "language": "javascript" }
       }
     ],

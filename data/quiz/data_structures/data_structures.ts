@@ -11,5 +11,5 @@ export const data_structures = {
   strings,
   type_conversion,
   arrays,
-  objects_fundamentals,
+  objects_fundamentals
 }

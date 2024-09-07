@@ -13,7 +13,7 @@
       },
       {
         "type": "Text",
-        "value": "Number type offers some methods useful for numbers manipulation:"
+        "value": "`Number` type offers some methods useful for numbers manipulation:"
       },
       {
         "type": "Code",
@@ -22,7 +22,7 @@
       },
       {
         "type": "Text",
-        "value": "Moreover 'Number' class offers static methods."
+        "value": "Moreover `Number` class offers static methods."
       },
       {
         "type": "Code",
@@ -48,7 +48,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "BigInt is a special numeric type introduced in JavaScript to handle integers that are larger than the maximum safe integer value supported by the Number type. It allows for arbitrary-precision integers, which means it can represent and perform operations on integers of any size, limited only by the available memory. "
+        "value": "`BigInt` is a special numeric type introduced in JavaScript to handle integers that are larger than the maximum safe integer value supported by the Number type. It allows for arbitrary-precision integers, which means it can represent and perform operations on integers of any size, limited only by the available memory. "
       },
       {
         "type": "Code",
