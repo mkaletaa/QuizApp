@@ -2,7 +2,7 @@
   {
     "id": "JS_fundamentals|functions|1",
     "question": [
-      "What is the order of output in this code?",
+      "What is the order of the output in this code?",
       {
         "type": "Code",
         "value": "function fun() {\n  console.log('Hello')\n}\n\nconsole.log('World')\n\nfun()",
@@ -13,17 +13,17 @@
       { "id": "1", "val": "Hello, World" },
       { "id": "2", "val": "World, Hello", "correct": true }
     ],
-    "explanation": ["'fun' function was called after console.log('World')"]
+    "explanation": "'fun' function was called after console.log('World')"
   },
   {
     "id": "JS_fundamentals|functions|2",
     "question": [
-      "What will be printed by this console.log()?",
       {
         "type": "Code",
         "value": "function greet(age, surname, name) {\n  console.log('I am', name, surname, 'and I am', age, 'yo.')\n}\n\ngreet('John', 'Doe', 12)",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "\"I am\" 12 \"John\" \"and I am\" \"Doe\" \"yo.\"" },
@@ -40,12 +40,12 @@
   {
     "id": "JS_fundamentals|functions|3",
     "question": [
-      "What is the output of the following code?",
       {
         "type": "Code",
         "value": "function displayData(age, name) {\n  console.log(age)\n  console.log(name)\n}\n\ndisplayData('Helen')",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "an Error will occur" },
@@ -56,12 +56,12 @@
   {
     "id": "JS_fundamentals|functions|4",
     "question": [
-      "What is the output of the following code?",
       {
         "type": "Code",
         "value": "function displayData(name, age) {\n  console.log(age)\n  console.log(name)\n}\n\ndisplayData('Michael', 'Jackson', 40)",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "an Error will occur" },
@@ -77,12 +77,12 @@
   {
     "id": "JS_fundamentals|functions|5",
     "question": [
-      "What is the output of the following code?",
       {
         "type": "Code",
         "value": "function displayData(name, age = 20, surname) {\n  console.log(name)\n  console.log(age)\n  console.log(surname)\n}\n\ndisplayData('John', 'Doe')",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "John, Doe, 20" },
@@ -96,12 +96,12 @@
     "id": "JS_fundamentals|functions|6",
 
     "question": [
-      "What will be printed by this console.log()?",
       {
         "type": "Code",
         "value": "function exp(b, a) {\n  a ** b\n}\n\nconsole.log(exp(2, 3))",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "undefined" },
@@ -113,12 +113,12 @@
   {
     "id": "JS_fundamentals|functions|7",
     "question": [
-      "What is the output of the following code?",
       {
         "type": "Code",
         "value": "function displayData(name, age) {\n  console.log(name)\n  return 'user data'\n  console.log(age)\n}\n\nconst data = displayData('John', 30)\nconsole.log(data)",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "John, user data", "correct": true },
@@ -130,12 +130,12 @@
   {
     "id": "JS_fundamentals|functions|8",
     "question": [
-      "What will be printed by this console.log()?",
       {
         "type": "Code",
         "value": "function fun(a, b, c, ...rest) {\n  console.log(rest)\n}\n\nfun(1, 2, 3)",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "1", "val": "[]", "correct": true },
@@ -146,12 +146,12 @@
   {
     "id": "JS_fundamentals|functions|9",
     "question": [
-      "What will be printed by this console.log()?",
       {
         "type": "Code",
         "value": "function fun(b, b) {\n  console.log(b)\n}\n\nfun(1, 2)",
         "props": { "language": "javascript" }
-      }
+      },
+      "What will be logged to the console?"
     ],
     "options": [
       { "id": "2", "val": "1" },

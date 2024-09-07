@@ -4,7 +4,7 @@
     "multoChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Which of them is a valid single-line comment in JavaScript?"
       },
       {
@@ -26,7 +26,7 @@
     "multoChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Which of them is a valid multi-line comment in JavaScript?"
       },
       {
@@ -50,7 +50,7 @@
     "multiChoice": true,
     "question": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "Which of them is a valid JavaScript comment?"
       },
       {

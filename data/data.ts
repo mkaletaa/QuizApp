@@ -59,6 +59,7 @@ export const topics = {
     { name: 'comments', image: 'https://reactjs.org/logo-og.png' },
     { name: 'operators', image: 'https://reactjs.org/logo-og.png' },
     { name: 'variables', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'declaration_keywords', image: 'https://reactjs.org/logo-og.png' },
     { name: 'conditionals', image: 'https://reactjs.org/logo-og.png' },
     { name: 'loops', image: 'https://reactjs.org/logo-og.png' },
     { name: 'functions', image: 'https://reactjs.org/logo-og.png' },

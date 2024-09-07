@@ -3,13 +3,13 @@
     "id": "JS_fundamentals|conditionals|1",
     "question": [
       {
-        "type": "Text",
-        "value": "What is the output of the following code?"
-      },
-      {
         "type": "Code",
         "value": "let a = 10\n\nif (a > 5) {\n  a = 20\n}\n\nif (a > 15) {\n  a = 30\n}\n\nconsole.log(a)",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
       }
     ],
     "options": [
@@ -22,13 +22,13 @@
     "id": "JS_fundamentals|conditionals|2",
     "question": [
       {
-        "type": "Text",
-        "value": "What is the output of the following code?"
-      },
-      {
         "type": "Code",
         "value": "let age = 18\n\nlet isAdult = age >= 18 ? 'Yes' : 'No'\n\nconsole.log(isAdult)",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
       }
     ],
     "options": [
@@ -42,13 +42,13 @@
     "id": "JS_fundamentals|conditionals|3",
     "question": [
       {
-        "type": "Text",
-        "value": "What is the output of the following code?"
-      },
-      {
         "type": "Code",
         "value": "const day = 3\nlet dayName\n\nswitch (day) {\n  case 1:\n    dayName = 'Monday'\n  case 2:\n    dayName = 'Tuesday'\n    break\n  case 3:\n    dayName = 'Wednesday'\n  case 4:\n    dayName = 'Thursday'\n  case 5:\n    dayName = 'Friday'\n    break\n  case 6:\n    dayName = 'Saturday'\n    break\n  case 7:\n    dayName = 'Sunday'\n  default:\n    dayName = 'Invalid day'\n}\n\nconsole.log(dayName)",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
       }
     ],
     "options": [
@@ -65,13 +65,13 @@
     "id": "JS_fundamentals|conditionals|4",
     "question": [
       {
-        "type": "Text",
-        "value": "What is the output of the following code?"
-      },
-      {
         "type": "Code",
         "value": "const color = 'red'\nlet message\n\nswitch (color) {\n  case 'red':\n    message = 'Stop'\n  case 'yellow':\n    message = 'Caution'\n  case 'green':\n    message = 'Go'\n  default:\n    message = 'Invalid color'\n}\n\nconsole.log(message)",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
       }
     ],
     "options": [
@@ -86,13 +86,13 @@
     "id": "JS_fundamentals|conditionals|5",
     "question": [
       {
-        "type": "Text",
-        "value": "What is the output of the following code?"
-      },
-      {
         "type": "Code",
         "value": "const season = 'spring'\nlet message\n\nswitch (season) {\n  case 'summer':\n    message = 'It is hot'\n    break\n  case 'autumn':\n    message = 'Leaves are falling'\n    break\n  case 'winter':\n    message = 'It is cold'\n    break\n  }\n\nconsole.log(message)",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
       }
     ],
     "options": [
@@ -107,13 +107,13 @@
     "id": "JS_fundamentals|conditionals|6",
     "question": [
       {
-        "type": "Text",
-        "value": "What is the output of the following code?"
-      },
-      {
         "type": "Code",
         "value": "let age = 10\n\nswitch (age) {\n  case age >= 18:\n    console.log('adult')\n    break\n  case age < 18:\n    console.log('child')\n}",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
       }
     ],
     "options": [
@@ -123,7 +123,7 @@
     ],
     "explanation": [
       {
-        "type": "Text",
+        "type": "CText",
         "value": "The code results in an error because case statements expect constant values, not conditions. To use conditions, switch on true instead of a variable, like this:"
       },
       {
@@ -137,13 +137,13 @@
     "id": "JS_fundamentals|conditionals|7",
     "question": [
       {
-        "type": "Text",
-        "value": "What is the output of the following code?"
-      },
-      {
         "type": "Code",
         "value": "let a = 20\n\nif(a > 10){\n  console.log(\"greater than 10\")\n} else if(a > 15){\n  console.log(\"greater than 15\")\n} else if(a >= 20) {\n  console.log(\"greater or equal 20\")\n} else {\n  console.log(\"less or equal 10\")\n}",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
       }
     ],
     "options": [
