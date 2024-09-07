@@ -2,7 +2,7 @@
   {
     "id": "about_JavaScript|historical_background|1",
     "multiChoice": false,
-    "question": "Who is the creator of JavaScipt",
+    "question": "Who is the creator of JavaScript",
     "options": [
       { "id": 1, "answer": "Ryan Dahl", "correct": false },
       { "id": 2, "answer": "Jeff Atwood", "correct": false },
@@ -74,11 +74,6 @@
       {
         "id": 34,
         "answer": "JScript",
-        "correct": false
-      },
-      {
-        "id": 35,
-        "answer": "CoffeeScript",
         "correct": false
       }
     ]
@@ -211,7 +206,7 @@
   {
     "id": "about_JavaScript|historical_background|10",
     "multiChoice": false,
-    "question": "Which company mantains the development of the most popular JavaScript framework, React?",
+    "question": "Which company maintains the development of React?",
     "options": [
       {
         "id": 31,

@@ -89,22 +89,6 @@
   },
   {
     "id": "about_JavaScript|general_information|7",
-    "question": "JS is a weakly typed language",
-    "options": [
-      {
-        "id": 31,
-        "val": "true",
-        "correct": true
-      },
-      {
-        "id": 32,
-        "val": "false",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "id": "about_JavaScript|general_information|8",
     "multiChoice": true,
     "question": "Which of these paradigms can be used for coding in JavaScript?",
     "options": [
