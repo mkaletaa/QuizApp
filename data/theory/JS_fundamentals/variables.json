@@ -139,7 +139,7 @@
         "value": [
           {
             "type": "Text",
-            "value": "JavaScript is case-sensitive"
+            "value": "JavaScript is case-sensitive."
           },
           {
             "type": "Code",

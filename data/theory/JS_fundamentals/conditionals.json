@@ -12,7 +12,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "<p>The if statement in JavaScript is the most common conditional statement that allows you to execute a block of code if a specified condition evaluates to true. The basic syntax is as follows:</p>"
+        "value": "The if statement in JavaScript is the most common conditional statement that allows you to execute a block of code if a specified condition evaluates to true. The basic syntax is as follows:"
       },
       {
         "type": "Code",
@@ -21,7 +21,7 @@
       },
       {
         "type": "Text",
-        "value": "Here, condition is an expression that is evaluated. If the result of this expression is true, the code inside the curly braces is executed. If the condition is false, the code block is skipped. If the body of an 'if' statement contains only one instruction, you can abandon curly brackets. "
+        "value": "Here, condition is an expression that is evaluated. If the result of this expression is true, the code inside the curly braces is executed. If the condition is false, the code block is skipped. If the body of an `if` statement contains only one instruction, you can omit the curly brackets. "
       },
       {
         "type": "Code",
@@ -39,7 +39,7 @@
       },
       {
         "type": "Text",
-        "value": "You can also chain multiple conditions using else if:"
+        "value": "You can also chain multiple conditions using `else if`:"
       },
       {
         "type": "Code",
@@ -48,7 +48,7 @@
       },
       {
         "type": "Text",
-        "value": "Else-if is not the same as multiple if statements one after another. When one of the conditions in an if-else statement is fulfilled, the rest won't be evaluated. In contrast, with multiple if statements, each condition is checked independently, regardless of whether previous conditions were true or false. This means that with multiple if statements, more than one block can be executed if their conditions are met."
+        "value": "`Else if` is not the same as multiple `if` statements one after another. When one of the conditions in an `else if` statement is fulfilled, the rest won't be evaluated. In contrast, with multiple if statements, each condition is checked independently, regardless of whether previous conditions were true or false. This means that with multiple if statements, more than one block can be executed if their conditions are met."
       },
       {
         "type": "Code",
@@ -65,7 +65,7 @@
         "value": [
           {
             "type": "Text",
-            "value": "You can nest if statements, however it is not advisable as it decreases the readability of the code. Use 'early return' technique instead"
+            "value": "You can nest `if` statements, however it is not advisable as it decreases the readability of the code. Use 'early return' technique instead"
           },
           {
             "type": "Code",
@@ -74,7 +74,7 @@
           },
           {
             "type": "Text",
-            "value": "You'll learn about 'return' statement in the lesson about functions."
+            "value": "You'll learn about `return` statement in the lesson about functions."
           }
         ],
         "props": {
@@ -163,7 +163,7 @@
       },
       {
         "type": "Text",
-        "value": "Without breaks:"
+        "value": "Without `break` statements:"
       },
       {
         "type": "Code",
@@ -172,7 +172,7 @@
       },
       {
         "type": "Text",
-        "value": "Using comparison operators directly in case statements within a switch block won't work as expected because case statements are compared with switch expression. Comparison operators return boolean values (true or false), which don't match the value used as switch expression."
+        "value": "Using comparison operators directly in case statements within a switch block won't work as expected because case statements are compared with switch expression. Comparison operators return boolean values (true or false), which don't match the value used as the switch expression."
       },
       {
         "type": "Code",

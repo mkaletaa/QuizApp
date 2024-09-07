@@ -8,11 +8,11 @@
     ]
   },
   {
-    "title": "for loop",
+    "title": "for Loop",
     "data": [
       {
         "type": "Text",
-        "value": "The for loop in JavaScript is used for iterating over a sequence, such as an array or the characters in a string. It provides a concise way to repeat a block of code multiple times.<p>Here's the basic syntax of the for loop:</p>"
+        "value": "The `for` loop in JavaScript is used for iterating over a sequence, such as an array or the characters in a string. It provides a concise way to repeat a block of code multiple times.<p>Here's the basic syntax of the `for` loop:</p>"
       },
       {
         "type": "Code",
@@ -20,8 +20,12 @@
         "props": { "language": "javascript" }
       },
       {
-        "type": "Text",
-        "value": "<ul><li>Initialization: It is executed before the loop starts. It is often used to declare and initialize the loop variable.</li><li>Condition: It is evaluated before each iteration. If the condition is true, the code inside the loop is executed; otherwise, the loop terminates.</li><li>Updation: It is executed at the end of each iteration. It is usually used to update or increment the loop variable.</li></ul>"
+        "type": "List",
+        "value": [
+          "Initialization: It is executed before the loop starts. It is often used to declare and initialize the loop variable.",
+          "Condition: It is evaluated before each iteration. If the condition is true, the code inside the loop is executed; otherwise, the loop terminates.",
+          "Updation: It is executed at the end of each iteration. It is usually used to update or increment the loop variable."
+        ]
       },
       {
         "type": "Image",
@@ -30,40 +34,40 @@
       },
       {
         "type": "Code",
-        "value": "for (let i = 1; i <= 5; i++) {\n  console.log(i) // 1, 2, 3, 4, 5\n}",
+        "value": "for (let i = 1; i <= 5; i++) {\n  console.log(i); // 1, 2, 3, 4, 5\n}",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example:<ul><li>let i = 1 initializes the loop variable i to 1.</li><li>i <= 5 is the condition. The loop will continue as long as i is less than or equal to 5.</li><li>i++ increments i by 1 after each iteration.</li></ul>If inside a loop's body there is only one instruction you can abandon curly brackets. Updation doesn't necessarily need to be incrementation but it vast majority of cases it is."
+        "value": "In this example:<ul><li>`let i = 1` initializes the loop variable `i` to 1.</li><li>`i <= 5` is the condition. The loop will continue as long as `i` is less than or equal to 5.</li><li>`i++` increments `i` by 1 after each iteration.</li></ul>If the loop body contains only one instruction, you can omit the curly brackets. The updation doesn't necessarily need to be incrementation, but in the vast majority of cases, it is."
       },
       {
         "type": "Code",
-        "value": "for (let i = 10; i > 5; i--)\n  console.log(i) // 10, 9, 8, 7, 6\n\nfor (let i = 0; i <= 20; i=i+5)\n  console.log(i) // 0, 5, 10, 15, 20",
+        "value": "for (let i = 10; i > 5; i--)\n  console.log(i); // 10, 9, 8, 7, 6\n\nfor (let i = 0; i <= 20; i += 5)\n  console.log(i); // 0, 5, 10, 15, 20",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "If you want to have an infinite for loop you can go as follows:"
+        "value": "To create an infinite `for` loop, you can use the following syntax:"
       },
       {
         "type": "Code",
-        "value": "for (;;) {\n   ...\n}",
+        "value": "for (;;) {\n   // infinite loop\n}",
         "props": { "language": "javascript" }
       }
     ]
   },
   {
-    "title": "while loops",
+    "title": "while Loops",
     "data": [
       {
         "type": "Header",
-        "value": "basic while loop",
+        "value": "Basic While Loop",
         "props": { "size": "md" }
       },
       {
         "type": "Text",
-        "value": "The while loop in JavaScript is used to repeatedly execute a block of code as long as a specified condition is true. The basic syntax of the while loop is as follows:"
+        "value": "The `while` loop in JavaScript is used to repeatedly execute a block of code as long as a specified condition is true. The basic syntax of the `while` loop is as follows:"
       },
       {
         "type": "Code",
@@ -76,17 +80,17 @@
       },
       {
         "type": "Code",
-        "value": "let i = 0\nwhile(i < 5){\n  console.log(i) //0, 1, 2, 3, 4\n  i++\n}",
+        "value": "let i = 0;\nwhile (i < 5) {\n  console.log(i); // 0, 1, 2, 3, 4\n  i++;\n}",
         "props": { "language": "javascript" }
       },
       {
         "type": "Header",
-        "value": "do-while loop",
+        "value": "do-while Loop",
         "props": { "size": "md" }
       },
       {
         "type": "Text",
-        "value": "The do-while loop in JavaScript is similar to the while loop, but it guarantees that the code block will be executed at least once before checking the condition. "
+        "value": "The `do-while` loop in JavaScript is similar to the `while` loop, but it guarantees that the code block will be executed at least once before checking the condition."
       },
       {
         "type": "Image",
@@ -94,7 +98,7 @@
       },
       {
         "type": "Text",
-        "value": "The basic syntax of the do-while loop is as follows:"
+        "value": "The basic syntax of the `do-while` loop is as follows:"
       },
       {
         "type": "Code",
@@ -107,21 +111,20 @@
       },
       {
         "type": "Code",
-        "value": "let i = 0\ndo {\n  console.log(i) // 0, 1, 2, 3, 4\n  i++\n} while (i < 5);",
+        "value": "let i = 0;\ndo {\n  console.log(i); // 0, 1, 2, 3, 4\n  i++;\n} while (i < 5);",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example, the code inside the do block is executed first, then the condition i < 5 is checked. As long as the condition is true, the loop continues to execute."
+        "value": "In this example, the code inside the `do` block is executed first, then the condition `i < 5` is checked. As long as the condition is true, the loop continues to execute."
       },
-
       {
         "type": "Text",
-        "value": "If you want to achieve infinite while loop, you can go as follows:"
+        "value": "To create an infinite `while` loop, you can use the following syntax:"
       },
       {
         "type": "Code",
-        "value": "while(true){\n   ...\n}\n\ndo {\n   ...\n} while(19)  //any truthy value is ok",
+        "value": "while (true) {\n   // infinite loop\n}\n\ndo {\n   // infinite loop\n} while (true);",
         "props": { "language": "javascript" }
       }
     ]
@@ -131,7 +134,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The break and continue statements in JavaScript are used to control the flow of loops. They allow you to terminate a loop or skip an iteration based on certain conditions."
+        "value": "The `break` and `continue` statements in JavaScript are used to control the flow of loops. They allow you to terminate a loop or skip an iteration based on certain conditions."
       },
       {
         "type": "Header",
@@ -140,7 +143,7 @@
       },
       {
         "type": "Text",
-        "value": "The break statement is used to exit a loop prematurely when a specific condition is met. It can be used in loops such as for, while, and do...while."
+        "value": "The `break` statement is used to exit a loop prematurely when a specific condition is met. It can be used in loops such as `for`, `while`, and `do...while`."
       },
       {
         "type": "Code",
@@ -149,7 +152,7 @@
       },
       {
         "type": "Text",
-        "value": "In this example, the loop terminates when the value of i is 5. The break statement stops the loop and the remaining iterations are not executed."
+        "value": "In this example, the loop terminates when the value of `i` is 5. The `break` statement stops the loop and the remaining iterations are not executed."
       },
       {
         "type": "Header",
@@ -158,7 +161,7 @@
       },
       {
         "type": "Text",
-        "value": "The continue statement is used to skip the current iteration of the loop and continue with the next one. It can also be used in loops such as for, while, and do...while."
+        "value": "The `continue` statement is used to skip the current iteration of the loop and continue with the next one. It can also be used in loops such as `for`, `while`, and `do...while`."
       },
       {
         "type": "Code",
@@ -167,16 +170,16 @@
       },
       {
         "type": "Text",
-        "value": "In the above code, the continue statement skips the current iteration when the value of i is even. The loop continues with the next iteration without executing the remaining code within the loop body for that iteration. <br></br>When used in nested loops, break and continue work only on the loop that they were used in. If you want to use these statements from body of an inner loop to affect the behavior of an outer loop you should use labels."
+        "value": "In the above code, the `continue` statement skips the current iteration when the value of `i` is even. The loop continues with the next iteration without executing the remaining code within the loop body for that iteration.<br>When used in nested loops, `break` and `continue` work only on the loop that they are used in. If you want to use these statements from the body of an inner loop to affect the behavior of an outer loop, you should use labels."
       }
     ]
   },
   {
-    "title": "labels",
+    "title": "Labels",
     "data": [
       {
         "type": "Text",
-        "value": "Labels in JavaScript are used to name loops or blocks of code, allowing you to use break and continue statements more flexibly. A label is an identifier followed by a colon (:) that appears before a statement or a block of code."
+        "value": "Labels in JavaScript are used to name loops or blocks of code, allowing you to use `break` and `continue` statements more flexibly. A label is an identifier followed by a colon (:) that appears before a statement or a block of code."
       },
       {
         "type": "Code",
@@ -185,43 +188,43 @@
       },
       {
         "type": "Header",
-        "value": "using labels with break",
+        "value": "Using Labels with break",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "You can use a label with the break statement to exit not only the current loop but also any outer loops or code blocks."
+        "value": "You can use a label with the `break` statement to exit not only the current loop but also any outer loops or code blocks."
       },
       {
         "type": "Code",
-        "value": "outerLoop: \nfor (let i = 0; i < 5; i++) {\n   for (let j = 0; j < 5; j++) {\n      if (i === 2 && j === 3) break outerLoop;\n      console.log('i =', i, 'j =', j);\n   }\n}",
+        "value": "outerLoop:\nfor (let i = 0; i < 5; i++) {\n   for (let j = 0; j < 5; j++) {\n      if (i === 2 && j === 3) break outerLoop;\n      console.log('i =', i, 'j =', j);\n   }\n}",
         "props": { "language": "javascript" }
       },
-      { 
+      {
         "type": "Text",
-        "value": "The outerLoop label is used with the break statement to exit both loops when i is 2 and j is 3."
+        "value": "The `outerLoop` label is used with the `break` statement to exit both loops when `i` is 2 and `j` is 3."
       },
       {
         "type": "Header",
-        "value": "using labels with continue",
+        "value": "Using Labels with continue",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "You can also use a label with the continue statement to skip the current iteration of not only the current loop but also any outer loops."
+        "value": "You can also use a label with the `continue` statement to skip the current iteration of not only the current loop but also any outer loops."
       },
       {
         "type": "Code",
-        "value": "outerLoop: \nfor (let i = 0; i < 5; i++) {\n   for (let j = 0; j < 5; j++) {\n      if (i === 2 && j === 3)\n          continue outerLoop;\n      console.log('i =', i, 'j =', j);\n   }\n}",
+        "value": "outerLoop:\nfor (let i = 0; i < 5; i++) {\n   for (let j = 0; j < 5; j++) {\n      if (i === 2 && j === 3)\n          continue outerLoop;\n      console.log('i =', i, 'j =', j);\n   }\n}",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "The outerLoop label is used with the continue statement to skip the current iteration of the outer loop when i is 2 and j is 3."
+        "value": "The `outerLoop` label is used with the `continue` statement to skip the current iteration of the outer loop when `i` is 2 and `j` is 3."
       },
       {
         "type": "Header",
-        "value": "labels with blocks",
+        "value": "Labels with Blocks",
         "props": { "size": "sm" }
       },
       {

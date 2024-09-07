@@ -2,6 +2,7 @@
   {
     "id": "JS_fundamentals|comments|1",
     "multoChoice": true,
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -24,6 +25,7 @@
   {
     "id": "JS_fundamentals|comments|2",
     "multoChoice": true,
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -48,6 +50,7 @@
   {
     "id": "JS_fundamentals|comments|3",
     "multiChoice": true,
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -60,13 +63,13 @@
       }
     ],
     "options": [
-        { "id": "1", "val": "A", "correct": true },
-        { "id": "2", "val": "B", "correct": true },
-        { "id": "3", "val": "C", "correct": false },
-        { "id": "4", "val": "D", "correct": true },
-        { "id": "5", "val": "E", "correct": true },
-        { "id": "6", "val": "F", "correct": false },
-        { "id": "7", "val": "G", "correct": false }
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": true },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": true },
+      { "id": "5", "val": "E", "correct": true },
+      { "id": "6", "val": "F", "correct": false },
+      { "id": "7", "val": "G", "correct": false }
     ]
   }
 ]

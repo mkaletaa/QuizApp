@@ -1,10 +1,10 @@
 [
   {
-    "title": "What are functions and why we need them?",
+    "title": "What are functions and why do we need them?",
     "data": [
       {
         "type": "Text",
-        "value": "Functions in programming are blocks of code designed to perform a specific task. They are essential building blocks in most programming languages. The use of functions is very advantageous. They make the code look neat, improving its readability and simplify the process of editing it later on - you need to update the code in one place instead of a bunch of places. <br></br>Take a look at the code below:"
+        "value": "Functions in programming are blocks of code designed to perform a specific task. They are essential building blocks in most programming languages. The use of functions is very advantageous. They make the code look neat, improving its readability, and simplify the process of editing it later on—you need to update the code in one place instead of many. <br></br>Take a look at the code below:"
       },
       {
         "type": "Code",
@@ -13,7 +13,7 @@
       },
       {
         "type": "Text",
-        "value": "This works fine but contains many repetitive lines. Moreover, imagine you need to make changes. They would have to be applied in many places but with functions, it can be done just once. Let's make some improvements to it."
+        "value": "This works fine but contains many repetitive lines. Moreover, imagine you need to make changes. They would have to be applied in many places, but with functions, it can be done just once. Let's make some improvements to it."
       },
       {
         "type": "Code",
@@ -27,16 +27,16 @@
     "data": [
       {
         "type": "Text",
-        "value": "In JavaScript there are a few ways to create a function. The most common of them is function declaration. It looks like that:"
+        "value": "In JavaScript, there are a few ways to create a function. The most common of them is function declaration. It looks like this:"
       },
       {
         "type": "Code",
-        "value": "function add(a, b) {\n   return a+b\n} \n\n//once we define a function we can call it\nconst sum = add(2, 3)\nconsole.log(sum) //5",
+        "value": "function add(a, b) {\n   return a + b\n} \n\n// Once we define a function, we can call it\nconst sum = add(2, 3)\nconsole.log(sum) // 5",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "Function declarations start with the 'function' keyword, followed by a name. You can call it whatever you want as long as the name complies with the rules learned in the lesson about variables and their names. After the name, there are parentheses, and inside them, you can place as many arguments as you want, including none. This is the head of the function. Then, you specify the body of the function using curly brackets. This is where all its logic is performed. Inside the body, there is a 'return' keyword, which specifies the value that the function will return when it is called. Return is optional so if a function doesn't return anything you don't have to include it."
+        "value": "Function declarations start with the 'function' keyword, followed by a name. You can call it whatever you want as long as the name complies with the rules learned in the lesson about variables and their names. After the name, there are parentheses, and inside them, you can place as many arguments as you want, including none. This is the head of the function. Then, you specify the body of the function using curly brackets. This is where all its logic is performed. Inside the body, there is a 'return' keyword, which specifies the value that the function will return when it is called. The return is optional, so if a function doesn't return anything, you don't have to include it."
       },
       {
         "type": "Divider"
@@ -52,72 +52,72 @@
       },
       {
         "type": "Code",
-        "value": "function greet(name, age) {\n   console.log('Hello, my name is ', name, 'and I am ', age, ' years old')\n}\n\ngreet(30, 'Alice')\n//Output: Hello, my name is 30 and I am Alice years old",
+        "value": "function greet(name, age) {\n   console.log('Hello, my name is ', name, ' and I am ', age, ' years old')\n}\n\ngreet(30, 'Alice')\n// Output: Hello, my name is 30 and I am Alice years old",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "You can give a function too many or too few arguments but it is not advisable to do."
+        "value": "You can provide a function with too many or too few arguments, but it is not advisable to do so."
       },
       {
         "type": "Code",
-        "value": "function fn(a, b){\n  console.log(a)\n  console.log(b)\n}\n\nfn('Bob', 'Nick') //Bob, Nick\nfn('Kate', 'Alice', 'Josh') //Kate, Alice\nfn('Mario') //Mario, undefined",
+        "value": "function fn(a, b) {\n  console.log(a)\n  console.log(b)\n}\n\nfn('Bob', 'Nick') // Bob, Nick\nfn('Kate', 'Alice', 'Josh') // Kate, Alice\nfn('Mario') // Mario, undefined",
         "props": { "language": "javascript" }
       },
       {
         "type": "Header",
-        "value": "default values",
+        "value": "Default values",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "You can specify default arguments, so that if no value is provided for a particular parameter, the function will use the default value instead. This can help prevent errors and make your functions more flexible."
+        "value": "You can specify default arguments so that if no value is provided for a particular parameter, the function will use the default value instead. This can help prevent errors and make your functions more flexible."
       },
       {
         "type": "Code",
-        "value": "function showDetails(name = 'Guest', age = 25) {\n  console.log('Name: ', name, ' , age: ', age)\n}\n\nshowDetails('Bob', 12) //Name: Bob, age: 12\nshowDetails('Kate') //Name: Kate, age: 25\nshowDetails(undefined, 36) //Name: Guest, age: 36",
+        "value": "function showDetails(name = 'Guest', age = 25) {\n  console.log('Name: ', name, ', age: ', age)\n}\n\nshowDetails('Bob', 12) // Name: Bob, age: 12\nshowDetails('Kate') // Name: Kate, age: 25\nshowDetails(undefined, 36) // Name: Guest, age: 36",
         "props": { "language": "javascript" }
       },
       {
         "type": "Header",
-        "value": "arguments",
+        "value": "Arguments",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "Thanks to the arguments keyword in JavaScript, you don’t even have to specify any named arguments inside the parentheses. The arguments object is an array-like object (but not exactly an array) that holds all the arguments passed to a function, regardless of how many or how few you define. This allows you to access all the arguments within the function dynamically."
+        "value": "Thanks to the `arguments` object in JavaScript, you don’t even have to specify any named arguments inside the parentheses. The `arguments` object is an array-like object (but not exactly an array) that holds all the arguments passed to a function, regardless of how many or how few you define. This allows you to access all the arguments within the function dynamically."
       },
       {
         "type": "Code",
-        "value": "function fun() {\n  console.log(arguments) //get all the arguments as an arrayish structure\n  console.log(arguments.length) //get number of arguments\n  console.log(arguments[0]) //get the first argument\n}\n\nfun('Bob', 12)", 
+        "value": "function fun() {\n  console.log(arguments) // Get all the arguments as an array-like structure\n  console.log(arguments.length) // Get the number of arguments\n  console.log(arguments[0]) // Get the first argument\n}\n\nfun('Bob', 12)",
         "props": { "language": "javascript" }
       },
       {
         "type": "Header",
-        "value": "rest parameter",
+        "value": "Rest parameter",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "Rest parameters in JavaScript provide a more modern and flexible way to handle function arguments. Unlike the 'arguments' object, rest parameters allow you to represent an indefinite number of arguments as an array. This is achieved by using the '...' syntax before the parameter name. This makes the code cleaner and more intuitive, especially when dealing with multiple arguments."
+        "value": "Rest parameters in JavaScript provide a more modern and flexible way to handle function arguments. Unlike the `arguments` object, rest parameters allow you to represent an indefinite number of arguments as an array. This is achieved by using the `...` syntax before the parameter name. This makes the code cleaner and more intuitive, especially when dealing with multiple arguments."
       },
       {
         "type": "Code",
-        "value": "function fun(...args) {\n  console.log(args) // get all the arguments as an array\n  console.log(args.length) // get the number of arguments\n  console.log(args[0]) // get the first argument\n}\n\nfun('Bob', 12) ",
+        "value": "function fun(...args) {\n  console.log(args) // Get all the arguments as an array\n  console.log(args.length) // Get the number of arguments\n  console.log(args[0]) // Get the first argument\n}\n\nfun('Bob', 12)",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "Rest parameter doesn't have to be the only argument of a function but it always must be the last one."
+        "value": "The rest parameter doesn't have to be the only argument of a function, but it always must be the last one."
       },
       {
         "type": "Code",
         "value": "function exampleFunction(firstParam, ...restParams) {\n  console.log(firstParam) // 1\n  console.log(restParams) // [2, 3, 4]\n}\n\nexampleFunction(1, 2, 3, 4)",
-        "props": {"language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "Rest parameters simplify the process of working with variable numbers of arguments and are preferred over the traditional 'arguments' object due to their straightforward syntax and better integration with modern JavaScript features."
+        "value": "Rest parameters simplify the process of working with variable numbers of arguments and are preferred over the traditional `arguments` object due to their straightforward syntax and better integration with modern JavaScript features."
       },
       {
         "type": "Divider"
@@ -147,16 +147,16 @@
       },
       {
         "type": "Code",
-        "value": "let global = 'I am a global variable'\n\nfunction fun(){\n  let local = 'I am a local variable'\n  console.log(local) //'I am a local variable'\n  console.log(global) //'I am a global variable'\n}\n\nfun()\nconsole.log(local) //Uncaught ReferenceError: local is not defined",
+        "value": "let global = 'I am a global variable'\n\nfunction fun() {\n  let local = 'I am a local variable'\n  console.log(local) // 'I am a local variable'\n  console.log(global) // 'I am a global variable'\n}\n\nfun()\nconsole.log(local) // Uncaught ReferenceError: local is not defined",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "If a function has local variables or parameters that are named the same as global variables, they become overwritten."
+        "value": "If a function has local variables or parameters that are named the same as global variables, they will be overwritten."
       },
       {
         "type": "Code",
-        "value": "let a = 0\nlet b = 5\n\nfunction fun(a){\n  let b = 20\n  console.log(a) // 10\n  console.log(b) // 20\n}\n\nfun(10)\nconsole.log(a) // 0\nconsole.log(b) // 5",
+        "value": "let a = 0\nlet b = 5\n\nfunction fun(a) {\n  let b = 20\n  console.log(a) // 10\n  console.log(b) // 20\n}\n\nfun(10)\nconsole.log(a) // 0\nconsole.log(b) // 5",
         "props": { "language": "javascript" }
       }
     ]

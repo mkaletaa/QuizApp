@@ -4,20 +4,20 @@
     "data": [
       {
         "type": "Text",
-        "value": "In JavaScript there are a few ways to define a function. One of them was studied in the previous lesson. It was the most basic of them called function declaration. Another type of function is function expression. It is basically a function that is assigned to a variable."
+        "value": "In JavaScript, there are a few ways to define a function. One of them was studied in the previous lesson. It was the most basic of them, called function declaration. Another type of function is the function expression. It is essentially a function assigned to a variable."
       },
       {
         "type": "Code",
-        "value": "const functionExpression = function fun() {\n  console.log('Hello World')\n}\n\nfunctionExpression() //Hello World",
+        "value": "const functionExpression = function fun() {\n  console.log('Hello World')\n}\n\nfunctionExpression() // Hello World",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "The difference between them lies in their approach to hoisting. As you may remember from the lesson about variables, hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase."
+        "value": "The difference between them lies in their treatment of hoisting. As you may remember from the lesson about variables, hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase."
       },
       {
         "type": "Code",
-        "value": "functionDeclaration() // 'I am function declaration'\n\nfunction functionDeclaration() {\n  console.log('I am function declaration')\n}\n\nfunctionExpression() //Uncaught ReferenceError: Cannot access 'functionExpression' before initialization\n\nconst functionExpression = function fun() {\n  console.log('I am function expression')\n}",
+        "value": "functionDeclaration() // 'I am function declaration'\n\nfunction functionDeclaration() {\n  console.log('I am function declaration')\n}\n\nfunctionExpression() // Uncaught ReferenceError: Cannot access 'functionExpression' before initialization\n\nconst functionExpression = function fun() {\n  console.log('I am function expression')\n}",
         "props": { "language": "javascript" }
       }
     ]
@@ -27,11 +27,11 @@
     "data": [
       {
         "type": "Text",
-        "value": "Anonymous functions are functions that don't have a name. They are often used as an argument of another function but also can be assigned to a variable. Their purpose is to shorten the code."
+        "value": "Anonymous functions are functions that don't have a name. They are often used as arguments to other functions but can also be assigned to a variable. Their purpose is to simplify the code."
       },
       {
         "type": "Code",
-        "value": "// function expression with an anonymous function\nconst functionExpression = function (){\n  console.log('I am a function expression')\n}\n\nfunctionExpression() \n\n///\n\nfunction fun(arg){\n  arg()\n}\n\n// anonymous function as an argument. \nfun(function(){console.log('Hello World')})\n\n// this also works if you specify a name\nfun(function funName(){console.log('Hello World')})",
+        "value": "// Function expression with an anonymous function\nconst functionExpression = function () {\n  console.log('I am a function expression')\n}\n\nfunctionExpression() \n\n///\n\nfunction fun(arg) {\n  arg()\n}\n\n// Anonymous function as an argument.\nfun(function() { console.log('Hello World') })\n\n// This also works if you specify a name\nfun(function funName() { console.log('Hello World') })",
         "props": { "language": "javascript" }
       }
     ]
@@ -39,23 +39,23 @@
   {
     "title": "Arrow function",
     "data": [
-        {
-          "type": "Text",
-          "value": "Arrow function is a specific type of anonymous functions. To define them you don't even have to use 'function' keyword. A 'fat arrow' (=>) is needed instead. There are some interesting syntax rules."
-        },
-        {
-            "type": "Code",
-            "value": "// function expression with an arrow function\nconst fun1 = () => {\n  console.log('Hello World')\n}\n\n// if there's only one argument we can abandon parenthesis\nconst fun2 = e => {\n  console.log('Hello ' , e)\n}\n\n//if there are no arguments or more than one, we must add parenthesis\nconst fun3 = (e, f) => {\n  console.log('Hello ' , e, ' and ', f)\n}\n\n//if an arrow function has only one instruction in its body, we don't need to add curly brackets\nconst fun4 = e => console.log('Hello ' , e)\n\n//if an arrow function has only one instruction in its body and it is return statement we don't need to type 'return'\nconst fun5 = e => ++e\n\n// if a function return an object we need to take that object into parenthesis, otherwise there's a confusion between brackets of a function body and brackets of an object\nconst fun6 = () => { key1: 'value1', key2: 'value2' } // wrong\n\nconst fun7 = () => ({ key1: 'value1', key2: 'value2' }) // correct",
-            "props": {"language": "javascript" }
-        },
-        {
-          "type": "Text",
-          "value": "Arrow functions have distinct characteristics that may require a deeper understanding of JavaScript. As your JS skills improve, you can revisit this topic to explore all the details:"
-        },
-        {
-          "type": "Text",
-          "value": "They do not have this and super binding. Therefore, they should not be used to define methods in objects and classes. They do not have the arguments and new.target properties. Using call, apply, and bind on them will not yield the expected results, due to the lack of this binding. They cannot be used as constructors and should not use yield."
-        }
+      {
+        "type": "Text",
+        "value": "An arrow function is a specific type of anonymous function. To define them, you don't even have to use the 'function' keyword. Instead, a 'fat arrow' (=>) is used. There are some interesting syntax rules."
+      },
+      {
+        "type": "Code",
+        "value": "// Function expression with an arrow function\nconst fun1 = () => {\n  console.log('Hello World')\n}\n\n// If there's only one argument, we can omit the parentheses\nconst fun2 = e => {\n  console.log('Hello ', e)\n}\n\n// If there are no arguments or more than one, we must include parentheses\nconst fun3 = (e, f) => {\n  console.log('Hello ', e, ' and ', f)\n}\n\n// If an arrow function has only one expression in its body, we don't need to use curly brackets\nconst fun4 = e => console.log('Hello ', e)\n\n// If an arrow function has only one expression in its body and it is a return statement, we don't need to type 'return'\nconst fun5 = e => ++e\n\n// If a function returns an object, we need to wrap the object in parentheses; otherwise, there is confusion between the function body braces and the object braces\nconst fun6 = () => { key1: 'value1', key2: 'value2' } // Incorrect\n\nconst fun7 = () => ({ key1: 'value1', key2: 'value2' }) // Correct",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Arrow functions have distinct characteristics that may require a deeper understanding of JavaScript. As your JS skills improve, you can revisit this topic to explore all the details:"
+      },
+      {
+        "type": "Text",
+        "value": "They do not have `this` and `super` binding. Therefore, they should not be used to define methods in objects and classes. They do not have the `arguments` and `new.target` properties. Using `call`, `apply`, and `bind` on them will not yield the expected results due to the lack of `this` binding. They cannot be used as constructors and should not use `yield`."
+      }
     ]
   }
 ]
