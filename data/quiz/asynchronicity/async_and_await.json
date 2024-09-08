@@ -1,18 +1,122 @@
 [
   {
     "id": "asynchronicity|async_and_await|1",
+    "question": "What does the await keyword do in an async function?",
+    "options": [
+      { "id": "1", "val": "It cancels all Promises inside the function." },
+      {
+        "id": "2",
+        "val": "It converts a synchronous function into an asynchronous function."
+      },
+      {
+        "id": "3",
+        "val": "It stops the execution of the code until the Promise is resolved or rejected.",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "It waits for the function to complete synchronously."
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|async_and_await|2",
+    "multiChoice": true,
+    "question": "Which of the following is true about async functions?",
+    "options": [
+      {
+        "id": "1",
+        "val": "They block the execution of other code until they finish."
+      },
+      {
+        "id": "2",
+        "val": "They are executed synchronously by default."
+      },
+      {
+        "id": "3",
+        "val": "They always return a Promise.",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "They cannot be combined with Promise.all()."
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|async_and_await|3",
+    "multiChoice": true,
+    "question": "How can you handle multiple asynchronous operations in parallel using async/await?",
+    "options": [
+      {
+        "id": "1",
+        "val": "Use multiple await statements in sequence."
+      },
+      {
+        "id": "2",
+        "val": "Use await inside a for loop."
+      },
+      {
+        "id": "3",
+        "val": "Use await Promise.all() to run multiple asynchronous tasks in parallel.",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "Use await before each Promise inside a separate async function."
+      }
+    ]
+  },
+  {
+    "id": "asynchronicity|async_and_await|4",
     "question": [
       {
-        "type": "Text",
-        "value": ""
-      }
+        "type": "Code",
+        "value": "async function test() {\n    return \"Hello\";\n}\n\ntest().then(result => console.log(result));",
+        "props": { "language": "javascript" }
+      },
+      "What will the above code output?"
     ],
-    "options": [{ "id": "", "val": "", "correct": false }],
-    "explanation": [
+    "options": [
+      { "id": "1", "val": "undefined" },
+      { "id": "2", "val": "Error" },
+      { "id": "3", "val": "\"Hello\"", "correct": true },
+      { "id": "4", "val": "Promise {<pending>}" }
+    ]
+  },
+  {
+    "id": "asynchronicity|async_and_await|5",
+    "question": [
       {
-        "type": "Text",
-        "value": ""
-      }
+        "type": "Code",
+        "value": "async function fetchData() {\n  let data = 'initial data'\n  let promise = new Promise((resolve, reject) => {\n    setTimeout(() => resolve('fetched data'), 2000)\n  })\n\n  data = await promise\n\n  console.log(data)\n}\n\nfetchData()",
+        "props": { "language": "javascript" }
+      },
+      "What will be printed to the console?"
+    ],
+    "options": [
+      { "id": "1", "val": "undefined" },
+      { "id": "2", "val": "Error" },
+      { "id": "3", "val": "'fetched data'", "correct": true },
+      { "id": "4", "val": "'initial data'" }
+    ],
+    "explanation": "Before console.log() prints data, it waits for the promise to resolve and data is set to the resolved value of the promise."
+  },
+  {
+    "id": "asynchronicity|async_and_await|6",
+    "question": [
+      {
+        "type": "Code",
+        "value": "async function f() {\n  let q = 'first'\n  let p = new Promise((res, rej) => {\n    setTimeout(() => res('second'), 0)\n  })\n\n  console.log(q)\n  console.log(await p)\n}\n\nf()",
+        "props": { "language": "javascript" }
+      },
+      "What will be the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "Error" },
+      { "id": "2", "val": "'second', 'first'" },
+      { "id": "3", "val": "'first', 'second'", "correct": true },
+      { "id": "4", "val": "'first', Error" }
     ]
   }
 ]

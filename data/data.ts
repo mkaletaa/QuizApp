@@ -11,7 +11,7 @@ export const chapters = [
     name: 'JS_fundamentals',
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTa673aG483dj7Rw6OeKA3xJPz9i-RloR_g&usqp=CAU',
-    des: 'short descirtption of a JS_fundamentals',
+    des: '',
   },
   {
     name: 'data_structures',

@@ -61,7 +61,7 @@
     "data": [
       {
         "type": "Header",
-        "value": "Promise.resolve",
+        "value": "Promise.resolve()",
         "props": { "size": "md" }
       },
       {
@@ -75,7 +75,7 @@
       },
       {
         "type": "Header",
-        "value": "Promise.reject",
+        "value": "Promise.reject()",
         "props": { "size": "md" }
       },
       {
@@ -103,7 +103,7 @@
       },
       {
         "type": "Header",
-        "value": "Promise.allSettled",
+        "value": "Promise.allSettled()",
         "props": { "size": "md" }
       },
 
@@ -118,7 +118,7 @@
       },
       {
         "type": "Header",
-        "value": "Promise.race",
+        "value": "Promise.race()",
         "props": { "size": "md" }
       },
       {
@@ -129,11 +129,6 @@
         "type": "Code",
         "value": "const promise1 = new Promise((resolve) =>\n    setTimeout(() => resolve('First'), 2000));\n\nconst promise2 = new Promise((resolve) =>\n    setTimeout(() => resolve('Second'), 1000));\n\nPromise.race([promise1, promise2])\n  .then(result => {\n    console.log(result); // 'Second'\n  });",
         "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Promise.finally",
-        "props": { "size": "md" }
       },
       {
         "type": "Header",
