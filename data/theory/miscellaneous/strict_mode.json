@@ -6,7 +6,6 @@
         "type": "Text",
         "value": "Strict mode is a feature in JavaScript that helps you write cleaner, more secure, and less error-prone code by enforcing stricter parsing and error handling rules. It can be applied to entire scripts or individual functions. Most importantly, it eliminates so called 'silent errors' which means it changes previously accepted \"bad syntax\" into real errors."
       }
-      
     ]
   },
   {
@@ -37,8 +36,12 @@
     "data": [
       {
         "type": "Header",
-        "value": "`this` Binding",
+        "value": "`this` binding",
         "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Strict mode changes the context in standalone functions."
       },
       {
         "type": "Code",
@@ -53,12 +56,21 @@
       },
       {
         "type": "Header",
-        "value": "Variable Declarations",
+        "value": "Declaration keywords",
         "props": { "size": "sm" }
       },
       {
+        "type": "Text",
+        "value": "Strict mode enforces the use of `let`, `const` or `var` when declaring a variable."
+      },
+      {
         "type": "Code",
-        "value": "'use strict'\n// Using `var`, `let`, or `const` is required for variable declarations\n// This will throw an error in strict mode:\nmyVariable = 5; // Error: myVariable is not defined\n\n// Correct usage:\nlet myVariable = 5;\nconst anotherVariable = 10;",
+        "value": "x = 5\nconsole.log(x) //5",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "\"use strict\"\nx = 5\nconsole.log(x) // Uncaught ReferenceError: x is not defined ",
         "props": { "language": "javascript" }
       },
       {
@@ -77,128 +89,55 @@
         "props": { "size": "sm" }
       },
       {
+        "type": "Text",
+        "value": "When using strict mode, the code inside `eval` creates its own scope."
+      },
+      {
         "type": "Code",
-        "value": "'use strict'\n// `eval` has restricted usage in strict mode\n// The `eval` function is not allowed to create variables in the scope of the `eval` function:\nfunction example() {\n  eval('var x = 5;');\n  console.log(x); // ReferenceError: x is not defined\n}\n\nexample();",
+        "value": "eval(\"var x = 20; console.log(x);\") //20\nconsole.log(x + 1) //Uncaught ReferenceError: x is not defined ",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "\"use strict\"\neval(\"var x = 20; console.log(x);\") //20\nconsole.log(x + 1) //21",
         "props": { "language": "javascript" }
       },
       {
         "type": "Header",
-        "value": "Duplicate Parameter Names",
+        "value": "Duplicate parameter names",
         "props": { "size": "sm" }
       },
       {
+        "type": "Text",
+        "value": "Strict mode disallows us from duplicating parameter names."
+      },
+      {
         "type": "Code",
-        "value": "function example(a, a) {\n  console.log(a); // Allowed in non-strict mode, but ambiguous.\n}\nexample(1, 2); // Logs 2.",
+        "value": "function example(a, a){\n  console.log(a) //2\n}\n\nexample(1, 2)",
         "props": { "language": "javascript" }
       },
       {
         "type": "Code",
-        "value": "'use strict'\nfunction example(a, a) {\n  // SyntaxError: Duplicate parameter name not allowed in this context\n}\nexample(1, 2);",
+        "value": "\"use strict\"\nfunction example(a, a){\n  console.log(a) // Uncaught SyntaxError: Duplicate parameter name not allowed in this context\n}\n\nexample(1, 2)",
         "props": { "language": "javascript" }
       },
       {
         "type": "Header",
-        "value": "Octal Literals",
+        "value": "Octal literals",
         "props": { "size": "sm" }
       },
       {
+        "type": "Text",
+        "value": "Octal literals are not allowed in strict mode."
+      },
+      {
         "type": "Code",
-        "value": "'use strict'\n// Octal literals are not allowed in strict mode\n// This will throw an error:\nlet number = 075; // SyntaxError: Octal literals are not allowed in strict mode\n\n// Use decimal notation instead:\nlet number = 75;",
+        "value": "let num = 075 // ok",
         "props": { "language": "javascript" }
       },
       {
         "type": "Code",
-        "value": "let num = 075; // Allowed in non-strict mode (interpreted as octal).\nconsole.log(num); // Logs 61.",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\nlet num = 075; // SyntaxError: Octal literals are not allowed in strict mode.",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Deleting Properties",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "let car = {\n  brand: 'Mercedes',\n  color: 'red',\n  showText() {\n    console.log(`${this.brand} color ${this.color}`);\n  }\n}\n\nconsole.log(car.color); // red\ndelete car.color;\nconsole.log(car.color); // undefined",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\nlet car = {\n  brand: 'Mercedes',\n  color: 'red',\n  showText() {\n    console.log(`${this.brand} color ${this.color}`);\n  }\n}\n\nconsole.log(car.color); // red\ndelete car.color; // Only allows deletion of properties that are configurable.",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Arguments Object Modification",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "function example() {\n  arguments[0] = 2;\n  console.log(arguments[0]); // Logs 2.\n}\nexample(1);",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\nfunction example() {\n  arguments[0] = 2; // TypeError: Cannot assign to read only property '0' of arguments\n}\nexample(1);",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Function and Symbol Stringification",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "function add(a, b) {\n  return a + b;\n}\nconsole.log(JSON.stringify(add)); // 'undefined'\n\nlet id = Symbol('id');\nconsole.log(JSON.stringify(id)); // 'undefined'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\nfunction add(a, b) {\n  return a + b;\n}\nconsole.log(JSON.stringify(add)); // 'undefined'\n\nlet id = Symbol('id');\nconsole.log(JSON.stringify(id)); // 'undefined'",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Assignments to Non-existent Properties",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\n// Assigning to a non-existent property will throw an error:\nlet obj;\nobj.prop = 1; // TypeError: Cannot set property 'prop' of undefined\n\n// Proper usage:\nlet obj = {};\nobj.prop = 1; // Works fine",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Assignments to Read-Only Properties",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\n// Attempting to modify a read-only property:\nconst obj = {};\nObject.defineProperty(obj, 'prop', { value: 1, writable: false });\nobj.prop = 2; // TypeError: Cannot assign to read only property 'prop'\n\n// Ensure properties are writable if you need to modify them:",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Global Variable Creation",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\n// Accidental global variables are not allowed:\nfunction example() {\n  x = 10; // ReferenceError: x is not defined\n}\n\nexample();\n\n// Declare variables properly:\nfunction example() {\n  let x = 10;\n}\n\nexample();",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Duplicate Function Declarations",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Code",
-        "value": "'use strict'\n// Duplicate function declarations in the same scope are not allowed:\nfunction example() {\n  function foo() {}\n  function foo() {} // SyntaxError: Duplicate function declaration\n}\n\n// Ensure unique function names:",
+        "value": "\"use strict\"\nlet num = 075\n// Uncaught SyntaxError: Octal literals are not allowed in strict mode.",
         "props": { "language": "javascript" }
       }
     ]
