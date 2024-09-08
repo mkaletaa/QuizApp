@@ -19,6 +19,25 @@
         "type": "Code",
         "value": "// Code using a function to avoid redundancy\nfunction displayUserDetails(name, age, occupation) {\n  console.log('User: Name is ' + name)\n  console.log('User: Age is ' + age)\n  console.log('User: Occupation is ' + occupation)\n}\n\n// Displaying user details for User 1\ndisplayUserDetails('Alice', 25, 'Engineer')\n// Displaying user details for User 2\ndisplayUserDetails('Bob', 30, 'Designer')\n// Displaying user details for User 3\ndisplayUserDetails('Charlie', 28, 'Teacher')",
         "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "Always try to make a function do only one thing. This is called \"Single Responsibility Principle\". If your function is too long consider splitting it into smaller ones. This approach improves code readability, maintenance, and testing by isolating distinct responsibilities into separate components. This makes the code more modular, flexible, and easier to modify. <br></br>Here's the code that doesn't follow this rule:"
+      },
+      {
+        "type": "Code",
+        "value": "function processUser(user) {\n  // Validating user data\n  if (!user.name || !user.email) {\n    throw new Error('Invalid user data')\n  }\n\n  // Saving user to the database (simulation)\n  console.log('User saved to database:', user)\n\n  // Sending welcome email\n  console.log(`Welcome email sent to ${user.email}`)\n}\n\nconst user = { name: 'John', email: 'john@example.com' }\nprocessUser(user)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "And here's the code that follows the Single Responsibility Principle:"
+      },
+      {
+        "type": "Code",
+        "value": "// Function to save user to the database\nfunction saveUserToDatabase(user) {\n  console.log('User saved to database:', user);\n}\n\n// Function to send welcome email\nfunction sendWelcomeEmail(user) {\n  console.log(`Welcome email sent to ${user.email}`);\n}\n\n// Main function calling other responsibilities\nfunction processUser(user) {\n  validateUser(user);\n  saveUserToDatabase(user);\n  sendWelcomeEmail(user);\n}\n\nconst user = { name: 'John', email: 'john@example.com' };\nprocessUser(user);",
+        "props": { "language": "javascript" }
       }
     ]
   },
@@ -129,7 +148,7 @@
       },
       {
         "type": "Text",
-        "value": "The `return` statement in JavaScript is used to exit a function and optionally pass a value back to the caller. When a function executes a `return` statement, the function stops running, and the value specified in the `return` statement is sent back to where the function was called. If no value is provided, `undefined` is returned by default. This mechanism allows you to send results from functions and control the flow of execution."
+        "value": "The `return` statement in JavaScript is used to exit a function and optionally pass a value back to the caller. When a function executes a `return` statement, the function stops running, and the value specified in the `return` statement is sent back to where the function was called. If no value is provided or a function doesn't have any `return`, such a function is called <b>void</b> and in JavaScript `undefined` is returned by default. This mechanism allows you to send results from functions and control the flow of execution."
       },
       {
         "type": "Code",
