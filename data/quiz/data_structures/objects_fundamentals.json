@@ -62,7 +62,7 @@
       { "id": "3", "val": "'myKey'", "correct": false },
       { "id": "4", "val": "Error", "correct": false }
     ],
-    "explanation": "The obj object is created using a computed property name ([key]). The value of key is 'myKey', so the object is defined as { myKey: \"Hello World\" }. When you try to access obj[key], JavaScript looks for a property with the name stored in the variable key, which is 'myKey'. Since obj['myKey'] exists and has the value \"Hello World\", that value is printed to the console."
+    "explanation": "The `obj` object is created using a computed property name ([key]). The value of key is 'myKey', so the object is defined as { myKey: \"Hello World\" }. When you try to access obj[key], JavaScript looks for a property with the name stored in the variable key, which is 'myKey'. Since obj['myKey'] exists and has the value \"Hello World\", that value is printed to the console."
   },
   {
     "id": "data_structures|objects_fundamentals|5",
@@ -80,7 +80,7 @@
       { "id": "3", "val": "'myKey'", "correct": false },
       { "id": "4", "val": "Error", "correct": false }
     ],
-    "explanation": "The object obj is created with a dynamic property name using the value of the variable key, which is 'myKey'. This means the object is defined as { myKey: \"Hello World\" }. When you use obj['myKey'], you are directly accessing the property with the key 'myKey' in the object. Since obj['myKey'] exists and holds the value \"Hello World\", that value is printed to the console."
+    "explanation": "The object `obj` is created with a dynamic property name using the value of the variable key, which is 'myKey'. This means the object is defined as { myKey: \"Hello World\" }. When you use obj['myKey'], you are directly accessing the property with the key 'myKey' in the object. Since obj['myKey'] exists and holds the value \"Hello World\", that value is printed to the console."
   },
   {
     "id": "data_structures|objects_fundamentals|6",
@@ -93,5 +93,13 @@
       { "id": "4", "val": "my_key", "correct": true },
       { "id": "5", "val": "my-key", "correct": false }
     ]
+  },
+  {
+    "id": "data_structures|objects_fundamentals|7",
+    "question": "Can inner object's key be the same as outer object's key?",
+    "options": [
+      { "id": "1", "val": "yes", "correct": true },
+      { "id": "2", "val": "no", "correct": true }
+    ], "explanation": "Key name must be unique within the same scope but inner object's scope is not the same as outer object's."
   }
 ]

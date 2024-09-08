@@ -41,5 +41,15 @@
       { "id": "3", "val": "Error", "correct": true }
     ],
     "explanation": "JavaScript is case-sensitive. `Name` is a completely different variable than `name`. Since `Name` wasn't defined, console.log will result in an error."
+  },
+  {
+    "id": "JS_fundamentals|variables|4",
+    "question": "What are variables with unexplained meaning called?",
+    "options": [
+      { "id": "1", "val": "magic numbers", "correct": true },
+      { "id": "2", "val": "mysterious numbers" },
+      { "id": "3", "val": "weird numbers" },
+      { "id": "4", "val": "secret numbers" }
+    ]
   }
 ]

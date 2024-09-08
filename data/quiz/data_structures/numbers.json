@@ -87,5 +87,23 @@
       { "id": "3", "val": "34.6", "correct": true },
       { "id": "4", "val": "34.578", "correct": false }
     ]
+  },
+  {
+    "id": "data_structures|numbers|6",
+    "question": [
+      {
+        "type": "Code",
+        "value": "console.log(010)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "Error", "correct": false },
+      { "id": "2", "val": "10", "correct": false },
+      { "id": "3", "val": "8", "correct": true },
+      { "id": "4", "val": "1", "correct": false }
+    ],
+    "explanation": "When we put `0` at the beginning of a number literal it is treated as if it were in base 8. So `010` is 1*8 + 0 = 8."
   }
 ]

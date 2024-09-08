@@ -13,6 +13,15 @@
       },
       {
         "type": "Text",
+        "value": "Unless you use `strict mode` you can put `0` at the beginning of a number. This is called <b>Octal literal</b> and is treated like a base 8 system number."
+      },
+      {
+        "type": "Code",
+        "value": "console.log(015) // 13 // 1*8 + 5",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
         "value": "`Number` type offers some methods useful for numbers manipulation:"
       },
       {
