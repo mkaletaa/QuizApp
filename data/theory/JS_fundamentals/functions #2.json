@@ -57,5 +57,95 @@
         "value": "They do not have `this` and `super` binding. Therefore, they should not be used to define methods in objects and classes. They do not have the `arguments` and `new.target` properties. Using `call`, `apply`, and `bind` on them will not yield the expected results due to the lack of `this` binding. They cannot be used as constructors and should not use `yield`."
       }
     ]
+  },
+  {
+    "title": "Closures",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Closure is a function that has \"closed\" (remembered) the scope of variables that were available at the time of its creation, even if the function executes outside of that scope. In practice, this means that a function can access variables declared in its outer scope, even after that outer scope has terminated. <br></br>It might sound enigmatic so here's a simple example that should clarify closures a bit."
+      },
+      {
+        "type": "Code",
+        "value": "function outerFunction() {\n  let outerVariable = \"I'm outside!\"\n\n  function innerFunction() {\n    console.log(outerVariable) // Access to the variable for the outer function\n  }\n\n  return innerFunction\n}\n\nconst closureFunc = outerFunction()\nclosureFunc() // \"I'm outside!\"",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example the innerFunction function has access to the outerVariable variable, even though the outerFunction function has already completed. This is possible because the inner function creates a closure and \"remembers\" the context in which it was created. But why would I even need this?"
+      },
+      {
+        "type": "Header",
+        "value": "private variables",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Thanks to closures you can simulate private variables in JavaScript that only the inner function has access to."
+      },
+      {
+        "type": "Code",
+        "value": "function counter() {\n  let count = 0\n  return function () {\n    count++\n    return count\n  }\n}\n\nconst increment = counter()\nconsole.log(increment()) // 1\nconsole.log(increment()) // 2\nconsole.log(increment()) // 3",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here the `count` variable is only accessible to the inner function, making it \"private\"."
+      },
+      {
+        "type": "Header",
+        "value": "predefined parameters",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Closure also allows you to create functions with predefined parameters."
+      },
+      {
+        "type": "Code",
+        "value": "function createMultiplier(multiplier) {\n  return function (value) {\n    return value * multiplier\n  }\n}\n\nconst double = createMultiplier(2)\nconst triple = createMultiplier(3)\n\nconsole.log(double(5)) // 10\nconsole.log(triple(5)) // 15",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "IIFE",
+    "data": [
+      {
+        "type": "Text",
+        "value": "An <b>Immediately Invoked Function Expression</b> (IIFE) is a function that executes immediately after its definition. It helps create a new scope and avoids polluting the global namespace."
+      },
+      {
+        "type": "Code",
+        "value": "(function () {\n  let message = 'Hello, world!'\n  console.log(message) // Hello, world!\n})()",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "This syntax is sometimes called `goofy balls` because of the parentheses at the end. Alternatively, you can put them inside the other parentheses:"
+      },
+      {
+        "type": "Code",
+        "value": "(function () {\n  let message = 'Hello, world!'\n  console.log(message) // Hello, world!\n}())",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the function runs immediately and prints the message. The variable `message` is scoped to the IIFE and not accessible outside of it."
+      },
+      {
+        "type": "Text",
+        "value": "IIFEs can also accept parameters, allowing for immediate execution with dynamic values."
+      },
+      {
+        "type": "Code",
+        "value": "(function(name) {\n  console.log('Hello, ' + name + '!');\n})('Alice'); // Outputs: Hello, Alice!",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, the IIFE takes a parameter `name` and prints a personalized greeting. The parameter is used immediately within the IIFE."
+      }
+    ]
   }
 ]
