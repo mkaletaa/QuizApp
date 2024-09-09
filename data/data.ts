@@ -63,7 +63,7 @@ export const topics = {
     { name: 'conditionals', image: 'https://reactjs.org/logo-og.png' },
     { name: 'loops', image: 'https://reactjs.org/logo-og.png' },
     { name: 'functions', image: 'https://reactjs.org/logo-og.png' },
-    { name: 'functions #2', image: 'https://reactjs.org/logo-og.png' },
+    { name: 'functions_#2', image: 'https://reactjs.org/logo-og.png' },
   ],
   data_structures: [
     { name: 'introduction', image: 'https://reactjs.org/logo-og.png' },
