@@ -13,7 +13,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser. Built on Chrome's V8 JavaScript engine, Node.js allows developers to use JavaScript for both client-side and server-side scripting, enabling them to build scalable and high-performance applications. Its non-blocking, event-driven architecture makes it particularly suited for building real-time applications like chat systems and live streaming services. Node.js also has a robust ecosystem, with a vast number of libraries and modules available through npm (Node Package Manager), making it a popular choice for modern web development. <br></br>Node.js can successfully compete with other major technologies used to build backends.<b>Paypal</b>. <br></br>Despite all of that, Node.js has some drawback that were once discussed by the very creator of Node, Ryan Dahl."
+        "value": "Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser. Built on Chrome's V8 JavaScript engine, Node.js allows developers to use JavaScript for both client-side and server-side scripting, enabling them to build scalable and high-performance applications. Its non-blocking, event-driven architecture makes it particularly suited for building real-time applications like chat systems and live streaming services. Node.js also has a robust ecosystem, with a vast number of libraries and modules available through npm (Node Package Manager). No other language can boast more free libraries. <br></br>Node.js has already been adopted by many companies, among others: PayPal, Netflix, NASA, LinkedIn, Reddit or eBay. It can successfully compete with other major technologies used to build backends. After PayPal switched to Node.js the speed of its webapp increased by 35%. <br></br>Despite all of that, Node.js has some drawback that were once discussed by the very creator of Node, Ryan Dahl:"
       },
       {
         "type": "YouTube",
@@ -44,7 +44,7 @@
       },
       {
         "type": "Text",
-        "value": "Fastify is a web framework for Node.js that prioritizes high performance and low overhead. Designed to be fast and efficient, Fastify provides features like schema-based validation and asynchronous request handling to optimize performance. It uses JSON Schema for validation and serialization, which enhances both performance and safety. Fastify is highly extensible with support for plugins and hooks, making it a strong choice for applications requiring high performance. However, its focus on modern JavaScript practices and performance might introduce a learning curve for developers new to the framework. Additionally, its smaller ecosystem compared to Express might limit third-party integrations."
+        "value": "Fastify is a web framework for Node.js that prioritizes high performance and low overhead. Designed to be fast and efficient, Fastify provides features like schema-based validation and asynchronous request handling to optimize performance. It uses JSON Schema for validation and serialization, which enhances both performance and safety. Fastify is highly extensible with support for plugins and hooks, making it a strong choice for applications requiring high performance. However, its focus on modern JavaScript practices and performance might steepen a learning curve for developers new to the framework. Additionally, its smaller ecosystem compared to Express might limit third-party integrations."
       },
       {
         "type": "Header",
@@ -53,7 +53,7 @@
       },
       {
         "type": "Text",
-        "value": "NestJS is a progressive Node.js framework built with TypeScript, designed for building scalable and maintainable server-side applications. It adopts an architecture inspired by Angular, featuring a modular structure that promotes code organization and scalability. NestJS incorporates dependency injection, which facilitates the management of service lifecycles and dependencies. Its use of TypeScript provides strong typing and advanced development features, enhancing the robustness of applications. While its modular and feature-rich approach is advantageous for large-scale projects, it can introduce complexity and a steeper learning curve for developers unfamiliar with advanced concepts like dependency injection and TypeScript."
+        "value": "NestJS is a progressive Node.js framework, created by Polish developer Kamil Myśliwiec. It is designed for scalable and maintainable server-side applications, adopting an Angular-inspired architecture with a modular structure that enhances code organization and scalability. NestJS uses dependency injection for managing service lifecycles and dependencies and runs on top of Express by default, though it can also use Fastify. While it is optimized for TypeScript, NestJS can be used with JavaScript as well. Its feature-rich approach is beneficial for large-scale projects but may present a steeper learning curve for developers unfamiliar with advanced concepts like dependency injection and TypeScript."
       }
     ]
   },
@@ -80,7 +80,7 @@
       },
       {
         "type": "Text",
-        "value": "Bun is a fast JavaScript runtime designed for performance, built on JavaScriptCore (the engine behind Safari). It aims to replace Node.js, npm, and other JavaScript tooling by offering an all-in-one solution that includes a JavaScript runtime, a package manager, and a bundler. Bun is known for its speed, with faster startup times, efficient execution of scripts, and optimized handling of dependencies compared to other runtimes. It supports Node.js APIs, so many existing Node.js libraries work out of the box with Bun. Its goal is to simplify and speed up JavaScript development."
+        "value": "Bun is a blazingly fast JavaScript runtime designed for performance, built on JavaScriptCore (the engine behind Safari). It aims to replace Node.js, npm, and other JavaScript tooling by offering an all-in-one solution that includes a JavaScript runtime, a package manager, and a bundler. Bun is known for its speed, with faster startup times, efficient execution of scripts, and optimized handling of dependencies compared to other runtimes. It supports Node.js APIs, so many existing Node.js libraries work out of the box with Bun."
       }
     ]
   }

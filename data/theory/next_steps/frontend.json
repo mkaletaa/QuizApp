@@ -33,14 +33,13 @@
       },
       {
         "type": "Header",
-        "value": "Ecosystem",
+        "value": "ecosystem",
         "props": { "size": "md" }
       },
       {
         "type": "List",
         "value": [
           "<b>Next.js</b> and <b>Remix</b> - metaframeworks that are used to create full-stack applications, offering features like server-side rendering (SSR), static site generation (SSG), and enhanced routing capabilities, making it easier to build scalable and performant web apps.",
-          "<b>Redux</b> and <b>Zustand</b> - popular state management libraries. Redux provides a centralized store for all app states, while Zustand is a simpler, lighter alternative focused on minimal boilerplate and less complexity.",
           "<b>React Query</b> - a powerful data-fetching library that simplifies the process of fetching, caching, and syncing server data in React applications, making it easier to manage API calls.",
           "<b>Shadcn UI</b> - a library that provides a collection of customizable, accessible UI components, making it easier to build consistent and high-quality user interfaces in React applications.",
           "<b>React Router</b> - a standard routing library for React, enabling navigation between different views and pages within an application, including dynamic route matching and nested routes."
@@ -99,7 +98,7 @@
       },
       {
         "type": "Header",
-        "value": "Ecosystem",
+        "value": "ecosystem",
         "props": { "size": "md" }
       },
       {
@@ -108,7 +107,6 @@
           "<b>Angular Universal</b> - a tool for server-side rendering (SSR) in Angular, improving initial load times and SEO by rendering the application on the server before sending it to the client.",
           "<b>NgRx</b> - a state management library for Angular applications based on Redux principles, providing a way to manage complex state interactions with a predictable state container.",
           "<b>Angular Material</b> - a UI component library that implements Google's Material Design, offering a wide range of ready-to-use components and styles for building modern and responsive user interfaces.",
-          "<b>NgBootstrap</b> - a library that provides Angular components and directives based on the Bootstrap framework, allowing for the use of Bootstrap's styles and components within Angular applications.",
           "<b>ngx-translate</b> - a library for internationalization (i18n) and localization (l10n), enabling easy translation and management of multilingual content within Angular apps."
         ]
       },
@@ -153,7 +151,7 @@
       },
       {
         "type": "Header",
-        "value": "Ecosystem",
+        "value": "ecosystem",
         "props": { "size": "md" }
       },
       {
@@ -161,7 +159,6 @@
         "value": [
           "<b>Nuxt.js</b> - a framework for building server-side rendered (SSR) applications or static websites using Vue, offering features like automatic code splitting, server-side rendering, and static site generation.",
           "<b>Vue Router</b> - the official routing library for Vue.js, enabling navigation between different views and handling dynamic routes.",
-          "<b>Vuex</b> - a state management library for Vue.js applications that helps manage complex state interactions in a predictable manner.",
           "<b>Vuetify</b> - a material design component library for Vue.js, providing a wide range of pre-designed components and styles based on Google's Material Design.",
           "<b>Vueuse</b> - a collection of Vue Composition API utilities that simplify common tasks and improve developer productivity."
         ]
@@ -208,7 +205,7 @@
       },
       {
         "type": "Text",
-        "value": "Svelte is a relatively new JavaScript framework that shifts much of the work to compile time, rather than relying on a virtual DOM at runtime. Developed by Rich Harris and first released in 2016, Svelte compiles components into highly optimized JavaScript code, resulting in faster performance and smaller bundle sizes. Its key features include reactive declarations, a simpler syntax, and no need for a virtual DOM, making it an efficient choice for modern web development."
+        "value": "Svelte is a newer JavaScript framework that moves most work to compile time, avoiding a virtual DOM at runtime. Released in 2016 by Rich Harris, it compiles components into optimized JavaScript, improving performance and reducing bundle sizes. Key features include reactive declarations, dead simple syntax, and no virtual DOM."
       },
       {
         "type": "Header",
@@ -217,7 +214,7 @@
       },
       {
         "type": "Text",
-        "value": "Solid is a declarative JavaScript library for building user interfaces, developed by Ryan Carniato. Unlike frameworks that use a virtual DOM, Solid leverages fine-grained reactivity to update the UI efficiently. Released in 2020, Solid is known for its high performance and low overhead, as it compiles reactivity into optimized JavaScript code, making it a great choice for building fast and responsive applications."
+        "value": "Solid is a declarative JavaScript library for building user interfaces, developed by Ryan Carniato. ts syntax closely resembles React's, but Solid is designed to be more intuitive in its usage. While it's not widely adopted in web development, it can be a great choice for those looking to ease their learning curve with React ;)"
       },
       {
         "type": "Header",
@@ -226,7 +223,7 @@
       },
       {
         "type": "Text",
-        "value": "Qwik is a new framework designed to optimize web performance by focusing on ultra-fast loading times and minimal JavaScript execution. Created by the team at Builder.io, Qwik employs a unique approach to partial hydration, allowing for highly efficient, interactive web applications with minimal client-side JavaScript. Its design emphasizes speed and scalability, making it suitable for modern web needs."
+        "value": "Qwik is a new framework that optimizes web performance with ultra-fast loading and minimal JavaScript. It uses partial hydration for efficient, interactive apps with minimal client-side code and features a syntax similar to React. Designed for speed and scalability, Qwik is ideal for modern web needs."
       },
       {
         "type": "Header",
@@ -235,7 +232,7 @@
       },
       {
         "type": "Text",
-        "value": "Astro is a modern static site builder that emphasizes speed and simplicity. Developed by the team at Snowpack, Astro allows you to build fast, content-focused websites using components from various frameworks like React, Vue, and Svelte. Released in 2021, Astro generates static HTML at build time and includes features like partial hydration and a zero JavaScript runtime by default, resulting in highly performant and optimized sites."
+        "value": "Astro is a modern static site builder focused on speed and simplicity. It allows you to build fast, content-focused websites using components from frameworks like React, Vue, and Svelte. Released in 2021, Astro generates static HTML at build time and uses \"islands architecture,\" where only interactive components are hydrated on the client, reducing JavaScript load. With a zero JavaScript runtime by default and partial hydration, Astro delivers highly performant and optimized sites."
       }
     ]
   }

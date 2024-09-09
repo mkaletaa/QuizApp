@@ -1,7 +1,12 @@
 [
   {
     "title": "",
-    "data": []
+    "data": [
+      {
+        "type": "Text",
+        "value": "If it comes to mobile app development, JavaScript can also come in handy. This language is widely chosen by both IOS and Android developers. There are two main ways to build mobile apps with it:"
+      }
+    ]
   },
   {
     "title": "React Native/Expo",
@@ -36,6 +41,12 @@
           "Expo GO -  a mobile application that allows developers to preview and test their Expo projects on physical devices without needing to build or install native binaries. No cables, no virtual machines. Just your own phone and wi-fi network."
         ]
       }
+    ]
+  },
+  {
+    "title": "Ionic ecosystem",
+    "data": [
+      
     ]
   }
 ]
