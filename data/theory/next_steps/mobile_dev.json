@@ -1,0 +1,41 @@
+[
+  {
+    "title": "",
+    "data": []
+  },
+  {
+    "title": "React Native/Expo",
+    "data": [
+      {
+        "type": "Text",
+        "value": "React Native is an open-source framework developed by Facebook (now Meta) for building cross-platform mobile applications using JavaScript and React. First released in 2015, React Native allows developers to write code once and deploy it on both iOS and Android platforms, while providing a native-like user experience. Moreover, you can build web, desktop and TV apps with it! If you already know React (see the `frontend` lesson) you also know 95% of React Native. Many libraries from React ecosystem are compatible with RN as well. Many big tech companies build their products using React Native. For example apps like Facebook, Messenger, MS Teams, Pinterest, Discord and many more exist thanks to this framework. Even the one you are currently on. This proves JavaScript is absolutely everywhere."
+      },
+      {
+        "type": "Header",
+        "value": "Expo",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Expo is an open-source framework and platform for building cross-platform mobile applications using React Native. Created by Expo, Inc., it simplifies and accelerates the development process by providing a set of tools and services that streamline app development, testing, and deployment. Expo aims to make it easier for developers to get started with React Native and build robust mobile applications with minimal configuration. It isn't mandatory to use it but recently it became a recommended option."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/yNPDHBDF/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "Expo comes with many helpful tools. Here are the most notable of them:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "Expo CLI - a command-line interface tool that provides various commands to manage and develop Expo projects. It is essential for initializing projects, running development servers, and handling builds and deployments.",
+          "EAS (Expo Application Services): A suite of services that enhances Expo's capabilities, including building, submitting, and updating applications. With EAS, app updates are immediate, unlike with other mobile technologies such as Kotlin or Swift.",
+          "Expo Router - a routing library for that helps manage navigation between different screens based on folder structure of your project",
+          "Expo GO -  a mobile application that allows developers to preview and test their Expo projects on physical devices without needing to build or install native binaries. No cables, no virtual machines. Just your own phone and wi-fi network."
+        ]
+      }
+    ]
+  }
+]
