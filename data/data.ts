@@ -42,7 +42,7 @@ export const chapters = [
     des: '',
   },
   {
-    name: 'further_reading',
+    name: 'next_steps',
     image: '',
     des: "You've already gained basic knowledge of JavaScript. Now it's time to choose the path you want to follow next.",
   },
@@ -104,7 +104,7 @@ export const topics = {
     { name: 'types_vs_interfaces', image: '' },
     { name: 'utility_types', image: '' },
   ],
-  further_reading: [
+  next_steps: [
     { name: 'frontend', image: '' },
     { name: 'backend', image: '' },
     { name: 'mobile_dev', image: '' },

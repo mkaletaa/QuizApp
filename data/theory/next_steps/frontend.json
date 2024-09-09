@@ -1,0 +1,242 @@
+[
+  {
+    "title": "What is frontend?",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The front-end is the part of a website or a web app that a user sees and interacts with. This includes everything that is displayed in a web browser, such as the page layout, buttons, forms, text, images, as well as interactions such as clicking buttons, page navigation, animations, etc. <br></br>If you want to become a front-end developer, in addition to knowledge of JavaScript, you will also need knowledge of HTML and CSS. HTML (HyperText Markup Language) describes the content and structure of a web page. CSS (Cascading Style Sheets) defines the presentation and layout of the web page, controlling aspects like colors, fonts, and spacing. JavaScript is used to add interactivity and dynamic behavior to web pages, enabling features like animations, form validations, and interactive content. Once you have mastered these technologies, you can start learning one of the frameworks described below:"
+      }
+    ]
+  },
+  {
+    "title": "React",
+    "data": [
+      {
+        "type": "Text",
+        "value": "React was developed by Meta in 2013 and is now by far the most popular JS frontend library out there. Yes, library, not a framework. But if you refer to it as a framework that wouldn't be a big mistake though. "
+      },
+      {
+        "type": "Text",
+        "value": "One of the most important concepts in React is <b>components</b>. They are the building blocks of any application. Each component represents a part of the user interface, and they can be combined together to create complex layouts. Components can be either class-based or function-based, with function components being more commonly used in modern React applications. Therefore React enforces functional paradigm."
+      },
+      {
+        "type": "Text",
+        "value": "Another key concept is <b>state</b>. It is an object that stores dynamic data within a component, allowing it to track values that may change over time, such as user input, the current view, or data fetched from an API. Every time the state is updated, the component re-renders in response to the change. This reactive behavior is where the name `React` comes from."
+      },
+      {
+        "type": "Text",
+        "value": "Besides that, React is known for many odd concepts. For example, to update the state, we can't use the assignment operator; instead, we have to use the useState hook. <b>Hooks</b> are special functions that React offers us to bravely fight the problems it created."
+      },
+      {
+        "type": "YouTube",
+        "value": "HyWYpM_S-2c"
+      },
+      {
+        "type": "Header",
+        "value": "Ecosystem",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<b>Next.js</b> and <b>Remix</b> - metaframeworks that are used to create full-stack applications, offering features like server-side rendering (SSR), static site generation (SSG), and enhanced routing capabilities, making it easier to build scalable and performant web apps.",
+          "<b>Redux</b> and <b>Zustand</b> - popular state management libraries. Redux provides a centralized store for all app states, while Zustand is a simpler, lighter alternative focused on minimal boilerplate and less complexity.",
+          "<b>React Query</b> - a powerful data-fetching library that simplifies the process of fetching, caching, and syncing server data in React applications, making it easier to manage API calls.",
+          "<b>Shadcn UI</b> - a library that provides a collection of customizable, accessible UI components, making it easier to build consistent and high-quality user interfaces in React applications.",
+          "<b>React Router</b> - a standard routing library for React, enabling navigation between different views and pages within an application, including dynamic route matching and nested routes."
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "After mastering React, you can take it a step further and learn frameworks like <b>Next.js</b> or <b>Remix</b>, which are React metaframeworks. They are used to create full-stack applications, offering features like server-side rendering (SSR), static site generation (SSG), and enhanced routing capabilities, making it easier to build scalable and performant web apps."
+      },
+      {
+        "type": "Header",
+        "value": "pros",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Highly modular: Components allow you to break down the UI into smaller, reusable pieces.",
+          "Efficient updates: React's virtual DOM ensures that only the parts of the UI that need updating are re-rendered, improving performance.",
+          "Huge ecosystem and community, many job opportunities."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "cons",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Steep learning curve for beginners, especially when understanding concepts like hooks and state management.",
+          "Boilerplate: Often needs repetitive setup and imports, even for simple apps.",
+          "Limited ability to manipulate the DOM tree"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Angular",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Angular was developed by Google and first released in 2010. Unlike React, Angular is a full-fledged framework, providing everything needed to build large-scale web applications, including routing, state management, and even form handling, all built-in."
+      },
+      {
+        "type": "Text",
+        "value": "Similar to React, Angular applications are built from components that define parts of the user interface. Each component has a class that contains logic and data, an HTML template for the view, and optional CSS for styling. Angular enforces object-oriented and MVC (Model-View-Controller) paradigms in its design."
+      },
+      {
+        "type": "Text",
+        "value": "Angular also relies heavily on the concept of <b>services</b> and <b>dependency injection</b>. Services allow for separating business logic from UI logic, and dependency injection makes it easy to manage and provide these services to different parts of the application."
+      },
+      {
+        "type": "Text",
+        "value": "Another key aspect of Angular is its use of <b>two-way data binding</b>, which automatically synchronizes data between the model and the view. This means that when data in the component changes, the view is updated, and vice versa, without the need for manually tracking changes."
+      },
+      {
+        "type": "Header",
+        "value": "Ecosystem",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<b>Angular Universal</b> - a tool for server-side rendering (SSR) in Angular, improving initial load times and SEO by rendering the application on the server before sending it to the client.",
+          "<b>NgRx</b> - a state management library for Angular applications based on Redux principles, providing a way to manage complex state interactions with a predictable state container.",
+          "<b>Angular Material</b> - a UI component library that implements Google's Material Design, offering a wide range of ready-to-use components and styles for building modern and responsive user interfaces.",
+          "<b>NgBootstrap</b> - a library that provides Angular components and directives based on the Bootstrap framework, allowing for the use of Bootstrap's styles and components within Angular applications.",
+          "<b>ngx-translate</b> - a library for internationalization (i18n) and localization (l10n), enabling easy translation and management of multilingual content within Angular apps."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "pros",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Complete framework: Provides everything you need out-of-the-box, including routing, HTTP services, and forms.",
+          "Structured and opinionated: Angular follows a strict project structure and design patterns, making large applications easier to scale and maintain.",
+          "Two-way data binding simplifies the synchronization between the UI and model."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "cons",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Very steep learning curve: The complexity of Angular's setup, especially with concepts like dependency injection and RxJS, can be overwhelming for beginners.",
+          "Boilerplate: Requires more setup and configuration compared to lightweight libraries like React.",
+          "Heavier framework: Angular apps can be larger and slower to load if not optimized properly."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Vue",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Vue.js is a progressive JavaScript framework developed by Evan You and first released in 2014. It combines the best features of React and Angular. Unlike Angular, Vue is designed to be incrementally adoptable, meaning you can use as much or as little of it as you need. It's known for its simplicity and flexibility, making it a popular choice for building modern web applications. Its GitHub repository has been starred over 200k times."
+      },
+      {
+        "type": "Text",
+        "value": "In Vue, each component is a self-contained unit that includes its own logic, template, and styles. Vue promotes the use of single-file components (.vue files), which encapsulate HTML, JavaScript, and CSS in a single file for better organization and maintainability."
+      },
+      {
+        "type": "Header",
+        "value": "Ecosystem",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<b>Nuxt.js</b> - a framework for building server-side rendered (SSR) applications or static websites using Vue, offering features like automatic code splitting, server-side rendering, and static site generation.",
+          "<b>Vue Router</b> - the official routing library for Vue.js, enabling navigation between different views and handling dynamic routes.",
+          "<b>Vuex</b> - a state management library for Vue.js applications that helps manage complex state interactions in a predictable manner.",
+          "<b>Vuetify</b> - a material design component library for Vue.js, providing a wide range of pre-designed components and styles based on Google's Material Design.",
+          "<b>Vueuse</b> - a collection of Vue Composition API utilities that simplify common tasks and improve developer productivity."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "pros",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Incrementally adoptable: Can be integrated into projects gradually, making it easier to use alongside other libraries or existing code.",
+          "Simple and flexible: Offers a gentle learning curve and allows for easy customization and scaling.",
+          "Reactive data binding: Automatically updates the DOM in response to data changes, simplifying state management."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "cons",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Smaller ecosystem: Compared to React and Angular, Vue's ecosystem and community are smaller, which might limit resources and third-party libraries.",
+          "Less opinionated: While flexibility is an advantage, it can also lead to inconsistent practices and less guidance for structuring large applications.",
+          "Limited corporate backing: Vue does not have the same level of corporate support as React (Meta) or Angular (Google)."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Other frameworks",
+    "data": [
+      {
+        "type": "Text",
+        "value": "React, Angular, and Vue are the most well-known JS frameworks. However, JavaScript offers many other frameworks as well. Here are some less popular ones yet still worth attention:"
+      },
+      {
+        "type": "Header",
+        "value": "Svelte",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Svelte is a relatively new JavaScript framework that shifts much of the work to compile time, rather than relying on a virtual DOM at runtime. Developed by Rich Harris and first released in 2016, Svelte compiles components into highly optimized JavaScript code, resulting in faster performance and smaller bundle sizes. Its key features include reactive declarations, a simpler syntax, and no need for a virtual DOM, making it an efficient choice for modern web development."
+      },
+      {
+        "type": "Header",
+        "value": "Solid",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Solid is a declarative JavaScript library for building user interfaces, developed by Ryan Carniato. Unlike frameworks that use a virtual DOM, Solid leverages fine-grained reactivity to update the UI efficiently. Released in 2020, Solid is known for its high performance and low overhead, as it compiles reactivity into optimized JavaScript code, making it a great choice for building fast and responsive applications."
+      },
+      {
+        "type": "Header",
+        "value": "Qwik",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Qwik is a new framework designed to optimize web performance by focusing on ultra-fast loading times and minimal JavaScript execution. Created by the team at Builder.io, Qwik employs a unique approach to partial hydration, allowing for highly efficient, interactive web applications with minimal client-side JavaScript. Its design emphasizes speed and scalability, making it suitable for modern web needs."
+      },
+      {
+        "type": "Header",
+        "value": "Astro",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Astro is a modern static site builder that emphasizes speed and simplicity. Developed by the team at Snowpack, Astro allows you to build fast, content-focused websites using components from various frameworks like React, Vue, and Svelte. Released in 2021, Astro generates static HTML at build time and includes features like partial hydration and a zero JavaScript runtime by default, resulting in highly performant and optimized sites."
+      }
+    ]
+  }
+]
