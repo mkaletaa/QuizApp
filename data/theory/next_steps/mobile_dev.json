@@ -46,7 +46,18 @@
   {
     "title": "Ionic ecosystem",
     "data": [
-      
+      {
+        "type": "Text",
+        "value": "The Ionic ecosystem is a suite of tools and technologies designed for building high-quality, cross-platform mobile, desktop, and Progressive Web Applications (PWAs) using standard web technologies like HTML, CSS, and JavaScript (including React, Angular or Vue)."
+      },
+      {
+        "type": "Text",
+        "value": "At the heart of this ecosystem is the Ionic Framework which is an open-source UI toolkit for building high-performing mobile applications. It enables developers to create hybrid mobile apps that run on iOS, Android, and the web with a single codebase. Ionic provides pre-designed UI components that ensure native look and feel across platforms. It is possible thanks to <b>Stencil</b> which is a web component compiler created by the Ionic team."
+      },
+      {
+        "type": "Text",
+        "value": "But this stack alone isn't enough to create a mobile app. We also need a native container, provided by tools like Cordova or Capacitor. Both tools enable access to Android and iOS SDKs but do so in different ways. Cordova wraps the web app in a native container with a webview, whereas Capacitor offers a more modern approach with improved performance and seamless integration with native tools."
+      }
     ]
   }
 ]

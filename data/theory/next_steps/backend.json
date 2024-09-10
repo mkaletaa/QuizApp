@@ -16,6 +16,10 @@
         "value": "Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser. Built on Chrome's V8 JavaScript engine, Node.js allows developers to use JavaScript for both client-side and server-side scripting, enabling them to build scalable and high-performance applications. Its non-blocking, event-driven architecture makes it particularly suited for building real-time applications like chat systems and live streaming services. Node.js also has a robust ecosystem, with a vast number of libraries and modules available through npm (Node Package Manager). No other language can boast more free libraries. <br></br>Node.js has already been adopted by many companies, among others: PayPal, Netflix, NASA, LinkedIn, Reddit or eBay. It can successfully compete with other major technologies used to build backends. After PayPal switched to Node.js the speed of its webapp increased by 35%. <br></br>Despite all of that, Node.js has some drawback that were once discussed by the very creator of Node, Ryan Dahl:"
       },
       {
+        "type": "Comment",
+        "value": "mem o node modules"
+      },
+      {
         "type": "YouTube",
         "value": "M3BM9TB-8yA"
       }

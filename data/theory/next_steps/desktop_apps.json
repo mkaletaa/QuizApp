@@ -1,8 +1,57 @@
 [
-    {
-        "title": "",
-        "data": [
-            
-        ]
-    }
+  {
+    "title": "Electron",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Electron JS is a popular framework for building cross-platform desktop applications using web technologies like HTML, CSS, and JavaScript. It allows developers to create desktop apps that run on Windows, macOS, and Linux using a single codebase. Electron packages the app with its own instance of Chromium (the engine behind Google Chrome) and Node.js, enabling the use of both frontend and backend JavaScript features within the same application."
+      },
+      {
+        "type": "Text",
+        "value": "Go to any GitHub repository and press dot. You'll see VSCode interface in your browser. The code behind it is the same as the code behind VSCode installed on your PC. This means everything you see in Electron-based applications is a bunch of divs and other HTML tags. Other apps built with Electron are MS Teams, Discord, Notion, Twitch, Signal and many more. This is why their web and desktop versions look and behave exactly the same. This is a huge advantage of Electron. You need to build just one app and ship it across multiple platforms without worrying about maintaining separate codebases for each OS."
+      },
+      {
+        "type": "Header",
+        "value": "cons",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "While Electron offers significant advantages in terms of developer experience and cross-platform support, it comes with a few notable drawbacks.<br></br>One of the primary concerns is resource usage. Each Electron app bundles its own instance of Chromium, which results in larger file sizes and higher memory consumption than native desktop applications. This can lead to inefficiency, particularly when multiple Electron apps are running simultaneously, consuming substantial system resources.<br></br> In addition to resource demands, performance can also be an issue. Since Electron essentially runs a full browser environment for each app, it often leads to slower load times and higher CPU usage, especially on older or less powerful devices. This performance hit is a trade-off for the convenience of using web technologies to build desktop apps.<br></br> Another significant drawback is security. By default, Electron apps expose Node.js APIs to the frontend, increasing the attack surface. Developers must implement additional security measures, like disabling unnecessary APIs or using sandboxing, to protect against potential vulnerabilities, particularly when handling external content.<br></br> Battery consumption is also a concern with Electron apps, as the constant operation of Chromium and Node.js can lead to quicker battery drain compared to more optimized, native applications. This is particularly problematic for users on laptops or mobile devices where battery life is a priority."
+      },
+      {
+        "type": "Text",
+        "value": "In other words - developers love it, users hate it."
+      },
+      {
+        "type": "YouTube",
+        "value": "m3OjWNFREJo"
+      }
+    ]
+  },
+  {
+    "title": "Tauri",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Tauri is a newer alternative to Electron. It is a framework for building cross-platform desktop applications using web technologies like HTML, CSS, and JavaScript including its frontend frameworks. In contrary to Electron, Tauri stands out by offering a more lightweight and efficient solution, as it leverages the system's native web view (like WebKit on macOS and WebView2 on Windows) instead of bundling its own instance of Chromium. This results in smaller file sizes and lower memory usage, making Tauri an attractive alternative for developers seeking performance optimizations."
+      },
+      {
+        "type": "Text",
+        "value": "While Tauri shares similar goals with Electron, it differs in how it handles the backend. Instead of using Node.js, Tauri apps can be integrated with Rust, a language known for its speed and memory safety. This gives Tauri a distinct performance advantage, especially for resource-constrained devices or when app size is critical. Tauri’s leaner footprint makes it ideal for building apps where efficiency is paramount, such as system utilities or lightweight tools."
+      },
+      {
+        "type": "Text",
+        "value": "Despite its many strengths, Tauri has some limitations compared to Electron.<br></br> One major drawback is the relative youth of its ecosystem. While Electron has been around longer and boasts a large collection of libraries and tools, Tauri's ecosystem is still maturing, which may pose challenges for developers seeking specific integrations or community support.<br></br> Another challenge is Tauri’s reliance on Rust for backend development. While Rust is fast and safe, it also has a steeper learning curve compared to JavaScript, potentially slowing down teams that are unfamiliar with it."
+      },
+      {
+        "type": "Comment",
+        "value": "Apps that use Tauri"
+      },
+      {
+        "type": "YouTube",
+        "value": "X8evddpu7M"
+      }
+    ]
+  }
 ]
