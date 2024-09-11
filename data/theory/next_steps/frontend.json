@@ -13,11 +13,11 @@
     "data": [
       {
         "type": "Text",
-        "value": "React was developed by Meta in 2013 and is now by far the most popular JS frontend library out there. Yes, library, not a framework. But if you refer to it as a framework that wouldn't be a big mistake though. "
+        "value": "React was developed by Meta in 2013 and is by far the most popular JS frontend library. Yes, library, not a framework. But referring to it as a framework wouldn’t be a major mistake."
       },
       {
         "type": "Text",
-        "value": "One of the most important concepts in React is <b>components</b>. They are the building blocks of any application. Each component represents a part of the user interface, and they can be combined together to create complex layouts. Components can be either class-based or function-based, with function components being more commonly used in modern React applications. Therefore React enforces functional paradigm."
+        "value": "One of the most important concepts in React is <b>components</b>. They are the building blocks of any application. Each component represents a part of the user interface, and they can be combined together to create complex layouts. Components can be either class-based or function-based, with function components being more commonly used in modern React applications. Therefore, React forces us to use the functional programming paradigm."
       },
       {
         "type": "Text",
@@ -25,7 +25,7 @@
       },
       {
         "type": "Text",
-        "value": "Besides that, React is known for many odd concepts. For example, to update the state, we can't use the assignment operator; instead, we have to use the useState hook. <b>Hooks</b> are special functions that React offers us to bravely fight the problems it created."
+        "value": "Besides that, React is known for many odd concepts. For example, to update the state, you can't use the assignment operator; instead, you must use the useState hook.<b>Hooks</b> are special functions React provides to solve the challenges introduced by its architecture."
       },
       {
         "type": "YouTube",
@@ -40,8 +40,8 @@
         "type": "List",
         "value": [
           "<b>Next.js</b> and <b>Remix</b> - metaframeworks that are used to create full-stack applications, offering features like server-side rendering (SSR), static site generation (SSG), and enhanced routing capabilities, making it easier to build scalable and performant web apps.",
-          "<b>React Query</b> - a powerful data-fetching library that simplifies the process of fetching, caching, and syncing server data in React applications, making it easier to manage API calls.",
-          "<b>Shadcn UI</b> - a library that provides a collection of customizable, accessible UI components, making it easier to build consistent and high-quality user interfaces in React applications.",
+          "<b>React Query</b> - a data-fetching library that simplifies fetching, caching, and syncing server data in React applications, making API management easier.",
+          "<b>Shadcn UI</b> - a library that provides a collection of customizable, accessible UI components, making it easier to build consistent and high-quality user interfaces.",
           "<b>React Router</b> - a standard routing library for React, enabling navigation between different views and pages within an application, including dynamic route matching and nested routes."
         ]
       },
@@ -214,7 +214,7 @@
       },
       {
         "type": "Text",
-        "value": "Solid is a declarative JavaScript library for building user interfaces, developed by Ryan Carniato. ts syntax closely resembles React's, but Solid is designed to be more intuitive in its usage. While it's not widely adopted in web development, it can be a great choice for those looking to ease their learning curve with React ;)"
+        "value": "Solid is a declarative JavaScript library for building user interfaces, developed by Ryan Carniato. Its syntax closely resembles React's, but Solid is designed to be more intuitive in its usage. While it's not widely adopted in web development, it can be a great choice for those looking to ease their learning curve with React ;)"
       },
       {
         "type": "Header",
