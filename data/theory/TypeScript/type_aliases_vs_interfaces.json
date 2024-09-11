@@ -1,0 +1,11 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The battle between types and interfaces is for sure the most controversial topic in TypeScript dec community. In TypeScript, both types and interfaces are used to define the shape and structure of data, but there are some key differences and use cases for each. The choice between types and interfaces often comes down to their respective features and the specific needs of your project. However most TS developers prefer types and rarely use interfaces."
+      }
+    ]
+  }
+]

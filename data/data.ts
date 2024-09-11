@@ -100,9 +100,10 @@ export const topics = {
   ],
   TypeScript: [
     { name: 'introduction', image: '' }, //what is TS, why use it, how to download, Node and TS
-    { name: 'basic_types', image: '' }, //unions, intersections, tuples, Arrays, enums, any, unknown, never
-    { name: 'types_vs_interfaces', image: '' },
-    { name: 'utility_types', image: '' },
+    { name: 'types', image: '' }, //? change to the_types ?
+    { name: 'type_aliases_vs_interfaces', image: '' },
+    { name: 'generics', image: '' },
+    { name: 'miscellaneous', image: '' },
   ],
   next_steps: [
     { name: 'frontend', image: '' },

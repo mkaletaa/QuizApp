@@ -1,0 +1,114 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "TypeScript is an open-source programming language developed by Microsoft in 2012 as a superset of JavaScript. It extends JavaScript by adding static typing, which makes it easier to manage larger projects, improves code safety, and enhances developer productivity. Since TypeScript is a superset, every valid JavaScript code is also valid TypeScript code, making it easy to adopt gradually in existing projects."
+      },
+      {
+        "type": "Header",
+        "value": "History and context",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "JavaScript was originally created in 1995 as a simple scripting language for web browsers, but over time, it evolved into one of the most important programming languages for web development. However, as web applications became more complex, JavaScript's dynamic nature and lack of static typing began to pose challenges, especially in large projects. <br></br>In response to these challenges, Microsoft introduced TypeScript to provide developers with a tool that enhances JavaScript with static typing, better tooling, and improved maintainability. The introduction of static typing and a robust type system helps manage large codebases more effectively, making TypeScript ideal for large-scale applications."
+      },
+      {
+        "type": "Header",
+        "value": "Key features",
+        "props": { "size": "lg" }
+      },
+      {
+        "type": "Header",
+        "value": "Static typing",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The main difference between JavaScript and TypeScript is the addition of static typing. This allows developers to specify the types of variables, function arguments, and return values, enabling the detection of errors at compile-time rather than runtime. This reduces bugs in applications and makes the code more predictable."
+      },
+      {
+        "type": "Code",
+        "value": "let name: string = \"John\"\nlet age: number = 25",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Header",
+        "value": "Extensibility of JavaScript",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Since TypeScript is a superset of JavaScript, any valid JavaScript code will run in a TypeScript environment. This allows developers to gradually introduce TypeScript into a project, starting with the parts that benefit the most from static typing while still using plain JavaScript where necessary."
+      },
+      {
+        "type": "Header",
+        "value": "Backward compatibility",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "TypeScript is fully compatible with existing JavaScript libraries and tools, meaning that projects built with JavaScript can easily integrate TypeScript. Additionally, TypeScript provides backward compatibility with older ECMAScript versions, allowing developers to use modern JavaScript features even in environments that don't natively support them."
+      },
+      {
+        "type": "Header",
+        "value": "Compilation to JavaScript",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "TypeScript is not executed directly in browsers or on servers. Instead, it is compiled into JavaScript, allowing TypeScript code to run in any environment that supports JavaScript, regardless of the ECMAScript version."
+      },
+      {
+        "type": "Header",
+        "value": "Why TypeScript is useful",
+        "props": { "size": "lg" }
+      },
+      {
+        "type": "Header",
+        "value": "Safer code",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "With static typing, many potential errors, such as using a variable in an unexpected way, can be caught during compilation before the code is even executed. This reduces runtime errors and makes code more reliable."
+      },
+      {
+        "type": "Header",
+        "value": "Improved developer tools",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "TypeScript provides better integration with development tools like code editors (e.g., Visual Studio Code), enabling real-time type checking, auto-completion, refactoring, and other features that improve the developer experience."
+      },
+      {
+        "type": "Header",
+        "value": "Easier code maintenance",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "In larger projects, TypeScript’s type system makes it easier to understand how different parts of the code interact, making debugging and refactoring less error-prone."
+      },
+      {
+        "type": "Header",
+        "value": "Increased scalability",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "TypeScript was designed with large projects in mind, where managing complex code can be challenging. The type system helps control dependencies and interactions between components, making it easier to scale applications."
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "If you want to execute TypeScript code directly in a browser console, it won’t work. TypeScript needs to be compiled into JavaScript because browsers do not understand it directly. To start writing TypeScript code, you can create a file with a .ts extension. Modern versions of Node.js support TypeScript by default and do not require any additional configuration."
+      }
+    ]
+  }
+]

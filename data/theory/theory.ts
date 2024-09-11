@@ -4,12 +4,14 @@ import { data_structures } from './data_structures/data_structures'
 import { JS_fundamentals } from './JS_fundamentals/JS_fundamentals'
 import { miscellaneous } from './miscellaneous/miscellaneous'
 import { next_steps } from './next_steps/next_steps'
+import { TypeScript } from './TypeScript/TypeScript'
 
 export const theory = {
   about_JavaScript,
   JS_fundamentals,
   data_structures,
-  next_steps,
-  miscellaneous,
   asynchronicity,
+  TypeScript,
+  miscellaneous,
+  next_steps,
 }
