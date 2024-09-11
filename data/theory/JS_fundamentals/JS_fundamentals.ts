@@ -17,5 +17,5 @@ export const JS_fundamentals = {
   conditionals,
   loops,
   functions,
-  ['functions #2']: functions2,
+  ['functions_#2']: functions2,
 }

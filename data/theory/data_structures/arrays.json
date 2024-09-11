@@ -16,7 +16,7 @@
         "value": [
           {
             "type": "Text",
-            "value": "Remember that in JavaScript, indexing starts at 0."
+            "value": "Remember, in JavaScript, indexing starts at 0."
           }
         ],
         "props": {
@@ -38,7 +38,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconsole.log(arr.length); // 3\narr.length = 2;\nconsole.log(arr); // [1, 2] // Modifies the original array if setting a new length\n// Returns: The number of elements in the array",
+        "value": "const arr = [1, 2, 3];\nconsole.log(arr.length); // 3\narr.length = 2;\nconsole.log(arr); // [1, 2]\n// Returns: The number of elements in the array",
         "props": { "language": "javascript" }
       },
       {
@@ -61,33 +61,11 @@
       },
       {
         "type": "Text",
-        "value": "<b>sort()</b>: sorts the elements of an array in place and returns the sorted array. The default sort order is lexicographic (according to string Unicode code points). When sorting strings, elements are compared based on their Unicode values. To sort numbers correctly, a comparison function should be provided to define the numeric sort order."
-      },
-      {
-        "type": "Code",
-        "value": "// Sorting strings with mixed case\nconst mixedCaseArr = ['apple', 'Banana', 'cherry']\nmixedCaseArr.sort()\nconsole.log(mixedCaseArr) // Output: ['Banana', 'apple', 'cherry']\n// Strings are sorted lexicographically, with uppercase letters sorted before lowercase letters.\n\n// Sorting strings in lexicographic order\nconst strArr = ['apple', 'banana', 'cherry']\nstrArr.sort()\nconsole.log(strArr) // Output: ['apple', 'banana', 'cherry']\n// Sorts strings in lexicographic order.\n\n// Sorting numbers as strings\nconst arr = [10, 1, 21, 2, 3.14]\narr.sort()\nconsole.log(arr) // Output: [1, 10, 2, 21, 3.14]\n// Modifies the original array. Numbers are sorted as strings.\n\n// Sorting numbers correctly (ascending order)\nconst numArr = [10, 1, 21, 2, 3.14]\nnumArr.sort((a, b) => a - b)\nconsole.log(numArr) // Output: [1, 2, 3.14, 10, 21]\n// Modifies the original array. Numbers are sorted correctly.\n\n// Sorting numbers in descending order\nnumArr.sort((a, b) => b - a)\nconsole.log(numArr) // Output: [21, 10, 3.14, 2, 1]\n// Modifies the original array. Numbers are sorted in descending order.",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "The `sort` method sorts elements as strings by default. For numeric arrays, use a comparison function to sort numbers correctly. Without a comparison function, numbers are sorted based on their string representations, which may not yield correct numerical order."
-      },
-      {
-        "type": "Text",
-        "value": "<b>toSorted()</b>: creates a new array with the elements sorted according to the provided comparison function, without modifying the original array."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [3, 1, 4, 1, 5];\nconst sortedArr = arr.toSorted();\nconsole.log(sortedArr); // [1, 1, 3, 4, 5] // Does not modify the original array\nconsole.log(arr); // [3, 1, 4, 1, 5] // Original array remains unchanged",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
         "value": "<b>push()</b>: adds one or more elements to the end of the array and returns the new length of the array."
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\narr.push(4);\nconsole.log(arr); // [1, 2, 3, 4] // Modifies the original array\nconsole.log(arr.push(5)); // 5 // Returns: The new length of the array",
+        "value": "const arr = [1, 2, 3];\narr.push(4);\nconsole.log(arr); // [1, 2, 3, 4]\nconsole.log(arr.push(5)); // 5 // Returns: The new length of the array",
         "props": { "language": "javascript" }
       },
       {
@@ -96,7 +74,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst last = arr.pop();\nconsole.log(arr); // [1, 2] // Modifies the original array\nconsole.log(last); // 3 // Returns: The removed element",
+        "value": "const arr = [1, 2, 3];\nconst last = arr.pop();\nconsole.log(arr); // [1, 2]\nconsole.log(last); // 3 // Returns: The removed element",
         "props": { "language": "javascript" }
       },
       {
@@ -105,7 +83,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst first = arr.shift();\nconsole.log(arr); // [2, 3] // Modifies the original array\nconsole.log(first); // 1 // Returns: The removed element",
+        "value": "const arr = [1, 2, 3];\nconst first = arr.shift();\nconsole.log(arr); // [2, 3]\nconsole.log(first); // 1 // Returns: The removed element",
         "props": { "language": "javascript" }
       },
       {
@@ -114,7 +92,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\narr.unshift(0);\nconsole.log(arr); // [0, 1, 2, 3] // Modifies the original array\nconsole.log(arr.unshift(-1)); // 5 // Returns: The new length of the array",
+        "value": "const arr = [1, 2, 3];\narr.unshift(0);\nconsole.log(arr); // [0, 1, 2, 3]\nconsole.log(arr.unshift(-1)); // 5 // Returns: The new length of the array",
         "props": { "language": "javascript" }
       },
       {
@@ -123,44 +101,17 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconsole.log(arr.join('-')); // '1-2-3' // Does not modify the original array\n// Returns: The concatenated string",
+        "value": "const arr = [1, 2, 3];\nconsole.log(arr.join('-')); // '1-2-3' \n// Does not modify the original array",
         "props": { "language": "javascript" }
       },
 
-      {
-        "type": "Text",
-        "value": "<b>slice()</b>: returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included)."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst newArr = arr.slice(1, 3);\nconsole.log(newArr); // [2, 3] // Does not modify the original array\nconsole.log(arr); // [1, 2, 3, 4, 5] // Returns: The new array with the selected elements",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>splice()</b>: changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. Returns an array containing the deleted elements."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst removed = arr.splice(2, 2, 6, 7);\nconsole.log(arr); // [1, 2, 6, 7, 5] // Modifies the original array\nconsole.log(removed); // [3, 4] // Returns: The array of removed elements",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "<b>toSpliced()</b>: creates a new array with some elements removed or replaced and/or new elements inserted, without modifying the original array."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst splicedArr = arr.toSpliced(2, 2, 'a', 'b');\nconsole.log(splicedArr); // [1, 2, 'a', 'b', 5] // Does not modify the original array\nconsole.log(arr); // [1, 2, 3, 4, 5] // Original array remains unchanged",
-        "props": { "language": "javascript" }
-      },
       {
         "type": "Text",
         "value": "<b>reverse()</b>: reverses the order of the elements in an array and returns the array."
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\narr.reverse();\nconsole.log(arr); // [3, 2, 1] // Modifies the original array\n// Returns: The reversed array",
+        "value": "const arr = [1, 2, 3];\narr.reverse();\nconsole.log(arr); // [3, 2, 1] \n// Modifies the original array",
         "props": { "language": "javascript" }
       },
       {
@@ -169,7 +120,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst reversedArr = arr.toReversed();\nconsole.log(reversedArr); // [3, 2, 1] // Does not modify the original array\nconsole.log(arr); // [1, 2, 3] // Original array remains unchanged",
+        "value": "const arr = [1, 2, 3];\nconst reversedArr = arr.toReversed();\nconsole.log(reversedArr); // [3, 2, 1]\nconsole.log(arr); // [1, 2, 3] // Original array remains unchanged",
         "props": { "language": "javascript" }
       },
       {
@@ -178,7 +129,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 2, 1];\nconsole.log(arr.indexOf(2)); // 1\nconsole.log(arr.indexOf(4)); // -1 // Does not modify the original array\n// Returns: The first index of the found element or -1",
+        "value": "const arr = [1, 2, 3, 2, 1];\nconsole.log(arr.indexOf(2)); // 1\nconsole.log(arr.indexOf(4)); // -1\n// Returns: The first index of the found element or -1",
         "props": { "language": "javascript" }
       },
       {
@@ -187,7 +138,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 2, 1];\nconsole.log(arr.lastIndexOf(2)); // 3\nconsole.log(arr.lastIndexOf(4)); // -1 // Does not modify the original array\n// Returns: The last index of the found element or -1",
+        "value": "const arr = [1, 2, 3, 2, 1];\nconsole.log(arr.lastIndexOf(2)); // 3\nconsole.log(arr.lastIndexOf(4)); // -1\n// Returns: The last index of the found element or -1",
         "props": { "language": "javascript" }
       },
       {
@@ -196,7 +147,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconsole.log(arr.includes(2)); // true\nconsole.log(arr.includes(4)); // false // Does not modify the original array\n// Returns: `true` if the value is found, otherwise `false`",
+        "value": "const arr = [1, 2, 3];\nconsole.log(arr.includes(2)); // true\nconsole.log(arr.includes(4)); // false\n// Returns: `true` if the value is found, otherwise `false`",
         "props": { "language": "javascript" }
       },
       {
@@ -214,7 +165,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [2, 4, 6];\nconst allEven = arr.every(x => x % 2 === 0);\nconsole.log(allEven); // true\nconst someOdd = arr.every(x => x % 2 !== 0);\nconsole.log(someOdd); // false // Does not modify the original array\n// Returns: `true` if all elements pass the test, otherwise `false`",
+        "value": "const arr = [2, 4, 6];\nconst allEven = arr.every(x => x % 2 === 0);\nconsole.log(allEven); // true\nconst someOdd = arr.every(x => x % 2 !== 0);\nconsole.log(someOdd); // false\n// Returns: `true` if all elements pass the test, otherwise `false`",
         "props": { "language": "javascript" }
       },
       {
@@ -223,7 +174,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3];\nconst hasEven = arr.some(x => x % 2 === 0);\nconsole.log(hasEven); // true\nconst hasNegative = arr.some(x => x < 0);\nconsole.log(hasNegative); // false // Does not modify the original array\n// Returns: `true` if at least one element passes the test, otherwise `false`",
+        "value": "const arr = [1, 2, 3];\nconst hasEven = arr.some(x => x % 2 === 0);\nconsole.log(hasEven); // true\nconst hasNegative = arr.some(x => x < 0);\nconsole.log(hasNegative); // false\n// Returns: `true` if at least one element passes the test, otherwise `false`",
         "props": { "language": "javascript" }
       },
       {
@@ -232,7 +183,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst firstEven = arr.find(x => x % 2 === 0);\nconsole.log(firstEven); // 2\nconst noNegative = arr.find(x => x < 0);\nconsole.log(noNegative); // undefined // Does not modify the original array\n// Returns: The first element that satisfies the condition or `undefined`",
+        "value": "const arr = [1, 2, 3, 4, 5];\nconst firstEven = arr.find(x => x % 2 === 0);\nconsole.log(firstEven); // 2\nconst noNegative = arr.find(x => x < 0);\nconsole.log(noNegative); // undefined\n// Returns: The first element that satisfies the condition or `undefined`",
         "props": { "language": "javascript" }
       },
       {
@@ -241,7 +192,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst index = arr.findIndex(x => x > 3);\nconsole.log(index); // 3\nconst noNegativeIndex = arr.findIndex(x => x < 0);\nconsole.log(noNegativeIndex); // -1 // Does not modify the original array\n// Returns: The index of the first element that satisfies the condition or `-1`",
+        "value": "const arr = [1, 2, 3, 4, 5];\nconst index = arr.findIndex(x => x > 3);\nconsole.log(index); // 3\nconst noNegativeIndex = arr.findIndex(x => x < 0);\nconsole.log(noNegativeIndex); // -1\n// Returns: The index of the first element that satisfies the condition or `-1`",
         "props": { "language": "javascript" }
       },
       {
@@ -250,7 +201,7 @@
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nconst newArr = arr.with(2, 'a');\nconsole.log(newArr); // [1, 2, 'a', 4, 5] // Does not modify the original array\nconsole.log(arr); // [1, 2, 3, 4, 5] // Original array remains unchanged",
+        "value": "const arr = [1, 2, 3, 4, 5];\nconst newArr = arr.with(2, 'a');\nconsole.log(newArr); // [1, 2, 'a', 4, 5]\nconsole.log(arr); // [1, 2, 3, 4, 5] // Original array remains unchanged",
         "props": { "language": "javascript" }
       },
       {
@@ -273,16 +224,51 @@
       },
       {
         "type": "Text",
-        "value": "The `flat()` method is useful for simplifying complex nested arrays into a single-level array, making it easier to process or manipulate the data."
-      },
-      {
-        "type": "Text",
-        "value": "<b>map()</b>: Creates a new array populated with the results of calling a provided function on every element in the calling array. The `map()` method iterates over each element of the array, applies the given function to each element, and returns a new array with the results. The original array is not modified. \n\nKey Points:\n- **Returns**: A new array with transformed elements.\n- **Original Array**: Unchanged.\n- **Use Case**: When you need to transform elements and create a new array based on those transformations."
+        "value": "<b>map()</b>: Creates a new array populated with the results of calling a provided function on every element in the calling array. The `map()` method iterates over each element of the array, applies the given function to each element, and returns a new array with the results. The original array is not modified."
       },
       {
         "type": "Code",
         "value": "const numbers = [1, 2, 3, 4];\nconst doubled = numbers.map(num => num * 2);\nconsole.log(doubled); // Output: [2, 4, 6, 8] // Returns: New array",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>sort()</b>: sorts the elements of an array in place and returns the sorted array. The default sort order is lexicographic (according to string Unicode code points). When sorting strings, elements are compared based on their Unicode values. To sort numbers correctly, a comparison function should be provided to define the numeric sort order."
+      },
+      {
+        "type": "Code",
+        "value": "// Sorting strings with mixed case\nconst mixedCaseArr = ['apple', 'Banana', 'cherry']\nmixedCaseArr.sort()\nconsole.log(mixedCaseArr) // Output: ['Banana', 'apple', 'cherry']\n// Strings are sorted lexicographically, with uppercase letters sorted before lowercase letters.\n\n// Sorting strings in lexicographic order\nconst strArr = ['apple', 'banana', 'cherry']\nstrArr.sort()\nconsole.log(strArr) // Output: ['apple', 'banana', 'cherry']\n// Sorts strings in lexicographic order.\n\n// Sorting numbers as strings\nconst arr = [10, 1, 21, 2, 3.14]\narr.sort()\nconsole.log(arr) // Output: [1, 10, 2, 21, 3.14]\n// Modifies the original array. Numbers are sorted as strings.\n\n// Sorting numbers correctly (ascending order)\nconst numArr = [10, 1, 21, 2, 3.14]\nnumArr.sort((a, b) => a - b)\nconsole.log(numArr) // Output: [1, 2, 3.14, 10, 21]\n// Modifies the original array. Numbers are sorted correctly.\n\n// Sorting numbers in descending order\nnumArr.sort((a, b) => b - a)\nconsole.log(numArr) // Output: [21, 10, 3.14, 2, 1]\n// Modifies the original array. Numbers are sorted in descending order.",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The `sort` method sorts elements as strings by default. For numeric arrays, use a comparison function to sort numbers correctly. Without a comparison function, numbers are sorted based on their string representations, which may not yield correct numerical order."
+      },
+      {
+        "type": "Text",
+        "value": "<b>toSorted()</b>: creates a new array with the elements sorted according to the provided comparison function, without modifying the original array."
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [3, 1, 4, 1, 5];\nconst sortedArr = arr.toSorted();\nconsole.log(sortedArr); // [1, 1, 3, 4, 5]\nconsole.log(arr); // [3, 1, 4, 1, 5] // Original array remains unchanged",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "You can chain those methods instead of using them one by one."
+          },
+          {
+            "type": "Code",
+            "value": "const numbers = [1, 2, 3, 4, 5]\n\n// Chaining example: Filter, then map, then reduce\nconst result = numbers\n  .filter(num => num % 2 === 0) // Filter even numbers\n  .map(num => num * 2) // Double the numbers\n  .reduce((acc, num) => acc + num, 0) // Sum all the numbers\n\nconsole.log(result) // Output: 20\n// Explanation: Filters even numbers [2, 4], doubles them [4, 8], and sums them up to 12.",
+            "props": { "language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "tip"
+        }
       }
     ]
   },
@@ -299,7 +285,7 @@
       },
       {
         "type": "Code",
-        "value": "console.log(Array.isArray([1, 2, 3])); // true\nconsole.log(Array.isArray('hello')); // false\n// Does not modify any array\n// Returns: `true` if the value is an array, otherwise `false`",
+        "value": "console.log(Array.isArray([1, 2, 3])); // true\nconsole.log(Array.isArray('hello')); // false\n// Returns: `true` if the value is an array, otherwise `false`",
         "props": { "language": "javascript" }
       },
       {
@@ -308,7 +294,7 @@
       },
       {
         "type": "Code",
-        "value": "console.log(Array.from('hello')); // ['h', 'e', 'l', 'l', 'o']\nconsole.log(Array.from([1, 2, 3], x => x * 2)); // [2, 4, 6]\n// Does not modify any array\n// Returns: A new array instance",
+        "value": "console.log(Array.from('hello')); // ['h', 'e', 'l', 'l', 'o']\nconsole.log(Array.from([1, 2, 3], x => x * 2)); // [2, 4, 6]\n// Returns: A new array instance",
         "props": { "language": "javascript" }
       },
       {
@@ -317,12 +303,21 @@
       },
       {
         "type": "Code",
-        "value": "console.log(Array.of(1, 2, 3)); // [1, 2, 3]\nconsole.log(Array.of('a', 'b')); // ['a', 'b']\n// Does not modify any array\n// Returns: A new array instance with the provided elements",
+        "value": "console.log(Array.of(1, 2, 3)); // [1, 2, 3]\nconsole.log(Array.of('a', 'b')); // ['a', 'b']\n// Returns: A new array instance with the provided elements",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "There are of course many more static Array methods. Most of them are the same as their non-static equivalent. You can access them by typing `Array.prototype.<method name>.call(arrayName). For instance:"
+        "value": "There are of course many more static Array methods. Most of them are the same as their non-static equivalent. You can access them by typing:"
+      },
+      {
+        "type": "Code",
+        "value": "Array.prototype.<method name>.call(arrayName)",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": " For instance:"
       },
       {
         "type": "Code",
@@ -336,39 +331,11 @@
     ]
   },
   {
-    "title": "Tips and tricks",
+    "title": "Concatenating arrays",
     "data": [
       {
-        "type": "Header",
-        "value": "chaining methods",
-        "props": { "size": "md" }
-      },
-      {
         "type": "Text",
-        "value": "You can use multiple array methods at once, for example instead of this:"
-      },
-      {
-        "type": "Code",
-        "value": "const numbers = [1, 2, 3, 4, 5]\n\n// Non-chaining example\nconst filtered = numbers.filter(num => num % 2 === 0) // Filter even numbers\nconst mapped = filtered.map(num => num * 2) // Double the numbers\nconst result = mapped.reduce((acc, num) => acc + num, 0) // Sum all the numbers\n\nconsole.log(result) // Output: 20",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "You can chain those methods, like this:"
-      },
-      {
-        "type": "Code",
-        "value": "const numbers = [1, 2, 3, 4, 5]\n\n// Chaining example: Filter, then map, then reduce\nconst result = numbers\n  .filter(num => num % 2 === 0) // Filter even numbers\n  .map(num => num * 2) // Double the numbers\n  .reduce((acc, num) => acc + num, 0) // Sum all the numbers\n\nconsole.log(result) // Output: 20\n// Explanation: Filters even numbers [2, 4], doubles them [4, 8], and sums them up to 12.",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Combining two arrays",
-        "props": { "size": "md" }
-      },
-      {
-        "type": "Text",
-        "value": "Intuitively, we would use the '+' operator to concatenate two arrays. However, this method does not work as we might expect."
+        "value": "To <b>concatenate</b> two arrays means to merge them together. Intuitively, we would use the '+' operator to do it. However, this method does not work as we might expect."
       },
       {
         "type": "Code",

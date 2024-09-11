@@ -42,7 +42,6 @@
   {
     "id": "data_structures|arrays|5",
     "question": [
-      "How the filter() method will affect the array?",
       {
         "type": "Code",
         "value": "let arr = [2, 3, 4, 5, 6, 7, 8]\n\narr.filter(el=>el>5)\n\nconsole.log(arr)",
@@ -118,8 +117,7 @@
     "options": [
       { "id": "1", "val": "filter()", "correct": false },
       { "id": "2", "val": "reduce()", "correct": false },
-      { "id": "3", "val": "slice()", "correct": false },
-      { "id": "4", "val": "splice()", "correct": true },
+      { "id": "3", "val": "flat()", "correct": true },
       { "id": "5", "val": "toReversed()", "correct": false },
       { "id": "6", "val": "reverse()", "correct": true },
       { "id": "7", "val": "toSorted()", "correct": false }
