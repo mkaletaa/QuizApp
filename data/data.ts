@@ -73,7 +73,6 @@ export const topics = {
     { name: 'arrays', image: 'https://reactjs.org/logo-og.png' },
     { name: 'objects_fundamentals', image: 'https://reactjs.org/logo-og.png' },
     { name: 'other_structures', image: '', soon: true },
-    { name: 'destructuring', image: '', soon: true },
     { name: 'iteration_methods', image: '', soon: true },
   ],
   Object_oriented_JS: [
@@ -97,6 +96,7 @@ export const topics = {
     { name: 'execution_context', image: '' },
     { name: 'strict_mode', image: '' },
     { name: 'spread_and_rest', image: '', soon: true },
+    { name: 'destructuring', image: '', soon: true },
     { name: 'iterators_and_generators', image: '', soon: true },
   ],
   TypeScript: [

@@ -4,20 +4,20 @@
     "data": [
       {
         "type": "Text",
-        "value": "Spread syntax and rest parameters are two important features introduced in ES6 (ECMAScript 2015). Both of these features use the `...` (three dots) syntax, but they serve different purposes depending on the context in which they are used."
+        "value": "Spread and rest operators are two important features introduced in ES6 (ECMAScript 2015). Both of these features use the `...` (three dots) syntax, but they serve different purposes depending on the context in which they are used."
       }
     ]
   },
   {
-    "title": "Spread syntax",
+    "title": "Spread operator",
     "data": [
       {
         "type": "Text",
-        "value": "The spread syntax is used to \"spread\" or expand elements of an iterable (such as an array, string, or object) into individual elements or key-value pairs. It is often used for making shallow copies of arrays or objects, merging arrays or objects, and passing arrays as arguments to functions."
+        "value": "The spread operator is used to \"spread\" or expand elements of an iterable (such as an array, string, or object) into individual elements or key-value pairs. It is often used for making shallow copies of arrays or objects, merging arrays or objects, and passing arrays as arguments to functions."
       },
       {
         "type": "Text",
-        "value": "<b>Usage in strings</b>: Thanks to spread syntax we can split a string into individual characters."
+        "value": "<b>Usage in strings</b>: Thanks to spread operator we can split a string into individual characters."
       },
       {
         "type": "Code",
@@ -26,7 +26,7 @@
       },
       {
         "type": "Text",
-        "value": "<b>Usage in arrays</b>: The spread syntax can be used to spread the elements of an array into a new array or into function arguments."
+        "value": "<b>Usage in arrays</b>: The spread operator can be used to spread the elements of an array into a new array or into function arguments."
       },
       {
         "type": "Code",
@@ -35,12 +35,33 @@
       },
       {
         "type": "Text",
-        "value": "<b>Usage in objects</b>: Spread syntax can also be used to copy or merge objects. This is useful when you want to create a shallow copy of an object or combine multiple objects."
+        "value": "<b>Usage in objects</b>: Spread operator can also be used to copy or merge objects. This is useful when you want to create a shallow copy of an object or combine multiple objects."
       },
       {
         "type": "Code",
         "value": "const obj1 = { a: 1, b: 2 }\nconst obj2 = { c: 3, d: 4 }\n\nconst mergedObject = { ...obj1, ...obj2 } // Merging two objects\nconsole.log(mergedObject) // { a: 1, b: 2, c: 3, d: 4 }\n\nconst copiedObject = { ...obj1 } // Creating a shallow copy of an object\nconsole.log(copiedObject) // { a: 1, b: 2 }",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Splitting objects into smaller parts works differently than splitting arrays."
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3]\nconst obj = { 0: 'Hello', 1: 'World' }\n\nconsole.log(...arr) // 1 2 3\nconsole.log(...obj) // Uncaught TypeError: Spread syntax requires ...iterable[Symbol.iterator] to be a function",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "To overcome this issue, use `Object.values(obj)`:"
+      },
+      {
+        "type": "Code",
+        "value": "const obj = { 0: 'Hello', 1: 'World' }\n\nconsole.log(...Object.values(obj)) // 'Hello' 'World'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Divider"
       },
       {
         "type": "Text",
@@ -54,15 +75,15 @@
     ]
   },
   {
-    "title": "Rest parameter",
+    "title": "Rest operator",
     "data": [
       {
         "type": "Text",
-        "value": "Rest parameters are used to collect all remaining (or \"rest\") arguments into an array. This is useful when a function takes a variable number of arguments. It allows you to capture multiple arguments into a single array."
+        "value": "Rest operator is used to collect all remaining (or \"rest\") arguments into an array. This is useful when a function takes a variable number of arguments. It allows you to capture multiple arguments into a single array."
       },
       {
         "type": "Text",
-        "value": "Rest parameters are also denoted by the ... syntax, but the key difference is that rest parameters are used in function parameter lists, whereas spread syntax is used in other contexts (arrays, objects, function calls)."
+        "value": "Rest operator is also denoted by the `...` syntax, but the key difference is that spread operator is used in other contexts (arrays, objects, function calls), whereas rest operator is used in function parameter lists. Such a parameter is called the rest parameter"
       },
       {
         "type": "Code",
@@ -71,7 +92,7 @@
       },
       {
         "type": "Text",
-        "value": "In the sumAll function, the rest parameter ...numbers captures all arguments passed into the function as an array. Inside the function, we can manipulate this array, in this case using reduce to sum up all the values."
+        "value": "In the sumAll function, the rest parameter `...numbers` captures all arguments passed into the function as an array. Inside the function, we can manipulate this array, in this case using reduce to sum up all the values."
       },
       {
         "type": "Text",
@@ -92,7 +113,7 @@
       },
       {
         "type": "Text",
-        "value": "In summary, these two features share similar syntax, but behave in completely different ways. Spread syntax splits iterables into smaller parts, whereas rest parameter collects values into an array."
+        "value": "In summary, these two features share similar syntax, but behave in completely different ways. Spread operator splits iterables into smaller parts, whereas rest operator collects values into an array."
       }
     ]
   }

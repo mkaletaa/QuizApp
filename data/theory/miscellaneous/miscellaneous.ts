@@ -1,3 +1,4 @@
+import destructuring from './destructuring.json'
 import error_handling from './error_handling.json'
 import execution_context from './execution_context.json'
 import spread_and_rest from './spread_and_rest.json'
@@ -8,6 +9,7 @@ export const miscellaneous = {
   execution_context,
   strict_mode,
   spread_and_rest,
+  destructuring,
 }
 
 //* czy można użyc '', "" ``

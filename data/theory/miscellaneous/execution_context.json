@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "An execution context in JavaScript is an abstract concept that represents the environment in which code is executed. It contains everything necessary to execute a piece of code, including the variables, the this keyword, the outer environment reference, and the code currently being executed. "
+        "value": "The execution context in JavaScript is an abstract concept that represents the environment in which code is executed. It contains everything necessary to execute a piece of code, including the variables, the this keyword, the outer environment reference, and the code currently being executed. "
       }
     ]
   },

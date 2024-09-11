@@ -1,0 +1,134 @@
+[
+  {
+    "id": "miscellaneous|execution_context|1",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Which of these functions take additional arguments as an array?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "apply()", "correct": true },
+      { "id": "2", "val": "call()" },
+      { "id": "3", "val": "bind()" }
+    ]
+  },
+  {
+    "id": "miscellaneous|execution_context|2",
+    "question": [
+      {
+        "type": "Text",
+        "value": "Which of these functions return another function?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "bind()", "correct": true },
+      { "id": "2", "val": "call()" },
+      { "id": "3", "val": "apply()" }
+    ]
+  },
+  {
+    "id": "miscellaneous|execution_context|3",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const outer = {\n  age: 20,\n  inner: {\n    age: 10,\n    show() {\n      console.log(this.age)\n    },\n  },\n}\n\nouter.inner.show.call(outer) //?",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "20", "correct": true },
+      { "id": "2", "val": "10" },
+      { "id": "3", "val": "Error" },
+      { "id": "4", "val": "undefined" }
+    ]
+  },
+  {
+    "id": "miscellaneous|execution_context|4",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const outer = {\n  age: 20,\n  inner: {\n    age: 10,\n    show() {\n      console.log(this.age)\n    },\n  },\n}\n\nouter.inner.bind(outer.inner.show) //?",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "Error", "correct": true },
+      { "id": "2", "val": "10" },
+      { "id": "3", "val": "20" },
+      { "id": "4", "val": "undefined" }
+    ],
+    "explanation": "The syntax is wrong. There should be `function.bind(object)`, not `object.bind(function)`"
+  },
+
+  {
+    "id": "miscellaneous|execution_context|5",
+    "question": [
+      "Provided this code runs in a browser, what will be de output? ",
+      {
+        "type": "Code",
+        "value": "\"use strict\"\nconsole.log(this)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "window", "correct": true },
+      { "id": "2", "val": "global" },
+      { "id": "3", "val": "undefined" }
+    ],
+    "explanation": "In strict mode, `this` in the global context still refers to window."
+  },
+  {
+    "id": "miscellaneous|execution_context|6",
+    "question": [
+      {
+        "type": "Code",
+        "value": "\"use strict\"\nfunction fn(){\n   console.log(this)\n}\n\nfn()",
+        "props": { "language": "javascript" }
+      },
+      "Provided this code runs in a browser, what will be de output? "
+    ],
+    "options": [
+      { "id": "1", "val": "undefined", "correct": true },
+      { "id": "2", "val": "global" },
+      { "id": "3", "val": "window" }
+    ]
+  },
+  {
+    "id": "miscellaneous|execution_context|7",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const person = {\n  name: 'Mike',\n  method1() {\n    console.log(this)\n  },\n  method2: function () {\n    console.log(this)\n  },\n  method3: () => {\n    console.log(this)\n  },\n}\n\nperson.method1()\nperson.method2()\nperson.method3()",
+        "props": { "language": "javascript" }
+      },
+      "Provided this code runs in a browser, what will be the output? "
+    ],
+    "options": [
+      { "id": "1", "val": "person, person, window", "correct": true },
+      { "id": "2", "val": "person window, window" },
+      { "id": "3", "val": "person, person, undefined" },
+      { "id": "4", "val": "person, undefined, undefined" }
+    ],
+    "explanation": "Only arrow functions don't have their own `this` and they inherit it from the outer context."
+  },
+  {
+    "id": "miscellaneous|execution_context|8",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const outer = {\n  name: 'outer',\n  inner: {\n    name: 'inner',\n    print: () => {\n      console.log(this)\n    },\n  },\n}\n\nouter.inner.print()",
+        "props": { "language": "javascript" }
+      },
+      "Provided this code runs in Node.js, what will be the output? "
+    ],
+    "options": [
+      { "id": "1", "val": "global", "correct": true },
+      { "id": "2", "val": "window" },
+      { "id": "3", "val": "undefined" },
+      { "id": "4", "val": "outer" },
+      { "id": "5", "val": "inner" }
+    ],
+    "explanation": "Only arrow functions don't have their own `this` and they inherit it from the outer context."
+  }
+]

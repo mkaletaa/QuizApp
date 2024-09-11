@@ -1,0 +1,66 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Destructuring is a feature in JavaScript, introduced in ES6, that allows you to extract values from arrays or properties from objects and assign them to variables in a concise and readable way. Destructuring makes working with complex data structures more convenient by reducing the amount of code needed to extract values."
+      }
+    ]
+  },
+  {
+    "title": "Array destructuring",
+    "data": [
+      {
+        "type": "Text",
+        "value": "With array destructuring, you can unpack values from an array and assign them to variables in a single statement."
+      },
+      {
+        "type": "Code",
+        "value": "const array = [1, 2, 3];\n\n// Destructuring the array\nconst [a, b, c] = array;\n\nconsole.log(a); // 1\nconsole.log(b); // 2\nconsole.log(c); // 3",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, `a`, `b`, and `c` get the values `1`, `2`, and `3` from the array. This eliminates the need for multiple lines of code like a = array[0], b = array[1], etc."
+      },
+      {
+        "type": "Header",
+        "value": "Default values",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can also set default values for variables in case the corresponding value in the array is `undefined`."
+      },
+      {
+        "type": "Code",
+        "value": "const array = [1, 2]\n\nconst [a, b, c = 5] = array\n\nconsole.log(c) // 5 (default value is used because the array doesn't have a third element)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Skipping elements",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can skip elements in an array by leaving a space between commas."
+      },
+      {
+        "type": "Code",
+        "value": "const array = [1, 2, 3]\n\nconst [a, , c] = array // Skips the second element\n\nconsole.log(a) // 1\nconsole.log(c) // 3",
+        "props": {"language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Object destructuring",
+    "data": [
+        {
+          "type": "Text",
+          "value": "Object destructuring allows you to extract properties from an object and assign them to variables. The variable names must match the property names in the object."
+        }
+    ]
+  }
+]

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "miscellaneous|spread_and_rest|1",
+    "question": ["How does the `spread` work with arrays?"],
+    "options": [
+      {
+        "id": "1",
+        "val": "It breaks an array into individual values",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "It creates a new array that is a copy of the original"
+      }
+    ]
+  },
+  {
+    "id": "miscellaneous|spread_and_rest|2",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const arr1 = [1, 2, 3]\nconst arr2 = [...arr1, 4, 5]\nconsole.log(arr2)",
+        "props": { "language": "javascript" }
+      },
+      "What will be the output of the code above?"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "[1, 2, 3, 4, 5]",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "[[1, 2, 3], 4, 5]"
+      }
+    ]
+  },
+  {
+    "id": "miscellaneous|spread_and_rest|3",
+    "question": [
+      "What is the main difference between the spread operator and the rest operator?"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "Spread splits values, while rest collects multiple arguments into an array.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Spread only works on arrays, while rest works on all iterable structures."
+      },
+      {
+        "id": "3",
+        "val": "Spread works only in functions, while rest works only in arrays."
+      },
+      {
+        "id": "4",
+        "val": "Spread combines arguments, while rest splits them into smaller parts."
+      }
+    ]
+  },
+  {
+    "id": "miscellaneous|spread_and_rest|4",
+    "question": "How does the spread operator influence strings?",
+    "options": [
+      {
+        "id": "1",
+        "val": "it splits them into individual characters",
+        "correct": true
+      },
+      { "id": "2", "val": "it splits them into individual words" },
+      { "id": "3", "val": "you can't use the spread operator with strings" }
+    ]
+  },
+  {
+    "id": "miscellaneous|spread_and_rest|5",
+    "question": "Select the correct statement about the rest parameter:",
+    "options": [
+      { "id": "1", "val": "It must be the only argument of a function." },
+      {
+        "id": "2",
+        "val": "It doesn't have to be the only argument of a function but it must be the last one.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "It doesn't have to be the only argument of a function but it must be the first one."
+      }
+    ]
+  },
+  {
+    "id": "miscellaneous|spread_and_rest|6",
+    "question": "Which syntax is correct?",
+    "options": [
+      { "id": "1", "val": "`args...` - for both spread and rest operator" },
+      {
+        "id": "2",
+        "val": "`...args` - for both spread and rest operator",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "`...args `for the spread operator and `args...` for the rest operator"
+      },
+      {
+        "id": "4",
+        "val": "`args...` for the spread operator and `...args` for the rest operator"
+      }
+    ]
+  },
+  {
+    "id": "miscellaneous|spread_and_rest|7",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const cat = {\n   name: 'Whiskers',\n   age: 2\n}\n\nconsole.log(...cat)",
+        "props": { "language": "javascript" }
+      },
+      "What will be the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "'Whiskers', 2" },
+      {
+        "id": "2",
+        "val": "Error",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "'name', 'age'"
+      },
+      {
+        "id": "4",
+        "val": "{name: 'Whiskers'}, {age: 2}"
+      }
+    ]
+  }
+]
