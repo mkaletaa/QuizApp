@@ -1,0 +1,99 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Spread syntax and rest parameters are two important features introduced in ES6 (ECMAScript 2015). Both of these features use the `...` (three dots) syntax, but they serve different purposes depending on the context in which they are used."
+      }
+    ]
+  },
+  {
+    "title": "Spread syntax",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The spread syntax is used to \"spread\" or expand elements of an iterable (such as an array, string, or object) into individual elements or key-value pairs. It is often used for making shallow copies of arrays or objects, merging arrays or objects, and passing arrays as arguments to functions."
+      },
+      {
+        "type": "Text",
+        "value": "<b>Usage in strings</b>: Thanks to spread syntax we can split a string into individual characters."
+      },
+      {
+        "type": "Code",
+        "value": "let str = \"Lorem ipsum\"\nconsole.log(...str) // \"L\" \"o\" \"r\" \"e\" \"m\" \" \" \"i\" \"p\" \"s\" \"u\" \"m\"",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Usage in arrays</b>: The spread syntax can be used to spread the elements of an array into a new array or into function arguments."
+      },
+      {
+        "type": "Code",
+        "value": "const arr1 = [1, 2, 3]\nconst arr2 = [4, 5, 6]\n\nconst combinedArray = [...arr1, ...arr2] // Merging two arrays\nconsole.log(combinedArray) // [1, 2, 3, 4, 5, 6]\n\nconst newArray = [...arr1] // Creating a shallow copy of an array\nconsole.log(newArray) // [1, 2, 3]",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Usage in objects</b>: Spread syntax can also be used to copy or merge objects. This is useful when you want to create a shallow copy of an object or combine multiple objects."
+      },
+      {
+        "type": "Code",
+        "value": "const obj1 = { a: 1, b: 2 }\nconst obj2 = { c: 3, d: 4 }\n\nconst mergedObject = { ...obj1, ...obj2 } // Merging two objects\nconsole.log(mergedObject) // { a: 1, b: 2, c: 3, d: 4 }\n\nconst copiedObject = { ...obj1 } // Creating a shallow copy of an object\nconsole.log(copiedObject) // { a: 1, b: 2 }",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The spread syntax comes in handy while passing arguments to a function."
+      },
+      {
+        "type": "Code",
+        "value": "function sum(x, y, z) {\n  console.log(x + y + z)\n}\n\nconst numbers = [1, 2, 3]\n\n// traditional approach:\nsum(numbers[0], numbers[1], numbers[2])\n// with spread syntax:\nsum(...numbers)",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Rest parameter",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Rest parameters are used to collect all remaining (or \"rest\") arguments into an array. This is useful when a function takes a variable number of arguments. It allows you to capture multiple arguments into a single array."
+      },
+      {
+        "type": "Text",
+        "value": "Rest parameters are also denoted by the ... syntax, but the key difference is that rest parameters are used in function parameter lists, whereas spread syntax is used in other contexts (arrays, objects, function calls)."
+      },
+      {
+        "type": "Code",
+        "value": "function sumAll(...numbers) {\n  return numbers.reduce((total, num) => total + num, 0)\n}\n\nconsole.log(sumAll(1, 2, 3, 4)) // 10\nconsole.log(sumAll(5, 10)) // 15",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the sumAll function, the rest parameter ...numbers captures all arguments passed into the function as an array. Inside the function, we can manipulate this array, in this case using reduce to sum up all the values."
+      },
+      {
+        "type": "Text",
+        "value": "The rest parameter doesn't have to be the only argument of a function, but it always must be the last one."
+      },
+      {
+        "type": "Code",
+        "value": "function exampleFunction(firstParam, ...restParams) {\n  console.log(firstParam) // 1\n  console.log(restParams) // [2, 3, 4]\n}\n\nexampleFunction(1, 2, 3, 4)",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "In summary, these two features share similar syntax, but behave in completely different ways. Spread syntax splits iterables into smaller parts, whereas rest parameter collects values into an array."
+      }
+    ]
+  }
+]

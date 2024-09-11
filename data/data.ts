@@ -96,7 +96,8 @@ export const topics = {
     { name: 'error_handling', image: '' },
     { name: 'execution_context', image: '' },
     { name: 'strict_mode', image: '' },
-    { name: 'eval', image: '', soon: true },
+    { name: 'spread_and_rest', image: '', soon: true },
+    { name: 'iterators_and_generators', image: '', soon: true },
   ],
   TypeScript: [
     { name: 'introduction', image: '' }, //what is TS, why use it, how to download, Node and TS
