@@ -1,0 +1,97 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "In TypeScript, several features help in improving type safety and making the code more expressive. Let's explore some of these key features: `as const`, `typeof`, `keyof`, `?`, and `type = 12`."
+      }
+    ]
+  },
+  {
+    "title": "Optional properties and chaining",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In TypeScript, you can make object properties optional using the `?` syntax. This means the property may or may not be present on the object."
+      },
+      {
+        "type": "Code",
+        "value": "type Car = {\n  make: string\n  model?: string\n  year: number\n  color?: string\n}\n\nconst classicCar: Car = {\n  make: 'Volkswagen',\n  year: 1970,\n  // 'model' and 'color' are optional, so this object is valid without them\n}",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "The optional chaining operator (`?.`) allows you to safely access deeply nested object properties without having to manually check if each property in the chain exists. If a property is `null` or `undefined`, it will return `undefined` instead of throwing an error."
+      },
+      {
+        "type": "Code",
+        "value": "const user = { name: 'John', address: { city: 'New York' } }\nconst city = user?.address?.city\n// If 'address' or 'city' is undefined, 'city' will be undefined, but no error will occur",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "This operator is especially useful for working with complex data structures or APIs where not all properties are guaranteed to be defined."
+      }
+    ]
+  },
+  {
+    "title": "Literal types",
+    "data": [
+      {
+        "type": "Text",
+        "value": "TypeScript allows you to define literal types by setting a type equal to a specific value. This restricts the type to that exact value, making it useful for constants or cases where you expect a very specific type."
+      },
+      {
+        "type": "Code",
+        "value": "type Color = 'red' | 'green' | 'blue'\nconst color: Color = 'green'\nconst anotherColor: Color = 'yellow' //Type '\"yellow\"' is not assignable to type 'Color'.",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "`as const`",
+    "data": [
+      {
+        "type": "Text",
+        "value": "`as const` is used to create literal types from an object or array. By default, TypeScript treats object properties or array elements as mutable and assigns broader types. Using `as const` makes the values readonly and narrows the type to the most specific literal values."
+      },
+      {
+        "type": "Code",
+        "value": "const colors = ['red', 'green', 'blue'] as const\ncolors.push('yellow') //Property 'push' does not exist on type 'readonly [\"red\", \"green\", \"blue\"]'.",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "If you don't know why `const` at the beginning isn't enough to prevent modifying arrays (and other complex data structures), visit the introduction of `Data structures` chapter."
+      }
+    ]
+  },
+  {
+    "title": "`typeof`",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In TypeScript, `typeof` is used to refer to the type of a variable or object. It's useful when you want to create types dynamically based on the value of a variable, without needing to manually specify the type."
+      },
+      {
+        "type": "Code",
+        "value": "// Define an object\nconst car = {\n  make: 'Toyota',\n  year: 2020,\n  color: 'Red',\n}\n\n// Use `typeof` to create a type based on the existing object\ntype CarType = typeof car\n\n// Create a new object based on the dynamically generated type\nconst myCar: CarType = {\n  make: 'Honda',\n  year: 2021,\n  color: 'Blue',\n}\n\n// Error - The new object must include all properties from the original type\nconst brokenCar: CarType = {\n  make: 'Ford',\n  year: 1998,\n  // Missing 'color'\n}",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "`keyof`",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The `keyof` keyword in TypeScript creates a union of all the keys of a given object type. This is helpful when you need to restrict a value to the keys of a certain object."
+      },
+      {
+        "type": "Code",
+        "value": "interface Person {\n  name: string;\n  age: number;\n}\ntype PersonKeys = keyof Person;\n// PersonKeys is 'name' | 'age'",
+        "props": { "language": "typescript" }
+      }
+    ]
+  }
+]
