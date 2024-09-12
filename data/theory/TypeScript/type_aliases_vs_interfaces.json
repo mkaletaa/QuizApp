@@ -1,10 +1,137 @@
 [
   {
-    "title": "",
     "data": [
       {
         "type": "Text",
-        "value": "The battle between types and interfaces is for sure the most controversial topic in TypeScript dec community. In TypeScript, both types and interfaces are used to define the shape and structure of data, but there are some key differences and use cases for each. The choice between types and interfaces often comes down to their respective features and the specific needs of your project. However most TS developers prefer types and rarely use interfaces."
+        "value": "The battle between type aliases and interfaces is for sure the most controversial topic in TypeScript dev community. In TypeScript, both type aliases and interfaces are used to define the type of data, but there are some key differences and use cases for each. The choice between type aliases and interfaces often comes down to their respective features and the specific needs of your project. However, most TS developers prefer types aliases and rarely use interfaces. Here are the most notable differences between these two ways of setting types:"
+      }
+    ]
+  },
+  {
+    "title": "Syntax",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The syntax of type aliases and interfaces differs. Interfaces generally have longer syntax, not just because `interface` contains more letters than `type`. <br></br>Types are preceded by `type` keyword. When describing the type of objects type alias syntax is similar to JavaScript objects except there are semicolons instead of commas."
+      },
+      {
+        "type": "Code",
+        "value": "type Point = { x: number; y: number }\nconst point: Point = { x: 10, y: 20 }",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "The syntax of an interface differs from that of a type alias in that it requires the `interface` keyword and does not use equal signs."
+      },
+      {
+        "type": "Code",
+        "value": "interface Point {\n  x: number\n  y: number\n}\nconst point: Point = { x: 10, y: 20 }",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Non-object types",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Interfaces work only with object types, while type aliases work with both object and non-object types."
+      },
+      {
+        "type": "Code",
+        "value": "type Address = string\nconst address: Address = 'abc Street'",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "To achieve the same result with interfaces, you would need to wrap it in an object, which leads to more cumbersome syntax."
+      },
+      {
+        "type": "Code",
+        "value": "interface Address {\n  address: string\n}\nconst address: Address = { address: 'abc Street' }",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Unions",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Suppose we want a variable to be of type A OR B. With type aliases we could do it easily using `|` sign. Although you can use union types within interfaces, you cannot create a union of two interfaces directly."
+      },
+      {
+        "type": "Code",
+        "value": "type T = { s: string } | { n: number }\nlet v: T\nv = { s: '123' }\nv = { n: 123 }\n\ninterface I { s: string } | { n: number } //Error",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Intersections",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Suppose we want a variable to be of type A AND B. With type aliases we could do it easily using `&` sign. However this syntax doesn't work with interfaces."
+      },
+      {
+        "type": "Code",
+        "value": "type T = { s: string } & { n: number }\nlet v: T\nv = { s: '123', n: 123 }\n\ninterface I { s: string } & { n: number } //Error",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "If you want to have two types combined with interfaces, you should use `extends` keyword."
+      },
+      {
+        "type": "Code",
+        "value": "interface B {\n  name: string\n}\ninterface A extends B {\n  age: number\n}\n\nconst v: A = { name: 'John', age: 30 }",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "However, this syntax is less concise."
+      }
+    ]
+  },
+  {
+    "title": "Multiple declarations",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You can't have two type aliases with the same name in the same scope, nor can you have a type alias and an interface with the same name in the same scope. Interfaces, on the other hand, can have multiple declarations within the same scope, and if they do, their declarations are automatically merged."
+      },
+      {
+        "type": "Code",
+        "value": "interface Coordinates {\n  x: number\n}\n\ninterface Coordinates {\n  y: number\n}\n\nconst spot: Coordinates = { x: 21, y: 37 }",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "While this feature can be helpful, it may also lead to errors, as you could accidentally extend an interface you did not intend to."
+      }
+    ]
+  },
+  {
+    "title": "Miscellaneous",
+    "data": [
+      {
+        "type": "Text",
+        "value": "There are a few miscellaneous points worth mentioning:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "As you've probably noticed, the names of interfaces and type aliases are written in PascalCase. While you could use camelCase, PascalCase is the general convention in the development community.",
+          "There's a myth that interfaces are faster for the type checker than type aliases. While this was once true, it no longer is, and now type aliases are equally fast.",
+          "You can use type aliases and interfaces in the code before their declaration because TypeScript processes types before execution.",
+          "You can use interfaces alongside type aliases:"
+        ]
+      },
+      {
+        "type": "Code",
+        "value": "interface A {\n  age: number\n}\n\ntype B = {\n  name: string\n} & A\n\ninterface C extends B {\n  surname: string\n}\n\nconst john: B = { name: 'John', age: 30 }\nconst mary: C = { name: 'Mary', age: 30, surname: 'Doe' }",
+        "props": { "language": "typescript" }
       }
     ]
   }

@@ -119,38 +119,6 @@
       },
       {
         "type": "Header",
-        "value": "Unions",
-        "props": { "size": "md" }
-      },
-      {
-        "type": "Text",
-        "value": "Union types allow a variable to be one of several types. This provides flexibility when dealing with different types of data."
-      },
-      {
-        "type": "Code",
-        "value": "let value: string | number = \"hello\" \n// The value can be either a string or a number",
-        "props": { "language": "typescript" }
-      },
-      {
-        "type": "Header",
-        "value": "Intersections",
-        "props": { "size": "md" }
-      },
-      {
-        "type": "Text",
-        "value": "Intersection types combine multiple types into one, meaning the resulting type must satisfy all the included types."
-      },
-      {
-        "type": "Code",
-        "value": "type User = {\n  id: number\n  name: string\n  email: string\n}\n\ntype Address = {\n  street: string\n  city: string\n}\n\nconst userProfile: User & Address = {\n  id: 1,\n  name: 'Alex',\n  email: 'Alex@gmail.com',\n  street: 'Street',\n  city: 'Tokyo',\n}",
-        "props": { "language": "typescript" }
-      },
-      {
-        "type": "Text",
-        "value": "Note we used `type` alias. It will be discussed in the next lesson."
-      },
-      {
-        "type": "Header",
         "value": "Enums",
         "props": { "size": "md" }
       },
