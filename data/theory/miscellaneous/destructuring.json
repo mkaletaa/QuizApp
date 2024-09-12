@@ -50,17 +50,100 @@
       {
         "type": "Code",
         "value": "const array = [1, 2, 3]\n\nconst [a, , c] = array // Skips the second element\n\nconsole.log(a) // 1\nconsole.log(c) // 3",
-        "props": {"language": "javascript" }
+        "props": { "language": "javascript" }
       }
     ]
   },
   {
     "title": "Object destructuring",
     "data": [
-        {
-          "type": "Text",
-          "value": "Object destructuring allows you to extract properties from an object and assign them to variables. The variable names must match the property names in the object."
-        }
+      {
+        "type": "Text",
+        "value": "Object destructuring allows you to extract properties from an object and assign them to variables. The variable names must match the property names in the object."
+      },
+      {
+        "type": "Code",
+        "value": "const person = { name: 'John', age: 30 }\n\n// Destructuring the object\nconst { name, age } = person\n\nconsole.log(name) // \"John\"\nconsole.log(age) // 30",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Default values",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Just like with arrays, if an object's property doesn’t exist, you can assign a default value to the variable."
+      },
+      {
+        "type": "Code",
+        "value": "const person = { name: 'John' }\n\nconst { name, age = 25 } = person\n\nconsole.log(age) // 25 (default value is used because age is undefined in the object)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Renaming variables",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can rename variables during destructuring by using the colon `:`."
+      },
+      {
+        "type": "Code",
+        "value": "const person = { name: 'John', age: 30 }\n\nconst { name: fullName, age: yearsOld } = person\n\nconsole.log(fullName) // \"John\"\nconsole.log(yearsOld) // 30",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The `name` property is assigned to the `fullName` variable, and `age` is assigned to `yearsOld`."
+      }
+    ]
+  },
+  {
+    "title": "Nested destructuring",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You can also destructure nested objects and arrays."
+      },
+      {
+        "type": "Code",
+        "value": "const array = [1, [2, 3]]\n\nconst [a, [b, c]] = array\n\nconsole.log(b) // 2\nconsole.log(c) // 3",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "const person = {\n  name: 'John',\n  address: {\n    city: 'New York',\n    country: 'USA',\n  },\n}\n\nconst {\n  name,\n  address: { city, country },\n} = person\n\nconsole.log(city) // \"New York\"\nconsole.log(country) // \"USA\"",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Function parameters destructuring",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You can use destructuring in function parameters to easily extract values from arguments passed to the function."
+      },
+      {
+        "type": "Code",
+        "value": "function printUser({ name, age }) {\n  console.log(`Name: ${name}, Age: ${age}`)\n}\n\nconst user = { name: 'Alice', age: 28 }\n\nprintUser(user) // Name: Alice, Age: 28",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Moreover, when you destructure parameters, you don't have to worry about the order of object's keys:"
+      },
+      {
+        "type": "Code",
+        "value": "function printUser({ age, name }) {\n  console.log(`Name: ${name}, Age: ${age}`)\n}\n\nconst user = { name: 'Alice', age: 28 }\n\nprintUser(user) // Name: Alice, Age: 28",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here I switched `name` and `age` and the output is still the same."
+      }
     ]
   }
 ]

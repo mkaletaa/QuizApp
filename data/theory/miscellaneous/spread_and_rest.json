@@ -13,7 +13,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The spread operator is used to \"spread\" or expand elements of an iterable (such as an array, string, or object) into individual elements or key-value pairs. It is often used for making shallow copies of arrays or objects, merging arrays or objects, and passing arrays as arguments to functions."
+        "value": "The spread operator (aka spread syntax) is used to \"spread\" or expand elements of an iterable (such as an array, string, or object) into individual elements or key-value pairs. It is often used for making shallow copies of arrays or objects, merging arrays or objects, and passing arrays as arguments to functions."
       },
       {
         "type": "Text",

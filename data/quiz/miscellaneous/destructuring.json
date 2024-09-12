@@ -1,0 +1,120 @@
+[
+  {
+    "id": "miscellaneous|destructuring|1",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const array = [1, 2, 3]\n\nconst [a, b, c = 5] = array\n\nconsole.log(c)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "5", "val": "5" },
+      { "id": "4", "val": "3", "correct": true }
+    ]
+  },
+  {
+    "id": "miscellaneous|destructuring|2",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const array = [1, 2, null]\n\nconst [a, b, c = 5] = array\n\nconsole.log(c)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "5", "val": "5" },
+      { "id": "4", "val": "null", "correct": true }
+    ],
+    "explanation": "Default values are used only if required value is undefined/doesn't exist."
+  },
+  {
+    "id": "miscellaneous|destructuring|3",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const { myName: firstName, age } = { myName: 'Adam', age: 5 }\n\nconsole.log(firstName)\nconsole.log(myName)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "5", "val": "Error, 'Adam'" },
+      { "id": "1", "val": "undefined, 'Adam'" },
+      { "id": "2", "val": "'Adam', undefined" },
+      { "id": "3", "val": "'Adam', 'Adam'" },
+      { "id": "4", "val": "'Adam', Error", "correct": true }
+    ]
+  },
+  {
+    "id": "miscellaneous|destructuring|4",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const colors = ['red', 'green', 'blue', 'yellow']\n\nconst [primary, , secondary, extra = 'purple'] = colors\n\nconsole.log(primary)\nconsole.log(secondary)\nconsole.log(extra)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "red', undefined, 'purple'" },
+      { "id": "2", "val": "'red', 'green', 'yellow'" },
+      { "id": "3", "val": "'red', 'blue', 'yellow'" },
+      { "id": "4", "val": "'red', 'blue', 'purple'", "correct": true }
+    ]
+  },
+  {
+    "id": "miscellaneous|destructuring|5",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const person = {\n  name: 'Alice',\n  address: {\n    city: 'New York',\n    coordinates: {\n      lat: 40.7128,\n      long: -74.006,\n    },\n  },\n}\n\nconst {\n  address: {\n    coordinates: { lat, long },\n  },\n} = person\n\nconsole.log(lat)\nconsole.log(long)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "undefined, undefined" },
+      { "id": "2", "val": "'New York', undefined" },
+      { "id": "3", "val": "Error" },
+      { "id": "4", "val": "40.7128, -74.0060", "correct": true }
+    ],
+    "explanation": "It's an example of a nested destructuring which is done correctly."
+  },
+  {
+    "id": "miscellaneous|destructuring|6",
+    "question": [
+      {
+        "type": "Code",
+        "value": "function f({ b, a }) {\n  console.log(a)\n  console.log(b)\n}\n\nf({ a: 'a', b: 'b' })",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of that code?"
+    ],
+    "options": [
+      { "id": "1", "val": "\"a\", \"b\"", "correct": true },
+      { "id": "2", "val": "\"b\", \"a\"" },
+      { "id": "3", "val": "undefined, undefined" }
+    ],
+    "explanation": "In objects, the order of their keys doesn't matter."
+  },
+  {
+    "id": "miscellaneous|destructuring|7",
+    "question": [
+      {
+        "type": "Code",
+        "value": "function f({ a, b }) {\n  console.log(a)\n  console.log(b)\n}\n\nf({ x: 'a', y: 'b' })",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of that code?"
+    ],
+    "options": [
+      { "id": "1", "val": "\"a\", \"b\"" },
+      { "id": "2", "val": "\"b\", \"a\"" },
+      { "id": "3", "val": "undefined, undefined", "correct": true }
+    ],
+    "explanation": "The function expects an object with parameters `a` and `b` but is given an object with parameters `x` and `y`."
+  }
+]
