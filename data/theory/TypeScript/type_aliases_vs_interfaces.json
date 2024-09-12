@@ -12,7 +12,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The syntax of type aliases and interfaces differs. Interfaces generally have longer syntax, not just because `interface` contains more letters than `type`. <br></br>Types are preceded by `type` keyword. When describing the type of objects type alias syntax is similar to JavaScript objects except there are semicolons instead of commas."
+        "value": "The syntax of type aliases and interfaces differs. Interfaces generally have longer syntax, not just because `interface` contains more letters than `type`. <br></br>Types are preceded by `type` keyword. When describing the type of objects type alias syntax is similar to JavaScript objects except there are no separating commas."
       },
       {
         "type": "Code",

@@ -1,13 +1,5 @@
 [
   {
-    "data": [
-      {
-        "type": "Text",
-        "value": "In TypeScript, several features help in improving type safety and making the code more expressive. Let's explore some of these key features: `as const`, `typeof`, `keyof`, `?`, and `type = 12`."
-      }
-    ]
-  },
-  {
     "title": "Optional properties and chaining",
     "data": [
       {
@@ -45,6 +37,15 @@
         "type": "Code",
         "value": "type Color = 'red' | 'green' | 'blue'\nconst color: Color = 'green'\nconst anotherColor: Color = 'yellow' //Type '\"yellow\"' is not assignable to type 'Color'.",
         "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can use template literal types to build types dynamically by combining string literals."
+      },
+      {
+        "type": "Code",
+        "value": "type Color = 'red' | 'green' | 'blue'\ntype Shade = 'light' | 'dark'\n\ntype ColorShade = `${Shade}-${Color}` // Creates types like 'light-red', 'dark-green'\n\nconst colorShade: ColorShade = 'light-blue'",
+        "props": { "language": "typescript" }
       }
     ]
   },
@@ -75,7 +76,30 @@
       },
       {
         "type": "Code",
-        "value": "// Define an object\nconst car = {\n  make: 'Toyota',\n  year: 2020,\n  color: 'Red',\n}\n\n// Use `typeof` to create a type based on the existing object\ntype CarType = typeof car\n\n// Create a new object based on the dynamically generated type\nconst myCar: CarType = {\n  make: 'Honda',\n  year: 2021,\n  color: 'Blue',\n}\n\n// Error - The new object must include all properties from the original type\nconst brokenCar: CarType = {\n  make: 'Ford',\n  year: 1998,\n  // Missing 'color'\n}",
+        "value": "// Define an object\nconst car = {\n  make: 'Toyota',\n  year: 2020,\n}\n// Use `typeof` to create a type based on the existing object\ntype CarType = typeof car // { make: string, year: number }\n// Create a new object based on the dynamically generated type\nconst myCar: CarType = {\n  make: 'Honda',\n  year: 2021,\n}\n// Error - The new object must include all properties from the original type\nconst brokenCar: CarType = {\n  make: 'Ford',\n  // Missing 'year'\n}",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "If `as const` is applied, `typeof` infers a literal type."
+      },
+      {
+        "type": "Code",
+        "value": "const car = {\n  make: 'Toyota',\n  year: 2020,\n} as const\n\ntype CarType = typeof car // { make: 'Toyota', year: 2020 }\n\nconst myCar: CarType = {\n  make: 'Toyota',\n  year: 2020,\n} // ok\n\nconst neghboursCar: CarType = {\n  make: 'Honda', //Type '\"Honda\"' is not assignable to type '\"Toyota\"'.\n  year: 2015, //Type '2015' is not assignable to type '2020'.\n}",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "TypeScript's typeof is different than JavaScript's one. In JavaScript, typeof is an operator used at runtime to determine the type of a variable or expression. It is useful for checking the type of a value during the execution of code.In TypeScript, typeof is used in a type context to get the type of a variable or expression. It allows you to refer to the type of a value or expression at compile time, which is different from how typeof is used in JavaScript."
+      },
+      {
+        "type": "Code",
+        "value": "//In JavaScript:\nconst obj = { key: 'value' }\nconsole.log(typeof obj) // \"object\"\n\nconst arr = [1, 2, 3]\nconsole.log(typeof arr) // \"object\" (arrays are also objects in JS)\n\nconst func = () => {}\nconsole.log(typeof func) // \"function\"",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "//In TypeScript:\nconst obj = { key: 'value' }\ntype ObjType = typeof obj // ObjType is `{ key: string }`\n\nconst arr = [1, 2, 3]\ntype ArrType = typeof arr // ArrType is `number[]`\n\nconst func = () => {}\ntype FuncType = typeof func // FuncType is `() => void`",
         "props": { "language": "typescript" }
       }
     ]
@@ -89,7 +113,54 @@
       },
       {
         "type": "Code",
-        "value": "interface Person {\n  name: string;\n  age: number;\n}\ntype PersonKeys = keyof Person;\n// PersonKeys is 'name' | 'age'",
+        "value": "interface Person {\n  name: string;\n  age: number\n}\ntype PersonKeys = keyof Person\n// PersonKeys is 'name' | 'age'",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "Take a look at this code:"
+      },
+      {
+        "type": "Code",
+        "value": "type Result = 'correct' | 'incorrect' | 'kindof'\n\nconst COLOR = {\n  RED: 'crimson',\n  GREEN: 'lime',\n  ORANGE: 'orange',\n} as const\n\nexport function setColor(result: Result): unknown {\n  if (result === 'correct') return COLOR.GREEN\n  if (result === 'incorrect') return COLOR.RED\n  if (result === 'kindof') return COLOR.ORANGE\n}",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, the return type is `unknown` but we want it to be of type COLOR's value. We could use a union but this would make the code static. If COLOR changes, you'd need to manually update the function. Here is the proper way how to solve this problem:"
+      },
+      {
+        "type": "Code",
+        "value": "type Result = 'correct' | 'incorrect' | 'kindof'\n\nconst COLOR = {\n  RED: 'crimson',\n  GREEN: 'lime',\n  ORANGE: 'orange',\n} as const\n\nexport function setColor(result: Result): (typeof COLOR)[keyof typeof COLOR] {\n  if (result === 'correct') return COLOR.GREEN\n  if (result === 'incorrect') return COLOR.RED\n  if (result === 'kindof') return COLOR.ORANGE\n}",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "You are probably wondering what is going on."
+      },
+      {
+        "type": "List",
+        "value": [
+          "Firstly, `typeof COLOR` gets the type of the COLOR object, which is a literal type of this form: {RED: 'crimson', GREEN: 'lime', ORANGE: 'orange'}.",
+          "`keyof typeof COLOR` extracts the union of the keys of the COLOR object type. For the given COLOR, it would be 'RED' | 'GREEN' | 'ORANGE'.",
+          "Do you remember the syntax object[key] from `Objects fundamentals` lesson? `(typeof COLOR)[keyof typeof COLOR]` is essentially using that same syntax to dynamically access the type of values from the COLOR object based on its keys. "
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Custom type guards",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Type guards allow you to create functions that narrow down types based on some condition."
+      },
+      {
+        "type": "Code",
+        "value": "function isString(value: unknown): value is string {\n  return typeof value === 'string'\n}\n\nconst input: unknown = 'Hello'\n\nif (isString(input)) {\n  console.log(input.toUpperCase()) // TypeScript knows input is a string here\n}",
         "props": { "language": "typescript" }
       }
     ]

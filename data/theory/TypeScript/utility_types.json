@@ -1,0 +1,193 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Utility types are built-in types based on generics that allow you to transform and manipulate types. They help reduce code duplication and enhance type safety by providing various ways to create new types based on existing ones. These utility types are especially useful when working with complex objects, making your TypeScript code more flexible and maintainable."
+      }
+    ]
+  },
+  {
+    "title": "Partial<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Partial utility type makes all properties of a type optional. This is useful when you only need to update or provide some fields of an object, rather than all fields."
+      },
+      {
+        "type": "Code",
+        "value": "type User = {\n  id: number\n  name: string\n  age: number\n}\n\nconst user: Partial<User> = {\n  name: 'John',\n}",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Required<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Required utility type makes all properties of a type required. If any property in the original type was optional, it will no longer be so."
+      },
+      {
+        "type": "Code",
+        "value": "interface User {\n  id: number\n  name?: string // this property is optional\n}\n\nconst newUser: Required<User> = {\n  id: 1,\n  name: 'Alice', // 'name' is now required\n}",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Readonly<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Readonly utility type makes all properties of a type immutable, preventing them from being changed after assignment."
+      },
+      {
+        "type": "Code",
+        "value": "type User = {\n  id: number\n  name: string\n}\n\nconst user: Readonly<User> = {\n  id: 1,\n  name: 'Alice',\n}\n\nuser.name = 'Bob' // Error: Cannot assign to 'name' because it is a read-only property",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Record<Keys, Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Record utility type constructs a type with a set of properties Keys of type Type. This is useful for creating types that represent objects with dynamic keys."
+      },
+      {
+        "type": "Code",
+        "value": "type Role = 'admin' | 'user' | 'guest'\nconst rolePermissions: Record<Role, string> = {\n  admin: 'all',\n  user: 'restricted',\n  guest: 'read-only',\n}",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Pick<Type, Keys>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Pick utility type creates a new type by selecting a subset of properties (Keys) from an existing type."
+      },
+      {
+        "type": "Code",
+        "value": "interface User {\n  id: number\n  name: string\n  age: number\n  email: string\n}\n\ntype UserPreview = Pick<User, 'id' | 'name'>\n\nconst user: UserPreview = {\n  id: 1,\n  name: 'John',\n}",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Omit<Type, Keys>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Omit utility type creates a new type by excluding certain properties (Keys) from an existing type. This is the opposite of Pick."
+      },
+      {
+        "type": "Code",
+        "value": "interface User {\n  id: number\n  name: string\n  age: number\n  email: string\n}\n\ntype UserWithoutEmail = Omit<User, 'email'>\n\nconst user: UserWithoutEmail = {\n  id: 1,\n  name: 'John',\n  age: 25,\n}",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Exclude<UnionType, ExcludedMembers>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Exclude utility type constructs a new type by removing types from a union."
+      },
+      {
+        "type": "Code",
+        "value": "type Status = 'success' | 'error' | 'loading'\ntype ExcludeError = Exclude<Status, 'error'> // \"success\" | \"loading\"",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Extract<UnionType, IncludedMembers>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Extract utility type constructs a type by extracting types from a union that match a specific type."
+      },
+      {
+        "type": "Code",
+        "value": "type Status = 'success' | 'error' | 'loading'\ntype OnlyError = Extract<Status, 'loading'> // \"loading\"",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Awaited<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Awaited utility type extracts the type of the value that a Promise resolves to. It simplifies working with asynchronous code by providing the type of the resolved value of a Promise, allowing you to handle the underlying type more effectively."
+      },
+      {
+        "type": "Code",
+        "value": "type FetchDataReturnType = Awaited<Promise<number>>\n\n// Usage example:\nasync function fetchData(): Promise<number> {\n  return 42\n}\n\ntype Result = Awaited<ReturnType<typeof fetchData>>; // number",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "NonNullable<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The NonNullable utility type removes null and undefined from a type."
+      },
+      {
+        "type": "Code",
+        "value": "type UserID = string | null | undefined\ntype ValidUserID = NonNullable<UserID> // string",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "ReturnType<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The ReturnType utility type extracts the return type of a function."
+      },
+      {
+        "type": "Code",
+        "value": "function getUser() {\n  return { id: 1, name: 'John' }\n}\n\ntype UserType = ReturnType<typeof getUser> // { id: number; name: string; }",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "InstanceType<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The InstanceType utility type extracts the instance type of a constructor function (i.e., the type of an object created by the class or constructor function)."
+      },
+      {
+        "type": "Code",
+        "value": "class User {\n  constructor(\n    public id: number,\n    public name: string,\n  ) {}\n}\n\ntype UserInstance = InstanceType<typeof User> // User",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "ThisType<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The ThisType utility type is used to define the type for the this context inside an object literal or function. It’s often used in the context of helper libraries."
+      },
+      {
+        "type": "Code",
+        "value": "interface Helper {\n  message: string\n  logMessage(this: Helper): void\n}\n\nconst helper: ThisType<Helper> = {\n  message: 'Hello',\n  logMessage() {\n    console.log(this.message) // this is of type Helper\n  },\n}",
+        "props": { "language": "typescript" }
+      }
+    ]
+  }
+]

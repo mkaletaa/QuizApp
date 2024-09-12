@@ -104,7 +104,8 @@ export const topics = {
     { name: 'types', image: '' }, //? change to the_types ?
     { name: 'type_aliases_vs_interfaces', image: '' },
     { name: 'generics', image: '' },
-    { name: 'miscellaneous', image: '' },
+    { name: 'utility_types', image: '' },
+    { name: 'tips_and_tricks', image: '' },
   ],
   next_steps: [
     { name: 'frontend', image: '' },

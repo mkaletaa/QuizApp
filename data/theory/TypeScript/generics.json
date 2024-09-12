@@ -1,8 +1,93 @@
 [
-    {
-        "title": "",
-        "data": [
-            
-        ]
-    }
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Generics allow you to create reusable components that can work with a variety of types, while still ensuring type safety. They provide a way to create code that can handle different types without losing the advantages of static typing. "
+      }
+    ]
+  },
+  {
+    "title": "Generics in action",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You can create <b>functions</b> that work with any type by using generics. The generic type is specified using angle brackets (&lt;T>&gt;), where T is a placeholder for the actual type that will be passed in when the function is called."
+      },
+      {
+        "type": "Code",
+        "value": "function identity<T>(arg: T): T {\n  return arg\n}\n\nconst num = identity<number>(5) // T is inferred as number\nconst str = identity<string>('hello') // T is inferred as string",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>Interfaces</b> and <b>type aliases</b> can also be made generic by allowing them to operate with different types. This is useful for defining collections or structures that can hold values of various types."
+      },
+      {
+        "type": "Code",
+        "value": "interface Box<T> {\n  value: T\n}\n\nconst numberBox: Box<number> = { value: 10 }\nconst stringBox: Box<string> = { value: 'TypeScript' }\n\ntype Response<T> = {\n  status: number\n  data: T\n}\n\nconst stringResponse: Response<string> = {\n  status: 200,\n  data: 'Success',\n}\n\nconst numberResponse: Response<number> = {\n  status: 200,\n  data: 42,\n}",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can also use generics with <b>classes</b>. This allows you to create classes that can work with different types of data while maintaining type safety."
+      },
+      {
+        "type": "Code",
+        "value": "class Container<T> {\n  constructor(public value: T) {}\n\n  getValue(): T {\n    return this.value\n  }\n}\n\nconst numContainer = new Container<number>(123)\nconst strContainer = new Container<string>('Generic Class')",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "Do you remember how to set the type of an <b>array</b> in TypeScript? One way to do this is by using generics. You define an array type and specify the type of its elements using generics."
+      },
+      {
+        "type": "Code",
+        "value": "const arr: Array<number> = [1, 2, 3]",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can have more than one generic in function, interface, class etc.:"
+      },
+      {
+        "type": "Code",
+        "value": "function combine<T, U>(value1: T, value2: U): [T, U] {\n  return [value1, value2];\n}\n\nconst result1 = combine<number, string>(1, \"hello\"); // [number, string]\nconsole.log(result1); // [1, \"hello\"]\n\nconst result2 = combine(true, 42); // [boolean, number]\nconsole.log(result2); // [true, 42]",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Header",
+        "value": "Generic constraints",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Sometimes, you want to limit the types that can be used as arguments for generics. You can achieve this using constraints, like requiring that a type extends another type (i.e., it must have certain properties)."
+      },
+      {
+        "type": "Code",
+        "value": "function getLength<T extends { length: number }>(arg: T): number {\n  return arg.length\n}\n\n// Works because string has a length property\nconsole.log(getLength('Hello')) // 5\n\n// Error: number doesn't have a length property\nconsole.log(getLength(123))",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "title": "Conditional types",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Conditional types in TypeScript provide a way to create types based on a condition. They are essentially a type-level if statement that allows you to express complex type transformations in a declarative manner. The basic syntax for a conditional type is:"
+      },
+      {
+        "type": "Code",
+        "value": "type ConditionalType<T> = T extends Condition ? TrueType : FalseType",
+        "props": {"language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "If you don't understand that syntax, visit the `conditionals` lesson from the `Fundamentals` chapter."
+      }
+    ]
+  }
 ]
