@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ActivityIndicator,
+  Animated,
   Dimensions,
   Pressable,
   SectionList,
@@ -40,7 +41,6 @@ export default function Theory({
   const screenHeight = Dimensions.get('window').height
   const headerHeight = useHeaderHeight()
 
-  // #region logic
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
     setTopicName(route.params.topicName)
@@ -72,42 +72,58 @@ export default function Theory({
         //@ts-ignore
         sectionListRef.current.scrollToLocation({
           animated: true,
-          itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
+          itemIndex: 1,
           sectionIndex,
         })
       }
-    } catch (e) {
-      //do nothing
-    }
+    } catch (e) {}
   }
 
   const scrollToTop = () => {
-    // Przewiń do nagłówka listy
     if (sectionListRef.current) {
       //@ts-ignore
       sectionListRef.current.scrollToLocation({
         animated: true,
         sectionIndex: 0,
-        itemIndex: 0, // Dla nagłówka listy itemIndex powinien być ustawiony na 0
-        viewOffset: 0, // Opcjonalne: Offset od góry widoku
+        itemIndex: 0,
+        viewOffset: 0,
       })
     }
   }
+
+  const [scaleValue] = useState(new Animated.Value(0)) 
 
   const handleScroll = event => {
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
     const percent =
       (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
     setScrollPercentage(percent)
-    if (contentOffset.y < previousOffset && contentOffset.y > 100)
+
+    if (contentOffset.y < previousOffset && contentOffset.y > 100) {
       setShowGoUp(true)
-    else setShowGoUp(false)
+    } else {
+      setShowGoUp(false)
+    }
 
     previousOffset = contentOffset.y
   }
-  // #endregion
 
-  // #region components
+  useEffect(() => {
+    if (showGoUp) {
+      Animated.spring(scaleValue, {
+        toValue: 1, 
+        friction: 6,
+        useNativeDriver: true,
+      }).start()
+    } else {
+      Animated.timing(scaleValue, {
+        toValue: 0, 
+        duration: 100,
+        useNativeDriver: true,
+      }).start()
+    }
+  }, [showGoUp])
+
   const renderHeader = () => (
     <View
       style={[
@@ -127,11 +143,7 @@ export default function Theory({
                 gap: 20,
               }}
             >
-              <Pressable
-                onPress={() => {
-                  scrollToSection(i)
-                }}
-              >
+              <Pressable onPress={() => scrollToSection(i)}>
                 <Text
                   style={{
                     fontSize: 21,
@@ -139,7 +151,6 @@ export default function Theory({
                     color: '#54039b',
                   }}
                 >
-                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
                   {theoryData[0]?.title ? i + 1 : i} {a.title}
                 </Text>
               </Pressable>
@@ -149,32 +160,12 @@ export default function Theory({
     </View>
   )
 
-  const renderSectionHeader = ({ section }) => {
-    if (section.title) {
-      return (
-        <View
-          style={{
-            padding: 10,
-            paddingLeft: 30,
-            paddingRight: 30,
-            backgroundColor: Colors.screenBg,
-            borderTopWidth: 1,
-            borderTopColor: Colors.border,
-          }}
-        >
-          <Text style={styles.sectionHeaderText}>{section.title}</Text>
-        </View>
-      )
-    }
-    return null // Brak nagłówka dla sekcji bez tytułu
-  }
-
   const renderItem = ({ item, index }) => (
     <View
       style={{
         paddingBottom: 20,
         paddingHorizontal: 20,
-        paddingTop: index === 0 && 10, //set marginTop for the first element from a segment
+        paddingTop: index === 0 && 10,
       }}
     >
       <ContentRenderer content={typeof item === 'string' ? item : [item]} />
@@ -199,11 +190,10 @@ export default function Theory({
           ListHeaderComponent={renderHeader}
           stickySectionHeadersEnabled
           renderItem={({ item, index }) => renderItem({ item, index })}
-          renderSectionHeader={renderSectionHeader}
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
-        <Spoiler></Spoiler>
+        <Spoiler />
       </React.Fragment>
     ) : (
       <View
@@ -219,13 +209,8 @@ export default function Theory({
           elevation={0}
           style={{ bottom: 10 }}
         >
-          <Text
-            style={{
-              color: 'white',
-              textAlign: 'center',
-            }}
-          >
-            <Text>{thereIsNothingHere}</Text>
+          <Text style={{ color: 'white', textAlign: 'center' }}>
+            {thereIsNothingHere}
           </Text>
         </Snackbar>
         <Text style={{ fontWeight: 'bold', fontSize: 150, opacity: 0.1 }}>
@@ -234,30 +219,29 @@ export default function Theory({
       </View>
     )
   }, [topicName])
-  // #endregion
-  // #region return
+
   return (
     <View style={{ minHeight: screenHeight, backgroundColor: Colors.screenBg }}>
       <StatusBar style="auto" />
       <View
-        style={[
-          {
-            width: `${scrollPercentage}%`,
-          },
-          styles.progressBarContainer,
-        ]}
+        style={[{ width: `${scrollPercentage}%` }, styles.progressBarContainer]}
       />
 
-      <AntDesign
-        name="up"
-        size={40}
-        color={Colors.boldText}
+      <Animated.View
         style={[
           styles.goUp,
-          { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
+          {
+            transform: [{ scale: scaleValue }], 
+          },
         ]}
-        onPress={() => scrollToTop()}
-      />
+      >
+        <AntDesign
+          name="up"
+          size={40}
+          color={Colors.boldText}
+          onPress={() => scrollToTop()}
+        />
+      </Animated.View>
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
@@ -273,7 +257,6 @@ export default function Theory({
       )}
     </View>
   )
-  // #endregion
 }
 
 const styles = StyleSheet.create({
@@ -290,20 +273,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 5,
   },
-  sectionHeaderText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: Colors.boldText,
-    textAlign: 'center',
-  },
   goUp: {
     padding: 8,
     backgroundColor: Colors.surfaceBg,
     position: 'absolute',
-    bottom: 20,
     left: 30,
     zIndex: 1,
     borderRadius: 15,
     elevation: 3,
+    bottom: 120
   },
 })
