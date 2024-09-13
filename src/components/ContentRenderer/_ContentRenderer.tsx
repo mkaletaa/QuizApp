@@ -133,7 +133,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
             language={props.language}
             //@ts-ignore
             customStyle={styles.code}
-            containerStyle={{ paddingVertical: 10 }} //used to be width 100%
+            scrollViewProps={{ contentContainerStyle: { paddingVertical: 10, paddingRight: 8 } }} //used to be width 100%
           >
             {value}
           </CodeHighlighter>
@@ -157,7 +157,7 @@ export const renderComponent = (dataComponent: Component, width: number) => {
 
     case 'Comment':
       return null
-      
+
     default: //same as CText
       return (
         <Paragraph
