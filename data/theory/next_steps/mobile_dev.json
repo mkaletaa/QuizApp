@@ -48,7 +48,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Ionic ecosystem is a suite of tools and technologies designed for building high-quality, cross-platform mobile, desktop, and Progressive Web Applications (PWAs) using standard web technologies like HTML, CSS, and JavaScript (including React, Angular or Vue)."
+        "value": "The Ionic ecosystem is a suite of tools and technologies designed for building high-quality, cross-platform mobile and desktop Progressive Web Applications (PWAs) using standard web technologies like HTML, CSS, and JavaScript (including React, Angular or Vue)."
       },
       {
         "type": "Text",
@@ -57,6 +57,38 @@
       {
         "type": "Text",
         "value": "But this stack alone isn't enough to create a mobile app. We also need a native container, provided by tools like Cordova or Capacitor. Both tools enable access to Android and iOS SDKs but do so in different ways. Cordova wraps the web app in a native container with a webview, whereas Capacitor offers a more modern approach with improved performance and seamless integration with native tools."
+      },
+      {
+        "type": "YouTube",
+        "value": "PLM9coCCIRY"
+      },
+      {
+        "type": "Header",
+        "value": "pros",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Cross-platform Development: Write one codebase and deploy on multiple platforms like iOS, Android, and web, saving time and effort.",
+          "Access to Native Features: Use native APIs via a rich set of plugins or create custom native plugins when needed.",
+          "Compatibility with Any Framework: Capacitor is framework-agnostic, meaning you can use it with Angular, React, Vue, or even plain JavaScript.",
+          "Ease of Integration with Existing Projects: Capacitor can be added to an existing web app without requiring a complete rebuild."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "cons",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Performance: While sufficient for many use cases, Capacitor-based apps may not achieve the same performance levels as fully native apps in certain resource-intensive scenarios.",
+          "Limited Native Plugin Support: While many plugins exist, Capacitor’s plugin ecosystem is not as extensive as native development tools or frameworks like React Native.",
+          "Requires Some Native Code Knowledge: When you need more complex native functionality, you might have to write custom plugins in native code (Java for Android, Swift for iOS).",
+          "Manual Configuration: Compared to frameworks like React Native, Capacitor may require more manual setup for things like push notifications or deep linking."
+        ]
       }
     ]
   }
