@@ -82,10 +82,11 @@ const useNextQuestion = ({
     console.log('-------------')
 
     let newItem: Item
-
+    console.log(item?.id)
     //RQB scenario (InfinityMode)
     if (itemsCount === Infinity) {
-      newItem = importItemInfinityMode(chapName)
+      do newItem = importItemInfinityMode(chapName)
+      while (item?.id === newItem.id) //prevent two same questions in a row
       prepareForTheNextItem(newItem)
       return
     }
