@@ -2,12 +2,7 @@ import { AntDesign } from '@expo/vector-icons'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { useFocusEffect } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
-import React, {
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ActivityIndicator,
   Dimensions,
@@ -27,6 +22,8 @@ import QuizButton from '../components/molecules/atoms/QuizButton'
 import TheoryPopup from '../components/molecules/TheoryPopup'
 import { Colors } from '../utils/constants'
 import useStore from '../utils/store'
+
+let previousOffset = 0
 
 export default function Theory({
   route,
@@ -102,8 +99,11 @@ export default function Theory({
     const percent =
       (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
     setScrollPercentage(percent)
-    if (contentOffset.y > 100) setShowGoUp(true)
+    if (contentOffset.y < previousOffset && contentOffset.y > 100)
+      setShowGoUp(true)
     else setShowGoUp(false)
+
+    previousOffset = contentOffset.y
   }
   // #endregion
 
