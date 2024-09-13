@@ -73,20 +73,20 @@
     ]
   },
   {
-    "title": "Conditional types",
+    "title": "",
     "data": [
       {
-        "type": "Text",
+        "type": "Comment",
         "value": "Conditional types in TypeScript provide a way to create types based on a condition. They are essentially a type-level if statement that allows you to express complex type transformations in a declarative manner. The basic syntax for a conditional type is:"
       },
       {
-        "type": "Code",
+        "type": "Comment",
         "value": "type ConditionalType<T> = T extends Condition ? TrueType : FalseType",
-        "props": {"language": "typescript" }
+        "props": { "language": "typescript" }
       },
       {
-        "type": "Text",
-        "value": "If you don't understand that syntax, visit the `conditionals` lesson from the `Fundamentals` chapter."
+        "type": "Comment",
+        "value": "If you don't understand that syntax, visit the `Conditionals` lesson from the `Fundamentals` chapter."
       }
     ]
   }
