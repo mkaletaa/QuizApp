@@ -71,7 +71,7 @@
       {
         "type": "List",
         "value": [
-          "The variable name should not start with a digit (0-9). It's a standard rule in most programming languages that a variable name must begin with a letter."
+          "The variable name should not start with a digit (0-9). It's a standard rule in most programming languages."
         ]
       },
       {
@@ -96,6 +96,15 @@
         "type": "Code",
         "value": "let dewuiydhsj = {} //isn't meaningful at all\nlet itemsInTheShoppingCartThatTheUserCurrentlyHasSelected = {} //descriptive but too long\nlet itsInCUsSel = {} //good length but poorly descriptive\nlet itemsInCart = {} //perfect",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Avoid single-letter names:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "This follows from the previous point. Except for loop counters or very short programs, avoid single-letter variable names. Use names that convey meaning."
       },
       {
         "type": "Header",
@@ -125,15 +134,7 @@
         "value": "//consistent: \nlet firstName = \"John\" \nlet lastName = \"Doe\"\n let age = 30\n\n//inconsistent:\nlet firstName = \"John\" \nlet last_name = \"Doe\"\n let Age = 30",
         "props": { "language": "javascript" }
       },
-      {
-        "type": "Header",
-        "value": "Avoid single-letter names:",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Text",
-        "value": "Except for loop counters or very short programs, avoid single-letter variable names. Use names that convey meaning."
-      },
+
       {
         "type": "Block",
         "value": [

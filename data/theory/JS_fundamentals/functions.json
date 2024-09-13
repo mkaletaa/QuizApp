@@ -171,7 +171,7 @@
       },
       {
         "type": "Text",
-        "value": "If a function has local variables or parameters that are named the same as global variables, they will be overwritten."
+        "value": "If a function has local variables or parameters that are named the same as global variables, they will be overshadowed."
       },
       {
         "type": "Code",

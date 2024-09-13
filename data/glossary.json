@@ -1,21 +1,41 @@
 {
-  "hello": [
+  "context": [
     {
       "type": "Text",
-      "value": "Hello Worldd"
+      "value": "The execution context in JavaScript is an abstract concept that represents the environment in which code is executed. It contains everything necessary to execute a piece of code, including the variables, the this keyword, the outer environment reference, and the code currently being executed. To learn more, visit `Execution context` lesson from `Miscellaneous` chapter."
     }
   ],
-  "test": [
+  "eval": [
     {
       "type": "Text",
-      "value": "Zawartość spoilera",
-      "props": {
-        "toLeft": false
-      }
+      "value": "eval() is a function that takes a string as an argument and evaluates it as JavaScript code. Essentially, it allows you to execute code stored in a string at runtime."
     },
     {
-      "type": "Image",
-      "value": "https://i.postimg.cc/vHL8D75v/image.png"
+      "type": "Code",
+      "value": "const x = 10;\nconst result = eval('x * 2');  // Evaluates the string as code\nconsole.log(result);  // Output: 20\n",
+      "props": { "language": "javascript" }
+    },
+    {
+      "type": "Text",
+      "value": "Although eval() might seem useful for executing dynamic code, it comes with several serious drawbacks, which is why it's generally discouraged to use in most situations."
+    },
+    {
+      "type": "List",
+      "value": [
+        "<b>Security Risk</b>: eval() can execute any JavaScript code, which can be dangerous if it involves untrusted or user-provided input. An attacker could inject malicious code into the string being evaluated, leading to security vulnerabilities such as cross-site scripting (XSS).",
+        "<b>Performance Issues</b>: eval() slows down JavaScript execution because the JavaScript engine cannot optimize the code that’s passed into eval() as efficiently as it can with regular code. When using eval(), the engine has to reprocess and recompile the string as new code, which can reduce performance.",
+        "<b>Maintainability</b>: Code that uses eval() is often harder to understand, debug, and maintain, because it's not obvious from the code what the string inside eval() might contain."
+      ]
+    },
+    {
+      "type": "Text",
+      "value": "While eval() is powerful because it can execute dynamic code, it poses significant security risks and performance issues. Therefore, <b>it should be avoided whenever possible</b>. In modern JavaScript development, using eval() is considered bad practice due to its potential dangers."
+    }
+  ],
+  "strict_mode": [
+    {
+      "type": "Text",
+      "value": "Strict mode is a feature in JavaScript that helps you write cleaner, more secure, and less error-prone code by enforcing stricter parsing and error handling rules. It can be applied to entire scripts or individual functions. Most importantly, it eliminates so called 'silent errors' which means it changes previously accepted \"bad syntax\" into real errors. To learn more, visit `Strict mode` lesson from `Miscellaneous` chapter."
     }
   ]
 }

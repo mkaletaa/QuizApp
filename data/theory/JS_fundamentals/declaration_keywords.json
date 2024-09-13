@@ -133,20 +133,7 @@
         "type": "Text",
         "value": "Thus, using var can accidentally overwrite a property of the global object, which is something you definitely don't want to do."
       },
-      {
-        "type": "Header",
-        "value": "Reserved keywords as names (probably for delete)",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Text",
-        "value": "Remember when you learnt variable names shouldn't be the same as reserved keywords? This rule doesn't apply to var unless you use strict mode. This is another argument for why you shouldn't use `var` anymore."
-      },
-      {
-        "type": "Code",
-        "value": "// no strict mode\n var for = 5\nconsole.log(for) //5\n\nlet false = 10 // SyntaxError: Unexpected token 'false'",
-        "props": { "language": "javascript" }
-      },
+
       {
         "type": "Divider"
       },

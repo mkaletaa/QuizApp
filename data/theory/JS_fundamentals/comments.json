@@ -3,7 +3,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Now that you know how to run code, it’s time to learn how to comment it.</p><>Comments are essential for making your code more understandable and for leaving notes for yourself or other developers. In JavaScript, there are two ways to add comments:<b>1. Single-line comments</b>: Use // to add comments on a single line."
+        "value": "Now that you know how to run code, it’s time to learn how to comment it. <br></br>Comments are essential for making your code more understandable and for leaving notes for yourself or other developers. In JavaScript, there are two ways to add comments:<b>1. Single-line comments</b>: Use // to add comments on a single line."
       },
       {
         "type": "Code",
