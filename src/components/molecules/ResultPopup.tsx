@@ -3,13 +3,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useEffect, useState } from 'react'
 import { Animated, Modal, TouchableWithoutFeedback, View } from 'react-native'
 import { TouchableRipple } from 'react-native-paper'
+
 import useAnimatePopup from '../../hooks/useAnimatePopup'
-import useStore from '../../utils/store'
+import { Colors } from '../../utils/constants'
 import utilStyles from '../../utils/styles'
 import MistakeButton from './atoms/MistakeButton'
-import { Colors } from '../../utils/constants'
 
-export default function ExplanationPopup({ item }) {
+export default function ResultPopup({ item }) {
   const [saved, setSaved] = useState(false)
   // const showPopup = useStore(state => state.showPopup)
   // const setShowPopup = useStore(state => state.setShowPopup)
@@ -20,7 +20,6 @@ export default function ExplanationPopup({ item }) {
   useEffect(() => {
     checkIfSaved()
   }, [])
-
 
   useEffect(() => {
     // setShowPopup(showPopup)
@@ -42,7 +41,7 @@ export default function ExplanationPopup({ item }) {
       let parsedSavedItems = savedItems ? JSON.parse(savedItems) : []
 
       parsedSavedItems = parsedSavedItems.filter(
-        savedItem => savedItem !== item.id
+        savedItem => savedItem !== item.id,
       )
 
       await AsyncStorage.setItem('savedItems', JSON.stringify(parsedSavedItems))
@@ -110,14 +109,14 @@ export default function ExplanationPopup({ item }) {
           backgroundColor: 'transparent',
           height: 1,
           zIndex: 1,
-          // position: 'absolute'
+          position: 'absolute',
         }}
       >
         <TouchableRipple
           onPress={() => setShowPopup(true)}
           style={{
             position: 'absolute',
-            top: 30,
+            top: 20,
             right: 20,
             padding: 5,
           }}
