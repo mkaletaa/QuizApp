@@ -117,8 +117,11 @@ const useNextQuestion = ({
 
     //! symulacja długiego ładowania pytania
     // setTimeout(() => {
-    if (newItem?.mix === true) newItem.options = shuffleArray(newItem.options)
-    setItem(newItem)
+    if (newItem?.preventMix === true) setItem(newItem)
+    else {
+      newItem.options = shuffleArray(newItem.options)
+      setItem(newItem)
+    }
     // }, 2000)
   }
 
