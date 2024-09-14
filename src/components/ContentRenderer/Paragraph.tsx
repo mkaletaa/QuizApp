@@ -1,18 +1,14 @@
 import React from 'react'
-import { FlatList, ScrollView, Text, View } from 'react-native'
+import { Text } from 'react-native'
 import RenderHtml from 'react-native-render-html'
 
 import glossary from '../../../data/glossary.json'
 import { Colors } from '../../utils/constants'
 import useStore from '../../utils/store'
 
-// import {theory} from '../../../data/theory/theory'
-
 export default function Paragraph({ value, width, props }) {
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
   const setBottomSheetContent = useStore(state => state.setBottomSheetContent)
-  // const setNavigateTo = useStore(state => state.setNavigateTo)
-  // console.log('value: ', value, 'props: ',JSON.stringify(props) )
 
   let modifiedValue =
     `<span id="customSpan" style="font-size: 18px; color: ${Colors.text}; line-height: 25px; width: ${
@@ -26,39 +22,30 @@ export default function Paragraph({ value, width, props }) {
 
     const className = tnode.init.domNode.attribs.class
     const key = tnode.init.domNode.attribs['data-key']
-    // const id = tnode.init.domNode.attribs['data-id']
-    // const destination = tnode.init.domNode.attribs['data-destination']
-    // const chapter = tnode.init.domNode.attribs['data-chapter']
-    // const topic = tnode.init.domNode.attribs['data-topic']
+
+    const originalText = tnode.domNode.children
+      .map(child => child.data || '')
+      .join('')
 
     const onPress = () => {
-      // if (destination) {
-      //   setNavigateTo(destination, chapter, topic)
-      //   return
-      // }
-      // if (className === 'spoiler') {
-      // let content = null //może zrobić że w Theory theory jest przekazywane do Spoiler bo
-      // content ||= theory.find(el=>el.type==='Spoiler' && el.id===id)
-      // setBottomSheetContent(content)
-      //   setShowBottomSheet(true)
-      //   return
-      // }
-
-      if (className !== 'hint') return
-
-      setBottomSheetContent(glossary[key])
-      setShowBottomSheet(true)
+      if (className === 'hint') {
+        setBottomSheetContent(glossary[key])
+        setShowBottomSheet(true)
+      }
     }
 
     return (
-      <TDefaultRenderer
-        {...props}
+      <Text
         onPress={onPress}
         style={{
           color: className === 'hint' ? '#54039b' : Colors.text,
-          backgroundColor: className === 'hint' ? '#d7d2f1' : '#dee4ea', //#e4e1f6 // #c9c3ed
+          backgroundColor: className === 'hint' ? '#d7d2f1' : '#dee4ea',
         }}
-      />
+      >
+        &nbsp;
+        {originalText}
+        &nbsp;
+      </Text>
     )
   }
 
@@ -67,12 +54,10 @@ export default function Paragraph({ value, width, props }) {
   }
 
   return (
-    <>
-      <RenderHtml
-        contentWidth={width}
-        source={{ html: modifiedValue }}
-        renderers={renderers}
-      />
-    </>
+    <RenderHtml
+      contentWidth={width}
+      source={{ html: modifiedValue }}
+      renderers={renderers}
+    />
   )
 }
