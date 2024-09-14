@@ -25,6 +25,7 @@ import { Colors } from '../utils/constants'
 import useStore from '../utils/store'
 
 let previousOffset = 0
+let localMinOffset = 0
 
 export default function Theory({
   route,
@@ -98,9 +99,10 @@ export default function Theory({
     setScrollPercentage(percent)
 
     if (contentOffset.y < previousOffset && contentOffset.y > 100) {
-      setShowGoUp(true)
+      if (contentOffset.y + 100 < localMinOffset) setShowGoUp(true)
     } else {
       setShowGoUp(false)
+      localMinOffset = contentOffset.y
     }
 
     previousOffset = contentOffset.y
