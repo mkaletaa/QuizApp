@@ -1,4 +1,3 @@
-import { AntDesign } from '@expo/vector-icons'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { useFocusEffect } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
@@ -19,6 +18,7 @@ import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import Spoiler from '../components/ContentRenderer/Spoiler'
+import ArrowUp from '../components/molecules/atoms/ArrowUp'
 import QuizButton from '../components/molecules/atoms/QuizButton'
 import TheoryPopup from '../components/molecules/TheoryPopup'
 import { Colors } from '../utils/constants'
@@ -91,8 +91,6 @@ export default function Theory({
     }
   }
 
-  const [scaleValue] = useState(new Animated.Value(0)) 
-
   const handleScroll = event => {
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
     const percent =
@@ -107,22 +105,6 @@ export default function Theory({
 
     previousOffset = contentOffset.y
   }
-
-  useEffect(() => {
-    if (showGoUp) {
-      Animated.spring(scaleValue, {
-        toValue: 1, 
-        friction: 6,
-        useNativeDriver: true,
-      }).start()
-    } else {
-      Animated.timing(scaleValue, {
-        toValue: 0, 
-        duration: 100,
-        useNativeDriver: true,
-      }).start()
-    }
-  }, [showGoUp])
 
   const renderHeader = () => (
     <View
@@ -227,21 +209,7 @@ export default function Theory({
         style={[{ width: `${scrollPercentage}%` }, styles.progressBarContainer]}
       />
 
-      <Animated.View
-        style={[
-          styles.goUp,
-          {
-            transform: [{ scale: scaleValue }], 
-          },
-        ]}
-      >
-        <AntDesign
-          name="up"
-          size={40}
-          color={Colors.boldText}
-          onPress={() => scrollToTop()}
-        />
-      </Animated.View>
+      <ArrowUp showGoUp={showGoUp} scrollToTop={scrollToTop} />
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
@@ -272,15 +240,5 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
     alignItems: 'center',
     gap: 5,
-  },
-  goUp: {
-    padding: 8,
-    backgroundColor: Colors.surfaceBg,
-    position: 'absolute',
-    left: 30,
-    zIndex: 1,
-    borderRadius: 15,
-    elevation: 3,
-    bottom: 120
   },
 })

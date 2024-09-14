@@ -64,18 +64,18 @@ const useOpenQuiz = () => {
       chapterName !== '__Again__' &&
       chapterName !== '__All__'
     ) {
-      Alert.alert('RQB, no quiz available')
+      // Alert.alert('RQB, no quiz available')
       setShowNoQuestionsModal(true)
       // return
     } // merged this with the rest of if statements. I see no bugs yet
     //* executes in scenario 'RQB' and there are questions available
     else if (itemsCount === Infinity) {
-      Alert.alert('RQB, quiz available')
+      // Alert.alert('RQB, quiz available')
       navigateToQuiz()
     }
     //* executes in scenario 'Card' (and there is a quiz available) OR in scenario 3 'retake' OR in scenario 4 'saved'. This is the most common case
     else if (itemsArray || quiz[chapterName][topicName]) {
-      Alert.alert('Card (quiz available) OR retake OR saved, quiz available')
+      // Alert.alert('Card (quiz available) OR retake OR saved, quiz available')
       // check if questions should be shuffled
       ;(async () => {
         shuffle = await getValue('shuffle')
@@ -84,7 +84,7 @@ const useOpenQuiz = () => {
     }
     //* executes in scenario 'Card' (and there is no quiz available)
     else {
-      Alert.alert('Card, no quiz available')
+      // Alert.alert('Card, no quiz available')
       setShowNoQuestionsModal(true)
     }
 

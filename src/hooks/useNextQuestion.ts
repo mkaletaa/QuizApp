@@ -72,14 +72,14 @@ const useNextQuestion = ({
   }
 
   function getNextItem() {
-    console.log('-------------')
-    console.log('🚀 ~ shuffle:', shuffle)
-    console.log('🚀 ~ itemsCount:', itemsCount)
-    console.log('🚀 ~ itemsArray:', itemsArray)
-    console.log('🚀 ~ chapName:', chapName)
-    console.log('🚀 ~ topName:', topName)
-    console.log('🚀 ~ itemIndex:', itemIndex)
-    console.log('-------------')
+    // console.log('-------------')
+    // console.log('🚀 ~ shuffle:', shuffle)
+    // console.log('🚀 ~ itemsCount:', itemsCount)
+    // console.log('🚀 ~ itemsArray:', itemsArray)
+    // console.log('🚀 ~ chapName:', chapName)
+    // console.log('🚀 ~ topName:', topName)
+    // console.log('🚀 ~ itemIndex:', itemIndex)
+    // console.log('-------------')
 
     let newItem: Item
     console.log(item?.id)
