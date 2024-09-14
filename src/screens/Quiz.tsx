@@ -1,33 +1,44 @@
-import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, BackHandler, Dimensions, Modal, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { AdEventType, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
-import { Button as PaperButton, TouchableRipple } from 'react-native-paper';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { AntDesign } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import React, { useEffect, useRef, useState } from 'react'
+import {
+  ActivityIndicator,
+  BackHandler,
+  Dimensions,
+  Modal,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
+import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-
-
-import settings from '../../data/settings.json';
-import { areYouSure, nah, nextQuestion, showOptions, submit, summary, yesQuit } from '../../data/texts';
-import ContentRenderer from '../components/ContentRenderer/_ContentRenderer';
-import Ad from '../components/ContentRenderer/Ad';
-import CustomModal from '../components/CustomModal';
-import ItemResult from '../components/ItemResult';
-import Line from '../components/molecules/atoms/Line';
-import Options from '../components/Options';
-import useNextQuestion from '../hooks/useNextQuestion';
-import { Colors } from '../utils/constants';
-import { returnIsCorrect } from '../utils/functions';
-import { countItemsInTopic } from '../utils/getQuizData';
-import useStore from '../utils/store';
-import { Option, Result } from '../utils/types';
-import { compareInfiniteStreak, getValue, setStats } from '../utils/utilStorage';
-
-
-const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
-  requestNonPersonalizedAdsOnly: true,
-})
+import settings from '../../data/settings.json'
+import {
+  areYouSure,
+  nah,
+  nextQuestion,
+  showOptions,
+  submit,
+  summary,
+  yesQuit,
+} from '../../data/texts'
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
+import Ad from '../components/ContentRenderer/Ad'
+import CustomModal from '../components/CustomModal'
+import ItemResult from '../components/ItemResult'
+import Line from '../components/molecules/atoms/Line'
+import Options from '../components/Options'
+import useAd from '../hooks/useAd'
+import useNextQuestion from '../hooks/useNextQuestion'
+import { Colors } from '../utils/constants'
+import { returnIsCorrect } from '../utils/functions'
+import { countItemsInTopic } from '../utils/getQuizData'
+import useStore from '../utils/store'
+import { Option, Result } from '../utils/types'
+import { compareInfiniteStreak, getValue, setStats } from '../utils/utilStorage'
 
 //list of route params is in useOpenQuiz
 export default function Quiz({ route }) {
@@ -36,7 +47,8 @@ export default function Quiz({ route }) {
   const [showExitModal, setShowExitModal] = useState(false)
 
   const incrementInfiniteStreak = useStore.getState().incrementInfiniteStreak
-  const incrementGoodInfiniteStreak = useStore.getState().incrementGoodInfiniteStreak
+  const incrementGoodInfiniteStreak =
+    useStore.getState().incrementGoodInfiniteStreak
   const resetInfiniteStreak = useStore.getState().resetInfiniteStreak
   const resetGoodInfiniteStreak = useStore.getState().resetGoodInfiniteStreak
 
@@ -116,48 +128,9 @@ export default function Quiz({ route }) {
     setShowResultModal(true)
   }
 
-  const [interstitialLoaded, setInterstitialLoaded] = useState(false)
-
-  const loadInterstatial = () => {
-    const unsubscribeLoaded = interstitial.addAdEventListener(
-      AdEventType.LOADED,
-      () => {
-        setInterstitialLoaded(true)
-        interstitial.load()
-      },
-    )
-
-    const unsubscribeClosed = interstitial.addAdEventListener(
-      AdEventType.CLOSED,
-      () => {
-        setInterstitialLoaded(false)
-      },
-    )
-
-    interstitial.load()
-
-    return () => {
-      unsubscribeClosed()
-      unsubscribeLoaded()
-    }
-  }
-
-  // useEffect(() => {
-
-  // return unsubscribeInterstitialEvents
-  // }, [])
-
-  function closeModalAndGoBack(): void {
-    if (route.params.chapName === '__All__') {
-      resetInfiniteStreak()
-      resetGoodInfiniteStreak()
-    }
-    setShowExitModal(false)
-    navigation.goBack()
-  }
-
+  const { loadInterstitial, interstitial } = useAd()
   useEffect(() => {
-    const unsubscribeInterstitialEvents = loadInterstatial()
+    const unsubscribeInterstitialEvents = loadInterstitial()
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       handleBackPress,
@@ -168,6 +141,15 @@ export default function Quiz({ route }) {
       backHandler.remove()
     } // Cleanup the event listener on unmount
   }, [])
+
+  function closeModalAndGoBack(): void {
+    if (route.params.chapName === '__All__') {
+      resetInfiniteStreak()
+      resetGoodInfiniteStreak()
+    }
+    setShowExitModal(false)
+    navigation.goBack()
+  }
 
   const handleBackPress = () => {
     if (showExitModal) {
