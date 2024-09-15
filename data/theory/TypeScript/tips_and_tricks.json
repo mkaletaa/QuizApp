@@ -164,5 +164,23 @@
         "props": { "language": "typescript" }
       }
     ]
+  },
+  {
+    "title": "Zod",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In most cases, TypeScript is sufficient for type checking. However, if you need more rigorous validation, you can use a library such as Zod. Zod allows you to define validation schemas that can be used to validate data in real time. When data does not meet the schema requirements, Zod reports errors."
+      },
+      {
+        "type": "Code",
+        "value": "import { z } from 'zod'\n\nconst userSchema = z.object({\n  name: z.string().min(1), \n  age: z.number().int().positive(), \n  email: z.string().email(), \n})\n\nconst userData = {\n  name: 'Alice',\n  age: 30,\n  email: 'alice@example.com',\n}",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "An alternative to Zod could be Valibot."
+      }
+    ]
   }
 ]

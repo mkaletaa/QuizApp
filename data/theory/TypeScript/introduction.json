@@ -27,7 +27,7 @@
       },
       {
         "type": "Text",
-        "value": "The main difference between JavaScript and TypeScript is the addition of static typing. This allows developers to specify the types of variables, function arguments, and return values, enabling the detection of errors at compile-time rather than runtime. This reduces bugs in applications and makes the code more predictable."
+        "value": "The main difference between JavaScript and TypeScript is the addition of static typing. This allows developers to specify the types of variables, function arguments, and return values, enabling the detection of errors at compile-time rather than runtime. This reduces bugs in applications and makes the code more predictable. It's worth mentioning that TypeScript-related errors do not stop the program. TypeScript serves as a static type checker, which means it points out potential vulnerabilities and type issues during the development phase, but it does not affect the execution of the compiled JavaScript code. That's why some call it a linter."
       },
       {
         "type": "Code",

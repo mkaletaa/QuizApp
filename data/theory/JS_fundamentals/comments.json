@@ -20,12 +20,45 @@
         "props": { "language": "javascript" }
       },
       {
-        "type": "Text",
-        "value": "<b>Why use comments?</b> <ul><li>Documentation: comments provide information about the purpose and functionality of your code, making it easier for others (or yourself) to understand it.</li><li>Debugging: comments can be used to temporarily disable lines of code for debugging purposes without deleting them.</li></ul>"
+        "type": "Header",
+        "value": "Why use comments?",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>Documentation</u>: comments provide information about the purpose and functionality of your code, making it easier for others (or yourself) to understand it.",
+          "<u>Debugging</u>: comments can be used to temporarily disable lines of code for debugging purposes without deleting them."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "Best practices",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>Be Clear and Concise</u>: Write comments that are easy to understand. Avoid unnecessary comments that simply restate the code.",
+          "<u>Regularly update comments</u>: Keep your comments up to date. If you change the code, make sure to update any relevant comments.",
+          "<u>Avoid Over-Commenting</u>: While comments are helpful, code should ideally be self-explanatory. Avoid overusing comments for simple and obvious code."
+        ]
+      },
+      {
+        "type": "Divider"
       },
       {
         "type": "Text",
-        "value": "<b>Best practices</b> <ul><li>Be Clear and Concise: Write comments that are easy to understand. Avoid unnecessary comments that simply restate the code.</li><li>Regularly update comments: Keep your comments up to date. If you change the code, make sure to update any relevant comments.</li><li>Avoid Over-Commenting: While comments are helpful, code should ideally be self-explanatory. Avoid overusing comments for simple and obvious code.</li></ul>"
+        "value": "There are some comment conventions popular among programmers:"
+      },
+      {
+        "type": "Text",
+        "value": "<b>TODO</b> and <b>FIXME</b> comments are informal markers in code that help developers track unfinished tasks (TODO) or known issues that need fixing (FIXME), ensuring better project organization and communication within a team."
+      },
+      {
+        "type": "Code",
+        "value": "// TODO: Add validation for user input\n// FIXME: Handle edge cases for negative numbers",
+        "props": { "language": "javascript" }
       },
       {
         "type": "Header",

@@ -51,6 +51,20 @@
         "type": "Code",
         "value": "const array = [1, 2, 3]\n\nconst [a, , c] = array // Skips the second element\n\nconsole.log(a) // 1\nconsole.log(c) // 3",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Destructuring assignment",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Thanks to destructuring you can swap the values of two variables. This is a concise and readable way to exchange values without needing a temporary variable."
+      },
+      {
+        "type": "Code",
+        "value": "let a = 5;\nlet b = 10;\n\n[a, b] = [b, a];\n\nconsole.log(a); // 10\nconsole.log(b); // 5",
+        "props": { "language": "javascript" }
       }
     ]
   },
@@ -138,7 +152,7 @@
       {
         "type": "Code",
         "value": "function printUser({ age, name }) {\n  console.log(`Name: ${name}, Age: ${age}`)\n}\n\nconst user = { name: 'Alice', age: 28 }\n\nprintUser(user) // Name: Alice, Age: 28",
-        "props": {"language": "javascript" }
+        "props": { "language": "javascript" }
       },
       {
         "type": "Text",

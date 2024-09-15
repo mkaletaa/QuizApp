@@ -1,3 +1,6 @@
+
+
+
 import arrays from './arrays.json';
 import introduction from './introduction.json';
 import iteration_methods from './iteration_methods.json';
@@ -15,9 +18,12 @@ export const data_structures = {
   strings,
   arrays,
   objects_fundamentals,
-
+  
   // objects #2
   // descructuring
   // iteration_methods,
   // other_structures,
 }
+
+
+
