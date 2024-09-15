@@ -10,22 +10,15 @@ const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
 })
 
 export default function useAd() {
-  const [interstitialLoaded, setInterstitialLoaded] = useState(false)
-
   const loadInterstitial = () => {
     const unsubscribeLoaded = interstitial.addAdEventListener(
       AdEventType.LOADED,
-      () => {
-        setInterstitialLoaded(true)
-        interstitial.load()
-      },
+      () => {},
     )
 
     const unsubscribeClosed = interstitial.addAdEventListener(
       AdEventType.CLOSED,
-      () => {
-        setInterstitialLoaded(false)
-      },
+      () => {},
     )
 
     return () => {

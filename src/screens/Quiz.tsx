@@ -136,10 +136,15 @@ export default function Quiz({ route }) {
       handleBackPress,
     )
     return () => {
-      settings.ads && interstitial.show()
+      if (settings.ads && true)
+        try {
+          interstitial.show()
+        } catch (e) {
+          // console.error(e)
+        }
       unsubscribeInterstitialEvents()
       backHandler.remove()
-    } // Cleanup the event listener on unmount
+    }
   }, [])
 
   function closeModalAndGoBack(): void {
