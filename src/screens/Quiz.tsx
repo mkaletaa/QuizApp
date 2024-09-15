@@ -282,7 +282,7 @@ export default function Quiz({ route }) {
             bottom: 0,
           }}
         >
-          <Ad width={'100%'}></Ad>
+          <Ad/>
         </View>
       )}
       <Modal

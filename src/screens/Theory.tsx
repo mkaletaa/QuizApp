@@ -17,6 +17,7 @@ import { Snackbar } from 'react-native-paper'
 import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
+import Ad from '../components/ContentRenderer/Ad'
 import Spoiler from '../components/ContentRenderer/Spoiler'
 import ArrowUp from '../components/molecules/atoms/ArrowUp'
 import QuizButton from '../components/molecules/atoms/QuizButton'
@@ -109,16 +110,18 @@ export default function Theory({
   }
 
   const renderHeader = () => (
-    <View
-      style={[
-        styles.header,
-        { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
-      ]}
-    >
-      {theoryData.map(
-        (a, i) =>
-          a.title && (
-            <View
+    <React.Fragment>
+      <Ad/>
+      <View
+        style={[
+          styles.header,
+          { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
+        ]}
+      >
+        {theoryData.map(
+          (a, i) =>
+            a.title && (
+              <View
               key={i.toString()}
               style={{
                 alignItems: 'flex-start',
@@ -126,24 +129,25 @@ export default function Theory({
                 paddingHorizontal: 20,
                 gap: 20,
               }}
-            >
-              <Pressable onPress={() => scrollToSection(i)}>
-                <Text
-                  style={{
-                    fontSize: 21,
-                    textDecorationLine: 'underline',
-                    color: '#54039b',
-                  }}
-                >
-                  {theoryData[0]?.title ? i + 1 : i} {a.title}
-                </Text>
-              </Pressable>
-            </View>
-          ),
-      )}
-    </View>
+              >
+                <Pressable onPress={() => scrollToSection(i)}>
+                  <Text
+                    style={{
+                      fontSize: 21,
+                      textDecorationLine: 'underline',
+                      color: '#54039b',
+                    }}
+                  >
+                    {theoryData[0]?.title ? i + 1 : i} {a.title}
+                  </Text>
+                </Pressable>
+              </View>
+            ),
+        )}
+      </View>
+    </React.Fragment>
   )
-
+  
   const renderItem = ({ item, index }) => (
     <View
       style={{
@@ -157,9 +161,19 @@ export default function Theory({
   )
 
   const renderFooter = () => (
-    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
-      <QuizButton chapterName={chapterName} topicName={topicName} />
-    </View>
+    <React.Fragment>
+      <Ad size='large'></Ad>
+      <View
+        style={{
+          padding: 30,
+          alignItems: 'center',
+          height: 200,
+          // backgroundColor: 'red',
+        }}
+      >
+        <QuizButton chapterName={chapterName} topicName={topicName} />
+      </View>
+    </React.Fragment>
   )
 
   const memoizedComponents = useMemo(() => {
