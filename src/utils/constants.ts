@@ -1,7 +1,7 @@
 const secondary22 = '#EEEBFB' //close to protonmail
 
 export const Colors = {
-  primary: '#5846c7', // buttons, spinners, scroll line
+  primary: 'slateblue', // #5846c7 // buttons, spinners, scroll line
   text: 'rgb(40, 40, 55)',
   boldText: 'rgb(20, 20, 60)',
   border: '#D6D0E2',

@@ -33,13 +33,12 @@ export default function Paragraph({ value, width, props }) {
         setShowBottomSheet(true)
       }
     }
-
     return (
       <Text
         onPress={onPress}
         style={{
-          color: className === 'hint' ? '#54039b' : Colors.text,
-          backgroundColor: className === 'hint' ? '#d7d2f1' : '#dee4ea',
+          color: className === 'hint' ? '#362988' : Colors.text,
+          backgroundColor: className === 'hint' ? '#c9c3ed' : '#e4e1f6', //e4e1ef //c7c6f4 //d7d2f1
         }}
       >
         &nbsp;
