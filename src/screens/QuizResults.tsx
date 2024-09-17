@@ -1,25 +1,32 @@
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
 import { FlatList, Modal, Text, View } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
+import { Text as PaperText } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import settings from '../../data/settings.json'
 import { close, exit, retake, retakeWrong } from '../../data/texts'
+import Ad from '../components/ContentRenderer/Ad'
 import ItemResult from '../components/ItemResult'
 import Gradient from '../components/molecules/atoms/Gradient'
 // import Chart from '../components/molecules/Chart';
 import Tile from '../components/Tile'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import { Colors } from '../utils/constants'
+import { COLOR, Colors } from '../utils/constants'
 import { setColor } from '../utils/functions'
 import { Item, Option } from '../utils/types'
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
   const [correctNr, setCorrectNr] = useState(0)
+  const [incorrectNr, setIncorrectNr] = useState(0)
+  const [kindofNr, setKindofNr] = useState(0)
+
   const [showModal, setShowModal] = useState(false)
   const [modalItem, setModalItem] = useState<Item>()
-  const [index, setIndex] = useState(0)
+  // const [index, setIndex] = useState(0)
   const [modalChoices, setModalChoices] = useState<Option[]>()
 
   const { openQuiz } = useOpenQuiz()
@@ -28,14 +35,20 @@ export default function QuizResults({ route }) {
   useEffect(() => {
     setResultsArray(route.params.resultsArray)
     let correct = 0
+    let incorrect = 0
+    let partiallyCorrect = 0
     route.params.resultsArray.forEach(result => {
       if (result.isCorrect === 'correct') correct++
+      if (result.isCorrect === 'incorrect') incorrect++
+      if (result.isCorrect === 'kindof') partiallyCorrect++
     })
     setCorrectNr(correct)
+    setIncorrectNr(incorrect)
+    setKindofNr(partiallyCorrect)
   }, [])
 
   function handlePress(item: Item, choices: Option[], index: number) {
-    setIndex(index)
+    // setIndex(index)
     setShowModal(true)
     setModalItem(item)
     setModalChoices(choices)
@@ -82,14 +95,89 @@ export default function QuizResults({ route }) {
     </View>
   )
 
-  const ListHeader = () =>
-    // <Chart resultsArray={resultsArray}/>
-    null
+  const ListHeader = () => (
+    <View
+      style={{ width: '100%', alignItems: 'center', gap: 20, marginBottom: 35 }}
+    >
+      <View
+        style={{
+          backgroundColor: '#d7d2f1', //#ddddf4 //#ececf9 //rgb(225,221,254)
+          elevation: 0,
+          width: '80%',
+          paddingBottom: 0,
+          borderRadius: 8,
+          overflow: 'hidden',
+        }}
+      >
+        <View style={{ position: 'absolute', right: 15, top: 10, alignItems: 'center' }}>
+          <MaterialCommunityIcons
+            name="check-decagram"
+            size={44}
+            color="green"
+          />
+          <PaperText variant="labelLarge" style={{color: 'green'}}>excellent</PaperText>
+        </View>
+
+        <View
+          style={{
+            padding: 10,
+          }}
+        >
+          <PaperText variant="headlineSmall">Results</PaperText>
+          <PaperText variant="titleMedium" style={{ color: Colors.text }}>
+            Correct answers:{' '}
+            {<PaperText variant="titleLarge">{correctNr}</PaperText>}
+          </PaperText>
+          <PaperText variant="titleMedium" style={{ color: Colors.text }}>
+            Incorrect answers:{' '}
+            {<PaperText variant="titleLarge">{incorrectNr}</PaperText>}
+          </PaperText>
+          {kindofNr ? (
+            <PaperText variant="titleMedium" style={{ color: Colors.text }}>
+              Partially correct answers:{' '}
+              {<PaperText variant="titleLarge">{kindofNr}</PaperText>}
+            </PaperText>
+          ) : null}
+        </View>
+        <View
+          style={{
+            width: '100%',
+            height: 6,
+            backgroundColor: 'grey',
+            flexDirection: 'row',
+            borderRadius: 5,
+            elevation: 0,
+          }}
+        >
+          <View
+            style={{
+              width: `${(correctNr / resultsArray.length) * 100}%`,
+              backgroundColor: COLOR.GREEN,
+            }}
+          ></View>
+          <View
+            style={{
+              width: `${(kindofNr / resultsArray.length) * 100}%`,
+              backgroundColor: COLOR.ORANGE,
+            }}
+          ></View>
+          <View
+            style={{
+              width: `${(incorrectNr / resultsArray.length) * 100}%`,
+              backgroundColor: COLOR.RED,
+            }}
+          ></View>
+          {/* <Gradient color={'rgba(0, 0, 0, .2)'} /> */}
+        </View>
+      </View>
+      {settings.ads && <Ad size={'large'}></Ad>}
+    </View>
+  )
 
   const ListFooter = () => (
     <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
       <PaperButton
-        mode="elevated"
+        mode="contained"
         rippleColor="thistle"
         style={{
           backgroundColor: Colors.primary,
@@ -104,7 +192,7 @@ export default function QuizResults({ route }) {
       {resultsArray.every(el => el.isCorrect === 'correct') ? null : (
         <PaperButton
           rippleColor="thistle"
-          mode="elevated"
+          mode="contained"
           style={{
             backgroundColor: Colors.primary,
             paddingVertical: 4,
@@ -133,8 +221,14 @@ export default function QuizResults({ route }) {
 
   return (
     <SafeAreaView>
-      <View style={{ height: '100%', justifyContent: 'flex-end' }}>
-        <Gradient />
+      <View
+        style={{
+          height: '100%',
+          justifyContent: 'flex-end',
+          backgroundColor: Colors.screenBg,
+        }}
+      >
+        {/* <Gradient /> */}
         <View>
           {
             //todo: try to remove this View and see what happens

@@ -13,7 +13,7 @@ export const Colors = {
 }
 
 export const COLOR = {
-  GREEN: 'rgba(76, 186, 0, 1)',
+  GREEN: '#00b300',
   ORANGE: 'orange',
   RED: 'rgba(255, 35, 35, 1)',
 } as const
