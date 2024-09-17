@@ -53,7 +53,7 @@ export default function ResultsHeader({
     else if (usersOutcome >= (maxOutcome * 8) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: 'green' }}>
-          {settings.lang === 'pl' ? 'tak ma być' : 'almost perfect'}
+          {settings.lang === 'pl' ? 'sztywniutko' : 'almost perfect'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 7) / 9)
@@ -112,7 +112,7 @@ export default function ResultsHeader({
 
   return (
     <View
-      style={{ width: '100%', alignItems: 'center', gap: 20, marginBottom: 35 }}
+      style={{ width: '100%', alignItems: 'center', gap: 20, marginBottom: 15 }}
     >
       <View
         style={{

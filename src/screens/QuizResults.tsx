@@ -1,18 +1,16 @@
+import { AntDesign } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useRef, useState } from 'react'
-import { FlatList, Modal, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { FlatList, Modal, Text, TouchableOpacity, View } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-import { close, exit, retake, retakeWrong } from '../../data/texts'
-import Ad from '../components/ContentRenderer/Ad'
+import { close, retake, retakeWrong } from '../../data/texts'
 import ItemResult from '../components/ItemResult'
-import Gradient from '../components/molecules/atoms/Gradient'
 import ResultsHeader from '../components/ResultsHeader'
-// import Chart from '../components/molecules/Chart';
 import Tile from '../components/Tile'
 import useOpenQuiz from '../hooks/useOpenQuiz'
-import { COLOR, Colors } from '../utils/constants'
+import { Colors } from '../utils/constants'
 import { setColor } from '../utils/functions'
 import { Item, Option } from '../utils/types'
 
@@ -51,15 +49,6 @@ export default function QuizResults({ route }) {
     setModalItem(item)
     setModalChoices(choices)
   }
-
-  // useEffect(() => {
-  //   if (showModal === true) scrollToIndex(index)
-  // }, [showModal])
-
-  // const flatListRef = useRef(null)
-  // const scrollToIndex = index => {
-  //   flatListRef.current.scrollToOffset({ animated: false, offset: 360 * index })
-  // }
 
   function retakeQuiz(incorrectOnly = false) {
     let itemsArray
@@ -103,13 +92,22 @@ export default function QuizResults({ route }) {
   )
 
   const ListFooter = () => (
-    <View style={{ marginVertical: 40, alignItems: 'center', gap: 20 }}>
+    <View
+      style={{
+        width: '100%',
+        marginVertical: 40,
+        alignItems: 'center',
+        gap: 10,
+        flex: 1,
+        justifyContent: 'flex-end',
+      }}
+    >
       <PaperButton
         mode="contained"
         rippleColor="thistle"
         style={{
           backgroundColor: Colors.primary,
-          paddingVertical: 3,
+          paddingVertical: 1,
           width: 230,
         }}
         onPress={() => retakeQuiz()}
@@ -123,7 +121,7 @@ export default function QuizResults({ route }) {
           mode="contained"
           style={{
             backgroundColor: Colors.primary,
-            paddingVertical: 4,
+            paddingVertical: 1,
             width: 230,
           }}
           onPress={() => retakeQuiz(true)}
@@ -131,19 +129,6 @@ export default function QuizResults({ route }) {
           <Text style={{ color: 'white' }}>{retakeWrong}</Text>
         </PaperButton>
       )}
-
-      <PaperButton
-        mode="outlined"
-        style={{
-          borderColor: Colors.primary,
-          borderWidth: 1.5,
-          // paddingVertical: 0,
-          marginTop: 20,
-        }}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={{ color: Colors.primary }}>{exit}</Text>
-      </PaperButton>
     </View>
   )
 
@@ -152,28 +137,34 @@ export default function QuizResults({ route }) {
       <View
         style={{
           height: '100%',
-          justifyContent: 'flex-end',
           backgroundColor: Colors.screenBg,
         }}
       >
-        {/* <Gradient /> */}
-        <View>
-          {
-            //todo: try to remove this View and see what happens
-          }
+        <TouchableOpacity
+          style={{
+            paddingVertical: 5,
+            paddingHorizontal: 10,
+            position: 'absolute',
+            left: 20,
+            top: 15,
+            zIndex: 2,
+          }}
+          onPress={() => navigation.goBack()}
+        >
+          <AntDesign name="left" size={30} color="black" />
+        </TouchableOpacity>
 
-          <FlatList
-            data={resultsArray}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => index.toString()}
-            ListHeaderComponent={ListHeader}
-            ListFooterComponent={ListFooter}
-            contentContainerStyle={{
-              paddingTop: 20,
-              //backgroundColor: 'red'
-            }}
-          />
-        </View>
+        <FlatList
+          data={resultsArray}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          ListHeaderComponent={ListHeader}
+          ListFooterComponent={ListFooter}
+          contentContainerStyle={{
+            paddingTop: 60,
+          }}
+        />
+
         <Modal
           animationType="fade"
           transparent={true}
