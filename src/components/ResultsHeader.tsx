@@ -1,8 +1,6 @@
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
-import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import React, { useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import { Text as PaperText } from 'react-native-paper'
 
 import settings from '../../data/settings.json'
@@ -49,61 +47,65 @@ export default function ResultsHeader({
     if (usersOutcome === maxOutcome)
       return (
         <PaperText variant="labelLarge" style={{ color: 'green' }}>
-          excellent
+          {settings.lang === 'pl' ? 'no i o to chodziło!' : 'excellent!'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 8) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: 'green' }}>
-          almost perfect
+          {settings.lang === 'pl' ? 'tak ma być' : 'almost perfect'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 7) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: 'green' }}>
-          very good
+          {settings.lang === 'pl' ? 'najs' : 'very good'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 6) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: '#FF8000' }}>
-          on the right track
+          {settings.lang === 'pl' ? 'mogło być lepiej' : 'on the right track'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 5) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: '#FF8000' }}>
-          you can do better
+          {settings.lang === 'pl' ? 'może zdasz' : 'you can do better'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 4) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: '#FF8000' }}>
-          don't give up
+          {settings.lang === 'pl' ? 'no prawie' : "don't give up"}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 3) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: 'red' }}>
-          maybe next time
+          {settings.lang === 'pl' ? 'z czym do ludzi' : 'maybe next time'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 2) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: 'red' }}>
-          no one is perfect
+          {settings.lang === 'pl'
+            ? 'bez spiny, są drugie terminy'
+            : 'no one is perfect'}
         </PaperText>
       )
     else if (usersOutcome >= (maxOutcome * 1) / 9)
       return (
         <PaperText variant="labelLarge" style={{ color: 'red' }}>
-          try again
+          {settings.lang === 'pl' ? 'XD' : 'try again'}
         </PaperText>
       )
     else
       return (
         <PaperText variant="labelLarge" style={{ color: 'red' }}>
-          you need to put in more effort
+          {settings.lang === 'pl'
+            ? 'małpa by to lepiej rozwiązała'
+            : 'you need to put in more effort'}
         </PaperText>
       )
   }
