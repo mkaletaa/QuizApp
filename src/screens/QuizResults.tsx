@@ -1,16 +1,14 @@
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
 import { FlatList, Modal, Text, View } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
-import { Text as PaperText } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-import settings from '../../data/settings.json'
 import { close, exit, retake, retakeWrong } from '../../data/texts'
 import Ad from '../components/ContentRenderer/Ad'
 import ItemResult from '../components/ItemResult'
 import Gradient from '../components/molecules/atoms/Gradient'
+import ResultsHeader from '../components/ResultsHeader'
 // import Chart from '../components/molecules/Chart';
 import Tile from '../components/Tile'
 import useOpenQuiz from '../hooks/useOpenQuiz'
@@ -96,82 +94,12 @@ export default function QuizResults({ route }) {
   )
 
   const ListHeader = () => (
-    <View
-      style={{ width: '100%', alignItems: 'center', gap: 20, marginBottom: 35 }}
-    >
-      <View
-        style={{
-          backgroundColor: '#d7d2f1', //#ddddf4 //#ececf9 //rgb(225,221,254)
-          elevation: 0,
-          width: '80%',
-          paddingBottom: 0,
-          borderRadius: 8,
-          overflow: 'hidden',
-        }}
-      >
-        <View style={{ position: 'absolute', right: 15, top: 10, alignItems: 'center' }}>
-          <MaterialCommunityIcons
-            name="check-decagram"
-            size={44}
-            color="green"
-          />
-          <PaperText variant="labelLarge" style={{color: 'green'}}>excellent</PaperText>
-        </View>
-
-        <View
-          style={{
-            padding: 10,
-          }}
-        >
-          <PaperText variant="headlineSmall">Results</PaperText>
-          <PaperText variant="titleMedium" style={{ color: Colors.text }}>
-            Correct answers:{' '}
-            {<PaperText variant="titleLarge">{correctNr}</PaperText>}
-          </PaperText>
-          <PaperText variant="titleMedium" style={{ color: Colors.text }}>
-            Incorrect answers:{' '}
-            {<PaperText variant="titleLarge">{incorrectNr}</PaperText>}
-          </PaperText>
-          {kindofNr ? (
-            <PaperText variant="titleMedium" style={{ color: Colors.text }}>
-              Partially correct answers:{' '}
-              {<PaperText variant="titleLarge">{kindofNr}</PaperText>}
-            </PaperText>
-          ) : null}
-        </View>
-        <View
-          style={{
-            width: '100%',
-            height: 6,
-            backgroundColor: 'grey',
-            flexDirection: 'row',
-            borderRadius: 5,
-            elevation: 0,
-          }}
-        >
-          <View
-            style={{
-              width: `${(correctNr / resultsArray.length) * 100}%`,
-              backgroundColor: COLOR.GREEN,
-            }}
-          ></View>
-          <View
-            style={{
-              width: `${(kindofNr / resultsArray.length) * 100}%`,
-              backgroundColor: COLOR.ORANGE,
-            }}
-          ></View>
-          <View
-            style={{
-              width: `${(incorrectNr / resultsArray.length) * 100}%`,
-              backgroundColor: COLOR.RED,
-            }}
-          ></View>
-          {/* <Gradient color={'rgba(0, 0, 0, .2)'} /> */}
-        </View>
-      </View>
-      {settings.ads && <Ad size={'large'}></Ad>}
-    </View>
+    <ResultsHeader
+      resultsArray={resultsArray}
+      correctNr={correctNr}
+      kindofNr={kindofNr}
+      incorrectNr={incorrectNr}
+    />
   )
 
   const ListFooter = () => (
