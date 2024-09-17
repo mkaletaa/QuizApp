@@ -9,7 +9,7 @@ export const chapters = [
   {
     name: 'cat_2',
     image: 'https://reactjs.org/logo-og.png',
-    des: 'short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2',
+    des: 'short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of a cat_2short descirtption of ',
   },
 ]
 //also id of questions should go like "cat_1|top_1|1"

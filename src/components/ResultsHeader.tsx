@@ -116,7 +116,7 @@ export default function ResultsHeader({
     >
       <View
         style={{
-          backgroundColor: '#d7d2f1', //#ddddf4 //#ececf9 //rgb(225,221,254)
+          backgroundColor: '#e8e6fc', //#ddddf4 //#ececf9 //rgb(225,221,254) //d7d2f1
           elevation: 2,
           width: '85%',
           paddingBottom: 0,

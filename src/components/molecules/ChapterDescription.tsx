@@ -46,7 +46,7 @@ export default function ChapterDescription({
       style={{
         zIndex: 1,
         width: '90%',
-        backgroundColor: Colors.surfaceBg,
+        backgroundColor: '#e8e6fc',
         elevation: 2,
         borderRadius: 10,
         padding: 5,
