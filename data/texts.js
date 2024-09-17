@@ -39,3 +39,7 @@ export const hideAnswersExplain =
 export const showOptions = 'Pokaż odpowiedzi'
 export const showSpoiler = 'Pokaż spoiler'
 export const exit = 'Wyjdź'
+export const results = 'Wyniki'
+export const correctAnsNr = 'Dobre odpowiedzi: '
+export const incorrectAnsNr = 'Złe odpowiedzi: '
+export const kindofAnsNr = 'Częściowo dobre odpowiedzi: '

@@ -4,6 +4,12 @@ import { View } from 'react-native'
 import { Text as PaperText } from 'react-native-paper'
 
 import settings from '../../data/settings.json'
+import {
+  correctAnsNr,
+  incorrectAnsNr,
+  kindofAnsNr,
+  results,
+} from '../../data/texts'
 import { COLOR, Colors } from '../utils/constants'
 import Ad from './ContentRenderer/Ad'
 
@@ -142,10 +148,10 @@ export default function ResultsHeader({
           }}
         >
           <PaperText variant="headlineSmall" style={{ marginBottom: 5 }}>
-            Results
+            {results}
           </PaperText>
           <PaperText variant="titleMedium" style={{ color: Colors.text }}>
-            Correct answers:{' '}
+            {correctAnsNr}
             {
               <PaperText
                 variant="titleLarge"
@@ -156,7 +162,7 @@ export default function ResultsHeader({
             }
           </PaperText>
           <PaperText variant="titleMedium" style={{ color: Colors.text }}>
-            Incorrect answers:{' '}
+            {incorrectAnsNr}
             {
               <PaperText
                 variant="titleLarge"
@@ -168,7 +174,7 @@ export default function ResultsHeader({
           </PaperText>
           {kindofNr ? (
             <PaperText variant="titleMedium" style={{ color: Colors.text }}>
-              Partially correct answers:{' '}
+              {kindofAnsNr}
               {
                 <PaperText
                   variant="titleLarge"
