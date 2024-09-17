@@ -1,6 +1,50 @@
 [
   {
     "type": "Text",
-    "value": "Description od the app"
+    "value": "Do you want to learn JavaScript and don't know where to start? Or you already have some JS knowledge and want to deepen it? Then this app is for you! No matter if you don't have any programming experience or you're already familiar with JavaScript basics, this app will guide you through every step. Here you'll find tailored lessons and quizzes to help you master JavaScript."
+  },
+  {
+    "type": "Header",
+    "value": "What makes this app so special?",
+    "props": { "size": "md" }
+  },
+  {
+    "type": "Text",
+    "value": "You've probably encountered learning apps that are \"free\" to use but, in practice, require you to buy a premium version to access all the content. Or apps that punish you for making mistakes by taking away lives that need to be restored over time. Or apps packed with microtransactions, without which it's nearly impossible to progress. You won’t find any of that here! This app is focused primarily on helping you understand the subject, with profit being a secondary concern."
+  },
+  {
+    "type": "Header",
+    "value": "Why do I need quizzes?",
+    "props": { "size": "md" }
+  },
+  {
+    "type": "Text",
+    "value": "The application was designed to maximize learning efficiency. The best way to achieve this is by testing acquired knowledge. To prove that these aren't just empty words, I will present an analysis showing that tests help in learning. <br></br>In 2006, a study was conducted to examine the effectiveness of learning strategies. The study participants were divided into two groups. Both groups conducted a reading session, but afterward, one group continued reading while the other took a test. After 5 minutes, everyone took a test. The group that had two reading sessions performed slightly better than the group that had one reading session and one test. This makes sense, as they had more time for studying. <br></br> Things got more interesting when both groups took a test two days later. At that point, the group that spent less time reading and more time testing their knowledge performed significantly better. On the test conducted a week later, this difference became even more pronounced. How can this paradox be explained?"
+  },
+  {
+    "type": "Image",
+    "value": "https://i.postimg.cc/FzwBgvwr/image.png"
+  },
+  {
+    "type": "Text",
+    "value": "It turns out that tests force us to recall information. Even if we give a wrong answer, it teaches us how to retrieve information from memory, making it easier in the future. Additionally, tests help us identify what we still don't know and what we need to focus on more. <a href='https://uclalibrary.github.io/research-tips/sandbox/resource-playlist-study-tips/'>#Source</a>, <a href='https://www.aqa.org.uk/about-us/our-research/blog/post?path=do-tests-help-you-learn'>#Source</a> <br></br> Therefore, quizzes were not added out of boredom, but they are at the core of the application for a reason."
+  },
+  {
+    "type": "Header",
+    "value": "What is \"Random Question\" for?",
+    "props": { "size": "md" }
+  },
+  {
+    "type": "Text",
+    "value": "We tend to learn in a block-like manner, that is, we first master all the material from one topic, and when we have achieved that, we move on to the next, and the next. While this makes sense if understanding one topic requires understanding another, when learning two unrelated topics, this method is not effective. Why? <br></br> This method creates an \"illusion of mastery,\" where learners feel confident in the material because they repeat the same task over and over. However, the brain adapts too quickly to the repetitive nature of the exercise, which diminishes deeper learning. Without forcing the brain to retrieve information in different contexts, learners don't strengthen the mental pathways needed for long-term recall. In contrast, techniques like `interleaved practice` (switching between different topics or skills) are more effective because they engage the brain in more challenging ways, forcing it to continually adapt and recall information. This leads to better problem-solving abilities and more flexible knowledge application. So \"Random Question\" is not another useless feature but it was added to promote more effective learning habits."
+  },
+  {
+    "type": "Header",
+    "value": "Credits",
+    "props": { "size": "sm" }
+  },
+  {
+    "type": "Text",
+    "value": "The app uses images from <a href='https://www.freepik.com/'>Freepik.com</a> and <a href='https://www.flaticon.com/'>Flaticon.com</a>"
   }
 ]
