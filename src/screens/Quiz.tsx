@@ -269,7 +269,7 @@ export default function Quiz({ route }) {
           </React.Fragment>
         )}
 
-        {!item && <ActivityIndicator size={50} color={'red'} />}
+        {!item && <ActivityIndicator size={50} color={Colors.primary} />}
       </ScrollView>
       {settings.ads && (
         <View

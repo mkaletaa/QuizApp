@@ -1,18 +1,21 @@
-import { AntDesign } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
-import { FlatList, Modal, Text, TouchableOpacity, View } from 'react-native'
-import { Button as PaperButton } from 'react-native-paper'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { FlatList, Modal, Text, TouchableOpacity, View } from 'react-native';
+import { FAB, Button as PaperButton, Portal } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { close, retake, retakeWrong } from '../../data/texts'
-import ItemResult from '../components/ItemResult'
-import ResultsHeader from '../components/ResultsHeader'
-import Tile from '../components/Tile'
-import useOpenQuiz from '../hooks/useOpenQuiz'
-import { Colors } from '../utils/constants'
-import { setColor } from '../utils/functions'
-import { Item, Option } from '../utils/types'
+
+
+import { close, retake, retakeWrong } from '../../data/texts';
+import ItemResult from '../components/ItemResult';
+import ResultsHeader from '../components/ResultsHeader';
+import Tile from '../components/Tile';
+import useOpenQuiz from '../hooks/useOpenQuiz';
+import { Colors } from '../utils/constants';
+import { setColor } from '../utils/functions';
+import { Item, Option } from '../utils/types';
+
 
 export default function QuizResults({ route }) {
   const [resultsArray, setResultsArray] = useState([])
@@ -132,6 +135,12 @@ export default function QuizResults({ route }) {
     </View>
   )
 
+  // const [state, setState] = React.useState({ open: false })
+
+  // const onStateChange = ({ open }) => setState({ open })
+
+  // const { open } = state
+
   return (
     <SafeAreaView>
       <View
@@ -165,6 +174,31 @@ export default function QuizResults({ route }) {
           }}
         />
 
+      {/* <FAB.Group
+        open={open}
+        visible
+        style={{backgroundColor: 'red'}}
+        icon={open ? 'redo-variant' : 'redo-variant'}
+        actions={[
+          {
+            icon: 'star',
+            label: retake,
+            onPress: () => console.log('Pressed star'),
+          },
+          {
+            icon: 'email',
+            label: retakeWrong,
+            onPress: () => console.log('Pressed email'),
+          }
+        ]}
+        onStateChange={onStateChange}
+        onPress={() => {
+          if (open) {
+            // do something if the speed dial is open
+          }
+        }}
+      /> */}
+      
         <Modal
           animationType="fade"
           transparent={true}
