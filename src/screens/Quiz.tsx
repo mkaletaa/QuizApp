@@ -140,7 +140,7 @@ export default function Quiz({ route }) {
         try {
           interstitial.show()
         } catch (e) {
-          // console.error(e)
+          console.error(e)
         }
       unsubscribeInterstitialEvents()
       backHandler.remove()

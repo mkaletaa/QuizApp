@@ -35,10 +35,11 @@ export default function Ad({
         // backgroundColor: 'red'
       }}
     >
-      {/* <BannerAd
-        unitId={__DEV__ ? TestIds.BANNER : 'id'}
+      <BannerAd
+        unitId={TestIds.BANNER}
+        // unitId={__DEV__ ? TestIds.BANNER : 'id'}
         size={returnSize()} //anchored for quiz and default in theory; also rectangle and large could be useful
-      ></BannerAd> */}
+      ></BannerAd>
     </View>
   )
 }

@@ -6,8 +6,8 @@ import { miscellaneous } from './miscellaneous/miscellaneous'
 
 export const quiz = {
   about_JavaScript,
-  miscellaneous,
   JS_fundamentals,
   data_structures,
   asynchronicity,
+  miscellaneous,
 }

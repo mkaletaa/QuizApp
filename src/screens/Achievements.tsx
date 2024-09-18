@@ -322,12 +322,12 @@ export default function Achievements() {
             // console.log(topics[el.chapter].find(top=>top.name === el.topic).image)
             return (
               <>
-                {topicsAllGoodAnsCount[i].chapter ===
+                {/* {topicsAllGoodAnsCount[i].chapter ===
                   topicsAllGoodAnsCount[i + 1]?.chapter && (
                   <Text variant="titleMedium" style={{ marginLeft: 10 }}>
                     {removeUnderscores(topicsAllGoodAnsCount[i].chapter, true)}
                   </Text>
-                )}
+                )} */}
                 <View
                   key={`${el.chapter}-${el.topic}`}
                   style={{ flexDirection: 'row', gap: 10, width: '100%' }}
@@ -431,6 +431,8 @@ const styles = StyleSheet.create({
   },
   section: {
     marginTop: 26,
+    maxWidth: 500,
+    alignSelf: 'center',
     width: '100%',
     gap: 10,
     // backgroundColor: 'red'
