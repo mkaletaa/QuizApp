@@ -1,35 +1,35 @@
-import { useEffect, useState } from 'react'
-import {
-  AdEventType,
-  InterstitialAd,
-  TestIds,
-} from 'react-native-google-mobile-ads'
+// import { useEffect, useState } from 'react'
+// import {
+//   AdEventType,
+//   InterstitialAd,
+//   TestIds,
+// } from 'react-native-google-mobile-ads'
 
-const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
-  requestNonPersonalizedAdsOnly: true,
-})
+// const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
+//   requestNonPersonalizedAdsOnly: true,
+// })
 
-export default function useAd() {
-  const loadInterstitial = () => {
-    const unsubscribeLoaded = interstitial.addAdEventListener(
-      AdEventType.LOADED,
-      () => {},
-    )
+// export default function useAd() {
+//   const loadInterstitial = () => {
+//     const unsubscribeLoaded = interstitial.addAdEventListener(
+//       AdEventType.LOADED,
+//       () => {},
+//     )
 
-    const unsubscribeClosed = interstitial.addAdEventListener(
-      AdEventType.CLOSED,
-      () => {},
-    )
+//     const unsubscribeClosed = interstitial.addAdEventListener(
+//       AdEventType.CLOSED,
+//       () => {},
+//     )
 
-    return () => {
-      unsubscribeClosed()
-      unsubscribeLoaded()
-    }
-  }
+//     return () => {
+//       unsubscribeClosed()
+//       unsubscribeLoaded()
+//     }
+//   }
 
-  useEffect(() => {
-    interstitial.load()
-  }, [])
+//   useEffect(() => {
+//     interstitial.load()
+//   }, [])
 
-  return { loadInterstitial, interstitial }
-}
+//   return { loadInterstitial, interstitial }
+// }

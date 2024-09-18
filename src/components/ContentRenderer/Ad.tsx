@@ -17,14 +17,14 @@ export default function Ad({
   size?: adSize
 }) {
   function returnSize() {
-    switch (size) {
-      case 'anchored':
-        return BannerAdSize.ANCHORED_ADAPTIVE_BANNER
-      case 'rectangle':
-        return BannerAdSize.MEDIUM_RECTANGLE
-      case 'large':
-        return BannerAdSize.LARGE_BANNER
-    }
+    // switch (size) {
+    //   case 'anchored':
+    //     return BannerAdSize.ANCHORED_ADAPTIVE_BANNER
+    //   case 'rectangle':
+    //     return BannerAdSize.MEDIUM_RECTANGLE
+    //   case 'large':
+    //     return BannerAdSize.LARGE_BANNER
+    // }
   }
   return (
     <View
@@ -35,10 +35,10 @@ export default function Ad({
         // backgroundColor: 'red'
       }}
     >
-      <BannerAd
+      {/* <BannerAd
         unitId={__DEV__ ? TestIds.BANNER : 'id'}
         size={returnSize()} //anchored for quiz and default in theory; also rectangle and large could be useful
-      ></BannerAd>
+      ></BannerAd> */}
     </View>
   )
 }
