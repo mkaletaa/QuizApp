@@ -146,168 +146,99 @@ export const setFinishedQuizStats = async function (chapter, topic) {
 
 //*******************/
 
-// Pomocnicza funkcja do pobierania streaka i daty z AsyncStorage
-const getStreakAndDate = async (
-  key: string,
-  lastDateKey: string,
-): Promise<{ streak: number; lastDate: Date }> => {
-  try {
-    // Pobierz obecny streak z AsyncStorage
-    const streakStr = await AsyncStorage.getItem(key)
-    const streak = streakStr ? JSON.parse(streakStr) : 0
-
-    // Pobierz ostatnią datę streaka
-    const lastDateStr = await AsyncStorage.getItem(lastDateKey)
-    const lastDate = lastDateStr ? new Date(lastDateStr) : new Date(0) // Ustaw datę na 1 stycznia 1970 roku
-
-    return { streak, lastDate }
-  } catch (error) {
-    console.error('Error getting streak and date', error)
-    return { streak: 0, lastDate: new Date(0) }
-  }
-}
-
-// Pomocnicza funkcja do obliczeń związanych z datami i streakiem
-const calculateStreakUpdate = (
-  today: Date,
-  lastDate: Date,
-  streak: number,
-): { newStreak: number; shouldReset: boolean } => {
-  const isSameDay = today.toDateString() === lastDate.toDateString()
-  const oneDayInMs = 24 * 60 * 60 * 1000 // 24 godziny w milisekundach
-  const timeSinceLastDate = today.getTime() - lastDate.getTime()
-  const shouldReset = !isSameDay && timeSinceLastDate > oneDayInMs
-
-  if (shouldReset) {
-    return { newStreak: 0, shouldReset: true }
-  } else if (!isSameDay) {
-    return { newStreak: streak + 1, shouldReset: false }
-  } else {
-    return { newStreak: streak, shouldReset: false }
-  }
-}
-
-// Funkcja do zwracania codziennego streaka
-export const getDailyStreak = async function (): Promise<number> {
-  try {
-    const key = 'streak'
-    const lastDateKey = 'lastStreakDate'
-
-    const { streak, lastDate } = await getStreakAndDate(key, lastDateKey)
-    const today = new Date()
-
-    const { shouldReset } = calculateStreakUpdate(today, lastDate, streak)
-
-    if (shouldReset) {
-      return 0
-    } else {
-      return streak
-    }
-  } catch (error) {
-    console.error('Error getting daily streak', error)
-    return -1
-  }
-}
-
-// Funkcja do ustawiania codziennego streaka
-export const setDailyStreak = async function (): Promise<void> {
-  try {
-    const key = 'streak'
-    const lastDateKey = 'lastStreakDate'
-
-    const { streak, lastDate } = await getStreakAndDate(key, lastDateKey)
-    const today = new Date()
-
-    const { newStreak, shouldReset } = calculateStreakUpdate(
-      today,
-      lastDate,
-      streak,
-    )
-
-    if (shouldReset) {
-      console.log('Zresetowano streak!')
-    } else if (newStreak > streak) {
-      console.log('Zaktualizowano streak!')
-    } else {
-      console.log('Za wcześnie na update streaka, spróbuj jutro')
-      return
-    }
-
-    // Zapisz nową datę
-    await AsyncStorage.setItem(lastDateKey, today.toISOString())
-
-    // Zapisz zaktualizowany streak
-    await AsyncStorage.setItem(key, JSON.stringify(newStreak))
-  } catch (error) {
-    console.error('Error setting daily streak', error)
-  }
-}
-
-// export default function useAsyncStorage() {
-//do zapisywania w storage po udzieleniu odpowiedzi na pytanie
-
-// async function storeItemStat(id, result) {
-//   const [category, topic] = id.split('|')
-
+// // Pomocnicza funkcja do pobierania streaka i daty z AsyncStorage
+// const getStreakAndDate = async (
+//   key: string,
+//   lastDateKey: string,
+// ): Promise<{ streak: number; lastDate: Date }> => {
 //   try {
-//     const existingTopicStat = await AsyncStorage.getItem(topic)
-//     const existingCategoryStat = await AsyncStorage.getItem(category)
+//     // Pobierz obecny streak z AsyncStorage
+//     const streakStr = await AsyncStorage.getItem(key)
+//     const streak = streakStr ? JSON.parse(streakStr) : 0
 
-//     let savedTopicStat = existingTopicStat
-//       ? JSON.parse(existingTopicStat)
-//       : {}
-//     let savedCategoryStat = existingCategoryStat
-//       ? JSON.parse(existingCategoryStat)
-//       : {}
+//     // Pobierz ostatnią datę streaka
+//     const lastDateStr = await AsyncStorage.getItem(lastDateKey)
+//     const lastDate = lastDateStr ? new Date(lastDateStr) : new Date(0) // Ustaw datę na 1 stycznia 1970 roku
 
-//     savedTopicStat.answers = (savedTopicStat.answers || 0) + 1
-//     savedCategoryStat.answers = (savedCategoryStat.answers || 0) + 1
-
-//     await AsyncStorage.setItem(topic, JSON.stringify(savedTopicStat))
-//     await AsyncStorage.setItem(category, JSON.stringify(savedCategoryStat))
+//     return { streak, lastDate }
 //   } catch (error) {
-//     console.error('Could not store stat:', error)
+//     console.error('Error getting streak and date', error)
+//     return { streak: 0, lastDate: new Date(0) }
 //   }
 // }
 
-// import AsyncStorage from '@react-native-async-storage/async-storage'
+// // Pomocnicza funkcja do obliczeń związanych z datami i streakiem
+// const calculateStreakUpdate = (
+//   today: Date,
+//   lastDate: Date,
+//   streak: number,
+// ): { newStreak: number; shouldReset: boolean } => {
+//   const isSameDay = today.toDateString() === lastDate.toDateString()
+//   const oneDayInMs = 24 * 60 * 60 * 1000 // 24 godziny w milisekundach
+//   const timeSinceLastDate = today.getTime() - lastDate.getTime()
+//   const shouldReset = !isSameDay && timeSinceLastDate > oneDayInMs
 
-// async function storeFinishedQuizStat(topicName, resultsArray) {
+//   if (shouldReset) {
+//     return { newStreak: 0, shouldReset: true }
+//   } else if (!isSameDay) {
+//     return { newStreak: streak + 1, shouldReset: false }
+//   } else {
+//     return { newStreak: streak, shouldReset: false }
+//   }
+// }
+
+// // Funkcja do zwracania codziennego streaka
+// export const getDailyStreak = async function (): Promise<number> {
 //   try {
-//     let nrOfCorrect = 0
-//     for (const result of resultsArray) {
-//       if (result.isCorrect === 'correct') nrOfCorrect++
+//     const key = 'streak'
+//     const lastDateKey = 'lastStreakDate'
+
+//     const { streak, lastDate } = await getStreakAndDate(key, lastDateKey)
+//     const today = new Date()
+
+//     const { shouldReset } = calculateStreakUpdate(today, lastDate, streak)
+
+//     if (shouldReset) {
+//       return 0
+//     } else {
+//       return streak
+//     }
+//   } catch (error) {
+//     console.error('Error getting daily streak', error)
+//     return -1
+//   }
+// }
+
+// // Funkcja do ustawiania codziennego streaka
+// export const setDailyStreak = async function (): Promise<void> {
+//   try {
+//     const key = 'streak'
+//     const lastDateKey = 'lastStreakDate'
+
+//     const { streak, lastDate } = await getStreakAndDate(key, lastDateKey)
+//     const today = new Date()
+
+//     const { newStreak, shouldReset } = calculateStreakUpdate(
+//       today,
+//       lastDate,
+//       streak,
+//     )
+
+//     if (shouldReset) {
+//       console.log('Zresetowano streak!')
+//     } else if (newStreak > streak) {
+//       console.log('Zaktualizowano streak!')
+//     } else {
+//       console.log('Za wcześnie na update streaka, spróbuj jutro')
+//       return
 //     }
 
-//     const existingTopicStat = await AsyncStorage.getItem(topicName)
+//     // Zapisz nową datę
+//     await AsyncStorage.setItem(lastDateKey, today.toISOString())
 
-//     let savedTopicStat = {}
-
-//     if (existingTopicStat) savedTopicStat = JSON.parse(existingTopicStat)
-
-//     // Utwórz właściwość, jeśli nie istnieje
-//     savedTopicStat.nrOfFinished = (savedTopicStat.nrOfFinished || 0) + 1
-//     savedTopicStat.lastFinished = Date.now()
-
-//     // Sprawdź i utwórz właściwość, jeśli nie istnieje
-//     if (nrOfCorrect === resultsArray.length)
-//       savedTopicStat.allCorrect = (savedTopicStat.allCorrect || 0) + 1
-
-//     // Sprawdź i utwórz właściwość, jeśli nie istnieje
-//     if (
-//       savedTopicStat.bestResult < (nrOfCorrect / resultsArray.length) * 100 ||
-//       !savedTopicStat.bestResult
-//     )
-//       savedTopicStat.bestResult = (nrOfCorrect / resultsArray.length) * 100
-
-// // //     console.log('🚀 ~ useAsyncStorage ~ savedTopicStat:', savedTopicStat)
-//     //zapisz jeszcze kiedy ostatnio kiedy ostatnio zrobiono quiz w ogóle i może kiedy ostatnio zrobiono tę kategorię
-
-//     await AsyncStorage.setItem(topicName, JSON.stringify(savedTopicStat))
+//     // Zapisz zaktualizowany streak
+//     await AsyncStorage.setItem(key, JSON.stringify(newStreak))
 //   } catch (error) {
-//     console.error('Could not store finished stat:', error)
+//     console.error('Error setting daily streak', error)
 //   }
-// }
-
-//   return { getValue, removeKey }
 // }

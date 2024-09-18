@@ -5,7 +5,7 @@ import { Alert } from 'react-native'
 
 import { importItem, importItemInfinityMode } from '../utils/getQuizData'
 import { Item, Option, Result } from '../utils/types'
-import { setDailyStreak, setFinishedQuizStats } from '../utils/utilStorage'
+import { setFinishedQuizStats } from '../utils/utilStorage'
 
 //* This hook is called inside `Quiz` screen every time when a new question is needed to appear on screen
 //TODO: for better performance get Next Item when ResultModal appears on screen, not when it disappears
@@ -145,7 +145,7 @@ const useNextQuestion = ({
         setFinishedQuizStats(chapName, topName)
       }
 
-      setDailyStreak()
+      // setDailyStreak()
       prepareForGeneralResults()
       return
     }

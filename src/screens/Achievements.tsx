@@ -8,7 +8,7 @@ import { quiz } from '../../data/quiz/quizModule'
 import Gradient from '../components/molecules/atoms/Gradient'
 import { COLOR, Colors } from '../utils/constants'
 import { removeUnderscores } from '../utils/functions'
-import { getDailyStreak, getValue } from '../utils/utilStorage'
+import {  getValue } from '../utils/utilStorage'
 
 //todo: add achievement of infinitymode (ile z rzędu, ile z rzędu dobrze)
 //todo: allGoodAnsCount to raczej zrobić żeby było 1 tylko w sensie albo zrobiłeś albo nie
@@ -30,9 +30,9 @@ export default function Achievements() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const streakResult = await getDailyStreak()
-        setStreak(streakResult)
-        console.log('🚀 ~ fetchData ~ streakResult:', streakResult)
+        // const streakResult = await getDailyStreak()
+        // setStreak(streakResult)
+        // console.log('🚀 ~ fetchData ~ streakResult:', streakResult)
 
         const infiniteStreakResult = await getValue('infiniteStreak')
         setInfiniteStreak(infiniteStreakResult)

@@ -1,20 +1,27 @@
-import { AntDesign, Feather, FontAwesome6, Ionicons } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
+import { AntDesign, Feather, FontAwesome6, Ionicons } from '@expo/vector-icons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Octicons from '@expo/vector-icons/Octicons';
+import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 
-import { getDailyStreak } from '../../utils/utilStorage'
+
+
+import { Colors } from '../../utils/constants';
+
+
+// import { getDailyStreak } from '../../utils/utilStorage'
 
 export default function Flame() {
   const navigation = useNavigation()
-  const [streak, setStreak] = useState(0)
+  // const [streak, setStreak] = useState(0)
 
-  useEffect(() => {
-    ;(async () => {
-      const str = await getDailyStreak()
-      setStreak(str)
-    })()
-  }, [])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     const str = await getDailyStreak()
+  //     setStreak(str)
+  //   })()
+  // }, [])
 
   return (
     <TouchableOpacity
@@ -37,9 +44,11 @@ export default function Flame() {
             zIndex: 1,
           }}
         >
-          {streak === 0 ? null : streak}
+          {/* {streak === 0 ? null : streak} */}
         </Text>
-        <FontAwesome6 name="fire-flame-curved" size={26} color="orange" />
+        <FontAwesome6 name="fire-flame-curved" size={26} color={Colors.primary} />
+        {/* <MaterialIcons name="star-half" size={28} color={Colors.primary}  /> */}
+        {/* <Octicons name="feed-star" size={26} /> */}
         {/* <Octicons name="flame" size={26} color="orange" /> */}
       </View>
     </TouchableOpacity>
