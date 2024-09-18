@@ -100,6 +100,19 @@ export default function Achievements() {
     { name: 'beginner', min: 25, max: 99 },
     { name: 'novice', min: 0, max: 24 },
   ]
+
+  // const chapterRangs = [
+  //   { name: 'legend', min: 10000, max: Infinity },
+  //   { name: 'grandmaster', min: 5000, max: 9999 },
+  //   { name: 'master', min: 3000, max: 4999 },
+  //   { name: 'expert', min: 2000, max: 2999 },
+  //   { name: 'advanced', min: 1000, max: 1999 },
+  //   { name: 'skilled', min: 100, max: 999 },
+  //   { name: 'intermediate', min: 50, max: 99 },
+  //   { name: 'apprentice', min: 20, max: 49 },
+  //   { name: 'beginner', min: 10, max: 19 },
+  //   { name: 'novice', min: 0, max: 9 },
+  // ]
   return (
     <ScrollView style={styles.container}>
       {/* <Text style={styles.heading}>Achievements</Text>
@@ -204,6 +217,9 @@ export default function Achievements() {
 
       <View style={styles.section}>
         <Text variant="headlineSmall">Chapters Stats</Text>
+        <Text variant="bodyLarge">
+          The total number of correct answers given in each chapter.
+        </Text>
         {chaptersGoodAnsCount !== null &&
           chaptersGoodAnsCount.map(chapter => (
             <View key={chapter.name}>
@@ -231,16 +247,40 @@ export default function Achievements() {
                           justifyContent: 'space-between',
                         }}
                       >
-                        <Text key={chapter.name} variant="bodyMedium">
-                          The total number of correct answers given in the{' '}
-                          {removeUnderscores(chapter.name, true)} chapter
-                        </Text>
                         <Text
-                          style={{ width: '100%', textAlign: 'center' }}
-                          variant="labelLarge"
+                          key={chapter.name}
+                          variant="titleMedium"
+                          style={{
+                            width: '90%',
+                            // backgroundColor: 'red',
+                            alignSelf: 'center',
+                          }}
                         >
-                          {chapter.count} ({rang.name})
+                          {removeUnderscores(chapter.name, true)}:{' '}
+                          {chapter.count}
                         </Text>
+                        <View
+                          style={{
+                            position: 'relative',
+                            //backgroundColor: 'red',
+                            marginBottom: 20,
+                          }}
+                        >
+                          <Text
+                            style={{
+                              // width: '100%',
+                              position: 'absolute',
+                              textAlign: 'center',
+                              alignSelf: 'center',
+                              backgroundColor: Colors.gradient,
+                              borderRadius: 15,
+                              paddingHorizontal: 10,
+                            }}
+                            variant="labelLarge"
+                          >
+                            {rang.name}
+                          </Text>
+                        </View>
 
                         <View
                           style={[
