@@ -15,6 +15,7 @@ import {
 import { Button as PaperButton, TouchableRipple } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import settings from '../../data/settings.json'
 import {
   areYouSure,
   nah,
@@ -30,18 +31,26 @@ import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
 import Line from '../components/molecules/atoms/Line'
 import Options from '../components/Options'
+import useAd from '../hooks/useAd'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { Colors } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
+import useStore from '../utils/store'
 import { Option, Result } from '../utils/types'
-import { getValue, setStats } from '../utils/utilStorage'
+import { compareInfiniteStreak, getValue, setStats } from '../utils/utilStorage'
 
 //list of route params is in useOpenQuiz
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
+
+  const incrementInfiniteStreak = useStore.getState().incrementInfiniteStreak
+  const incrementGoodInfiniteStreak =
+    useStore.getState().incrementGoodInfiniteStreak
+  const resetInfiniteStreak = useStore.getState().resetInfiniteStreak
+  const resetGoodInfiniteStreak = useStore.getState().resetGoodInfiniteStreak
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
@@ -62,8 +71,8 @@ export default function Quiz({ route }) {
     resultsArray,
     setResultsArray,
   } = useNextQuestion({
-    chapName: route.params.chapName,
     topName: route.params.topName,
+    chapName: route.params.chapName,
     itemsArray: route.params.itemsArray,
     itemsCount,
     shuffle: route.params.shuffle,
@@ -101,6 +110,10 @@ export default function Quiz({ route }) {
 
     if (thisQuestionResult === 'correct') setStats(item.id)
 
+    if (route.params.chapName === '__All__') incrementInfiniteStreak()
+    if (route.params.chapName === '__All__' && thisQuestionResult === 'correct')
+      incrementGoodInfiniteStreak()
+
     let result: Result
     if (itemsCount !== Infinity) {
       result = {
@@ -115,18 +128,33 @@ export default function Quiz({ route }) {
     setShowResultModal(true)
   }
 
-  function closeModalAndGoBack(): void {
-    setShowExitModal(false)
-    navigation.goBack()
-  }
-
+  const { loadInterstitial, interstitial } = useAd()
   useEffect(() => {
+    const unsubscribeInterstitialEvents = loadInterstitial()
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       handleBackPress,
     )
-    return () => backHandler.remove() // Cleanup the event listener on unmount
+    return () => {
+      if (settings.ads && true)
+        try {
+          interstitial.show()
+        } catch (e) {
+          // console.error(e)
+        }
+      unsubscribeInterstitialEvents()
+      backHandler.remove()
+    }
   }, [])
+
+  function closeModalAndGoBack(): void {
+    if (route.params.chapName === '__All__') {
+      resetInfiniteStreak()
+      resetGoodInfiniteStreak()
+    }
+    setShowExitModal(false)
+    navigation.goBack()
+  }
 
   const handleBackPress = () => {
     if (showExitModal) {
@@ -231,7 +259,7 @@ export default function Quiz({ route }) {
                   elevation={5}
                   buttonColor={Colors.primary}
                   style={{
-                    marginBottom: 40,
+                    marginBottom: settings.ads ? 70 : 40,
                   }}
                 >
                   {submit}
@@ -243,18 +271,20 @@ export default function Quiz({ route }) {
 
         {!item && <ActivityIndicator size={50} color={Colors.primary} />}
       </ScrollView>
-      <View
-        id="ad"
-        style={{
-          width: '100%',
-          height: 70,
-          backgroundColor: 'yellow',
-          position: 'absolute',
-          bottom: 0,
-        }}
-      >
-        <Ad width={'100%'}></Ad>
-      </View>
+      {settings.ads && (
+        <View
+          id="ad"
+          style={{
+            width: '100%',
+            height: 50,
+            // backgroundColor: 'yellow',
+            position: 'absolute',
+            bottom: 0,
+          }}
+        >
+          <Ad/>
+        </View>
+      )}
       <Modal
         statusBarTranslucent
         animationType="fade"

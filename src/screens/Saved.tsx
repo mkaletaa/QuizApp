@@ -24,21 +24,20 @@ export default function Saved() {
   const headerHeight = useHeaderHeight()
   const { openQuiz } = useOpenQuiz()
   const { fetchSavedItems, savedItems, isPending } = useFetchSavedItems()
-  
+
   useEffect(() => {
     fetchSavedItems()
   }, [])
-  
+
   useEffect(() => {
     setRefreshing(false)
   }, [savedItems])
-  
+
   function seeFullQuestion(item: Item, index: number): void {
     setModalItem(item)
     setShowModal(true)
     setIndex(index)
   }
-  
 
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState)
@@ -89,7 +88,7 @@ export default function Saved() {
                 openQuiz({
                   chapterName: '__Saved__',
                   itemsArray: savedItems,
-                  howManyItems: savedItems.length,
+                  itemsCount: savedItems.length,
                 })
               }}
               onToggleSwitch={toggleSwitch}

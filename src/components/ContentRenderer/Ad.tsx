@@ -7,20 +7,37 @@ import {
   TestIds,
 } from 'react-native-google-mobile-ads'
 
-export default function Ad({ width }) {
+type adSize = 'anchored' | 'rectangle' | 'large'
+
+export default function Ad({
+  width = '100%',
+  size = 'anchored',
+}: {
+  width?: any
+  size?: adSize
+}) {
+  function returnSize() {
+    switch (size) {
+      case 'anchored':
+        return BannerAdSize.ANCHORED_ADAPTIVE_BANNER
+      case 'rectangle':
+        return BannerAdSize.MEDIUM_RECTANGLE
+      case 'large':
+        return BannerAdSize.LARGE_BANNER
+    }
+  }
   return (
     <View
       style={{
         width: width,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red'
+        // backgroundColor: 'red'
       }}
     >
-      <View style={{width: '100%', height: 75}}></View>
       {/* <BannerAd
-        unitId={TestIds.BANNER}
-        size={BannerAdSize.LARGE_BANNER}
+        unitId={__DEV__ ? TestIds.BANNER : 'id'}
+        size={returnSize()} //anchored for quiz and default in theory; also rectangle and large could be useful
       ></BannerAd> */}
     </View>
   )

@@ -1,18 +1,22 @@
-import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { List, Switch as PaperSwitch } from 'react-native-paper';
+import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
+import { useNavigation } from '@react-navigation/native'
+import React, { useEffect, useState } from 'react'
+import { Button, StyleSheet, Text, View } from 'react-native'
+import { List, Switch as PaperSwitch } from 'react-native-paper'
 
-
-
-import { aboutTheApp, contact, hideAnswers, hideAnswersExplain, randomOrder, savedQuestions } from '../../data/texts';
-import Gradient from '../components/molecules/atoms/Gradient';
-import { Colors } from '../utils/constants';
-import { getValue, setValue } from '../utils/utilStorage';
-
+import {
+  aboutTheApp,
+  contact,
+  hideAnswers,
+  hideAnswersExplain,
+  randomOrder,
+  savedQuestions,
+} from '../../data/texts'
+import Gradient from '../components/molecules/atoms/Gradient'
+import { Colors } from '../utils/constants'
+import { getValue, setValue } from '../utils/utilStorage'
 
 const Settings = () => {
   const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
@@ -110,7 +114,7 @@ const Settings = () => {
         rippleColor={Colors.ripple}
         title={savedQuestions}
         left={() => (
-          <Ionicons name="bookmark-outline" size={24} color={'#714696'} />
+          <Ionicons name="bookmark-outline" size={24} color={'#654DA1'} />
         )}
         right={() => <AntDesign name="right" size={24} color={Colors.border} />}
         //@ts-ignore
@@ -131,7 +135,7 @@ const Settings = () => {
           <MaterialCommunityIcons
             name="information-variant"
             size={26}
-            color="#714696"
+            color="#654DA1"
           />
         )}
         right={() => <AntDesign name="right" size={24} color={Colors.border} />}

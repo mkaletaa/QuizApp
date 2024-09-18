@@ -1,13 +1,7 @@
 // import Question from './Question'
 import { FontAwesome, Foundation } from '@expo/vector-icons'
 import React from 'react'
-import {
-  Dimensions,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
 
 import { correctAnswers, yourAnswers } from '../../data/texts'
@@ -16,7 +10,7 @@ import { returnIsCorrect } from '../utils/functions'
 import { Item, Option } from '../utils/types'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
 import ExpandableView from './ExpandableView'
-import ExplanationPopup from './molecules/ExplanationPopup'
+import ResultPopup from './molecules/ResultPopup'
 
 export default function ItemResult({
   item,
@@ -31,80 +25,73 @@ export default function ItemResult({
 }) {
   return (
     // <SafeAreaView>
-    <ScrollView contentContainerStyle={[styles.scrollContainer]}>
-      <ExplanationPopup item={item}></ExplanationPopup>
-
-      <View style={styles.contentContainer}>
-        {returnIsCorrect(item, chosenOptions) === 'correct' && (
-          <Foundation name="check" size={54} color={COLOR.GREEN} />
-        )}
-
-        {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
-          <FontAwesome name="remove" size={54} color={COLOR.RED} />
-        )}
-
-        {returnIsCorrect(item, chosenOptions) === 'kindof' && (
-          <View style={{ flexDirection: 'row' }}>
-            <Foundation name="check" size={54} color={COLOR.ORANGE} />
-            <FontAwesome name="remove" size={54} color={COLOR.ORANGE} />
-          </View>
-        )}
-
-        <View
-          style={{
-            alignItems: 'center',
-            marginTop: 20,
-          }}
-        >
-          <ExpandableView data={item.question} />
-        </View>
-
-        <Text style={styles.heading}>{correctAnswers}:</Text>
-        {item?.options
-          .filter(option => option.correct === true)
-          .map((option, index) => (
-            <ContentRenderer content={option.val} key={option.id} />
-          ))}
-
-        {chosenOptions && chosenOptions.length > 0 && (
-          <React.Fragment>
-            <Text style={styles.heading}>{yourAnswers}:</Text>
-            {chosenOptions.map((option, index) => (
-              <ContentRenderer
-                content={option.val}
-                key={'chosen_' + option.id}
-              />
-            ))}
-          </React.Fragment>
-        )}
-
-        {item?.explanation && (
-          <ExpandableView data={item.explanation} showHeader={true} />
-        )}
-
-        <View style={styles.nextItem}>
-          <PaperButton
-            mode="outlined"
-            onPress={() => {
-              handleBtnPress()
-            }}
-            elevation={5}
+    <React.Fragment>
+      <ResultPopup item={item}></ResultPopup>
+      <ScrollView contentContainerStyle={[styles.scrollContainer]}>
+        <View style={styles.contentContainer}>
+          {returnIsCorrect(item, chosenOptions) === 'correct' && (
+            <Foundation name="check" size={54} color={COLOR.GREEN} />
+          )}
+          {returnIsCorrect(item, chosenOptions) === 'incorrect' && (
+            <FontAwesome name="remove" size={54} color={COLOR.RED} />
+          )}
+          {returnIsCorrect(item, chosenOptions) === 'kindof' && (
+            <View style={{ flexDirection: 'row' }}>
+              <Foundation name="check" size={54} color={COLOR.ORANGE} />
+              <FontAwesome name="remove" size={54} color={COLOR.ORANGE} />
+            </View>
+          )}
+          <View
             style={{
-              borderColor: Colors.primary,
-              borderWidth: 1.5,
+              alignItems: 'center',
             }}
           >
-            <Text
+            <ExpandableView data={item.question} />
+          </View>
+          <Text style={styles.heading}>{correctAnswers}:</Text>
+          {item?.options
+            .filter(option => option.correct === true)
+            .map((option, index) => (
+              <ContentRenderer content={option.val} key={option.id} />
+            ))}
+          {chosenOptions && chosenOptions.length > 0 && (
+            <React.Fragment>
+              <Text style={styles.heading}>{yourAnswers}:</Text>
+              {chosenOptions.map((option, index) => (
+                <ContentRenderer
+                  content={option.val}
+                  key={'chosen_' + option.id}
+                />
+              ))}
+            </React.Fragment>
+          )}
+          {item?.explanation && (
+            <ExpandableView data={item.explanation} showHeader={true} />
+          )}
+          <View style={styles.nextItem}>
+            <PaperButton
+              mode="outlined"
+              onPress={() => {
+                handleBtnPress()
+              }}
+              elevation={5}
               style={{
-                color: Colors.primary,
+                borderColor: Colors.primary,
+                borderWidth: 1.5,
               }}
             >
-              {btnTitle}
-            </Text>
-          </PaperButton>
+              <Text
+                style={{
+                  color: Colors.primary,
+                }}
+              >
+                {btnTitle}
+              </Text>
+            </PaperButton>
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </React.Fragment>
     // </SafeAreaView>
   )
 }
@@ -112,6 +99,7 @@ export default function ItemResult({
 const styles = StyleSheet.create({
   scrollContainer: {
     justifyContent: 'center',
+    paddingTop: 90,
     // backgroundColor: 'red',
     backgroundColor: 'rgba(255, 255, 255, 1)',
     minHeight: Dimensions.get('window').height,
