@@ -1,3 +1,5 @@
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 import React, { useEffect, useState } from 'react'
 import { Image, ScrollView, StyleSheet, View } from 'react-native'
 import { Divider } from 'react-native-paper'
@@ -8,7 +10,7 @@ import { quiz } from '../../data/quiz/quizModule'
 import Gradient from '../components/molecules/atoms/Gradient'
 import { COLOR, Colors } from '../utils/constants'
 import { removeUnderscores } from '../utils/functions'
-import {  getValue } from '../utils/utilStorage'
+import { getValue } from '../utils/utilStorage'
 
 //todo: add achievement of infinitymode (ile z rzędu, ile z rzędu dobrze)
 //todo: allGoodAnsCount to raczej zrobić żeby było 1 tylko w sensie albo zrobiłeś albo nie
@@ -26,6 +28,7 @@ export default function Achievements() {
   const [topicsAllGoodAnsCount, setTopicsAllGoodAnsCount] = useState<
     { chapter: string; topic: string; count: number }[] | null
   >(null)
+  const [faces, setFaces] = useState<string[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,6 +64,13 @@ export default function Achievements() {
             })
           }
         }
+
+        let faceArr = []
+        for (let i = 0; i <= 17; i++) {
+          let face = await getValue(`face_${i}`)
+          faceArr.push(face)
+        }
+        setFaces(faceArr)
 
         setChaptersGoodAnsCount(chaptersArray)
         setTopicsAllGoodAnsCount(topicsArray)
@@ -123,7 +133,8 @@ export default function Achievements() {
           Endless Challenger: {infiniteStreak !== null ? infiniteStreak : 0}
         </Text>
         <Text variant="bodyMedium">
-          The highest number of consecutive answers in 'Random Question' mode (all chapters at once).
+          The highest number of consecutive answers in 'Random Question' mode
+          (all chapters at once).
         </Text>
         <Divider></Divider>
         <Text variant="titleLarge">
@@ -150,7 +161,7 @@ export default function Achievements() {
       {rangs.map(el => {
         if (goodAnsCount >= el.min && goodAnsCount <= el.max) {
           return (
-            <View style={{ alignItems: 'center', gap: 10, marginTop:10 }}>
+            <View style={{ alignItems: 'center', gap: 10, marginTop: 10 }}>
               <Text
                 variant="labelLarge"
                 style={{
@@ -221,8 +232,8 @@ export default function Achievements() {
                         }}
                       >
                         <Text key={chapter.name} variant="bodyMedium">
-                          The total number of correct answers given in
-                          the {removeUnderscores(chapter.name, true)} chapter
+                          The total number of correct answers given in the{' '}
+                          {removeUnderscores(chapter.name, true)} chapter
                         </Text>
                         <Text
                           style={{ width: '100%', textAlign: 'center' }}
@@ -264,7 +275,7 @@ export default function Achievements() {
           ))}
       </View>
 
-      <View style={[styles.section, { marginBottom: 32 }]}>
+      <View style={[styles.section]}>
         <Text variant="headlineSmall">Lessons Stats</Text>
         {topicsAllGoodAnsCount !== null &&
           topicsAllGoodAnsCount.map((el, i) => {
@@ -311,14 +322,60 @@ export default function Achievements() {
                       Achieved 100% correct answers on a quiz from the lesson{' '}
                       {removeUnderscores(el.topic, true)}
                     </Text>
-                    {el.count !== 0 && <Text variant="labelLarge">
-                      You did it {el.count} {el.count === 1 ? 'time' : 'times'}
-                    </Text>}
+                    {el.count !== 0 && (
+                      <Text variant="labelLarge">
+                        You did it {el.count}{' '}
+                        {el.count === 1 ? 'time' : 'times'}
+                      </Text>
+                    )}
                   </View>
                 </View>
               </>
             )
           })}
+      </View>
+
+      <View style={styles.section}>
+        <Text variant="titleLarge">Face Collection</Text>
+        <Text variant="bodyLarge">
+          Your progress in quizzes has revealed these unique expressions. Keep
+          completing quizzes to discover more!
+        </Text>
+        {/* <Text variant='bodyLarge'>Here are the faces you've unlocked based on your quiz results. Keep completing quizzes to discover more!</Text> | Can
+          you unlock them all? */}
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between', // rozstawienie elementów
+            marginBottom: 32,
+          }}
+        >
+          {faces.map((a, i) => {
+            return (
+              <View
+                key={i}
+                style={{
+                  width: '16.6%',
+                  marginBottom: 16,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  // backgroundColor: 'red',
+                }}
+              >
+                {a ? (
+                  <FontAwesome6 name={a} size={44} color={Colors.boldText} />
+                ) : (
+                  <FontAwesome5
+                    name="question"
+                    size={34}
+                    color={Colors.gradient}
+                  />
+                )}
+              </View>
+            )
+          })}
+        </View>
       </View>
     </ScrollView>
   )

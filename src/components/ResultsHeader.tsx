@@ -21,7 +21,7 @@ export default function ResultsHeader({
   incorrectNr,
 }) {
   const [maxOutcome, setMaxOutcome] = useState<number>(-1)
-  const [usersOutcome, setUsersOutcome] = useState<number>(-1)
+  const [usersOutcome, setUsersOutcome] = useState<number>(-2)
 
   useEffect(() => {
     setMaxOutcome(resultsArray.length * 2)
@@ -35,75 +35,75 @@ export default function ResultsHeader({
     switch (probability) {
       case 'common':
         if (usersOutcome === maxOutcome) {
-          setFaceStat('face-grin-hearts')
+          setFaceStat(0, 'face-grin-hearts')
           return (
             <FontAwesome6 name="face-grin-hearts" size={44} color="green" />
           )
         } else if (usersOutcome >= (maxOutcome * 8) / 9) {
-          setFaceStat('face-laugh-beam')
+          setFaceStat(2, 'face-laugh-beam')
           return <FontAwesome6 name="face-laugh-beam" size={44} color="green" />
         } else if (usersOutcome >= (maxOutcome * 7) / 9) {
-          setFaceStat('face-smile')
+          setFaceStat(4, 'face-smile')
           return <FontAwesome6 name="face-smile" size={44} color="green" />
         } else if (usersOutcome >= (maxOutcome * 6) / 9) {
-          setFaceStat('face-rolling-eyes')
+          setFaceStat(6, 'face-rolling-eyes')
           return (
             <FontAwesome6 name="face-rolling-eyes" size={44} color="#FF8000" />
           )
         } else if (usersOutcome >= (maxOutcome * 5) / 9) {
-          setFaceStat('face-meh-blank')
+          setFaceStat(8, 'face-meh-blank')
           return (
             <FontAwesome6 name="face-meh-blank" size={44} color="#FF8000" />
           )
         } else if (usersOutcome >= (maxOutcome * 4) / 9) {
-          setFaceStat('face-surprise')
+          setFaceStat(10, 'face-surprise')
           return <FontAwesome6 name="face-surprise" size={44} color="#FF8000" />
         } else if (usersOutcome >= (maxOutcome * 3) / 9) {
-          setFaceStat('face-frown-open')
+          setFaceStat(12, 'face-frown-open')
           return <FontAwesome6 name="face-frown-open" size={44} color="red" />
         } else if (usersOutcome >= (maxOutcome * 2) / 9) {
-          setFaceStat('face-tired')
+          setFaceStat(13, 'face-tired')
           return <FontAwesome6 name="face-tired" size={44} color="red" />
         } else if (usersOutcome >= (maxOutcome * 1) / 9) {
-          setFaceStat('face-sad-cry')
+          setFaceStat(15, 'face-sad-cry')
           return <FontAwesome6 name="face-sad-cry" size={44} color="red" />
-        } else {
-          setFaceStat('face-dizzy')
+        } else if (usersOutcome >= 0) {
+          setFaceStat(17, 'face-dizzy')
           return <FontAwesome6 name="face-dizzy" size={44} color="red" />
         }
 
       case 'rare':
         if (usersOutcome === maxOutcome) {
-          setFaceStat('face-grin-stars')
+          setFaceStat(1, 'face-grin-stars')
           return <FontAwesome6 name="face-grin-stars" size={44} color="green" />
         } else if (usersOutcome >= (maxOutcome * 8) / 9) {
-          setFaceStat('face-grin-beam-sweat')
+          setFaceStat(3, 'face-grin-beam-sweat')
           return (
             <FontAwesome6 name="face-grin-beam-sweat" size={44} color="green" />
           )
         } else if (usersOutcome >= (maxOutcome * 7) / 9) {
-          setFaceStat('face-smile-wink')
+          setFaceStat(5, 'face-smile-wink')
           return <FontAwesome6 name="face-smile-wink" size={44} color="green" />
         } else if (usersOutcome >= (maxOutcome * 6) / 9) {
-          setFaceStat('face-flushed')
+          setFaceStat(7, 'face-flushed')
           return <FontAwesome6 name="face-flushed" size={44} color="#FF8000" />
         } else if (usersOutcome >= (maxOutcome * 5) / 9) {
-          setFaceStat('face-meh')
+          setFaceStat(9, 'face-meh')
           return <FontAwesome6 name="face-meh" size={44} color="#FF8000" />
         } else if (usersOutcome >= (maxOutcome * 4) / 9) {
-          setFaceStat('face-grimace')
+          setFaceStat(11, 'face-grimace')
           return <FontAwesome6 name="face-grimace" size={44} color="#FF8000" />
         } else if (usersOutcome >= (maxOutcome * 3) / 9) {
-          setFaceStat('face-frown-open')
+          setFaceStat(12, 'face-frown-open')
           return <FontAwesome6 name="face-frown-open" size={44} color="red" />
         } else if (usersOutcome >= (maxOutcome * 2) / 9) {
-          setFaceStat('face-angry')
+          setFaceStat(14, 'face-angry')
           return <FontAwesome6 name="face-angry" size={44} color="red" />
         } else if (usersOutcome >= (maxOutcome * 1) / 9) {
-          setFaceStat('face-sad-tear')
+          setFaceStat(16, 'face-sad-tear')
           return <FontAwesome6 name="face-sad-tear" size={44} color="red" />
-        } else {
-          setFaceStat('face-dizzy')
+        } else if (usersOutcome >= 0) {
+          setFaceStat(17, 'face-dizzy')
           return <FontAwesome6 name="face-dizzy" size={44} color="red" />
         }
     }

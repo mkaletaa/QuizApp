@@ -144,15 +144,15 @@ export const setFinishedQuizStats = async function (chapter, topic) {
   }
 }
 
-export const setFaceStat = async function (face: string) {
+export const setFaceStat = async function (index: number, face: string) {
   try {
-    const key: string = `face_${face}`
+    const key: string = `face_${index}`
 
-    console.log("🚀 ~ setFaceStat ~ key:", key)
+    console.log('🚀 ~ setFaceStat ~ key:', key)
     let savedFace: string = await AsyncStorage.getItem(key)
-    console.log("🚀 ~ setFaceStat ~ savedFace:", savedFace)
+    console.log('🚀 ~ setFaceStat ~ savedFace:', savedFace)
 
-    if (savedFace === null) await AsyncStorage.setItem(key, savedFace)
+    if (savedFace === null) await setValue(key, face)
   } catch (error) {
     console.error('Error using setFaceStat', error)
   }
