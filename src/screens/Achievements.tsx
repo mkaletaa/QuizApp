@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, View } from 'react-native'
 import { Divider } from 'react-native-paper'
+import { Text } from 'react-native-paper'
 
-import { topics, chapters } from '../../data/data'
+import { chapters, topics } from '../../data/data'
 import { quiz } from '../../data/quiz/quizModule'
 import Gradient from '../components/molecules/atoms/Gradient'
-import { Colors } from '../utils/constants'
+import { COLOR, Colors } from '../utils/constants'
+import { removeUnderscores } from '../utils/functions'
 import { getDailyStreak, getValue } from '../utils/utilStorage'
 
 //todo: add achievement of infinitymode (ile z rzędu, ile z rzędu dobrze)
@@ -77,8 +79,16 @@ export default function Achievements() {
   }, [])
 
   const rangs = [
-    { name: 'expert', min: 110, max: Infinity },
-    { name: 'laik', min: 0, max: 109 },
+    { name: 'legend', min: 10000, max: Infinity },
+    { name: 'grandmaster', min: 5000, max: 9999 },
+    { name: 'master', min: 3000, max: 4999 },
+    { name: 'expert', min: 2000, max: 2999 },
+    { name: 'advanced', min: 1000, max: 1999 },
+    { name: 'skilled', min: 500, max: 999 },
+    { name: 'intermediate', min: 250, max: 499 },
+    { name: 'apprentice', min: 100, max: 249 },
+    { name: 'beginner', min: 25, max: 99 },
+    { name: 'novice', min: 0, max: 24 },
   ]
   return (
     <ScrollView style={styles.container}>
@@ -89,94 +99,161 @@ export default function Achievements() {
       <Text style={styles.info}>
         Complete at least one quiz everyday to increase the streak
       </Text> */}
-      <Text>
-        Infinite streak maximum: {infiniteStreak !== null ? infiniteStreak : 0}
+      <Text
+        variant="bodyLarge"
+        style={[
+          styles.section,
+          {
+            backgroundColor: Colors.gradientLight,
+            borderRadius: 10,
+            padding: 10,
+            elevation: 1,
+            borderWidth: 1,
+            borderColor: Colors.gradient,
+          },
+        ]}
+      >
+        Gamification in learning uses game design elements to make educational
+        experiences more engaging and motivating. By incorporating badges and
+        challenges, it transforms traditional learning into an enjoyable
+        process.
       </Text>
-      <Text>
-        Good Infinite streak maximum:{' '}
-        {goodInfiniteStreak !== null ? goodInfiniteStreak : 0}
-      </Text>
-      <Text style={styles.totalCorrectAnswers}>
-        Total number of correct answers:{' '}
-        {goodAnsCount !== null ? goodAnsCount : 0}
-      </Text>
-      {/* {
-        rangs.map(el => {
-          if (goodAnsCount >= el.min && goodAnsCount <= el.max) return
-        })
-      } */}
+      <View style={[styles.section, { gap: 7 }]}>
+        <Text variant="titleLarge">
+          Endless Challenger: {infiniteStreak !== null ? infiniteStreak : 0}
+        </Text>
+        <Text variant="bodyMedium">
+          The highest number of consecutive answers in 'Random Question' mode.
+        </Text>
+        <Divider></Divider>
+        <Text variant="titleLarge">
+          Flawless Streak:{' '}
+          {goodInfiniteStreak !== null ? goodInfiniteStreak : 0}
+        </Text>
+        <Text variant="bodyMedium">
+          The longest streak of consecutive{' '}
+          <Text style={{ textDecorationLine: 'underline' }}>correct</Text>{' '}
+          answers in 'Random Question' mode.
+        </Text>
+        <Divider></Divider>
+        <Text
+          variant="titleLarge"
+          //style={styles.totalCorrectAnswers}
+        >
+          Total Correct Answers: {goodAnsCount !== null ? goodAnsCount : 0}
+        </Text>
+        <Text variant="bodyMedium">
+          The total number of correct answers given across the app.
+        </Text>
+      </View>
+
       {rangs.map(el => {
         if (goodAnsCount >= el.min && goodAnsCount <= el.max) {
           return (
-            <>
-              <Text>Twoja ranga to: {el.name}</Text>
-              <View
+            <View style={{ alignItems: 'center', gap: 10 }}>
+              <Text
+                variant="labelLarge"
                 style={{
-                  width: '100%',
-                  backgroundColor: 'lightgrey',
-                  height: 15,
-                  borderRadius: 10,
-                  overflow: 'hidden',
+                  backgroundColor: Colors.gradient,
+                  borderRadius: 15,
+                  paddingHorizontal: 10,
                 }}
+              >
+                {el.name}
+              </Text>
+              <View
+                style={[
+                  styles.progressBar,
+                  {
+                    width: '100%',
+                    height: 15,
+                  },
+                ]}
               >
                 <View
                   style={{
-                    width: el.max===Infinity ? '100%' : `${(goodAnsCount / el.max) * 100}%`,
-                    backgroundColor: 'green',
+                    width:
+                      el.max === Infinity
+                        ? '100%'
+                        : `${(goodAnsCount / el.max) * 100}%`,
+                    backgroundColor: COLOR.GREEN,
                     height: '100%',
                     borderRadius: 10,
+                    // borderWidth:3,
+                    // borderColor: 'green'
                   }}
                 />
+                {/* <Gradient  ></Gradient> */}
               </View>
-            </>
+            </View>
           )
         }
         return null // jeśli warunek nie jest spełniony, zwracamy null
       })}
 
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Chapter Stats</Text>
+        <Text variant="headlineSmall">Chapters Stats</Text>
         {chaptersGoodAnsCount !== null &&
           chaptersGoodAnsCount.map(chapter => (
             <View key={chapter.name}>
               {rangs.map(rang => {
                 if (chapter.count >= rang.min && chapter.count <= rang.max) {
                   return (
-                    <View key={rang.name}>
-                      <Text>
-                        Twoja ranga w rozdziale {chapter.name} to: {rang.name}
-                      </Text>
+                    <View
+                      key={rang.name}
+                      style={{ flexDirection: 'row', gap: 5 }}
+                    >
                       <Image
-                      style={{
-                        width: 70,
-                        height: 70,
-                        borderRadius: 5,
-                      }}
-                      source={{
-                        uri: `${chapters.find(chap => chap.name === chapter.name).image}`,
-                      }}
-                    />
-                      <Text key={chapter.name} style={styles.item}>
-                        Number of correct answers for {chapter.name} chapter:{' '}
-                        {chapter.count}
-                      </Text>
+                        style={{
+                          width: 80,
+                          height: 80,
+                          borderRadius: 5,
+                        }}
+                        source={{
+                          uri: `${chapters.find(chap => chap.name === chapter.name).image}`,
+                        }}
+                      />
                       <View
                         style={{
-                          width: '100%',
-                          backgroundColor: 'lightgrey',
-                          height: 15,
-                          borderRadius: 10,
-                          overflow: 'hidden',
+                          flex: 1,
+                          height: 80,
+                          justifyContent: 'space-between',
                         }}
                       >
+                        <Text key={chapter.name} variant="bodyMedium">
+                          The total number of correct answers given in
+                          the {removeUnderscores(chapter.name, true)} chapter
+                        </Text>
+                        <Text
+                          style={{ width: '100%', textAlign: 'center' }}
+                          variant="labelLarge"
+                        >
+                          {chapter.count} ({rang.name})
+                        </Text>
+
                         <View
-                          style={{
-                            width: rang.max===Infinity ? '100%' :`${(chapter.count / rang.max) * 100}%`,
-                            backgroundColor: 'green',
-                            height: '100%',
-                            borderRadius: 10,
-                          }}
-                        />
+                          style={[
+                            ,
+                            styles.progressBar,
+                            {
+                              width: '90%',
+                              height: 10,
+                              alignSelf: 'center',
+                            },
+                          ]}
+                        >
+                          <View
+                            style={{
+                              width:
+                                rang.max === Infinity
+                                  ? '100%'
+                                  : `${(chapter.count / rang.max) * 100}%`,
+                              backgroundColor: COLOR.GREEN,
+                              height: '100%',
+                              borderRadius: 10,
+                            }}
+                          />
+                        </View>
                       </View>
                     </View>
                   )
@@ -186,29 +263,30 @@ export default function Achievements() {
             </View>
           ))}
       </View>
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Topic Stats</Text>
+
+      <View style={[styles.section, { marginBottom: 32 }]}>
+        <Text variant="headlineSmall">Lessons Stats</Text>
         {topicsAllGoodAnsCount !== null &&
           topicsAllGoodAnsCount.map((el, i) => {
             // console.log(topics[el.chapter].find(top=>top.name === el.topic).image)
             return (
               <>
-                {i === 0 && <Text>{topicsAllGoodAnsCount[0].chapter}</Text>}
-
                 {topicsAllGoodAnsCount[i].chapter ===
                   topicsAllGoodAnsCount[i + 1]?.chapter && (
-                  <Text>{topicsAllGoodAnsCount[i].chapter}</Text>
+                  <Text variant="titleMedium" style={{ marginLeft: 10 }}>
+                    {removeUnderscores(topicsAllGoodAnsCount[i].chapter, true)}
+                  </Text>
                 )}
                 <View
                   key={`${el.chapter}-${el.topic}`}
-                  style={{ flexDirection: 'row', gap: 10 }}
+                  style={{ flexDirection: 'row', gap: 10, width: '100%' }}
                 >
                   <View>
                     <Image
                       style={{
                         width: 70,
                         height: 70,
-                        tintColor: 'gray',
+                        tintColor: Colors.gradientLight,
                         borderRadius: 5,
                       }}
                       source={{
@@ -220,7 +298,7 @@ export default function Achievements() {
                         width: 70,
                         height: 70,
                         position: 'absolute',
-                        opacity: el.count > 0 ? 1 : 0.2,
+                        opacity: el.count > 0 ? 1 : 0.1,
                         borderRadius: 5,
                       }}
                       source={{
@@ -228,9 +306,15 @@ export default function Achievements() {
                       }}
                     />
                   </View>
-                  <Text style={styles.item}>
-                    {el.topic} | {el.count}
-                  </Text>
+                  <View style={{ flex: 1, justifyContent: 'space-between' }}>
+                    <Text variant="bodyMedium">
+                      Achieved 100% correct answers on a quiz from the lesson{' '}
+                      {removeUnderscores(el.topic, true)}
+                    </Text>
+                    <Text variant="labelLarge">
+                      You did it {el.count} {el.count === 1 ? 'time' : 'times'}
+                    </Text>
+                  </View>
                 </View>
               </>
             )
@@ -243,44 +327,22 @@ export default function Achievements() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+    // backgroundColor: 'red'
     backgroundColor: Colors.screenBg,
   },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  streak: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  info: {
-    fontSize: 16,
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  totalCorrectAnswers: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    textAlign: 'center',
-  },
   section: {
-    marginBottom: 16,
+    marginTop: 26,
     width: '100%',
+    gap: 10,
     // backgroundColor: 'red'
   },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  item: {
-    fontSize: 16,
-    marginBottom: 4,
+  progressBar: {
+    backgroundColor: Colors.gradientLight,
+    borderRadius: 10,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: Colors.gradient,
   },
 })

@@ -122,12 +122,19 @@ export default function ResultsHeader({
     >
       <View
         style={{
-          backgroundColor: '#e8e6fc', //#ddddf4 //#ececf9 //rgb(225,221,254) //d7d2f1
-          elevation: 2,
+          // backgroundColor: '#e8e6fc', //#ddddf4 //#ececf9 //rgb(225,221,254) //d7d2f1
+          // elevation: 2,
+          // borderRadius: 8,
           width: '85%',
           paddingBottom: 0,
-          borderRadius: 8,
           overflow: 'hidden',
+          //
+          backgroundColor: Colors.gradientLight,
+          borderRadius: 10,
+          elevation: 1,
+          borderWidth: 1,
+          borderBottomWidth: 0,
+          borderColor: Colors.gradient,
         }}
       >
         <View
