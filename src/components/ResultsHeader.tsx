@@ -1,5 +1,5 @@
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { View } from 'react-native'
 import { Text as PaperText } from 'react-native-paper'
 
@@ -28,9 +28,10 @@ export default function ResultsHeader({
     setUsersOutcome(correctNr * 2 + kindofNr)
   }, [])
 
-  const returnIcon = () => {
+  const returnIcon = useMemo(() => {
     let probability: number | 'rare' | 'common' = Math.random()
-    probability = probability > 0.85 ? 'rare' : 'common'
+    console.log('🚀 ~ returnIcon ~ probability:', probability)
+    probability = probability > 0.75 ? 'rare' : 'common'
 
     switch (probability) {
       case 'common':
@@ -107,7 +108,7 @@ export default function ResultsHeader({
           return <FontAwesome6 name="face-dizzy" size={44} color="red" />
         }
     }
-  }
+  }, [maxOutcome])
 
   const returnLabel = () => {
     if (usersOutcome === maxOutcome)
@@ -205,7 +206,7 @@ export default function ResultsHeader({
             alignItems: 'center',
           }}
         >
-          {returnIcon()}
+          {returnIcon}
           <View style={{ maxWidth: 110 }}>{returnLabel()}</View>
         </View>
 
