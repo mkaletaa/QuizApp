@@ -1,9 +1,10 @@
+import { AntDesign } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 import React, { useState } from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
+
 import { Colors } from '../../utils/constants'
 import ContentRenderer from '../ContentRenderer/_ContentRenderer'
-import { LinearGradient } from 'expo-linear-gradient'
-import { AntDesign } from '@expo/vector-icons'
 
 export default function ChapterDescription({
   chapterDescription: chapterDes,
@@ -46,15 +47,18 @@ export default function ChapterDescription({
       style={{
         zIndex: 1,
         width: '90%',
-        backgroundColor: '#e8e6fc',
-        elevation: 2,
-        borderRadius: 10,
         padding: 5,
         overflow: 'hidden',
         marginVertical: 20,
         // maxHeight: expanded ? null : 150, // null to remove maxHeight when expanded
         alignItems: 'center',
         position: 'relative', // Ensure proper positioning of absolute elements
+
+        backgroundColor: Colors.gradientLight,
+        borderRadius: 10,
+        elevation: 1,
+        borderWidth: 1,
+        borderColor: Colors.gradient,
       }}
     >
       <ContentRenderer content={chapterDes} />
