@@ -144,6 +144,19 @@ export const setFinishedQuizStats = async function (chapter, topic) {
   }
 }
 
+export const setFaceStat = async function (face: string) {
+  try {
+    const key: string = `face_${face}`
+
+    console.log("🚀 ~ setFaceStat ~ key:", key)
+    let savedFace: string = await AsyncStorage.getItem(key)
+    console.log("🚀 ~ setFaceStat ~ savedFace:", savedFace)
+
+    if (savedFace === null) await AsyncStorage.setItem(key, savedFace)
+  } catch (error) {
+    console.error('Error using setFaceStat', error)
+  }
+}
 //*******************/
 
 // // Pomocnicza funkcja do pobierania streaka i daty z AsyncStorage

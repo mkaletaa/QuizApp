@@ -123,7 +123,7 @@ export default function Achievements() {
           Endless Challenger: {infiniteStreak !== null ? infiniteStreak : 0}
         </Text>
         <Text variant="bodyMedium">
-          The highest number of consecutive answers in 'Random Question' mode.
+          The highest number of consecutive answers in 'Random Question' mode (all chapters at once).
         </Text>
         <Divider></Divider>
         <Text variant="titleLarge">
@@ -133,7 +133,7 @@ export default function Achievements() {
         <Text variant="bodyMedium">
           The longest streak of consecutive{' '}
           <Text style={{ textDecorationLine: 'underline' }}>correct</Text>{' '}
-          answers in 'Random Question' mode.
+          answers in 'Random Question' mode (all chapters at once).
         </Text>
         <Divider></Divider>
         <Text
@@ -150,7 +150,7 @@ export default function Achievements() {
       {rangs.map(el => {
         if (goodAnsCount >= el.min && goodAnsCount <= el.max) {
           return (
-            <View style={{ alignItems: 'center', gap: 10 }}>
+            <View style={{ alignItems: 'center', gap: 10, marginTop:10 }}>
               <Text
                 variant="labelLarge"
                 style={{
@@ -311,9 +311,9 @@ export default function Achievements() {
                       Achieved 100% correct answers on a quiz from the lesson{' '}
                       {removeUnderscores(el.topic, true)}
                     </Text>
-                    <Text variant="labelLarge">
+                    {el.count !== 0 && <Text variant="labelLarge">
                       You did it {el.count} {el.count === 1 ? 'time' : 'times'}
-                    </Text>
+                    </Text>}
                   </View>
                 </View>
               </>
