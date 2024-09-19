@@ -1,9 +1,8 @@
-import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useMemo, useState } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { List, Switch as PaperSwitch } from 'react-native-paper'
 
 import {
@@ -14,7 +13,6 @@ import {
   hideAnswersExplain,
   randomOrder,
   savedQuestions,
-  selectCodeTheme,
 } from '../../data/texts'
 import CodeSettings from '../components/CodeSettings'
 import Spoiler from '../components/ContentRenderer/Spoiler'
@@ -30,6 +28,7 @@ const Settings = () => {
     useState<boolean>()
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
   const showBottomSheet = useStore(state => state.showBottomSheet)
+  const setBottomSheetContent = useStore(state => state.setBottomSheetContent)
   const setBottomSheetSnapIndex = useStore(
     state => state.setBottomSheetSnapIndex,
   )
@@ -126,29 +125,21 @@ const Settings = () => {
       <List.Item
         title={codeSettings}
         onPress={() => {
+          setBottomSheetContent([])
           setShowBottomSheet(true)
           setBottomSheetSnapIndex(2)
         }}
         rippleColor={Colors.ripple}
         style={{
-          // borderBottomWidth: 1,
-          // borderBottomColor: Colors.border,
-          // marginTop: -8,
-          // justifyContent: 'center',
-
           borderBottomWidth: 1,
-            borderBottomColor: Colors.border,
-            paddingLeft: 15,
-            marginTop: -8,
+          borderBottomColor: Colors.border,
+          paddingLeft: 15,
+          marginTop: -8,
         }}
         titleStyle={{ color: Colors.text }}
         left={() => (
           <FontAwesome6 name="code" size={20} color={'#654DA1'} />
-          // <Entypo name="code" size={24} color={'#654DA1'} />
-          )}
-        // description={() => (
-        //   <Text style={{ opacity: 0.6 }}>{hideAnswersExplain}</Text>
-        // )}
+        )}
       />
 
       <List.Section>
@@ -156,10 +147,16 @@ const Settings = () => {
           rippleColor={Colors.ripple}
           title={savedQuestions}
           left={() => (
-            <FontAwesome6 name="bookmark" size={24} color={'#654DA1'} style={{marginLeft:4}} />
-            // <Ionicons name="bookmark-outline" size={24} color={'#654DA1'} />
+            <FontAwesome6
+              name="bookmark"
+              size={24}
+              color={'#654DA1'}
+              style={{ marginLeft: 4 }}
+            />
           )}
-          right={() => <AntDesign name="right" size={24} color={Colors.border} />}
+          right={() => (
+            <AntDesign name="right" size={24} color={Colors.border} />
+          )}
           //@ts-ignore
           onPress={() => navigation.navigate('Saved')}
           style={{
@@ -171,28 +168,30 @@ const Settings = () => {
           titleStyle={{ color: Colors.text }}
         />
 
-      <List.Item
-        rippleColor={Colors.ripple}
-        title={aboutTheApp}
-        left={() => (
-          <MaterialCommunityIcons
-          name="information-variant"
-            size={26}
-            color="#654DA1"
+        <List.Item
+          rippleColor={Colors.ripple}
+          title={aboutTheApp}
+          left={() => (
+            <MaterialCommunityIcons
+              name="information-variant"
+              size={26}
+              color="#654DA1"
             />
           )}
-          right={() => <AntDesign name="right" size={24} color={Colors.border} />}
+          right={() => (
+            <AntDesign name="right" size={24} color={Colors.border} />
+          )}
           //@ts-ignore
-        onPress={() => navigation.navigate('About')}
-        style={{
-          borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
-          paddingLeft: 15,
-          marginTop: 0,
-        }}
-        titleStyle={{ color: Colors.text }}
+          onPress={() => navigation.navigate('About')}
+          style={{
+            borderBottomWidth: 1,
+            borderBottomColor: Colors.border,
+            paddingLeft: 15,
+            marginTop: 0,
+          }}
+          titleStyle={{ color: Colors.text }}
         />
-        </List.Section>
+      </List.Section>
 
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
