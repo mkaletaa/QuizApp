@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 import { explanation as explText } from '../../data/texts'
 import { Colors } from '../utils/constants'
@@ -9,7 +9,7 @@ import ContentRenderer from './ContentRenderer/_ContentRenderer'
 
 export default function ExpandableView({ data, showHeader = false }) {
   const [viewHeight, setViewHeight] = useState(0)
-  const [max, setMax] = useState(150)
+  const [max, setMax] = useState(100)
 
   const handleLayout = event => {
     const { height } = event.nativeEvent.layout
@@ -26,19 +26,25 @@ export default function ExpandableView({ data, showHeader = false }) {
       >
         <ContentRenderer content={data} />
 
-        {max !== null && viewHeight > 50 && (
-          <LinearGradient
-            // Button Linear Gradient
-            colors={['transparent', 'white']}
-            style={{
-              width: '110%',
-              height: 100,
-              position: 'absolute',
-              bottom: 0,
+        {max !== null && viewHeight >= 100 && (
+          <TouchableWithoutFeedback
+            onPress={() => {
+              setMax(null)
             }}
-          ></LinearGradient>
+          >
+            <LinearGradient
+              // Button Linear Gradient
+              colors={['transparent', 'white']}
+              style={{
+                width: '110%',
+                height: 100,
+                position: 'absolute',
+                bottom: 0,
+              }}
+            ></LinearGradient>
+          </TouchableWithoutFeedback>
         )}
-        {max !== null && viewHeight > 50 && (
+        {max !== null && viewHeight >= 100 && (
           <AntDesign
             onPress={() => {
               setMax(null)
