@@ -179,7 +179,14 @@ export default function ResultsHeader({
 
   return (
     <View
-      style={{ width: '100%', alignItems: 'center', gap: 20, marginBottom: 15 }}
+      style={{
+        width: '100%',
+        alignItems: 'center',
+        gap: 20,
+        marginBottom: 15,
+        maxWidth: 500,
+        alignSelf: 'center',
+      }}
     >
       <View
         style={{

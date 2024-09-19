@@ -66,7 +66,7 @@ export default function Card({
         >
           <Text
             style={{
-              color: Colors.primary,
+              color: '#5846c7',
               fontWeight: 'bold',
               fontSize: 20,
               transform: [{ rotate: '-10deg' }],
