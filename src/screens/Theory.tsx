@@ -111,7 +111,7 @@ export default function Theory({
 
   const renderHeader = () => (
     <React.Fragment>
-      <Ad/>
+      <Ad />
       <View
         style={[
           styles.header,
@@ -122,13 +122,13 @@ export default function Theory({
           (a, i) =>
             a.title && (
               <View
-              key={i.toString()}
-              style={{
-                alignItems: 'flex-start',
-                width: '100%',
-                paddingHorizontal: 20,
-                gap: 20,
-              }}
+                key={i.toString()}
+                style={{
+                  alignItems: 'flex-start',
+                  width: '100%',
+                  paddingHorizontal: 20,
+                  gap: 20,
+                }}
               >
                 <Pressable onPress={() => scrollToSection(i)}>
                   <Text
@@ -147,7 +147,27 @@ export default function Theory({
       </View>
     </React.Fragment>
   )
-  
+
+  const renderSectionHeader = ({ section }) => {
+    if (section.title) {
+      return (
+        <View
+          style={{
+            padding: 10,
+            paddingLeft: 30,
+            paddingRight: 30,
+            backgroundColor: Colors.screenBg,
+            borderTopWidth: 1,
+            borderTopColor: Colors.border,
+          }}
+        >
+          <Text style={styles.sectionHeaderText}>{section.title}</Text>
+        </View>
+      )
+    }
+    return null // Brak nagłówka dla sekcji bez tytułu
+  }
+
   const renderItem = ({ item, index }) => (
     <View
       style={{
@@ -162,7 +182,7 @@ export default function Theory({
 
   const renderFooter = () => (
     <React.Fragment>
-      <Ad size='large'></Ad>
+      <Ad size="large"></Ad>
       <View
         style={{
           padding: 30,
@@ -187,6 +207,7 @@ export default function Theory({
           scrollEventThrottle={15}
           ListHeaderComponent={renderHeader}
           stickySectionHeadersEnabled
+          renderSectionHeader={renderSectionHeader}
           renderItem={({ item, index }) => renderItem({ item, index })}
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
@@ -250,6 +271,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     zIndex: 2,
+  },
+  sectionHeaderText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.boldText,
+    textAlign: 'center',
   },
   header: {
     padding: 10,
