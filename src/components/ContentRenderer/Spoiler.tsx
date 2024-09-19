@@ -5,10 +5,11 @@ import BottomSheet, {
 import React, { useCallback, useEffect, useRef } from 'react'
 import { BackHandler, Dimensions, StyleSheet, Text, View } from 'react-native'
 import {
+  FlatList,
   GestureHandlerRootView,
   PanGestureHandler,
+  ScrollView,
   State,
-  ScrollView, FlatList
 } from 'react-native-gesture-handler'
 import { Portal } from 'react-native-paper'
 
@@ -16,7 +17,7 @@ import { Colors } from '../../utils/constants'
 import useStore from '../../utils/store'
 import ContentRenderer from './_ContentRenderer'
 
-export default function Spoiler() {
+export default function Spoiler({ children }: { children?: React.ReactNode }) {
   const bottomSheetRef = useRef(null)
   const snapPoints = ['31%', '50%', '75%']
 
@@ -110,16 +111,18 @@ export default function Spoiler() {
               handleIndicatorStyle={{
                 backgroundColor: 'rgb(200,205,245)',
               }}
-              backgroundStyle={{ backgroundColor: Colors.surfaceBg }}
+              backgroundStyle={{ backgroundColor: Colors.gradientLight }}
               backdropComponent={renderBackdrop}
               style={{ flex: 1 }}
             >
               <BottomSheetScrollView
                 contentContainerStyle={styles.contentContainer}
-                >
-                {bottomSheetContent?.map((item, index) => (
-                  <ContentRenderer key={index} content={[item]} />
-                ))}
+              >
+                {bottomSheetContent && bottomSheetContent.length > 0
+                  ? bottomSheetContent.map((item, index) => (
+                      <ContentRenderer key={index} content={[item]} />
+                    ))
+                  : children}
               </BottomSheetScrollView>
             </BottomSheet>
           </Portal>

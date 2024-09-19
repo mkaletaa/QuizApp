@@ -11,6 +11,8 @@ const useStore = create(set => ({
   bottomSheetContent: [],
   infiniteStreak: 0,
   goodInfiniteStreak: 0,
+  hljsStyle: 'nightOwl',
+  setHljsStyle: style => set({ hljsStyle: style }),
   // navigateTo: undefined,
   addImage: (imageUrl, imageDes) => {
     set(state => ({

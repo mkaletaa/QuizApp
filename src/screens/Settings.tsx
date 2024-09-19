@@ -2,20 +2,25 @@ import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { List, Switch as PaperSwitch } from 'react-native-paper'
 
 import {
   aboutTheApp,
+  codeSettings,
   contact,
   hideAnswers,
   hideAnswersExplain,
   randomOrder,
   savedQuestions,
+  selectCodeTheme,
 } from '../../data/texts'
+import CodeSettings from '../components/CodeSettings'
+import Spoiler from '../components/ContentRenderer/Spoiler'
 import Gradient from '../components/molecules/atoms/Gradient'
 import { Colors } from '../utils/constants'
+import useStore from '../utils/store'
 import { getValue, setValue } from '../utils/utilStorage'
 
 const Settings = () => {
@@ -23,7 +28,11 @@ const Settings = () => {
     useState<boolean>()
   const [isHideAnswersSwitchEnabled, setIsHideAnswersSwitchEnabled] =
     useState<boolean>()
-
+  const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
+  const showBottomSheet = useStore(state => state.showBottomSheet)
+  const setBottomSheetSnapIndex = useStore(
+    state => state.setBottomSheetSnapIndex,
+  )
   const navigation = useNavigation()
 
   async function checkPreferences() {
@@ -63,6 +72,10 @@ const Settings = () => {
   function setHideAnswersStorage() {
     setIsHideAnswersSwitchEnabled(prev => !prev)
   }
+
+  const bottomSheet = useMemo(() => {
+    return <Spoiler children={<CodeSettings />}></Spoiler>
+  }, [showBottomSheet])
 
   return (
     <View style={styles.container}>
@@ -111,35 +124,65 @@ const Settings = () => {
       </List.Section>
 
       <List.Item
+        title={codeSettings}
+        onPress={() => {
+          setShowBottomSheet(true)
+          setBottomSheetSnapIndex(2)
+        }}
         rippleColor={Colors.ripple}
-        title={savedQuestions}
-        left={() => (
-          <Ionicons name="bookmark-outline" size={24} color={'#654DA1'} />
-        )}
-        right={() => <AntDesign name="right" size={24} color={Colors.border} />}
-        //@ts-ignore
-        onPress={() => navigation.navigate('Saved')}
         style={{
+          // borderBottomWidth: 1,
+          // borderBottomColor: Colors.border,
+          // marginTop: -8,
+          // justifyContent: 'center',
+
           borderBottomWidth: 1,
-          borderBottomColor: Colors.border,
-          paddingLeft: 15,
-          marginTop: -8,
+            borderBottomColor: Colors.border,
+            paddingLeft: 15,
+            marginTop: -8,
         }}
         titleStyle={{ color: Colors.text }}
+        left={() => (
+          <FontAwesome6 name="code" size={20} color={'#654DA1'} />
+          // <Entypo name="code" size={24} color={'#654DA1'} />
+          )}
+        // description={() => (
+        //   <Text style={{ opacity: 0.6 }}>{hideAnswersExplain}</Text>
+        // )}
       />
+
+      <List.Section>
+        <List.Item
+          rippleColor={Colors.ripple}
+          title={savedQuestions}
+          left={() => (
+            <FontAwesome6 name="bookmark" size={24} color={'#654DA1'} style={{marginLeft:4}} />
+            // <Ionicons name="bookmark-outline" size={24} color={'#654DA1'} />
+          )}
+          right={() => <AntDesign name="right" size={24} color={Colors.border} />}
+          //@ts-ignore
+          onPress={() => navigation.navigate('Saved')}
+          style={{
+            borderBottomWidth: 1,
+            borderBottomColor: Colors.border,
+            paddingLeft: 15,
+            marginTop: -8,
+          }}
+          titleStyle={{ color: Colors.text }}
+        />
 
       <List.Item
         rippleColor={Colors.ripple}
         title={aboutTheApp}
         left={() => (
           <MaterialCommunityIcons
-            name="information-variant"
+          name="information-variant"
             size={26}
             color="#654DA1"
-          />
-        )}
-        right={() => <AntDesign name="right" size={24} color={Colors.border} />}
-        //@ts-ignore
+            />
+          )}
+          right={() => <AntDesign name="right" size={24} color={Colors.border} />}
+          //@ts-ignore
         onPress={() => navigation.navigate('About')}
         style={{
           borderBottomWidth: 1,
@@ -148,11 +191,14 @@ const Settings = () => {
           marginTop: 0,
         }}
         titleStyle={{ color: Colors.text }}
-      />
+        />
+        </List.Section>
 
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
+
+      {bottomSheet}
     </View>
   )
 }
