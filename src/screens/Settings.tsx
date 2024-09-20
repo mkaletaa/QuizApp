@@ -131,7 +131,14 @@ const Settings = () => {
           marginTop: -8,
         }}
         titleStyle={{ color: Colors.text }}
-        left={() => <FontAwesome6 name="code" size={20} color={'#654DA1'} />}
+        left={() => (
+          <FontAwesome6
+            name="code"
+            size={20}
+            color={'#654DA1'}
+            style={{ opacity: 0.7 }}
+          />
+        )}
       />
 
       <List.Section>
@@ -143,7 +150,7 @@ const Settings = () => {
               name="bookmark"
               size={24}
               color={'#654DA1'}
-              style={{ marginLeft: 4 }}
+              style={{ marginLeft: 4, opacity: 0.7 }}
             />
           )}
           right={() => (
@@ -173,6 +180,8 @@ const Settings = () => {
               name="information"
               size={32}
               color={'#654DA1'}
+              style={{ opacity: 0.7 }}
+
               // style={styles.icon}
             />
           )}
