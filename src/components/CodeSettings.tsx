@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
-
-
-import { selectCodeTheme } from '../../data/texts';
-import { Colors } from '../utils/constants';
-import useStore from '../utils/store';
-import { setValue } from '../utils/utilStorage';
-import ContentRenderer from './ContentRenderer/_ContentRenderer';
-
+import { selectCodeTheme } from '../../data/texts'
+import { Colors } from '../utils/constants'
+import useStore from '../utils/store'
+import { setValue } from '../utils/utilStorage'
+import ContentRenderer from './ContentRenderer/_ContentRenderer'
 
 export default function CodeSettings() {
   const setHljsStyle = useStore(state => state.setHljsStyle)
@@ -117,25 +115,25 @@ export default function CodeSettings() {
     { label: 'Zenburn', value: 'zenburn' },
   ]
 
-
   return (
     <React.Fragment>
-      <ContentRenderer
-        content={[
-          {
-            type: 'Code',
-            value:
-              'function print(greet){\n   console.log(`${greet} World!`)\n}\n\nlet greet = \'Hello\'\nprint(greet) // prints "Hello World!"',
-            props: { language: 'javascript' },
-          },
-        ]}
-      ></ContentRenderer>
-
-      <View style={{ marginVertical: 10 }}>
+      <View style={{ padding: 20, paddingBottom: 10, gap: 10 }}>
+        <ContentRenderer
+          content={[
+            {
+              type: 'Code',
+              value:
+                'function print(greet){\n   console.log(`${greet} World!`)\n}\n\nlet greet = \'Hello\'\nprint(greet) // prints "Hello World!"',
+              props: { language: 'javascript' },
+            },
+          ]}
+        ></ContentRenderer>
         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
           {selectCodeTheme}
         </Text>
-
+      </View>
+      {/* <LinearGradient style={{}}></LinearGradient> */}
+      <ScrollView contentContainerStyle={{paddingBottom: 30}}>
         <View style={styles.optionsContainer}>
           {stylesArray.map(item => (
             <TouchableOpacity
@@ -158,7 +156,7 @@ export default function CodeSettings() {
             </TouchableOpacity>
           ))}
         </View>
-      </View>
+      </ScrollView>
     </React.Fragment>
   )
 }
@@ -168,7 +166,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
-    marginTop: 20,
+    marginTop: 10,
     justifyContent: 'center',
   },
   optionButton: {

@@ -120,7 +120,7 @@ const Settings = () => {
         title={codeSettings}
         onPress={() => {
           setBottomSheetContent(<CodeSettings />)
-          setBottomSheetSnapIndex(2)
+          setBottomSheetSnapIndex(3)
           setShowBottomSheet(true)
         }}
         rippleColor={Colors.ripple}

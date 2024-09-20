@@ -17,7 +17,7 @@ import ContentRenderer from './_ContentRenderer'
 
 export default function Spoiler() {
   const bottomSheetRef = useRef(null)
-  const snapPoints = ['31%', '50%', '75%']
+  const snapPoints = ['31%', '50%', '75%', '90%']
 
   const showBottomSheet = useStore(state => state.showBottomSheet)
   const snapIndex = useStore.getState().bottomSheetSnapIndex
@@ -113,15 +113,17 @@ export default function Spoiler() {
               backdropComponent={renderBackdrop}
               style={{ flex: 1 }}
             >
-              <BottomSheetScrollView
-                contentContainerStyle={styles.contentContainer}
-              >
-                {Array.isArray(bottomSheetContent)
-                  ? bottomSheetContent.map((item, index) => (
-                      <ContentRenderer key={index} content={[item]} />
-                    ))
-                  : bottomSheetContent}
-              </BottomSheetScrollView>
+              {Array.isArray(bottomSheetContent) ? (
+                <BottomSheetScrollView
+                  contentContainerStyle={styles.contentContainer}
+                >
+                  {bottomSheetContent.map((item, index) => (
+                    <ContentRenderer key={index} content={[item]} />
+                  ))}
+                </BottomSheetScrollView>
+              ) : (
+                bottomSheetContent
+              )}
             </BottomSheet>
           </Portal>
         </View>
