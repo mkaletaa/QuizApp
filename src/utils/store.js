@@ -5,13 +5,23 @@ import { compareGoodInfiniteStreak, compareInfiniteStreak } from './utilStorage'
 const useStore = create(set => ({
   carousel: false, // should the carousel be enabled or not
   images: [], //images to display in the carousel
-  // showPopup: false, // should a popup in Theory/ItemResult be shown
   showBottomSheet: false,
   bottomSheetSnapIndex: 0,
   bottomSheetContent: [],
   infiniteStreak: 0,
   goodInfiniteStreak: 0,
-  // navigateTo: undefined,
+  hljsStyle: 'shadesOfPurple',
+  shuffle: false, //shuffle questions
+  hide: false, //hide answers in Quiz
+  setHljsStyle: style => set({ hljsStyle: style }),
+  toggleShuffle: () =>
+    set(state => {
+      return { shuffle: !state.shuffle }
+    }),
+  toggleHide: () =>
+    set(state => {
+      return { hide: !state.hide }
+    }),
   addImage: (imageUrl, imageDes) => {
     set(state => ({
       images: [...state.images, { url: imageUrl, des: imageDes }],

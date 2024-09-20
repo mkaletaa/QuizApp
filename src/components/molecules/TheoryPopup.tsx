@@ -103,7 +103,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
                 <List.Item
                   rippleColor={Colors.ripple}
                   title={reportAMistake}
-                  right={() => (
+                  left={() => (
                     // <Entypo name="flag" size={24} color="tomato"/>
                     // <FontAwesome6 name="font-awesome-flag" size={22} color="tomato" />
                     <MaterialIcons
@@ -134,6 +134,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
                     height: 0.5,
                     backgroundColor: Colors.border,
                     marginHorizontal: 10,
+                    alignItems: 'center'
                   }}
                 />
                 {/* <Divider></Divider> */}

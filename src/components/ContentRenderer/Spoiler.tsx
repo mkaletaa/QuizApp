@@ -3,12 +3,11 @@ import BottomSheet, {
   BottomSheetScrollView,
 } from '@gorhom/bottom-sheet'
 import React, { useCallback, useEffect, useRef } from 'react'
-import { BackHandler, Dimensions, StyleSheet, Text, View } from 'react-native'
+import { BackHandler, Dimensions, StyleSheet, View } from 'react-native'
 import {
   GestureHandlerRootView,
   PanGestureHandler,
   State,
-  ScrollView, FlatList
 } from 'react-native-gesture-handler'
 import { Portal } from 'react-native-paper'
 
@@ -18,7 +17,7 @@ import ContentRenderer from './_ContentRenderer'
 
 export default function Spoiler() {
   const bottomSheetRef = useRef(null)
-  const snapPoints = ['31%', '50%', '75%']
+  const snapPoints = ['31%', '50%', '75%', '90%']
 
   const showBottomSheet = useStore(state => state.showBottomSheet)
   const snapIndex = useStore.getState().bottomSheetSnapIndex
@@ -110,17 +109,24 @@ export default function Spoiler() {
               handleIndicatorStyle={{
                 backgroundColor: 'rgb(200,205,245)',
               }}
-              backgroundStyle={{ backgroundColor: Colors.surfaceBg }}
+              backgroundStyle={{ 
+                // backgroundColor: Colors.screenBg
+                backgroundColor: Colors.gradientLight 
+              }}
               backdropComponent={renderBackdrop}
               style={{ flex: 1 }}
             >
-              <BottomSheetScrollView
-                contentContainerStyle={styles.contentContainer}
+              {Array.isArray(bottomSheetContent) ? (
+                <BottomSheetScrollView
+                  contentContainerStyle={styles.contentContainer}
                 >
-                {bottomSheetContent?.map((item, index) => (
-                  <ContentRenderer key={index} content={[item]} />
-                ))}
-              </BottomSheetScrollView>
+                  {bottomSheetContent.map((item, index) => (
+                    <ContentRenderer key={index} content={[item]} />
+                  ))}
+                </BottomSheetScrollView>
+              ) : (
+                bottomSheetContent
+              )}
             </BottomSheet>
           </Portal>
         </View>

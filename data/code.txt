@@ -23,6 +23,7 @@ export interface CodeHighlighterProps extends SyntaxHighlighterProps {
 	hljsStyle: ReactStyle;
 	textStyle?: StyleProp<TextStyle>;
 	scrollViewProps?: ScrollViewProps;
+	additionalProps?: any;
 	/**
 	 * @deprecated Use scrollViewProps.contentContainerStyle instead
 	 */
@@ -35,6 +36,7 @@ export const CodeHighlighter: FunctionComponent<CodeHighlighterProps> = ({
 	hljsStyle,
 	scrollViewProps,
 	containerStyle,
+	additionalProps = {}, // domyślnie pusty obiekt
 	...rest
 }) => {
 	const stylesheet: HighlighterStyleSheet = useMemo(
@@ -75,10 +77,26 @@ export const CodeHighlighter: FunctionComponent<CodeHighlighterProps> = ({
 	const renderer = (props: rendererProps) => {
 		const { rows } = props;
 		return (
-			<View style={{flexDirection: 'row', backgroundColor: '#011627'}}>
-				<View style={{paddingTop: 12, gap: 2.7, width: 20,  alignItems: 'center'}}>
-					{rows.map((a, i)=>{
-						return <Text style={{color: "dimgrey"}}>{i+1}</Text>
+			<View
+				style={{
+					flexDirection: "row",
+					backgroundColor: additionalProps?.color || "white", // Użycie additionalProps
+				}}
+			>
+				<View
+					style={{
+						paddingTop: 12,
+						gap: 2.7,
+						width: 20,
+						alignItems: "center",
+					}}
+				>
+					{rows.map((_, i) => {
+						return (
+							<Text key={i} style={{ color: "dimgrey" }}>
+								{i + 1}
+							</Text>
+						);
 					})}
 				</View>
 				<ScrollView

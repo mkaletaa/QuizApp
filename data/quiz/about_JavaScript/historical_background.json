@@ -4,10 +4,10 @@
     "multiChoice": false,
     "question": "Who is the creator of JavaScript",
     "options": [
-      { "id": 1, "answer": "Ryan Dahl", "correct": false },
-      { "id": 2, "answer": "Jeff Atwood", "correct": false },
-      { "id": 3, "answer": "Brendan Eich", "correct": true },
-      { "id": 4, "answer": "They are unknown", "correct": false }
+      { "id": 1, "val": "Ryan Dahl", "correct": false },
+      { "id": 2, "val": "Jeff Atwood", "correct": false },
+      { "id": 3, "val": "Brendan Eich", "correct": true },
+      { "id": 4, "val": "They are unknown", "correct": false }
     ],
     "explanation": "Ryan Dahl is the creator of Node.js and Jeff Atwood is the author of the famous Atwood's Law"
   },
@@ -16,37 +16,37 @@
     "multiChoice": false,
     "question": "When was JavaScript created?",
     "options": [
-      { "id": 21, "answer": "1991", "correct": false },
-      { "id": 22, "answer": "1992", "correct": false },
-      { "id": 23, "answer": "1993", "correct": false },
-      { "id": 24, "answer": "1994", "correct": false },
-      { "id": 25, "answer": "1995", "correct": true },
-      { "id": 26, "answer": "1996", "correct": false }
+      { "id": 21, "val": "1991", "correct": false },
+      { "id": 22, "val": "1992", "correct": false },
+      { "id": 23, "val": "1993", "correct": false },
+      { "id": 24, "val": "1994", "correct": false },
+      { "id": 25, "val": "1995", "correct": true },
+      { "id": 26, "val": "1996", "correct": false }
     ]
   },
   {
     "id": "about_JavaScript|historical_background|3",
     "multiChoice": false,
-    "question": "JHow long did it take to create JavaScript?",
+    "question": "How long did it take to create JavaScript?",
     "options": [
       {
         "id": 31,
-        "answer": "10 days",
+        "val": "10 days",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "10 weeks",
+        "val": "10 weeks",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "10 months",
+        "val": "10 months",
         "correct": false
       },
       {
         "id": 34,
-        "answer": "10 years",
+        "val": "10 years",
         "correct": false
       }
     ]
@@ -58,22 +58,22 @@
     "options": [
       {
         "id": 31,
-        "answer": "Mocha",
+        "val": "Mocha",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "LiveScript",
+        "val": "LiveScript",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "ActionScript",
+        "val": "ActionScript",
         "correct": false
       },
       {
         "id": 34,
-        "answer": "JScript",
+        "val": "JScript",
         "correct": false
       }
     ]
@@ -85,17 +85,17 @@
     "options": [
       {
         "id": 31,
-        "answer": "Mosaic",
+        "val": "Mosaic",
         "correct": false
       },
       {
         "id": 32,
-        "answer": "Netscape Navigator",
+        "val": "Netscape Navigator",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "Internet Explorer",
+        "val": "Internet Explorer",
         "correct": false
       }
     ]
@@ -107,22 +107,22 @@
     "options": [
       {
         "id": 31,
-        "answer": "It was created on an Indonesian island named Java.",
+        "val": "It was created on an Indonesian island named Java.",
         "correct": false
       },
       {
         "id": 32,
-        "answer": "Java was its creator's favorite language.",
+        "val": "Java was its creator's favorite language.",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "The name was chosen randomly without any specific connection to Java or coffee.",
+        "val": "The name was chosen randomly without any specific connection to Java or coffee.",
         "correct": false
       },
       {
         "id": 34,
-        "answer": "It was just a marketing move, as Java was very popular back then.",
+        "val": "It was just a marketing move, as Java was very popular back then.",
         "correct": true
       }
     ]
@@ -134,17 +134,17 @@
     "options": [
       {
         "id": 31,
-        "answer": "Angular JS",
+        "val": "Angular JS",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "React",
+        "val": "React",
         "correct": false
       },
       {
         "id": 32,
-        "answer": "Backbone",
+        "val": "Backbone",
         "correct": true
       }
     ]
@@ -156,22 +156,22 @@
     "options": [
       {
         "id": 31,
-        "answer": "ECMA",
+        "val": "ECMA",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "IEEE",
+        "val": "IEEE",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "W3C",
+        "val": "W3C",
         "correct": false
       },
       {
         "id": 34,
-        "answer": "ISO",
+        "val": "ISO",
         "correct": false
       }
     ]
@@ -183,22 +183,22 @@
     "options": [
       {
         "id": 31,
-        "answer": "2005",
+        "val": "2005",
         "correct": false
       },
       {
         "id": 32,
-        "answer": "2006",
+        "val": "2006",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "2015",
+        "val": "2015",
         "correct": true
       },
       {
         "id": 34,
-        "answer": "2016",
+        "val": "2016",
         "correct": false
       }
     ]
@@ -210,22 +210,22 @@
     "options": [
       {
         "id": 31,
-        "answer": "Apple",
+        "val": "Apple",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "Amazon",
+        "val": "Amazon",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "Microsoft",
+        "val": "Microsoft",
         "correct": false
       },
       {
         "id": 34,
-        "answer": "Meta",
+        "val": "Meta",
         "correct": true
       }
     ]
@@ -237,22 +237,22 @@
     "options": [
       {
         "id": 31,
-        "answer": "V8",
+        "val": "V8",
         "correct": true
       },
       {
         "id": 32,
-        "answer": "SpiderMonkey",
+        "val": "SpiderMonkey",
         "correct": false
       },
       {
         "id": 33,
-        "answer": "Rhino Engine",
+        "val": "Rhino Engine",
         "correct": false
       },
       {
         "id": 34,
-        "answer": "ChromeJS Engine",
+        "val": "ChromeJS Engine",
         "correct": false
       }
     ]
@@ -264,22 +264,22 @@
     "options": [
       {
         "id": 31,
-        "answer": "2008",
+        "val": "2008",
         "correct": false
       },
       {
         "id": 32,
-        "answer": "2009",
+        "val": "2009",
         "correct": true
       },
       {
         "id": 33,
-        "answer": "2010",
+        "val": "2010",
         "correct": false
       },
       {
         "id": 34,
-        "answer": "2011",
+        "val": "2011",
         "correct": false
       }
     ]

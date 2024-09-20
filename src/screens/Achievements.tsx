@@ -138,10 +138,10 @@ export default function Achievements() {
       >
         Gamification in learning uses game design elements to make educational
         experiences more engaging and motivating. By incorporating badges and
-        challenges, it transforms traditional learning into an enjoyable
+        achievements, it transforms traditional learning into an enjoyable
         process.
       </Text>
-      <View style={[styles.section, { gap: 7 }]}>
+      <View style={[styles.section, { gap: 10 }]}>
         <Text variant="titleLarge">
           Endless Challenger: {infiniteStreak !== null ? infiniteStreak : 0}
         </Text>
@@ -171,49 +171,51 @@ export default function Achievements() {
         </Text>
       </View>
 
-      {rangs.map(el => {
-        if (goodAnsCount >= el.min && goodAnsCount <= el.max) {
-          return (
-            <View style={{ alignItems: 'center', gap: 10, marginTop: 10 }}>
-              <Text
-                variant="labelLarge"
-                style={{
-                  backgroundColor: Colors.gradient,
-                  borderRadius: 15,
-                  paddingHorizontal: 10,
-                }}
-              >
-                {el.name}
-              </Text>
-              <View
-                style={[
-                  styles.progressBar,
-                  {
-                    width: '100%',
-                    height: 15,
-                  },
-                ]}
-              >
-                <View
+      <View style={styles.section}>
+        {rangs.map(el => {
+          if (goodAnsCount >= el.min && goodAnsCount <= el.max) {
+            return (
+              <View style={{ alignItems: 'center', gap: 10 }}>
+                <Text
+                  variant="labelLarge"
                   style={{
-                    width:
-                      el.max === Infinity
-                        ? '100%'
-                        : `${(goodAnsCount / el.max) * 100}%`,
-                    backgroundColor: COLOR.GREEN,
-                    height: '100%',
-                    borderRadius: 10,
-                    // borderWidth:3,
-                    // borderColor: 'green'
+                    backgroundColor: Colors.gradient,
+                    borderRadius: 15,
+                    paddingHorizontal: 10,
                   }}
-                />
-                {/* <Gradient  ></Gradient> */}
+                >
+                  {el.name}
+                </Text>
+                <View
+                  style={[
+                    styles.progressBar,
+                    {
+                      width: '100%',
+                      height: 15,
+                    },
+                  ]}
+                >
+                  <View
+                    style={{
+                      width:
+                        el.max === Infinity
+                          ? '100%'
+                          : `${(goodAnsCount / el.max) * 100}%`,
+                      backgroundColor: COLOR.GREEN,
+                      height: '100%',
+                      borderRadius: 10,
+                      // borderWidth:3,
+                      // borderColor: 'green'
+                    }}
+                  />
+                  {/* <Gradient  ></Gradient> */}
+                </View>
               </View>
-            </View>
-          )
-        }
-        return null // jeśli warunek nie jest spełniony, zwracamy null
-      })}
+            )
+          }
+          return null // jeśli warunek nie jest spełniony, zwracamy null
+        })}
+      </View>
 
       <View style={styles.section}>
         <Text variant="headlineSmall">Chapters Stats</Text>
@@ -335,8 +337,8 @@ export default function Achievements() {
                   <View>
                     <Image
                       style={{
-                        width: 70,
-                        height: 70,
+                        width: 80,
+                        height: 80,
                         tintColor: Colors.gradientLight,
                         borderRadius: 5,
                       }}
@@ -346,8 +348,8 @@ export default function Achievements() {
                     />
                     <Image
                       style={{
-                        width: 70,
-                        height: 70,
+                        width: 80,
+                        height: 80,
                         position: 'absolute',
                         opacity: el.count > 0 ? 1 : 0.1,
                         borderRadius: 5,
@@ -357,13 +359,19 @@ export default function Achievements() {
                       }}
                     />
                   </View>
-                  <View style={{ flex: 1, justifyContent: 'space-between' }}>
-                    <Text variant="bodyMedium">
+                  <View style={{ flex: 1, justifyContent: 'space-around' }}>
+                    <Text
+                      variant="bodyMedium"
+                      style={{ maxWidth: 300, alignSelf: 'center' }}
+                    >
                       Achieved 100% correct answers on a quiz from the lesson{' '}
                       {removeUnderscores(el.topic, true)}
                     </Text>
                     {el.count !== 0 && (
-                      <Text variant="labelLarge">
+                      <Text
+                        variant="labelLarge"
+                        style={{ maxWidth: 300, alignSelf: 'center' }}
+                      >
                         You did it {el.count}{' '}
                         {el.count === 1 ? 'time' : 'times'}
                       </Text>
@@ -389,6 +397,7 @@ export default function Achievements() {
             flexWrap: 'wrap',
             justifyContent: 'space-between', // rozstawienie elementów
             marginBottom: 32,
+            marginTop: 10,
           }}
         >
           {faces.map((a, i) => {
@@ -431,10 +440,10 @@ const styles = StyleSheet.create({
   },
   section: {
     marginTop: 26,
-    maxWidth: 500,
-    alignSelf: 'center',
     width: '100%',
     gap: 10,
+    maxWidth: 500,
+    alignSelf: 'center',
     // backgroundColor: 'red'
   },
   progressBar: {

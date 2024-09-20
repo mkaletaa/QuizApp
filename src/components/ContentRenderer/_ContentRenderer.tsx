@@ -1,13 +1,12 @@
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import CodeHighlighter from 'react-native-code-highlighter'
 import YoutubePlayer from 'react-native-youtube-iframe'
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 import { Colors } from '../../utils/constants'
 import { Component } from '../../utils/types'
 import Ad from './Ad'
 import Block from './Block'
+import Code from './Code'
 import ImageComponent from './ImageComponent'
 import { List, ListElement } from './List'
 import Math from './Math'
@@ -17,7 +16,6 @@ import SpoilerButton from './SpoilerButton'
 //dataComponent is an object of a single component, eg. {"type": "Text", "value": "Do you have a pet?"}
 export const renderComponent = (dataComponent: Component, width: number) => {
   const { type: componentType, props, value } = dataComponent
-
   //key is stringified object itself (20 first characters)
   let key: string
   if (value) key = JSON.stringify(value).slice(0, 50)
@@ -118,27 +116,11 @@ export const renderComponent = (dataComponent: Component, width: number) => {
       return <SpoilerButton value={value} props={props} />
 
     case 'Code':
-      const codeContainerStyle = {
-        // ...styles.codeContainer,
-        ...props,
-      }
-      return (
-        <View
-          key={key}
-          style={{ width: width * 0.93, paddingBottom: 0 }} //one can set max width for bigger screens
-        >
-          <CodeHighlighter
-            hljsStyle={nightOwl}
-            textStyle={{ fontSize: 16 }}
-            language={props.language}
-            //@ts-ignore
-            customStyle={styles.code}
-            scrollViewProps={{ contentContainerStyle: { paddingVertical: 10, paddingRight: 8 } }} //used to be width 100%
-          >
-            {value}
-          </CodeHighlighter>
-        </View>
-      )
+      // const codeContainerStyle = {
+      //   // ...styles.codeContainer,
+      //   ...props,
+      // }
+      return <Code width={width} props={props} value={value} />
     case 'YouTube':
       const screenWidth = Dimensions.get('window').width
       return (

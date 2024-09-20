@@ -4,21 +4,20 @@ import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ActivityIndicator,
-  Animated,
   Dimensions,
   Pressable,
   SectionList,
   StyleSheet,
   Text,
-  View,
+  View
 } from 'react-native'
 import { Snackbar } from 'react-native-paper'
 
+import settings from '../../data/settings.json'
 import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import Ad from '../components/ContentRenderer/Ad'
-import Spoiler from '../components/ContentRenderer/Spoiler'
 import ArrowUp from '../components/molecules/atoms/ArrowUp'
 import QuizButton from '../components/molecules/atoms/QuizButton'
 import TheoryPopup from '../components/molecules/TheoryPopup'
@@ -41,6 +40,7 @@ export default function Theory({
   const [showGoUp, setShowGoUp] = useState(false)
   const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
+  const screenWidth = Dimensions.get('window').width
   const headerHeight = useHeaderHeight()
 
   useEffect(() => {
@@ -110,18 +110,16 @@ export default function Theory({
   }
 
   const renderHeader = () => (
-    <React.Fragment>
-      <Ad/>
-      <View
-        style={[
-          styles.header,
-          { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
-        ]}
-      >
-        {theoryData.map(
-          (a, i) =>
-            a.title && (
-              <View
+    <View
+      style={[
+        styles.header,
+        { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
+      ]}
+    >
+      {theoryData.map(
+        (a, i) =>
+          a.title && (
+            <View
               key={i.toString()}
               style={{
                 alignItems: 'flex-start',
@@ -129,25 +127,44 @@ export default function Theory({
                 paddingHorizontal: 20,
                 gap: 20,
               }}
-              >
-                <Pressable onPress={() => scrollToSection(i)}>
-                  <Text
-                    style={{
-                      fontSize: 21,
-                      textDecorationLine: 'underline',
-                      color: '#54039b',
-                    }}
-                  >
-                    {theoryData[0]?.title ? i + 1 : i} {a.title}
-                  </Text>
-                </Pressable>
-              </View>
-            ),
-        )}
-      </View>
-    </React.Fragment>
+            >
+              <Pressable onPress={() => scrollToSection(i)}>
+                <Text
+                  style={{
+                    fontSize: 21,
+                    textDecorationLine: 'underline',
+                    color: '#54039b',
+                  }}
+                >
+                  {theoryData[0]?.title ? i + 1 : i} {a.title}
+                </Text>
+              </Pressable>
+            </View>
+          ),
+      )}
+    </View>
   )
-  
+
+  const renderSectionHeader = ({ section }) => {
+    if (section.title) {
+      return (
+        <View
+          style={{
+            padding: 10,
+            paddingLeft: 30,
+            paddingRight: 30,
+            backgroundColor: Colors.screenBg,
+            borderTopWidth: 1,
+            borderTopColor: Colors.border,
+          }}
+        >
+          <Text style={styles.sectionHeaderText}>{section.title}</Text>
+        </View>
+      )
+    }
+    return null // Brak nagłówka dla sekcji bez tytułu
+  }
+
   const renderItem = ({ item, index }) => (
     <View
       style={{
@@ -162,12 +179,13 @@ export default function Theory({
 
   const renderFooter = () => (
     <React.Fragment>
-      <Ad size='large'></Ad>
+      <Ad size="large"></Ad>
       <View
         style={{
           padding: 30,
           alignItems: 'center',
           height: 200,
+          marginBottom: settings.ads ? screenHeight/12 : 0,
           // backgroundColor: 'red',
         }}
       >
@@ -187,11 +205,14 @@ export default function Theory({
           scrollEventThrottle={15}
           ListHeaderComponent={renderHeader}
           stickySectionHeadersEnabled
+          renderSectionHeader={renderSectionHeader}
           renderItem={({ item, index }) => renderItem({ item, index })}
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
-        <Spoiler />
+        <View style={{ position: 'absolute', bottom: 80 }}>
+          <Ad />
+        </View>
       </React.Fragment>
     ) : (
       <View
@@ -225,7 +246,7 @@ export default function Theory({
         style={[{ width: `${scrollPercentage}%` }, styles.progressBarContainer]}
       />
 
-      <ArrowUp showGoUp={showGoUp} scrollToTop={scrollToTop} />
+      <ArrowUp showGoUp={showGoUp} scrollToTop={scrollToTop} screenWidth={screenWidth}/>
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
@@ -250,6 +271,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     zIndex: 2,
+  },
+  sectionHeaderText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.boldText,
+    textAlign: 'center',
   },
   header: {
     padding: 10,

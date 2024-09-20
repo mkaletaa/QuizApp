@@ -2,14 +2,17 @@ import { AntDesign } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
 import { Animated, StyleSheet } from 'react-native'
 
+import settings from '../../../../data/settings.json'
 import { Colors } from '../../../utils/constants'
 
 export default function ArrowUp({
   showGoUp,
   scrollToTop,
+  screenWidth,
 }: {
   showGoUp: boolean
   scrollToTop: () => void
+  screenWidth: number
 }) {
   const [scaleValue] = useState(new Animated.Value(0))
 
@@ -35,6 +38,7 @@ export default function ArrowUp({
         styles.goUp,
         {
           transform: [{ scale: scaleValue }],
+          bottom: settings.ads ? screenWidth / 8 + 100 : 120,
         },
       ]}
     >
@@ -57,6 +61,5 @@ const styles = StyleSheet.create({
     zIndex: 1,
     borderRadius: 15,
     elevation: 3,
-    bottom: 120,
   },
 })
