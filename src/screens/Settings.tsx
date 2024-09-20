@@ -1,7 +1,7 @@
 import { AntDesign, Ionicons } from '@expo/vector-icons'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { List, Switch as PaperSwitch } from 'react-native-paper'
 
@@ -20,11 +20,46 @@ import { Colors } from '../utils/constants'
 import useStore from '../utils/store'
 import { getValue, setValue } from '../utils/utilStorage'
 
+// Prosta implementacja debounce
+const debounce = (func, delay) => {
+  let timer
+  return function (...args) {
+    const context = this
+    clearTimeout(timer) // Anulowanie poprzedniego wywołania
+    timer = setTimeout(() => func.apply(context, args), delay) // Ustawienie nowego
+  }
+}
+
+// Implementacja funkcji throttle
+const throttle = (func, limit) => {
+  let lastFunc
+  let lastRan
+  return function (...args) {
+    const context = this
+    if (!lastRan) {
+      func.apply(context, args)
+      lastRan = Date.now()
+    } else {
+      clearTimeout(lastFunc)
+      lastFunc = setTimeout(
+        function () {
+          if (Date.now() - lastRan >= limit) {
+            func.apply(context, args)
+            lastRan = Date.now()
+          }
+        },
+        limit - (Date.now() - lastRan),
+      )
+    }
+  }
+}
+
 const Settings = () => {
-  const [isShuffleSwitchEnabled, setIsShuffleSwitchEnabled] =
-    useState<boolean>()
-  const [isHideAnswersSwitchEnabled, setIsHideAnswersSwitchEnabled] =
-    useState<boolean>()
+  const shuffle = useStore(state => state.shuffle)
+  const toggleShuffle = useStore(state => state.toggleShuffle)
+  const hide = useStore(state => state.hide)
+  const toggleHide = useStore(state => state.toggleHide)
+
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
   const setBottomSheetContent = useStore(state => state.setBottomSheetContent)
   const setBottomSheetSnapIndex = useStore(
@@ -32,42 +67,32 @@ const Settings = () => {
   )
   const navigation = useNavigation()
 
-  async function checkPreferences() {
-    const shouldShuffle = await getValue('shuffle')
-    const shouldHide = await getValue('hide')
-    console.log('🚀 ~ checkPreferences ~ shouldShuffle:', shouldShuffle)
-    if (shouldShuffle === null) setIsShuffleSwitchEnabled(false)
-    else setIsShuffleSwitchEnabled(shouldShuffle)
-    if (shouldHide === null) setIsHideAnswersSwitchEnabled(false)
-    else setIsHideAnswersSwitchEnabled(shouldHide)
-  }
-
-  useEffect(() => {
-    checkPreferences()
-  }, [])
+  // Użycie throttle zamiast debounce, limit 300 ms
+  const throttledToggleShuffle = useCallback(throttle(toggleShuffle, 300), [])
+  const throttledToggleHide = useCallback(throttle(toggleHide, 300), [])
 
   useEffect(() => {
     try {
-      setValue('shuffle', isShuffleSwitchEnabled)
+      setValue('shuffle', shuffle)
     } catch (e) {
       console.error(e)
     }
-  }, [isShuffleSwitchEnabled])
+  }, [shuffle])
 
   useEffect(() => {
     try {
-      setValue('hide', isHideAnswersSwitchEnabled)
+      setValue('hide', hide)
     } catch (e) {
       console.error(e)
     }
-  }, [isHideAnswersSwitchEnabled])
+  }, [hide])
 
   function setShuffleStorage() {
-    setIsShuffleSwitchEnabled(prev => !prev)
+    throttledToggleShuffle() // Wywołanie funkcji z throttlem
   }
 
   function setHideAnswersStorage() {
-    setIsHideAnswersSwitchEnabled(prev => !prev)
+    throttledToggleHide() // Wywołanie funkcji z throttlem
   }
 
   return (
@@ -78,10 +103,7 @@ const Settings = () => {
         onPress={setShuffleStorage}
         rippleColor={Colors.ripple}
         right={() => (
-          <PaperSwitch
-            value={isShuffleSwitchEnabled}
-            onValueChange={setShuffleStorage}
-          />
+          <PaperSwitch value={shuffle} onValueChange={setShuffleStorage} />
         )}
         style={{
           borderBottomWidth: 1,
@@ -98,10 +120,7 @@ const Settings = () => {
           onPress={setHideAnswersStorage}
           rippleColor={Colors.ripple}
           right={() => (
-            <PaperSwitch
-              value={isHideAnswersSwitchEnabled}
-              onValueChange={setHideAnswersStorage}
-            />
+            <PaperSwitch value={hide} onValueChange={setHideAnswersStorage} />
           )}
           style={{
             borderBottomWidth: 1,
@@ -171,18 +190,11 @@ const Settings = () => {
           rippleColor={Colors.ripple}
           title={aboutTheApp}
           left={() => (
-            // <MaterialCommunityIcons
-            //   name="information-variant"
-            //   size={26}
-            //   color="#654DA1"
-            // />
             <Ionicons
               name="information"
               size={32}
               color={'#654DA1'}
               style={{ opacity: 0.7 }}
-
-              // style={styles.icon}
             />
           )}
           right={() => (
