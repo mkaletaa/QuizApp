@@ -40,6 +40,7 @@ export default function Theory({
   const [showGoUp, setShowGoUp] = useState(false)
   const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
+  const screenWidth = Dimensions.get('window').width
   const headerHeight = useHeaderHeight()
 
   useEffect(() => {
@@ -184,7 +185,7 @@ export default function Theory({
           padding: 30,
           alignItems: 'center',
           height: 200,
-          marginBottom: settings.ads ? 30 : 0,
+          marginBottom: settings.ads ? screenHeight/12 : 0,
           // backgroundColor: 'red',
         }}
       >
@@ -245,7 +246,7 @@ export default function Theory({
         style={[{ width: `${scrollPercentage}%` }, styles.progressBarContainer]}
       />
 
-      <ArrowUp showGoUp={showGoUp} scrollToTop={scrollToTop} />
+      <ArrowUp showGoUp={showGoUp} scrollToTop={scrollToTop} screenWidth={screenWidth}/>
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />

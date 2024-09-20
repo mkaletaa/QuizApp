@@ -8,9 +8,11 @@ import { Colors } from '../../../utils/constants'
 export default function ArrowUp({
   showGoUp,
   scrollToTop,
+  screenWidth,
 }: {
   showGoUp: boolean
   scrollToTop: () => void
+  screenWidth: number
 }) {
   const [scaleValue] = useState(new Animated.Value(0))
 
@@ -36,6 +38,7 @@ export default function ArrowUp({
         styles.goUp,
         {
           transform: [{ scale: scaleValue }],
+          bottom: settings.ads ? screenWidth / 8 + 100 : 120,
         },
       ]}
     >
@@ -58,6 +61,5 @@ const styles = StyleSheet.create({
     zIndex: 1,
     borderRadius: 15,
     elevation: 3,
-    bottom: settings.ads ? 150 : 120,
   },
 })
