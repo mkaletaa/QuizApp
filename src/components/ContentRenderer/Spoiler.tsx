@@ -109,7 +109,10 @@ export default function Spoiler() {
               handleIndicatorStyle={{
                 backgroundColor: 'rgb(200,205,245)',
               }}
-              backgroundStyle={{ backgroundColor: Colors.gradientLight }}
+              backgroundStyle={{ 
+                // backgroundColor: Colors.screenBg
+                backgroundColor: Colors.gradientLight 
+              }}
               backdropComponent={renderBackdrop}
               style={{ flex: 1 }}
             >

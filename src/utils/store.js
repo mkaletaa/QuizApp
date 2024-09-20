@@ -1,6 +1,9 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
-import { compareGoodInfiniteStreak, compareInfiniteStreak } from './utilStorage'
+
+
+import { compareGoodInfiniteStreak, compareInfiniteStreak } from './utilStorage';
+
 
 const useStore = create(set => ({
   carousel: false, // should the carousel be enabled or not
@@ -11,7 +14,7 @@ const useStore = create(set => ({
   bottomSheetContent: [],
   infiniteStreak: 0,
   goodInfiniteStreak: 0,
-  hljsStyle: 'nightOwl',
+  hljsStyle: 'shadesOfPurple',
   setHljsStyle: style => set({ hljsStyle: style }),
   // navigateTo: undefined,
   addImage: (imageUrl, imageDes) => {
