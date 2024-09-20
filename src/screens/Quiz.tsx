@@ -273,16 +273,15 @@ export default function Quiz({ route }) {
       </ScrollView>
       {settings.ads && (
         <View
-          id="ad"
+          // id="ad"
           style={{
             width: '100%',
             height: 50,
-            // backgroundColor: 'yellow',
             position: 'absolute',
             bottom: 0,
           }}
         >
-          <Ad/>
+          <Ad />
         </View>
       )}
       <Modal

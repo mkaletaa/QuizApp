@@ -2,6 +2,7 @@ import { AntDesign } from '@expo/vector-icons'
 import React, { useEffect, useState } from 'react'
 import { Animated, StyleSheet } from 'react-native'
 
+import settings from '../../../../data/settings.json'
 import { Colors } from '../../../utils/constants'
 
 export default function ArrowUp({
@@ -57,6 +58,6 @@ const styles = StyleSheet.create({
     zIndex: 1,
     borderRadius: 15,
     elevation: 3,
-    bottom: 120,
+    bottom: settings.ads ? 150 : 120,
   },
 })

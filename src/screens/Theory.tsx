@@ -14,6 +14,7 @@ import {
 } from 'react-native'
 import { Snackbar } from 'react-native-paper'
 
+import settings from '../../data/settings.json'
 import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
@@ -110,42 +111,39 @@ export default function Theory({
   }
 
   const renderHeader = () => (
-    <React.Fragment>
-      <Ad />
-      <View
-        style={[
-          styles.header,
-          { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
-        ]}
-      >
-        {theoryData.map(
-          (a, i) =>
-            a.title && (
-              <View
-                key={i.toString()}
-                style={{
-                  alignItems: 'flex-start',
-                  width: '100%',
-                  paddingHorizontal: 20,
-                  gap: 20,
-                }}
-              >
-                <Pressable onPress={() => scrollToSection(i)}>
-                  <Text
-                    style={{
-                      fontSize: 21,
-                      textDecorationLine: 'underline',
-                      color: '#54039b',
-                    }}
-                  >
-                    {theoryData[0]?.title ? i + 1 : i} {a.title}
-                  </Text>
-                </Pressable>
-              </View>
-            ),
-        )}
-      </View>
-    </React.Fragment>
+    <View
+      style={[
+        styles.header,
+        { borderBottomWidth: theoryData.length > 1 ? 3 : 0 },
+      ]}
+    >
+      {theoryData.map(
+        (a, i) =>
+          a.title && (
+            <View
+              key={i.toString()}
+              style={{
+                alignItems: 'flex-start',
+                width: '100%',
+                paddingHorizontal: 20,
+                gap: 20,
+              }}
+            >
+              <Pressable onPress={() => scrollToSection(i)}>
+                <Text
+                  style={{
+                    fontSize: 21,
+                    textDecorationLine: 'underline',
+                    color: '#54039b',
+                  }}
+                >
+                  {theoryData[0]?.title ? i + 1 : i} {a.title}
+                </Text>
+              </Pressable>
+            </View>
+          ),
+      )}
+    </View>
   )
 
   const renderSectionHeader = ({ section }) => {
@@ -188,6 +186,7 @@ export default function Theory({
           padding: 30,
           alignItems: 'center',
           height: 200,
+          marginBottom: settings.ads ? 30 : 0,
           // backgroundColor: 'red',
         }}
       >
@@ -213,6 +212,9 @@ export default function Theory({
           keyExtractor={(item, index) => index.toString()}
         />
         <Spoiler />
+        <View style={{ position: 'absolute', bottom: 80 }}>
+          <Ad />
+        </View>
       </React.Fragment>
     ) : (
       <View

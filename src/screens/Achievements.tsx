@@ -138,7 +138,7 @@ export default function Achievements() {
       >
         Gamification in learning uses game design elements to make educational
         experiences more engaging and motivating. By incorporating badges and
-        challenges, it transforms traditional learning into an enjoyable
+        achievements, it transforms traditional learning into an enjoyable
         process.
       </Text>
       <View style={[styles.section, { gap: 10 }]}>
