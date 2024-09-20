@@ -3,12 +3,10 @@ import BottomSheet, {
   BottomSheetScrollView,
 } from '@gorhom/bottom-sheet'
 import React, { useCallback, useEffect, useRef } from 'react'
-import { BackHandler, Dimensions, StyleSheet, Text, View } from 'react-native'
+import { BackHandler, Dimensions, StyleSheet, View } from 'react-native'
 import {
-  FlatList,
   GestureHandlerRootView,
   PanGestureHandler,
-  ScrollView,
   State,
 } from 'react-native-gesture-handler'
 import { Portal } from 'react-native-paper'
@@ -17,7 +15,7 @@ import { Colors } from '../../utils/constants'
 import useStore from '../../utils/store'
 import ContentRenderer from './_ContentRenderer'
 
-export default function Spoiler({ children }: { children?: React.ReactNode }) {
+export default function Spoiler() {
   const bottomSheetRef = useRef(null)
   const snapPoints = ['31%', '50%', '75%']
 
@@ -118,11 +116,11 @@ export default function Spoiler({ children }: { children?: React.ReactNode }) {
               <BottomSheetScrollView
                 contentContainerStyle={styles.contentContainer}
               >
-                {bottomSheetContent && bottomSheetContent.length > 0
+                {Array.isArray(bottomSheetContent)
                   ? bottomSheetContent.map((item, index) => (
                       <ContentRenderer key={index} content={[item]} />
                     ))
-                  : children}
+                  : bottomSheetContent}
               </BottomSheetScrollView>
             </BottomSheet>
           </Portal>

@@ -4,13 +4,12 @@ import { StatusBar } from 'expo-status-bar'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ActivityIndicator,
-  Animated,
   Dimensions,
   Pressable,
   SectionList,
   StyleSheet,
   Text,
-  View,
+  View
 } from 'react-native'
 import { Snackbar } from 'react-native-paper'
 
@@ -19,7 +18,6 @@ import { thereIsNothingHere } from '../../data/texts'
 import { theory } from '../../data/theory/theory'
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
 import Ad from '../components/ContentRenderer/Ad'
-import Spoiler from '../components/ContentRenderer/Spoiler'
 import ArrowUp from '../components/molecules/atoms/ArrowUp'
 import QuizButton from '../components/molecules/atoms/QuizButton'
 import TheoryPopup from '../components/molecules/TheoryPopup'
@@ -211,7 +209,6 @@ export default function Theory({
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
-        <Spoiler />
         <View style={{ position: 'absolute', bottom: 80 }}>
           <Ad />
         </View>

@@ -1,7 +1,7 @@
-import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'
+import { AntDesign, Ionicons } from '@expo/vector-icons'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { List, Switch as PaperSwitch } from 'react-native-paper'
 
@@ -15,7 +15,6 @@ import {
   savedQuestions,
 } from '../../data/texts'
 import CodeSettings from '../components/CodeSettings'
-import Spoiler from '../components/ContentRenderer/Spoiler'
 import Gradient from '../components/molecules/atoms/Gradient'
 import { Colors } from '../utils/constants'
 import useStore from '../utils/store'
@@ -27,7 +26,6 @@ const Settings = () => {
   const [isHideAnswersSwitchEnabled, setIsHideAnswersSwitchEnabled] =
     useState<boolean>()
   const setShowBottomSheet = useStore(state => state.setShowBottomSheet)
-  const showBottomSheet = useStore(state => state.showBottomSheet)
   const setBottomSheetContent = useStore(state => state.setBottomSheetContent)
   const setBottomSheetSnapIndex = useStore(
     state => state.setBottomSheetSnapIndex,
@@ -71,10 +69,6 @@ const Settings = () => {
   function setHideAnswersStorage() {
     setIsHideAnswersSwitchEnabled(prev => !prev)
   }
-
-  const bottomSheet = useMemo(() => {
-    return <Spoiler children={<CodeSettings />}></Spoiler>
-  }, [showBottomSheet])
 
   return (
     <View style={styles.container}>
@@ -125,9 +119,9 @@ const Settings = () => {
       <List.Item
         title={codeSettings}
         onPress={() => {
-          setBottomSheetContent([])
-          setShowBottomSheet(true)
+          setBottomSheetContent(<CodeSettings />)
           setBottomSheetSnapIndex(2)
+          setShowBottomSheet(true)
         }}
         rippleColor={Colors.ripple}
         style={{
@@ -137,9 +131,7 @@ const Settings = () => {
           marginTop: -8,
         }}
         titleStyle={{ color: Colors.text }}
-        left={() => (
-          <FontAwesome6 name="code" size={20} color={'#654DA1'} />
-        )}
+        left={() => <FontAwesome6 name="code" size={20} color={'#654DA1'} />}
       />
 
       <List.Section>
@@ -172,10 +164,16 @@ const Settings = () => {
           rippleColor={Colors.ripple}
           title={aboutTheApp}
           left={() => (
-            <MaterialCommunityIcons
-              name="information-variant"
-              size={26}
-              color="#654DA1"
+            // <MaterialCommunityIcons
+            //   name="information-variant"
+            //   size={26}
+            //   color="#654DA1"
+            // />
+            <Ionicons
+              name="information"
+              size={32}
+              color={'#654DA1'}
+              // style={styles.icon}
             />
           )}
           right={() => (
@@ -196,8 +194,6 @@ const Settings = () => {
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
-
-      {bottomSheet}
     </View>
   )
 }

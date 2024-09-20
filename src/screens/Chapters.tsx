@@ -11,6 +11,7 @@ import { Colors } from '../utils/constants'
 import useStore from '../utils/store'
 import utilStyles from '../utils/styles'
 import { getValue } from '../utils/utilStorage'
+import Spoiler from '../components/ContentRenderer/Spoiler'
 
 export default function Chapters() {
   const navigation = useNavigation()
@@ -37,7 +38,7 @@ export default function Chapters() {
       }}
     >
       <Gradient />
-
+      <Spoiler />
       <RandomQuestionButton chapName={'__All__'} />
       <ScrollView contentContainerStyle={utilStyles.scrollViewCardContainer}>
         <StatusBar style="auto" />
