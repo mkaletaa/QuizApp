@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import CodeHighlighter from 'react-native-code-highlighter';
-import { atelierCaveLight, atomOneDark, atomOneLight, dracula, github, gruvboxDark, hopscotch, irBlack, kimbieDark, monokai, nightOwl, nord, paraisoDark, shadesOfPurple, solarizedDark, srcery, tomorrow, tomorrowNightBlue } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atelierCaveLight, atomOneDark, atomOneLight, dracula, github, gruvboxDark, hopscotch, irBlack, kimbieDark, monokai, nightOwl, nord, paraisoDark, shadesOfPurple, solarizedDark, srcery, tomorrow, tomorrowNightBlue, docco, githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
 
@@ -80,11 +80,11 @@ function returnStyle(codeStyle) {
     // case 'darcula': return darcula;
     // case 'dark': return dark;
     // case 'defaultStyle': return defaultStyle;
-    // case 'docco': return docco;
+    case 'docco': return docco;
     case 'dracula': return dracula;
     // case 'far': return far;
     // case 'foundation': return foundation;
-    // case 'githubGist': return githubGist;
+    case 'githubGist': return githubGist;
     case 'github': return github;
     // case 'gml': return gml;
     // case 'googlecode': return googlecode;
@@ -182,11 +182,11 @@ function returnColor(codeStyle) {
     // case 'darcula': return '#2b2b2b';
     // case 'dark': return '#000';
     // case 'defaultStyle': return '#ffffff';
-    // case 'docco': return '#f8f8ff';
+    case 'docco': return '#f8f8ff';
     case 'dracula': return '#282a36';
     // case 'far': return '#00070a';
     // case 'foundation': return '#eeeeee';
-    // case 'githubGist': return '#ffffff';
+    case 'githubGist': return '#ffffff';
     case 'github': return '#f8f8f8';
     // case 'gml': return '#2d2d2d';
     // case 'googlecode': return '#ffffff';
