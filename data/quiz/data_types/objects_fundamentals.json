@@ -1,0 +1,106 @@
+[
+  {
+    "id": "data_structures|objects_fundamentals|1",
+    "question": [
+      {
+        "type": "CText",
+        "value": "Is this code going to work?"
+      },
+      {
+        "type": "Code",
+        "value": "const person = {\n  sayHello: function greet() {\n    console.log(\"Hello!\")\n  }\n}\n\nperson.greet()",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "yes", "correct": false },
+      { "id": "2", "val": "no", "correct": true }
+    ],
+    "explanation": "The method <ins>greet</ins> is defined inside the <ins>sayHello</ins> function, but it is not attached directly to the <ins>person</ins> object. You should call <ins>person.sayHello()</ins> instead of <ins>person.greet()</ins> to see \"Hello!\" printed to the console."
+  },
+  {
+    "id": "data_structures|objects_fundamentals|2",
+    "question": "What keyword do you use to get rid of an object's property?",
+    "options": [
+      { "id": "1", "val": "remove", "correct": false },
+      { "id": "2", "val": "clear", "correct": false },
+      { "id": "3", "val": "erase", "correct": false },
+      { "id": "4", "val": "delete", "correct": true }
+    ]
+  },
+  {
+    "id": "data_structures|objects_fundamentals|3",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const key = 'myKey'\n\nconst obj = {\n  [key]: \"Hello World\"\n}\n\nconsole.log(obj.key)",
+        "props": { "language": "javascript" }
+      },
+      "What will be logged to the console?"
+    ],
+    "options": [
+      { "id": "1", "val": "'Hello World'", "correct": false },
+      { "id": "2", "val": "undefined", "correct": true },
+      { "id": "3", "val": "'myKey'", "correct": false },
+      { "id": "4", "val": "Error", "correct": false }
+    ],
+    "explanation": "The <ins>obj</ins> object is created using a computed property name ([key]). The value of <ins>key</ins> is 'myKey', so the object is actually defined as <ins>{ myKey: \"Hello World\" }</ins>. When you try to access <ins>obj.key</ins>, JavaScript looks for a property literally named 'key' on the object, but that property doesn’t exist. To get the value \"Hello World\", you would need to use <ins>obj[key]</ins> or <ins>obj['myKey']</ins>."
+  },
+  {
+    "id": "data_structures|objects_fundamentals|4",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const key = 'myKey'\n\nconst obj = {\n  [key]: \"Hello World\"\n}\n\nconsole.log(obj[key])",
+        "props": { "language": "javascript" }
+      },
+      "What will be logged to the console?"
+    ],
+    "options": [
+      { "id": "1", "val": "'Hello World'", "correct": true },
+      { "id": "2", "val": "undefined", "correct": false },
+      { "id": "3", "val": "'myKey'", "correct": false },
+      { "id": "4", "val": "Error", "correct": false }
+    ],
+    "explanation": "The <ins>obj</ins> object is created using a computed property name ([key]). The value of <ins>key</ins> is 'myKey', so the object is defined as <ins>{ myKey: \"Hello World\" }</ins>. When you try to access <ins>obj[key]</ins>, JavaScript looks for a property with the name stored in the variable <ins>key</ins>, which is 'myKey'. Since <ins>obj['myKey']</ins> exists and has the value \"Hello World\", that value is printed to the console."
+  },
+  {
+    "id": "data_structures|objects_fundamentals|5",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const key = 'myKey'\n\nconst obj = {\n  [key]: \"Hello World\"\n}\n\nconsole.log(obj['myKey'])",
+        "props": { "language": "javascript" }
+      },
+      "What will be logged to the console?"
+    ],
+    "options": [
+      { "id": "1", "val": "'Hello World'", "correct": true },
+      { "id": "2", "val": "undefined", "correct": false },
+      { "id": "3", "val": "'myKey'", "correct": false },
+      { "id": "4", "val": "Error", "correct": false }
+    ],
+    "explanation": "The object <ins>obj</ins> is created with a dynamic property name using the value of the variable <ins>key</ins>, which is 'myKey'. This means the object is defined as <ins>{ myKey: \"Hello World\" }</ins>. When you use <ins>obj['myKey']</ins>, you are directly accessing the property with the key 'myKey' in the object. Since <ins>obj['myKey']</ins> exists and holds the value \"Hello World\", that value is printed to the console."
+  },
+  {
+    "id": "data_structures|objects_fundamentals|6",
+    "multiChoice": true,
+    "question": "Which of them can be an object's key?",
+    "options": [
+      { "id": "1", "val": "0", "correct": true },
+      { "id": "2", "val": "'my key'", "correct": true },
+      { "id": "3", "val": "['myKey']", "correct": true },
+      { "id": "4", "val": "my_key", "correct": true },
+      { "id": "5", "val": "my-key", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|objects_fundamentals|7",
+    "question": "Can inner object's key be the same as outer object's key?",
+    "options": [
+      { "id": "1", "val": "yes", "correct": true },
+      { "id": "2", "val": "no" }
+    ],
+    "explanation": "Key name must be unique within the same scope but inner object's scope is not the same as outer object's."
+  }
+]

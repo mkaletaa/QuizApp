@@ -1,7 +1,7 @@
 [
   {
     "id": "asynchronicity|async_and_await|1",
-    "question": "What does the await keyword do in an async function?",
+    "question": "What does the <ins>await</ins> keyword do in an async function?",
     "options": [
       { "id": "1", "val": "It cancels all Promises inside the function." },
       {

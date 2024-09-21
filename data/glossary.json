@@ -32,6 +32,12 @@
       "value": "While eval() is powerful because it can execute dynamic code, it poses significant security risks and performance issues. Therefore, <b>it should be avoided whenever possible</b>. In modern JavaScript development, using eval() is considered bad practice due to its potential dangers."
     }
   ],
+  "PWA":[
+    {
+      "type": "Text",
+      "value": "A Progressive Web App (PWA) is a type of website or web app that behaves like a regular mobile app. <br></br>PWAs can be installed on your home screen without needing to go through an app store. Once installed, they behave like native apps (apps downloaded from the App Store or Google Play), with features like push notifications and a full-screen mode."
+    }
+  ],
   "strict_mode": [
     {
       "type": "Text",

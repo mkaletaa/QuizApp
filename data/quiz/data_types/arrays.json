@@ -1,0 +1,144 @@
+[
+  {
+    "id": "data_structures|arrays|1",
+    "question": "How to add a new element at the end of an array?",
+    "options": [
+      { "id": "1", "val": "by using append() method", "correct": false },
+      { "id": "2", "val": "by using add() method", "correct": false },
+      { "id": "3", "val": "by using push() method", "correct": true },
+      { "id": "4", "val": "by using unshift() method", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|arrays|2",
+    "question": "How to add a new element at the beginning of an array?",
+    "options": [
+      { "id": "1", "val": "by using prepend() method", "correct": false },
+      { "id": "2", "val": "by using add() method", "correct": false },
+      { "id": "3", "val": "by using push() method", "correct": false },
+      { "id": "4", "val": "by using unshift() method", "correct": true }
+    ]
+  },
+  {
+    "id": "data_structures|arrays|3",
+    "question": "How to remove an element from the end of an array?",
+    "options": [
+      { "id": "1", "val": "by using discard() method", "correct": false },
+      { "id": "2", "val": "by using remove() method", "correct": false },
+      { "id": "3", "val": "by using pop() method", "correct": true },
+      { "id": "4", "val": "by using shift() method", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|arrays|4",
+    "question": "How to remove an element from the beginning of an array?",
+    "options": [
+      { "id": "1", "val": "by using discard() method", "correct": false },
+      { "id": "2", "val": "by using remove() method", "correct": false },
+      { "id": "3", "val": "by using pop() method", "correct": false },
+      { "id": "4", "val": "by using shift() method", "correct": true }
+    ]
+  },
+  {
+    "id": "data_structures|arrays|5",
+    "question": [
+      {
+        "type": "Code",
+        "value": "let arr = [2, 3, 4, 5, 6, 7, 8]\n\narr.filter(el=>el>5)\n\nconsole.log(arr)",
+        "props": { "language": "javascript" }
+      },
+      "The output will be..."
+    ],
+    "options": [
+      { "id": "1", "val": "[2,3,4,5,6,7,8]", "correct": true },
+      { "id": "2", "val": "[6,7,8]", "correct": false },
+      { "id": "3", "val": "[2,3,4,5]", "correct": false }
+    ],
+    "explanation": "filter() doesn't modify the original array"
+  },
+  {
+    "id": "data_structures|arrays|6",
+    "question": [
+      "What will be logged after the <ins>filter()</ins> method has been applied?",
+      {
+        "type": "Code",
+        "value": "let arr = [2, 3, 4, 5, 6, 7, 8]\n\nconsole.log(arr.filter(el=>el>5))",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "[2,3,4,5,6,7,8]", "correct": false },
+      { "id": "2", "val": "[6,7,8]", "correct": true },
+      { "id": "3", "val": "[2,3,4,5]", "correct": false }
+    ],
+    "explanation": "<ins>filter()</ins> returns elements that meet the condition inside the callback"
+  },
+  {
+    "id": "data_structures|arrays|7",
+    "question": [
+      "What will be the result of sorting the following array with sort()?",
+      {
+        "type": "Code",
+        "value": "let arr = [10, 2, 30, 1, 22]\narr.sort()\nconsole.log(arr)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "[1, 2, 10, 22, 30]", "correct": false },
+      { "id": "2", "val": "[1, 10, 22, 2, 30]", "correct": false },
+      { "id": "3", "val": "[10, 2, 30, 1, 22]", "correct": false },
+      { "id": "4", "val": "[1, 10, 2, 22, 30]", "correct": true }
+    ],
+    "explanation": "The <ins>sort()</ins> method by default converts the elements to strings and sorts them lexicographically. Therefore, `10` comes before `2` because '10' is lexicographically smaller than '2'. And it modifies the original array."
+  },
+  {
+    "id": "data_structures|arrays|8",
+    "question": [
+      "What will be the result of sorting the following array with <ins>sort()</ins>?",
+      {
+        "type": "Code",
+        "value": "let arr = ['apple', 'Brenda', 'Amy', 'ball']\narr.sort()\nconsole.log(arr)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "['apple','Brenda','Amy','ball']", "correct": false },
+      { "id": "2", "val": "['apple','Amy','ball','Brenda']", "correct": false },
+      { "id": "3", "val": "['apple','ball','Amy','Brenda']", "correct": false },
+      { "id": "4", "val": "['Amy','Brenda','apple','ball']", "correct": true },
+      { "id": "5", "val": "['Amy','apple','Brenda','ball']", "correct": false }
+    ],
+    "explanation": "The <ins>sort()</ins> method sorts array elements as strings in lexicographic order by default. It is case-sensitive, so uppercase letters are sorted before lowercase letters. Therefore, 'Amy' comes first, followed by 'Brenda', 'apple', and 'ball'. And it modifies the original array."
+  },
+  {
+    "id": "data_structures|arrays|9",
+    "multiChoice": true,
+    "question": ["Which of them modify the original array?"],
+    "options": [
+      { "id": "1", "val": "filter()", "correct": false },
+      { "id": "2", "val": "reduce()", "correct": false },
+      { "id": "3", "val": "flat()", "correct": true },
+      { "id": "5", "val": "toReversed()", "correct": false },
+      { "id": "6", "val": "reverse()", "correct": true },
+      { "id": "7", "val": "toSorted()", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|arrays|10",
+    "question": [
+      "Three of them will log <ins>undefined</ins> and one won't. Which?",
+      {
+        "type": "Code",
+        "value": "let arr = [1, 2, 3]\n\nconsole.log(arr[-1]) \nconsole.log(arr[5])\nconsole.log(arr.at(-1))\nconsole.log(arr.at(5))",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "arr[-1]", "correct": false },
+      { "id": "2", "val": "arr[5]", "correct": false },
+      { "id": "3", "val": "arr.at(-1)", "correct": true },
+      { "id": "4", "val": "arr.at(5)", "correct": false }
+    ],
+    "explanation": "In the code provided, <ins>arr[-1]</ins>, <ins>arr[5]</ins>, and <ins>arr.at(5)</ins> will all log <ins>undefined</ins> because they reference indices that do not exist. However, <ins>arr.at(-1)</ins> uses the <ins>at()</ins> method, which allows for negative indexing, so it returns the last element of the array, which is <ins>3</ins>."
+  }
+]

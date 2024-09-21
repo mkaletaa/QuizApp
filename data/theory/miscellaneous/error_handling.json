@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Error handling in programming involves managing errors or exceptions that occur during the execution of a program, ensuring that they are dealt with gracefully without crashing the application. In JavaScript, error handling is primarily managed using try...catch blocks, custom error objects, and the throw statement. It allows developers to anticipate errors and handle them appropriately, preventing the program from crashing unexpectedly."
+        "value": "Error handling in programming involves managing errors or exceptions that occur during the execution of a program, ensuring that they are dealt with gracefully without crashing the application. In JavaScript, error handling is primarily managed using <ins>try-catch</ins> blocks, custom error objects, and the <ins>throw</ins> statement. It allows developers to anticipate errors and handle them appropriately, preventing the program from crashing unexpectedly."
       },
 
       {
@@ -14,7 +14,7 @@
       },
       {
         "type": "Text",
-        "value": "The `try...catch` statement allows you to test a block of code for errors and handle them. If an error occurs within the `try` block, control is immediately passed to the `catch` block."
+        "value": "The <ins>try-catch</ins> statement allows you to test a block of code for errors and handle them. If an error occurs within the <ins>try</ins> block, control is immediately passed to the <ins>catch</ins> block."
       },
       {
         "type": "Code",
@@ -23,12 +23,12 @@
       },
       {
         "type": "Header",
-        "value": "finally Block",
+        "value": "Finally block",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "The `finally` block can be used after `try...catch` to execute code regardless of whether an error was thrown or not. It's useful for cleanup operations."
+        "value": "The <ins>finally</ins> block can be used after <ins>try-catch</ins> to execute code regardless of whether an error was thrown or not. It's useful for cleanup operations."
       },
       {
         "type": "Code",
@@ -37,12 +37,12 @@
       },
       {
         "type": "Header",
-        "value": "Throwing Errors",
+        "value": "Throwing errors",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "The `throw` statement allows you to create a custom error and interrupt the normal flow of the program. You can throw any type of data, but it's best practice to throw `Error` objects."
+        "value": "The <ins>throw</ins> statement allows you to create a custom error and interrupt the normal flow of the program. You can throw any type of data, but it's best practice to throw <ins>Error</ins> objects."
       },
       {
         "type": "Code",
@@ -51,12 +51,12 @@
       },
       {
         "type": "Header",
-        "value": "Asynchronous Error Handling",
+        "value": "Asynchronous error handling",
         "props": { "size": "sm" }
       },
       {
         "type": "Text",
-        "value": "Handling errors in asynchronous code (such as promises) requires different approaches. Use `.catch()` for promises and try to always handle rejection."
+        "value": "Handling errors in asynchronous code (such as promises) requires different approaches. Use <ins>.catch()</ins> for promises and try to always handle rejection."
       },
       {
         "type": "Code",
@@ -70,7 +70,7 @@
       },
       {
         "type": "Text",
-        "value": "In JavaScript, you can create custom error types by extending the `Error` class. This is useful for defining specific errors related to your application domain."
+        "value": "In JavaScript, you can create custom error types by extending the <ins>Error</ins> class. This is useful for defining specific errors related to your application domain."
       },
       {
         "type": "Code",

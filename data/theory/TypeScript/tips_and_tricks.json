@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "In TypeScript, you can make object properties optional using the `?` syntax. This means the property may or may not be present on the object."
+        "value": "In TypeScript, you can make object properties optional using the <ins>?</ins> syntax. This means the property may or may not be present on the object."
       },
       {
         "type": "Code",
@@ -13,7 +13,7 @@
       },
       {
         "type": "Text",
-        "value": "The optional chaining operator (`?.`) allows you to safely access deeply nested object properties without having to manually check if each property in the chain exists. If a property is `null` or `undefined`, it will return `undefined` instead of throwing an error."
+        "value": "The optional chaining operator <ins>(?.)</ins> allows you to safely access deeply nested object properties without having to manually check if each property in the chain exists. If a property is <ins>null</ins> or <ins>undefined</ins>, it will return <ins>undefined</ins> instead of throwing an error."
       },
       {
         "type": "Code",
@@ -54,7 +54,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "`as const` is used to create literal types from an object or array. By default, TypeScript treats object properties or array elements as mutable and assigns broader types. Using `as const` makes the values readonly and narrows the type to the most specific literal values."
+        "value": "<ins>as const</ins> is used to create literal types from an object or array. By default, TypeScript treats object properties or array elements as mutable and assigns broader types. Using <ins>as const</ins> makes the values readonly and narrows the type to the most specific literal values."
       },
       {
         "type": "Code",
@@ -63,7 +63,7 @@
       },
       {
         "type": "Text",
-        "value": "If you don't know why `const` at the beginning isn't enough to prevent modifying arrays (and other complex data structures), visit the introduction of `Data structures` chapter."
+        "value": "If you don't know why <ins>const</ins> at the beginning isn't enough to prevent modifying arrays (and other complex data structures), visit the introduction of \"Data types\" chapter."
       }
     ]
   },
@@ -72,7 +72,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "In TypeScript, `typeof` is used to refer to the type of a variable or object. It's useful when you want to create types dynamically based on the value of a variable, without needing to manually specify the type."
+        "value": "In TypeScript, <ins>typeof</ins> is used to refer to the type of a variable or object. It's useful when you want to create types dynamically based on the value of a variable, without needing to manually specify the type."
       },
       {
         "type": "Code",
@@ -81,7 +81,7 @@
       },
       {
         "type": "Text",
-        "value": "If `as const` is applied, `typeof` infers a literal type."
+        "value": "If <ins>as const</ins> is applied, <ins>typeof</ins> infers a literal type."
       },
       {
         "type": "Code",
@@ -90,7 +90,7 @@
       },
       {
         "type": "Text",
-        "value": "TypeScript's typeof is different than JavaScript's one. In JavaScript, typeof is an operator used at runtime to determine the type of a variable or expression. It is useful for checking the type of a value during the execution of code.In TypeScript, typeof is used in a type context to get the type of a variable or expression. It allows you to refer to the type of a value or expression at compile time, which is different from how typeof is used in JavaScript."
+        "value": "TypeScript's <ins>typeof</ins> is different than JavaScript's one. In JavaScript, <ins>typeof</ins> is an operator used at runtime to determine the type of a variable or expression. It is useful for checking the type of a value during the execution of code.In TypeScript, <ins>typeof</ins> is used in a type context to get the type of a variable or expression. It allows you to refer to the type of a value or expression at compile time, which is different from how <ins>typeof</ins> is used in JavaScript."
       },
       {
         "type": "Code",
@@ -109,7 +109,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The `keyof` keyword in TypeScript creates a union of all the keys of a given object type. This is helpful when you need to restrict a value to the keys of a certain object."
+        "value": "The <ins>keyof</ins> keyword in TypeScript creates a union of all the keys of a given object type. This is helpful when you need to restrict a value to the keys of a certain object."
       },
       {
         "type": "Code",
@@ -130,7 +130,7 @@
       },
       {
         "type": "Text",
-        "value": "Here, the return type is `unknown` but we want it to be of type COLOR's value. We could use a union but this would make the code static. If COLOR changes, you'd need to manually update the function. Here is the proper way how to solve this problem:"
+        "value": "Here, the return type is <ins>unknown</ins> but we want it to be of type COLOR's value. We could use a union but this would make the code static. If COLOR changes, you'd need to manually update the function. Here is the proper way how to solve this problem:"
       },
       {
         "type": "Code",

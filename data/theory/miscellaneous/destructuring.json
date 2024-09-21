@@ -31,7 +31,7 @@
       },
       {
         "type": "Text",
-        "value": "You can also set default values for variables in case the corresponding value in the array is `undefined`."
+        "value": "You can also set default values for variables in case the corresponding value in the array is <ins>undefined</ins>."
       },
       {
         "type": "Code",
@@ -101,7 +101,7 @@
       },
       {
         "type": "Text",
-        "value": "You can rename variables during destructuring by using the colon `:`."
+        "value": "You can rename variables during destructuring by using the colon <ins>(:)</ins>."
       },
       {
         "type": "Code",
@@ -110,7 +110,7 @@
       },
       {
         "type": "Text",
-        "value": "The `name` property is assigned to the `fullName` variable, and `age` is assigned to `yearsOld`."
+        "value": "The <ins>name</ins> property is assigned to the <ins>fullName</ins> variable, and <ins>age</ins> is assigned to <ins>yearsOld</ins>."
       }
     ]
   },
@@ -156,7 +156,7 @@
       },
       {
         "type": "Text",
-        "value": "Here I switched `name` and `age` and the output is still the same."
+        "value": "Here I switched <ins>name</ins> and <ins>age</ins> and the output is still the same."
       }
     ]
   }

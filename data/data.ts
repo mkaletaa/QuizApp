@@ -7,12 +7,12 @@ export const chapters = [
     des: '',
   },
   {
-    name: 'JS_fundamentals',
+    name: 'fundamentals',
     image: 'https://i.postimg.cc/BbLKY1BX/fundamentals.png',
     des: '',
   },
   {
-    name: 'data_structures',
+    name: 'data_types',
     image: 'https://i.postimg.cc/qgfFyLqw/data-types.png',
     des: "Some say everything is an object in JavaScript. Is that true? You'll find the answer in this chapter.",
   },
@@ -56,9 +56,9 @@ export const topics = {
       image: 'https://i.postimg.cc/qBw1pppq/info.png',
     },
   ],
-  JS_fundamentals: [
+  fundamentals: [
     {
-      name: 'Hello_World',
+      name: 'first_steps',
       image: 'https://i.postimg.cc/DyJC8nMc/first-steps.png',
     },
     { name: 'comments', image: 'https://i.postimg.cc/d3r1pMLK/comments.png' },
@@ -73,13 +73,16 @@ export const topics = {
       image: 'https://i.postimg.cc/Y0FKMYc5/conditionals.png',
     },
     { name: 'loops', image: 'https://i.postimg.cc/wBMr9LLw/loops.png' },
-    { name: 'functions', image: 'https://i.postimg.cc/Kj5X1Fzf/functions.png' },
+    {
+      name: 'functions_#1',
+      image: 'https://i.postimg.cc/Kj5X1Fzf/functions.png',
+    },
     {
       name: 'functions_#2',
       image: 'https://i.postimg.cc/BnrhfkZn/functions2.png',
     },
   ],
-  data_structures: [
+  data_types: [
     {
       name: 'introduction',
       image: 'https://i.postimg.cc/wj0nSJwj/data-intro.png',
@@ -102,12 +105,12 @@ export const topics = {
       image: 'https://i.postimg.cc/LsrSbLsZ/data-objects.png',
     },
     {
-      name: 'other_structures',
+      name: 'other_types',
       image: 'https://i.postimg.cc/SKZ22ZDb/data-other.png',
       soon: true,
     },
     {
-      name: 'iteration_methods',
+      name: 'iteration_techniques',
       image: 'https://i.postimg.cc/pTH4mk9B/iteration.png',
       soon: true,
     },

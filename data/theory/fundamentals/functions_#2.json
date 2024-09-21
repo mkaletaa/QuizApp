@@ -1,0 +1,155 @@
+[
+  {
+    "title": "function expression",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In JavaScript, there are a few ways to define a function. One of them was studied in the previous lesson. It was the most basic of them, called <b>function declaration</b>. Another type of function is the <b>function expression</b>. It is essentially a function assigned to a variable."
+      },
+      {
+        "type": "Code",
+        "value": "const functionExpression = function fun() {\n  console.log('Hello World')\n}\n\nfunctionExpression() // Hello World",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The difference between them lies in their treatment of hoisting. As you may remember from the lesson about declaration keywords, hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase."
+      },
+      {
+        "type": "Code",
+        "value": "functionDeclaration() // 'I am function declaration'\n\nfunction functionDeclaration() {\n  console.log('I am function declaration')\n}\n\nfunctionExpression() // Uncaught ReferenceError: Cannot access 'functionExpression' before initialization\n\nconst functionExpression = function fun() {\n  console.log('I am function expression')\n}",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Anonymous functions",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Anonymous functions are functions that don't have a name. They are often used as arguments to other functions but can also be assigned to a variable. Their purpose is to simplify the code."
+      },
+      {
+        "type": "Code",
+        "value": "// Function expression with an anonymous function\nconst functionExpression = function () {\n  console.log('I am a function expression')\n}\n\nfunctionExpression() \n\n///\n\nfunction fun(arg) {\n  arg()\n}\n\n// Anonymous function as an argument.\nfun(function() { console.log('Hello World') })\n\n// This also works if you specify a name\nfun(function funName() { console.log('Hello World') })",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Arrow function",
+    "data": [
+      {
+        "type": "Text",
+        "value": "An arrow function is a specific type of anonymous function. To define them, you don't even have to use the 'function' keyword. Instead, a <ins class=''>fat arrow</ins> (=>) is used. There are some interesting syntax rules."
+      },
+      {
+        "type": "Code",
+        "value": "// Function expression with an arrow function\nconst fun1 = () => {\n  console.log('Hello World')\n}\n\n// If there's only one argument, we can omit the parentheses\nconst fun2 = e => {\n  console.log('Hello ', e)\n}\n\n// If there are no arguments or more than one, we must include parentheses\nconst fun3 = (e, f) => {\n  console.log('Hello ', e, ' and ', f)\n}\n\n// If an arrow function has only one expression in its body, we don't need to use curly brackets\nconst fun4 = e => console.log('Hello ', e)\n\n// If an arrow function has only one expression in its body and it is a return statement, we don't need to type 'return'\nconst fun5 = e => ++e\n\n// If a function returns an object, we need to wrap the object in parentheses; otherwise, there is confusion between the function body braces and the object braces\nconst fun6 = () => { key1: 'value1', key2: 'value2' } // Incorrect\n\nconst fun7 = () => ({ key1: 'value1', key2: 'value2' }) // Correct",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Arrow functions have distinct characteristics that may require a deeper understanding of JavaScript. As your JS skills improve, you can revisit this topic to explore all the details:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "They do not have the <ins>arguments</ins> and <ins>new.target</ins> properties.",
+          "They cannot be used as constructors and should not use <ins>yield</ins>.",
+          "They do not have <ins>this</ins> and <ins>super</ins> binding. Therefore, using <ins>call</ins>, <ins>apply</ins>, and <ins>bind</ins> on them will not yield the expected results."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Closures",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Closure is a function that has \"closed\" (remembered) the scope of variables that were available at the time of its creation, even if the function executes outside of that scope. In practice, this means that a function can access variables declared in its outer scope, even after that outer scope has terminated. <br></br>It might sound enigmatic so here's a simple example that should clarify closures a bit."
+      },
+      {
+        "type": "Code",
+        "value": "function outerFunction() {\n  let outerVariable = \"I'm outside!\"\n\n  function innerFunction() {\n    console.log(outerVariable) // Access to the variable for the outer function\n  }\n\n  return innerFunction\n}\n\nconst closureFunc = outerFunction()\nclosureFunc() // \"I'm outside!\"",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example the <ins class=''>innerFunction</ins> has access to the <ins class=''>outerVariable</ins>, even though the <ins class=''>outerFunction</ins> has already completed. This is possible because the inner function creates a closure and \"remembers\" the context in which it was created. But why would I even need this?"
+      },
+      {
+        "type": "Header",
+        "value": "private variables",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Thanks to closures you can simulate private variables in JavaScript that only the inner function has access to."
+      },
+      {
+        "type": "Code",
+        "value": "function counter() {\n  let count = 0\n  return function () {\n    count++\n    return count\n  }\n}\n\nconst increment = counter()\nconsole.log(increment()) // 1\nconsole.log(increment()) // 2\nconsole.log(increment()) // 3",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here the <ins class=''>count</ins> variable is only accessible to the inner function, making it \"private\"."
+      },
+      {
+        "type": "Header",
+        "value": "predefined parameters",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Closure also allows you to create functions with predefined parameters."
+      },
+      {
+        "type": "Code",
+        "value": "function createMultiplier(multiplier) {\n  return function (value) {\n    return value * multiplier\n  }\n}\n\nconst double = createMultiplier(2)\nconst triple = createMultiplier(3)\n\nconsole.log(double(5)) // 10\nconsole.log(triple(5)) // 15",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "IIFE",
+    "data": [
+      {
+        "type": "Text",
+        "value": "An Immediately Invoked Function Expression (IIFE) is a function that executes immediately after its definition. It helps create a new scope and avoids polluting the global namespace."
+      },
+      {
+        "type": "Code",
+        "value": "(function () {\n  let message = 'Hello, world!'\n  console.log(message) // Hello, world!\n})()",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "This syntax is sometimes called \"goofy balls\" because of the parentheses at the end. Alternatively, you can put them inside the other parentheses:"
+      },
+      {
+        "type": "Code",
+        "value": "(function () {\n  let message = 'Hello, world!'\n  console.log(message) // Hello, world!\n}())",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the function runs immediately and prints the message. The variable <ins class=''>message</ins> is scoped to the IIFE and not accessible outside of it."
+      },
+      {
+        "type": "Text",
+        "value": "IIFEs can also accept parameters, allowing for immediate execution with dynamic values."
+      },
+      {
+        "type": "Code",
+        "value": "(function(name) {\n  console.log('Hello, ' + name + '!');\n})('Alice'); // Outputs: Hello, Alice!",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, the IIFE takes a parameter <ins class=''>name</ins> and prints a personalized greeting. The parameter is used immediately within the IIFE."
+      }
+    ]
+  }
+]

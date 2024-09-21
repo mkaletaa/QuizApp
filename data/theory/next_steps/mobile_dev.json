@@ -13,7 +13,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "React Native is an open-source framework developed by Facebook (now Meta) for building cross-platform mobile applications using JavaScript and React. First released in 2015, React Native allows developers to write code once and deploy it on both iOS and Android platforms, while providing a native-like user experience. Moreover, you can build web, desktop and TV apps with it! If you already know React (see the `frontend` lesson) you also know 95% of React Native. Many libraries from React ecosystem are compatible with RN as well. Many big tech companies build their products using React Native. For example apps like Facebook, Messenger, MS Teams, Pinterest, Discord and many more exist thanks to this framework. Even the one you are currently on. This proves JavaScript is absolutely everywhere."
+        "value": "React Native is an open-source framework developed by Facebook (now Meta) for building cross-platform mobile applications using JavaScript and React. First released in 2015, React Native allows developers to write code once and deploy it on both iOS and Android platforms, while providing a native-like user experience. Moreover, you can build web, desktop and TV apps with it! If you already know React (see the \"frontend\" lesson) you also know 95% of React Native. Many libraries from React ecosystem are compatible with RN as well. Many big tech companies build their products using React Native. For example apps like Facebook, Messenger, MS Teams, Pinterest, Discord and many more exist thanks to this framework. Even the one you are currently on. This proves JavaScript is absolutely everywhere."
       },
       {
         "type": "Header",
@@ -48,7 +48,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Ionic ecosystem is a suite of tools and technologies designed for building high-quality, cross-platform mobile and desktop Progressive Web Applications (PWAs) using standard web technologies like HTML, CSS, and JavaScript (including React, Angular or Vue)."
+        "value": "The Ionic ecosystem is a suite of tools and technologies designed for building high-quality, cross-platform mobile and desktop <ins data-key='PWA' class='hint'>Progressive Web Applications</ins> (PWAs) using standard web technologies like HTML, CSS, and JavaScript (including React, Angular or Vue)."
       },
       {
         "type": "Text",

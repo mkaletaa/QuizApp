@@ -1,0 +1,162 @@
+[
+  {
+    "title": "let, const and var",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Consider the following code:"
+      },
+      {
+        "type": "Code",
+        "value": "name = \"some name\"\nconsole.log(name) //some name ",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "This code would work; however, it is highly advisable to precede the variable name with a keyword. In JS there are 3 of them:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<b>var</b> is the oldest of these keywords and can be found in older JavaScript sources. However, since ES6 was introduced in 2015, it is not advisable to use var anymore. The reasons for this recommendation will be explained later.",
+          "<b>let</b> is a newer keyword introduced in ES6 and is generally preferred over var. It offers more predictable scoping behavior and is considered an improvement in terms of variable declaration.",
+          "<b>const</b> was also introduced in ES6. It is an abbreviation for \"constant\", signifying that variables declared with this keyword cannot be reassigned after their initial assignment in the code. This helps enforce immutability and is particularly useful when you want to ensure that a variable remains constant throughout the program. Aside from this, const behaves similarly to let"
+        ]
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Note the difference between definition, declaration, and assignment. <br></br>A <b>declaration</b> is a statement that introduces a variable, function, or other identifier into a program. It tells the compiler or interpreter that a variable or function exists.<br></br>An <b>assignment</b> is the act of giving a value to a variable. This can be done either at the time of declaration or separately. The first assignment is called <b>initialization</b>.<br></br>A <b>definition</b> provides the actual implementation or value for a variable, function, or other identifier. In JavaScript, a variable declaration with an assignment can be considered a definition."
+          },
+          {
+            "type": "Code",
+            "value": "let myVariable // declaration\n\nmyVariable = 10 // assignment\n\nlet anotherVariable = 5 // definition (declaration + assignment)",
+            "props": { "language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Differences",
+    "data": [
+      {
+        "type": "Header",
+        "value": "Reassignment",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Variables preceded with var and let can be reassigned, while those preceded with const cannot."
+      },
+      {
+        "type": "Code",
+        "value": "var a = 1\nlet b = 2\nconst c = 3\n\na = 11 // ok\nb = 12 // ok\nc = 13 //Uncaught TypeError: Assignment to constant variable",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Scope",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Scope refers to the visibility and accessibility of variables within a specific part of the code. In the context of var vs let vs const, we distinguish two types of scope: functional and block. Functional scope is applicable to variables declared with var, meaning they are accessible within the entire function body where they are defined, regardless of block boundaries within that function. Block scope, on the other hand, applies to variables declared with let and const. These variables are only accessible within the specific block (delimited by {}) where they are declared, such as within loops, conditionals, or other block statements. This means let and const variables cannot be accessed outside the block in which they were defined, providing better control over variable visibility and reducing potential errors."
+      },
+      {
+        "type": "Code",
+        "value": "var a = 1\nlet b = 2 \nconst c = 3\n\n{\n    var a  = 10\n    let b = 20\n    const c = 30 \n\n    console.log(a) //10\n    console.log(b) //20\n    console.log(c) //30\n}\n\nconsole.log(a)   //10\nconsole.log(b)   //2\nconsole.log(c)   //3",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Code",
+        "value": "function example() {\n\t\t\t{\n\t\t\t\t\t\tvar x = 5;\n\t\t\t\t\t\tlet y = 10\n\t\t\t\t\t\tconst z = 20;\n\t\t\t}\n\t\t\tconsole.log(x); // 5\n\t\t\tconsole.log(y) // Error: y is not defined\n\t\t\tconsole.log(z); // Error: z is not defined\n}\n\nconsole.log(x) // Error: x is not defined",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Using var in for loops can lead to unexpected behavior due to its function-scoped nature. Specifically, var does not create a new scope for each iteration of the loop. Instead, it retains the same scope throughout the entire function or global context in which it is declared. This can lead to unintentional overwriting of other variables."
+      },
+      {
+        "type": "Code",
+        "value": "for(var i = 0; i < 5; i++){\n\t    console.log(i) // 0, 1, 2, 3, 4, \n}\nconsole.log(i) //5\n\nfor(let j = 0; j < 5; j++){\n\t    console.log(j) // 0, 1, 2, 3, 4\n}\nconsole.log(j) // Cannot find name 'j'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Hoisting",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. It is said var is subject to hoisting whereas let and const are not. That's not entirely true. All of them are hoisted but in different way. <br></br>For var, the declaration is hoisted to the top of its functional scope and initialized with undefined. This means that a var variable can be accessed before its declaration without causing an error, but it will return undefined until the assignment is made. <br></br> In the case of let and const, the variables are also hoisted to the top of their block scope, but they are not initialized. They reside in a \"temporal dead zone\" from the start of the block until the declaration is encountered. Attempting to access these variables before their declaration results in a ReferenceError. This difference enforces a stricter variable initialization and usage pattern, helping to prevent bugs related to uninitialized variables."
+      },
+      {
+        "type": "Code",
+        "value": "console.log(a); // undefined\nvar a = 5;\nconsole.log(b); // Uncaught ReferenceError: Cannot access 'b' before initialization \nlet b = 10\nconsole.log(c) //Uncaught ReferenceError: c is not defined ",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Redeclaration",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "var allows for multiple declarations of the same variable within the same scope. The new declaration overwrites the previous one. let and const do not allow multiple declarations within the same scope. An error will occur if you try to redeclare a variable."
+      },
+      {
+        "type": "Code",
+        "value": "var x = 5\nvar x = 10; // OK\nlet y = 5;\nlet y = 10; // Error: Identifier 'y' has already been declared",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "The global object",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "This difference isn't crucial in everyday code but it's worthy to mention in out of a chronicler's duty. <br></br>In JavaScript, when var is used to declare a variable in the <u>global scope</u> (i.e., outside of any function or block), it creates a property on the global object. In browsers, the global object is window, and in Node.js, it is global."
+      },
+      {
+        "type": "Code",
+        "value": "var a = 10\nlet b = 20\nconsole.log(window.a) // 10\nconsole.log(window.b) // undefined",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Thus, using var can accidentally overwrite a property of the global object, which is something you definitely don't want to do."
+      },
+
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Text",
+        "value": "Don't worry if you don't understand some concepts mentioned here, such as functions, <ins data-key='context' class='hint'>context</ins>, or <ins data-key='strict_mode' class='hint'>strict mode</ins>. Later on you'll learn about them and everything will start to make more sense. At the end, take a look at this graphic that summarizes all the differences between var, let, and const in one place: <a href='https://rixong.medium.com/var-let-and-const-28ab64ac2460'>source</a>"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/pXm5XTRs/image.png"
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Unless you use <ins data-key='strict_mode' class='hint'>strict mode</ins>, you can also create a variable without using any of these three keywords. Such a variable would work similarly to one created with var, except it wouldn't be hoisted at all and would be added as a property of the global object, even if created outside the global context."
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      }
+    ]
+  }
+]

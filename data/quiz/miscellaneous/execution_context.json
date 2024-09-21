@@ -58,7 +58,7 @@
       { "id": "3", "val": "20" },
       { "id": "4", "val": "undefined" }
     ],
-    "explanation": "The syntax is wrong. There should be `function.bind(object)`, not `object.bind(function)`"
+    "explanation": "The syntax is wrong. There should be <ins>function.bind(object)</ins>, not <ins>object.bind(function)</ins>"
   },
 
   {
@@ -76,7 +76,7 @@
       { "id": "2", "val": "global" },
       { "id": "3", "val": "undefined" }
     ],
-    "explanation": "In strict mode, `this` in the global context still refers to window."
+    "explanation": "In strict mode, <ins>this</ins> in the global context still refers to window."
   },
   {
     "id": "miscellaneous|execution_context|6",
@@ -110,7 +110,7 @@
       { "id": "3", "val": "person, person, undefined" },
       { "id": "4", "val": "person, undefined, undefined" }
     ],
-    "explanation": "Only arrow functions don't have their own `this` and they inherit it from the outer context."
+    "explanation": "Only arrow functions don't have their own <ins>this</ins> and they inherit it from the outer context."
   },
   {
     "id": "miscellaneous|execution_context|8",
@@ -129,6 +129,6 @@
       { "id": "4", "val": "outer" },
       { "id": "5", "val": "inner" }
     ],
-    "explanation": "Only arrow functions don't have their own `this` and they inherit it from the outer context."
+    "explanation": "Only arrow functions don't have their own <ins>this</ins> and they inherit it from the outer context."
   }
 ]

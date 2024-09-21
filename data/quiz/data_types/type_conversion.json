@@ -1,0 +1,97 @@
+[
+  {
+    "id": "data_structures|type_conversion|1",
+    "question": ["What is the result of the expression <ins>2 + 2 + '2'</ins>?"],
+    "options": [
+      { "id": "1", "val": "6", "correct": false },
+      { "id": "2", "val": "'22'", "correct": false },
+      { "id": "3", "val": "'42'", "correct": false },
+      { "id": "4", "val": "'222'", "correct": true }
+    ],
+    "explanation": "JavaScript evaluates the expression from left to right. First, it adds 2 + 2 to get 4, then it concatenates '4' with '2', resulting in the string '42'."
+  },
+  {
+    "id": "data_structures|type_conversion|2",
+    "question": ["What is the result of the expression `+'23'`?"],
+    "options": [
+      { "id": "1", "val": "'23'", "correct": false },
+      { "id": "2", "val": "23", "correct": true },
+      { "id": "3", "val": "NaN", "correct": false },
+      { "id": "4", "val": "undefined", "correct": false }
+    ],
+    "explanation": "The unary plus operator converts the string '23' to the number 23."
+  },
+  {
+    "id": "data_structures|type_conversion|3",
+    "question": ["What is the result of the expression [1, 2, 3] + [4, 5, 6]?"],
+    "options": [
+      { "id": "1", "val": "[1, 2, 3, 4, 5, 6]", "correct": false },
+      { "id": "2", "val": "'1,2,34,5,6'", "correct": true },
+      { "id": "3", "val": "'[1, 2, 3][4, 5, 6]'", "correct": false },
+      { "id": "4", "val": "'1,2,3,4,5,6'", "correct": false }
+    ],
+    "explanation": "In JavaScript, when you use the <ins>+</ins> operator with arrays, it first converts the arrays to strings, and then concatenates them. So <ins>[1, 2, 3] + [4, 5, 6]</ins> results in the string <ins>'1,2,34,5,6'</ins>."
+  },
+
+  {
+    "id": "data_structures|type_conversion|4",
+    "question": ["What is the result of the expression <ins>'5' - 3</ins>?"],
+    "options": [
+      { "id": "1", "val": "'2'", "correct": false },
+      { "id": "2", "val": "2", "correct": true },
+      { "id": "3", "val": "'53'", "correct": false },
+      { "id": "4", "val": "NaN", "correct": false }
+    ],
+    "explanation": "JavaScript automatically converts the string '5' to the number 5, and then performs the subtraction, resulting in 2."
+  },
+  {
+    "id": "data_structures|type_conversion|5",
+    "question": ["What is the result of the expression `true + true`?"],
+    "options": [
+      { "id": "1", "val": "2", "correct": true },
+      { "id": "2", "val": "truetrue", "correct": false },
+      { "id": "3", "val": "NaN", "correct": false },
+      { "id": "4", "val": "undefined", "correct": false }
+    ],
+    "explanation": "In JavaScript, <ins>true</ins> is implicitly converted to the number 1 when used in arithmetic operations. Therefore, <ins>true + true</ins> results in <ins>1 + 1</ins>, which equals 2."
+  },
+
+  {
+    "id": "data_structures|type_conversion|6",
+    "question": ["What is the result of the expression <ins>NaN === NaN</ins>?"],
+    "options": [
+      { "id": "1", "val": "true", "correct": false },
+      { "id": "2", "val": "false", "correct": true }
+    ]
+  },
+  {
+    "id": "data_structures|type_conversion|7",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const str = String({ name: 'Alice', age: 30 })\nconsole.log(str)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "'{ name: 'Alice', age: 30 }'", "correct": false },
+      { "id": "2", "val": "'[object Object]'", "correct": true },
+      { "id": "3", "val": "'Alice30'", "correct": false },
+      { "id": "4", "val": "Error", "correct": false }
+    ],
+    "explanation": "When an object is converted to a string using the <ins>String</ins> function in JavaScript, it results in the string <ins>[object Object]</ins>. This is because objects do not have a meaningful string representation by default."
+  },
+  {
+    "id": "data_structures|type_conversion|8",
+    "question": ["What is the result of the expression <ins>!0</ins>?"],
+    "options": [
+      { "id": "1", "val": "true", "correct": true },
+      { "id": "2", "val": "false", "correct": false },
+      { "id": "3", "val": "0", "correct": false },
+      { "id": "4", "val": "1", "correct": false }
+    ],
+    "explanation": "The <ins>!</ins> operator is the logical <ins>NOT</ins> operator, which inverts the truthiness of a value. In JavaScript, 0 is a falsy value, so <ins>!0</ins> returns <ins>true</ins>."
+  }
+
+]

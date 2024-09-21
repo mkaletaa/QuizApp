@@ -1,0 +1,157 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "In programming, variables are 'containers' that store values. These values can be numbers, texts, arrays, objects, or other data structures. Variables provide a way to label and reference data in a program, making it easier for developers to manipulate and work with information."
+      }
+    ]
+  },
+  {
+    "title": "Why use variables",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Using variables becomes particularly advantageous when you need to update a value in multiple places within your code. Let’s say you want to consol.log sum of numbers, when one of them is 20:"
+      },
+      {
+        "type": "Code",
+        "value": "console.log(20+1)\nconsole.log(20+2)\nconsole.log(20+3)\n //more console.logs\nconsole.log(20+50)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "But then you decide you want to change 20 to 10. You could do it manually one by one, but this is arduous method. Better idea is to store your number in a variable and then change it in just one place."
+      },
+      {
+        "type": "Code",
+        "value": "let nr= 1\nconsole.log(nr+1)\nconsole.log(nr+2)\nconsole.log(nr+3)\n //more console.logs\nconsole.log(nr+50)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Another use case for variables is to avoid so called <b>magic numbers</b>. They are values with unexplained meaning. Consider a program that utilizes the number of months in a year, the number of hours on a clock, and the age of a 12-year-old person. As it is easy to imagine, without using variables, the number 12 would be repeated throughout the code. You could use comments to indicate what each instance of twelve represents, but the issue with comments is that we may forget to include them. Therefore, a better idea is to create variables: monthsInYear, hoursOnClock, and age, to avoid later mistakes. "
+      },
+      {
+        "type": "Code",
+        "value": "//before:\nconsole.log(\"John's age:\", 12)\nconsole.log('Approximate number of hours in a year: ', 2 * 12 * 30 * 12)\n\n//after:\nlet johnsAge = 12\nlet hoursOnClock = 12\nlet daysInMonth = 30\nlet monthsInYear = 12\nconsole.log(\"John's age:'\", johnsAge)\nconsole.log( 'Approximate number of hours in a year: ', 2 * hoursOnClock * daysInMonth * monthsInYear )",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Variables names",
+    "data": [
+      {
+        "type": "Text",
+        "value": "To ensure that a variable name is correct, it must meet all of the following conditions: "
+      },
+      {
+        "type": "List",
+        "value": [
+          "The variable name must not be a reserved keyword. Keywords are specific words in a programming language that have predefined meanings and cannot be used for other purposes, such as defining variables. You can check all of the reserved keywords <a href='https://www.w3schools.in/javascript/keywords/'>here</a>"
+        ]
+      },
+      {
+        "type": "Code",
+        "value": "//these are examples of bad variable names:\nlet if = 1\nlet for = 2\nlet true = 3",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "The variable name must not contain certain special characters like space, period, comma, or hyphen."
+        ]
+      },
+      {
+        "type": "Code",
+        "value": "//these are examples of bad variable names:\nlet my@variable = 1\nlet my variable = 2\nlet my-variable = 3\n\nlet my_variable //this one is good though\nlet $myVariable //this is good too",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "The variable name should not start with a digit (0-9). It's a standard rule in most programming languages."
+        ]
+      },
+      {
+        "type": "Code",
+        "value": "//bad:\nlet 1variable = 1\n\n//good:\nlet variable1 = 2\nlet v4r148l3 = 3",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In addition, there are other rules for naming variables, which are not strictly necessary for the program to function but are good practice to maintain code cleanliness. Here are the most important ones:"
+      },
+      {
+        "type": "Header",
+        "value": "Descriptive and meaningful:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Aim for clarity and avoid ambiguous names."
+      },
+      {
+        "type": "Code",
+        "value": "let dewuiydhsj = {} //isn't meaningful at all\nlet itemsInTheShoppingCartThatTheUserCurrentlyHasSelected = {} //descriptive but too long\nlet itsInCUsSel = {} //good length but poorly descriptive\nlet itemsInCart = {} //perfect",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Avoid single-letter names:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "This follows from the previous point. Except for loop counters or very short programs, avoid single-letter variable names. Use names that convey meaning."
+      },
+      {
+        "type": "Header",
+        "value": "Camel case:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "In JavaScript, there is an unwritten convention to use camel case for most variable names. For multi-word names start with a lowercase letter, and capitalize the first letter of each subsequent concatenated word."
+      },
+      {
+        "type": "Code",
+        "value": "let userName = \"John Doe\"; ",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Consistency:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Maintain a consistent naming style throughout your codebase."
+      },
+      {
+        "type": "Code",
+        "value": "//consistent: \nlet firstName = \"John\" \nlet lastName = \"Doe\"\n let age = 30\n\n//inconsistent:\nlet firstName = \"John\" \nlet last_name = \"Doe\"\n let Age = 30",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "JavaScript is case-sensitive."
+          },
+          {
+            "type": "Code",
+            "value": "//these are two different variables:\nlet name = 'John'\nlet Name = 'John'",
+            "props": { "language": "javascript" }
+          }
+        ],
+        "props": {
+          "type": "warning"
+        }
+      }
+    ]
+  }
+]

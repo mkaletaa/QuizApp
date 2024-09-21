@@ -1,0 +1,205 @@
+[
+  {
+    "id": "JS_fundamentals|loops|1",
+    "question": [
+      {
+        "type": "Code",
+        "value": "for(var i = 0; i < 5; i++)\n  i++\n  console.log(i)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "Error", "correct": false },
+      { "id": "2", "val": "1 3", "correct": false },
+      { "id": "3", "val": "1 3 5", "correct": true },
+      { "id": "4", "val": "6", "correct": false }
+    ],
+    "explanation": "Due to the lack of curly brackets, only the second line is part of the loop's body; the <ins>console.log()</ins> statement is outside of it. Because of <ins>var's</ins> function scope, the output is 6. If <ins>let</ins> had been used instead, an error would have occurred."
+  },
+  {
+    "id": "JS_fundamentals|loops|2",
+    "question": [
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 5; i++) {\n  i++\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "What is the output of the code above?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "1 3 5", "correct": true },
+      { "id": "2", "val": "1 3", "correct": false },
+      { "id": "3", "val": "0 2 4", "correct": false },
+      { "id": "4", "val": "2 4", "correct": false }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|loops|3",
+    "question": [
+      "What is the value of <ins>i</ins> after this loop completes?",
+      {
+        "type": "Code",
+        "value": "let i;\nfor (i = 0; i < 5; i++) {\n  ///\n}\nconsole.log(i)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "4", "correct": false },
+      { "id": "2", "val": "5", "correct": true },
+      { "id": "3", "val": "undefined", "correct": false },
+      { "id": "4", "val": "0", "correct": false }
+    ],
+    "explanation": "The loop increments <ins>i</ins> up to 5, but the last value of <ins>i</ins> after the loop exits is 5."
+  },
+  {
+    "id": "JS_fundamentals|loops|4",
+    "question": [
+      "What is the output of this loop?",
+      {
+        "type": "Code",
+        "value": "for (let i = 10; i < 5 && i > 0; i--) {\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "10 9 8 7 6", "correct": false },
+      { "id": "2", "val": "10", "correct": false },
+      { "id": "3", "val": "nothing", "correct": true },
+      { "id": "4", "val": "0", "correct": false }
+    ],
+    "explanation": "The loop condition <ins>i < 5 && i > 0</ins> is false at the start, so the loop never executes."
+  },
+  {
+    "id": "JS_fundamentals|loops|5",
+    "question": [
+      "What is the output of this <ins>do-while</ins> loop?",
+      {
+        "type": "Code",
+        "value": "let i = 1\n\ndo {\n  console.log(i)\n} while (i < 0)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "1", "correct": true },
+      { "id": "2", "val": "nothing", "correct": false },
+      { "id": "3", "val": "0", "correct": false },
+      { "id": "4", "val": "undefined", "correct": false }
+    ],
+    "explanation": "The <ins>do-while</ins> loop executes the body at least once before checking the condition."
+  },
+  {
+    "id": "JS_fundamentals|loops|6",
+    "question": [
+      "What is the output of this <ins>while</ins> loop?",
+      {
+        "type": "Code",
+        "value": "let i = 0\nwhile (i >= 0) {\n  i--\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "0", "correct": false },
+      { "id": "2", "val": "-1", "correct": true },
+      { "id": "3", "val": "-1, -2", "correct": false },
+      { "id": "4", "val": "Infinite loop", "correct": false }
+    ],
+    "explanation": "The loop decrements <ins>i</ins> starting from 0, so the first output is -1 before the loop exits."
+  },
+  {
+    "id": "JS_fundamentals|loops|7",
+    "question": [
+      "What is the output of this <ins>for</ins> loop?",
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 5; i++) {\n  if (i === 2) {\n    continue\n  }\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "0 1 2 3 4", "correct": false },
+      { "id": "2", "val": "0 1 3 4", "correct": true },
+      { "id": "3", "val": "1 3 5", "correct": false },
+      { "id": "4", "val": "No output", "correct": false }
+    ],
+    "explanation": "The loop skips logging 2 due to the <ins>continue</ins> statement, so the output is <ins>0 1 3 4</ins>."
+  },
+  {
+    "id": "JS_fundamentals|loops|8",
+    "question": [
+      "What is the output of this <ins>while</ins> loop?",
+      {
+        "type": "Code",
+        "value": "let i = 0\nwhile (i < 5) {\n  if (i === 2) {\n    break\n  }\n  console.log(i)\n  i++\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "0 1 2 3 4", "correct": false },
+      { "id": "2", "val": "0 1 2", "correct": false },
+      { "id": "3", "val": "0 1", "correct": true },
+      { "id": "4", "val": "No output", "correct": false }
+    ],
+    "explanation": "The loop breaks when <ins>i</ins> equals 2, so only <ins>0 1</ins> are logged."
+  },
+  {
+    "id": "JS_fundamentals|loops|9",
+    "question": [
+      "What is the output of this <ins>for</ins> loop?",
+      {
+        "type": "Code",
+        "value": "let i = 1\nfor (; i < 5; i++) {\n  console.log(i)\n}",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "an Error will occur", "correct": false },
+      { "id": "2", "val": "1 2 3 4", "correct": true },
+      { "id": "3", "val": "1 2 3 4 5", "correct": false },
+      { "id": "4", "val": "2 3 4 5", "correct": false }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|loops|10",
+    "multiChoice": true,
+    "question": "Select all true statements",
+    "options": [
+      {
+        "id": "1",
+        "val": "you can nest for loop inside while loop",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "you can use labels only with for loops",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "when used in a nested loop, break stops the outer loop",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "you can exit from a loop using the return statement",
+        "correct": true
+      },
+      {
+        "id": "5",
+        "val": "only while loops can be infinite",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "the number of semicolons inside the head of a for loop must always be two",
+        "correct": true
+      }
+    ]
+  }
+]

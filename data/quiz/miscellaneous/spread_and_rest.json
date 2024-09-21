@@ -1,7 +1,7 @@
 [
   {
     "id": "miscellaneous|spread_and_rest|1",
-    "question": ["How does the `spread` work with arrays?"],
+    "question": ["How does the <ins>spread</ins> work with arrays?"],
     "options": [
       {
         "id": "1",

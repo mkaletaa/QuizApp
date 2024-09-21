@@ -13,7 +13,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Partial utility type makes all properties of a type optional. This is useful when you only need to update or provide some fields of an object, rather than all fields."
+        "value": "The <ins>Partial</ins> utility type makes all properties of a type optional. This is useful when you only need to update or provide some fields of an object, rather than all fields."
       },
       {
         "type": "Code",
@@ -27,7 +27,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Required utility type makes all properties of a type required. If any property in the original type was optional, it will no longer be so."
+        "value": "The <ins>Required</ins> utility type makes all properties of a type required. If any property in the original type was optional, it will no longer be so."
       },
       {
         "type": "Code",
@@ -41,7 +41,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Readonly utility type makes all properties of a type immutable, preventing them from being changed after assignment."
+        "value": "The <ins>Readonly</ins> utility type makes all properties of a type immutable, preventing them from being changed after assignment."
       },
       {
         "type": "Code",
@@ -55,7 +55,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Record utility type constructs a type with a set of properties Keys of type Type. This is useful for creating types that represent objects with dynamic keys."
+        "value": "The <ins>Record</ins> utility type constructs a type with a set of properties Keys of type Type. This is useful for creating types that represent objects with dynamic keys."
       },
       {
         "type": "Code",
@@ -69,7 +69,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Pick utility type creates a new type by selecting a subset of properties (Keys) from an existing type."
+        "value": "The <ins>Pick</ins> utility type creates a new type by selecting a subset of properties (Keys) from an existing type."
       },
       {
         "type": "Code",
@@ -83,7 +83,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Omit utility type creates a new type by excluding certain properties (Keys) from an existing type. This is the opposite of Pick."
+        "value": "The <ins>Omit</ins> utility type creates a new type by excluding certain properties (Keys) from an existing type. This is the opposite of Pick."
       },
       {
         "type": "Code",
@@ -97,7 +97,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Exclude utility type constructs a new type by removing types from a union."
+        "value": "The <ins>Exclude</ins> utility type constructs a new type by removing types from a union."
       },
       {
         "type": "Code",
@@ -111,7 +111,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Extract utility type constructs a type by extracting types from a union that match a specific type."
+        "value": "The <ins>Extract</ins> utility type constructs a type by extracting types from a union that match a specific type."
       },
       {
         "type": "Code",
@@ -125,7 +125,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The Awaited utility type extracts the type of the value that a Promise resolves to. It simplifies working with asynchronous code by providing the type of the resolved value of a Promise, allowing you to handle the underlying type more effectively."
+        "value": "The <ins>Awaited</ins> utility type extracts the type of the value that a Promise resolves to. It simplifies working with asynchronous code by providing the type of the resolved value of a Promise, allowing you to handle the underlying type more effectively."
       },
       {
         "type": "Code",
@@ -139,7 +139,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The NonNullable utility type removes null and undefined from a type."
+        "value": "The <ins>NonNullable</ins> utility type removes null and undefined from a type."
       },
       {
         "type": "Code",
@@ -153,7 +153,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The ReturnType utility type extracts the return type of a function."
+        "value": "The <ins>ReturnType</ins> utility type extracts the return type of a function."
       },
       {
         "type": "Code",
@@ -167,7 +167,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The InstanceType utility type extracts the instance type of a constructor function (i.e., the type of an object created by the class or constructor function)."
+        "value": "The <ins>InstanceType</ins> utility type extracts the instance type of a constructor function (i.e., the type of an object created by the class or constructor function)."
       },
       {
         "type": "Code",
@@ -181,7 +181,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The ThisType utility type is used to define the type for the this context inside an object literal or function. It’s often used in the context of helper libraries."
+        "value": "The <ins>ThisType</ins> utility type is used to define the type for the this context inside an object literal or function. It’s often used in the context of helper libraries."
       },
       {
         "type": "Code",

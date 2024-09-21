@@ -1,0 +1,253 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "Suppose you need a piece of code to execute multiple times. You could copy and paste it repeatedly, but this approach is impractical and reduces code readability. This is where loops become useful. They enable you to execute the same block of code multiple times, facilitating automation and efficient management of repetitive tasks."
+      }
+    ]
+  },
+  {
+    "title": "For Loop",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The <ins class=''>for</ins> loop is used for iterating over a sequence, such as an array or the characters in a string. It provides a concise way to repeat a block of code multiple times.<p>Here's the basic syntax of the <ins class=''>for</ins> loop:</p>"
+      },
+      {
+        "type": "Code",
+        "value": "for (initialization; condition; updation) {\n   // code to be executed in each iteration\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>Initialization</u>: It is executed before the loop starts. It is often used to declare and initialize the loop variable.",
+          "<u>Condition</u>: It is evaluated before each iteration. If the condition is true, the code inside the loop is executed; otherwise, the loop terminates.",
+          "<u>Updation</u>: It is executed at the end of each iteration. It is usually used to update or increment the loop variable."
+        ]
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/262qGyhZ/image.png",
+        "props": { "description": "A graph illustrating how for loops work" }
+      },
+      {
+        "type": "Code",
+        "value": "for (let i = 1; i <= 5; i++) {\n  console.log(i); // 1, 2, 3, 4, 5\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<ins class=''>let i = 1</ins> initializes the loop variable <ins class=''>i</ins> to 1.",
+          "<ins class=''>i <= 5</ins> is the condition. The loop will continue as long as <ins class=''>i</ins> is less than or equal to 5.",
+          "<ins class=''>i++</ins> increments <ins class=''>i</ins> by 1 after each iteration."
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "If the loop body contains only one instruction, you can omit the curly brackets. The updation doesn't necessarily need to be incrementation, but in the vast majority of cases, it is."
+      },
+      {
+        "type": "Code",
+        "value": "for (let i = 10; i > 5; i--)\n  console.log(i); // 10, 9, 8, 7, 6\n\nfor (let i = 0; i <= 20; i += 5)\n  console.log(i); // 0, 5, 10, 15, 20",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "To create an infinite <ins class=''>for</ins> loop, you can use the following syntax:"
+      },
+      {
+        "type": "Code",
+        "value": "for (;;) {\n   // infinite loop\n}",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "While loops",
+    "data": [
+      {
+        "type": "Header",
+        "value": "Basic While Loop",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins class=''>while</ins> loop is used to repeatedly execute a block of code as long as a specified condition is truthy. The basic syntax of the <ins class=''>while</ins> loop is as follows:"
+      },
+      {
+        "type": "Code",
+        "value": "while (condition) {\n  // code to be executed\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example:"
+      },
+      {
+        "type": "Code",
+        "value": "let i = 0;\nwhile (i < 5) {\n  console.log(i); // 0, 1, 2, 3, 4\n  i++;\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "do-while Loop",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins class=''>do-while</ins> loop is similar to the <ins class=''>while</ins> loop, but it guarantees that the code block will be executed at least once before checking the condition."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/RFn5bVhh/image.png"
+      },
+      {
+        "type": "Text",
+        "value": "The basic syntax of the <ins class=''>do-while</ins> loop is as follows:"
+      },
+      {
+        "type": "Code",
+        "value": "do {\n  // code to be executed\n} while (condition);",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "For example:"
+      },
+      {
+        "type": "Code",
+        "value": "let i = 0;\ndo {\n  console.log(i); // 0, 1, 2, 3, 4\n  i++;\n} while (i < 5);",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the code inside the <ins class=''>do</ins> block is executed first, then the condition <ins class=''>i < 5</ins> is checked. As long as the condition is true, the loop continues to execute."
+      },
+      {
+        "type": "Text",
+        "value": "To create an infinite <ins class=''>while</ins> loop, you can use the following syntax:"
+      },
+      {
+        "type": "Code",
+        "value": "while (true) {\n   // infinite loop\n}\n\ndo {\n   // infinite loop\n} while (true);",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "break and continue",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The <ins class=''>break</ins> and <ins class=''>continue</ins> statements are used to control the flow of loops. They allow you to terminate a loop or skip an iteration based on certain conditions."
+      },
+      {
+        "type": "Header",
+        "value": "break",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins class=''>break</ins> statement is used to exit a loop prematurely when a specific condition is met. It can be used in loops such as <ins class=''>for</ins>, <ins class=''>while</ins>, and <ins class=''>do-while</ins>."
+      },
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 10; i++) {\n   if (i === 5) break;\n   console.log(i); // 0, 1, 2, 3, 4\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the loop terminates when the value of <ins class=''>i</ins> is 5. The <ins class=''>break</ins> statement stops the loop and the remaining iterations are not executed."
+      },
+      {
+        "type": "Header",
+        "value": "continue",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins class=''>continue</ins> statement is used to skip the current iteration of the loop and continue with the next one. It can also be used in loops such as <ins class=''>for</ins>, <ins class=''>while</ins>, and <ins class=''>do-while</ins>."
+      },
+      {
+        "type": "Code",
+        "value": "for (let i = 0; i < 10; i++) {\n   if (i % 2 === 0) continue;\n   console.log(i); // 1, 3, 5, 7, 9\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In the above code, the <ins class=''>continue</ins> statement skips the current iteration when the value of <ins class=''>i</ins> is even. The loop continues with the next iteration without executing the remaining code within the loop body for that iteration.<br>When used in nested loops, <ins class=''>break</ins> and <ins class=''>continue</ins> work only on the loop that they are used in. If you want to use these statements from the body of an inner loop to affect the behavior of an outer loop, you should use labels."
+      }
+    ]
+  },
+  {
+    "title": "Labels",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Labels in JavaScript are used to name loops or blocks of code, allowing you to use <ins class=''>break</ins> and <ins class=''>continue</ins> statements more flexibly. A label is an identifier followed by a colon <ins class=''>(:)</ins> that appears before a statement or a block of code."
+      },
+      {
+        "type": "Code",
+        "value": "labelName: {\n  // code block\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Using Labels with break",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can use a label with the <ins class=''>break</ins> statement to exit not only the current loop but also any outer loops or code blocks."
+      },
+      {
+        "type": "Code",
+        "value": "outerLoop:\nfor (let i = 0; i < 5; i++) {\n   for (let j = 0; j < 5; j++) {\n      if (i === 2 && j === 3) break outerLoop;\n      console.log('i =', i, 'j =', j);\n   }\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins class=''>outerLoop</ins> label is used with the <ins class=''>break</ins> statement to exit both loops when <ins class=''>i</ins> is 2 and <ins class=''>j</ins> is 3."
+      },
+      {
+        "type": "Header",
+        "value": "Using Labels with continue",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can also use a label with the <ins class=''>continue</ins> statement to skip the current iteration of not only the current loop but also any outer loops."
+      },
+      {
+        "type": "Code",
+        "value": "outerLoop:\nfor (let i = 0; i < 5; i++) {\n   for (let j = 0; j < 5; j++) {\n      if (i === 2 && j === 3)\n          continue outerLoop;\n      console.log('i =', i, 'j =', j);\n   }\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins class=''>outerLoop</ins> label is used with the <ins class=''>continue</ins> statement to skip the current iteration of the outer loop when <ins class=''>i</ins> is 2 and <ins class=''>j</ins> is 3."
+      },
+      {
+        "type": "Header",
+        "value": "Labels with Blocks",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Labels can also be used with blocks of code to break out of the block."
+      },
+      {
+        "type": "Code",
+        "value": "labelName: {\n  console.log('Inside the block');\n  break labelName;\n  console.log('This will not be executed');\n}",
+        "props": { "language": "javascript" }
+      }
+    ]
+  }
+]

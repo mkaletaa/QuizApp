@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Spread and rest operators are two important features introduced in ES6 (ECMAScript 2015). Both of these features use the `...` (three dots) syntax, but they serve different purposes depending on the context in which they are used."
+        "value": "Spread and rest operators are two important features introduced in ES6 (ECMAScript 2015). Both of these features use the <ins>...</ins> (three dots) syntax, but they serve different purposes depending on the context in which they are used."
       }
     ]
   },
@@ -53,7 +53,7 @@
       },
       {
         "type": "Text",
-        "value": "To overcome this issue, use `Object.values(obj)`:"
+        "value": "To overcome this issue, use <ins>Objects.values(obj)</ins>:"
       },
       {
         "type": "Code",
@@ -83,7 +83,7 @@
       },
       {
         "type": "Text",
-        "value": "Rest operator is also denoted by the `...` syntax, but the key difference is that spread operator is used in other contexts (arrays, objects, function calls), whereas rest operator is used in function parameter lists. Such a parameter is called the rest parameter"
+        "value": "Rest operator is also denoted by the <ins>...</ins> syntax, but the key difference is that spread operator is used in other contexts (arrays, objects, function calls), whereas rest operator is used in function parameter lists. Such a parameter is called the rest parameter"
       },
       {
         "type": "Code",
@@ -92,7 +92,7 @@
       },
       {
         "type": "Text",
-        "value": "In the sumAll function, the rest parameter `...numbers` captures all arguments passed into the function as an array. Inside the function, we can manipulate this array, in this case using reduce to sum up all the values."
+        "value": "In the sumAll function, the rest parameter <ins>...numbers</ins> captures all arguments passed into the function as an array. Inside the function, we can manipulate this array, in this case using reduce to sum up all the values."
       },
       {
         "type": "Text",

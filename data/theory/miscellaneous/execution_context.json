@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The execution context in JavaScript is an abstract concept that represents the environment in which code is executed. It contains everything necessary to execute a piece of code, including the variables, the `this` keyword, the outer environment reference, and the code currently being executed."
+        "value": "The execution context in JavaScript is an abstract concept that represents the environment in which code is executed. It contains everything necessary to execute a piece of code, including the variables, the <ins>this</ins> keyword, the outer environment reference, and the code currently being executed."
       }
     ]
   },
@@ -13,7 +13,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "`this` tells the context.<br></br>When we run code outside of any function, the context is the global object, which is `window` in browsers and `global` in Node.js."
+        "value": "<ins>this</ins> tells the context.<br></br>When we run code outside of any function, the context is the global object, which is <ins>window</ins> in browsers and <ins>global</ins> in Node.js."
       },
       {
         "type": "Code",
@@ -22,7 +22,7 @@
       },
       {
         "type": "Text",
-        "value": "If code is run inside an object method, `this` refers to the object the method belongs to."
+        "value": "If code is run inside an object method, `<ins>this</ins> refers to the object the method belongs to."
       },
       {
         "type": "Code",
@@ -31,7 +31,7 @@
       },
       {
         "type": "Text",
-        "value": "If a method is defined inside a nested object, `this` refers to the nearest object the method is called on."
+        "value": "If a method is defined inside a nested object, <ins>this</ins> refers to the nearest object the method is called on."
       },
       {
         "type": "Code",
@@ -40,7 +40,7 @@
       },
       {
         "type": "Text",
-        "value": "For arrow functions, `this` is determined by the surrounding (lexical) scope at the time of the function's creation. Arrow functions do not have their own `this`, so they inherit it from the outer context."
+        "value": "For arrow functions, <ins>this</ins> is determined by the surrounding (lexical) scope at the time of the function's creation. Arrow functions do not have their own <ins>this</ins>, so they inherit it from the outer context."
       },
       {
         "type": "Code",
@@ -49,7 +49,7 @@
       },
       {
         "type": "Text",
-        "value": "For regular functions, the value of `this` depends on how the function is called. Normally, `this` in functions refers to the global object when called in a non-method context."
+        "value": "For regular functions, the value of <ins>this</ins> depends on how the function is called. Normally, <ins>this</ins> in functions refers to the global object when called in a non-method context."
       },
       {
         "type": "Code",
@@ -58,7 +58,7 @@
       },
       {
         "type": "Text",
-        "value": "However, in strict mode, `this` is `undefined` in standalone functions."
+        "value": "However, in strict mode, <ins>this</ins> is <ins>undefined</ins> in standalone functions."
       },
       {
         "type": "Code",
@@ -67,7 +67,7 @@
       },
       {
         "type": "Text",
-        "value": "When a function is defined within an object but not as a method, it still behaves like a standalone function. If such a function is called without an object context, `this` will refer to the global object in non-strict mode, or `undefined` in strict mode."
+        "value": "When a function is defined within an object but not as a method, it still behaves like a standalone function. If such a function is called without an object context, <ins>this</ins> will refer to the global object in non-strict mode, or <ins>undefined</ins> in strict mode."
       },
       {
         "type": "Code",
@@ -81,7 +81,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The `apply`, `call`, and `bind` methods are used to manipulate the context. These methods are particularly useful when you want to borrow methods from other objects or control the execution context of a function."
+        "value": "The <ins>apply</ins>, <ins>call</ins>, and <ins>bind</ins> methods are used to manipulate the context. These methods are particularly useful when you want to borrow methods from other objects or control the execution context of a function."
       },
       {
         "type": "Header",
@@ -90,7 +90,7 @@
       },
       {
         "type": "Text",
-        "value": "The `apply()` method calls a function with a given `this` value, and arguments provided as an array (or an array-like object). This allows you to pass arguments to a function in a flexible way, especially useful when the number of arguments is not known beforehand."
+        "value": "The <ins>apply()</ins> method calls a function with a given <ins>this</ins> value, and arguments provided as an array (or an array-like object). This allows you to pass arguments to a function in a flexible way, especially useful when the number of arguments is not known beforehand."
       },
       {
         "type": "Code",
@@ -104,7 +104,7 @@
       },
       {
         "type": "Text",
-        "value": "The `call()` method also calls a function with a given `this` value, but arguments are provided individually. This method is useful when you know the exact number and order of arguments you need to pass."
+        "value": "The <ins>call()</ins> method also calls a function with a given <ins>this</ins> value, but arguments are provided individually. This method is useful when you know the exact number and order of arguments you need to pass."
       },
       {
         "type": "Code",
@@ -118,7 +118,7 @@
       },
       {
         "type": "Text",
-        "value": "The `bind()` method creates a new function (called in JS jargon a 'bound function') that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. This method is particularly useful for setting the context in event handlers or callbacks."
+        "value": "The <ins>bind()</ins> method creates a new function (called in JS jargon a 'bound function') that, when called, has its <ins>this</ins> keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. This method is particularly useful for setting the context in event handlers or callbacks."
       },
       {
         "type": "Code",
@@ -127,7 +127,7 @@
       },
       {
         "type": "Text",
-        "value": "In summary, `apply()` is suitable for arguments as an array, `call()` for individual arguments, and `bind()` for creating a new function with a preset `this` value. Notice, normally the greet function has a global context but thanks to these three special functions we changed its context to another object for a moment."
+        "value": "In summary, <ins>apply()</ins> is suitable for arguments as an array, <ins>call()</ins> for individual arguments, and <ins>bind()</ins> for creating a new function with a preset <ins>this</ins> value. Notice, normally the greet function has a global context but thanks to these three special functions we changed its context to another object for a moment."
       }
     ]
   }

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "JS_fundamentals|variables|1",
+    "multiChoice": true,
+    "question": "Which of these variable names are allowed in JavaScript?",
+    "options": [
+      { "id": "1", "val": "_myVar", "correct": true },
+      { "id": "2", "val": "MyVar", "correct": true },
+      { "id": "3", "val": "my-var", "correct": false },
+      { "id": "4", "val": "myVar1", "correct": true },
+      { "id": "5", "val": "123myVar", "correct": false }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|variables|2",
+    "multiChoice": true,
+    "question": "Which of these variable names are allowed in JavaScript?",
+    "options": [
+      { "id": "6", "val": "my_var123", "correct": true },
+      { "id": "7", "val": "my@var", "correct": false },
+      { "id": "8", "val": "$myVyar", "correct": true },
+      { "id": "9", "val": "var", "correct": false }
+    ]
+  },
+  {
+    "id": "JS_fundamentals|variables|3",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const name = 'John'\nconsole.log(Name)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "CText",
+        "value": "Whit is the output of the code above?"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "John", "correct": false },
+      { "id": "2", "val": "undefined", "correct": false },
+      { "id": "3", "val": "Error", "correct": true }
+    ],
+    "explanation": "JavaScript is case-sensitive. <ins>Name</ins> is a completely different variable than <ins>name</ins>. Since <ins>Name</ins> wasn't defined, <ins>console.log()</ins> will result in an error."
+  },
+  {
+    "id": "JS_fundamentals|variables|4",
+    "question": "What are variables with unexplained meaning called?",
+    "options": [
+      { "id": "1", "val": "magic numbers", "correct": true },
+      { "id": "2", "val": "mysterious numbers" },
+      { "id": "3", "val": "weird numbers" },
+      { "id": "4", "val": "secret numbers" }
+    ]
+  }
+]

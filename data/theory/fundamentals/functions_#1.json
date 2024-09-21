@@ -1,0 +1,183 @@
+[
+  {
+    "title": "What are functions and why do we need them?",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Functions in programming are blocks of code designed to perform a specific task. They are essential building blocks in most programming languages. The use of functions is very advantageous. They make the code look neat, improving its readability, and simplify the process of editing it later on—you need to update the code in one place instead of many. <br></br>Take a look at the code below:"
+      },
+      {
+        "type": "Code",
+        "value": "// Code without using functions, leading to redundancy\n\n// Displaying user details for User 1\nlet userName1 = 'Alice'\nlet userAge1 = 25\nlet userOccupation1 = 'Engineer'\nconsole.log('User 1: Name is ' + userName1)\nconsole.log('User 1: Age is ' + userAge1)\nconsole.log('User 1: Occupation is ' + userOccupation1)\n\n// Displaying user details for User 2\nlet userName2 = 'Bob'\nlet userAge2 = 30\nlet userOccupation2 = 'Designer'\nconsole.log('User 2: Name is ' + userName2)\nconsole.log('User 2: Age is ' + userAge2)\nconsole.log('User 2: Occupation is ' + userOccupation2)\n\n// Displaying user details for User 3\nlet userName3 = 'Charlie'\nlet userAge3 = 28\nlet userOccupation3 = 'Teacher'\nconsole.log('User 3: Name is ' + userName3)\nconsole.log('User 3: Age is ' + userAge3)\nconsole.log('User 3: Occupation is ' + userOccupation3)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "This works fine but contains many repetitive lines. Moreover, imagine you need to make changes. They would have to be applied in many places, but with functions, it can be done just once. Let's make some improvements to it."
+      },
+      {
+        "type": "Code",
+        "value": "// Code using a function to avoid redundancy\nfunction displayUserDetails(name, age, occupation) {\n  console.log('User: Name is ' + name)\n  console.log('User: Age is ' + age)\n  console.log('User: Occupation is ' + occupation)\n}\n\n// Displaying user details for User 1\ndisplayUserDetails('Alice', 25, 'Engineer')\n// Displaying user details for User 2\ndisplayUserDetails('Bob', 30, 'Designer')\n// Displaying user details for User 3\ndisplayUserDetails('Charlie', 28, 'Teacher')",
+        "props": { "language": "javascript" }
+      },
+
+      {
+        "type": "Text",
+        "value": "Always try to make a function do only one thing. This is called <b>\"Single Responsibility Principle\"</b>. If your function is too long consider splitting it into smaller ones. This approach improves code readability, maintenance, and testing by isolating distinct responsibilities into separate components. This makes the code more modular, flexible, and easier to modify. <br></br>Here's the code that doesn't follow this rule:"
+      },
+      {
+        "type": "Code",
+        "value": "function processUser(user) {\n  // Validating user data\n  if (!user.name || !user.email) {\n    throw new Error('Invalid user data')\n  }\n\n  // Saving user to the database (simulation)\n  console.log('User saved to database:', user)\n\n  // Sending welcome email\n  console.log(`Welcome email sent to ${user.email}`)\n}\n\nconst user = { name: 'John', email: 'john@example.com' }\nprocessUser(user)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "And here's the code that follows the Single Responsibility Principle:"
+      },
+      {
+        "type": "Code",
+        "value": "// Function to save user to the database\nfunction saveUserToDatabase(user) {\n  console.log('User saved to database:', user);\n}\n\n// Function to send welcome email\nfunction sendWelcomeEmail(user) {\n  console.log(`Welcome email sent to ${user.email}`);\n}\n\n// Main function calling other responsibilities\nfunction processUser(user) {\n  validateUser(user);\n  saveUserToDatabase(user);\n  sendWelcomeEmail(user);\n}\n\nconst user = { name: 'John', email: 'john@example.com' };\nprocessUser(user);",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Structure of a function",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In JavaScript, there are a few ways to create a function. The most common of them is function declaration. It looks like this:"
+      },
+      {
+        "type": "Code",
+        "value": "function add(a, b) {\n   return a + b\n} \n\n// Once we define a function, we can call it\nconst sum = add(2, 3)\nconsole.log(sum) // 5",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Function declarations start with the <ins class=''>function</ins> keyword, followed by a name. You can call it whatever you want as long as the name complies with the rules learned in the lesson about variables and their names. After the name, there are parentheses, and inside them, you can place as many arguments as you want, including none. This is the head of the function. Then, you specify the body of the function using curly brackets. This is where all its logic is performed. Inside the body, there is a <ins class=''>return</ins> keyword, which specifies the value that the function will return when it is called. The return is optional, so if a function doesn't return anything, you don't have to include it."
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Header",
+        "value": "The arguments",
+        "props": { "size": "lg" }
+      },
+      {
+        "type": "Text",
+        "value": "Remember to always put arguments in the correct order. The order of arguments in a function call must match the order of parameters defined in the function. If they are out of order, the function may not behave as expected because each parameter will receive the wrong value."
+      },
+      {
+        "type": "Code",
+        "value": "function greet(name, age) {\n   console.log('Hello, my name is ', name, ' and I am ', age, ' years old')\n}\n\ngreet(30, 'Alice')\n// Output: Hello, my name is 30 and I am Alice years old",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can provide a function with too many or too few arguments, but it is not advisable to do so."
+      },
+      {
+        "type": "Code",
+        "value": "function fn(a, b) {\n  console.log(a)\n  console.log(b)\n}\n\nfn('Bob', 'Nick') // Bob, Nick\nfn('Kate', 'Alice', 'Josh') // Kate, Alice\nfn('Mario') // Mario, undefined",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Default values",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "You can specify default arguments so that if no value is provided for a particular parameter, the function will use the default value instead. This can help prevent errors and make your functions more flexible."
+      },
+      {
+        "type": "Code",
+        "value": "function showDetails(name = 'Guest', age = 25) {\n  console.log('Name: ', name, ', age: ', age)\n}\n\nshowDetails('Bob', 12) // Name: Bob, age: 12\nshowDetails('Kate') // Name: Kate, age: 25\nshowDetails(undefined, 36) // Name: Guest, age: 36",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Arguments",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Thanks to the <ins class=''>arguments</ins> object, you don’t even have to specify any named arguments inside the parentheses. The `arguments` object is an array-like object (but not exactly an array) that holds all the arguments passed to a function, regardless of how many or how few you define. This allows you to access all the arguments within the function dynamically."
+      },
+      {
+        "type": "Code",
+        "value": "function fun() {\n  console.log(arguments) // Get all the arguments as an array-like structure\n  console.log(arguments.length) // Get the number of arguments\n  console.log(arguments[0]) // Get the first argument\n}\n\nfun('Bob', 12)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Rest parameter",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "Rest parameters in JavaScript provide a more modern and flexible way to handle function arguments. Unlike the <ins class=''>arguments</ins> object, rest parameters allow you to represent an indefinite number of arguments as an array. This is achieved by using the <ins class=''>...</ins> syntax before the parameter name. This makes the code cleaner and more intuitive, especially when dealing with multiple arguments."
+      },
+      {
+        "type": "Code",
+        "value": "function fun(...args) {\n  console.log(args) // Get all the arguments as an array\n  console.log(args.length) // Get the number of arguments\n  console.log(args[0]) // Get the first argument\n}\n\nfun('Bob', 12)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The rest parameter doesn't have to be the only argument of a function, but it always must be the last one."
+      },
+      {
+        "type": "Code",
+        "value": "function exampleFunction(firstParam, ...restParams) {\n  console.log(firstParam) // 1\n  console.log(restParams) // [2, 3, 4]\n}\n\nexampleFunction(1, 2, 3, 4)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Rest parameters simplify the process of working with variable numbers of arguments and are preferred over the traditional <ins class=''>arguments</ins> object due to their straightforward syntax and better integration with modern JavaScript features."
+      },
+      {
+        "type": "Divider"
+      },
+      {
+        "type": "Header",
+        "value": "Return",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins class=''>return</ins> statement in JavaScript is used to exit a function and optionally pass a value back to the caller. When a function executes a <ins class=''>return</ins> statement, the function stops running, and the value specified in the <ins class=''>return</ins> statement is sent back to where the function was called. If no value is provided or a function doesn't have any <ins class=''>return</ins>, such a function is called <b>void</b> and in JavaScript <ins class=''>undefined</ins> is returned by default. This mechanism allows you to send results from functions and control the flow of execution."
+      },
+      {
+        "type": "Code",
+        "value": "function add(a, b) {\n  return a + b\n  console.log('This will never be printed')\n}\n\nconsole.log(add(2, 3)) // 5\n\nfunction fun() {\n  console.log('This function does not have a return statement')\n}\n\nconsole.log(fun()) // undefined",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Scope",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Functions can have local variables that are not accessible from outside the function. On the other hand, functions have access to variables that are defined in their outer scope."
+      },
+      {
+        "type": "Code",
+        "value": "let global = 'I am a global variable'\n\nfunction fun() {\n  let local = 'I am a local variable'\n  console.log(local) // 'I am a local variable'\n  console.log(global) // 'I am a global variable'\n}\n\nfun()\nconsole.log(local) // Uncaught ReferenceError: local is not defined",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "If a function has local variables or parameters that are named the same as global variables, they will be overshadowed."
+      },
+      {
+        "type": "Code",
+        "value": "let a = 0\nlet b = 5\n\nfunction fun(a) {\n  let b = 20\n  console.log(a) // 10\n  console.log(b) // 20\n}\n\nfun(10)\nconsole.log(a) // 0\nconsole.log(b) // 5",
+        "props": { "language": "javascript" }
+      }
+    ]
+  }
+]

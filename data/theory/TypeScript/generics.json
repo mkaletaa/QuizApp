@@ -13,7 +13,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "You can create <b>functions</b> that work with any type by using generics. The generic type is specified using angle brackets (&lt;T>&gt;), where T is a placeholder for the actual type that will be passed in when the function is called."
+        "value": "You can create functions that work with any type by using generics. The generic type is specified using angle brackets <ins>(&lt;T&gt;)</ins>, where <ins>T</ins> is a placeholder for the actual type that will be passed in when the function is called."
       },
       {
         "type": "Code",
@@ -31,7 +31,7 @@
       },
       {
         "type": "Text",
-        "value": "You can also use generics with <b>classes</b>. This allows you to create classes that can work with different types of data while maintaining type safety."
+        "value": "You can also use generics with classes. This allows you to create classes that can work with different types of data while maintaining type safety."
       },
       {
         "type": "Code",
@@ -40,7 +40,7 @@
       },
       {
         "type": "Text",
-        "value": "Do you remember how to set the type of an <b>array</b> in TypeScript? One way to do this is by using generics. You define an array type and specify the type of its elements using generics."
+        "value": "Do you remember how to set the type of an array in TypeScript? One way to do this is by using generics. You define an array type and specify the type of its elements using generics."
       },
       {
         "type": "Code",

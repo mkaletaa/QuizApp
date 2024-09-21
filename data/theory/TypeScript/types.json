@@ -13,7 +13,7 @@
       },
       {
         "type": "Text",
-        "value": "The `any` type is a catch-all type that allows a variable to be any type. It disables type checking for that variable, so it should be used sparingly. If you don't specify a type, it is `any` by default."
+        "value": "The <ins>any</ins> type is a catch-all type that allows a variable to be any type. It disables type checking for that variable, so it should be used sparingly. If you don't specify a type, it is <ins>any</ins> by default."
       },
       {
         "type": "Code",
@@ -27,11 +27,11 @@
       },
       {
         "type": "Text",
-        "value": "The `unknown` type works similarly to `any` but is safer because it requires type checking before performing operations. It represents any value but requires that you perform some form of type assertion or type checking before using it. It is helpful when you start writing your code and don't know yet what a variable should be like."
+        "value": "The <ins>unknown</ins> type works similarly to <ins>any</ins> but is safer because it requires type checking before performing operations. It represents any value but requires that you perform some form of type assertion or type checking before using it. It is helpful when you start writing your code and don't know yet what a variable should be like."
       },
       {
         "type": "Text",
-        "value": "Look how `unknown` warns us about incrementing a string and `any` doesn't (red underline):"
+        "value": "Look how <ins>unknown</ins> warns us about incrementing a string and <ins>any</ins> doesn't (red underline):"
       },
       {
         "type": "Image",
@@ -44,7 +44,7 @@
       },
       {
         "type": "Text",
-        "value": "The `never` type represents values that should never occur. It is typically used for functions that throw errors or have infinite loops."
+        "value": "The <ins>never</ins> type represents values that should never occur. It is typically used for functions that throw errors or have infinite loops."
       },
       {
         "type": "Code",

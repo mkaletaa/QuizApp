@@ -13,7 +13,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "To take advantage of its benefits simply put a string 'use strict' where you want it to be applied."
+        "value": "To take advantage of its benefits simply put a string <ins>'use strict'</ins> where you want it to be applied."
       },
       {
         "type": "Code",
@@ -41,7 +41,7 @@
       },
       {
         "type": "Text",
-        "value": "Strict mode changes the context in standalone functions."
+        "value": "Strict mode changes the <ins data-key='context' class='hint'>context</ins> in standalone functions."
       },
       {
         "type": "Code",
@@ -61,7 +61,7 @@
       },
       {
         "type": "Text",
-        "value": "Strict mode enforces the use of `let`, `const` or `var` when declaring a variable."
+        "value": "Strict mode enforces the use of <ins>let</ins>, <ins>const</ins> or <ins>var</ins> when declaring a variable."
       },
       {
         "type": "Code",
@@ -90,7 +90,7 @@
       },
       {
         "type": "Text",
-        "value": "When using strict mode, the code inside `eval` creates its own scope."
+        "value": "When using strict mode, the code inside <ins data-key='eval' class='hint'>eval</ins> creates its own scope."
       },
       {
         "type": "Code",

@@ -115,6 +115,6 @@
       { "id": "2", "val": "\"b\", \"a\"" },
       { "id": "3", "val": "undefined, undefined", "correct": true }
     ],
-    "explanation": "The function expects an object with parameters `a` and `b` but is given an object with parameters `x` and `y`."
+    "explanation": "The function expects an object with parameters <ins>a</ins> and <ins>b</ins> but is given an object with parameters <ins>x</ins> and <ins>y</ins>."
   }
 ]

@@ -31,7 +31,7 @@ export default function ResultsHeader({
   const returnIcon = useMemo(() => {
     let probability: number | 'rare' | 'common' = Math.random()
     console.log('🚀 ~ returnIcon ~ probability:', probability)
-    probability = probability > 0.75 ? 'rare' : 'common'
+    probability = probability > 0.85 ? 'rare' : 'common'
 
     switch (probability) {
       case 'common':

@@ -12,7 +12,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The syntax of type aliases and interfaces differs. Interfaces generally have longer syntax, not just because `interface` contains more letters than `type`. <br></br>Types are preceded by `type` keyword. When describing the type of objects type alias syntax is similar to JavaScript objects except there are no separating commas."
+        "value": "The syntax of type aliases and interfaces differs. Interfaces generally have longer syntax, not just because \"interface\" contains more letters than \"type\". <br></br>When describing the type of objects, type alias syntax is similar to JavaScript objects except there are no separating commas."
       },
       {
         "type": "Code",
@@ -21,7 +21,7 @@
       },
       {
         "type": "Text",
-        "value": "The syntax of an interface differs from that of a type alias in that it requires the `interface` keyword and does not use equal signs."
+        "value": "The syntax of an interface differs from that of a type alias in that it requires the <ins>interface</ins> keyword and does not use equal signs."
       },
       {
         "type": "Code",
@@ -58,7 +58,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Suppose we want a variable to be of type A OR B. With type aliases we could do it easily using `|` sign. Although you can use union types within interfaces, you cannot create a union of two interfaces directly."
+        "value": "Suppose we want a variable to be of type A OR B. With type aliases we could do it easily using <ins>|</ins> sign. Although you can use union types within interfaces, you cannot create a union of two interfaces directly."
       },
       {
         "type": "Code",
@@ -72,7 +72,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Suppose we want a variable to be of type A AND B. With type aliases we could do it easily using `&` sign. However this syntax doesn't work with interfaces."
+        "value": "Suppose we want a variable to be of type A AND B. With type aliases we could do it easily using <ins>&</ins> sign. However this syntax doesn't work with interfaces."
       },
       {
         "type": "Code",
@@ -81,7 +81,7 @@
       },
       {
         "type": "Text",
-        "value": "If you want to have two types combined with interfaces, you should use `extends` keyword."
+        "value": "If you want to have two types combined with interfaces, you should use <ins>extends</ins> keyword."
       },
       {
         "type": "Code",

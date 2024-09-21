@@ -46,12 +46,11 @@
       {
         "id": 31,
         "val": "true",
-        "correct": false
+        "correct": true
       },
       {
         "id": 32,
-        "val": "false",
-        "correct": true
+        "val": "false"
       }
     ]
   },
@@ -102,11 +101,11 @@
         "val": "object-oriented",
         "correct": true
       },
-       {
-         "id": 33,
-         "val": "functional",
-         "correct": true
-       }
+      {
+        "id": 33,
+        "val": "functional",
+        "correct": true
+      }
     ]
   }
 ]

@@ -1,0 +1,96 @@
+[
+  {
+    "title": "Number",
+    "data": [
+      {
+        "type": "Text",
+        "value": "We can define integers, fractions, positive numbers, negative numbers, and numbers of different bases."
+      },
+      {
+        "type": "Code",
+        "value": "const num1 = -15 //negative number\nconst num2 = 12.34 //fraction\n\n//scientific notation\nconst num3 = 3e5 //300000\nconst num4 = 2.2e-2 //0.022\n\n//different bases\nconst num5 = 0xd //13 (base 16)\nconst num6 = 0o34 //28 (base 8)\nconst num7 = 0b101 // 5 (base 2)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Unless you use <ins data-key='strict_mode' class='hint'>strict mode</ins> you can put 0 at the beginning of a number. This is called <b>Octal literal</b> and is treated like a base 8 system number."
+      },
+      {
+        "type": "Code",
+        "value": "console.log(015) // 13 // 1*8 + 5",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "<ins>Number</ins> type offers some methods useful for numbers manipulation:"
+      },
+      {
+        "type": "Code",
+        "value": "let num = 123.456789\n\n// toFixed: Rounds the number to a specified number of decimal places\nconsole.log(num.toFixed(2)) // \"123.46\"\n\n// toPrecision: Formats the number to a specified number of significant digits\nconsole.log(num.toPrecision(5)) // \"123.46\"\n\n// toExponential: Formats the number in exponential notation\nconsole.log(num.toExponential(3)) // \"1.235e+2\"\n\n// toLocaleString: Formats the number according to local settings\nlet numLarge = 1234567.89\nconsole.log(numLarge.toLocaleString('en-US')) // \"1,234,567.89\"\nconsole.log(numLarge.toLocaleString('de-DE')) // \"1.234.567,89\"",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Moreover <ins>Number</ins> class offers static methods."
+      },
+      {
+        "type": "Code",
+        "value": "// Number.isFinite(value): Determines whether the value is a finite number\nconsole.log(Number.isFinite(123)) // true\nconsole.log(Number.isFinite(Infinity)) // false\nconsole.log(Number.isFinite(NaN)) // false\n\n// Number.isInteger(value): Determines whether the value is an integer\nconsole.log(Number.isInteger(123)) // true\nconsole.log(Number.isInteger(123.45)) // false\nconsole.log(Number.isInteger('123')) // false\n\n// Number.isNaN(value): Determines whether the value is NaN (Not-a-Number)\nconsole.log(Number.isNaN(NaN)) // true\nconsole.log(Number.isNaN(123)) // false\n\n// Number.isSafeInteger(value): Determines whether the value is a safe integer\nconsole.log(Number.isSafeInteger(9007199254740991)) // true (Max safe integer)\nconsole.log(Number.isSafeInteger(9007199254740992)) // false (Not a safe integer)\n\n// Number.parseFloat(string): Parses a string argument and returns a floating point number\nconsole.log(Number.parseFloat('123.456abc')) // 123.456\nconsole.log(Number.parseFloat('abc123.456')) // NaN\n\n// Number.parseInt(string, radix): Parses a string argument and returns an integer of the specified radix\nconsole.log(Number.parseInt('101', 2)) // 5 (binary to decimal)\nconsole.log(Number.parseInt('15', 8)) // 13 (octal to decimal)\nconsole.log(Number.parseInt('123abc')) // 123 (parses until a non-digit character)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "NaN is ironically of type Number"
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      }
+    ]
+  },
+  {
+    "title": "BigInt",
+    "data": [
+      {
+        "type": "Text",
+        "value": "<ins>BigInt</ins> is a special numeric type introduced in JavaScript to handle integers that are larger than the maximum safe integer value supported by the <ins>Number</ins> type. It allows for arbitrary-precision integers, which means it can represent and perform operations on integers of any size, limited only by the available memory. "
+      },
+      {
+        "type": "Code",
+        "value": "//To create a BigInt, you append an n to the end of an integer literal:\nconst bigIntValue = 123456789012345678901234567890n\n\n//or you can use a constructor\nconst bigIntFromNumber = BigInt(123456789)\nconst bigIntFromString = BigInt(\"123456789012345678901234567890\")",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Precision issues",
+    "data": [
+      {
+        "type": "Text",
+        "value": "In JavaScript, as in many other programming languages, there can be inaccuracies in numerical calculations, particularly with floating-point arithmetic. This is due to the way numbers are represented in binary format according to the IEEE 754 standard, which JavaScript uses for its Number type. JavaScript uses a 64-bit floating-point representation, which provides approximately 15-17 decimal digits of precision. However, some numbers cannot be represented exactly in binary, leading to small errors in calculations. For example:"
+      },
+      {
+        "type": "Code",
+        "value": "console.log(0.1 + 0.2); // 0.30000000000000004",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Here, the expected result of 0.1 + 0.2 is 0.3, but due to precision limitations, JavaScript returns 0.30000000000000004. <br></br>These small inaccuracies can accumulate and result in noticeable errors, especially in complex calculations or over many iterations. For example:"
+      },
+      {
+        "type": "Code",
+        "value": "let sum = 0\nfor (let i = 0; i < 10; i++) {\n  sum += 0.1\n}\nconsole.log(sum) //0.9999999999999999 instead of 1",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "JavaScript can accurately handle numbers between Number.MIN_VALUE (approximately 5e-324) and Number.MAX_VALUE (approximately 1.79e+308). Numbers outside this range can lead to underflow or overflow, where the result is zero or Infinity. <br></br>In applications like financial software, even small inaccuracies can be significant. To avoid these issues, developers often use integer arithmetic (e.g., handling money in cents instead of dollars) or specialized libraries for precise decimal arithmetic."
+      }
+    ]
+  }
+]

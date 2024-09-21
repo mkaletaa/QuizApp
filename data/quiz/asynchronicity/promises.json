@@ -135,7 +135,7 @@
   },
   {
     "id": "asynchronicity|promises|9",
-    "question": "How does Promise.allSettled() work?",
+    "question": "How does <ins>Promise.allSettled()</ins> work?",
     "options": [
       {
         "id": "1",
@@ -161,7 +161,7 @@
   },
   {
     "id": "asynchronicity|promises|10",
-    "question": "How does Promise.race() work?",
+    "question": "How does <ins>Promise.race()</ins> work?",
     "options": [
       {
         "id": "1",
@@ -187,7 +187,7 @@
   },
   {
     "id": "asynchronicity|promises|11",
-    "question": "How does Promise.any() work?",
+    "question": "How does <ins>Promise.any()</ins> work?",
     "options": [
       {
         "id": "1",

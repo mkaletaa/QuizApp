@@ -77,11 +77,11 @@
       { "id": "3", "val": "5, 5, 5, 5, 5", "correct": true },
       { "id": "4", "val": "4, 4, 4, 4, 4", "correct": false }
     ],
-    "explanation": "In the code, the for loop increments `i` from 0 to 5, but because setTimeout is asynchronous, the callbacks only run after the loop has finished. By the time the callbacks are executed, `i` has already reached 5, so all five console.log(i) statements output 5. This happens because the same variable i is shared across all iterations. To fix this, using `let` in the loop declaration creates a new scope for `i` in each iteration, ensuring the correct value is logged."
+    "explanation": "In the code, the <ins>for</ins> loop increments <ins>i</ins> from 0 to 5, but because setTimeout is asynchronous, the callbacks only run after the loop has finished. By the time the callbacks are executed, <ins>i</ins> has already reached 5, so all five console.log(i) statements output 5. This happens because the same variable i is shared across all iterations. To fix this, using <ins>let</ins> in the loop declaration creates a new scope for <ins>i</ins> in each iteration, ensuring the correct value is logged."
   },
   {
     "id": "asynchronicity|timeouts_and_intervals|5",
-    "question": "What function can be utilized to stop setInterval()?",
+    "question": "What function can be utilized to stop <ins>setInterval()</ins>?",
     "options": [
         { "id": "1", "val": "cancelInterval()", "correct": false },
         { "id": "2", "val": "clearInterval()", "correct": true },
@@ -91,7 +91,7 @@
   },
   {
     "id": "asynchronicity|timeouts_and_intervals|6",
-    "question": "What do setTimeout() and setInterval() return in a browser?",
+    "question": "What do <ins>setTimeout()</ins> and <ins>setInterval()</ins> return in a browser?",
     "options": [
         { "id": "1", "val": "undefined", "correct": false },
         { "id": "2", "val": "a number", "correct": true },
@@ -101,7 +101,7 @@
   },
   {
     "id": "asynchronicity|timeouts_and_intervals|7",
-    "question": "What do setTimeout() and setInterval() return in Node.js?",
+    "question": "What do <ins>setTimeout()</ins> and <ins>setInterval()</ins> return in Node.js?",
     "options": [
         { "id": "1", "val": "undefined", "correct": false },
         { "id": "2", "val": "a number", "correct": false },

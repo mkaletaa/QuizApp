@@ -1,0 +1,157 @@
+[
+  {
+    "id": "data_structures|strings|1",
+    "question": "What will the <ins>lastIndexOf()</ins> method return if the search phrase is not present in the given text?",
+    "options": [
+      { "id": "1", "val": "null", "correct": false },
+      { "id": "2", "val": "undefined", "correct": false },
+      { "id": "3", "val": "0", "correct": false },
+      { "id": "4", "val": "-1", "correct": true }
+    ]
+  },
+  {
+    "id": "data_structures|strings|2",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const str = 'abc'\nstr[0] = 'q'\n\nconsole.log(str) //?",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "'abc'", "correct": true },
+      { "id": "2", "val": "'qbc'", "correct": false },
+      { "id": "3", "val": "Error", "correct": false }
+    ]
+  },
+  {
+    "id": "data_structures|strings|3",
+    "question": "What is the difference between single quotes and double quotes?",
+    "options": [
+      {
+        "id": "2",
+        "val": "Single quotes are used for template literals, while double quotes are used for regular strings",
+        "correct": false
+      },
+      { "id": "1", "val": "There is no difference", "correct": true },
+      {
+        "id": "3",
+        "val": "Single quotes support multi-line strings, while double quotes do not",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "You can nest double quotes but cannot do the same with single quotes",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "data_structures|strings|4",
+    "question": "How does string interpolation work with template literals in JavaScript?",
+    "options": [
+      {
+        "id": "2",
+        "val": "It is done using concatenation with the + operator inside single quotes",
+        "correct": false
+      },
+      {
+        "id": "1",
+        "val": "It is done using the concat() method inside double quotes",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "It is done by placing variables directly inside single or double quotes without any special syntax",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "val": "It is done using ${} syntax within backticks (`) to embed expressions and variables inside a string",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "data_structures|strings|5",
+    "question": "What does the <ins>slice(2, -1)</ins> method return for <ins>const text = 'Hello world'</ins>?",
+    "options": [
+      { "id": "1", "val": "'llo worl'", "correct": true },
+      { "id": "2", "val": "'Hello world'" },
+      { "id": "3", "val": "'llo wor'" },
+      { "id": "4", "val": "'Hello worl'" }
+    ],
+    "explanation": [
+      {
+        "type": "Text",
+        "value": "<ins>Slice()</ins> returns a section of the string, extracted from start to end indices (end index not included). It supports negative indices, which count from the end of the string."
+      }
+    ]
+  },
+  {
+    "id": "data_structures|strings|6",
+    "question": "What does the <ins>split(' ')</ins> method do when applied to <ins>const text = 'Hello world'</ins>?",
+    "options": [
+      {
+        "id": "2",
+        "val": "Returns an array of substrings separated by spaces.",
+        "correct": true
+      },
+      { "id": "1", "val": "Returns the string with all spaces removed." },
+      { "id": "3", "val": "Joins the array elements with a space." },
+      { "id": "4", "val": "Replaces spaces with hyphens." }
+    ]
+  },
+  {
+    "id": "data_structures|strings|7",
+    "question": "How does the <ins>repeat(3)</ins> method affect the string <ins>const text = 'Hello'</ins>?",
+    "options": [
+      { "id": "1", "val": "Repeats 'Hello' three times, separated by commas." },
+      {
+        "id": "3",
+        "val": "Appends 'Hello' three times to the original string."
+      },
+      { "id": "4", "val": "Repeats the third character from 'Hello'." },
+      {
+        "id": "2",
+        "val": "Creates a new string with three copies of 'Hello' concatenated together.",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "data_structures|strings|8",
+    "question": "What does the <ins>trim()</ins> method do for <ins>const text = '  Hello world  '</ins>?",
+    "options": [
+      { "id": "1", "val": "Removes all whitespace characters from the string" },
+      {
+        "id": "2",
+        "val": "Removes whitespace from both ends of the string",
+        "correct": true
+      },
+      { "id": "3", "val": "Removes the first character" },
+      { "id": "4", "val": "Removes the last character" }
+    ]
+  },
+  {
+    "id": "data_structures|strings|9",
+    "question": "Which method can be used to convert a string to lowercase?",
+    "options": [
+      { "id": "3", "val": "toLower()" },
+      { "id": "4", "val": "lower()" },
+      { "id": "1", "val": "lowerCase()" },
+      { "id": "2", "val": "toLowerCase()", "correct": true }
+    ]
+  },
+
+  {
+    "id": "data_structures|strings|10",
+    "question": "Which method can be used to find the index of the first occurrence of a specified substring?",
+    "options": [
+      { "id": "1", "val": "indexOf()", "correct": true },
+      { "id": "2", "val": "firstIndexOf()" },
+      { "id": "3", "val": "charAt()" },
+      { "id": "4", "val": "none of these" }
+    ]
+  }
+]

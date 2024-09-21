@@ -40,7 +40,7 @@
         "type": "List",
         "value": [
           "<b>Next.js</b> and <b>Remix</b> - metaframeworks that are used to create full-stack applications, offering features like server-side rendering (SSR), static site generation (SSG), and enhanced routing capabilities, making it easier to build scalable and performant web apps.",
-          "<b>React Query</b> - a data-fetching library that simplifies fetching, caching, and syncing server data in React applications, making API management easier.",
+          "<b>Tanstack Query</b> - a data-fetching library that simplifies fetching, caching, and syncing server data in React applications, making API management easier.",
           "<b>Shadcn UI</b> - a library that provides a collection of customizable, accessible UI components, making it easier to build consistent and high-quality user interfaces.",
           "<b>React Router</b> - a standard routing library for React, enabling navigation between different views and pages within an application, including dynamic route matching and nested routes."
         ]
