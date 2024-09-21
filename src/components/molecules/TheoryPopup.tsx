@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import {
   Animated,
   Modal,
+  StyleSheet,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
@@ -26,7 +27,6 @@ export default function TheoryPopup({ topicName, chapterName }) {
   // const showPopup = useStore(state => state.showPopup)
   // const setShowPopup = useStore(state => state.setShowPopup)
   const [showPopup, setShowPopup] = useState(false)
-
 
   const { popupOpacity, transform } = useAnimatePopup(showPopup)
 
@@ -107,7 +107,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
                     // <Entypo name="flag" size={24} color="tomato"/>
                     // <FontAwesome6 name="font-awesome-flag" size={22} color="tomato" />
                     <MaterialIcons
-                      style={{ marginLeft: 10 }}
+                      style={styles.icon}
                       name="outlined-flag"
                       size={24}
                       color="tomato"
@@ -134,7 +134,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
                     height: 0.5,
                     backgroundColor: Colors.border,
                     marginHorizontal: 10,
-                    alignItems: 'center'
+                    alignItems: 'center',
                   }}
                 />
                 {/* <Divider></Divider> */}
@@ -142,6 +142,7 @@ export default function TheoryPopup({ topicName, chapterName }) {
                   chapterName={chapterName}
                   topicName={topicName}
                   handlePress={() => setShowPopup(false)}
+                  iconStyle={styles.icon}
                 />
                 {/* <MistakeButton prop={topicName} /> */}
                 {/* <QuizButton chapterName={chapterName} topicName={topicName} /> */}
@@ -153,3 +154,12 @@ export default function TheoryPopup({ topicName, chapterName }) {
     </React.Fragment>
   )
 }
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 25,
+    textAlign: 'center',
+    marginLeft: 10,
+    // backgroundColor: 'red',
+  },
+})

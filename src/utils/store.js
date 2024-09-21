@@ -10,7 +10,7 @@ const useStore = create(set => ({
   bottomSheetContent: [],
   infiniteStreak: 0,
   goodInfiniteStreak: 0,
-  hljsStyle: 'shadesOfPurple',
+  hljsStyle: 'nightOwl',
   shuffle: false, //shuffle questions
   hide: false, //hide answers in Quiz
   setHljsStyle: style => set({ hljsStyle: style }),

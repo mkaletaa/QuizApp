@@ -140,7 +140,7 @@ const Settings = () => {
         onPress={() => {
           setBottomSheetContent(<CodeSettings />)
           setShowBottomSheet(true)
-          setBottomSheetSnapIndex(3)
+          setBottomSheetSnapIndex(2)
         }}
         rippleColor={Colors.ripple}
         style={{
@@ -155,7 +155,7 @@ const Settings = () => {
             name="code"
             size={20}
             color={'#654DA1'}
-            style={{ opacity: 0.7 }}
+            style={styles.leftIcon}
           />
         )}
       />
@@ -169,7 +169,7 @@ const Settings = () => {
               name="bookmark"
               size={24}
               color={'#654DA1'}
-              style={{ marginLeft: 4, opacity: 0.7 }}
+              style={styles.leftIcon}
             />
           )}
           right={() => (
@@ -194,7 +194,7 @@ const Settings = () => {
               name="information"
               size={32}
               color={'#654DA1'}
-              style={{ opacity: 0.7 }}
+              style={styles.leftIcon}
             />
           )}
           right={() => (
@@ -224,6 +224,13 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: Colors.screenBg,
+  },
+  leftIcon: {
+    opacity: 0.7,
+    // backgroundColor: 'red',
+    marginLeft: 5,
+    width: 25,
+    textAlign: 'center',
   },
 })
 

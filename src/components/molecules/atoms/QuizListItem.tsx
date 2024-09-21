@@ -8,7 +8,12 @@ import useOpenQuiz from '../../../hooks/useOpenQuiz'
 import { COLOR, Colors } from '../../../utils/constants'
 import useStore from '../../../utils/store'
 
-export default function QuizListItem({ topicName, chapterName, handlePress }) {
+export default function QuizListItem({
+  topicName,
+  chapterName,
+  handlePress,
+  iconStyle,
+}) {
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 
   // const setShowPopup = useStore(state => state.setShowPopup)
@@ -28,9 +33,8 @@ export default function QuizListItem({ topicName, chapterName, handlePress }) {
         title={takeAQuiz}
         //@ts-ignore
         onPress={() => {
-          // handlePress()
+          handlePress()
           openQuiz({ topicName, chapterName })
-          // setShowPopup(false)
         }}
         left={() => {
           return (
@@ -38,7 +42,7 @@ export default function QuizListItem({ topicName, chapterName, handlePress }) {
               name="light-bulb"
               size={24}
               color={COLOR.ORANGE}
-              style={{ marginLeft: 10 }}
+              style={iconStyle}
             />
           )
         }}

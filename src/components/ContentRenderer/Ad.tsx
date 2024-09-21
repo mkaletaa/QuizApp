@@ -43,7 +43,7 @@ export default function Ad({
       }}
     >
       <BannerAd
-        unitId={__DEV__ ? TestIds.BANNER : 'id'} // zmień 'id' na faktyczne ID reklamy produkcyjnej
+        unitId={ TestIds.BANNER } // zmień 'id' na faktyczne ID reklamy produkcyjnej
         size={returnSize()} // typ reklamy w zależności od miejsca
       />
     </View>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
@@ -9,24 +9,25 @@ import { setValue } from '../utils/utilStorage'
 import ContentRenderer from './ContentRenderer/_ContentRenderer'
 
 const stylesArray = [
-  { label: 'Atom One Dark', value: 'atomOneDark' },
-  { label: 'Atom One Light', value: 'atomOneLight' },
   { label: 'Atelier Cave Light', value: 'atelierCaveLight' },
-  { label: 'Dracula', value: 'dracula' },
-  { label: 'GitHub', value: 'github' },
+  { label: 'Atom One Dark', value: 'atomOneDark' },
+  { label: 'Docco', value: 'docco' },
   { label: 'Gruvbox Dark', value: 'gruvboxDark' },
-  { label: 'Hopscotch', value: 'hopscotch' },
-  { label: 'IR Black', value: 'irBlack' },
   { label: 'Kimbie Dark', value: 'kimbieDark' },
   { label: 'Monokai', value: 'monokai' },
   { label: 'Night Owl', value: 'nightOwl' },
-  { label: 'Nord', value: 'nord' },
   { label: 'Paraiso Dark', value: 'paraisoDark' },
   { label: 'Shades of Purple', value: 'shadesOfPurple' },
   { label: 'Solarized Dark', value: 'solarizedDark' },
   { label: 'Srcery', value: 'srcery' },
-  { label: 'Tomorrow', value: 'tomorrow' },
   { label: 'Tomorrow Night Blue', value: 'tomorrowNightBlue' },
+  // { label: 'Atom One Light', value: 'atomOneLight' },
+  // { label: 'Dracula', value: 'dracula' },
+  // { label: 'Hopscotch', value: 'hopscotch' },
+  // { label: 'GitHub', value: 'github' },
+  // { label: 'IR Black', value: 'irBlack' },
+  // { label: 'Nord', value: 'nord' },
+  // { label: 'Tomorrow', value: 'tomorrow' },
 
   // { label: 'A11y Dark', value: 'a11yDark' },
   // { label: 'Agate', value: 'agate' },
@@ -47,9 +48,8 @@ const stylesArray = [
   // { label: 'Atom One Dark Reasonable', value: 'atomOneDarkReasonable' },
   // { label: 'Darcula', value: 'darcula' },
   // { label: 'Codepen Embed', value: 'codepenEmbed' },
-  { label: 'Docco', value: 'docco' },
   // { label: 'Foundation', value: 'foundation' },
-  { label: 'GitHub Gist', value: 'githubGist' },
+  // { label: 'GitHub Gist', value: 'githubGist' },
   // { label: 'Google Code', value: 'googlecode' },
   // { label: 'Hybrid', value: 'hybrid' },
   // { label: 'Mono Blue', value: 'monoBlue' },
@@ -112,9 +112,12 @@ export default function CodeSettings() {
   const setHljsStyle = useStore(state => state.setHljsStyle)
   const hljsStyle = useStore(state => state.hljsStyle)
 
+  const [localStyle, setLocalStyle] = useState(hljsStyle) // helper variable improving performance
+
   useEffect(() => {
+    setHljsStyle(localStyle)
     setValue('hljsStyle', hljsStyle)
-  }, [hljsStyle])
+  }, [localStyle])
 
   return (
     <React.Fragment>
@@ -142,14 +145,14 @@ export default function CodeSettings() {
               key={item.value}
               style={[
                 styles.optionButton,
-                hljsStyle === item.value && styles.selectedOption,
+                localStyle === item.value && styles.selectedOption,
               ]}
-              onPress={() => setHljsStyle(item.value)}
+              onPress={() => setLocalStyle(item.value)}
             >
               <Text
                 style={[
                   styles.optionText,
-                  hljsStyle === item.value && styles.selectedText,
+                  localStyle === item.value && styles.selectedText,
                 ]}
               >
                 {item.label}
