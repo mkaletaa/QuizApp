@@ -17,7 +17,7 @@ import ContentRenderer from './_ContentRenderer'
 
 export default function Spoiler() {
   const bottomSheetRef = useRef(null)
-  const snapPoints = ['31%', '50%', '75%', '90%']
+  const snapPoints = ['31%', '60%', '85%']
 
   const showBottomSheet = useStore(state => state.showBottomSheet)
   const snapIndex = useStore.getState().bottomSheetSnapIndex
@@ -111,7 +111,8 @@ export default function Spoiler() {
               }}
               backgroundStyle={{ 
                 // backgroundColor: Colors.screenBg
-                backgroundColor: Colors.gradientLight 
+                backgroundColor: 'rgb(225, 225, 255)',
+                // backgroundColor: Colors.gradientLight 
               }}
               backdropComponent={renderBackdrop}
               style={{ flex: 1 }}
