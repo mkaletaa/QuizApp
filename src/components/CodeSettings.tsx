@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
@@ -112,9 +112,12 @@ export default function CodeSettings() {
   const setHljsStyle = useStore(state => state.setHljsStyle)
   const hljsStyle = useStore(state => state.hljsStyle)
 
+  const [localStyle, setLocalStyle] = useState(hljsStyle) // helper variable improving performance
+
   useEffect(() => {
+    setHljsStyle(localStyle)
     setValue('hljsStyle', hljsStyle)
-  }, [hljsStyle])
+  }, [localStyle])
 
   return (
     <React.Fragment>
@@ -142,14 +145,14 @@ export default function CodeSettings() {
               key={item.value}
               style={[
                 styles.optionButton,
-                hljsStyle === item.value && styles.selectedOption,
+                localStyle === item.value && styles.selectedOption,
               ]}
-              onPress={() => setHljsStyle(item.value)}
+              onPress={() => setLocalStyle(item.value)}
             >
               <Text
                 style={[
                   styles.optionText,
-                  hljsStyle === item.value && styles.selectedText,
+                  localStyle === item.value && styles.selectedText,
                 ]}
               >
                 {item.label}
