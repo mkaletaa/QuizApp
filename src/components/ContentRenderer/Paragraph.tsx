@@ -33,19 +33,40 @@ export default function Paragraph({ value, width, props }) {
         setShowBottomSheet(true)
       }
     }
-    return (
-      <Text
-        onPress={onPress}
-        style={{
-          color: className === 'hint' ? '#362988' : Colors.text,
-          backgroundColor: className === 'hint' ? '#c9c3ed' : '#e4e1f6', //e4e1ef //c7c6f4 //d7d2f1
-        }}
-      >
-        &nbsp;
-        {originalText}
-        &nbsp;
-      </Text>
-    )
+
+    switch (className) {
+      case 'hint':
+        return (
+          <Text
+            onPress={onPress}
+            style={{
+              color: '#362988',
+              backgroundColor: '#c9c3ed', //e4e1ef //c7c6f4 //d7d2f1
+            }}
+          >
+            &nbsp;
+            {originalText}
+            &nbsp;
+          </Text>
+        )
+      default:
+        return (
+          <Text
+            // onPress={onPress}
+            style={{
+              color: Colors.text,
+              backgroundColor: 'rgba(106, 90, 205, .15)', //e4e1ef //c7c6f4 //d7d2f1
+
+              // backgroundColor: '#e4e1f6', //e4e1ef //c7c6f4 //d7d2f1
+              fontStyle: 'italic',
+            }}
+          >
+            &nbsp; 
+            {originalText}
+            &nbsp;
+          </Text>
+        )
+    }
   }
 
   const renderers = {

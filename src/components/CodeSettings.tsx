@@ -116,7 +116,7 @@ export default function CodeSettings() {
 
   useEffect(() => {
     setHljsStyle(localStyle)
-    setValue('hljsStyle', hljsStyle)
+    setValue('hljsStyle', localStyle)
   }, [localStyle])
 
   return (
