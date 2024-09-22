@@ -81,13 +81,13 @@
       },
       {
         "type": "Text",
-        "value": "From the group of falsy values we can distinguish another group - nullish. It consists of undefined and null."
+        "value": "From the group of falsy values we can distinguish another group - <b>nullish</b>. It consists of undefined and null."
       },
       {
         "type": "Image",
         "value": "https://i.postimg.cc/c6qgBtPm/image.png",
         "props": {
-          "description": "the difference between <ins>0</ins>, <ins>null</ins> and <ins>undefined</ins>"
+          "description": "the difference between 0, null and undefined"
         }
       },
       {

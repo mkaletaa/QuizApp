@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Let's assume we want some piece of code to be executed after some time. For this purpose, we use setTimeout(). It takes at least two arguments. The first is the callback function we want to execute, and the second is the time in milliseconds that specifies how long (approximately) we have to wait for the callback to be called."
+        "value": "Let's assume we want some piece of code to be executed after some time. For this purpose, we use <ins>setTimeout()</ins>. It takes at least two arguments. The first is the callback function we want to execute, and the second is the time in milliseconds that specifies how long (approximately) we have to wait for the callback to be called."
       },
       {
         "type": "Code",
@@ -13,7 +13,7 @@
       },
       {
         "type": "Text",
-        "value": "If the callback needs some arguments we can pass them as the next arguments to setTimeout."
+        "value": "If the callback needs some arguments we can pass them as the next arguments to <ins>setTimeout()</ins>."
       },
       {
         "type": "Code",

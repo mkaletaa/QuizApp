@@ -7,10 +7,10 @@ import type_conversion from './type_conversion.json';
 
 
 export const data_types = {
-  numbers,
   introduction,
-  strings,
   type_conversion,
+  numbers,
+  strings,
   arrays,
   objects_fundamentals,
 }

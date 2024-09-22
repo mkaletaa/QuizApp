@@ -56,7 +56,7 @@
       },
       {
         "type": "Text",
-        "value": "But this stack alone isn't enough to create a mobile app. We also need a native container, provided by tools like Cordova or Capacitor. Both tools enable access to Android and iOS SDKs but do so in different ways. Cordova wraps the web app in a native container with a webview, whereas Capacitor offers a more modern approach with improved performance and seamless integration with native tools."
+        "value": "But this stack alone isn't enough to create a mobile app. We also need a native container, provided by tools like <b>Cordova</b> or <b>Capacitor</b>. Both tools enable access to Android and iOS SDKs but do so in different ways. Cordova wraps the web app in a native container with a webview, whereas Capacitor offers a more modern approach with improved performance and seamless integration with native tools."
       },
       {
         "type": "YouTube",

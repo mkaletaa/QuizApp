@@ -20,7 +20,7 @@
       },
       {
         "type": "Text",
-        "value": "How to create a Promise? Some functions, like fetch() or those preceded with `async` keyword always return one. You can also use the `Promise` constructor which takes a function with two parameters: `resolve` and `reject`. You call `resolve` when the operation is successful and `reject` when an error occurs."
+        "value": "How to create a Promise? Some functions, like fetch() or those preceded with <ins>async</ins> keyword always return one. You can also use the <ins>Promise</ins> constructor which takes a function with two parameters: <ins>resolve</ins> and <ins>reject</ins>. You call <ins>resolve</ins> when the operation is successful and <ins>reject</ins> when an error occurs."
       },
       {
         "type": "Code",
@@ -38,7 +38,7 @@
       },
       {
         "type": "Text",
-        "value": "Promises can be chained to handle multiple asynchronous operations sequentially. Each `then` method returns a new promise, which allows further chaining."
+        "value": "Promises can be chained to handle multiple asynchronous operations sequentially. Each <ins>then</ins> method returns a new promise, which allows further chaining."
       },
       {
         "type": "Code",
@@ -47,7 +47,7 @@
       },
       {
         "type": "Text",
-        "value": "Just like setTimeout() and setInterval(), Promise's callback executes after all synchronous code is done."
+        "value": "Just like <ins>setTimeout()</ins> and <ins>setInterval()</ins>, Promise's callback executes after all synchronous code is done."
       },
       {
         "type": "Code",
@@ -66,7 +66,7 @@
       },
       {
         "type": "Text",
-        "value": "The `Promise.resolve` method returns a promise that is resolved with the given value. This can be useful for creating a promise that is already resolved. Notice we don't use `new` keyword."
+        "value": "The <ins>Promise.resolve()</ins> method returns a promise that is resolved with the given value. This can be useful for creating a promise that is already resolved. Notice we don't use <ins>new</ins> keyword."
       },
       {
         "type": "Code",
@@ -80,7 +80,7 @@
       },
       {
         "type": "Text",
-        "value": "The `Promise.reject` method returns a promise that is rejected with the given reason. This can be useful for creating a promise that is already in a rejected state. Notice we don't use `new` keyword."
+        "value": "The <ins>Promise.reject()</ins> method returns a promise that is rejected with the given reason. This can be useful for creating a promise that is already in a rejected state. Notice we don't use `new` keyword."
       },
       {
         "type": "Code",
@@ -94,7 +94,7 @@
       },
       {
         "type": "Text",
-        "value": "The `Promise.all` method takes an iterable (usually an array) of promises and returns a single promise that resolves when all of the promises in the iterable have resolved. If any of the promises in the array are rejected, the returned promise is immediately rejected with the reason of the first promise that was rejected."
+        "value": "The <ins>Promise.all()</ins> method takes an iterable (usually an array) of promises and returns a single promise that resolves when all of the promises in the iterable have resolved. If any of the promises in the array are rejected, the returned promise is immediately rejected with the reason of the first promise that was rejected."
       },
       {
         "type": "Code",
@@ -109,7 +109,7 @@
 
       {
         "type": "Text",
-        "value": "The `Promise.allSettled` method takes an iterable of promises and returns a single promise that resolves after all of the given promises have either resolved or rejected. It provides an array of objects that describe the outcome of each promise, including whether each promise was fulfilled or rejected."
+        "value": "The <ins>Promise.allSettled()()</ins> method takes an iterable of promises and returns a single promise that resolves after all of the given promises have either resolved or rejected. It provides an array of objects that describe the outcome of each promise, including whether each promise was fulfilled or rejected."
       },
       {
         "type": "Code",
@@ -123,7 +123,7 @@
       },
       {
         "type": "Text",
-        "value": "The `Promise.race` method takes an iterable of promises and returns a single promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects. The returned promise resolves or rejects with the same value or reason as the first promise that settles."
+        "value": "The <ins>Promise.race()</ins> method takes an iterable of promises and returns a single promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects. The returned promise resolves or rejects with the same value or reason as the first promise that settles."
       },
       {
         "type": "Code",
@@ -137,7 +137,7 @@
       },
       {
         "type": "Text",
-        "value": "The `Promise.any` method returns a promise that resolves as soon as one of the promises in the iterable fulfills, or rejects if all of the promises are rejected."
+        "value": "The <ins>Promise.any()</ins> method returns a promise that resolves as soon as one of the promises in the iterable fulfills, or rejects if all of the promises are rejected."
       },
       {
         "type": "Code",

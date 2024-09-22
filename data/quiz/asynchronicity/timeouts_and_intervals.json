@@ -77,7 +77,7 @@
       { "id": "3", "val": "5, 5, 5, 5, 5", "correct": true },
       { "id": "4", "val": "4, 4, 4, 4, 4", "correct": false }
     ],
-    "explanation": "In the code, the <ins>for</ins> loop increments <ins>i</ins> from 0 to 5, but because setTimeout is asynchronous, the callbacks only run after the loop has finished. By the time the callbacks are executed, <ins>i</ins> has already reached 5, so all five console.log(i) statements output 5. This happens because the same variable i is shared across all iterations. To fix this, using <ins>let</ins> in the loop declaration creates a new scope for <ins>i</ins> in each iteration, ensuring the correct value is logged."
+    "explanation": "In the code, the <ins>for</ins> loop increments <ins>i</ins> from 0 to 5, but because setTimeout is asynchronous, the callbacks only run after the loop has finished. By the time the callbacks are executed, <ins>i</ins> has already reached 5, so all five <ins>console.log(i)</ins> statements output 5. This happens because the same variable i is shared across all iterations. To fix this, using <ins>let</ins> in the loop declaration creates a new scope for <ins>i</ins> in each iteration, ensuring the correct value is logged."
   },
   {
     "id": "asynchronicity|timeouts_and_intervals|5",

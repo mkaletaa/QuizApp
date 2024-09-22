@@ -45,7 +45,7 @@
       },
       {
         "type": "Text",
-        "value": "When you use the == operator, JavaScript performs type coercion to convert the operands to the same type before making the comparison. In most cases you should use === operator to avoid unexpected behavior. <br></br>I know this might seem illogical for you at first glance. If you still feel confused I encourage you to watch this video:"
+        "value": "When you use the <ins>==</ins> operator, JavaScript performs type coercion to convert the operands to the same type before making the comparison. In most cases you should use <ins>===</ins> operator to avoid unexpected behavior. <br></br>I know this might seem illogical for you at first glance. If you still feel confused I encourage you to watch this video:"
       },
       {
         "type": "YouTube",
@@ -63,7 +63,7 @@
       },
       {
         "type": "Text",
-        "value": "The && operator evaluates from left to right and returns the first <b>falsy</b> value it encounters. If no falsy value is found, it returns the last value, whatever it is."
+        "value": "The <ins>&&</ins> operator evaluates from left to right and returns the first <b>falsy</b> value it encounters. If no falsy value is found, it returns the last value, whatever it is."
       },
       {
         "type": "Code",
@@ -90,7 +90,7 @@
       },
       {
         "type": "Text",
-        "value": "The || operator evaluates from left to right and returns the first <b>truthy</b> value it encounters. If no truthy value is found, it returns the last value, whatever it is."
+        "value": "The <ins>||</ins> operator evaluates from left to right and returns the first <b>truthy</b> value it encounters. If no truthy value is found, it returns the last value, whatever it is."
       },
       {
         "type": "Code",
@@ -104,7 +104,7 @@
       },
       {
         "type": "Text",
-        "value": "The ?? operator evaluates from left to right and returns the first value that is not null or undefined. If all values are null or undefined, it returns the last value."
+        "value": "The <ins>??</ins> operator evaluates from left to right and returns the first value that is not null or undefined. If all values are null or undefined, it returns the last value."
       },
       {
         "type": "Code",
@@ -118,7 +118,7 @@
       },
       {
         "type": "Text",
-        "value": "It is used to negate a boolean value. If the value is true, applying ! will make it false, and vice versa."
+        "value": "It is used to negate a boolean value. If the value is true, applying <ins>!</ins> will make it false, and vice versa."
       },
       {
         "type": "Code",
@@ -130,7 +130,7 @@
       },
       {
         "type": "Text",
-        "value": "You can use different types of operators in a single expression, but keep in mind their precedence. ! has the highest precedence, followed by &&, then ||, and finally ??. If you want to use ?? with other operators, you'll need parentheses; otherwise, a SyntaxError will occur."
+        "value": "You can use different types of operators in a single expression, but keep in mind their precedence. <ins>!</ins> has the highest precedence, followed by <ins>&&</ins>, then <ins>||</ins>, and finally <ins>??</ins>. If you want to use <ins>??</ins> with other operators, you'll need parentheses; otherwise, a SyntaxError will occur."
       },
       {
         "type": "Code",
@@ -144,7 +144,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "You've already encountered the '=' sign. This is the assignment operator, which assigns the value on its right to the variable on its left. In JavaScript, there are more assignment operators that allow you to perform various operations and assign the result to a variable in a concise manner"
+        "value": "You've already encountered the <ins>=</ins> sign. This is the assignment operator, which assigns the value on its right to the variable on its left. In JavaScript, there are more assignment operators that allow you to perform various operations and assign the result to a variable in a concise manner"
       },
       {
         "type": "Code",
@@ -181,7 +181,7 @@
       },
       {
         "type": "Text",
-        "value": "From the above code, one might get the impression that x++ is equivalent to ++x, just as y-- is equivalent to --y, but this is not true. The difference lies in when the increment or decrement operation takes effect relative to the expression evaluation: <br></br> x++ : The current value of x is used in the expression, and then x is incremented by 1. <br></br>++x : x is incremented by 1 first, and then the new value of x is used in the expression. <br></br>The same goes with decrement operators."
+        "value": "From the above code, one might get the impression that <ins>x++</ins> is equivalent to <ins>++x</ins>, just as <ins>y--</ins> is equivalent to <ins>--y</ins>, but this is not true. The difference lies in when the increment or decrement operation takes effect relative to the expression evaluation: <br></br> <ins>x++</ins> : The current value of <ins>x</ins> is used in the expression, and then <ins>x</ins> is incremented by 1. <br></br><ins>++x</ins> : <ins>x</ins> is incremented by 1 first, and then the new value of <ins>x</ins> is used in the expression. <br></br>The same goes with decrement operators."
       },
       {
         "type": "Code",
@@ -204,7 +204,7 @@
       },
       {
         "type": "Text",
-        "value": "The logical AND assignment operator (&&=) performs a logical AND operation on the variable and assigns the result to that variable. This means it combines the logical AND (&&) with assignment (=), which results in the variable taking the value of the logical AND operation."
+        "value": "The logical AND assignment operator (<ins>&&=</ins>) performs a logical AND operation on the variable and assigns the result to that variable. This means it combines the logical AND (<ins>&&</ins>) with assignment (<ins>=</ins>), which results in the variable taking the value of the logical AND operation."
       },
       {
         "type": "Code",
@@ -213,7 +213,7 @@
       },
       {
         "type": "Text",
-        "value": "In the above example:\n1. Initially, a is true and b is false.\n2. The operation a &&= b performs a logical AND operation between a and b, which results in false.\n3. The result of the logical AND operation is then assigned back to a.\n4. After the operation, a is false."
+        "value": "In the above example:\n1. Initially, <ins>a</ins> is true and <ins>b</ins> is false.\n2. The operation <ins>a &&= b</ins> performs a logical AND operation between <ins>a</ins> and <ins>b</ins>, which results in false.\n3. The result of the logical AND operation is then assigned back to <ins>a</ins>.\n4. After the operation, <ins>a</ins> is false."
       },
       {
         "type": "Header",
@@ -222,7 +222,7 @@
       },
       {
         "type": "Text",
-        "value": "The logical OR assignment operator (||=) performs a logical OR operation on the variable and assigns the result to that variable. This means it combines the logical OR (||) with assignment (=), which results in the variable taking the value of the logical OR operation."
+        "value": "The logical OR assignment operator (<ins>||=</ins>) performs a logical OR operation on the variable and assigns the result to that variable. This means it combines the logical OR (<ins>||</ins>) with assignment (<ins>=</ins>), which results in the variable taking the value of the logical OR operation."
       },
       {
         "type": "Code",
@@ -231,7 +231,7 @@
       },
       {
         "type": "Text",
-        "value": "In the above example:\n1. Initially, a is false and b is true.\n2. The operation a ||= b performs a logical OR operation between a and b, which results in true.\n3. The result of the logical OR operation is then assigned back to a.\n4. After the operation, a is true."
+        "value": "In the above example:\n1. Initially, <ins>a</ins> is false and <ins>b</ins> is true.\n2. The operation <ins>a ||= b</ins> performs a logical OR operation between <ins>a</ins> and <ins>b</ins>, which results in true.\n3. The result of the logical OR operation is then assigned back to <ins>a</ins>.\n4. After the operation, <ins>a</ins> is true."
       },
       {
         "type": "Header",
@@ -240,7 +240,7 @@
       },
       {
         "type": "Text",
-        "value": "The nullish coalescing assignment operator (??=) assigns the right-hand value to the variable if the variable is null or undefined. This combines the nullish coalescing operator (??) with assignment (=), ensuring that a variable is only assigned a new value if it is currently null or undefined."
+        "value": "The nullish coalescing assignment operator (<ins>??=</ins>) assigns the right-hand value to the variable if the variable is null or undefined. This combines the nullish coalescing operator (<ins>??</ins>) with assignment (<ins>=</ins>), ensuring that a variable is only assigned a new value if it is currently null or undefined."
       },
       {
         "type": "Code",
@@ -249,7 +249,7 @@
       },
       {
         "type": "Text",
-        "value": "In the above example:\n1. Initially, a is null and b is 'default'.\n2. The operation a ??= b performs a nullish coalescing operation between a and b, which results in 'default'.\n3. The result of the nullish coalescing operation is then assigned back to a.\n4. After the operation, a is 'default'."
+        "value": "In the above example:\n1. Initially, <ins>a</ins> is null and <ins>b</ins> is 'default'.\n2. The operation <ins>a ??= b</ins> performs a nullish coalescing operation between <ins>a</ins> and <ins>b</ins>, which results in 'default'.\n3. The result of the nullish coalescing operation is then assigned back to <ins>a</ins>.\n4. After the operation, <ins>a</ins> is 'default'."
       }
     ]
   },

@@ -100,7 +100,7 @@
       { "id": "3", "val": "'fetched data'", "correct": true },
       { "id": "4", "val": "'initial data'" }
     ],
-    "explanation": "Before console.log() prints data, it waits for the promise to resolve and data is set to the resolved value of the promise."
+    "explanation": "Before <ins>console.log()</ins> prints data, it waits for the promise to resolve and data is set to the resolved value of the promise."
   },
   {
     "id": "asynchronicity|async_and_await|6",

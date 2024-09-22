@@ -43,7 +43,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "In 2015, ECMAScript 6 (<b>ES6</b>), also known as ECMAScript 2015, was released, introducing significant enhancements to the JavaScript language. ES6 brought features like arrow functions, template literals, classes, and enhanced object literals, providing developers with more powerful and expressive tools for writing modern JavaScript code. After ECMAScript 2015, JavaScript swiftly evolved through ES7, ES8, and beyond, introducing enhanced features for a more modern development experience. The rise of <ins data-key='hint' class='hint'>Progressive Web Applications</ins> (PWAs) heightened the demand for responsive solutions, leading to increased prominence of frameworks, such as <b>Vue.js</b> and <b>Svelte</b>, alongside React and Angular."
+        "value": "In 2015, ECMAScript 6 (<b>ES6</b>), also known as ECMAScript 2015, was released, introducing significant enhancements to the JavaScript language. ES6 brought features like arrow functions, template literals, classes, and enhanced object literals, providing developers with more powerful and expressive tools for writing modern JavaScript code. After ECMAScript 2015, JavaScript swiftly evolved through ES7, ES8, and beyond, introducing enhanced features for a more modern development experience. The rise of <ins data-key='PWA' class='hint'>Progressive Web Applications</ins> (PWAs) heightened the demand for responsive solutions, leading to increased prominence of frameworks, such as <b>Vue.js</b> and <b>Svelte</b>, alongside React and Angular."
       }
     ]
   },

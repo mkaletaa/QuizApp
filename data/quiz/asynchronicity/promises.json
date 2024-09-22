@@ -109,7 +109,7 @@
   },
   {
     "id": "asynchronicity|promises|8",
-    "question": "How does Promise.all() work?",
+    "question": "How does <ins>Promise.all()</ins> work?",
     "options": [
       {
         "id": "1",

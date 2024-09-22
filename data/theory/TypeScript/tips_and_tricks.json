@@ -144,9 +144,9 @@
       {
         "type": "List",
         "value": [
-          "Firstly, `typeof COLOR` gets the type of the COLOR object, which is a literal type of this form: {RED: 'crimson', GREEN: 'lime', ORANGE: 'orange'}.",
-          "`keyof typeof COLOR` extracts the union of the keys of the COLOR object type. For the given COLOR, it would be 'RED' | 'GREEN' | 'ORANGE'.",
-          "Do you remember the syntax object[key] from `Objects fundamentals` lesson? `(typeof COLOR)[keyof typeof COLOR]` is essentially using that same syntax to dynamically access the type of values from the COLOR object based on its keys. "
+          "Firstly, <ins>typeof COLOR</ins> gets the type of the <ins>COLOR</ins> object, which is a literal type of this form: <ins>{RED: 'crimson', GREEN: 'lime', ORANGE: 'orange'}</ins>.",
+          "<ins>keyof typeof COLOR</ins> extracts the union of the keys of the <ins>COLOR</ins> object type. For the given <ins>COLOR</ins>, it would be <ins>'RED' | 'GREEN' | 'ORANGE'</ins>.",
+          "Do you remember the syntax <ins>object[key]</ins> from \"Objects fundamentals\" lesson? <ins>(typeof COLOR)[keyof typeof COLOR]</ins> is essentially using that same syntax to dynamically access the type of values from the <ins>COLOR</ins> object based on its keys. "
         ]
       }
     ]

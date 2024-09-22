@@ -12,7 +12,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "An async function can be created by placing `async` keyword before `function` keyword. They always return a promise."
+        "value": "An async function can be created by placing <ins>async</ins> keyword before <ins>function</ins> keyword. They always return a promise."
       },
       {
         "type": "Code",
@@ -35,7 +35,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The `await` keyword is used inside `async` functions to pause the execution of the function until the promise that goes after it is resolved or rejected. Technically, it could also be followed by something that is not a Promise, but this would be useless and would work as if `await` wasn't there."
+        "value": "The <ins>await</ins> keyword is used inside <ins>async</ins> functions to pause the execution of the function until the promise that goes after it is resolved or rejected. Technically, it could also be followed by something that is not a Promise, but this would be useless and would work as if <ins>await</ins> wasn't there."
       },
 
       {
@@ -45,7 +45,7 @@
       },
       {
         "type": "Text",
-        "value": "In the example above, the line with `await` keyword screams to the code below it: <i>\"Hey, guys, (a)wait for me to resolve!\"</i> Without it an unresolved Promise would be logged to the console.<br></br>Recently, `await` can also be used outside of functions preceded by the word `async`."
+        "value": "In the example above, the line with <ins>await</ins> keyword screams to the code below it: <i>\"Hey, guys, (a)wait for me to resolve!\"</i> Without it an unresolved Promise would be logged to the console.<br></br>Recently, <ins>await</ins> can also be used outside of functions preceded by the word <ins>async</ins>."
       },
       {
         "type": "Code",
@@ -63,7 +63,7 @@
       },
       {
         "type": "Text",
-        "value": "For example, to perform multiple asynchronous operations in parallel and wait for all of them to complete, use `Promise.all` inside an `async` function."
+        "value": "For example, to perform multiple asynchronous operations in parallel and wait for all of them to complete, use <ins>Promise.all()</ins> inside an <ins>async</ins> function."
       },
       {
         "type": "Code",
@@ -72,7 +72,7 @@
       },
       {
         "type": "Text",
-        "value": "In the code below each `async` function will wait for the previous one to complete before proceeding."
+        "value": "In the code below each <ins>async</ins> function will wait for the previous one to complete before proceeding."
       },
       {
         "type": "Code",

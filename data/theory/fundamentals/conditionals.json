@@ -65,7 +65,7 @@
         "value": [
           {
             "type": "Text",
-            "value": "You can nest <ins class=''>if</ins> statements, however it is not advisable as it decreases the readability of the code. Use 'early return' technique instead"
+            "value": "You can nest <i>if</i> statements, however it is not advisable as it decreases the readability of the code. Use 'early return' technique instead"
           },
           {
             "type": "Code",
@@ -74,7 +74,7 @@
           },
           {
             "type": "Text",
-            "value": "You'll learn about <ins class=''>return</ins> statement in the lesson about functions."
+            "value": "You'll learn about <i>return</i> statement in the lesson about functions."
           }
         ],
         "props": {
@@ -199,7 +199,7 @@
       },
       {
         "type": "Text",
-        "value": "Since neither true nor false is equal to 10, none of the case blocks are executed. You could fix that by placing 'true' as a switch expression."
+        "value": "Since neither true nor false is equal to 10, none of the case blocks are executed. You could fix that by placing <ins>true</ins> as a switch expression."
       }
     ]
   }
