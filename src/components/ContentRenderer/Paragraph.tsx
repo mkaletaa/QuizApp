@@ -55,7 +55,7 @@ export default function Paragraph({ value, width, props }) {
             // onPress={onPress}
             style={{
               color: Colors.text,
-              backgroundColor: 'rgba(106, 90, 205, .15)', //e4e1ef //c7c6f4 //d7d2f1
+              backgroundColor: 'rgba(106, 90, 205, .12)', //e4e1ef //c7c6f4 //d7d2f1
 
               // backgroundColor: '#e4e1f6', //e4e1ef //c7c6f4 //d7d2f1
               fontStyle: 'italic',

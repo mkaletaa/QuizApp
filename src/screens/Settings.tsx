@@ -17,6 +17,7 @@ import {
 import CodeSettings from '../components/CodeSettings'
 import Gradient from '../components/molecules/atoms/Gradient'
 import { Colors } from '../utils/constants'
+import { throttle } from '../utils/functions'
 import useStore from '../utils/store'
 import { getValue, setValue } from '../utils/utilStorage'
 
@@ -27,30 +28,6 @@ const debounce = (func, delay) => {
     const context = this
     clearTimeout(timer) // Anulowanie poprzedniego wywołania
     timer = setTimeout(() => func.apply(context, args), delay) // Ustawienie nowego
-  }
-}
-
-// Implementacja funkcji throttle
-const throttle = (func, limit) => {
-  let lastFunc
-  let lastRan
-  return function (...args) {
-    const context = this
-    if (!lastRan) {
-      func.apply(context, args)
-      lastRan = Date.now()
-    } else {
-      clearTimeout(lastFunc)
-      lastFunc = setTimeout(
-        function () {
-          if (Date.now() - lastRan >= limit) {
-            func.apply(context, args)
-            lastRan = Date.now()
-          }
-        },
-        limit - (Date.now() - lastRan),
-      )
-    }
   }
 }
 
