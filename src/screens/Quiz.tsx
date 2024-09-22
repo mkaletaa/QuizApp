@@ -31,7 +31,7 @@ import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
 import Line from '../components/molecules/atoms/Line'
 import Options from '../components/Options'
-// import useAd from '../hooks/useAd'
+import useAd from '../hooks/useAd'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { Colors } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
@@ -128,9 +128,9 @@ export default function Quiz({ route }) {
     setShowResultModal(true)
   }
 
-  // const { loadInterstitial, interstitial } = useAd()
+  const { loadInterstitial, interstitial } = useAd()
   useEffect(() => {
-    // const unsubscribeInterstitialEvents = loadInterstitial()
+    const unsubscribeInterstitialEvents = loadInterstitial()
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       handleBackPress,
@@ -138,11 +138,11 @@ export default function Quiz({ route }) {
     return () => {
       if (settings.ads && true)
         try {
-          // interstitial.show()
+          interstitial.show()
         } catch (e) {
           // console.error(e)
         }
-      // unsubscribeInterstitialEvents()
+      unsubscribeInterstitialEvents()
       backHandler.remove()
     }
   }, [])
@@ -281,7 +281,7 @@ export default function Quiz({ route }) {
             bottom: 0,
           }}
         >
-          <Ad />
+          <Ad id='ca-app-pub-8755010348178299/7303486624' />
         </View>
       )}
       <Modal
