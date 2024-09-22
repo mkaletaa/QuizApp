@@ -304,6 +304,7 @@
   {
     "id": "elektronika|układy_logiczne|15",
     "multiChoice": true,
+    "preventMix": true,
     "question": [
       {
         "type": "CText",

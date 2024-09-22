@@ -31,6 +31,7 @@
   },
   {
     "id": "elektrotechnika|RLC|3",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -64,13 +65,14 @@
     "id": "elektrotechnika|RLC|4",
     "question": "Podad wzór na ω",
     "options": [
-        { "id": "1", "val": "1/f", "correct": false },
-        { "id": "2", "val": "1/2πf", "correct": false },
-        { "id": "3", "val": "2πf", "correct": true }
+      { "id": "1", "val": "1/f", "correct": false },
+      { "id": "2", "val": "1/2πf", "correct": false },
+      { "id": "3", "val": "2πf", "correct": true }
     ]
   },
   {
     "id": "elektrotechnika|RLC|5",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -102,57 +104,59 @@
       }
     ],
     "options": [
-        { "id": "1", "val": "A", "correct": true },
-        { "id": "2", "val": "B", "correct": false },
-        { "id": "3", "val": "C", "correct": false },
-        { "id": "4", "val": "D", "correct": false },
-        { "id": "5", "val": "E", "correct": false },
-        { "id": "6", "val": "F", "correct": false }
+      { "id": "1", "val": "A", "correct": true },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": false },
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
     ]
   },
-   {
-     "id": "elektrotechnika|RLC|6",
-     "question": [
-       {
-         "type": "CText",
-         "value": "Podaj wzór na impedancję kondensatora Z<sub>C</sub>"
-       },
-       {
-         "type": "Math",
-         "value": "A) `Z_C=jomegaC`"
-       },
-       {
-         "type": "Math",
-         "value": "B) `Z_C=-jomegaC`"
-       },
-       {
-         "type": "Math",
-         "value": "C) `Z_C=j1/(omegaC)`"
-       },
-       {
-         "type": "Math",
-         "value": "D) `Z_C=-j1/(omegaC)`"
-       },
-       {
-         "type": "Math",
-         "value": "E) `Z_C=1/(jomegaC)`"
-       },
-       {
-         "type": "Math",
-         "value": "F) `Z_C=-1/(jomegaC)`"
-       }
-     ],
-     "options": [
-       { "id": "1", "val": "A", "correct": false },
-       { "id": "2", "val": "B", "correct": false },
-       { "id": "3", "val": "C", "correct": false },
-       { "id": "4", "val": "D", "correct": true},
-       { "id": "5", "val": "E", "correct": false },
-       { "id": "6", "val": "F", "correct": false }
-     ]
-   },
-   {
+  {
+    "id": "elektrotechnika|RLC|6",
+    "preventMix": true,
+    "question": [
+      {
+        "type": "CText",
+        "value": "Podaj wzór na impedancję kondensatora Z<sub>C</sub>"
+      },
+      {
+        "type": "Math",
+        "value": "A) `Z_C=jomegaC`"
+      },
+      {
+        "type": "Math",
+        "value": "B) `Z_C=-jomegaC`"
+      },
+      {
+        "type": "Math",
+        "value": "C) `Z_C=j1/(omegaC)`"
+      },
+      {
+        "type": "Math",
+        "value": "D) `Z_C=-j1/(omegaC)`"
+      },
+      {
+        "type": "Math",
+        "value": "E) `Z_C=1/(jomegaC)`"
+      },
+      {
+        "type": "Math",
+        "value": "F) `Z_C=-1/(jomegaC)`"
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A", "correct": false },
+      { "id": "2", "val": "B", "correct": false },
+      { "id": "3", "val": "C", "correct": false },
+      { "id": "4", "val": "D", "correct": true },
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
+    ]
+  },
+  {
     "id": "elektrotechnika|RLC|7",
+    "preventMix": true,
     "multiChoice": true,
     "question": [
       {
@@ -192,5 +196,5 @@
       { "id": "5", "val": "E", "correct": true },
       { "id": "6", "val": "F", "correct": false }
     ]
-   }
+  }
 ]

@@ -1,6 +1,7 @@
 [
   {
     "id": "elektrotechnika|kondensatory|1",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -22,6 +23,7 @@
   },
   {
     "id": "elektrotechnika|kondensatory|2",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",

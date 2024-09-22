@@ -116,6 +116,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|9",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -165,6 +166,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|7",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -214,6 +216,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|6",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -263,6 +266,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|8",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -312,6 +316,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|10",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -464,6 +469,7 @@
 
   {
     "id": "elektronika|wzmacniacz_operacyjny|18",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -516,6 +522,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|20",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -548,6 +555,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|16",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -600,6 +608,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|17",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -659,6 +668,7 @@
 
   {
     "id": "elektronika|wzmacniacz_operacyjny|19",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -737,6 +747,7 @@
 
   {
     "id": "elektronika|wzmacniacz_operacyjny|33",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -808,6 +819,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|34",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -879,6 +891,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|35",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -950,6 +963,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|36",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -1021,6 +1035,7 @@
   },
   {
     "id": "elektronika|wzmacniacz_operacyjny|37",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -1110,21 +1125,69 @@
         "val": "Impedancja wyjściowa z reguły kilkaset ohmów",
         "correct": false
       },
-      { "id": "4", "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt kilo herców", "correct": false },
-      { "id": "5", "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt mega herców", "correct": true },
-      { "id": "6", "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt giga herców", "correct": false },
-      { "id": "7", "val": "Impedancja wejściowa 10^4 - 10^13 ohmów", "correct": false },
-      { "id": "8", "val": "Impedancja wejściowa 10^7 - 10^13 ohmów", "correct": true },
+      {
+        "id": "4",
+        "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt kilo herców",
+        "correct": false
+      },
+      {
+        "id": "5",
+        "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt mega herców",
+        "correct": true
+      },
+      {
+        "id": "6",
+        "val": "Pasmo przenoszonych częstotliwości kilkadziesiąt giga herców",
+        "correct": false
+      },
+      {
+        "id": "7",
+        "val": "Impedancja wejściowa 10^4 - 10^13 ohmów",
+        "correct": false
+      },
+      {
+        "id": "8",
+        "val": "Impedancja wejściowa 10^7 - 10^13 ohmów",
+        "correct": true
+      },
 
-      { "id": "9", "val": "Wzmocnienie napięciowe 10^(-14) - 10^(-4) V/V", "correct": false },
-      { "id": "10", "val": "Wzmocnienie napięciowe 10^4 - 10^6 V/V", "correct": true },
+      {
+        "id": "9",
+        "val": "Wzmocnienie napięciowe 10^(-14) - 10^(-4) V/V",
+        "correct": false
+      },
+      {
+        "id": "10",
+        "val": "Wzmocnienie napięciowe 10^4 - 10^6 V/V",
+        "correct": true
+      },
 
-      { "id": "11", "val": "Wzmocnienie napięciowe 80 - 100 dB", "correct": false },
-      { "id": "12", "val": "Wzmocnienie napięciowe 100 - 120 dB", "correct": false },
-      { "id": "13", "val": "Wzmocnienie napięciowe 80 - 120 dB", "correct": true },
+      {
+        "id": "11",
+        "val": "Wzmocnienie napięciowe 80 - 100 dB",
+        "correct": false
+      },
+      {
+        "id": "12",
+        "val": "Wzmocnienie napięciowe 100 - 120 dB",
+        "correct": false
+      },
+      {
+        "id": "13",
+        "val": "Wzmocnienie napięciowe 80 - 120 dB",
+        "correct": true
+      },
 
-      { "id": "14", "val": "Prąd wejściowy z zakresu 10^(-14) - 10^(-4) A", "correct": true },
-      { "id": "15", "val": "Prąd wejściowy z zakresu 10^4 - 10^6 A", "correct": false }
+      {
+        "id": "14",
+        "val": "Prąd wejściowy z zakresu 10^(-14) - 10^(-4) A",
+        "correct": true
+      },
+      {
+        "id": "15",
+        "val": "Prąd wejściowy z zakresu 10^4 - 10^6 A",
+        "correct": false
+      }
     ]
   }
 ]

@@ -1,6 +1,7 @@
 [
   {
     "id": "analiza|pochodne|1",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -32,6 +33,7 @@
   },
   {
     "id": "analiza|pochodne|2",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -63,6 +65,7 @@
   },
   {
     "id": "analiza|pochodne|3",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -100,6 +103,7 @@
   },
   {
     "id": "analiza|pochodne|4",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -141,6 +145,7 @@
   },
   {
     "id": "analiza|pochodne|5",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -182,6 +187,7 @@
   },
   {
     "id": "analiza|pochodne|6",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -242,6 +248,7 @@
   {
     "id": "analiza|pochodne|9",
     "multiChoice": true,
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -273,6 +280,7 @@
   },
   {
     "id": "analiza|pochodne|10",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -314,6 +322,7 @@
   },
   {
     "id": "analiza|pochodne|11",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -355,6 +364,7 @@
   },
   {
     "id": "analiza|pochodne|12",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -396,6 +406,7 @@
   },
   {
     "id": "analiza|pochodne|13",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -437,6 +448,7 @@
   },
   {
     "id": "analiza|pochodne|14",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",
@@ -478,6 +490,7 @@
   },
   {
     "id": "analiza|pochodne|15",
+    "preventMix": true,
     "question": [
       {
         "type": "Math",

@@ -1,6 +1,7 @@
 [
   {
     "id": "elektrotechnika|obwody|1",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -55,10 +56,26 @@
     "id": "elektrotechnika|obwody|3",
     "question": "W jaki sposób dobrać kierunek płynięcia prądu w oczku?",
     "options": [
-      { "id": "1", "val": "dowolny, ale dla wszystkich oczek taki sam", "correct": false },
-      { "id": "2", "val": "dowolny, może być różny dla każdego z oczek", "correct": true },
-      { "id": "3", "val": "przeciwnie do ruchu wskazówek zegara", "correct": false },
-      { "id": "4", "val": "zgodnie z ruchem wskazówek zegara", "correct": false }
+      {
+        "id": "1",
+        "val": "dowolny, ale dla wszystkich oczek taki sam",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "dowolny, może być różny dla każdego z oczek",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "przeciwnie do ruchu wskazówek zegara",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "zgodnie z ruchem wskazówek zegara",
+        "correct": false
+      }
     ]
   },
   {

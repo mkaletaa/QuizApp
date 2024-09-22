@@ -13,7 +13,7 @@ export const chapters = [
   {
     name: 'elektronika',
     image: 'https://i.postimg.cc/y8yYNN95/zaba.jpg',
-    des: 'Jeśli myślisz, że będzie źle, mylisz się. Będzie gorzej. Ten przedmiot to jakiś ewenement. Kolokwia są fajniejsze niż ćwiczenia, bo nie dość, że wychodzisz wcześniej, to jeszcze nie musisz słuchać darcia mordy. Ale nie bój żaby, dzięki mnie zdasz śpiewająco na 3. <br></br> Większość informacji z tego rozdziału wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Nie są moje. Zdarzają się w nich błędy, więc jak coś to lepiej uczyć się z aplikacji niż z nich. No i zwracaj największą uwagę na schematy.',
+    des: 'Jeśli myślisz, że będzie źle, jesteś w błędzie. Będzie gorzej. Ale nie bój żaby, dzięki mnie zdasz śpiewająco na 3. <br></br> Większość informacji z wziąłem <a href="https://mega.nz/folder/MN0FRDqT#E07ZRcEyDT8d-hi58KpdDg/folder/lcdE3DDS">stąd</a> i <a href="https://wieik.ovh/dokuph_8.html">stąd</a>. Nie są moje. Zdarzają się w nich błędy, więc jak coś to lepiej uczyć się z aplikacji niż z nich. No i zwracaj największą uwagę na schematy.',
   },
   {
     name: 'elektrotechnika',
@@ -23,7 +23,7 @@ export const chapters = [
   {
     name: 'metody_programowania',
     image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-    des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić. I nie ma quizów, bo miałem ważniejszą sprawę na głowie.'
+    des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić. Na szczęście często się powtarzają. I nie ma quizów, bo miałem ważniejszą sprawę na głowie.'
   },
   // {
   //   name: 'VHDL',

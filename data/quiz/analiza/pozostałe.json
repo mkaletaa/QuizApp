@@ -1,6 +1,7 @@
 [
   {
     "id": "analiza|analiza-pozostałe|1",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -22,6 +23,7 @@
   },
   {
     "id": "analiza|analiza-pozostałe|2",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -43,6 +45,7 @@
   },
   {
     "id": "analiza|analiza-pozostałe|3",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -64,6 +67,7 @@
   },
   {
     "id": "analiza|analiza-pozostałe|6",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -95,6 +99,7 @@
   },
   {
     "id": "analiza|analiza-pozostałe|4",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -126,6 +131,7 @@
   },
   {
     "id": "analiza|analiza-pozostałe|5",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
@@ -158,6 +164,7 @@
 
   {
     "id": "analiza|analiza-pozostałe|7",
+    "preventMix": true,
     "question": [
       {
         "type": "CText",
