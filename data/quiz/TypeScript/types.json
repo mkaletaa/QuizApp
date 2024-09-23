@@ -88,7 +88,7 @@
     "options": [
       { "id": "1", "val": "number", "correct": true },
       { "id": "2", "val": "string" },
-      { "id": "3", "val": "null" }
+      { "id": "3", "val": "undefined" }
     ]
   },
   {
@@ -106,6 +106,29 @@
       },
       { "id": "3", "val": "Before its name and after 'function' keyword" },
       { "id": "4", "val": "After the closing bracket of its body" }
+    ]
+  },
+  {
+    "id": "TypeScript|types|8",
+    "question": [
+      {
+        "type": "Code",
+        "value": "enum E  {RED, BLUE}\n\nconsole.log(Object.values(E))",
+        "props": { "language": "typescript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "[\"RED\", \"BLUE\", 0, 1]",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "[\"RED\", \"BLUE\"]"
+      },
+      { "id": "3", "val": "[null, null]" }
     ]
   }
 ]

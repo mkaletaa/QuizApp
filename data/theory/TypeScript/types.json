@@ -82,11 +82,11 @@
       },
       {
         "type": "Text",
-        "value": "Tuples allow you to create arrays with a fixed number of elements, where each element can be of a different type."
+        "value": "Tuples allow you to create arrays with a fixed number of elements, where each element can be of a different type. So you can use any array method on them except those that modify the length of the tuple, such as <ins>push()</ins>, <ins>pop()</ins>, or <ins>shift()</ins>. These methods could lead to type inconsistencies, as tuples are intended to have a specific structure and fixed length. <br></br>Unlike regular arrays, they cannot be defined with angle brackets."
       },
       {
         "type": "Code",
-        "value": "let person: [string, number] = [\"Alice\", 30]",
+        "value": "let person: [string, number] = [\"Alice\", 30]\nlet cat: [string, number] = [1, \"Whiskers\"] // wrong - The order of the types provided in a tuple matters.",
         "props": { "language": "typescript" }
       },
       {

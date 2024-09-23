@@ -93,6 +93,18 @@
         "value": "The <ins>apply()</ins> method calls a function with a given <ins>this</ins> value, and arguments provided as an array (or an array-like object). This allows you to pass arguments to a function in a flexible way, especially useful when the number of arguments is not known beforehand."
       },
       {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "You can use a mnemonic to remember that <ins>apply()</ins> takes an array of arguments because both \"apply\" and \"array\" start with the same letter."
+          }
+        ],
+        "props": {
+          "type": "tip"
+        }
+      },
+      {
         "type": "Code",
         "value": "const person = { name: 'Alice' };\n\nfunction greet(greeting, punctuation) {\n  console.log(greeting + ', ' + this.name + punctuation);\n}\n\ngreet.apply(person, ['Hello', '!']); // Output: Hello, Alice!",
         "props": { "language": "javascript" }
@@ -118,7 +130,7 @@
       },
       {
         "type": "Text",
-        "value": "The <ins>bind()</ins> method creates a new function (called in JS jargon a 'bound function') that, when called, has its <ins>this</ins> keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. This method is particularly useful for setting the context in event handlers or callbacks."
+        "value": "The <ins>bind()</ins> method creates a new function (called in JS jargon a 'bound function') that, when called, has its <ins>this</ins> set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. This method is particularly useful for setting the context in event handlers or callbacks."
       },
       {
         "type": "Code",
@@ -132,4 +144,3 @@
     ]
   }
 ]
-

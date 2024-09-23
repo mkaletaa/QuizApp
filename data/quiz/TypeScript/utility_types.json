@@ -1,0 +1,124 @@
+[
+  {
+    "id": "TypeScript|utility_types|1",
+    "question": "Which of these utility types makes all properties of a type optional?",
+    "options": [
+      { "id": "1", "val": "Partial", "correct": true },
+      { "id": "2", "val": "Optional" },
+      { "id": "3", "val": "Free" },
+      { "id": "4", "val": "Omit" }
+    ]
+  },
+  {
+    "id": "TypeScript|utility_types|2",
+    "question": "Which of these utility types makes all properties of a type compulsory?",
+    "options": [
+      { "id": "1", "val": "Required", "correct": true },
+      { "id": "2", "val": "Mandatory" },
+      { "id": "3", "val": "Obligatory" },
+      { "id": "4", "val": "Needed" }
+    ]
+  },
+  {
+    "id": "TypeScript|utility_types|3",
+    "question": "Which of these utility types extracts the return type of a function?",
+    "options": [
+      { "id": "1", "val": "ReturnType", "correct": true },
+      { "id": "2", "val": "InstanceType" },
+      { "id": "3", "val": "Awaited" },
+      { "id": "4", "val": "Extract" }
+    ]
+  },
+  {
+    "id": "TypeScript|utility_types|4",
+    "question": "Which of these utility types create a new type by selecting a subset of properties from another type?",
+    "options": [
+      { "id": "1", "val": "Pick", "correct": true },
+      { "id": "2", "val": "InstanceType" },
+      { "id": "3", "val": "Partial" },
+      { "id": "4", "val": "Extract" }
+    ]
+  },
+  {
+    "id": "TypeScript|utility_types|5",
+    "question": "What does the <ins>Omit</ins> utility type do?",
+    "options": [
+      {
+        "id": "1",
+        "val": "Creates a new type by excluding certain properties from an existing type",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Constructs a new type by removing types from a union"
+      },
+      {
+        "id": "3",
+        "val": "Constructs a type that automatically infers types for properties based on their usage in a given context, excluding specified properties"
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|utility_types|6",
+    "question": "What does the <ins>Record</ins> utility type do?",
+    "options": [
+      {
+        "id": "1",
+        "val": "Constructs a type that maps a set of properties to a specific type, allowing for flexible dynamic key-value pairs.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Creates a new type that merges multiple existing types into a single type with enforced property values based on their original types."
+      },
+      {
+        "id": "3",
+        "val": "Constructs a type that allows for defining constants with specific values, restricting the possible values of certain properties."
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|utility_types|7",
+    "question": [
+      "Here are two variables of two different types. Select all values that could be assigned to each of them.",
+      {
+        "type": "Code",
+        "value": "type Union = 1 | 2 | 3\n\ntype ExtractedType = Extract<Union, 2>\ntype ExcludedType = Exclude<Union, 2>\n\nlet extr: ExtractedType\nlet excl: ExcludedType",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "extr = 1",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "extr = 2",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "extr = 3",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "excl = 1",
+        "correct": true
+      },
+      {
+        "id": "5",
+        "val": "excl = 2",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "excl = 3",
+        "correct": true
+      }
+    ],
+    "explanation": "<ins>Exclude</ins> removes types from a union, while <ins>Extract</ins> selects types that match a specific type from a union."
+  }
+]

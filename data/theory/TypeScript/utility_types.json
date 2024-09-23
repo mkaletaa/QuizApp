@@ -121,20 +121,6 @@
     ]
   },
   {
-    "title": "Awaited<Type>",
-    "data": [
-      {
-        "type": "Text",
-        "value": "The <ins>Awaited</ins> utility type extracts the type of the value that a Promise resolves to. It simplifies working with asynchronous code by providing the type of the resolved value of a Promise, allowing you to handle the underlying type more effectively."
-      },
-      {
-        "type": "Code",
-        "value": "type FetchDataReturnType = Awaited<Promise<number>>\n\n// Usage example:\nasync function fetchData(): Promise<number> {\n  return 42\n}\n\ntype Result = Awaited<ReturnType<typeof fetchData>>; // number",
-        "props": { "language": "typescript" }
-      }
-    ]
-  },
-  {
     "title": "NonNullable<Type>",
     "data": [
       {
@@ -163,6 +149,20 @@
     ]
   },
   {
+    "title": "Awaited<Type>",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The <ins>Awaited</ins> utility type extracts the type of the value that a Promise resolves to. It simplifies working with asynchronous code by providing the type of the resolved value of a Promise, allowing you to handle the underlying type more effectively."
+      },
+      {
+        "type": "Code",
+        "value": "type FetchDataReturnType = Awaited<Promise<number>>\n\n// Usage example:\nasync function fetchData(): Promise<number> {\n  return 42\n}\n\ntype Result = Awaited<ReturnType<typeof fetchData>>; // number",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
     "title": "InstanceType<Type>",
     "data": [
       {
@@ -172,20 +172,6 @@
       {
         "type": "Code",
         "value": "class User {\n  constructor(\n    public id: number,\n    public name: string,\n  ) {}\n}\n\ntype UserInstance = InstanceType<typeof User> // User",
-        "props": { "language": "typescript" }
-      }
-    ]
-  },
-  {
-    "title": "ThisType<Type>",
-    "data": [
-      {
-        "type": "Text",
-        "value": "The <ins>ThisType</ins> utility type is used to define the type for the this context inside an object literal or function. It’s often used in the context of helper libraries."
-      },
-      {
-        "type": "Code",
-        "value": "interface Helper {\n  message: string\n  logMessage(this: Helper): void\n}\n\nconst helper: ThisType<Helper> = {\n  message: 'Hello',\n  logMessage() {\n    console.log(this.message) // this is of type Helper\n  },\n}",
         "props": { "language": "typescript" }
       }
     ]
