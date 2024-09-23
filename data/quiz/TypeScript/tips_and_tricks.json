@@ -1,0 +1,78 @@
+[
+  {
+    "id": "TypeScript|tips_and_tricks|1",
+    "question": [
+      "Is this code going to thrown an error?",
+      {
+        "type": "Code",
+        "value": "const TV = {size: 30, brand: 'BT'} as const\ntype tvType = typeof TV\nlet myTv: tvType = {size: 20, brand: 'Okil'}",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "yes", "correct": true },
+      { "id": "2", "val": "no" }
+    ],
+    "explanation": [
+      "When using <ins>as const</ins> with <ins>typeof</ins>, you create a type that represents the exact literal type of the object, preserving its structure and preventing any type widening. To avoid an error, myTv object should look exactly like this: <ins>{size: 30, brand: 'BT'}</ins>"
+    ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|2",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const data = {\n  phoneNumber: '123 456 789',\n  email: 'abc@domain.com',\n}\n\nconsole.log(data.address)",
+        "props": { "language": "typescript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "undefined", "correct": true },
+      { "id": "2", "val": "Error" }
+    ],
+    "explanation": [
+      "In JavaScript, as well as in TypeScript, when you try to access an object's non-existing key, you receive <ins>undefined</ins>, unless the object itself is undefined.",
+      {
+        "type": "Code",
+        "value": "const data = undefined\n\nconsole.log(data.address) //Error: Cannot read properties of undefined",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|3",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const data = {\n  phoneNumber: '123 456 789',\n  email: 'abc@domain.com',\n}\n\nconsole.log(data.address?.street)",
+        "props": { "language": "typescript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "undefined", "correct": true },
+      { "id": "2", "val": "Error" }
+    ],
+    "explanation": [
+      "When you add the optional chaining operator, an error will never be thrown, even if you are trying to access a property of <ins>undefined</ins>."
+    ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|4",
+    "question": [
+      "Where do you put the `?` sign if you want to make an object's property optional?",
+      {
+        "type": "Code",
+        "value": "const obj = {key: 'value'}",
+        "props": {"language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "before the colon", "correct": true },
+      { "id": "2", "val": "after the colon" },
+      { "id": "3", "val": "before the key" },
+      { "id": "4", "val": "after the value" }
+    ]
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "id": "TypeScript|generics|1",
+    "question": [" What is the purpose of generics in TypeScript?"],
+    "options": [
+      {
+        "id": "1",
+        "val": "To create reusable components that work with multiple types while ensuring type safety.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "To provide default values for type parameters when none are specified."
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|generics|2",
+    "question": [
+      "What does the following code snippet return?",
+      {
+        "type": "Code",
+        "value": "function combine<T, U>(value1: T, value2: U): [T, U] {\n  return [value1, value2]\n}\n\nconst result = combine<number, string>(1, 'hello')",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "[1, \"hello\"]",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "[number, string]"
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|generics|3",
+    "question": [
+      "What does the generic constraint <ins>T extends { length: number }</ins> mean?"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "The generic type T must be an object with a length property.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "The generic type T must be an object with all the properties of a number."
+      },
+      {
+        "id": "3",
+        "val": "The generic type T must be an object with at least one property of a number."
+      }
+    ]
+  }
+]
