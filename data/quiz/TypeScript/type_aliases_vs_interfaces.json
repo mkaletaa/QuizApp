@@ -1,0 +1,148 @@
+[
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|0",
+    "question": ["What's the difference between union and intersection?"],
+    "options": [
+      {
+        "id": "1",
+        "val": "Union creates a type that can be any of the listed types, while intersection creates a type that must satisfy all listed types.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Union creates a new type by combining the properties of the listed types, while intersection only includes shared properties."
+      },
+      {
+        "id": "3",
+        "val": "Union creates a new type by combining the properties of the listed types, while intersection creates a type that can be any of the listed types."
+      },
+      {
+        "id": "4",
+        "val": "Union creates a type that can be any of the listed types, while intersection only includes shared properties."
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|1",
+    "question": ["How do you merge two type aliases?"],
+    "options": [
+      { "id": "1", "val": "By using `&` sign", "correct": true },
+      { "id": "4", "val": "By using `|` sign" },
+      { "id": "2", "val": "By using `extends` keyword" },
+      { "id": "3", "val": "Type aliases can't be merged" }
+    ]
+  },
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|2",
+    "question": ["How do you merge two interfaces?"],
+    "options": [
+      { "id": "1", "val": "By using `&` sign" },
+      { "id": "4", "val": "By using `|` sign" },
+      { "id": "2", "val": "By using `extends` keyword", "correct": true },
+      { "id": "3", "val": "Interfaces can't be merged" }
+    ]
+  },
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|3",
+    "question": ["How do you create a union of two type aliases?"],
+    "options": [
+      { "id": "1", "val": "By using `&` sign" },
+      { "id": "4", "val": "By using `|` sign", "correct": true },
+      { "id": "2", "val": "By using `extends` keyword" },
+      { "id": "3", "val": "Interfaces can't be merged" }
+    ]
+  },
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|4",
+    "question": ["How do you create a union of two interfaces?"],
+    "options": [
+      { "id": "1", "val": "By using `&` sign" },
+      { "id": "4", "val": "By using `|` sign" },
+      { "id": "2", "val": "By using `extends` keyword" },
+      { "id": "3", "val": "Interfaces can't be unionized", "correct": true }
+    ]
+  },
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|5",
+    "question": [
+      "What happens if you have multiple interfaces with the same name in the same scope?"
+    ],
+    "options": [
+      { "id": "1", "val": "An Error occurs" },
+      {
+        "id": "2",
+        "val": "The interface takes the form of the first declared one"
+      },
+      {
+        "id": "3",
+        "val": "The interface merges the properties of all declared ones",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "The interface takes the form of the last declared one"
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|6",
+    "multiChoice": true,
+    "question": "Select all correct statements about interfaces:",
+    "options": [
+      {
+        "id": "1",
+        "val": "Interface syntax requires the `=` sign",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "val": "You can use `extends` only with interfaces",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Interfaces work with complex types",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "Interfaces work with primitive types",
+        "correct": false
+      },
+      {
+        "id": "5",
+        "val": "You can define union types for properties within an interface.",
+        "correct": true
+      },
+      {
+        "id": "6",
+        "val": "Interfaces can extend type aliases.",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|type_aliases_vs_interfaces|7",
+    "question": [
+      "Is this code going throw an error?",
+      {
+        "type": "Code",
+        "value": "let x: T = 'Hello World'\ntype T = string",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "no",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "yes",
+        "correct": false
+      }
+    ],
+    "explanation": "TypeScript processes types before execution, so you can use type aliases and interfaces in the code before their declaration."
+  }
+]
