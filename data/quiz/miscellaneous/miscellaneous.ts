@@ -8,12 +8,3 @@ export const miscellaneous = {
   spread_and_rest,
   destructuring,
 }
-
-type ConditionalType<T> = T extends string ? string : number;
-
-function f<T>(entity: T): ConditionalType<T> {
-  if (typeof entity === 'string') {
-    return entity as ConditionalType<T>;
-  }
-  return 42 as ConditionalType<T>;
-}

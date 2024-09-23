@@ -1,0 +1,111 @@
+[
+  {
+    "id": "TypeScript|types|1",
+    "question": "What type disables type checking for a variable?",
+    "options": [
+      { "id": "1", "val": "any", "correct": true },
+      { "id": "2", "val": "never" },
+      { "id": "3", "val": "unknown" }
+    ]
+  },
+  {
+    "id": "TypeScript|types|2",
+    "multiChoice": true,
+    "question": "How can you define an array of numbers in TypeScript?",
+    "options": [
+      { "id": "1", "val": "number[]", "correct": true },
+      { "id": "2", "val": "Array<number>", "correct": true },
+      { "id": "3", "val": "[number]" },
+      { "id": "4", "val": "number<Array>" }
+    ]
+  },
+  {
+    "id": "TypeScript|types|3",
+    "preventMix": true,
+    "question": "Enums can be of what type(s)?",
+    "options": [
+      { "id": "1", "val": "Numeric-based only" },
+      { "id": "2", "val": "String-based only" },
+      { "id": "3", "val": "Both numeric and string-based", "correct": true },
+      { "id": "4", "val": "None of the above" }
+    ]
+  },
+  {
+    "id": "TypeScript|types|4",
+    "multiChoice": true,
+    "question": "Select correct statements about tuples:",
+    "options": [
+      {
+        "id": "1",
+        "val": "The order of the types in a tuple does not matter."
+      },
+      {
+        "id": "2",
+        "val": "They can be defined using square brackets ([]) only.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "You can access tuple elements using their index, just like regular arrays.",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "Once defined, the length of a tuple cannot be changed.",
+        "correct": true
+      }
+    ],
+    "explanation": [
+      "Each element in a tuple must follow the exact order of types as defined.",
+      {
+        "type": "Code",
+        "value": "let person: [string, number] = [\"Alice\", 30]; // Correct\nlet wrongPerson: [string, number] = [30, \"Alice\"]; // Incorrect, order matters",
+        "props": { "language": "typescript" }
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|types|5",
+    "multiChoice": false,
+    "question": "What type should be used for a function that doesn't return a value?",
+    "options": [
+      { "id": "1", "val": "void", "correct": true },
+      { "id": "2", "val": "never" },
+      { "id": "3", "val": "null" },
+      { "id": "4", "val": "undefined" }
+    ]
+  },
+  {
+    "id": "TypeScript|types|6",
+    "question": [
+      "What is the return type of a function defined as follows:",
+      {
+        "type": "Code",
+        "value": "let f: (x: string) => number",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "number", "correct": true },
+      { "id": "2", "val": "string" },
+      { "id": "3", "val": "null" }
+    ]
+  },
+  {
+    "id": "TypeScript|types|7",
+    "question": ["Where do you put the return type of a function definition?"],
+    "options": [
+      {
+        "id": "1",
+        "val": "After its arguments, separated by a colon",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Inside its body, before the return statement"
+      },
+      { "id": "3", "val": "Before its name and after 'function' keyword" },
+      { "id": "4", "val": "After the closing bracket of its body" }
+    ]
+  }
+]
