@@ -50,6 +50,42 @@
     ]
   },
   {
+    "title": "Casting",
+    "data": [
+      {
+        "type": "Text",
+        "value": "TypeScript casting (or type assertions) allows you to explicitly tell the TypeScript compiler that you know the type of a value better than it does. This is useful when TypeScript's type inference system can't deduce the correct type, or when you're working with more complex scenarios where you need to override the inferred types. There are two syntaxes available:"
+      },
+      {
+        "type": "Code",
+        "value": "{ //angle-bracket syntax\n  let value: any = 'Hello, TypeScript'\n  let strLength: number = (<string>value).length\n} //Here, <string> tells TypeScript to treat the `value` variable as a string.\n\n{ // as syntax\n  let value: any = 'Hello, TypeScript'\n  let strLength: number = (value as string).length\n} //Generally preferred syntax, especially in JSX (React) files, where angle brackets may cause conflicts.",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Text",
+        "value": "Casting is helpful when working with union types and you know more specific details than the compiler."
+      },
+      {
+        "type": "Code",
+        "value": "function displayLength(value: string | number) {\n  if ((value as string).length !== undefined) {\n    console.log((value as string).length)\n  } else {\n    console.log(value.toString().length)\n  }\n}\n\ndisplayLength(123) // Output: 3",
+        "props": { "language": "typescript" }
+      },
+      {
+        "type": "Header",
+        "value": "Important notes:",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>No actual casting happens at runtime</u>: Casting in TypeScript only affects the type system at compile-time; it doesn't change the runtime behavior.",
+          "<u>Unsafe casting</u>: Be cautious, as TypeScript trusts your assertions, even if they're incorrect.",
+          "<u>Type guarding alternative</u>: Instead of casting, TypeScript provides type guards (like typeof, instanceof, or custom type predicates) to check types in a safer way."
+        ]
+      }
+    ]
+  },
+  {
     "title": "`as const`",
     "data": [
       {
