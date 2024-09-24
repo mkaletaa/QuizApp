@@ -22,29 +22,6 @@
     "question": [
       {
         "type": "Code",
-        "value": "const data = {\n  phoneNumber: '123 456 789',\n  email: 'abc@domain.com',\n}\n\nconsole.log(data.address)",
-        "props": { "language": "typescript" }
-      },
-      "What is the output of the code above?"
-    ],
-    "options": [
-      { "id": "1", "val": "undefined", "correct": true },
-      { "id": "2", "val": "Error" }
-    ],
-    "explanation": [
-      "In JavaScript, as well as in TypeScript, when you try to access an object's non-existing key, you receive <ins>undefined</ins>, unless the object itself is undefined.",
-      {
-        "type": "Code",
-        "value": "const data = undefined\n\nconsole.log(data.address) //Error: Cannot read properties of undefined",
-        "props": { "language": "typescript" }
-      }
-    ]
-  },
-  {
-    "id": "TypeScript|tips_and_tricks|3",
-    "question": [
-      {
-        "type": "Code",
         "value": "const data = {\n  phoneNumber: '123 456 789',\n  email: 'abc@domain.com',\n}\n\nconsole.log(data.address?.street)",
         "props": { "language": "typescript" }
       },
@@ -55,17 +32,17 @@
       { "id": "2", "val": "Error" }
     ],
     "explanation": [
-      "When you add the optional chaining operator, an error will never be thrown, even if you are trying to access a property of <ins>undefined</ins>."
+      "In JavaScript, as well as in TypeScript, when you try to access an object's non-existing key, you receive <ins>undefined</ins>, unless the object itself is undefined. So <ins>data.address.street</ins> is actually <ins>undefined.street</ins>. This would throw an error, but because of the optional chaining operator you receive <ins>undefined</ins>."
     ]
   },
   {
-    "id": "TypeScript|tips_and_tricks|4",
+    "id": "TypeScript|tips_and_tricks|3",
     "question": [
       "Where do you put the `?` sign if you want to make an object's property optional?",
       {
         "type": "Code",
         "value": "const obj = {key: 'value'}",
-        "props": {"language": "javascript" }
+        "props": { "language": "typescript" }
       }
     ],
     "options": [
@@ -74,5 +51,105 @@
       { "id": "3", "val": "before the key" },
       { "id": "4", "val": "after the value" }
     ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|4",
+    "multiChoice": true,
+    "question": [
+      "What is the correct way to cast the value variable to a string in TypeScript? Complete the code below.",
+      {
+        "type": "Code",
+        "value": "let value: any = \"Hello, World!\"\nlet strLength: number = ???",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "(<string>value).length", "correct": true },
+      { "id": "2", "val": "(value as string).length", "correct": true },
+      { "id": "3", "val": "(<value>string).length" },
+      { "id": "4", "val": "(string as value).length" },
+      { "id": "7", "val": "(value<string>).length" },
+      { "id": "8", "val": "(string<value>).length" }
+    ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|5",
+    "question": [
+      "What is the main difference between <ins>as</ins> and angle-bracket (<>) type assertions?"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "Angle-bracket syntax is not allowed in .tsx (React) files due to conflicts with JSX",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "There is no difference; they are interchangeable in all situations"
+      },
+      {
+        "id": "3",
+        "val": "`as` is preferred for casting primitive types, while angle-bracket syntax is for casting objects"
+      },
+      {
+        "id": "4",
+        "val": "`as` is used in TypeScript while angle-bracket syntax is used in JavaScript"
+      }
+    ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|6",
+    "preventMix": true,
+    "question": [
+      "Which type guard is correctly checking if the argument is a string?",
+      {
+        "type": "Code",
+        "value": "function isString(value: unknown): boolean {\n  //A) return typeof value === 'number'\n  //B) return value as string\n  //C) return typeof value === 'string'\n  //D) return typeof value === 'boolean'\n}",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "A" },
+      { "id": "2", "val": "B" },
+      { "id": "3", "val": "C", "correct": true },
+      { "id": "4", "val": "D" }
+    ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|7",
+    "question": [
+      "What type will <ins>ValidKeys</ins> resolve to?",
+      {
+        "type": "Code",
+        "value": "type Person = {\n  name: string\n  age: number\n  address?: string\n}\n\ntype ValidKeys = keyof Person",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "\"name\" | \"age\"" },
+      { "id": "2", "val": "\"string\" | \"number\"" },
+      { "id": "3", "val": "\"name\" | \"age\" | \"address\"", "correct": true },
+      { "id": "4", "val": "string | number" }
+    ]
+  },
+  {
+    "id": "TypeScript|tips_and_tricks|8",
+    "multiChoice": true,
+    "question": [
+      "What could be assigned to <ins>obj</ins>?",
+      {
+        "type": "Code",
+        "value": "const colors = { RED: 'crimson', GREEN: 'lime', BLUE: 'aqua' }\n\ntype T = (typeof colors)[keyof typeof colors]\n\nlet obj: T",
+        "props": { "language": "typescript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "\"crimson\"", "correct": true },
+      { "id": "2", "val": "\"lime\"", "correct": true },
+      { "id": "3", "val": "\"BLUE\"", "correct": true },
+      { "id": "4", "val": "\"yellow\"", "correct": true },
+      { "id": "5", "val": "{RED: 'crimson'}" }
+    ],
+    "explanation": "Due to the lack of <ins>as const</ins> at the end of <ins>colors</ins>, the values of the object are inferred as strings rather than string literals, meaning <ins>obj</ins> can be assigned any string, not just the specific values 'crimson', 'lime', or 'aqua'."
   }
 ]
