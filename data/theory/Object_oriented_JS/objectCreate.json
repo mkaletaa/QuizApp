@@ -1,0 +1,141 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "In the previous chapter, you learned one way to create an object: using a literal. In this chapter, you'll learn a few more methods. The first is <ins>Object.create()</ins>. This method can take two arguments. The first is the prototype, which is the base object. If you don't want your object to have a prototype, you must pass just <ins>{}</ins>. The second parameter is an object literal that extends the prototype. It is optional."
+      },
+      {
+        "type": "Code",
+        "value": "// Prototype object\nconst animal = {\n  breed: 'Golden Retriever',\n}\n\n// Create a new object `dog` with `animal` as its prototype\nconst dog = Object.create(animal, {\n  name: {\n    value: 'Buddy',\n  },\n  speak: {\n    value: function () {\n      console.log(`${this.name} makes a noise`)\n    },\n  },\n})\n\ndog.speak() // 'Buddy makes a noise'\nconsole.log(dog.name) // 'Buddy'",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Property descriptors",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Did you notice the <ins>value</ins> keys? This is one of the so called property descriptors. They allow us to define the behavior and characteristics of properties within JavaScript objects."
+      },
+      {
+        "type": "Header",
+        "value": "value",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "It is of course used to define the value of a property."
+      },
+      {
+        "type": "Code",
+        "value": "const person = Object.create(\n  {}, // prototype\n  {\n    name: {\n      value: 'John',\n    },\n  },\n)\n\nconsole.log(person.name) // 'John'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "writable",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Determines if the property value can be changed after it has been set. By default it is set to <ins>false</ins>."
+      },
+      {
+        "type": "Code",
+        "value": "const person = Object.create(\n  {},\n  {\n    name: {\n      value: 'John',\n    },\n    age: {\n      value: 28,\n      writable: true,\n    },\n  },\n)\n\nperson.name = 'Jack'\nconsole.log(person.name) // 'John'\n\nperson.age = 30\nconsole.log(person.age) //30",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "enumerable",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Decides if the property will be included in loops that enumerate properties (like <ins>for-in</ins>). For example <ins>length</ins> property of an array is not enumerable and it is invisible for loops. By default it is set to <ins>false</ins>."
+      },
+      {
+        "type": "Code",
+        "value": "const person = Object.create({}, {\n  name: {\n    value: 'John'\n  },\n  age: {\n    value: 28,\n    enumerable: true\n  }\n})\n\nfor(const key in person)\n  console.log(key) // 'age'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "configurable",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "This attribute specifies whether the property can be deleted from the object and whether its attributes (except for <ins>value</ins> and <ins>writable</ins>) can be modified."
+      },
+      {
+        "type": "Code",
+        "value": "const person = Object.create({},\n  {\n    name: {\n      value: 'John',\n    },\n    age: {\n      value: 28,\n      configurable: true, // This property can be deleted or have its attributes changed\n    },\n  },\n)\n\n// Attempting to delete properties\ndelete person.name // This will fail because `configurable: false`\ndelete person.age // This will succeed because `configurable: true`\n\n// Checking the results of deletion\nconsole.log(person.name) // 'John'\nconsole.log(person.age) // undefined",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "get and set",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "<ins>get()</ins> defines a function that will be called when accessing the property.<br></br><ins>set()</ins> defines a setter function that will be called when assigning a value to the property."
+      },
+      {
+        "type": "Code",
+        "value": "const person = Object.create({},\n  {\n    firstName: {\n      value: 'John',\n      writable: true,\n    },\n    lastName: {\n      value: 'Doe',\n      writable: true,\n    },\n    fullName: {\n      // Getter for fullName\n      get() {\n        return `${this.firstName} ${this.lastName}`\n      },\n      // Setter for fullName\n      set(value) {\n        const parts = value.split(' ')\n        this.firstName = parts[0] || ''\n        this.lastName = parts[1] || ''\n      },\n      configurable: true,\n      enumerable: true,\n    },\n  },\n)\n\n// Using the getter\nconsole.log(person.fullName) // 'John Doe'\n\n// Using the setter\nperson.fullName = 'Jane Smith'\nconsole.log(person.firstName) // 'Jane'\nconsole.log(person.lastName) // 'Smith'",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Modifying properties",
+    "data": [
+      {
+        "type": "Text",
+        "value": "<ins>Object.defineProperty()</ins> is a JavaScript method that allows you to define or modify properties of an object with greater control over their behavior. Unlike creating properties directly (e.g., <ins>obj.prop = value</ins>), this method lets you specify property descriptors, which control attributes like whether the property is writable, enumerable, or configurable. You can also use it to define getter and setter functions."
+      },
+      {
+        "type": "Header",
+        "value": "Syntax",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Code",
+        "value": "Object.defineProperty(obj, prop, descriptor)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>obj</u>: The object on which to define the property.",
+          "<u>prop</u>: The name of the property to be defined or modified.",
+          "<u>descriptor</u>: An object that describes the behavior of the property (e.g., value, writable, configurable, enumerable, get, set)."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "Example:",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Code",
+        "value": "const person = {}\n\nObject.defineProperty(person, 'name', {\n  value: 'John',\n  writable: false,\n  enumerable: true,\n  configurable: false\n})\n\n// Access the property\nconsole.log(person.name) // 'John'\n\n// Attempt to modify the property (will fail as writable is false)\nperson.name = 'Jane'\nconsole.log(person.name) // 'John'\n\n// Attempt to delete the property (will fail as configurable is false)\ndelete person.name\nconsole.log(person.name) // 'John'",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Differences between create() and defineProperty()",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "<ins>Object.create()</ins> and <ins>Object.defineProperty()</ins> both allow you to control property attributes, but they serve different purposes:<br></br><ins>Object.create()</ins> is used to create a new object with a specified prototype and allows you to define properties during the object's creation. It can also define multiple properties at once.<br></br><ins>Object.defineProperty()</ins> is used to define or modify properties on an existing object. It only handles one property at a time, but gives precise control over that property's behavior.<br></br>Unlike <ins>defineProperty()</ins>, <ins>create()</ins> allows you to set the object's prototype when it's created, making it more suited for inheritance."
+      }
+    ]
+  }
+
+]

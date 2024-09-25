@@ -116,11 +116,11 @@ export const topics = {
     },
   ],
   Object_oriented_JS: [
-    { name: 'objects_-_advanced_topics', image: '' }, //object_create
-    { name: 'reference_and_copying', image: '' },
+    { name: 'Object.create()', image: '' }, 
+    { name: 'objects_-_advanced_topics', image: '' }, // hasOwnProperty, assign, kopiowanie
     { name: 'inheritance', image: '' },
     { name: 'constructor', image: '' },
-    { name: 'class', image: '' },
+    { name: 'classes', image: '' },
     { name: 'encapsulation', image: '' },
     { name: 'inbuilt_objects', image: '' }, //Math, Date, Error, global
     { name: 'extending_inbuilt_objects', image: '' }, //Error extensions
@@ -138,7 +138,6 @@ export const topics = {
     {
       name: 'event_loop',
       image: 'https://i.postimg.cc/65wL2g5S/event-loop.png',
-      soon: true,
     },
   ],
   miscellaneous: [
