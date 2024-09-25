@@ -1,0 +1,82 @@
+[
+  {
+    "data": [
+      {
+        "type": "Text",
+        "value": "This will probably be the trickiest and most mind-blowing lesson of all. After studying it, you'll never look at JavaScript the same way again. So grab a cup of tea and come back when you're prepared.<br></br><br></br><br></br>Are you ready? Great."
+      },
+      {
+        "type": "Text",
+        "value": "As you learned from the \"General Information\" lesson, JavaScript is a single-threaded language, meaning it can only perform one task at a time. If that's true, then why can we use setTimeout and setInterval, which seem to make it do multiple things simultaneously? The reason is that they… aren't a JS thing. Huh? You might be wondering how they can not be a JS thing if you're using them and they work. It's because they are not part of the ECMAScript specification but are provided by the browser (or other environment in which JavaScript is running, such as Node.js). Therefore, they are just an API."
+      }
+    ]
+  },
+  {
+    "title": "JS runtime",
+    "data": [
+      {
+        "type": "Text",
+        "value": "JavaScript is just one building block in the larger structure known as the JavaScript runtime. Understanding this runtime is key to unlocking how JavaScript operates."
+      },
+      {
+        "type": "Header",
+        "value": "JS engine",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "At the core of a JS runtime lies the JavaScript engine. This is the \"real\" JavaScript. The most popular one is the V8 engine, which powers both Chrome and Node.js. It consists of the <b>Heap</b>, where memory is dynamically allocated for complex data types, such as objects, arrays, or functions; and the <b>Call Stack</b>, which is responsible for managing the order of function execution, while primitive types are allocated there. The Call Stack keeps track of the currently executing function, ensuring that once a function completes, control is properly returned to the correct location in the code. Together, these components ensure efficient memory management and execution flow within the engine."
+      },
+      {
+        "type": "Header",
+        "value": "Web APIs",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Next part of the JS runtime is the Web APIs (or Node.js APIs in the server context). These APIs extend JavaScript's capabilities beyond the language itself. In a browser, Web APIs provide access to a variety of built-in functionalities that aren't part of the core JavaScript engine. Here you find tools like setTimeout and setInterval for asynchronous tasks, and methods like querySelector for DOM interactions, localStorage for storing data locally on the user's machine, and the geolocation API for accessing location data. These APIs are managed by the browser (or environment, like Node.js), and JavaScript \"borrows\" them to handle tasks like asynchronous actions, network requests, user interactions, and file manipulation."
+      },
+      {
+        "type": "Header",
+        "value": "Task queue",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "Finally, we have the Task Queue (or Callback Queue). This is where tasks that are waiting to be executed, like the callbacks from setTimeout, setInterval, or promises, are placed once their associated operations have completed. When the Call Stack is empty, the Event Loop picks up tasks from the Task Queue and pushes them onto the Call Stack to be executed. The Task Queue is divided into two parts: <b>Microtask Queue</b> and <b>MacroTask Queue</b>.<br></br> Microtasks are higher-priority tasks that are executed as soon as the current code execution (synchronous code) finishes, but before any macrotasks. Common examples of microtasks include promise callbacks (i.e., .then()), queueMicrotask(), and MutationObserver. They are handled immediately after the current operation, ensuring that they run before any other tasks in the Task Queue. <br></br>Macrotasks, often simply referred to as \"tasks,\" are lower-priority tasks that are scheduled to run after microtasks are processed. Examples of macrotasks include operations like setTimeout, setInterval, setImmediate (in Node.js), and I/O events. They are placed in the Task Queue and executed after the Call Stack is empty and all microtasks are processed."
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/VsSwnz5D/image.png",
+        "props": {
+          "description": "https://slawinski.dev/blog/javascript-runtime-environment-web-api-task-queue-and-event-loop/"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Event loop",
+    "data": [
+      {
+        "type": "Text",
+        "value": "And there we have it – the event loop. This is the mechanism that keeps JavaScript running smoothly by managing the execution of tasks and ensuring asynchronous code is handled efficiently. It constantly checks the Call Stack and Task Queue, moving between synchronous and asynchronous code, processing microtasks and macrotasks in the correct order. This allows JavaScript to remain non-blocking, handling multiple operations without freezing the browser or halting the server, even though it's single-threaded."
+      },
+      {
+        "type": "Text",
+        "value": "If you still find this difficult to understand, I highly recommend watching a brilliant video that is often cited when talking about the event loop. Watching this masterpiece at least once in a life is a must for every JS developer."
+      },
+      {
+        "type": "YouTube",
+        "value": "8aGhZQkoFbQ"
+      },
+      {
+        "type": "Text",
+        "value": "Recently I encountered a newer video that also explains the event loop quite well."
+      },
+      {
+        "type": "YouTube",
+        "value": "eiC58R16hb8"
+      }
+    ]
+  }
+]
