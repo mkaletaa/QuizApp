@@ -1,4 +1,10 @@
 {
+  "API": [
+    {
+      "type": "Text",
+      "value": "API (Application Programming Interface) is a set of rules and protocols that allows different pieces of software to communicate and exchange data. It defines how software components should interact by specifying methods, input data, and expected outcomes.<br></br>In programming, the term API is often discussed in the context of middleware between the frontend and backend (see the \"Next steps\" chapter). But in the context of JavaScript's event loop, an API refers to the functions available within a given environment (such as browsers or Node.js)."
+    }
+  ],
   "context": [
     {
       "type": "Text",
@@ -32,10 +38,36 @@
       "value": "While eval() is powerful because it can execute dynamic code, it poses significant security risks and performance issues. Therefore, <b>it should be avoided whenever possible</b>. In modern JavaScript development, using eval() is considered bad practice due to its potential dangers."
     }
   ],
-  "PWA":[
+  "mutationObserver": [
+    {
+      "type": "Text",
+      "value": "MutationObserver is a built-in JavaScript object used to watch for changes in the DOM (Document Object Model). It allows developers to efficiently monitor modifications such as adding or removing elements, changing attributes, or updating text content."
+    }
+  ],
+  "PWA": [
     {
       "type": "Text",
       "value": "A Progressive Web App (PWA) is a type of website or web app that behaves like a regular mobile app. <br></br>PWAs can be installed on your home screen without needing to go through an app store. Once installed, they behave like native apps (apps downloaded from the App Store or Google Play), with features like push notifications and a full-screen mode."
+    }
+  ],
+  "queueMicrotask": [
+    {
+      "type": "Text",
+      "value": "<ins>queueMicrotask()</ins> is a method in JavaScript that allows you to schedule a microtask to be executed after the currently executing script and before any macrotasks (like those from <ins>setTimeout</ins> or <ins>setInterval</ins>)."
+    },
+    {
+      "type": "Header",
+      "value": "Example:",
+      "props": { "size": "md" }
+    },
+    {
+      "type": "Code",
+      "value": "console.log('Start')\n\nqueueMicrotask(() => {\n  console.log('Microtask executed')\n})\n\nconsole.log('End')\n\n//Output:\n//Start\n//End\n//Microtask executed",
+      "props": { "language": "javascript" }
+    },
+    {
+      "type": "Text",
+      "value": "The microtask scheduled by <ins>queueMicrotask()</ins> is executed after the synchronous code has finished running but before any macrotasks would run."
     }
   ],
   "strict_mode": [

@@ -1,0 +1,109 @@
+[
+  {
+    "id": "asynchronicity|event_loop|1",
+    "multiChoice": true,
+    "question": "Which of them are microtasks?",
+    "options": [
+      { "id": "1", "val": "Promise", "correct": true },
+      { "id": "2", "val": "MutationObserver", "correct": true },
+      { "id": "3", "val": "setTimeout" },
+      { "id": "4", "val": "setInterval" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|2",
+    "multiChoice": true,
+    "question": "Which of them are macrotasks?",
+    "options": [
+      { "id": "1", "val": "setTimeout", "correct": true },
+      { "id": "2", "val": "setInterval", "correct": true },
+      { "id": "3", "val": "Promise" },
+      { "id": "4", "val": "MutationObserver" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|3",
+    "multiChoice": false,
+    "question": "Which executes first, microtasks or macrotasks?",
+    "options": [
+      { "id": "1", "val": "Microtasks", "correct": true },
+      { "id": "2", "val": "Macrotasks" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|4",
+    "multiChoice": false,
+    "question": "Where are complex types stored?",
+    "options": [
+      { "id": "1", "val": "Heap", "correct": true },
+      { "id": "2", "val": "Call Stack" },
+      { "id": "3", "val": "Task queue" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|5",
+    "multiChoice": false,
+    "question": "Where are primitive types stored?",
+    "options": [
+      { "id": "1", "val": "Call Stack", "correct": true },
+      { "id": "2", "val": "Heap" },
+      { "id": "3", "val": "Task queue" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|6",
+    "multiChoice": false,
+    "question": "Dare promises part of ECMAScript specification?",
+    "options": [
+      { "id": "1", "val": "Yes", "correct": true },
+      { "id": "2", "val": "No" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|7",
+    "multiChoice": false,
+    "question": "The queue executes when the Call Stack is empty. True or False?",
+    "options": [
+      { "id": "1", "val": "True", "correct": true },
+      { "id": "2", "val": "False" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|8",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Code",
+        "value": "Promise.resolve(1).then(q => {\n  console.log(q)\n})\n\nsetTimeout(() => {\n  console.log(2)\n}, 0)\n\nconsole.log(3)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "3, 1, 2", "correct": true },
+      { "id": "2", "val": "3, 2, 1" },
+      { "id": "3", "val": "2, 3, 1" },
+      { "id": "4", "val": "2, 1, 3" },
+      { "id": "5", "val": "1, 2, 3" },
+      { "id": "6", "val": "1, 3, 2" }
+    ]
+  },
+  {
+    "id": "asynchronicity|event_loop|9",
+    "multiChoice": false,
+    "question": [
+      {
+        "type": "Code",
+        "value": "setTimeout(() => {\n  console.log(1)\n}, 100)\n\nconsole.log(2)\n\nPromise.resolve(3).then(q => {\n  console.log(q)\n})\n\nsetTimeout(() => {\n  console.log(4)\n}, 0)",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "2, 3, 4, 1", "correct": true },
+      { "id": "2", "val": "2, 3, 1, 4" },
+      { "id": "3", "val": "2, 4, 1, 3" },
+      { "id": "4", "val": "2, 1, 4, 3" }
+    ]
+  }
+]
