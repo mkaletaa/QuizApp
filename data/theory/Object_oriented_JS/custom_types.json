@@ -1,0 +1,121 @@
+[
+  {
+    "title": "constructor",
+    "data": [
+      {
+        "type": "Text",
+        "value": "You already know some basic JS data types that are provided by JavaScript. But we can create our own types as well. One of the methods is by using a constructor. A constructor is basically a function that is called when creating an object. In JavaScript, a constructor typically starts with an uppercase letter to distinguish it from regular functions. When invoked with the new keyword, the constructor function creates a new object, sets the this context to the new object, and initializes its properties."
+      },
+      {
+        "type": "Code",
+        "value": "function Person(name, age) {\n  this.name = name // Assigning name property\n  this.age = age // Assigning age property\n}\n\n// Creating an instance of Person\nconst person1 = new Person('Alice', 30)\nconsole.log(person1.name) // Alice\nconsole.log(person1.age) // 30",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "When you call a constructor function with the <ins>new</ins> keyword, several steps occur:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "A new object is created (e.g., {}).",
+          "The prototype of the new object is set to the constructor's prototype.",
+          "The constructor function is called with the new object as its context (see the \"Execution context\" lesson from \"Miscellaneous\" chapter).",
+          "If the constructor returns a non-primitive value (an object), that value is returned; otherwise, the new object is returned."
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "Now, type <ins>console.dir(Person)</ins>. This provides insights into constructor's structure and available methods. There are a few interesting properties there:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>name: \"Person\"</u> - it's simply the name of the function.",
+          "<u>length: 2</u> - this property indicates the number of parameters that the function expects, which in this case is 2 (for <ins>name</ins> and <ins>age</ins>).",
+          "<u>caller: null</u> - this property points to the function that invoked the current function. It is <ins>null</ins> here because the <ins>Person</ins> function has not been called by another function in this <ins data-key='context' class='hint'>context</ins>, and typically in <ins data-key='strict_mode' class='hint'>strict mode</ins>, the caller property is not accessible.",
+          "<u>arguments: null</u> - this property refers to the <ins>arguments</ins> object that is available inside functions, containing the values of the arguments passed to the function. In this case, it is <ins>null</ins> because <ins>arguments</ins> is not a property of the function itself but rather of the function's execution context. Since you're inspecting the function definition, this property will show up as <ins>null</ins>."
+        ]
+      },
+      {
+        "type": "Comment",
+        "value": "dokończyć: dodać [[Scopes]] itd."
+      },
+      {
+        "type": "Text",
+        "value": "In addition to that, there is also <ins>prototype</ins> property. It shows the prototype object of the <ins>Person</ins> constructor. It is an object that can hold properties and methods that can be inherited by instances created using the <ins>Person</ins> constructor. When you add methods to <ins>Person.prototype</ins>, those methods will be accessible to all instances of <ins>Person</ins>."
+      },
+      {
+        "type": "Code",
+        "value": "function Person(name, age) {\n  this.name = name\n  this.age = age\n}\n\nconst person1 = new Person('Alice', 30)\n\nPerson.prototype.introduce = function () {\n  console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`)\n}\n\nperson1.introduce()",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "class",
+    "data": [
+      {
+        "type": "Text",
+        "value": "A newer way of creating custom types is by using <ins>class</ins>. They provide a cleaner and more intuitive way to create objects and implement inheritance, but under the hood, they still use prototypes. Classes make it easier to write and manage object-oriented code, especially for developers familiar with class-based languages like Java or C#."
+      },
+      {
+        "type": "Text",
+        "value": "A class is declared using the <ins>class</ins> keyword followed by a name. It can include a constructor method, as well as other methods that can be shared across instances. If no constructor is defined, a default one is provided by JavaScript."
+      },
+      {
+        "type": "Code",
+        "value": "class Person {\n  constructor(name, age) {\n    this.name = name\n    this.age = age\n  }\n\n  introduce() {\n    console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`)\n  }\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Just like functions, classes can be defined in an expression format."
+      },
+      {
+        "type": "Code",
+        "value": "const Person = class {\n  constructor(name) {\n    this.name = name\n  }\n\n  introduce() {\n    console.log(`Hi, I'm ${this.name}`)\n  }\n}\n\nconst person = new Person('Alice')\nperson.introduce() // Hi, I'm Alice",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can create instances of a class using the new keyword, just like with constructor functions."
+      },
+      {
+        "type": "Code",
+        "value": "const person1 = new Person('Alice', 30)\nperson1.introduce()  // Hi, I'm Alice and I'm 30 years old.",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Not all properties must be passed to the constructor."
+      },
+      {
+        "type": "Code",
+        "value": "class Dog {\n  paws = 4\n  constructor(name) {\n    this.name = name\n  }\n\n  info() {\n    console.log('My name is ' + this.name + ' and I have ' + this.paws + ' paws.')\n  }\n}\n\nconst dog = new Dog('Alex')\ndog.info() // \"My name is Alex and I have 4 paws.\"",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Class properties can be static. Static properties are properties that belong to the class itself, not instances of the class. You can call them directly on the class without needing an instance. An example of a static method is <ins>isArray()</ins> from <ins>Array</ins> object or <ins>create()</ins> from <ins>Object</ins>. To create a static property you must simply add the <ins>static</ins> keyword before the property's definition."
+      },
+      {
+        "type": "Code",
+        "value": "class Person {\n  // Static field\n  static species = 'Homo sapiens'\n\n  constructor(name, age) {\n    this.name = name\n    this.age = age\n  }\n\n  introduce() {\n    console.log(`Hi, I'm ${this.name}, I'm ${this.age} years old.`)\n  }\n\n  // Static method\n  static speciesInfo() {\n    console.log(`All humans belong to the species: ${Person.species}`)\n  }\n}\n\n// Accessing static field directly on the class\nconsole.log(Person.species) // \"Homo sapiens\"\n\n// Accessing static method\nPerson.speciesInfo() // \"All humans belong to the species: Homo sapiens\"\n\n// Instance of the class\nconst person1 = new Person('Alice', 30)\nperson1.introduce() // \"Hi, I'm Alice, I'm 30 years old.\"\n\n// Static fields are not accessible on instances\nconsole.log(person1.species) // undefined",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Code inside class bodies runs in strict mode by default. "
+          }
+        ],
+        "props": {
+          "type": "info"
+        }
+      }
+    ]
+  }
+]

@@ -116,11 +116,11 @@ export const topics = {
     },
   ],
   Object_oriented_JS: [
-    { name: 'Object.create()', image: '' }, 
-    { name: 'objects_-_advanced_topics', image: '' }, // hasOwnProperty, assign, kopiowanie
+    { name: 'Object.create()', image: '' },
+    { name: 'object_methods', image: '' }, // ewentualnie można dać assign do reszty statycznych metod i ominąć spread i json
     { name: 'inheritance', image: '' },
-    { name: 'constructor', image: '' },
-    { name: 'classes', image: '' },
+    { name: 'custom_types', image: '' },
+    { name: 'class_inheritance', image: '' },
     { name: 'encapsulation', image: '' },
     { name: 'inbuilt_objects', image: '' }, //Math, Date, Error, global
     { name: 'extending_inbuilt_objects', image: '' }, //Error extensions

@@ -1,7 +1,7 @@
-import objectCreate from './objectCreate.json'
+import custom_types from './custom_types.json'
+import object_methods from './object_methods.json'
 
 export const Object_oriented_JS = {
-  ['Object.create()']: objectCreate,
+  object_methods,
+  custom_types,
 }
-
-

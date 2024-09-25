@@ -200,51 +200,10 @@
       {
         "type": "Text",
         "value": "Copies the values of all enumerable own properties from one or more source objects to a target object."
-      }
-    ]
-  },
-  {
-    "title": "Copying objects",
-    "data": [
-      {
-        "type": "Text",
-        "value": "As you remember from the previous chapter, copying complex types doesn't work as expected. To overcome this issue you can use the <b>Object.assign()</b> static method. It copies the values of all enumerable own properties from one or more source objects to a target object and returns the target object."
       },
       {
         "type": "Code",
         "value": "const target = { a: 1 };\nconst source = { b: 2, c: 3 };\nconst result = Object.assign(target, source);\nconsole.log(result); // { a: 1, b: 2, c: 3 }",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "But this isn't the only way to copy objects."
-      },
-      {
-        "type": "Header",
-        "value": "spread syntax",
-        "props": { "size": "md" }
-      },
-      {
-        "type": "Text",
-        "value": "Allows for a shallow copy of an object by spreading its properties into a new object. See more in the \"Spread and rest\" lesson from \"Miscellaneous\" chapter."
-      },
-      {
-        "type": "Code",
-        "value": "const obj = { a: 1, b: 2 };\nconst copy = { ...obj };\nconsole.log(copy); // { a: 1, b: 2 }",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "JSON.parse and JSON.stringify",
-        "props": { "size": "md" }
-      },
-      {
-        "type": "Text",
-        "value": "A common method for deep copying an object by serializing it to a JSON string and then parsing it back to an object. However, object methods cannot be copied this way."
-      },
-      {
-        "type": "Code",
-        "value": "const obj = { a: 1, b: { c: 2 } };\nconst deepCopy = JSON.parse(JSON.stringify(obj));\ndeepCopy.b.c = 3;\nconsole.log(obj.b.c); // 2 (original object is unchanged)",
         "props": { "language": "javascript" }
       }
     ]
