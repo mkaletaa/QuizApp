@@ -5,14 +5,14 @@
     "options": [
       { "id": "1", "val": "6", "correct": false },
       { "id": "2", "val": "'22'", "correct": false },
-      { "id": "3", "val": "'42'", "correct": false },
-      { "id": "4", "val": "'222'", "correct": true }
+      { "id": "3", "val": "'42'", "correct": true },
+      { "id": "4", "val": "'222'", "correct": false }
     ],
     "explanation": "JavaScript evaluates the expression from left to right. First, it adds 2 + 2 to get 4, then it concatenates '4' with '2', resulting in the string '42'."
   },
   {
     "id": "data_types|type_conversion|2",
-    "question": ["What is the result of the expression `+'23'`?"],
+    "question": ["What is the result of the expression <ins>+'23'</ins>?"],
     "options": [
       { "id": "1", "val": "'23'", "correct": false },
       { "id": "2", "val": "23", "correct": true },
@@ -23,7 +23,7 @@
   },
   {
     "id": "data_types|type_conversion|3",
-    "question": ["What is the result of the expression [1, 2, 3] + [4, 5, 6]?"],
+    "question": ["What is the result of the expression <ins>[1, 2, 3] + [4, 5, 6]</ins>?"],
     "options": [
       { "id": "1", "val": "[1, 2, 3, 4, 5, 6]", "correct": false },
       { "id": "2", "val": "'1,2,34,5,6'", "correct": true },
@@ -46,7 +46,7 @@
   },
   {
     "id": "data_types|type_conversion|5",
-    "question": ["What is the result of the expression `true + true`?"],
+    "question": ["What is the result of the expression <ins>true + true</ins>?"],
     "options": [
       { "id": "1", "val": "2", "correct": true },
       { "id": "2", "val": "truetrue", "correct": false },

@@ -89,7 +89,7 @@
       { "id": "3", "val": "[10, 2, 30, 1, 22]", "correct": false },
       { "id": "4", "val": "[1, 10, 2, 22, 30]", "correct": true }
     ],
-    "explanation": "The <ins>sort()</ins> method by default converts the elements to strings and sorts them lexicographically. Therefore, `10` comes before `2` because '10' is lexicographically smaller than '2'. And it modifies the original array."
+    "explanation": "The <ins>sort()</ins> method by default converts the elements to strings and sorts them lexicographically. Therefore, 10 comes before 2 because \"10\" is lexicographically smaller than \"2\". And it modifies the original array."
   },
   {
     "id": "data_types|arrays|8",

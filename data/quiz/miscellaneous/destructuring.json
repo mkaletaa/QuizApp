@@ -53,7 +53,7 @@
     "question": [
       {
         "type": "Code",
-        "value": "const colors = ['red', 'green', 'blue', 'yellow']\n\nconst [primary, , secondary, extra = 'purple'] = colors\n\nconsole.log(primary)\nconsole.log(secondary)\nconsole.log(extra)",
+        "value": "const colors = ['red', 'green', 'blue']\n\nconst [primary, , secondary, extra = 'purple'] = colors\n\nconsole.log(primary)\nconsole.log(secondary)\nconsole.log(extra)",
         "props": { "language": "javascript" }
       },
       "What is the output of the code above?"
@@ -62,7 +62,8 @@
       { "id": "1", "val": "red', undefined, 'purple'" },
       { "id": "2", "val": "'red', 'green', 'yellow'" },
       { "id": "3", "val": "'red', 'blue', 'yellow'" },
-      { "id": "4", "val": "'red', 'blue', 'purple'", "correct": true }
+      { "id": "4", "val": "'red', 'blue', 'purple'", "correct": true },
+      { "id": "5", "val": "'red', 'green', 'purple'" }
     ]
   },
   {

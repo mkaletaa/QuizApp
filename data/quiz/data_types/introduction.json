@@ -52,7 +52,7 @@
     "question": [
       {
         "type": "Code",
-        "value": "let a = {name: 'John', age: 26}\nlet b = a\nb.age = 15\n\nconsole.log(a.age === b.age)",
+        "value": "let a = {name: 'John', age: 26}\nlet b = a\nb.age = 15\n\nconsole.log(a.age === b.age) //?",
         "props": { "language": "javascript" }
       }
     ],

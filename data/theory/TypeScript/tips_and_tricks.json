@@ -126,7 +126,7 @@
       },
       {
         "type": "Text",
-        "value": "TypeScript's <ins>typeof</ins> is different than JavaScript's one. In JavaScript, <ins>typeof</ins> is an operator used at runtime to determine the type of a variable or expression. It is useful for checking the type of a value during the execution of code.In TypeScript, <ins>typeof</ins> is used in a type context to get the type of a variable or expression. It allows you to refer to the type of a value or expression at compile time, which is different from how <ins>typeof</ins> is used in JavaScript."
+        "value": "TypeScript's <ins>typeof</ins> is different than JavaScript's one. In JavaScript, <ins>typeof</ins> is an operator used at runtime to determine the type of a variable or expression. It is useful for checking the type of a value during the execution of code. In TypeScript, <ins>typeof</ins> is used in a type context to get the type of a variable or expression. It allows you to refer to the type of a value or expression at compile time, which is different from how <ins>typeof</ins> is used in JavaScript."
       },
       {
         "type": "Code",

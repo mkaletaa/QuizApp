@@ -20,7 +20,7 @@
       { "id": "3", "val": "C", "correct": false },
       { "id": "4", "val": "D", "correct": false }
     ],
-    "explanation": "The proper way is to use at least two forward slashes right next to each other."
+    "explanation": "The proper way is to use at least two forward slashes right next to each other. C is in fact a multi-line comment even though it occupies only one line."
   },
   {
     "id": "fundamentals|comments|2",

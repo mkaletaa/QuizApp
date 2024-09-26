@@ -52,7 +52,7 @@
       },
       {
         "type": "Code",
-        "value": "function riskyOperation() {\n  if (somethingGoesWrong) {\n    throw new Error('A problem occurred');\n  }\n  return 'Success';\n}\n\ntry {\n  riskyOperation();\n} catch (error) {\n  console.error(error.message);\n}",
+        "value": "function riskyOperation() {\n  if (somethingGoesWrong) {\n    throw new Error('A problem occurred')\n  }\n  return 'Success'\n}",
         "props": { "language": "javascript" }
       },
       {
