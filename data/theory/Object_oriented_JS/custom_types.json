@@ -115,6 +115,10 @@
         "props": {
           "type": "info"
         }
+      },
+      {
+        "type": "Comment",
+        "value": "Nested i Inner classes"
       }
     ]
   }

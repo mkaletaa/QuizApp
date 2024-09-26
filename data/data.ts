@@ -117,13 +117,13 @@ export const topics = {
   ],
   Object_oriented_JS: [
     { name: 'Object.create()', image: '' },
-    { name: 'object_methods', image: '' }, // ewentualnie można dać assign do reszty statycznych metod i ominąć spread i json
-    { name: 'inheritance', image: '' },
+    { name: 'object_methods', image: '' }, 
+    { name: 'prototype_and_inheritance', image: '' },
     { name: 'custom_types', image: '' },
-    { name: 'class_inheritance', image: '' },
     { name: 'encapsulation', image: '' },
-    { name: 'inbuilt_objects', image: '' }, //Math, Date, Error, global
-    { name: 'extending_inbuilt_objects', image: '' }, //Error extensions
+    { name: 'class_inheritance', image: '' },
+    { name: 'built-in_objects', image: '' }, //Math, Date, Error, global
+    // { name: 'extending_inbuilt_objects', image: '' }, //Error extensions
   ],
   asynchronicity: [
     {
