@@ -1,6 +1,6 @@
 [
   {
-    "id": "JS_fundamentals|loops|1",
+    "id": "fundamentals|loops|1",
     "question": [
       {
         "type": "Code",
@@ -21,7 +21,7 @@
     "explanation": "Due to the lack of curly brackets, only the second line is part of the loop's body; the <ins>console.log()</ins> statement is outside of it. Because of <ins>var's</ins> function scope, the output is 6. If <ins>let</ins> had been used instead, an error would have occurred."
   },
   {
-    "id": "JS_fundamentals|loops|2",
+    "id": "fundamentals|loops|2",
     "question": [
       {
         "type": "Code",
@@ -41,7 +41,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|loops|3",
+    "id": "fundamentals|loops|3",
     "question": [
       "What is the value of <ins>i</ins> after this loop completes?",
       {
@@ -59,7 +59,7 @@
     "explanation": "The loop increments <ins>i</ins> up to 5, but the last value of <ins>i</ins> after the loop exits is 5."
   },
   {
-    "id": "JS_fundamentals|loops|4",
+    "id": "fundamentals|loops|4",
     "question": [
       "What is the output of this loop?",
       {
@@ -77,7 +77,7 @@
     "explanation": "The loop condition <ins>i < 5 && i > 0</ins> is false at the start, so the loop never executes."
   },
   {
-    "id": "JS_fundamentals|loops|5",
+    "id": "fundamentals|loops|5",
     "question": [
       "What is the output of this <ins>do-while</ins> loop?",
       {
@@ -95,7 +95,7 @@
     "explanation": "The <ins>do-while</ins> loop executes the body at least once before checking the condition."
   },
   {
-    "id": "JS_fundamentals|loops|6",
+    "id": "fundamentals|loops|6",
     "question": [
       "What is the output of this <ins>while</ins> loop?",
       {
@@ -113,7 +113,7 @@
     "explanation": "The loop decrements <ins>i</ins> starting from 0, so the first output is -1 before the loop exits."
   },
   {
-    "id": "JS_fundamentals|loops|7",
+    "id": "fundamentals|loops|7",
     "question": [
       "What is the output of this <ins>for</ins> loop?",
       {
@@ -131,7 +131,7 @@
     "explanation": "The loop skips logging 2 due to the <ins>continue</ins> statement, so the output is <ins>0 1 3 4</ins>."
   },
   {
-    "id": "JS_fundamentals|loops|8",
+    "id": "fundamentals|loops|8",
     "question": [
       "What is the output of this <ins>while</ins> loop?",
       {
@@ -149,7 +149,7 @@
     "explanation": "The loop breaks when <ins>i</ins> equals 2, so only <ins>0 1</ins> are logged."
   },
   {
-    "id": "JS_fundamentals|loops|9",
+    "id": "fundamentals|loops|9",
     "question": [
       "What is the output of this <ins>for</ins> loop?",
       {
@@ -166,7 +166,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|loops|10",
+    "id": "fundamentals|loops|10",
     "multiChoice": true,
     "question": "Select all true statements",
     "options": [

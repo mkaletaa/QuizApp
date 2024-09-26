@@ -1,6 +1,6 @@
 [
   {
-    "id": "data_structures|introduction|1",
+    "id": "data_types|introduction|1",
     "question": [
       "What would be the the output of comparing these two arrays?",
       {
@@ -16,7 +16,7 @@
     "explanation": "When you compare complex types, in fact, what is compared are their references, not their actual values. Those two arrays have different references so the output is <ins>false</ins>"
   },
   {
-    "id": "data_structures|introduction|2",
+    "id": "data_types|introduction|2",
     "question": [
       "What would be the the output of comparing these two numbers?",
       {
@@ -32,7 +32,7 @@
     "explanation": "When you use a constructor to define a variable, it always is an object. Since comparing objects works differently from comparing primitive types, the result will be <ins>false</ins>."
   },
   {
-    "id": "data_structures|introduction|3",
+    "id": "data_types|introduction|3",
     "question": [
       {
         "type": "Code",
@@ -48,7 +48,7 @@
     "explanation": "Variables declared with the <ins>const</ins> keyword can't have their value reassigned. However, in the case of complex variables like arrays, the value of the variable refers to the reference or address of the object in memory, not its contents. This means that while you can't reassign the entire array to a new array or value, you can still modify the elements within the array or object properties."
   },
   {
-    "id": "data_structures|introduction|4",
+    "id": "data_types|introduction|4",
     "question": [
       {
         "type": "Code",
@@ -63,7 +63,7 @@
     "explanation": "The result is <ins>true</ins> because <ins>b</ins> is a reference to the same object as <ins>a</ins>. When you modify <ins>b.age</ins>, it directly changes the <ins>age</ins> property of the object that both <ins>a</ins> and <ins>b</ins> refer to. Therefore, <ins>a.age</ins> and <ins>b.age</ins> are the same, and the comparison <ins>a.age === b.age</ins> returns <ins>true</ins>."
   },
   {
-    "id": "data_structures|introduction|5",
+    "id": "data_types|introduction|5",
     "question": [
       "Is 'Hello World' going to be printed?",
       {
@@ -79,7 +79,7 @@
     "explanation": "Any non-zero number (including 4) is considered a truthy value. Since the condition <ins>4</ins> evaluates to true, the code inside the if block is executed."
   },
   {
-    "id": "data_structures|introduction|6",
+    "id": "data_types|introduction|6",
     "question": [
       "Is 'Hello World' going to be printed?",
       {
@@ -95,7 +95,7 @@
     "explanation": "When you use a constructor to define a variable, it always is an object. Since objects are always truthy, 'Hello World' will be printed in the console."
   },
   {
-    "id": "data_structures|introduction|7",
+    "id": "data_types|introduction|7",
     "multiChoice": true,
     "question": "Which of them are falsy?",
     "options": [
@@ -109,7 +109,7 @@
     ]
   },
   {
-    "id": "data_structures|introduction|8",
+    "id": "data_types|introduction|8",
     "multiChoice": true,
     "question": "Which of them are nullish?",
     "options": [
@@ -121,7 +121,7 @@
     ]
   },
   {
-    "id": "data_structures|introduction|9",
+    "id": "data_types|introduction|9",
     "question": [
       "What is the type of null according to the <ins>typeof</ins> keyword?",
       {
@@ -138,7 +138,7 @@
     "explanation": "But remember, null is not an object; <ins>typeof</ins> just acts weirdly sometimes ;)"
   },
   {
-    "id": "data_structures|introduction|10",
+    "id": "data_types|introduction|10",
     "question": [
       "Functions are objects."
     ],

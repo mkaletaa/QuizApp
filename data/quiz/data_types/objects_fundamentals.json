@@ -1,6 +1,6 @@
 [
   {
-    "id": "data_structures|objects_fundamentals|1",
+    "id": "data_types|objects_fundamentals|1",
     "question": [
       {
         "type": "CText",
@@ -19,7 +19,7 @@
     "explanation": "The method <ins>greet</ins> is defined inside the <ins>sayHello</ins> function, but it is not attached directly to the <ins>person</ins> object. You should call <ins>person.sayHello()</ins> instead of <ins>person.greet()</ins> to see \"Hello!\" printed to the console."
   },
   {
-    "id": "data_structures|objects_fundamentals|2",
+    "id": "data_types|objects_fundamentals|2",
     "question": "What keyword do you use to get rid of an object's property?",
     "options": [
       { "id": "1", "val": "remove", "correct": false },
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "id": "data_structures|objects_fundamentals|3",
+    "id": "data_types|objects_fundamentals|3",
     "question": [
       {
         "type": "Code",
@@ -47,7 +47,7 @@
     "explanation": "The <ins>obj</ins> object is created using a computed property name ([key]). The value of <ins>key</ins> is 'myKey', so the object is actually defined as <ins>{ myKey: \"Hello World\" }</ins>. When you try to access <ins>obj.key</ins>, JavaScript looks for a property literally named 'key' on the object, but that property doesn’t exist. To get the value \"Hello World\", you would need to use <ins>obj[key]</ins> or <ins>obj['myKey']</ins>."
   },
   {
-    "id": "data_structures|objects_fundamentals|4",
+    "id": "data_types|objects_fundamentals|4",
     "question": [
       {
         "type": "Code",
@@ -65,7 +65,7 @@
     "explanation": "The <ins>obj</ins> object is created using a computed property name ([key]). The value of <ins>key</ins> is 'myKey', so the object is defined as <ins>{ myKey: \"Hello World\" }</ins>. When you try to access <ins>obj[key]</ins>, JavaScript looks for a property with the name stored in the variable <ins>key</ins>, which is 'myKey'. Since <ins>obj['myKey']</ins> exists and has the value \"Hello World\", that value is printed to the console."
   },
   {
-    "id": "data_structures|objects_fundamentals|5",
+    "id": "data_types|objects_fundamentals|5",
     "question": [
       {
         "type": "Code",
@@ -83,7 +83,7 @@
     "explanation": "The object <ins>obj</ins> is created with a dynamic property name using the value of the variable <ins>key</ins>, which is 'myKey'. This means the object is defined as <ins>{ myKey: \"Hello World\" }</ins>. When you use <ins>obj['myKey']</ins>, you are directly accessing the property with the key 'myKey' in the object. Since <ins>obj['myKey']</ins> exists and holds the value \"Hello World\", that value is printed to the console."
   },
   {
-    "id": "data_structures|objects_fundamentals|6",
+    "id": "data_types|objects_fundamentals|6",
     "multiChoice": true,
     "question": "Which of them can be an object's key?",
     "options": [
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "id": "data_structures|objects_fundamentals|7",
+    "id": "data_types|objects_fundamentals|7",
     "question": "Can inner object's key be the same as outer object's key?",
     "options": [
       { "id": "1", "val": "yes", "correct": true },

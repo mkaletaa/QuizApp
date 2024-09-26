@@ -1,6 +1,6 @@
 [
   {
-    "id": "data_structures|type_conversion|1",
+    "id": "data_types|type_conversion|1",
     "question": ["What is the result of the expression <ins>2 + 2 + '2'</ins>?"],
     "options": [
       { "id": "1", "val": "6", "correct": false },
@@ -11,7 +11,7 @@
     "explanation": "JavaScript evaluates the expression from left to right. First, it adds 2 + 2 to get 4, then it concatenates '4' with '2', resulting in the string '42'."
   },
   {
-    "id": "data_structures|type_conversion|2",
+    "id": "data_types|type_conversion|2",
     "question": ["What is the result of the expression `+'23'`?"],
     "options": [
       { "id": "1", "val": "'23'", "correct": false },
@@ -22,7 +22,7 @@
     "explanation": "The unary plus operator converts the string '23' to the number 23."
   },
   {
-    "id": "data_structures|type_conversion|3",
+    "id": "data_types|type_conversion|3",
     "question": ["What is the result of the expression [1, 2, 3] + [4, 5, 6]?"],
     "options": [
       { "id": "1", "val": "[1, 2, 3, 4, 5, 6]", "correct": false },
@@ -34,7 +34,7 @@
   },
 
   {
-    "id": "data_structures|type_conversion|4",
+    "id": "data_types|type_conversion|4",
     "question": ["What is the result of the expression <ins>'5' - 3</ins>?"],
     "options": [
       { "id": "1", "val": "'2'", "correct": false },
@@ -45,7 +45,7 @@
     "explanation": "JavaScript automatically converts the string '5' to the number 5, and then performs the subtraction, resulting in 2."
   },
   {
-    "id": "data_structures|type_conversion|5",
+    "id": "data_types|type_conversion|5",
     "question": ["What is the result of the expression `true + true`?"],
     "options": [
       { "id": "1", "val": "2", "correct": true },
@@ -57,7 +57,7 @@
   },
 
   {
-    "id": "data_structures|type_conversion|6",
+    "id": "data_types|type_conversion|6",
     "question": ["What is the result of the expression <ins>NaN === NaN</ins>?"],
     "options": [
       { "id": "1", "val": "true", "correct": false },
@@ -65,7 +65,7 @@
     ]
   },
   {
-    "id": "data_structures|type_conversion|7",
+    "id": "data_types|type_conversion|7",
     "question": [
       {
         "type": "Code",
@@ -83,7 +83,7 @@
     "explanation": "When an object is converted to a string using the <ins>String</ins> function in JavaScript, it results in the string <ins>[object Object]</ins>. This is because objects do not have a meaningful string representation by default."
   },
   {
-    "id": "data_structures|type_conversion|8",
+    "id": "data_types|type_conversion|8",
     "question": ["What is the result of the expression <ins>!0</ins>?"],
     "options": [
       { "id": "1", "val": "true", "correct": true },

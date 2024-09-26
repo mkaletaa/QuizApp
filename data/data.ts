@@ -158,18 +158,18 @@ export const topics = {
       name: 'destructuring',
       image: 'https://i.postimg.cc/G2txfTHG/destructuring.png',
     },
-    {
-      name: 'iterators_and_generators',
-      image: 'https://i.postimg.cc/fyxtqMjY/data-iter.png',
-      soon: true,
-    },
+    // {
+    //   name: 'iterators_and_generators',
+    //   image: 'https://i.postimg.cc/fyxtqMjY/data-iter.png',
+    //   soon: true,
+    // },
   ],
   TypeScript: [
     {
       name: 'introduction',
       image: 'https://i.postimg.cc/PqsD54ny/TS-intro.png',
     }, //what is TS, why use it, how to download, Node and TS
-    { name: 'types', image: 'https://i.postimg.cc/ZnRBMs6b/TS-types.png' }, //? change to the_types ?
+    { name: 'types', image: 'https://i.postimg.cc/ZnRBMs6b/TS-types.png' },
     {
       name: 'type_aliases_vs_interfaces',
       image: 'https://i.postimg.cc/tT9Vh4TV/TS-t-vs-i.png',

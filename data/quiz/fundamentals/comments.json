@@ -1,6 +1,6 @@
 [
   {
-    "id": "JS_fundamentals|comments|1",
+    "id": "fundamentals|comments|1",
     "multoChoice": true,
     "preventMix": true,
     "question": [
@@ -23,7 +23,7 @@
     "explanation": "The proper way is to use at least two forward slashes right next to each other."
   },
   {
-    "id": "JS_fundamentals|comments|2",
+    "id": "fundamentals|comments|2",
     "multoChoice": true,
     "preventMix": true,
     "question": [
@@ -48,7 +48,7 @@
     "explanation": "The correct formula to create a multi-line comment is to type exactly one forward slash, then at least one asterisk, then add the content of the comment, then at least one asterisk and finally exactly one forward slash. A is in fact a single-line comment."
   },
   {
-    "id": "JS_fundamentals|comments|3",
+    "id": "fundamentals|comments|3",
     "multiChoice": true,
     "preventMix": true,
     "question": [

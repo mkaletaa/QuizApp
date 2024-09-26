@@ -1,6 +1,6 @@
 [
   {
-    "id": "JS_fundamentals|declaration_keywords|3",
+    "id": "fundamentals|declaration_keywords|3",
     "multiChoice": true,
     "question": "You are building an app. Which keywords would you use in order to define a new variable?",
     "options": [
@@ -11,7 +11,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|4",
+    "id": "fundamentals|declaration_keywords|4",
     "question": [
       {
         "type": "Code",
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|5",
+    "id": "fundamentals|declaration_keywords|5",
     "question": [
       {
         "type": "Code",
@@ -82,7 +82,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|6",
+    "id": "fundamentals|declaration_keywords|6",
     "multiChoice": true,
     "question": [
       {
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|7",
+    "id": "fundamentals|declaration_keywords|7",
     "question": [
       {
         "type": "Code",
@@ -141,7 +141,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|8",
+    "id": "fundamentals|declaration_keywords|8",
     "question": [
       {
         "type": "Code",
@@ -171,7 +171,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|9",
+    "id": "fundamentals|declaration_keywords|9",
     "question": [
       {
         "type": "Code",
@@ -191,7 +191,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|10",
+    "id": "fundamentals|declaration_keywords|10",
     "question": [
       {
         "type": "Code",
@@ -211,7 +211,7 @@
     "explanation": "If var is used in global context, the variable becomes a property of the global object. however, the interior of a function is not a part of the global context."
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|10",
+    "id": "fundamentals|declaration_keywords|10",
     "multiChoice": true,
     "question": [
       {
@@ -241,7 +241,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|11",
+    "id": "fundamentals|declaration_keywords|11",
     "question": "What term is used to describe the place above const or let declaration?",
     "options": [
       { "id": "1", "val": "hoisting zone", "correct": false },
@@ -251,7 +251,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|12",
+    "id": "fundamentals|declaration_keywords|12",
     "question": [
       {
         "type": "Code",
@@ -280,7 +280,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|declaration_keywords|13",
+    "id": "fundamentals|declaration_keywords|13",
     "question": [
       {
         "type": "Code",

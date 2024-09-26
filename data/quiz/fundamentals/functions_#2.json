@@ -1,6 +1,6 @@
 [
   {
-    "id": "JS_fundamentals|functions_#2|1",
+    "id": "fundamentals|functions_#2|1",
     "multiChoice": false,
     "question": [
       "Will this code print 'Hello World'?",
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|functions_#2|2",
+    "id": "fundamentals|functions_#2|2",
     "multiChoice": false,
     "question": [
       "Will this code print 'Hello World'?",
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|functions_#2|3",
+    "id": "fundamentals|functions_#2|3",
     "multiChoice": false,
     "question": [
       "Will this code print 'Hello World'?",
@@ -48,7 +48,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|functions_#2|4",
+    "id": "fundamentals|functions_#2|4",
     "multiChoice": true,
     "question": [
       {
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|functions_#2|5",
+    "id": "fundamentals|functions_#2|5",
     "multiChoice": true,
     "question": "Which of these statements are true?",
     "options": [

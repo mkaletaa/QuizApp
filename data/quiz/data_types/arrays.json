@@ -1,6 +1,6 @@
 [
   {
-    "id": "data_structures|arrays|1",
+    "id": "data_types|arrays|1",
     "question": "How to add a new element at the end of an array?",
     "options": [
       { "id": "1", "val": "by using append() method", "correct": false },
@@ -10,7 +10,7 @@
     ]
   },
   {
-    "id": "data_structures|arrays|2",
+    "id": "data_types|arrays|2",
     "question": "How to add a new element at the beginning of an array?",
     "options": [
       { "id": "1", "val": "by using prepend() method", "correct": false },
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "id": "data_structures|arrays|3",
+    "id": "data_types|arrays|3",
     "question": "How to remove an element from the end of an array?",
     "options": [
       { "id": "1", "val": "by using discard() method", "correct": false },
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "id": "data_structures|arrays|4",
+    "id": "data_types|arrays|4",
     "question": "How to remove an element from the beginning of an array?",
     "options": [
       { "id": "1", "val": "by using discard() method", "correct": false },
@@ -40,7 +40,7 @@
     ]
   },
   {
-    "id": "data_structures|arrays|5",
+    "id": "data_types|arrays|5",
     "question": [
       {
         "type": "Code",
@@ -57,7 +57,7 @@
     "explanation": "filter() doesn't modify the original array"
   },
   {
-    "id": "data_structures|arrays|6",
+    "id": "data_types|arrays|6",
     "question": [
       "What will be logged after the <ins>filter()</ins> method has been applied?",
       {
@@ -74,7 +74,7 @@
     "explanation": "<ins>filter()</ins> returns elements that meet the condition inside the callback"
   },
   {
-    "id": "data_structures|arrays|7",
+    "id": "data_types|arrays|7",
     "question": [
       "What will be the result of sorting the following array with sort()?",
       {
@@ -92,7 +92,7 @@
     "explanation": "The <ins>sort()</ins> method by default converts the elements to strings and sorts them lexicographically. Therefore, `10` comes before `2` because '10' is lexicographically smaller than '2'. And it modifies the original array."
   },
   {
-    "id": "data_structures|arrays|8",
+    "id": "data_types|arrays|8",
     "question": [
       "What will be the result of sorting the following array with <ins>sort()</ins>?",
       {
@@ -111,7 +111,7 @@
     "explanation": "The <ins>sort()</ins> method sorts array elements as strings in lexicographic order by default. It is case-sensitive, so uppercase letters are sorted before lowercase letters. Therefore, 'Amy' comes first, followed by 'Brenda', 'apple', and 'ball'. And it modifies the original array."
   },
   {
-    "id": "data_structures|arrays|9",
+    "id": "data_types|arrays|9",
     "multiChoice": true,
     "question": ["Which of them modify the original array?"],
     "options": [
@@ -124,7 +124,7 @@
     ]
   },
   {
-    "id": "data_structures|arrays|10",
+    "id": "data_types|arrays|10",
     "question": [
       "Three of them will log <ins>undefined</ins> and one won't. Which?",
       {

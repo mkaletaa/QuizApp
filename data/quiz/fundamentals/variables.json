@@ -1,6 +1,6 @@
 [
   {
-    "id": "JS_fundamentals|variables|1",
+    "id": "fundamentals|variables|1",
     "multiChoice": true,
     "question": "Which of these variable names are allowed in JavaScript?",
     "options": [
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|variables|2",
+    "id": "fundamentals|variables|2",
     "multiChoice": true,
     "question": "Which of these variable names are allowed in JavaScript?",
     "options": [
@@ -23,7 +23,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|variables|3",
+    "id": "fundamentals|variables|3",
     "question": [
       {
         "type": "Code",
@@ -43,7 +43,7 @@
     "explanation": "JavaScript is case-sensitive. <ins>Name</ins> is a completely different variable than <ins>name</ins>. Since <ins>Name</ins> wasn't defined, <ins>console.log()</ins> will result in an error."
   },
   {
-    "id": "JS_fundamentals|variables|4",
+    "id": "fundamentals|variables|4",
     "question": "What are variables with unexplained meaning called?",
     "options": [
       { "id": "1", "val": "magic numbers", "correct": true },

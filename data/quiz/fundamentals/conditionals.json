@@ -1,6 +1,6 @@
 [
   {
-    "id": "JS_fundamentals|conditionals|1",
+    "id": "fundamentals|conditionals|1",
     "question": [
       {
         "type": "Code",
@@ -19,7 +19,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|conditionals|2",
+    "id": "fundamentals|conditionals|2",
     "question": [
       {
         "type": "Code",
@@ -39,7 +39,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|conditionals|3",
+    "id": "fundamentals|conditionals|3",
     "question": [
       {
         "type": "Code",
@@ -62,7 +62,7 @@
     "explanation": "The output of this code is \"Friday\" because there are no break statements after the first matched case (Wednesday), causing fall-through to subsequent cases. The code assigns <ins>dayName</ins> to 'Wednesday', then 'Thursday', and finally 'Friday', where it encounters a break statement."
   },
   {
-    "id": "JS_fundamentals|conditionals|4",
+    "id": "fundamentals|conditionals|4",
     "question": [
       {
         "type": "Code",
@@ -83,7 +83,7 @@
     "explanation": "Lack of breaks causes all subsequent cases to execute until a <ins>break</ins> is encountered or the <ins>switch</ins> statement ends, which can lead to unexpected behavior and incorrect results."
   },
   {
-    "id": "JS_fundamentals|conditionals|5",
+    "id": "fundamentals|conditionals|5",
     "question": [
       {
         "type": "Code",
@@ -104,7 +104,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|conditionals|6",
+    "id": "fundamentals|conditionals|6",
     "question": [
       {
         "type": "Code",
@@ -134,7 +134,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|conditionals|7",
+    "id": "fundamentals|conditionals|7",
     "question": [
       {
         "type": "Code",

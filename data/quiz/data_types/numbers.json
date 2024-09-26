@@ -1,6 +1,6 @@
 [
   {
-    "id": "data_structures|numbers|1",
+    "id": "data_types|numbers|1",
     "question": "How do you create a <ins>BigInt</ins> in JavaScript?",
     "options": [
       {
@@ -23,7 +23,7 @@
     ]
   },
   {
-    "id": "data_structures|numbers|2",
+    "id": "data_types|numbers|2",
     "question": "Is <b>0x1a</b> a valid number?",
     "options": [
       { "id": "1", "val": "yes", "correct": true },
@@ -32,7 +32,7 @@
     "explanation": "It is a valid number. The prefix <ins>0x</ins> indicates that it is a base 16 number, and <ins>1a</ins> is equivalent to 26 in decimal."
   },
   {
-    "id": "data_structures|numbers|3",
+    "id": "data_types|numbers|3",
     "question": "What is BigInt?",
     "options": [
       {
@@ -55,7 +55,7 @@
     ]
   },
   {
-    "id": "data_structures|numbers|4",
+    "id": "data_types|numbers|4",
     "question": [
       "How does the <ins>toFixed()</ins> affect the output?",
       {
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "id": "data_structures|numbers|5",
+    "id": "data_types|numbers|5",
     "question": [
       "How does the <ins>toPrecision()</ins> affect the output?",
       {
@@ -89,7 +89,7 @@
     ]
   },
   {
-    "id": "data_structures|numbers|6",
+    "id": "data_types|numbers|6",
     "question": [
       {
         "type": "Code",

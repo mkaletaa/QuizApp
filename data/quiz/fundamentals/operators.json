@@ -1,6 +1,6 @@
 [
   {
-    "id": "JS_fundamentals|operators|1",
+    "id": "fundamentals|operators|1",
     "question": [
       {
         "type": "Code",
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|2",
+    "id": "fundamentals|operators|2",
     "question": [
       {
         "type": "Code",
@@ -40,7 +40,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|3",
+    "id": "fundamentals|operators|3",
     "question": [
       {
         "type": "Code",
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|4",
+    "id": "fundamentals|operators|4",
     "question": [
       {
         "type": "Code",
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|5",
+    "id": "fundamentals|operators|5",
     "question": [
       {
         "type": "Code",
@@ -98,7 +98,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|6",
+    "id": "fundamentals|operators|6",
     "question": [
       {
         "type": "Code",
@@ -118,7 +118,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|7",
+    "id": "fundamentals|operators|7",
     "question": [
       {
         "type": "Code",
@@ -137,7 +137,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|8",
+    "id": "fundamentals|operators|8",
     "question": [
       {
         "type": "Code",
@@ -158,7 +158,7 @@
     "explanation": "When two equal signs are used only the value is compared, not the type"
   },
   {
-    "id": "JS_fundamentals|operators|9",
+    "id": "fundamentals|operators|9",
     "question": [
       {
         "type": "Code",
@@ -177,7 +177,7 @@
     "explanation": "When three equal signs are used, both the value and the type are compared. In this case, the values are the same, but the types are not."
   },
   {
-    "id": "JS_fundamentals|operators|10",
+    "id": "fundamentals|operators|10",
     "question": [
       {
         "type": "Code",
@@ -196,7 +196,7 @@
     "explanation": ""
   },
   {
-    "id": "JS_fundamentals|operators|11",
+    "id": "fundamentals|operators|11",
     "question": [
       {
         "type": "Code",
@@ -217,7 +217,7 @@
     "explanation": "First, think about what the output would be if there was a <ins>==</ins> sign there. It would be true because the values are the same. Then you know the output must be the opposite because of the negation operator."
   },
   {
-    "id": "JS_fundamentals|operators|12",
+    "id": "fundamentals|operators|12",
     "question": [
       {
         "type": "Code",
@@ -237,7 +237,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|13",
+    "id": "fundamentals|operators|13",
     "question": [
       {
         "type": "Code",
@@ -257,7 +257,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|14",
+    "id": "fundamentals|operators|14",
     "question": [
       {
         "type": "Code",
@@ -275,7 +275,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|15",
+    "id": "fundamentals|operators|15",
     "question": [
       {
         "type": "Code",
@@ -295,7 +295,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|16",
+    "id": "fundamentals|operators|16",
     "question": [
       {
         "type": "Code",
@@ -313,7 +313,7 @@
     ]
   },
   {
-    "id": "JS_fundamentals|operators|17",
+    "id": "fundamentals|operators|17",
     "question": [
       {
         "type": "Code",

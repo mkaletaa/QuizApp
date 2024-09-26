@@ -1,6 +1,6 @@
 [
   {
-    "id": "data_structures|strings|1",
+    "id": "data_types|strings|1",
     "question": "What will the <ins>lastIndexOf()</ins> method return if the search phrase is not present in the given text?",
     "options": [
       { "id": "1", "val": "null", "correct": false },
@@ -10,7 +10,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|2",
+    "id": "data_types|strings|2",
     "question": [
       {
         "type": "Code",
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|3",
+    "id": "data_types|strings|3",
     "question": "What is the difference between single quotes and double quotes?",
     "options": [
       {
@@ -47,7 +47,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|4",
+    "id": "data_types|strings|4",
     "question": "How does string interpolation work with template literals in JavaScript?",
     "options": [
       {
@@ -73,7 +73,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|5",
+    "id": "data_types|strings|5",
     "question": "What does the <ins>slice(2, -1)</ins> method return for <ins>const text = 'Hello world'</ins>?",
     "options": [
       { "id": "1", "val": "'llo worl'", "correct": true },
@@ -89,7 +89,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|6",
+    "id": "data_types|strings|6",
     "question": "What does the <ins>split(' ')</ins> method do when applied to <ins>const text = 'Hello world'</ins>?",
     "options": [
       {
@@ -103,7 +103,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|7",
+    "id": "data_types|strings|7",
     "question": "How does the <ins>repeat(3)</ins> method affect the string <ins>const text = 'Hello'</ins>?",
     "options": [
       { "id": "1", "val": "Repeats 'Hello' three times, separated by commas." },
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|8",
+    "id": "data_types|strings|8",
     "question": "What does the <ins>trim()</ins> method do for <ins>const text = '  Hello world  '</ins>?",
     "options": [
       { "id": "1", "val": "Removes all whitespace characters from the string" },
@@ -134,7 +134,7 @@
     ]
   },
   {
-    "id": "data_structures|strings|9",
+    "id": "data_types|strings|9",
     "question": "Which method can be used to convert a string to lowercase?",
     "options": [
       { "id": "3", "val": "toLower()" },
@@ -145,7 +145,7 @@
   },
 
   {
-    "id": "data_structures|strings|10",
+    "id": "data_types|strings|10",
     "question": "Which method can be used to find the index of the first occurrence of a specified substring?",
     "options": [
       { "id": "1", "val": "indexOf()", "correct": true },
