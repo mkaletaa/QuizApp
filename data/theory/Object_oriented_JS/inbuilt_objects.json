@@ -1,0 +1,158 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "JavaScript offers a variety of built-in objects. You are already familiar with some of them. The most popular is <ins>console</ins>. There are objects representing data, such as <ins>Number</ins>, <ins>String</ins>, <ins>Array</ins>, and <ins>Object</ins>. Some browsers are platform-specific; for example, in browsers, we have the <ins>window</ins> object, and in Node.js, there is <ins>Global</ins>. There are so many of them that they wouldn't fit in this lesson, so I'll describe only the most important ones."
+      }
+    ]
+  },
+  {
+    "title": "Math",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Math object in JavaScript is a built-in object that provides basic mathematical operations and constants. It includes methods for performing various complex mathematical tasks, such as rounding numbers, generating random values, and calculating trigonometric, logarithmic, and exponential values. The Math object is not a constructor, so you don’t need to create an instance of it. All its properties and methods are static, meaning you can access them directly from Math."
+      },
+      {
+        "type": "Header",
+        "value": "Math constants",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Code",
+        "value": "Math.PI // 3.141592653589793 - The ratio of the circumference of a circle to its diameter\nMath.E // 2.718281828459045 - Euler's number, the base of natural logarithms\nMath.LN2 // 0.6931471805599453 - The natural logarithm of 2\n Math.LN10 // 2.302585092994046 - The natural logarithm of 10\n Math.LOG2E // 1.4426950408889634 - The base-2 logarithm of Euler's number\n Math.LOG10E // 0.4342944819032518 - The base-10 logarithm of Euler's number\n Math.SQRT2 // 1.4142135623730951 - The square root of 2\n Math.SQRT1_2 // 0.7071067811865476 - The square root of 1/2 (or 0.5)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Math methods",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Code",
+        "value": "Math.round(x) // Returns the value of x rounded to the nearest integer\n Math.floor(x) // Returns the largest integer less than or equal to x\n Math.ceil(x) // Returns the smallest integer greater than or equal to x\n Math.trunc(x) // Returns the integer part of x by removing any fractional digits\n Math.abs(x) // Returns the absolute value of x\n Math.max(...values) // Returns the largest of the given values\n Math.min(...values) // Returns the smallest of the given values\n Math.pow(base, exponent) // Returns base raised to the power of exponent (base^exponent)\n Math.sqrt(x) // Returns the square root of x\n Math.cbrt(x) // Returns the cube root of x\n Math.hypot(...values) // Returns the square root of the sum of the squares of the given numbers\n Math.sin(x) // Returns the sine of x (x is in radians)\n Math.cos(x) // Returns the cosine of x (x is in radians)\n Math.tan(x) // Returns the tangent of x (x is in radians)\n Math.asin(x) // Returns the arcsine (inverse sine) of x (result is in radians)\n Math.acos(x) // Returns the arccosine (inverse cosine) of x (result is in radians)\n Math.atan(x) // Returns the arctangent (inverse tangent) of x (result is in radians)\n Math.atan2(y, x) // Returns the arctangent of the quotient of its arguments, accounting for the quadrant\n Math.exp(x) // Returns Euler's number (e) raised to the power of x\n Math.log(x) // Returns the natural logarithm (base e) of x\n Math.log10(x) // Returns the base-10 logarithm of x\n Math.log2(x) // Returns the base-2 logarithm of x\n Math.expm1(x) // Returns exp(x) - 1\n Math.log1p(x) // Returns the natural logarithm of 1 + x\n Math.sign(x) // Returns the sign of x (-1, 0, or 1)\n Math.clz32(x) // Returns the number of leading zero bits in the 32-bit binary representation of x\n Math.imul(a, b) // Returns the result of a 32-bit integer multiplication of a and b",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Random numbers",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "To generate a pseudo-random floating-point number in the range of 0 (inclusive) and 1 (exclusive), use the Math.random() method. This means that the result will always be greater than or equal to 0 but less than 1. It’s commonly used when you need a random value in various scenarios, such as generating random numbers within a range, creating random colors, or simulating probabilities."
+      },
+      {
+        "type": "Header",
+        "value": "Usage",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Code",
+        "value": "let randomNumber = Math.random()\n// Example output: 0.345678912345",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Since Math.random() generates values in the range [0, 1), you often want to scale this output to other ranges, like between 1 and 10, or to get an integer."
+      },
+      {
+        "type": "Code",
+        "value": "function getRandomInt(min, max) {\n  return Math.floor(Math.random() * (max - min)) + min\n}\n\n// Example: random integer between 1 and 10\ngetRandomInt(1, 10) // Example output: 5",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can even use Math.random() to simulate random true/false values:"
+      },
+      {
+        "type": "Code",
+        "value": "function getRandomBoolean() {\n  return Math.random() >= 0.5\n}\n\ngetRandomBoolean()",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "Math.random() produces pseudo-random numbers, which means that while they appear random, they are generated by an algorithm and are not truly random. For most purposes, this is sufficient, but it shouldn't be used for cryptographic purposes or where high-quality randomness is required. <br></br>For cryptographic purposes, you would use functions like window.crypto.getRandomValues() (in a browser environment), which provide more secure random values."
+          }
+        ],
+        "props": {
+          "type": "important"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Date",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The Date object is used to work with dates and times. It allows you to create, manipulate, and format dates. You can get the current date and time, work with specific dates, perform date calculations, and format dates for output.<br></br>There are several ways to create a Date object:"
+      },
+      {
+        "type": "Code",
+        "value": "// Current date and time\nlet currentDate = new Date()\n// Example output: Thu Sep 26 2024 12:45:30 GMT+0000 (Coordinated Universal Time)\n\n// Passing a date string or specifying year, month, and day\nlet specificDate1 = new Date('2024-09-26')\n// Example output: Thu Sep 26 2024 00:00:00 GMT+0000\nlet specificDate2 = new Date(2024, 8, 26) // Month is zero-indexed (0 = January, 8 = September)\n// Example output: Thu Sep 26 2024 00:00:00 GMT+0000\n\n// Using milliseconds since January 1, 1970 (Unix Epoch)\nlet dateFromMilliseconds = new Date(0); // January 1, 1970\n\n// Using timestamps (milliseconds since January 1, 1970)\nlet timestampDate = new Date(1695811200000); // Thu Sep 26 2024",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "Getting date information",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Code",
+        "value": "let currentDate = new Date()\n\nlet year = currentDate.getFullYear() // 2024\nlet month = currentDate.getMonth() // 8 (September, zero-indexed)\nlet day = currentDate.getDate() // 26\nlet dayOfWeek = currentDate.getDay() // 4 (Thursday, Sunday is 0)\nlet hours = currentDate.getHours() // 14 (for example, 2 PM)\nlet minutes = currentDate.getMinutes() // 30\nlet seconds = currentDate.getSeconds() // 45\nlet milliseconds = currentDate.getMilliseconds() // 123\nlet timestamp = currentDate.getTime() // 1695728530123 // milliseconds since January 1, 1970",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "These are the most important Date object methods."
+      }
+    ]
+  },
+  {
+    "title": "JSON",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The JSON object provides functionality to work with JSON (JavaScript Object Notation), a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse and generate. JSON is widely used for data exchange between a server and a web application, often in APIs and configuration files."
+      },
+      {
+        "type": "YouTube",
+        "value": "iiADhChRriM"
+      },
+      {
+        "type": "Text",
+        "value": "The JSON object provides two primary methods for parsing and stringifying JSON data:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "JSON.parse() - converts a JSON string into a JavaScript object. If the input string is not valid JSON, it will throw an error.",
+          "JSON.stringify() - converts a JavaScript object or value to a JSON string."
+        ]
+      },
+      {
+        "type": "Code",
+        "value": "const jsonObject = {\n  name: 'Michael',\n  age: 12,\n  isChild: true,\n}\n\nconst stringifiedObject = JSON.stringify(jsonObject)\nconsole.log(stringifiedObject) // \"{'name':'Michael','age':12,'isChild':true}\"\n\nconst parsedObject = JSON.parse(stringifiedObject)\nconsole.log(parsedObject.name) // \"Michael\"\nconsole.log(parsedObject.age) // 12\nconsole.log(parsedObject.isChild) // true",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Block",
+        "value": [
+          {
+            "type": "Text",
+            "value": "The JSON object has some limitations. You cannot stringify functions, dates, undefined, or object methods."
+          }
+        ],
+        "props": {
+          "type": "warning"
+        }
+      }
+    ]
+  }
+]
