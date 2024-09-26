@@ -6,10 +6,58 @@
         "type": "Text",
         "value": "Error handling in programming involves managing errors or exceptions that occur during the execution of a program, ensuring that they are dealt with gracefully without crashing the application. In JavaScript, error handling is primarily managed using <ins>try-catch</ins> blocks, custom error objects, and the <ins>throw</ins> statement. It allows developers to anticipate errors and handle them appropriately, preventing the program from crashing unexpectedly."
       },
+      {
+        "type": "Header",
+        "value": "Error objects",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The Error object is a built-in object that represents runtime errors and exceptions that occur in a script. It provides a standardized way to create and handle errors, allowing developers to identify and troubleshoot issues in their code more effectively. JavaScript has several built-in error types that inherit from the Error object. These include:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>Error</u>: A generic error object",
+          "<u>SyntaxError</u>: Represents errors in the syntax of JavaScript code",
+          "<u>ReferenceError</u>: Indicates that an invalid reference has been made, such as when trying to access a variable that hasn’t been declared",
+          "<u>TypeError</u>: Represents an error when a value is not of the expected type, like attempting to call a non-function or accessing a property on <ins>null</ins> or `undefined`",
+          "<u>RangeError</u>: Indicates that a number is outside of its valid range, such as when using <ins>Array.prototype.slice</ins> with a start index that exceeds the array length",
+          "<u>EvalError</u>: Represents an error regarding the <ins data-key='eval' class='hint'>eval()</ins> function, though it's rarely thrown in practice",
+          "<u>URIError</u>: Indicates an error when encoding or decoding a URI, often when the <ins>encodeURI()</ins> or <ins>decodeURI()</ins> functions are used incorrectly",
+          "<u>AggregateError</u>: A new error type introduced in ECMAScript 2021, representing multiple errors that occur during a single operation, often used with <ins>Promise.all()</ins>"
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "The Error object has several properties that provide information about the error:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>name</u>: A string that indicates the name of the error (e.g., \"Error\", \"TypeError\")",
+          "<u>message</u>: A string that provides a description of the error",
+          "<u>stack</u>: A string that contains the stack trace at the point where the error was created, helping to identify where the error occurred in the code"
+        ]
+      },
 
       {
         "type": "Header",
-        "value": "try...catch Statement",
+        "value": "Throwing errors",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Text",
+        "value": "The <ins>throw</ins> statement allows you to create a custom error and interrupt the normal flow of the program. You can throw any type of data, but it's best practice to throw <ins>Error</ins> objects."
+      },
+      {
+        "type": "Code",
+        "value": "function riskyOperation() {\n  if (somethingGoesWrong) {\n    throw new Error('A problem occurred');\n  }\n  return 'Success';\n}\n\ntry {\n  riskyOperation();\n} catch (error) {\n  console.error(error.message);\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "try-catch Statement",
         "props": { "size": "sm" }
       },
       {
@@ -33,20 +81,6 @@
       {
         "type": "Code",
         "value": "try {\n  let result = riskyOperation();\n  console.log(result);\n} catch (error) {\n  console.error('An error occurred:', error.message);\n} finally {\n  console.log('Cleanup code runs here, regardless of an error.');\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Header",
-        "value": "Throwing errors",
-        "props": { "size": "sm" }
-      },
-      {
-        "type": "Text",
-        "value": "The <ins>throw</ins> statement allows you to create a custom error and interrupt the normal flow of the program. You can throw any type of data, but it's best practice to throw <ins>Error</ins> objects."
-      },
-      {
-        "type": "Code",
-        "value": "function riskyOperation() {\n  if (somethingGoesWrong) {\n    throw new Error('A problem occurred');\n  }\n  return 'Success';\n}\n\ntry {\n  riskyOperation();\n} catch (error) {\n  console.error(error.message);\n}",
         "props": { "language": "javascript" }
       },
       {
