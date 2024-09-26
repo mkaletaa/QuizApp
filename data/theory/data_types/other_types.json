@@ -1,18 +1,109 @@
 [
-    {
-        "title": "",
-        "data": [
-            {
-              "type": "Text",
-              "value": "javaScript offers more data types that you will not use so often."
-            }
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "JavaScript offers a variety of data types beyond the commonly used ones, introducing unique and specialized types that may not be encountered frequently."
+      }
+    ]
+  },
+  {
+    "title": "Symbol",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Symbol is a unique and immutable primitive data type introduced in ECMAScript 2015 (ES6). Symbols are primarily used to create unique identifiers for object properties. We don't know their value (JavaScript sets it for us) but we can give them a label to easily distinguish them."
+      },
+      {
+        "type": "Code",
+        "value": "const sym1 = Symbol('description')\nconst sym2 = Symbol('description')\n console.log(sym1 === sym2) // false - symbol's value is always unique\nconsole.log(sym1) // Symbol(description)",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Symbols are usually used to create unique property keys for objects, allowing for the definition of hidden or private properties that won't clash with other properties."
+      },
+      {
+        "type": "Code",
+        "value": "const id = Symbol('id')\n\nconst user = {\n  name: 'Alice',\n  age: 25,\n  [id]: 12345, // Unique property key\n}\n\nconsole.log(user) // { name: 'Alice', age: 25, [Symbol(id)]: 12345 }\nconsole.log(user[id]) // 12345\n\n// Iterating over properties\nfor (let key in user) {\n  console.log(key) // name, age (does not include Symbol properties)\n}\n\nconsole.log(Object.keys(user)) // ['name', 'age'] (does not include Symbol properties)",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Map and WeakMap",
+    "data": [
+      {
+        "type": "Text",
+        "value": "A Map is a collection of keyed data items, similar to an object, but with some key differences. The keys in a Map can be of any data type, including objects, and they maintain the insertion order of the entries. Maps allow for the retrieval, addition, and removal of entries based on their keys."
+      },
+      {
+        "type": "Code",
+        "value": "const map = new Map();\n\nmap.set('key1', 'value1');\nmap.set(2, 'value2');\nmap.set({}, 'value3');\n\nconsole.log(map.get('key1')); // value1\nconsole.log(map.get(2)); // value2\n\n// Iterating over Map\nfor (const [key, value] of map) {\n  console.log(key, value);\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Maps are useful when you need a collection of key-value pairs with flexible key types. They offer several built-in methods, such as:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "set(key, value) - Adds or updates an element with a specified key and value.",
+          "get(key) - Retrieves the value associated with the specified key.",
+          "has(key) - Returns a boolean indicating whether a key exists in the Map.",
+          "delete(key) - Removes the specified key and its associated value from the Map.",
+          "clear() - Removes all key-value pairs from the Map.",
+          "size - A property that returns the number of key-value pairs in the Map."
         ]
-    },
-    {
-        "title": "Map ",
-        "data": [
-            
+      },
+      {
+        "type": "Text",
+        "value": "WeakMap, on the other hand, is a special type of Map where the keys are weakly referenced, meaning that if there are no other references to the key object, it can be garbage collected."
+      },
+      {
+        "type": "Code",
+        "value": "const weakMap = new WeakMap();\n\nlet obj = {};\nweakMap.set(obj, 'some value');\n\nconsole.log(weakMap.get(obj)); // some value\n\nobj = null; // obj can now be garbage collected, and weakMap entry is removed automatically.",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Set and WeakSet",
+    "data": [
+      {
+        "type": "Text",
+        "value": "A Set is a collection of unique values, meaning that it can only contain distinct elements. Sets are particularly useful for storing lists of values without duplicates. Similar to Maps, Sets maintain the insertion order of the elements."
+      },
+      {
+        "type": "Code",
+        "value": "const set = new Set();\n\nset.add(1);\nset.add(2);\nset.add(2); // duplicate, will be ignored\nset.add('hello');\n\nconsole.log(set.size); // 3\n\n// Iterating over Set\nfor (const value of set) {\n  console.log(value);\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Sets are useful for ensuring that a collection contains unique items. They offer several methods, including:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "add(value) - Adds a new element with the specified value to the Set.",
+          "delete(value) - Removes the specified value from the Set.",
+          "has(value) - Returns a boolean indicating whether the specified value exists in the Set.",
+          "clear() - Removes all elements from the Set.",
+          "size - A property that returns the number of unique values in the Set."
         ]
-    }
+      },
+      {
+        "type": "Text",
+        "value": "WeakSet is similar to Set, but it only accepts objects as its entries and holds weak references to them. This means that if there are no other references to the object, it can be garbage collected, allowing for better memory management."
+      },
+      {
+        "type": "Code",
+        "value": "const weakSet = new WeakSet();\n\nlet obj1 = {};\nlet obj2 = {};\n\nweakSet.add(obj1);\nweakSet.add(obj2);\n\nconsole.log(weakSet.has(obj1)); // true\n\nobj1 = null; // obj1 can now be garbage collected, and weakSet entry is removed automatically.",
+        "props": { "language": "javascript" }
+      }
+    ]
+  }
 ]
-

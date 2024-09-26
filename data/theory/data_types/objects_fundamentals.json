@@ -119,7 +119,7 @@
         "value": [
           {
             "type": "Text",
-            "value": "As you explore this app you might be confused about of what the term \"object\" actually means. The most accurate definition is that an object is a data type composed of key-value pairs. <br></br>In this lesson you've learnt about the most basic kind of object simply called an object. But in reality, every complex data type in JS an object, meaning they all consist of pairs of keys and values, even if they don't appear to do so at first glance."
+            "value": "As you explore this app you might be confused about of what the term \"object\" actually means. The most accurate definition is that an object is a data type composed of key-value pairs. <br></br>In this lesson you've discovered the most basic kind of object simply called an object. But in reality,  nearly every complex data type in JS is an object, meaning they consist of pairs of keys and values, even if they don't appear to do so at first glance."
           }
         ],
         "props": {

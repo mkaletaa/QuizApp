@@ -1,0 +1,62 @@
+[
+  {
+    "id": "data_types|iteration_techniques|1",
+    "multiChoice": true,
+    "question": "Which of these data types can be used with the <ins>map()</ins> method directly?",
+    "options": [
+      { "id": "1", "val": "array", "correct": true },
+      { "id": "2", "val": "string" },
+      { "id": "3", "val": "object" },
+      { "id": "4", "val": "map" },
+      { "id": "5", "val": "set" }
+    ],
+    "explanation": [
+      "The <ins>map()</ins> method is specifically designed for arrays. It cannot be directly used with strings or objects, but it can be used with Map objects. To use `map()` with strings or objects, convert them to an array first using `Array.from(string)` for strings or `Object.values(object)` for objects."
+    ]
+  },
+  {
+    "id": "data_types|iteration_techniques|2",
+    "multiChoice": true,
+    "question": "Which of these data types can be used with the <ins>forEach()</ins> method directly?",
+    "options": [
+      { "id": "1", "val": "array", "correct": true },
+      { "id": "2", "val": "string" },
+      { "id": "3", "val": "object" },
+      { "id": "4", "val": "map" },
+      { "id": "5", "val": "set" }
+    ],
+    "explanation": [
+      "The <ins>forEach()</ins> method can be used directly with arrays, Maps, and Sets. For strings, you must first convert them to an array of characters using `Array.from(string)` or `string.split('')`. For objects, use `Object.values(object)` to get an array of values."
+    ]
+  },
+  {
+    "id": "data_types|iteration_techniques|3",
+    "multiChoice": true,
+    "question": "Which of these data types can be used with the <ins>for-of()</ins> loop directly?",
+    "options": [
+      { "id": "1", "val": "array", "correct": true },
+      { "id": "2", "val": "string", "correct": true },
+      { "id": "3", "val": "object" },
+      { "id": "4", "val": "map", "correct": true },
+      { "id": "5", "val": "set", "correct": true }
+    ],
+    "explanation": [
+      "The <ins>for-of()</ins> loop can iterate directly over arrays, strings, Maps, and Sets. To iterate over the values of an object, you can use `Object.values(object)` to get an array of values that can be iterated over with `for-of()`."
+    ]
+  },
+  {
+    "id": "data_types|iteration_techniques|4",
+    "multiChoice": true,
+    "question": "Which of these data types can be used with the <ins>for-in()</ins> loop directly?",
+    "options": [
+      { "id": "1", "val": "array", "correct": true },
+      { "id": "2", "val": "string" },
+      { "id": "3", "val": "object", "correct": true },
+      { "id": "4", "val": "map" },
+      { "id": "5", "val": "set" }
+    ],
+    "explanation": [
+      "The <ins>for-in()</ins> loop can be used to iterate over the keys of both arrays and plain objects, but it is not suitable for Maps or Sets. For more controlled iteration over object properties, you can use `Object.keys(object)` to get an array of keys and then iterate over that array."
+    ]
+  }
+]

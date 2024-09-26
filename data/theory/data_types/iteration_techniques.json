@@ -1,10 +1,9 @@
 [
   {
-    "title": "",
     "data": [
       {
         "type": "Text",
-        "value": "In previous chapter we've talked about for and while loops. It turns out these are not the only one methods to perform iterations. Some data structures offer us special ways to iterate over them."
+        "value": "In the previous chapter we've talked about <ins>for</ins> and <ins>while</ins> loops. It turns out these are not the only one methods to perform iterations. Some data types offer us special ways to iterate over them."
       }
     ]
   },
@@ -13,7 +12,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "The map() method in JavaScript is used to create a new array by applying a function to each element of an existing array. The basic syntax of the map() method is as follows:"
+        "value": "The <ins>map()</ins> method is used to create a new array by applying a function to each element of an existing array. The basic syntax of the <ins>map()</ins> method is as follows:"
       },
       {
         "type": "Code",
@@ -26,132 +25,17 @@
       },
       {
         "type": "Code",
-        "value": "const numbers = [1, 2, 3, 4, 5];\nconst doubled = numbers.map(function(num) {\n  return num * 2;\n});\nconsole.log(doubled); // [2, 4, 6, 8, 10]",
+        "value": "const numbers = [1, 2, 3, 4, 5]\nconst doubled = numbers.map(function(num) {\n  return num * 2\n})\nconsole.log(doubled) // [2, 4, 6, 8, 10]",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example, the map() method is used to double the values in the numbers array. A new array, doubled, is created, containing the results of applying the function to each element in the numbers array. <br></br>The map() method is specifically designed for arrays and cannot be used to iterate over other data structures directly. However, you can convert other iterable objects, such as NodeLists or Sets, into arrays using Array.from() or the spread operator (...) and then apply the map() method."
+        "value": "In this example, the <ins>map()</ins> method is used to double the values in the numbers array. A new array, doubled, is created, containing the results of applying the function to each element in the <ins>numbers</ins> array. <br></br>The <ins>map()</ins> method is specifically designed for arrays and cannot be used to iterate over other data types directly. However, you can convert other iterable objects, such as NodeLists or Sets, into arrays using <ins>Array.from()</ins> or the spread operator (...) and then apply the <ins>map()</ins> method."
       },
       {
         "type": "Code",
-        "value": "const set = new Set([1, 2, 3, 4, 5]);\nconst doubledSet = Array.from(set).map(num => num * 2);\nconsole.log(doubledSet); // [2, 4, 6, 8, 10]",
+        "value": "const set = new Set([1, 2, 3, 4, 5])\nconst doubledSet = Array.from(set).map(num => num * 2)\nconsole.log(doubledSet) // [2, 4, 6, 8, 10]",
         "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "Here, a Set is converted into an array using Array.from() and then the map() method is applied to create a new array with doubled values."
-      }
-    ]
-  },
-  {
-    "title": "for...of Loop",
-    "data": [
-      {
-        "type": "Text",
-        "value": "The for...of loop in JavaScript is used to iterate over iterable objects like arrays, strings, Maps, Sets, and more. It allows you to loop through the values of an iterable without needing to access the index or keys."
-      },
-      {
-        "type": "Code",
-        "value": "for (const variable of iterable) {\n  // code to be executed\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "For instance, using for...of with an array:"
-      },
-      {
-        "type": "Code",
-        "value": "const numbers = [1, 2, 3, 4, 5];\nfor (const num of numbers) {\n  console.log(num); // 1, 2, 3, 4, 5\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In this code, the for...of loop iterates over each value in the numbers array and logs it to the console."
-      },
-      {
-        "type": "Text",
-        "value": "You can also use for...of with other iterable objects like strings:"
-      },
-      {
-        "type": "Code",
-        "value": "const str = 'hello';\nfor (const char of str) {\n  console.log(char); // h, e, l, l, o\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In this example, the for...of loop iterates over each character in the string and logs it to the console."
-      },
-      {
-        "type": "Text",
-        "value": "The for...of loop cannot be used to iterate over objects directly. For iterating over the properties of an object, use a for...in loop or Object.keys(), Object.values(), or Object.entries()."
-      },
-      {
-        "type": "Code",
-        "value": "const obj = {a: 1, b: 2, c: 3};\nfor (const key in obj) {\n  console.log(key, obj[key]); // a 1, b 2, c 3\n}",
-        "props": { "language": "javascript" }
-      }
-    ]
-  },
-  {
-    "title": "for...in Loop",
-    "data": [
-      {
-        "type": "Text",
-        "value": "The for...in loop in JavaScript is used to iterate over the enumerable properties of an object. This loop is useful for going through the keys of an object."
-      },
-      {
-        "type": "Code",
-        "value": "for (variable in object) {\n  // code to be executed\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "For example, using for...in with an object:"
-      },
-      {
-        "type": "Code",
-        "value": "const obj = {a: 1, b: 2, c: 3};\nfor (const key in obj) {\n  console.log(key, obj[key]); // a 1, b 2, c 3\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In the code above, the for...in loop iterates over each key in the obj object and logs the key and its corresponding value to the console."
-      },
-      {
-        "type": "Text",
-        "value": "You can also use for...in to iterate over arrays, though this is generally not recommended as it iterates over the array indices, not the values."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nfor (const index in arr) {\n  console.log(index, arr[index]); // 0 1, 1 2, 2 3, 3 4, 4 5\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In this example, the for...in loop iterates over each index in the arr array and logs the index and its corresponding value to the console."
-      },
-      {
-        "type": "Text",
-        "value": "For arrays, it is generally better to use a for...of loop or a standard for loop to iterate over the values."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nfor (const value of arr) {\n  console.log(value); // 1, 2, 3, 4, 5\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "The for...in loop can also be used with built-in objects like String and Array to iterate over their enumerable properties."
-      },
-      {
-        "type": "Code",
-        "value": "const str = 'hello';\nfor (const index in str) {\n  console.log(index, str[index]); // 0 h, 1 e, 2 l, 3 l, 4 o\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In this example, the for...in loop iterates over each index in the str string and logs the index and its corresponding character to the console."
       }
     ]
   },
@@ -160,64 +44,131 @@
     "data": [
       {
         "type": "Text",
-        "value": "The forEach() method in JavaScript is used to execute a provided function once for each array element. It is a more concise way to iterate over arrays compared to traditional for loops."
+        "value": "The <ins>forEach()</ins> method is primarily used to execute a provided function once for each element in an array. It can also be applied to the values of maps and sets. It is a more concise way to iterate over arrays compared to traditional for loops. Syntax:"
       },
       {
         "type": "Code",
-        "value": "array.forEach(function(currentValue, index, array) {\n  // code to be executed\n});",
+        "value": "array.forEach(function(currentValue, index, array) {\n  // code to be executed\n})",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "For example, using forEach with an array:"
+        "value": "For example, using <ins>forEach</ins> with an array:"
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\narr.forEach(function(value) {\n  console.log(value); // 1, 2, 3, 4, 5\n});",
+        "value": "const arr = [1, 2, 3, 4, 5]\narr.forEach(function(value) {\n  console.log(value) // 1, 2, 3, 4, 5\n})",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example, the forEach method iterates over each element in the arr array and logs the value to the console."
+        "value": "In this example, the <ins>forEach</ins> method iterates over each element in the <ins>arr</ins> array and logs the value to the console."
       },
       {
         "type": "Text",
-        "value": "The forEach method can also use the index and the array as additional arguments:"
+        "value": "The <ins>forEach</ins> method can also use the index and the array as additional arguments:"
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\narr.forEach(function(value, index, array) {\n  console.log(index, value); // 0 1, 1 2, 2 3, 3 4, 4 5\n});",
+        "value": "const arr = [1, 2, 3, 4, 5]\narr.forEach(function(value, index, array) {\n  console.log(index, value) // 0 1, 1 2, 2 3, 3 4, 4 5\n})",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example, the forEach method iterates over each element in the arr array and logs the index and value to the console."
+        "value": "In this example, the <ins>forEach</ins> method iterates over each element in the <ins>arr</ins> array and logs the index and value to the console."
       },
       {
         "type": "Text",
-        "value": "The forEach method does not return a new array, it simply executes the provided function for each element in the array."
+        "value": "The <ins>forEach</ins> method does not return a new array, it simply executes the provided function for each element in the array."
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\narr.forEach(function(value, index, array) {\n  array[index] = value * 2;\n});\nconsole.log(arr); // [2, 4, 6, 8, 10]",
+        "value": "const arr = [1, 2, 3, 4, 5]\narr.forEach(function(value, index, array) {\n  array[index] = value * 2\n})\nconsole.log(arr) // [2, 4, 6, 8, 10]",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example, the forEach method is used to multiply each element in the arr array by 2."
+        "value": "In this example, the <ins>forEach</ins> method is used to multiply each element in the arr array by 2."
       },
       {
         "type": "Text",
-        "value": "Unlike some other array methods, forEach does not allow for breaking out of the loop early. If you need to stop the iteration based on a condition, you should use a different loop, such as a traditional for loop or a for...of loop."
+        "value": "Unlike some other array methods, <ins>forEach</ins> does not allow for breaking out of the loop early. If you need to stop the iteration based on a condition, you should use a different loop, such as a traditional <ins>for</ins> loop or a <ins>for-of</ins> loop."
+      }
+    ]
+  },
+  {
+    "title": "for-of Loop",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The <ins>for-of</ins> loop is used to iterate over iterable objects like arrays, strings, Maps, Sets, and more. It allows you to loop through the values of an iterable without needing to access the index or keys."
       },
       {
         "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5];\nfor (const value of arr) {\n  if (value > 3) break;\n  console.log(value); // 1, 2, 3\n}",
+        "value": "for (const variable of iterable) {\n  // code to be executed\n}",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example, the for...of loop is used to break out of the loop when the value is greater than 3."
+        "value": "For instance, using <ins>for-of</ins> with an array:"
+      },
+      {
+        "type": "Code",
+        "value": "const numbers = [1, 2, 3, 4, 5]\nfor (const num of numbers) {\n  console.log(num) // 1, 2, 3, 4, 5\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this code, the <ins>for-of</ins> loop iterates over each value in the <ins>numbers</ins> array and logs it to the console."
+      },
+      {
+        "type": "Text",
+        "value": "You can also use <ins>for-of</ins> with other iterable objects, like strings:"
+      },
+      {
+        "type": "Code",
+        "value": "const str = 'hello'\nfor (const char of str) {\n  console.log(char) // h, e, l, l, o\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "In this example, the <ins>for-of</ins> loop iterates over each character in the string and logs it to the console."
+      },
+      {
+        "type": "Text",
+        "value": "The <ins>for-of</ins> loop cannot be used to iterate over objects directly. However, with the help of <ins>Object.keys()</ins>, <ins>Object.values()</ins>, or <ins>Object.entries()</ins>, you can achieve similar results. These methods return, respectively, the keys, the values, and an array where the first element is the key and the second is the value."
+      },
+      {
+        "type": "Code",
+        "value": "const obj = {\n  name: \"Jack\",\n  age: 30,\n  occupation: \"Physician\"\n}\n\nfor (const key of Object.keys(obj)){\n  console.log(\"key: \"+ key+ \", value: \"+ obj[key])\n  // note that obj.key would return udefined\n}\n/* Output:\n  \"key: name, value: Jack\"\n  \"key: age, value: 30\"\n  \"key: occupation, value: Physician\"\n*/\n\nfor (const value of Object.values(obj)){\n  console.log(\"value: \"+ value)\n}\n/* Output:\n  \"value: Jack\"\n  \"value: 30\"\n  \"value: Physician\"\n*/\n\nfor (const entry of Object.entries(obj)){\n  console.log(entry)\n}\n/* Output:\n  [\"name\",\"Jack\"]\n  [\"age\",30]\n  [\"occupation\",\"Physician\"]\n*/",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "for-in Loop",
+    "data": [
+      {
+        "type": "Text",
+        "value": "The <ins>for-in</ins> loop is used to iterate over the enumerable properties of an object. This loop is used while going through the keys of an object."
+      },
+      {
+        "type": "Code",
+        "value": "const obj = {a: 1, b: 2, c: 3}\nfor (const key in obj) {\n  console.log(key, obj[key]) // a 1, b 2, c 3\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can also use <ins>for-in</ins> to iterate over arrays, though this is generally not recommended as it iterates over the array indices, not the values."
+      },
+      {
+        "type": "Code",
+        "value": "const arr = [1, 2, 3, 4, 5]\nfor (const index in arr) {\n  console.log(index, arr[index]) // 0 1, 1 2, 2 3, 3 4, 4 5\n}",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "If you can, you should favor the <ins>for-of</ins> loop over <ins>for-in</ins> because the latter also iterates over inherited prototype properties, which can lead to unintended behavior."
       }
     ]
   }

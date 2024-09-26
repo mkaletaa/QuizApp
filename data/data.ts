@@ -112,7 +112,7 @@ export const topics = {
     {
       name: 'iteration_techniques',
       image: 'https://i.postimg.cc/pTH4mk9B/iteration.png',
-      soon: true,
+      // soon: true,
     },
   ],
   Object_oriented_JS: [
