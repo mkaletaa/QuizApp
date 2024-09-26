@@ -7,6 +7,7 @@ import { TouchableRipple } from 'react-native-paper'
 import useAnimatePopup from '../../hooks/useAnimatePopup'
 import { Colors } from '../../utils/constants'
 import utilStyles from '../../utils/styles'
+import { getValue, setValue } from '../../utils/utilStorage'
 import MistakeButton from './atoms/MistakeButton'
 
 export default function ResultPopup({ item }) {
@@ -55,16 +56,9 @@ export default function ResultPopup({ item }) {
     const value = item.id
 
     try {
-      const existingItems = await AsyncStorage.getItem('savedItems')
-      let savedItems = []
-
-      if (existingItems) {
-        savedItems = JSON.parse(existingItems)
-      }
-
+      let savedItems = await getValue('savedItems')
       savedItems.push(value)
-
-      await AsyncStorage.setItem('savedItems', JSON.stringify(savedItems))
+      await setValue('savedItems', savedItems)
       setSaved(true)
       animateIcon()
     } catch (error) {

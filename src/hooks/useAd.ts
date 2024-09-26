@@ -5,9 +5,16 @@ import {
   TestIds,
 } from 'react-native-google-mobile-ads'
 
-const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
-  requestNonPersonalizedAdsOnly: true,
-})
+import settings from '../../data/settings.json'
+
+const interstitial = InterstitialAd.createForAdRequest(
+  settings.prod
+    ? 'ca-app-pub-8755010348178299/1253356666'
+    : TestIds.INTERSTITIAL,
+  {
+    requestNonPersonalizedAdsOnly: true,
+  },
+)
 
 export default function useAd() {
   const loadInterstitial = () => {

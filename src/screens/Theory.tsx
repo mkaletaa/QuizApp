@@ -1,28 +1,23 @@
-import { useHeaderHeight } from '@react-navigation/elements'
-import { useFocusEffect } from '@react-navigation/native'
-import { StatusBar } from 'expo-status-bar'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
-import {
-  ActivityIndicator,
-  Dimensions,
-  Pressable,
-  SectionList,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
-import { Snackbar } from 'react-native-paper'
+import { useHeaderHeight } from '@react-navigation/elements';
+import { useFocusEffect } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ActivityIndicator, Dimensions, Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
+import { Snackbar } from 'react-native-paper';
 
-import settings from '../../data/settings.json'
-import { thereIsNothingHere } from '../../data/texts'
-import { theory } from '../../data/theory/theory'
-import ContentRenderer from '../components/ContentRenderer/_ContentRenderer'
-import Ad from '../components/ContentRenderer/Ad'
-import ArrowUp from '../components/molecules/atoms/ArrowUp'
-import QuizButton from '../components/molecules/atoms/QuizButton'
-import TheoryPopup from '../components/molecules/TheoryPopup'
-import { Colors } from '../utils/constants'
-import useStore from '../utils/store'
+
+
+import settings from '../../data/settings.json';
+import { thereIsNothingHere } from '../../data/texts';
+import { theory } from '../../data/theory/theory';
+import ContentRenderer from '../components/ContentRenderer/_ContentRenderer';
+import Ad from '../components/ContentRenderer/Ad';
+import ArrowUp from '../components/molecules/atoms/ArrowUp';
+import QuizButton from '../components/molecules/atoms/QuizButton';
+import TheoryPopup from '../components/molecules/TheoryPopup';
+import { Colors } from '../utils/constants';
+import useStore from '../utils/store';
+
 
 let previousOffset = 0
 let localMinOffset = 0
@@ -179,13 +174,13 @@ export default function Theory({
 
   const renderFooter = () => (
     <React.Fragment>
-      <Ad size="large"></Ad>
+      <Ad size="large" id="ca-app-pub-8755010348178299/4621756035"></Ad>
       <View
         style={{
           padding: 30,
           alignItems: 'center',
           height: 200,
-          marginBottom: settings.ads ? screenHeight/12 : 0,
+          marginBottom: settings.ads ? screenHeight / 12 : 0,
           // backgroundColor: 'red',
         }}
       >
@@ -211,7 +206,7 @@ export default function Theory({
           keyExtractor={(item, index) => index.toString()}
         />
         <View style={{ position: 'absolute', bottom: 80 }}>
-          <Ad />
+          <Ad id="ca-app-pub-8755010348178299/4621482962" />
         </View>
       </React.Fragment>
     ) : (
@@ -246,7 +241,11 @@ export default function Theory({
         style={[{ width: `${scrollPercentage}%` }, styles.progressBarContainer]}
       />
 
-      <ArrowUp showGoUp={showGoUp} scrollToTop={scrollToTop} screenWidth={screenWidth}/>
+      <ArrowUp
+        showGoUp={showGoUp}
+        scrollToTop={scrollToTop}
+        screenWidth={screenWidth}
+      />
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />

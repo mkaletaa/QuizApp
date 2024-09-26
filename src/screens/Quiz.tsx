@@ -281,7 +281,7 @@ export default function Quiz({ route }) {
             bottom: 0,
           }}
         >
-          <Ad />
+          <Ad id='ca-app-pub-8755010348178299/7303486624' />
         </View>
       )}
       <Modal

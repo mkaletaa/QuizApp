@@ -1,22 +1,22 @@
-import React from 'react'
-import { Text, View } from 'react-native'
-import {
-  BannerAd,
-  BannerAdSize,
-  InterstitialAd,
-  TestIds,
-} from 'react-native-google-mobile-ads'
+import React from 'react';
+import { Text, View } from 'react-native';
+import { BannerAd, BannerAdSize, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
 
-import settings from '../../../data/settings.json'
+
+
+import settings from '../../../data/settings.json';
+
 
 type adSize = 'anchored' | 'rectangle' | 'large'
 
 export default function Ad({
   width = '100%',
   size = 'anchored',
+  id = TestIds.BANNER,
 }: {
   width?: any
   size?: adSize
+  id: string
 }) {
   function returnSize() {
     switch (size) {
@@ -43,7 +43,7 @@ export default function Ad({
       }}
     >
       <BannerAd
-        unitId={ TestIds.BANNER } // zmień 'id' na faktyczne ID reklamy produkcyjnej
+        unitId={settings.prod ? id : TestIds.BANNER} // zmień 'id' na faktyczne ID reklamy produkcyjnej
         size={returnSize()} // typ reklamy w zależności od miejsca
       />
     </View>
