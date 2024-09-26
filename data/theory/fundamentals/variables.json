@@ -117,7 +117,7 @@
       },
       {
         "type": "Code",
-        "value": "let userName = \"John Doe\"; ",
+        "value": "let userName = \"John Locke\"; ",
         "props": { "language": "javascript" }
       },
       {
@@ -131,7 +131,7 @@
       },
       {
         "type": "Code",
-        "value": "//consistent: \nlet firstName = \"John\" \nlet lastName = \"Doe\"\n let age = 30\n\n//inconsistent:\nlet firstName = \"John\" \nlet last_name = \"Doe\"\n let Age = 30",
+        "value": "//consistent: \nlet firstName = \"John\" \nlet lastName = \"Locke\"\n let age = 30\n\n//inconsistent:\nlet firstName = \"John\" \nlet last_name = \"Locke\"\n let Age = 30",
         "props": { "language": "javascript" }
       },
 

@@ -4,7 +4,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "So far in this app we've used some data structures like numbers and strings. They are primitive types which means they have only one property which is a value. We also explored a bit array and objects that are complex types. They may have multiple properties. Here are more examples of data structures in JS:"
+        "value": "So far in this app we've used some data types like numbers and strings. They are primitive types which means they have only one property which is a value. We also explored a bit array and objects that are complex types. They may have multiple properties. Here are more examples of data types in JS:"
       },
       {
         "type": "Image",
@@ -63,7 +63,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "Another important classification of data structures involves their behavior in conditional contexts, distinguishing between truthy and falsy values. In JavaScript, any value can be evaluated in a boolean context, such as in conditionals or logical operations. Truthy values are those that evaluate to true when coerced to a boolean, while falsy values evaluate to false. Here are examples of falsy values:"
+        "value": "Another important classification of data types involves their behavior in conditional contexts, distinguishing between truthy and falsy values. In JavaScript, any value can be evaluated in a boolean context, such as in conditionals or logical operations. Truthy values are those that evaluate to true when coerced to a boolean, while falsy values evaluate to false. Here are examples of falsy values:"
       },
       {
         "type": "Code",

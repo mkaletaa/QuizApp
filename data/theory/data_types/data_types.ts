@@ -12,8 +12,8 @@ export const data_types = {
   type_conversion,
   numbers,
   strings,
-  arrays,
   objects_fundamentals,
+  arrays,
 
   // iteration_techniques,
   // other_types,

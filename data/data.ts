@@ -99,11 +99,11 @@ export const topics = {
       name: 'strings',
       image: 'https://i.postimg.cc/Bn742d9p/data-strings.png',
     },
-    { name: 'arrays', image: 'https://i.postimg.cc/TPyG0CT6/data-arrays.png' },
     {
       name: 'objects_fundamentals',
       image: 'https://i.postimg.cc/LsrSbLsZ/data-objects.png',
     },
+    { name: 'arrays', image: 'https://i.postimg.cc/TPyG0CT6/data-arrays.png' },
     {
       name: 'other_types',
       image: 'https://i.postimg.cc/SKZ22ZDb/data-other.png',

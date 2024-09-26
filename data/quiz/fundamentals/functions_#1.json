@@ -20,20 +20,20 @@
     "question": [
       {
         "type": "Code",
-        "value": "function greet(age, surname, name) {\n  console.log('I am', name, surname, 'and I am', age, 'yo.')\n}\n\ngreet('John', 'Doe', 12)",
+        "value": "function greet(age, surname, name) {\n  console.log('I am', name, surname, 'and I am', age, 'yo.')\n}\n\ngreet('John', 'Locke', 12)",
         "props": { "language": "javascript" }
       },
       "What will be logged to the console?"
     ],
     "options": [
-      { "id": "1", "val": "\"I am\" 12 \"John\" \"and I am\" \"Doe\" \"yo.\"" },
+      { "id": "1", "val": "\"I am\" 12 \"John\" \"and I am\" \"Locke\" \"yo.\"" },
       {
         "id": "2",
-        "val": "\"I am\" 12 \"Doe\" \"and I am\" \"John\" \"yo.\"",
+        "val": "\"I am\" 12 \"Locke\" \"and I am\" \"John\" \"yo.\"",
         "correct": true
       },
-      { "id": "3", "val": "\"I am\" \"Doe\" \"John\" \"and I am\" 12 \"yo.\"" },
-      { "id": "4", "val": "\"I am\" \"John\" \"Doe\" \"and I am\" 12 \"yo.\"" }
+      { "id": "3", "val": "\"I am\" \"Locke\" \"John\" \"and I am\" 12 \"yo.\"" },
+      { "id": "4", "val": "\"I am\" \"John\" \"Locke\" \"and I am\" 12 \"yo.\"" }
     ],
     "explanation": ["The order of the arguments given is important"]
   },
@@ -79,16 +79,16 @@
     "question": [
       {
         "type": "Code",
-        "value": "function displayData(name, age = 20, surname) {\n  console.log(name)\n  console.log(age)\n  console.log(surname)\n}\n\ndisplayData('John', 'Doe')",
+        "value": "function displayData(name, age = 20, surname) {\n  console.log(name)\n  console.log(age)\n  console.log(surname)\n}\n\ndisplayData('John', 'Locke')",
         "props": { "language": "javascript" }
       },
       "What will be logged to the console?"
     ],
     "options": [
-      { "id": "1", "val": "John, Doe, 20" },
-      { "id": "2", "val": "John, undefined, Doe" },
-      { "id": "3", "val": "John, 20, Doe" },
-      { "id": "4", "val": "John, Doe, undefined", "correct": true },
+      { "id": "1", "val": "John, Locke, 20" },
+      { "id": "2", "val": "John, undefined, Locke" },
+      { "id": "3", "val": "John, 20, Locke" },
+      { "id": "4", "val": "John, Locke, undefined", "correct": true },
       { "id": "5", "val": "something else" }
     ]
   },

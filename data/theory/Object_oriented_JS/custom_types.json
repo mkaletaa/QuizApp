@@ -92,7 +92,7 @@
       },
       {
         "type": "Code",
-        "value": "class Dog {\n  paws = 4\n  constructor(name) {\n    this.name = name\n  }\n\n  info() {\n    console.log('My name is ' + this.name + ' and I have ' + this.paws + ' paws.')\n  }\n}\n\nconst dog = new Dog('Alex')\ndog.info() // \"My name is Alex and I have 4 paws.\"",
+        "value": "class Dog {\n  paws = 4\n  constructor(name) {\n    this.name = name\n  }\n\n  info() {\n    console.log('My name is ' + this.name + ' and I have ' + this.paws + ' paws.')\n  }\n}\n\nconst dog = new Dog('Vincent')\ndog.info() // \"My name is Vincent and I have 4 paws.\"",
         "props": { "language": "javascript" }
       },
       {

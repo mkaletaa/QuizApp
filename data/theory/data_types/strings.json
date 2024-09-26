@@ -44,7 +44,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello';\nconsole.log(text.length); // 5",
+        "value": "const text = 'Hello'\nconsole.log(text.length) // 5",
         "props": { "language": "javascript" }
       },
 
@@ -54,7 +54,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello';\nconsole.log(text.charAt(1)); // 'e', same as text[1]",
+        "value": "const text = 'Hello'\nconsole.log(text.charAt(1)) // 'e', same as text[1]",
         "props": { "language": "javascript" }
       },
 
@@ -64,7 +64,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello';\nconsole.log(text.toUpperCase()); // 'HELLO'",
+        "value": "const text = 'not Penny's boat'\nconsole.log(text.toUpperCase()) // 'NOT PENNY'S BOAT'",
         "props": { "language": "javascript" }
       },
 
@@ -74,7 +74,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello';\nconsole.log(text.toLowerCase()); // 'hello'",
+        "value": "const text = 'Hello'\nconsole.log(text.toLowerCase()) // 'hello'",
         "props": { "language": "javascript" }
       },
 
@@ -84,7 +84,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.indexOf('world')); // 6",
+        "value": "const text = 'Hello world'\nconsole.log(text.indexOf('world')) // 6",
         "props": { "language": "javascript" }
       },
 
@@ -94,7 +94,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world, world';\nconsole.log(text.lastIndexOf('world')); // 13",
+        "value": "const text = 'Hello world, world'\nconsole.log(text.lastIndexOf('world')) // 13",
         "props": { "language": "javascript" }
       },
 
@@ -104,7 +104,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.split(' ')); // ['Hello', 'world']",
+        "value": "const text = 'Hello world'\nconsole.log(text.split(' ')) // ['Hello', 'world']",
         "props": { "language": "javascript" }
       },
 
@@ -114,7 +114,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.startsWith('Hello')); // true",
+        "value": "const text = 'Hello world'\nconsole.log(text.startsWith('Hello')) // true",
         "props": { "language": "javascript" }
       },
 
@@ -124,7 +124,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.endsWith('world')); // true",
+        "value": "const text = 'Hello world'\nconsole.log(text.endsWith('world')) // true",
         "props": { "language": "javascript" }
       },
 
@@ -134,7 +134,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.replace('world', 'JavaScript')); // 'Hello JavaScript'",
+        "value": "const text = 'Hello world'\nconsole.log(text.replace('world', 'JavaScript')) // 'Hello JavaScript'",
         "props": { "language": "javascript" }
       },
 
@@ -144,7 +144,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello';\nconsole.log(text.repeat(3)); // 'HelloHelloHello'",
+        "value": "const text = 'Hello'\nconsole.log(text.repeat(3)) // 'HelloHelloHello'",
         "props": { "language": "javascript" }
       },
 
@@ -154,7 +154,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = '  Hello world  ';\nconsole.log(text.trim()); // 'Hello world'",
+        "value": "const text = '  Hello world  '\nconsole.log(text.trim()) // 'Hello world'",
         "props": { "language": "javascript" }
       },
 
@@ -164,7 +164,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.includes('world')); // true",
+        "value": "const text = 'Hello world'\nconsole.log(text.includes('world')) // true",
         "props": { "language": "javascript" }
       },
       {
@@ -173,7 +173,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.substring(0, 5)); // 'Hello'\nconsole.log(text.substring(6)); // 'world'\nconsole.log(text.substring(5, 0)); // 'Hello'",
+        "value": "const text = 'Hello world'\nconsole.log(text.substring(0, 5)) // 'Hello'\nconsole.log(text.substring(6)) // 'world'\nconsole.log(text.substring(5, 0)) // 'Hello'",
         "props": { "language": "javascript" }
       },
 
@@ -183,7 +183,7 @@
       },
       {
         "type": "Code",
-        "value": "const text = 'Hello world';\nconsole.log(text.slice(0, 5)); // 'Hello'\nconsole.log(text.slice(-5)); // 'world'\nconsole.log(text.slice(2, -1)); // 'llo worl'",
+        "value": "const text = 'Hello world'\nconsole.log(text.slice(0, 5)) // 'Hello'\nconsole.log(text.slice(-5)) // 'world'\nconsole.log(text.slice(2, -1)) // 'llo worl'",
         "props": { "language": "javascript" }
       },
       {

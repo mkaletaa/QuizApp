@@ -111,7 +111,7 @@
     ]
   },
   {
-    "title": "conversion to Boolean",
+    "title": "Converting to Boolean",
     "data": [
       {
         "type": "Header",
@@ -145,11 +145,11 @@
     ]
   },
   {
-    "title": "Miscellaneous",
+    "title": "Type coercion",
     "data": [
         {
           "type": "Text",
-          "value": "As JavaScript is a dynamically typed language, there are some quirks regarding type conversion that have led to many memes. One of the most famous is the \"banana\" meme."
+          "value": "As JavaScript is a dynamically typed language, there are some quirks regarding type <b>coercion</b> (automatic conversion) that have led to many memes. One of the most famous is the \"banana\" meme."
         },
         {
             "type": "Code",

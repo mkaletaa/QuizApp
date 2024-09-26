@@ -39,6 +39,13 @@
     "value": "We tend to learn in a block-like manner, that is, we first master all the material from one topic, and when we have achieved that, we move on to the next, and the next. While this makes sense if understanding one topic requires understanding another, when learning two unrelated topics, this method is not effective. Why? <br></br> This method creates an \"illusion of mastery,\" where learners feel confident in the material because they repeat the same task over and over. However, the brain adapts too quickly to the repetitive nature of the exercise, which diminishes deeper learning. Without forcing the brain to retrieve information in different contexts, learners don't strengthen the mental pathways needed for long-term recall. In contrast, techniques like `interleaved practice` (switching between different topics or skills) are more effective because they engage the brain in more challenging ways, forcing it to continually adapt and recall information. This leads to better problem-solving abilities and more flexible knowledge application. So \"Random Question\" is not another useless feature but it was added to promote more effective learning habits."
   },
   {
+    "type": "Divider"
+  },
+  {
+    "type": "Text",
+    "value": "In programming learning, sometimes you need to understand one topic before you can fully grasp another, and then to get those, you might have to learn even more. So don’t get discouraged if you don’t understand something right away. Over time, all this information will come together into a cohesive whole, and everything will make sense, much like watching the series <i>Lost</i>."
+  },
+  {
     "type": "Header",
     "value": "Credits",
     "props": { "size": "sm" }

@@ -7,7 +7,7 @@
       },
       {
         "type": "Code",
-        "value": "// Prototype object\nconst animal = {\n  breed: 'Golden Retriever',\n}\n\n// Create a new object `dog` with `animal` as its prototype\nconst dog = Object.create(animal, {\n  name: {\n    value: 'Buddy',\n  },\n  speak: {\n    value: function () {\n      console.log(`${this.name} makes a noise`)\n    },\n  },\n})\n\ndog.speak() // 'Buddy makes a noise'\nconsole.log(dog.name) // 'Buddy'",
+        "value": "// Prototype object\nconst animal = {\n  breed: 'Golden Retriever',\n}\n\n// Create a new object `dog` with `animal` as its prototype\nconst dog = Object.create(animal, {\n  name: {\n    value: 'Vincent',\n  },\n  speak: {\n    value: function () {\n      console.log(`${this.name} makes a noise`)\n    },\n  },\n})\n\ndog.speak() // 'Vincent makes a noise'\nconsole.log(dog.name) // 'Vincent'",
         "props": { "language": "javascript" }
       }
     ]
