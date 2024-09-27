@@ -55,5 +55,26 @@
       { "id": "4", "val": "map" },
       { "id": "5", "val": "set" }
     ]
+  },
+  {
+    "id": "data_types|iteration_techniques|5",
+    "multiChoice": true,
+    "question": "Which of these loops can use <ins>break</ins>?",
+    "options": [
+      { "id": "1", "val": "map" },
+      { "id": "2", "val": "forEach" },
+      { "id": "3", "val": "for-in", "correct": true },
+      { "id": "4", "val": "for-of", "correct": true }
+    ]
+  },
+  {
+    "id": "data_types|iteration_techniques|6",
+    "question": "Which method is used to create a new array by applying a function to each element of an existing array?",
+    "options": [
+      { "id": "1", "val": "forEach" },
+      { "id": "2", "val": "map", "correct": true },
+      { "id": "3", "val": "for-in" },
+      { "id": "4", "val": "for-of" }
+    ]
   }
 ]
