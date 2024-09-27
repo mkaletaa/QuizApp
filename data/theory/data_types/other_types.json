@@ -118,6 +118,17 @@
       },
       {
         "type": "Text",
+        "value": "You can use a Set to remove duplicate values from an array. Since a Set only allows unique values, converting an array to a Set will automatically filter out any duplicates."
+      },
+      {
+        "type": "Code",
+        "value": "const arrayWithDuplicates = [1, 2, 3, 1, 2, 4, 5];\nconst uniqueArray = [...new Set(arrayWithDuplicates)];\n\nconsole.log(uniqueArray); // [1, 2, 3, 4, 5]",
+        "props": {
+          "language": "javascript"
+        }
+      },
+      {
+        "type": "Text",
         "value": "WeakSet is similar to Set, but it only accepts objects as its entries and holds weak references to them. This means that if there are no other references to the object, it can be garbage collected, allowing for better memory management."
       },
       {

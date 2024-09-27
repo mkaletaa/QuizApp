@@ -30,7 +30,7 @@
       },
       {
         "type": "Text",
-        "value": "In this example, the <ins>map()</ins> method is used to double the values in the numbers array. A new array, doubled, is created, containing the results of applying the function to each element in the <ins>numbers</ins> array. <br></br>The <ins>map()</ins> method is specifically designed for arrays and cannot be used to iterate over other data types directly. However, you can convert other iterable objects, such as NodeLists or Sets, into arrays using <ins>Array.from()</ins> or the spread operator (...) and then apply the <ins>map()</ins> method."
+        "value": "In this example, the <ins>map()</ins> method is used to double the values in the numbers array. A new array, doubled, is created, containing the results of applying the function to each element in the <ins>numbers</ins> array. <br></br>The <ins>map()</ins> method is specifically designed for arrays and cannot be used to iterate over other data types directly. However, you can convert other data types, such as strings, maps or sets, into arrays using <ins>Array.from()</ins> or the spread operator (...) and then apply the <ins>map()</ins> method."
       },
       {
         "type": "Code",
@@ -48,12 +48,12 @@
       },
       {
         "type": "Code",
-        "value": "array.forEach(function(currentValue, index, array) {\n  // code to be executed\n})",
+        "value": "arr.forEach(function(currentValue, index, array) {\n  // code to be executed\n})",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "For example, using <ins>forEach</ins> with an array:"
+        "value": "For instance, using <ins>forEach</ins> with an array:"
       },
       {
         "type": "Code",
@@ -75,20 +75,12 @@
       },
       {
         "type": "Text",
-        "value": "In this example, the <ins>forEach</ins> method iterates over each element in the <ins>arr</ins> array and logs the index and value to the console."
-      },
-      {
-        "type": "Text",
         "value": "The <ins>forEach</ins> method does not return a new array, it simply executes the provided function for each element in the array."
       },
       {
         "type": "Code",
         "value": "const arr = [1, 2, 3, 4, 5]\narr.forEach(function(value, index, array) {\n  array[index] = value * 2\n})\nconsole.log(arr) // [2, 4, 6, 8, 10]",
         "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In this example, the <ins>forEach</ins> method is used to multiply each element in the arr array by 2."
       },
       {
         "type": "Text",
@@ -101,38 +93,12 @@
     "data": [
       {
         "type": "Text",
-        "value": "The <ins>for-of</ins> loop is used to iterate over iterable objects like arrays, strings, Maps, Sets, and more. It allows you to loop through the values of an iterable without needing to access the index or keys."
+        "value": "The <ins>for-of</ins> loop is used to iterate over iterable objects like arrays, strings, maps and sets. It allows you to loop through the values of an iterable without needing to access the keys."
       },
       {
         "type": "Code",
-        "value": "for (const variable of iterable) {\n  // code to be executed\n}",
+        "value": "// Strings\nconst str = \"abc\"\n\nfor(key of str){\n  console.log(key) // \"a\", \"b\", \"c\"\n}\n\n// Arrays\nconst arr = ['a', 'b', 'c']\n\nfor(value of arr){\n  console.log(value) // \"a\", \"b\", \"c\"\n}\n\n// Maps\nconst map = new Map(); map.set(0, 'a'); map.set(1, 'b')\n\nfor(key of map){\n  console.log(key) // [0,\"a\"], [1,\"b\"]\n}\n\n// Sets\nconst set = new Set(); set.add('a'); set.add('b')\n\nfor(key of set){\n  console.log(key) // \"a\", \"b\"\n}",
         "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "For instance, using <ins>for-of</ins> with an array:"
-      },
-      {
-        "type": "Code",
-        "value": "const numbers = [1, 2, 3, 4, 5]\nfor (const num of numbers) {\n  console.log(num) // 1, 2, 3, 4, 5\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In this code, the <ins>for-of</ins> loop iterates over each value in the <ins>numbers</ins> array and logs it to the console."
-      },
-      {
-        "type": "Text",
-        "value": "You can also use <ins>for-of</ins> with other iterable objects, like strings:"
-      },
-      {
-        "type": "Code",
-        "value": "const str = 'hello'\nfor (const char of str) {\n  console.log(char) // h, e, l, l, o\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "In this example, the <ins>for-of</ins> loop iterates over each character in the string and logs it to the console."
       },
       {
         "type": "Text",
@@ -140,7 +106,7 @@
       },
       {
         "type": "Code",
-        "value": "const obj = {\n  name: \"Jack\",\n  age: 30,\n  occupation: \"Physician\"\n}\n\nfor (const key of Object.keys(obj)){\n  console.log(\"key: \"+ key+ \", value: \"+ obj[key])\n  // note that obj.key would return udefined\n}\n/* Output:\n  \"key: name, value: Jack\"\n  \"key: age, value: 30\"\n  \"key: occupation, value: Physician\"\n*/\n\nfor (const value of Object.values(obj)){\n  console.log(\"value: \"+ value)\n}\n/* Output:\n  \"value: Jack\"\n  \"value: 30\"\n  \"value: Physician\"\n*/\n\nfor (const entry of Object.entries(obj)){\n  console.log(entry)\n}\n/* Output:\n  [\"name\",\"Jack\"]\n  [\"age\",30]\n  [\"occupation\",\"Physician\"]\n*/",
+        "value": "const obj = {\n  name: \"Jack\",\n  age: 30,\n  occupation: \"Physician\"\n}\n\nfor (const key of Object.keys(obj)){\n  console.log(\"key: \"+ key+ \", value: \"+ obj[key])\n  // note that obj.key would return undefined\n}\n/* Output:\n  \"key: name, value: Jack\"\n  \"key: age, value: 30\"\n  \"key: occupation, value: Physician\"\n*/\n\nfor (const value of Object.values(obj)){\n  console.log(\"value: \"+ value)\n}\n/* Output:\n  \"value: Jack\"\n  \"value: 30\"\n  \"value: Physician\"\n*/\n\nfor (const entry of Object.entries(obj)){\n  console.log(entry)\n}\n/* Output:\n  [\"name\",\"Jack\"]\n  [\"age\",30]\n  [\"occupation\",\"Physician\"]\n*/",
         "props": { "language": "javascript" }
       }
     ]
@@ -150,25 +116,16 @@
     "data": [
       {
         "type": "Text",
-        "value": "The <ins>for-in</ins> loop is used to iterate over the enumerable properties of an object. This loop is used while going through the keys of an object."
+        "value": "The <ins>for-in</ins> loop is used while going through the keys of objects, arrays or strings. Maps or sets are not compatible with it."
       },
       {
         "type": "Code",
-        "value": "const obj = {a: 1, b: 2, c: 3}\nfor (const key in obj) {\n  console.log(key, obj[key]) // a 1, b 2, c 3\n}",
+        "value": "// Strings\nconst str = \"abc\"\n\nfor(key in str){\n  console.log(key, str[key])\n}\n\n// Arrays\nconst arr = [\"a\", \"b\", \"c\"]\n\nfor(key in arr){\n  console.log(key, arr[key])\n}\n\n// Objects\nconst obj = {0: \"a\", 1: \"b\", 2: \"c\"}\n\nfor(key in obj){\n  console.log(key, obj[key])\n}\n\n/* Outputs of each loop:\n  \"0\" \"a\"\n  \"1\" \"b\"\n  \"2\" \"c\"\n*/",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "You can also use <ins>for-in</ins> to iterate over arrays, though this is generally not recommended as it iterates over the array indices, not the values."
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5]\nfor (const index in arr) {\n  console.log(index, arr[index]) // 0 1, 1 2, 2 3, 3 4, 4 5\n}",
-        "props": { "language": "javascript" }
-      },
-      {
-        "type": "Text",
-        "value": "If you can, you should favor the <ins>for-of</ins> loop over <ins>for-in</ins> because the latter also iterates over inherited prototype properties, which can lead to unintended behavior."
+        "value": "As you can see, <ins>for-in</ins> converts keys into strings.<br></br>If you can, you should favor the <ins>for-of</ins> loop over <ins>for-in</ins> because the latter also iterates over inherited prototype properties, which can lead to unintended behavior."
       }
     ]
   }
