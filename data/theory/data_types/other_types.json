@@ -28,6 +28,15 @@
         "type": "Code",
         "value": "const id = Symbol('id')\n\nconst user = {\n  name: 'Alice',\n  age: 25,\n  [id]: 12345, // Unique property key\n}\n\nconsole.log(user) // { name: 'Alice', age: 25, [Symbol(id)]: 12345 }\nconsole.log(user[id]) // 12345\n\n// Iterating over properties\nfor (let key in user) {\n  console.log(key) // name, age (does not include Symbol properties)\n}\n\nconsole.log(Object.keys(user)) // ['name', 'age'] (does not include Symbol properties)",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Symbol properties are not enumerable by default, which means they won’t show up during regular iteration methods like <ins>for-in</ins> or <ins>Object.keys()</ins>. To access them, you can use the <ins>Object.getOwnPropertySymbols()</ins> method, which retrieves an array of all Symbol properties defined on an object."
+      },
+      {
+        "type": "Code",
+        "value": "const id = Symbol('id')\n\nconst user = {\n  name: 'Alice',\n  age: 25,\n  [id]: 12345, // Unique property key\n}\n\nconsole.log(Object.getOwnPropertySymbols(user)) // [Symbol(id)]\nconsole.log(user[Object.getOwnPropertySymbols(user)[0]]) // 12345",
+        "props": { "language": "javascript" }
       }
     ]
   },
@@ -66,6 +75,18 @@
         "type": "Code",
         "value": "const weakMap = new WeakMap();\n\nlet obj = {};\nweakMap.set(obj, 'some value');\n\nconsole.log(weakMap.get(obj)); // some value\n\nobj = null; // obj can now be garbage collected, and weakMap entry is removed automatically.",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "WeakMap differs from Map in several ways:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "WeakMap keys must be objects, while Map keys can be any data type.",
+          "WeakMap does not support iteration methods such as .keys(), .values(), or .entries().",
+          "WeakMap does not have a .size property or .clear() method."
+        ]
       }
     ]
   },
@@ -103,6 +124,18 @@
         "type": "Code",
         "value": "const weakSet = new WeakSet();\n\nlet obj1 = {};\nlet obj2 = {};\n\nweakSet.add(obj1);\nweakSet.add(obj2);\n\nconsole.log(weakSet.has(obj1)); // true\n\nobj1 = null; // obj1 can now be garbage collected, and weakSet entry is removed automatically.",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "WeakSet differs from Set in the following ways:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "WeakSet only accepts objects as values, whereas Set can contain any type of value.",
+          "WeakSet does not support iteration methods like .values(), .keys(), or .entries().",
+          "WeakSet does not have a .size property or .clear() method."
+        ]
       }
     ]
   }
