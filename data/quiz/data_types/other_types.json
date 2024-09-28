@@ -1,0 +1,126 @@
+[
+  {
+    "id": "data_types|other_types|1",
+    "multiChoice": false,
+    "question": [
+      "What output do we get if we pass a symbol into <ins>console.log()</ins>?",
+      {
+        "type": "Code",
+        "value": "const sym = Symbol(\"my-symbol\")\nconsole.log(sym)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "Symbol(my-symbol)", "correct": true },
+      { "id": "2", "val": "undefined" },
+      { "id": "3", "val": "\"my-symbol\"" },
+      { "id": "4", "val": "something else" }
+    ]
+  },
+  {
+    "id": "data_types|other_types|2",
+    "multiChoice": false,
+    "question": [
+      "What is the result of comparing two symbols with the same description?",
+      {
+        "type": "Code",
+        "value": "const sym1 = Symbol(\"my-symbol\")\nconst sym2 = Symbol(\"my-symbol\")\nconsole.log(sym1 === sym2)",
+        "props": { "language": "javascript" }
+      }
+    ],
+    "options": [
+      { "id": "1", "val": "false", "correct": true },
+      { "id": "2", "val": "true" }
+    ],
+    "explanation": "Symbol's value is always unique"
+  },
+  {
+    "id": "data_types|other_types|3",
+    "multiChoice": false,
+    "question": ["What method could you use to see an object's symbols?"],
+    "options": [
+      { "id": "1", "val": "Object.getOwnPropertySymbols()", "correct": true },
+      { "id": "2", "val": "Object.getSymbols()" },
+      { "id": "3", "val": "Object.getObjectSymbols()" },
+      { "id": "4", "val": "We cannot know an object's symbols" }
+    ],
+    "explanation": [
+      {
+        "type": "Code",
+        "value": "const id = Symbol('id')\n\nconst user = {\n  name: 'Alice',\n  age: 25,\n  [id]: 12345, // Unique property key\n}\n\nconsole.log(Object.getOwnPropertySymbols(user)) // [Symbol(id)]\nconsole.log(user[Object.getOwnPropertySymbols(user)[0]]) // 12345",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "id": "data_types|other_types|4",
+    "multiChoice": false,
+    "question": [
+      "Which if these methods would you use in order to add a new value to a map or a set?"
+    ],
+    "options": [
+      { "id": "1", "val": "set", "correct": true },
+      { "id": "2", "val": "add" },
+      { "id": "3", "val": "append" },
+      { "id": "4", "val": "push" }
+    ]
+  },
+  {
+    "id": "data_types|other_types|5",
+    "multiChoice": true,
+    "question": ["Select correct statements about WeakSets:"],
+    "options": [
+      {
+        "id": "1",
+        "val": "Only accepts object references as values",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Does not prevent garbage collection of its elements",
+        "correct": true
+      },
+      { "id": "3", "val": "Does not have a size property", "correct": true },
+      { "id": "4", "val": "WeakSets are iterable", "correct": false },
+      {
+        "id": "5",
+        "val": "WeakSets can store duplicate values",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "Provides methods such as add, delete, and has",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "data_types|other_types|6",
+    "multiChoice": true,
+    "question": ["Select correct statements about WeakMaps."],
+    "options": [
+      {
+        "id": "1",
+        "val": "Only accepts object references as keys",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Values can be of any type (primitive or object)",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Does not prevent garbage collection of its keys and values",
+        "correct": true
+      },
+      { "id": "4", "val": "Does not have a size property", "correct": true },
+      { "id": "5", "val": "WeakMaps are iterable", "correct": false },
+      {
+        "id": "6",
+        "val": "Doesn't provide methods such as set, get, has, or delete",
+        "correct": false
+      }
+    ]
+  }
+]

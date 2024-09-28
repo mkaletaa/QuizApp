@@ -54,7 +54,7 @@
       },
       {
         "type": "Text",
-        "value": "Maps are useful when you need a collection of key-value pairs with flexible key types. They offer several built-in methods, such as:"
+        "value": "Maps are useful when you need a collection of key-value pairs with flexible key types. They offer several built-in properties, such as:"
       },
       {
         "type": "List",
@@ -64,7 +64,11 @@
           "has(key) - Returns a boolean indicating whether a key exists in the Map.",
           "delete(key) - Removes the specified key and its associated value from the Map.",
           "clear() - Removes all key-value pairs from the Map.",
-          "size - A property that returns the number of key-value pairs in the Map."
+          "size - A property that returns the number of key-value pairs in the Map.",
+          "forEach(callbackFn, thisArg) - Executes a provided function once for each key-value pair in the Map in insertion order.",
+          "entries() - Returns a new Iterator object containing an array of [key, value] for each element in the Map.",
+          "keys() - Returns a new Iterator object that contains the keys for each element in the Map.",
+          "values() - Returns a new Iterator object that contains the values for each element in the Map."
         ]
       },
       {
@@ -83,9 +87,9 @@
       {
         "type": "List",
         "value": [
-          "WeakMap keys must be objects, while Map keys can be any data type.",
-          "WeakMap does not support iteration methods such as .keys(), .values(), or .entries().",
-          "WeakMap does not have a .size property or .clear() method."
+          "Its keys must be objects, while Map keys can be any data type.",
+          "It does not support iteration methods such as .keys(), .values(), or .entries().",
+          "It does not have a .size property or .clear() method."
         ]
       }
     ]
@@ -104,7 +108,7 @@
       },
       {
         "type": "Text",
-        "value": "Sets are useful for ensuring that a collection contains unique items. They offer several methods, including:"
+        "value": "Sets are useful for ensuring that a collection contains unique items. They offer several properties, including:"
       },
       {
         "type": "List",
@@ -113,7 +117,11 @@
           "delete(value) - Removes the specified value from the Set.",
           "has(value) - Returns a boolean indicating whether the specified value exists in the Set.",
           "clear() - Removes all elements from the Set.",
-          "size - A property that returns the number of unique values in the Set."
+          "size - A property that returns the number of unique values in the Set.",
+          "forEach(callbackFn, thisArg) - Executes a provided function once for each value in the Set, in the order they were inserted.",
+          "entries() - Returns a new Iterator object containing an array of [value, value] for each element in the Set, similar to how Map objects work.",
+          "values() - Returns a new Iterator object containing the values for each element in the Set, identical to the behavior of the keys() method.",
+          "keys() - An alias for the values() method, provided for consistency with Map objects (although a Set doesn't store key-value pairs)."
         ]
       },
       {
@@ -143,9 +151,9 @@
       {
         "type": "List",
         "value": [
-          "WeakSet only accepts objects as values, whereas Set can contain any type of value.",
-          "WeakSet does not support iteration methods like .values(), .keys(), or .entries().",
-          "WeakSet does not have a .size property or .clear() method."
+          "It only accepts objects as values, whereas Set can contain any type of value.",
+          "It does not support iteration methods like .values(), .keys(), or .entries().",
+          "It does not have a .size property or .clear() method."
         ]
       }
     ]
