@@ -76,5 +76,34 @@
       { "id": "3", "val": "for-in" },
       { "id": "4", "val": "for-of" }
     ]
+  },
+  {
+    "id": "data_types|iteration_techniques|7",
+    "question": "How many arguments can the <ins>forEach</ins> loop receive?",
+    "options": [
+      { "id": "1", "val": "0" },
+      { "id": "2", "val": "1" },
+      { "id": "3", "val": "2", "correct": true },
+      { "id": "4", "val": "3" }
+    ],
+    "explanation": "The first argument is a mandatory callback function, and the second, optional, is the <ins>thisValue</ins>. If the question were about the arguments of the <ins>forEach</ins> callback, the answer would be 3.<br></br>The same applies to the <ins>map()</ins> method."
+  },
+  {
+    "id": "data_types|iteration_techniques|8",
+    "question": [
+      {
+        "type": "Code",
+        "value": "const numbers = [5]\n\nnumbers.forEach((a, b, c) => {\n  console.log(a)\n  console.log(b)\n  console.log(c)\n})",
+        "props": { "language": "javascript" }
+      },
+      "What is the output of the code above?"
+    ],
+    "options": [
+      { "id": "1", "val": "0, 5, [5]" },
+      { "id": "2", "val": "5, [0], undefined" },
+      { "id": "3", "val": "5, 0, [5]", "correct": true },
+      { "id": "4", "val": "0, 5, undefined" }
+    ],
+    "explanation": "In the callback function, the first argument is the current element (5), the second is the index (0), and the third is the <ins>numbers</ins> array ([5])."
   }
 ]

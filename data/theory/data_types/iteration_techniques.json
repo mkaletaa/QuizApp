@@ -3,7 +3,7 @@
     "data": [
       {
         "type": "Text",
-        "value": "In the previous chapter we've talked about <ins>for</ins> and <ins>while</ins> loops. It turns out these are not the only one methods to perform iterations. Some data types offer us special ways to iterate over them."
+        "value": "In the previous chapter, we discussed <ins>for</ins> and <ins>while</ins> loops. It turns out these are not the only one methods to perform iterations. Some data types offer special ways to iterate over them."
       }
     ]
   },
@@ -16,7 +16,7 @@
       },
       {
         "type": "Code",
-        "value": "array.map(function(currentValue, index, arr), thisValue)",
+        "value": "array.map(function(currentValue, index, arr) {\n  // code to be executed\n}, thisValue)",
         "props": { "language": "javascript" }
       },
       {
@@ -25,17 +25,35 @@
       },
       {
         "type": "Code",
-        "value": "const numbers = [1, 2, 3, 4, 5]\nconst doubled = numbers.map(function(num) {\n  return num * 2\n})\nconsole.log(doubled) // [2, 4, 6, 8, 10]",
+        "value": "const numbers = [10, 20, 30]\n\nconst doubled = numbers.map((num, index, array) => {\n  console.log(index) // 0, 1, 2\n  console.log(array) // [10,20,30], [10,20,30], [10,20,30]\n  \n  return num * 2\n})\n\nconsole.log(doubled) // [20, 40, 60]",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "In this example, the <ins>map()</ins> method is used to double the values in the numbers array. A new array, doubled, is created, containing the results of applying the function to each element in the <ins>numbers</ins> array. <br></br>The <ins>map()</ins> method is specifically designed for arrays and cannot be used to iterate over other data types directly. However, you can convert other data types, such as strings, maps or sets, into arrays using <ins>Array.from()</ins> or the spread operator (...) and then apply the <ins>map()</ins> method."
+        "value": "In this example, the <ins>map()</ins> method is used to double the values in the numbers array. A new array, <ins>doubled</ins>, is created, containing the results of applying the function to each element in the <ins>numbers</ins> array. <br></br>The <ins>map()</ins> method is specifically designed for arrays and cannot be used to iterate over other data types directly. However, you can convert other data types, such as strings, maps or sets, into arrays using <ins>Array.from()</ins> or the spread operator (...) and then apply the <ins>map()</ins> method."
       },
       {
         "type": "Code",
         "value": "const set = new Set([1, 2, 3, 4, 5])\nconst doubledSet = Array.from(set).map(num => num * 2)\nconsole.log(doubledSet) // [2, 4, 6, 8, 10]",
         "props": { "language": "javascript" }
+      },
+      {
+        "type": "Header",
+        "value": "thisValue",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Text",
+        "value": "The <b>thisValue</b> argument is an optional parameter that allows you to specify what this should refer to when the callback function is executed. It also appears in other array methods like <ins>filter()</ins> or <ins>reduce()</ins>. By default it is <ins>undefined</ins> in <ins data-key='strict_mode' class='hint'>strict mode</ins> or <ins>window/global</ins> in non-strict mode. If you want to use it, avoid using arrow functions, as they don't bind <ins>this</ins> correctly."
+      },
+      {
+        "type": "Code",
+        "value": "const numbers = [1, 2, 3]\n\nconst obj = {\n  multiplier: 10,\n};\n\nnumbers.map(function (num) {\n  console.log(num * this.multiplier) // 10, 20, 30\n}, obj)",
+        "props": {"language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "If you don't know what is going on with the <ins>this</ins>, visit the \"Execution context\" lesson from \"Miscellaneous\" chapter."
       }
     ]
   },
@@ -48,12 +66,12 @@
       },
       {
         "type": "Code",
-        "value": "arr.forEach(function(currentValue, index, array) {\n  // code to be executed\n})",
+        "value": "array.forEach(function(currentValue, index, arr) {\n  // code to be executed\n}, thisValue)",
         "props": { "language": "javascript" }
       },
       {
         "type": "Text",
-        "value": "For instance, using <ins>forEach</ins> with an array:"
+        "value": "So the syntax is identical to the map() method. For instance, using <ins>forEach</ins> with an array:"
       },
       {
         "type": "Code",
@@ -63,15 +81,6 @@
       {
         "type": "Text",
         "value": "In this example, the <ins>forEach</ins> method iterates over each element in the <ins>arr</ins> array and logs the value to the console."
-      },
-      {
-        "type": "Text",
-        "value": "The <ins>forEach</ins> method can also use the index and the array as additional arguments:"
-      },
-      {
-        "type": "Code",
-        "value": "const arr = [1, 2, 3, 4, 5]\narr.forEach(function(value, index, array) {\n  console.log(index, value) // 0 1, 1 2, 2 3, 3 4, 4 5\n})",
-        "props": { "language": "javascript" }
       },
       {
         "type": "Text",

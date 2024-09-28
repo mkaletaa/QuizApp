@@ -75,7 +75,7 @@
       },
       {
         "type": "Header",
-        "value": "Keyword Names",
+        "value": "Keyword variable names",
         "props": { "size": "sm" }
       },
       {

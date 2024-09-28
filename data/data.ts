@@ -107,7 +107,7 @@ export const topics = {
     {
       name: 'other_types',
       image: 'https://i.postimg.cc/SKZ22ZDb/data-other.png',
-      soon: true,
+      // soon: true,
     },
     {
       name: 'iteration_techniques',

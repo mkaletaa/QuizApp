@@ -14,7 +14,8 @@ export const data_types = {
   strings,
   objects_fundamentals,
   arrays,
+  other_types,
   iteration_techniques,
-
-  // other_types,
 }
+
+

@@ -1,11 +1,10 @@
-import arrays from './arrays.json';
-import introduction from './introduction.json';
-import iteration_techniques from './iteration_techniques.json';
+import arrays from './arrays.json'
+import introduction from './introduction.json'
+import iteration_techniques from './iteration_techniques.json'
 import numbers from './numbers.json';
-import objects_fundamentals from './objects_fundamentals.json';
-import strings from './strings.json';
-import type_conversion from './type_conversion.json';
-
+import objects_fundamentals from './objects_fundamentals.json'
+import strings from './strings.json'
+import type_conversion from './type_conversion.json'
 
 export const data_types = {
   introduction,
@@ -21,3 +20,5 @@ export const data_types = {
 //podany typ danych i pytanie jakich pętli można na nim użyć
 //co jest lepsze, for in czy for of
 //co zwraca Object.entries()?
+
+
