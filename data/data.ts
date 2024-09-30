@@ -158,11 +158,11 @@ export const topics = {
       name: 'destructuring',
       image: 'https://i.postimg.cc/G2txfTHG/destructuring.png',
     },
-    // {
-    //   name: 'iterators_and_generators',
-    //   image: 'https://i.postimg.cc/fyxtqMjY/data-iter.png',
-    //   soon: true,
-    // },
+    {
+      name: 'iterators_and_generators',
+      image: 'https://i.postimg.cc/fyxtqMjY/data-iter.png',
+      // soon: true,
+    },
   ],
   TypeScript: [
     {

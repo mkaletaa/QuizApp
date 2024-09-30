@@ -1,0 +1,165 @@
+[
+  {
+    "id": "miscellaneous|iterators_and_generators|1",
+    "question": [
+      "What two parameters does the next() method of an iterator return?"
+    ],
+    "options": [
+      { "id": "1", "val": "value and done", "correct": true },
+      { "id": "2", "val": "current and finished" },
+      { "id": "3", "val": "current and end" },
+      { "id": "4", "val": "next and prev" }
+    ]
+  },
+  {
+    "id": "miscellaneous|iterators_and_generators|2",
+    "question": [
+      "What does the done parameter signify in the context of an iterator?"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "Whether the iteration is complete",
+        "correct": true
+      },
+      { "id": "2", "val": "The last value processed" },
+      { "id": "3", "val": "The current value of the iteration" },
+      { "id": "4", "val": "The total number of iterations" }
+    ]
+  },
+  {
+    "id": "miscellaneous|iterators_and_generators|3",
+    "multiChoice": true,
+    "question": ["Which of the following data types have built-in iterators?"],
+    "options": [
+      { "id": "1", "val": "Arrays", "correct": true },
+      { "id": "2", "val": "Maps", "correct": true },
+      { "id": "3", "val": "Strings", "correct": true },
+      { "id": "4", "val": "Objects" }
+    ]
+  },
+  {
+    "id": "miscellaneous|iterators_and_generators|4",
+    "question": ["Which keyword is used in generators to produce values?"],
+    "options": [
+      { "id": "1", "val": "yield", "correct": true },
+      { "id": "2", "val": "return" },
+      { "id": "3", "val": "pause" },
+      { "id": "4", "val": "break" }
+    ]
+  },
+  {
+    "id": "miscellaneous|iterators_and_generators|5",
+
+    "multiChoice": true,
+    "question": ["Select all of the characteristics of iterators:"],
+    "options": [
+      {
+        "id": "1",
+        "val": "They provide a way to traverse through a collection of values.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "They must implement a method called next().",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "They can only be used with arrays.",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "They return a value and a done boolean upon each call.",
+        "correct": true
+      },
+      {
+        "id": "5",
+        "val": "They can be reset once they are exhausted.",
+        "correct": true
+      },
+      {
+        "id": "6",
+        "val": "They can be used in a for-of loop.",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "miscellaneous|iterators_and_generators|6",
+    "multiChoice": true,
+    "question": ["Select all of the characteristics of generators:"],
+    "options": [
+      {
+        "id": "1",
+        "val": "They are defined using the function* syntax.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "They can pause execution and yield multiple values.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "They must return all values at once.",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "val": "They cannot be used to create infinite sequences.",
+        "correct": false
+      },
+      {
+        "id": "5",
+        "val": "The yield keyword is used to send values back to the caller.",
+        "correct": true
+      },
+      {
+        "id": "6",
+        "val": "They cannot maintain internal state between calls.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "miscellaneous|iterators_and_generators|7",
+    "multiChoice": true,
+    "question": [
+      "Select all of the similarities between iterators and generators:"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "val": "Both provide a way to iterate over a sequence of values.",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "val": "Both implement a 'next()' method to retrieve values.",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "val": "Both can be used in a 'for-of' loop.",
+        "correct": true
+      },
+      {
+        "id": "4",
+        "val": "Both require explicit memory allocation for all values.",
+        "correct": false
+      },
+      {
+        "id": "5",
+        "val": "Both can be paused and resumed during iteration.",
+        "correct": false
+      },
+      {
+        "id": "6",
+        "val": "Both allow for custom iteration logic.",
+        "correct": true
+      }
+    ]
+  }
+]

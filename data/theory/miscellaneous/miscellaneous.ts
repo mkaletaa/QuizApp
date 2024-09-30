@@ -1,6 +1,7 @@
 import destructuring from './destructuring.json'
 import error_handling from './error_handling.json'
 import execution_context from './execution_context.json'
+import iterators_and_generators from './iterators_and_generators.json'
 import spread_and_rest from './spread_and_rest.json'
 import strict_mode from './strict_mode.json'
 
@@ -10,6 +11,7 @@ export const miscellaneous = {
   strict_mode,
   spread_and_rest,
   destructuring,
+  iterators_and_generators,
 }
 
 //* czy można użyc '', "" ``
@@ -17,5 +19,3 @@ export const miscellaneous = {
 //* długi kod z "strict mode" zamiast "use strict"
 //* coś z this
 //* pytanie o nazwę "silent errors", "invisible errors", "cos jeszcze"
-
-
