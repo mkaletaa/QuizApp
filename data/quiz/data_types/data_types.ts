@@ -18,7 +18,4 @@ export const data_types = {
   iteration_techniques,
 }
 
-//które z tych metod/pętli można użyć z break
-//podany typ danych i pytanie jakich pętli można na nim użyć
-//co jest lepsze, for in czy for of
-//co zwraca Object.entries()?
+

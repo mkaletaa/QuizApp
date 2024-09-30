@@ -1,0 +1,161 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Iterators and generators are closely related concepts used for controlling how data is iterated over, particularly when working with sequences of values or data structures that don't necessarily store all elements in memory at once. "
+      }
+    ]
+  },
+  {
+    "title": "Iterators",
+    "data": [
+      {
+        "type": "Text",
+        "value": "An iterator is an object that provides a way to traverse through a sequence of values, one at a time. It follows a specific protocol called the Iterator Protocol, which defines how to access elements sequentially in a collection. It implements a method, which is typically named <ins>next()</ins> according to general convention, although it could be called something else. This method returns an object containing two parameters:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>value</u>: the next value in the sequence.",
+          "<u>done</u>: a boolean that indicates whether the iteration is complete (true if there are no more values)."
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "Once <ins>done</ins> is <ins>true</ins>, the iterator signals that the sequence is over. Several JavaScript objects (like arrays, strings, maps, and sets) have built-in iterators that you can use with a <ins>for-of</ins> loop. For example:"
+      },
+      {
+        "type": "Code",
+        "value": "const array = [10, 20, 30]\nconst iterator = array[Symbol.iterator]() // Built-in iterator\n\nconsole.log(iterator.next()) // { value: 10, done: false }\nconsole.log(iterator.next()) // { value: 20, done: false }\nconsole.log(iterator.next()) // { value: 30, done: false }\nconsole.log(iterator.next()) // { value: undefined, done: true }",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "You can create your own iterator by manually defining an object with a <ins>next</ins> method:"
+      },
+      {
+        "type": "Code",
+        "value": "function createIterator(array) {\n  let index = 0\n  return {\n    next: function () {\n      if (index < array.length) {\n        return { value: array[index++], done: false }\n      } else {\n        return { value: undefined, done: true }\n      }\n    },\n  }\n}\n\nconst iterator = createIterator([10, 20, 30])\n\nconsole.log(iterator.next()) // { value: 10, done: false }\nconsole.log(iterator.next()) // { value: 20, done: false }\nconsole.log(iterator.next()) // { value: 30, done: false }\nconsole.log(iterator.next()) // { value: undefined, done: true }",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Additional methods you can implement in your iterator include:"
+      },
+      {
+        "type": "List",
+        "value": [
+          "<u>reset()</u>: Resets the iterator, effectively skipping to the end of the sequence. This method allows you to stop the iteration immediately and indicates that there are no more values to process.",
+          "<u>skip(n)</u>: Advances the iterator by a specified number of steps, skipping the next <ins>n</ins> values. It returns the last skipped value if available."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Generators",
+    "data": [
+      {
+        "type": "Text",
+        "value": "A generator is a special type of function that returns an iterator. It can be paused and resumed, allowing you to generate a sequence of values over time rather than computing them all at once."
+      },
+      {
+        "type": "Header",
+        "value": "Key Characteristics of Generators:",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "Defined using the <ins>function*</ins> (note the asterisk <ins>*</ins>) syntax.",
+          "Can <ins>yield</ins> multiple values, which allows the function to pause its execution and return a value.",
+          "Once a value is yielded, the function pauses until the next value is requested using the <ins>next()</ins> method."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "Example",
+        "props": { "size": "sm" }
+      },
+      {
+        "type": "Code",
+        "value": "function* numberGenerator() {\n  yield 1\n  yield 2\n  yield 3\n}\n\nconst gen = numberGenerator()\n\nconsole.log(gen.next()) // { value: 1, done: false }\nconsole.log(gen.next()) // { value: 2, done: false }\nconsole.log(gen.next()) // { value: 3, done: false }\nconsole.log(gen.next()) // { value: undefined, done: true }",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "The yield keyword pauses the execution of the generator function, and next() resumes it from where it was last paused."
+      },
+      {
+        "type": "Text",
+        "value": "Generators can also contain loops and can yield an infinite sequence of values."
+      },
+      {
+        "type": "Code",
+        "value": "function* infiniteGenerator() {\n  let i = 0\n  while (true) {\n    yield i++\n  }\n}\n\nconst gen = infiniteGenerator()\n\nconsole.log(gen.next().value) // 0\nconsole.log(gen.next().value) // 1\nconsole.log(gen.next().value) // 2\n// And so on...",
+        "props": { "language": "javascript" }
+      },
+      {
+        "type": "Text",
+        "value": "Generators are particularly useful with the <ins>for-of</ins> loop, as they automatically stop iterating when <ins>done</ins> is <ins>true</ins>."
+      },
+      {
+        "type": "Code",
+        "value": "function* fruits() {\n  yield 'apple'\n  yield 'banana'\n  yield 'orange'\n}\n\nfor (let fruit of fruits()) {\n  console.log(fruit)\n}\n// Output: apple, banana, orange",
+        "props": { "language": "javascript" }
+      }
+    ]
+  },
+  {
+    "title": "Differences and use cases",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Iterators and generators both serve the purpose of creating sequences or handling iterable data, but they each have different use cases, advantages, and ideal scenarios for usage."
+      },
+      {
+        "type": "Header",
+        "value": "When to use iterators:",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "When you need more control over the iteration process, such as the ability to customize the order of elements or handle state explicitly.",
+          "When you are working with complex data structures like trees, graphs, or linked lists that require custom traversal logic.",
+          "When you want to encapsulate the iteration logic within a reusable object or class with additional methods like <ins>reset()</ins> or <ins>skip()</ins>."
+        ]
+      },
+      {
+        "type": "Header",
+        "value": "When to use generators:",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "List",
+        "value": [
+          "When you need a simple, memory-efficient way to handle large or infinite sequences of data without loading everything into memory at once.",
+          "When you want to pause and resume execution of a function, especially useful in asynchronous programming (e.g., using <ins>yield</ins> to wait for a promise).",
+          "When you want to create lazy sequences, where values are generated on-the-fly as they are needed rather than computing everything upfront."
+        ]
+      },
+      {
+        "type": "Text",
+        "value": "While you could generally use iterators and generators interchangeably, tailoring your choice to the specific use case can significantly simplify implementation and enhance code clarity."
+      },
+      {
+        "type": "Header",
+        "value": "Differences",
+        "props": { "size": "md" }
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/fRsyLBTm/image.png",
+        "props": {
+          "description": "Key differences between iterators and generators"
+        }
+      }
+    ]
+  }
+]
