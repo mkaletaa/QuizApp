@@ -8,7 +8,7 @@ export const Colors = {
   gradient: 'rgb(220,225,255)', //ACHIEVEMENTS
   gradientLight: 'rgb(230, 230, 255)', //Tile, Options, ACHIEVEMENTS
   screenBg: '#F0F0FA',
-  ripple: '#CBC0E0',
+  ripple: '#CBC0E0', // Card, ListItem, wifi-off icon
   surfaceBg: secondary22, //Card, Tile, ChapterDescription
 }
 
