@@ -1,7 +1,7 @@
 //if a name consists of more than one word, separate them with an underscore
 export const chapters = [
   {
-    name: 'C',
+    name: 'C++',
     image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
     des: ''
   },
@@ -34,9 +34,13 @@ export const chapters = [
 //also id of questions should go like "cat_1|top_1|1"
 //main keys must be exact the same as names of categories
 export const topics = {
-  C: [
+  ['C++']: [
     {
-      name: 'egzamin',
+      name: 'egzamin_#1',
+      image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
+    },
+    {
+      name: 'egzamin_#2',
       image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
     },
   ],

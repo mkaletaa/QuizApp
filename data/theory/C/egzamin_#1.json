@@ -1,0 +1,203 @@
+[
+  {
+    "title": "",
+    "data": [
+      {
+        "type": "Text",
+        "value": "Znajdują się tu pytania z egzaminu. Co roku są te same (albo prawie te same), przynajmniej jak masz z Bąkiem. Wszystkie zerżnięte z książki Grębosza <a href='https://ifj.edu.pl/private/grebosz/opus_php/wybor_rozdzialu.php'>link do pytań</a> <br></br> Tych pytań jest tam łącznie grubo ponad tysiąc, ale na egzaminie pojawia się sto kilkadziesiąt z nich. Poniżej przedstawiam te pytania, niestety ich lista jest niepełna, dlatego proszę o kontakt, żebym mógł uzupełnić kolekcję o nowe eksponaty, A jeszcze jak znajdziesz to pytanie w linku powyżej to już w ogóle super, bo można mieć pewność, że odpowiedź jest poprawna. Odpowiedzi do nich znajdują się w <a href='https://pdfhost.io/v/8AReVX9Pg_C'>tym pe de efie</a>. Zdarzają się w nim błędy i to co mogłem to poprawiłem, ale coś mogło mi umknąć, więc w razie czego, wiesz co robić.<br></br>Przy pytaniach wielokrotnego wyboru jak nie wiesz ile jest poprawnych odpowiedzi, to z tego co pamiętam wystarczy spojrzeć za ile punktów jest to pytanie i poprawnych odpowiedzi będzie tyle samo. Ale przechodząc do meritum: obczaj sobie te pytanka. Pod każdym z nich masz poprawne (tak mi się wydaje) odpowiedzi."
+      },
+      {
+        "type": "Text",
+        "value": "<b>1.</b> Jaka jest różnica między inicjalizacją a przypisaniem? <br></br> Inicjalizacja to nadanie wartości w momencie tworzenia obiektu, przypisanie w każdym innym momencie."
+      },
+
+      {
+        "type": "Text",
+        "value": "<b>2.</b> Na czym polega rekurencja pośrednia? <br></br>Na wywołaniu funkcji pierwszej przez funkcję drugą, a funkcji drugiej przez funkcję pierwszą."
+      },
+      {
+        "type": "Text",
+        "value": "<b>3.</b> Zapis float kot [3][2]{} to:<br></br>Definicja i jedenoczesna deklaracja, którą czytamy: kot jest tablicą 3 elementów, z których każdy jest 2 elementową tablicą liczb typu float"
+      },
+      {
+        "type": "Text",
+        "value": "<b>4.</b> Ile razy wykona się instrukcja pętli?"
+      },
+      {
+        "type": "Code",
+        "value": "#define CZYNNIK(a, b) ((a)/((a)+(b)))\n int d = 0;\n while(d<0){\n  \t\t   cout << \"Czynnik = \" << CZYNNIK(++d, 2.0);\n  \t\t   cout << \", dla d = \" << d << endl;\n }",
+        "props": { "language": "cpp" }
+      },
+      {
+        "type": "Text",
+        "value": "5"
+      },
+      {
+        "type": "Text",
+        "value": "<b>5.</b> zapis int(*wsk_fun)() definiuje:<br></br>wskaźnik do funkcji wywoływanej bez argumentów, a zwracającej wartość typu int."
+      },
+      {
+        "type": "Text",
+        "value": "<b>6.</b> Kiedy deklarujemy zmienną w języku c++?<br></br>W dowolnym miejscu, przynajmniej jedną linijkę przed jej pierwszym użyciem"
+      },
+      {
+        "type": "Text",
+        "value": "<b>7.</b> Nazwa funkcji jest przeładowana, gdy istnieją dwie lub więcej funkcji o tej samej nazwie...<br></br>zakres nazw tych funkcji nie ma znaczenia <br></br>funkcje te mają różny typ rezultatów <br></br> funkcje te mają różną listę argumentów."
+      },
+      {
+        "type": "Text",
+        "value": "<b>8.</b> Co zwraca poniższa funkcja:<br></br>"
+      },
+      {
+        "type": "Code",
+        "value": "int funkcja(int a, int b){\n    \t\t if(b==0)\n    \t\t\t   return 0;\n    \t\t int h = funkcja(a, b/2) * 2;\n    \t\t if(b%2==0)\n    \t\t\t   return h;\n    \t\t return h+a;\n }",
+        "props": { "language": "java" }
+      },
+      {
+        "type": "Text",
+        "value": "a*b "
+      },
+      {
+        "type": "Text",
+        "value": "<b>9.</b> W jakim obszarze pamięci tworzony jest statyczny obiekt funkcji?<br></br>zależy od kompilatora"
+      },
+      {
+        "type": "Text",
+        "value": "<b>10.</b> Dlaczego jeśli przesuwamy się po dowolnej tablicy za pomocą wskaźnika np. zwiększając go o 1 to taki wskaźnik przesuwa się po tablicy poprawnie?<br></br>obiekty przechpwywane w tablicy zajmują kolejny obszar pamięci i dodanie wartości 1 do adresu powoduje przesunięcie o jeden bit do przodu."
+      },
+      {
+        "type": "Text",
+        "value": "<b>11.</b> Załóżmy, że mamy dwa wskaźniki pokazujące na tą samą tablicę. Które operacje mają sens? (rozdział 12, ćwiczenie IX)<br></br>odejmowanie dwóch wskaźników <br></br>dodanie liczby całkowitej do wskaźnika <br></br>odejmowanie liczby całkowitej od wskaźnika."
+      },
+      {
+        "type": "Text",
+        "value": "<b>12.</b> Mamy deklarację funkcji int f(return 4.2). Jaką wartość zwróci?<br></br>4"
+      },
+      {
+        "type": "Text",
+        "value": "<b>13.</b> Jeśli do wskaźnika pokazującego na obiekt dodany przez operatora new przypiszemy inny adres, to:<br></br>obiekt taki zostanie automatycznie usunięcy z pamięci <br></br>nastąpi utrata kontaktu z obiektem, która uniemożliwi odwołanie się do niego "
+      },
+      {
+        "type": "Text",
+        "value": "<b>14.</b> Ile zostanie wypisanych znaków * w zależności od parametru n:"
+      },
+      {
+        "type": "Code",
+        "value": "void wypisuj(int n){\n \t\tif(n==0){\n \t\t\t\t    cout<<\"*\";\n \t\t\t\t    return;\n \t\t}\n \t\twypisuj(n-1);\n \t\twypisuj(n-1);\n }",
+        "props": { "language": "cpp" }
+      },
+      {
+        "type": "Text",
+        "value": "2^n"
+      },
+      {
+        "type": "Text",
+        "value": "<b>15.</b> Czy w funkcji, do której wysłano tablicę można dowiedzieć się ile ma ona elementów?<br></br><u>nie</u>"
+      },
+      {
+        "type": "Text",
+        "value": "<b>16.</b> Anonimową przestrzeń nazw może mieć...<br></br>każdy plik"
+      },
+      {
+        "type": "Text",
+        "value": "<b>17.</b> Co zostanie wyświetlone?"
+      },
+      {
+        "type": "Image",
+        "value": "https://i.postimg.cc/bNXBvjHD/image.png",
+        "props": { "orientation": "horizontal" }
+      },
+      {
+        "type": "Text",
+        "value": "Rozmiar tablicy pierwszej: 16; drugiej:15"
+      },
+      {
+        "type": "Text",
+        "value": "<b>18.</b> Używają operatora static_cast do rzutowania statycznego pełna składnia tego operatora to:"
+      },
+      {
+        "type": "Code",
+        "value": "static_cast<typ>(wyrażenie)",
+        "props": { "language": "cpp" }
+      },
+      {
+        "type": "Text",
+        "value": "<b>19.</b> Co się wypisze na ekranie po wykonaniu kodu int a=4; cout << (a=7) << endl; ?<br></br>7"
+      },
+      {
+        "type": "Text",
+        "value": "<b>20.</b> Przykładem postinkrementacji jest: <br></br>i++"
+      },
+      {
+        "type": "Text",
+        "value": "<b>21.</b> Czy możliwe jest powtórzenie tej samej deklaracji w danym zakresie ważności?<br></br>nie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>22.</b> Jakie konsekwencje ma nieumieszczenie break; na końcu instrukcji case?<br></br>nastąpi wykonanie następnego bloku case."
+      },
+      {
+        "type": "Text",
+        "value": "<b>23.</b> Zasięg lokalny oznaczamy...<br></br> nawiasami klamrowymi."
+      },
+      {
+        "type": "Text",
+        "value": "<b>24.</b> Przeładowanie funkcji stosujemy, gdy:<br></br>funkcje wykonują podobne czynności."
+      },
+      {
+        "type": "Text",
+        "value": "<b>25.</b> Jak działa obiekt static wewnątrz funkcji?<br></br>jest tworzony raz podczas pierwszego wywołania funkcji i pamięta swoją wartość"
+      },
+      {
+        "type": "Text",
+        "value": "<b>26.</b> Czy w miejscu, gdzie program sprawdza wyrażenie logiczne można podstawić obiekt typu int?<br></br>tak"
+      },
+      {
+        "type": "Text",
+        "value": "<b>27.</b> Co to argumenty domniemane funkcji?<br></br>Argumenty, którym podajemy wartości domyślne podczas deklaracji funkcji, dzięki czemu możemy je pominąć podczas jej wywołania"
+      },
+      {
+        "type": "Text",
+        "value": "<b>28.</b> Na czym polega rekurencja bezpośrednia?<br></br>na wywołaniu funkcji przez samą siebie"
+      },
+      {
+        "type": "Text",
+        "value": "<b>29.</b> Jaka jest różnica między operatoerm = a == ?<br></br>operator = to przypisanie, a operator == to porównanie.<br></br>operator == zwraca wartość logiczną, a operator = zwraca wartość jaka jest przypisywana"
+      },
+      {
+        "type": "Text",
+        "value": "<b>30.</b> Przy wyrażeniu: if((...)&&(...)&&(...)){instrukcja}<br></br>wszystkie wyrażenia muszą być prawdziwe, aby wykonały się instrukcje wewnątrz ifa <br></br>kompilator będzie sprawdzał wyrażenia logiczne do momentu aż któreś okaże się nieprawdziwe"
+      },
+      {
+        "type": "Text",
+        "value": "<b>31.</b> Jaka jest nazwa obiektu stworzonego w ten sposób: new double(3.14)<br></br>obiekt tworzony operatorem new nie posiada nazwy."
+      },
+      {
+        "type": "Text",
+        "value": "<b>32.</b> W jaki sposób operator new może nas powiadomić o niemożliwości stworzenia nowego obiektu przez wyczerpanie zapasu dostępnej pamięci?<br></br>rzuceniem wyjątku"
+      },
+      {
+        "type": "Text",
+        "value": "<b>33.</b> W programie są następujące dyrektywy:"
+      },
+      {
+        "type": "Code",
+        "value": "#define A 20\n#define B 40\n#define SS A + B",
+        "props": { "language": "cpp" }
+      },
+      {
+        "type": "Text",
+        "value": "Co w związku z tym wypisze na ekranie poniższa instrukcja?"
+      },
+      {
+        "type": "Code",
+        "value": "cout << (2*SS) << endl;",
+        "props": { "language": "cpp" }
+      },
+      {
+        "type": "Text",
+        "value": "80"
+      }
+    ]
+  }
+]
