@@ -149,7 +149,12 @@ const Settings = () => {
           />
         )}
         right={() => (
-          <AntDesign name="right" size={24} color={Colors.border} />
+          <AntDesign
+            name="right"
+            size={24}
+            color={Colors.border}
+            style={styles.rightIcon}
+          />
         )}
         //@ts-ignore
         onPress={() => navigation.navigate('Saved')}
@@ -174,7 +179,12 @@ const Settings = () => {
           />
         )}
         right={() => (
-          <AntDesign name="right" size={24} color={Colors.border} />
+          <AntDesign
+            name="right"
+            size={24}
+            color={Colors.border}
+            style={styles.rightIcon}
+          />
         )}
         //@ts-ignore
         onPress={() => navigation.navigate('About')}
@@ -208,6 +218,10 @@ const styles = StyleSheet.create({
     height: 28,
     lineHeight: 28,
     textAlign: 'center',
+  },
+  rightIcon: {
+    backgroundColor: 'transparent',
+    lineHeight: 28,
   },
 })
 
