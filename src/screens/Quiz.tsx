@@ -36,22 +36,26 @@ import CustomModal from '../components/CustomModal'
 import ItemResult from '../components/ItemResult'
 import Line from '../components/molecules/atoms/Line'
 import Options from '../components/Options'
+import useAd from '../hooks/useAd'
 import useNextQuestion from '../hooks/useNextQuestion'
 import { Colors } from '../utils/constants'
 import { returnIsCorrect } from '../utils/functions'
 import { countItemsInTopic } from '../utils/getQuizData'
+import useStore from '../utils/store'
 import { Option, Result } from '../utils/types'
-import { getValue, setStats } from '../utils/utilStorage'
-
-// const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL, {
-//   requestNonPersonalizedAdsOnly: true,
-// })
+import { compareInfiniteStreak, getValue, setStats } from '../utils/utilStorage'
 
 //list of route params is in useOpenQuiz
 export default function Quiz({ route }) {
   const screenWidth = Dimensions.get('window').width
   const screenHeight = Dimensions.get('window').height
   const [showExitModal, setShowExitModal] = useState(false)
+
+  const incrementInfiniteStreak = useStore.getState().incrementInfiniteStreak
+  const incrementGoodInfiniteStreak =
+    useStore.getState().incrementGoodInfiniteStreak
+  const resetInfiniteStreak = useStore.getState().resetInfiniteStreak
+  const resetGoodInfiniteStreak = useStore.getState().resetGoodInfiniteStreak
 
   const navigation = useNavigation()
   const [itemsCount, setItemsCount] = useState<number>(
@@ -72,8 +76,8 @@ export default function Quiz({ route }) {
     resultsArray,
     setResultsArray,
   } = useNextQuestion({
-    chapName: route.params.chapName,
     topName: route.params.topName,
+    chapName: route.params.chapName,
     itemsArray: route.params.itemsArray,
     itemsCount,
     shuffle: route.params.shuffle,
@@ -111,6 +115,10 @@ export default function Quiz({ route }) {
 
     if (thisQuestionResult === 'correct') setStats(item.id)
 
+    if (route.params.chapName === '__All__') incrementInfiniteStreak()
+    if (route.params.chapName === '__All__' && thisQuestionResult === 'correct')
+      incrementGoodInfiniteStreak()
+
     let result: Result
     if (itemsCount !== Infinity) {
       result = {
@@ -125,54 +133,33 @@ export default function Quiz({ route }) {
     setShowResultModal(true)
   }
 
-  const [interstitialLoaded, setInterstitialLoaded] = useState(false)
-
-  // const loadInterstatial = () => {
-  //   const unsubscribeLoaded = interstitial.addAdEventListener(
-  //     AdEventType.LOADED,
-  //     () => {
-  //       setInterstitialLoaded(true)
-  //       interstitial.load()
-  //     },
-  //   )
-
-  //   const unsubscribeClosed = interstitial.addAdEventListener(
-  //     AdEventType.CLOSED,
-  //     () => {
-  //       setInterstitialLoaded(false)
-  //     },
-  //   )
-
-  //   interstitial.load()
-
-  //   return () => {
-  //     unsubscribeClosed()
-  //     unsubscribeLoaded()
-  //   }
-  // }
-
-  // useEffect(() => {
-
-  // return unsubscribeInterstitialEvents
-  // }, [])
-
-  function closeModalAndGoBack(): void {
-    setShowExitModal(false)
-    navigation.goBack()
-  }
-
+  const { loadInterstitial, interstitial } = useAd()
   useEffect(() => {
-    // const unsubscribeInterstitialEvents = loadInterstatial()
+    const unsubscribeInterstitialEvents = loadInterstitial()
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       handleBackPress,
     )
     return () => {
-      // settings.ads && interstitial.show()
-      // unsubscribeInterstitialEvents()
+      if (settings.ads && true)
+        try {
+          interstitial.show()
+        } catch (e) {
+          // console.error(e)
+        }
+      unsubscribeInterstitialEvents()
       backHandler.remove()
-    } // Cleanup the event listener on unmount
+    }
   }, [])
+
+  function closeModalAndGoBack(): void {
+    if (route.params.chapName === '__All__') {
+      resetInfiniteStreak()
+      resetGoodInfiniteStreak()
+    }
+    setShowExitModal(false)
+    navigation.goBack()
+  }
 
   const handleBackPress = () => {
     if (showExitModal) {
@@ -291,16 +278,15 @@ export default function Quiz({ route }) {
       </ScrollView>
       {settings.ads && (
         <View
-          id="ad"
+          // id="ad"
           style={{
             width: '100%',
             height: 50,
-            // backgroundColor: 'yellow',
             position: 'absolute',
             bottom: 0,
           }}
         >
-          <Ad width={'100%'}></Ad>
+          <Ad id='ca-app-pub-8755010348178299/7303486624' />
         </View>
       )}
       <Modal

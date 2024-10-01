@@ -38,6 +38,7 @@ export default function Tile({
 
   function setGradientColor(color: string): string {
     // return Colors.gradientLight
+    return Colors.gradientLight
     switch (color) {
       case COLOR.RED: //incorrect
         return 'rgba(255, 147, 147, .35)'
@@ -68,7 +69,7 @@ export default function Tile({
           elevation: 2,
 
           // borderTopColor: 'rgba(0,205, 0, .1)',
-          borderBottomWidth: color === Colors.surfaceBg ? 0 : 2.5,
+          borderBottomWidth: color === Colors.surfaceBg ? 0 : 3.5,
           borderBottomColor: color,
           // borderRightColor: 'rgba(0,205, 0, .1)',
           // borderLeftColor: 'rgba(0,205, 0, .1)',

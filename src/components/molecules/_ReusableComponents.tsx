@@ -1,17 +1,26 @@
 //* Here are components used in Saved and Questions screens
-
+import { Ionicons } from '@expo/vector-icons'
+import { Octicons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
+import { useEffect, useRef } from 'react'
 import {
   ActivityIndicator,
-  Dimensions,
-  Modal,
-  View,
-  Text,
   Button,
-  Pressable,
+  Dimensions,
   FlatList,
+  Modal,
+  Pressable,
+  Text,
+  View,
 } from 'react-native'
-import ItemResult from '.././ItemResult'
-import { Item } from '../../utils/types'
+import {
+  Button as PaperButton,
+  Text as PaperText,
+  Snackbar,
+  Switch,
+  TouchableRipple,
+} from 'react-native-paper'
+
 import {
   close,
   noQuestions,
@@ -19,21 +28,10 @@ import {
   takeAQuiz,
   youDontHaveAnySavedQuestions,
 } from '../../../data/texts'
+import { Item } from '../../utils/types'
+import ItemResult from '.././ItemResult'
 import Tile from '../Tile'
-import { Ionicons } from '@expo/vector-icons'
-import { Octicons } from '@expo/vector-icons'
-import { MaterialIcons } from '@expo/vector-icons'
-import {
-  Switch,
-  Button as PaperButton,
-  Text as PaperText,
-  TouchableRipple,
-  Snackbar,
-} from 'react-native-paper'
-import {
-  Colors
-} from './../../utils/constants'
-import { useEffect, useRef } from 'react'
+import { Colors } from './../../utils/constants'
 
 export function ResultModal({
   modalItem,
@@ -79,12 +77,12 @@ export function ResultModal({
         ) => (
         )}
       /> */}
-        <ItemResult
-          item={modalItem} // Assuming item is structured as { item: Item, userChoices: Option[] }
-          chosenOptions={null} // Access userChoices similarly
-          handleBtnPress={() => setShowModal(false)}
-          btnTitle={close}
-        />
+      <ItemResult
+        item={modalItem} // Assuming item is structured as { item: Item, userChoices: Option[] }
+        chosenOptions={null} // Access userChoices similarly
+        handleBtnPress={() => setShowModal(false)}
+        btnTitle={close}
+      />
     </Modal>
   )
 }
@@ -152,7 +150,10 @@ export function EmptyState({
             visible={true}
             onDismiss={() => null}
             elevation={0}
-            style={{ bottom: 10 }}
+            style={{
+              bottom: 10,
+              // backgroundColor: Colors.primary,
+            }}
           >
             <Text
               style={{
@@ -165,23 +166,9 @@ export function EmptyState({
           </Snackbar>
           <Text style={{ opacity: 0.7 }}></Text>
           {parent === 'Saved' ? (
-            <Ionicons
-              style={{
-                opacity: 0.1,
-              }}
-              name="bookmarks"
-              size={264}
-              color="black"
-            />
+            <Ionicons name="bookmarks" size={264} color={Colors.gradient} />
           ) : (
-            <MaterialIcons
-              name="quiz"
-              size={264}
-              color="black"
-              style={{
-                opacity: 0.1,
-              }}
-            />
+            <MaterialIcons name="quiz" size={264} color={Colors.gradient} />
           )}
         </View>
       )}

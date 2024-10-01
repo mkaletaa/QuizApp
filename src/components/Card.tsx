@@ -55,7 +55,7 @@ export default function Card({
       {data.soon && (
         <View
           style={{
-            backgroundColor: 'rgba(41, 41, 41, .2)',
+            backgroundColor: 'rgba(220,225,255, .7)',
             height: '100%',
             width: '100%',
             position: 'absolute',
@@ -66,13 +66,13 @@ export default function Card({
         >
           <Text
             style={{
-              color: COLOR.RED,
+              color: '#5846c7',
               fontWeight: 'bold',
               fontSize: 20,
               transform: [{ rotate: '-10deg' }],
-              textShadowColor: '#212121', // Kolor cienia
-              textShadowOffset: { width: 2, height: 2 }, // Przesunięcie cienia
-              textShadowRadius: 10, // Promień rozmycia cienia
+              textShadowColor: '#323232', // Kolor cienia
+              textShadowOffset: { width: 1, height: 1 }, // Przesunięcie cienia
+              textShadowRadius: 2, // Promień rozmycia cienia
               width: '100%',
               textAlign: 'center',
             }}

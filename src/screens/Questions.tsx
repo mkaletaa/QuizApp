@@ -2,6 +2,7 @@ import { useHeaderHeight } from '@react-navigation/elements'
 import { useEffect, useState } from 'react'
 import { FlatList, View } from 'react-native'
 
+import { quiz } from '../../data/quiz/quizModule'
 import {
   contentContainerStyle,
   EmptyState,
@@ -97,7 +98,7 @@ export default function Questions({ route }) {
                   chapterName: route.params.chapterName,
                   //@ts-ignore
                   itemsArray: items,
-                  howManyItems: itemsCount,
+                  itemsCount: itemsCount,
                 })
               }}
               onToggleSwitch={null}

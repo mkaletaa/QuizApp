@@ -15,7 +15,9 @@ import MyStack from './src/Stack'
 import { clearAsyncStorage, saveItemsRecursively } from './tests/savedItems'
 
 Sentry.init({
-  dsn: __DEV__ ? null :  "https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640",
+  dsn: __DEV__
+    ? null
+    : 'https://cddc198d99e3f115e9908339b2c88eea@o4507158412853248.ingest.de.sentry.io/4507158418882640',
   // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
   // We recommend adjusting this value in production.
   tracesSampleRate: 1.0,
@@ -42,7 +44,7 @@ const App = () => {
         await Updates.reloadAsync()
       }
     } catch (error) {
-      alert(`Error fetching Expo update : ${error}`)
+      // alert(`Error fetching Expo update : ${error}`)
     }
   }
 
@@ -51,7 +53,7 @@ const App = () => {
       try {
         // Pre-load fonts, make any API calls you need to do here
         // Artificially delay for two seconds to simulate a slow loading experience. Please remove this if you copy and paste the code!
-        onFetchUpdateAsync() 
+        onFetchUpdateAsync()
         // await new Promise(resolve => setTimeout(resolve, 2000))
       } catch (e) {
         console.warn(e)
@@ -67,7 +69,7 @@ const App = () => {
       setShowModal(!state.isConnected)
       // console.log('Is connected?', state.isConnected)
     })
-    
+
     //*dev mode
     // saveItemsRecursively(0)
     // clearAsyncStorage()

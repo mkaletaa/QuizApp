@@ -1,77 +1,90 @@
-import { useNavigation } from '@react-navigation/native'
-import { StackActions } from '@react-navigation/native'
-import { useState } from 'react'
+import { StackActions, useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import { Alert } from 'react-native';
 
-import { quiz } from '../../data/quiz/quizModule'
-import { noQuestions } from '../../data/texts'
-import CustomModal from '../components/CustomModal'
-import { Item } from '../utils/types'
-import { getValue } from '../utils/utilStorage'
 
-//** this hook is used always before Quiz screen is opened
+
+import { quiz } from '../../data/quiz/quizModule';
+import { noQuestions } from '../../data/texts';
+import CustomModal from '../components/CustomModal';
+import { Item } from '../utils/types';
+import { getValue } from '../utils/utilStorage';
+
+
+//** This hook is used always before the Quiz screen is opened
+//** It prepares everything what is needed in order to start a quiz
+
+/*
+ * There are a few scenarios where this hook is invoked:
+ * 1 (aka 'Card') User pressed a Card in the `Topics` screen or pressed a button (there are 2 available) in a `Theory` screen.
+ * 2 (aka 'RQB') User pressed RandomQuestionButton which opens quiz in InfinityMode
+ * 3 (aka 'retake') User is in `QuizResults` screen and pressed one out of two buttons that enable to retake a quiz
+ * 4 (aka 'saved') User pressed a button inside `Saved` screen and is taking a quiz out of saved questions (items)
+ *
+ *
+ * Depending on the the scenario, different props are passed to the `openQuiz` function:
+ *
+ * 1: Only chapterName and topicName are passed. There is no more explanation needed
+ * 2: Only chapterName, itemsCount = Infinity, shuffle= true. If it has been pressed in `Chapters` screen, chapterName = '__All__'
+ * 3: chapterName = "__Again__", itemsArray, itemsCount, isRetake = true are passed. itemsArray is of type Item[] and it is simply an array of questions to answer again. itemsCount is the size of itemsArray
+ * 4: Like 3, but chapterName = '__Saved__'
+ */
 const useOpenQuiz = () => {
   const navigation = useNavigation()
   const [showNoQuestionsModal, setShowNoQuestionsModal] = useState(false)
 
   type openQuizPropType = {
-    topicName?: '' | string
+    //? not sure if there should be `?` after topicName
+    topicName?: '' | string //equal to '' in all scenarios except 'Card'
+    //todo: change __Again__ to __Retake__
     chapterName: '__All__' | '__Again__' | '__Saved__' | string
-    howManyItems?: number //used when retaking or saved
-    shuffle?: boolean //true if InfinityMode, otherwise undefined
-    itemsArray?: Item[] //used when retaking or saved
-    isRetake?: boolean //true if retaking quiz, undefined otherwise
+    // __All__ - scenario 2 (RQB)
+    // __Again__ - scenario 3 (retake)
+    // __Saved__ - scenario 4 (saved)
+    // other - scenario 1 (Card)
+    itemsCount?: number //used when retake or saved
+    shuffle?: boolean //true if InfinityMode (RQB), otherwise undefined and will be set later on
+    itemsArray?: Item[] //used when retake or saved, otherwise undefined
+    isRetake?: boolean //true if retaking quiz, otherwise undefined
   }
 
-  /* 
-  * When quiz id from a single Topic
-  * If we press the topic Card or quiz button from Theory, only chapterName and topicName are passed here
-
-  * When quiz from saved questions
-  * Here are passed only props like: chapterName = "__Saved__" , itemsArray: Item[] (saved questions) , howManyItems = number of saved questions
-
-  * When quiz from random question button (infinity mode)
-  * If we press RandomQuestionButton here are passed only chapterName and topicName = '', howManyItems = Infinity, shuffle= true
-
-  * When retaking a quiz
-  * Here are passed chapterName = "__Again__", itemsArray: Item[] (array of questions to answer again), howManyItems - you know, isRetake = true
-  */
-
-  //* when infinity mode is enabled, topic name is an empty string ("")
-
-  //this function prepares necessary data for the quiz
+  // this function prepares necessary data for the quiz
   const openQuiz = ({
-    topicName,
+    topicName = '',
     chapterName,
-    howManyItems,
+    itemsCount,
     shuffle,
     itemsArray,
-    isRetake = false, // if user is retaking the same quiz
+    isRetake = false,
   }: openQuizPropType): void => {
-
-
+    //* executes in scenario 'RQB' and there are no questions available OR in scenario 'Card' and whole chapter has no quizes
     if (
       !quiz.hasOwnProperty(chapterName) &&
       chapterName !== '__Saved__' &&
-      chapterName !== '__Again__'&&
-      chapterName !== '__All__' 
+      chapterName !== '__Again__' &&
+      chapterName !== '__All__'
     ) {
-      //when a chapter does not have any quiz
+      // Alert.alert('RQB, no quiz available')
       setShowNoQuestionsModal(true)
-      return
-    } // do not merge it with ifs below because for some reason it doesn't work good
-
-    //if there is a chapter and infinity mode has been chosen
-    if (howManyItems === Infinity) {
+      // return
+    } // merged this with the rest of if statements. I see no bugs yet
+    //* executes in scenario 'RQB' and there are questions available
+    else if (itemsCount === Infinity) {
+      // Alert.alert('RQB, quiz available')
       navigateToQuiz()
-      //if  retake or saved or pressed Card/Quiz button from Theory (chapter and given topic have a quiz)
-    } else if (itemsArray || quiz[chapterName][topicName]) {
+    }
+    //* executes in scenario 'Card' (and there is a quiz available) OR in scenario 3 'retake' OR in scenario 4 'saved'. This is the most common case
+    else if (itemsArray || quiz[chapterName][topicName]) {
+      // Alert.alert('Card (quiz available) OR retake OR saved, quiz available')
       // check if questions should be shuffled
       ;(async () => {
         shuffle = await getValue('shuffle')
         navigateToQuiz()
       })()
-    } else {
-      //if pressed topic does not have a quiz
+    }
+    //* executes in scenario 'Card' (and there is no quiz available)
+    else {
+      // Alert.alert('Card, no quiz available')
       setShowNoQuestionsModal(true)
     }
 
@@ -79,12 +92,12 @@ const useOpenQuiz = () => {
       const quizParams = {
         topName: topicName,
         chapName: chapterName,
-        howManyItems: howManyItems,
+        howManyItems: itemsCount,
         shuffle,
         itemsArray,
       }
 
-      //if user retakes quiz (buttons in QuizResults)
+      //scenario 3 (retake)
       if (isRetake) {
         navigation.dispatch(
           //must be replace instead of navigate because otherwise Quiz screen wouldn't be refreshed
@@ -98,7 +111,7 @@ const useOpenQuiz = () => {
     }
   }
 
-  //if no quiz is associated with a given topic this component appears on screen
+  //if no quiz is associated with a given topic this component appears on the screen
   const noQuestionModal = () => {
     return (
       <CustomModal

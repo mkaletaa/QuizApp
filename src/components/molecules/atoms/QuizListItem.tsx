@@ -1,13 +1,19 @@
+import Octicons from '@expo/vector-icons/Octicons'
 import React from 'react'
 import { Text } from 'react-native'
 import { List, Button as PaperButton } from 'react-native-paper'
 
 import { takeAQuiz } from '../../../../data/texts'
 import useOpenQuiz from '../../../hooks/useOpenQuiz'
-import { Colors } from '../../../utils/constants'
+import { COLOR, Colors } from '../../../utils/constants'
 import useStore from '../../../utils/store'
 
-export default function QuizListItem({ topicName, chapterName, handlePress }) {
+export default function QuizListItem({
+  topicName,
+  chapterName,
+  handlePress,
+  iconStyle,
+}) {
   const { openQuiz, noQuestionModal } = useOpenQuiz()
 
   // const setShowPopup = useStore(state => state.setShowPopup)
@@ -27,11 +33,19 @@ export default function QuizListItem({ topicName, chapterName, handlePress }) {
         title={takeAQuiz}
         //@ts-ignore
         onPress={() => {
-            // handlePress()
+          handlePress()
           openQuiz({ topicName, chapterName })
-          // setShowPopup(false)
         }}
-        
+        left={() => {
+          return (
+            <Octicons
+              name="light-bulb"
+              size={24}
+              color={COLOR.ORANGE}
+              style={iconStyle}
+            />
+          )
+        }}
         titleStyle={{ color: Colors.text }}
       />
       {/* <PaperButton

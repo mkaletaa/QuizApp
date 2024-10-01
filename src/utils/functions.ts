@@ -1,14 +1,11 @@
 //* This file contains other utility functions
-import { Linking } from 'react-native';
+import { Linking } from 'react-native'
 
-
-
-import settings from '../../data/settings.json';
+import settings from '../../data/settings.json'
 // import Constants from 'expo-constants'
-import { mailBody, mailSubject } from '../../data/texts';
-import { COLOR } from './constants';
-import { Item, Option, Result } from './types';
-
+import { mailBody, mailSubject } from '../../data/texts'
+import { COLOR } from './constants'
+import { Item, Option, Result } from './types'
 
 export function removeUnderscores(
   str: string,
@@ -74,4 +71,27 @@ export function returnIsCorrect(
     return 'correct'
 
   return 'kindof'
+}
+
+export const throttle = (func, limit) => {
+  let lastFunc
+  let lastRan
+  return function (...args) {
+    const context = this
+    if (!lastRan) {
+      func.apply(context, args)
+      lastRan = Date.now()
+    } else {
+      clearTimeout(lastFunc)
+      lastFunc = setTimeout(
+        function () {
+          if (Date.now() - lastRan >= limit) {
+            func.apply(context, args)
+            lastRan = Date.now()
+          }
+        },
+        limit - (Date.now() - lastRan),
+      )
+    }
+  }
 }

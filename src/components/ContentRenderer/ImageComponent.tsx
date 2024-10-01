@@ -22,6 +22,7 @@ import useStore from '../../utils/store'
 
 const ImageComponent = ({ width: containerWidth, description, value }) => {
   const images = useStore(state => state.images)
+  const carousel = useStore(state => state.carousel)
 
   const [modalVisible, setModalVisible] = useState(false)
   const [indexState, setIndexState] = useState(0)
@@ -35,9 +36,10 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
 
   const ratio = 0.9 // ratio between width of the image to screen (or container) width
 
+  const addImage = useStore(state => state.addImage)
   useEffect(() => {
-    if (useStore.getState().carousel) {
-      useStore.getState().addImage(value, description)
+    if (carousel) {
+      addImage(value, description)
       setIndexState(useStore.getState().images.length - 1)
     }
   }, [])
@@ -97,15 +99,6 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
         statusBarTranslucent={true}
       >
         <View style={styles.modalContainer}>
-          {/* <ActivityIndicator
-            style={{
-              position: 'absolute',
-              zIndex: 0,
-            }}
-            size={50}
-            color={Colors.primary}
-          /> */}
-
           <AntDesign
             onPress={closeModal}
             name="left"
@@ -115,20 +108,23 @@ const ImageComponent = ({ width: containerWidth, description, value }) => {
           />
 
           <ImageViewer
-            imageUrls={images.length !== 0 ? images : [{ url: value }]}
+            imageUrls={carousel ? images : [{ url: value }]}
             onChange={i =>
               setDescriptionState(
-                images.length !== 0 ? images[i]?.des : description,
+                //? czy nie wystarczy samo images[i]?.des ?
+                useStore.getState().images.length !== 0
+                  ? images[i]?.des
+                  : description,
               )
             }
             style={{ width: '100%' }}
             renderIndicator={() => null}
             index={indexState}
             enableSwipeDown
+            swipeDownThreshold={100}
             onCancel={() => {
               setModalVisible(false)
             }}
-            // menuContext={()=>{}}
             menus={({ cancel }) => {
               return (
                 <Pressable

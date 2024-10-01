@@ -129,7 +129,7 @@ const MyStack = () => {
         //@ts-ignore
         options={({ route }) => ({
           ...header({
-            title: aboutTheApp,
+            title: "Achievements",
           }),
           ...headerOptions,
         })}

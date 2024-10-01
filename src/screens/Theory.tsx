@@ -1,4 +1,3 @@
-import { AntDesign } from '@expo/vector-icons';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { useFocusEffect } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
@@ -8,15 +7,20 @@ import { Snackbar } from 'react-native-paper';
 
 
 
+import settings from '../../data/settings.json';
 import { thereIsNothingHere } from '../../data/texts';
 import { theory } from '../../data/theory/theory';
 import ContentRenderer from '../components/ContentRenderer/_ContentRenderer';
-import Spoiler from '../components/ContentRenderer/Spoiler';
+import Ad from '../components/ContentRenderer/Ad';
+import ArrowUp from '../components/molecules/atoms/ArrowUp';
 import QuizButton from '../components/molecules/atoms/QuizButton';
 import TheoryPopup from '../components/molecules/TheoryPopup';
 import { Colors } from '../utils/constants';
 import useStore from '../utils/store';
 
+
+let previousOffset = 0
+let localMinOffset = 0
 
 export default function Theory({
   route,
@@ -31,22 +35,8 @@ export default function Theory({
   const [showGoUp, setShowGoUp] = useState(false)
   const [shouldMemoize, setShouldMemoize] = useState(false)
   const screenHeight = Dimensions.get('window').height
+  const screenWidth = Dimensions.get('window').width
   const headerHeight = useHeaderHeight()
-
-  // const navigateTo = useStore(state => state.navigateTo)
-  // const setNavigateTo = useStore(state => state.setNavigateTo)
-  // const navigation = useNavigation()
-
-  // useEffect(() => {
-  // if (navigateTo) {
-  //   const { destination, topic, chapter } = navigateTo
-
-  //   // navigation.navigate("Theory", { topicName: "top_1", chapterName: "cat_1" })
-  //   navigation.navigate(destination, { topicName: topic, chapterName: chapter })
-
-  //   setNavigateTo(undefined)
-  // }
-  // }, [navigateTo])
 
   useEffect(() => {
     setTheoryData(theory[route.params.chapterName][route.params.topicName])
@@ -57,40 +47,64 @@ export default function Theory({
     }, 0)
   }, [route.params])
 
-  // useEffect(() => {
-  //   // Przetwarzanie danych i dodawanie wartości obrazów do stanu `images`
-  //   theoryData.forEach(segment => {
-  //     if (segment.data) {
-  //       segment.data.forEach(item => {
-  //         if (item.type === 'Image') {
-  //           const imageUrl = item.value
-  //           useStore.getState().addImage(imageUrl)
-  //         }
-  //       })
-  //     }
-  //   })
-  // }, [theoryData])
+  const enableCarousel = useStore(state => state.enableCarousel)
+  const disableCarousel = useStore(state => state.disableCarousel)
+
+  useFocusEffect(() => {
+    enableCarousel()
+    return () => {
+      disableCarousel()
+    }
+  })
 
   useEffect(() => {
-    //todo: dodaj do store carousel=true
-    useStore.getState().enableCarousel()
-
     return () => {
-      useStore.getState().clearImages() // Pobierz funkcję clearImages ze stanu
-      // clearImages() // Wywołaj funkcję clearImages przy opuszczaniu ekranu
-      useStore.getState().disableCarousel()
-      // useStore.getState().setShowPopup(false) //todo : naprawić bo ta linia nie działa
+      useStore.getState().clearImages()
     }
   }, [])
 
-  useFocusEffect(() => {})
+  const scrollToSection = sectionIndex => {
+    try {
+      if (sectionListRef.current) {
+        //@ts-ignore
+        sectionListRef.current.scrollToLocation({
+          animated: true,
+          itemIndex: 1,
+          sectionIndex,
+        })
+      }
+    } catch (e) {}
+  }
+
+  const scrollToTop = () => {
+    if (sectionListRef.current) {
+      //@ts-ignore
+      sectionListRef.current.scrollToLocation({
+        animated: true,
+        sectionIndex: 0,
+        itemIndex: 0,
+        viewOffset: 0,
+      })
+    }
+  }
+
+  const handleScroll = event => {
+    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
+    const percent =
+      (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
+    setScrollPercentage(percent)
+
+    if (contentOffset.y < previousOffset && contentOffset.y > 100) {
+      if (contentOffset.y + 100 < localMinOffset) setShowGoUp(true)
+    } else {
+      setShowGoUp(false)
+      localMinOffset = contentOffset.y
+    }
+
+    previousOffset = contentOffset.y
+  }
 
   const renderHeader = () => (
-    // <TouchableWithoutFeedback
-    //   onPress={() => {
-    //     setShowPopup(false)
-    //   }}
-    // >
     <View
       style={[
         styles.header,
@@ -109,12 +123,7 @@ export default function Theory({
                 gap: 20,
               }}
             >
-              <Pressable
-                onPress={() => {
-                  scrollToSection(i)
-                  // setShowPopup(false)
-                }}
-              >
+              <Pressable onPress={() => scrollToSection(i)}>
                 <Text
                   style={{
                     fontSize: 21,
@@ -122,7 +131,6 @@ export default function Theory({
                     color: '#54039b',
                   }}
                 >
-                  {/* sprawdź czy pierwszy segment ma tytuł i na tej podstawie zdecyduj od którego numery rozpocząć indeksowanie */}
                   {theoryData[0]?.title ? i + 1 : i} {a.title}
                 </Text>
               </Pressable>
@@ -130,144 +138,83 @@ export default function Theory({
           ),
       )}
     </View>
-    // </TouchableWithoutFeedback>
   )
 
   const renderSectionHeader = ({ section }) => {
     if (section.title) {
       return (
-        // <TouchableWithoutFeedback
-        //   onPress={() => {
-        //     setShowPopup(false)
-        //   }}
-        // >
         <View
           style={{
             padding: 10,
             paddingLeft: 30,
             paddingRight: 30,
-
-            // backgroundColor: 'red',
             backgroundColor: Colors.screenBg,
             borderTopWidth: 1,
-            // borderTopColor: 'lightgray',
             borderTopColor: Colors.border,
-
-            // elevation: 1,
-            // shadowColor: '#000', // Kolor cienia
-            // shadowOffset: { width: 0, height: 2 }, // Przesunięcie cienia (width, height)
-            // shadowOpacity: 0.5, // Przezroczystość cienia (0 - 1)
-            // shadowRadius: 3, // Promień cienia
           }}
         >
           <Text style={styles.sectionHeaderText}>{section.title}</Text>
         </View>
-        // </TouchableWithoutFeedback>
       )
     }
     return null // Brak nagłówka dla sekcji bez tytułu
   }
 
   const renderItem = ({ item, index }) => (
-    // <TouchableWithoutFeedback
-    //   onPress={() => {
-    //     setShowPopup(false)
-    //   }}
-    // >
     <View
       style={{
         paddingBottom: 20,
         paddingHorizontal: 20,
-        paddingTop: index === 0 && 10, //set marginTop for the forst element from a segment
+        paddingTop: index === 0 && 10,
       }}
     >
       <ContentRenderer content={typeof item === 'string' ? item : [item]} />
     </View>
-    // </TouchableWithoutFeedback>
   )
 
   const renderFooter = () => (
-    // <TouchableWithoutFeedback
-    //   onPress={() => {
-    //     setShowPopup(false)
-    //   }}
-    // >
-    <View style={{ padding: 30, alignItems: 'center', height: 200 }}>
-      <QuizButton chapterName={chapterName} topicName={topicName} />
-    </View>
-    // </TouchableWithoutFeedback>
+    <React.Fragment>
+      <Ad size="large" id="ca-app-pub-8755010348178299/4621756035"></Ad>
+      <View
+        style={{
+          padding: 30,
+          alignItems: 'center',
+          height: 200,
+          marginBottom: settings.ads ? screenHeight / 12 : 0,
+          // backgroundColor: 'red',
+        }}
+      >
+        <QuizButton chapterName={chapterName} topicName={topicName} />
+      </View>
+    </React.Fragment>
   )
-
-  const scrollToSection = sectionIndex => {
-    try {
-      if (sectionListRef.current) {
-        //@ts-ignore
-        sectionListRef.current.scrollToLocation({
-          animated: true,
-          itemIndex: 1, //for some reason I have to set 1 instead of 0 while` using stickySectionHeadersEnabled
-          sectionIndex,
-        })
-      }
-    } catch (e) {
-      //do nothing
-    }
-  }
-
-  const scrollToTop = () => {
-    // Przewiń do nagłówka listy
-    if (sectionListRef.current) {
-      //@ts-ignore
-      sectionListRef.current.scrollToLocation({
-        animated: true,
-        sectionIndex: 0,
-        itemIndex: 0, // Dla nagłówka listy itemIndex powinien być ustawiony na 0
-        viewOffset: 0, // Opcjonalne: Offset od góry widoku
-      })
-    }
-  }
-
-  const handleScroll = event => {
-    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent
-    const percent =
-      (contentOffset.y / (contentSize.height - layoutMeasurement.height)) * 100
-    setScrollPercentage(percent)
-    if (contentOffset.y > 100) setShowGoUp(true)
-    else setShowGoUp(false)
-  }
 
   const memoizedComponents = useMemo(() => {
     return theoryData ? (
       <React.Fragment>
         <SectionList
           onStartShouldSetResponder={() => true}
-          contentContainerStyle={
-            {
-              // backgroundColor: screenBackground,
-              // height: '100%',
-            }
-          }
           onScroll={handleScroll}
-          // onScrollBeginDrag={() => setShowPopup(false)}
           ref={sectionListRef}
           sections={theoryData}
           scrollEventThrottle={15}
           ListHeaderComponent={renderHeader}
           stickySectionHeadersEnabled
-          renderItem={({ item, index }) => renderItem({ item, index })}
           renderSectionHeader={renderSectionHeader}
+          renderItem={({ item, index }) => renderItem({ item, index })}
           ListFooterComponent={renderFooter}
           keyExtractor={(item, index) => index.toString()}
         />
-        <Spoiler></Spoiler>
+        <View style={{ position: 'absolute', bottom: 80 }}>
+          <Ad id="ca-app-pub-8755010348178299/4621482962" />
+        </View>
       </React.Fragment>
     ) : (
       <View
         style={{
           justifyContent: 'center',
-          // height: 'auto',
           alignItems: 'center',
           height: screenHeight - headerHeight,
-          // backgroundColor: 'red'
         }}
       >
         <Snackbar
@@ -276,13 +223,8 @@ export default function Theory({
           elevation={0}
           style={{ bottom: 10 }}
         >
-          <Text
-            style={{
-              color: 'white',
-              textAlign: 'center',
-            }}
-          >
-            <Text>{thereIsNothingHere}</Text>
+          <Text style={{ color: 'white', textAlign: 'center' }}>
+            {thereIsNothingHere}
           </Text>
         </Snackbar>
         <Text style={{ fontWeight: 'bold', fontSize: 150, opacity: 0.1 }}>
@@ -293,38 +235,23 @@ export default function Theory({
   }, [topicName])
 
   return (
-    <View
-      style={{ minHeight: screenHeight, backgroundColor: Colors.screenBg }}
-    >
+    <View style={{ minHeight: screenHeight, backgroundColor: Colors.screenBg }}>
       <StatusBar style="auto" />
       <View
-        style={[
-          {
-            width: `${scrollPercentage}%`,
-          },
-          styles.progressBarContainer,
-        ]}
+        style={[{ width: `${scrollPercentage}%` }, styles.progressBarContainer]}
       />
 
-      <AntDesign
-        name="up"
-        size={40}
-        color={Colors.boldText}
-        style={[
-          styles.goUp,
-          { bottom: showGoUp ? 120 : -70 }, // Dynamiczne style
-        ]}
-        onPress={() => scrollToTop()}
+      <ArrowUp
+        showGoUp={showGoUp}
+        scrollToTop={scrollToTop}
+        screenWidth={screenWidth}
       />
 
       {theoryData && shouldMemoize && (
         <TheoryPopup topicName={topicName} chapterName={chapterName} />
       )}
       {shouldMemoize ? (
-        <React.Fragment>
-          {/* <Spoiler /> */}
-          {memoizedComponents}
-        </React.Fragment>
+        <React.Fragment>{memoizedComponents}</React.Fragment>
       ) : (
         <ActivityIndicator
           size={50}
@@ -337,13 +264,6 @@ export default function Theory({
 }
 
 const styles = StyleSheet.create({
-  // container: {
-  //   flexGrow: 1,
-  //   backgroundColor: screenBackground,
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   paddingBottom: 50,
-  // },
   progressBarContainer: {
     height: 5,
     backgroundColor: Colors.primary,
@@ -351,30 +271,16 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 2,
   },
-  header: {
-    padding: 10,
-    borderColor: Colors.border,
-    // borderBottomWidth: 3,
-    alignItems: 'center',
-    gap: 5,
-    // color: "red",
-  },
   sectionHeaderText: {
     fontSize: 18,
     fontWeight: 'bold',
-    // color: 'black',
     color: Colors.boldText,
     textAlign: 'center',
-    // paddingRight:10
   },
-  goUp: {
-    padding: 8,
-    backgroundColor: Colors.surfaceBg,
-    position: 'absolute',
-    bottom: 20,
-    left: 30,
-    zIndex: 1,
-    borderRadius: 15,
-    elevation: 3,
+  header: {
+    padding: 10,
+    borderColor: Colors.border,
+    alignItems: 'center',
+    gap: 5,
   },
 })
