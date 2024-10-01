@@ -200,12 +200,6 @@ const Settings = () => {
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
       </Text>
-      <Button
-        title="crash the app"
-        onPress={() => {
-          throw new Error('test error')
-        }}
-      ></Button>
     </View>
   )
 }

@@ -139,8 +139,8 @@
       { "id": "2", "val": "B", "correct": false },
       { "id": "3", "val": "C", "correct": false },
       { "id": "4", "val": "D", "correct": true },
-      { "id": "3", "val": "E", "correct": false },
-      { "id": "3", "val": "F", "correct": false }
+      { "id": "5", "val": "E", "correct": false },
+      { "id": "6", "val": "F", "correct": false }
     ]
   },
   {
@@ -181,8 +181,8 @@
       { "id": "2", "val": "B", "correct": false },
       { "id": "3", "val": "C", "correct": false },
       { "id": "4", "val": "D", "correct": false },
-      { "id": "3", "val": "E", "correct": true },
-      { "id": "3", "val": "F", "correct": false }
+      { "id": "5", "val": "E", "correct": true },
+      { "id": "6", "val": "F", "correct": false }
     ]
   },
   {

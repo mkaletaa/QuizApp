@@ -14,7 +14,6 @@ import useOpenQuiz from '../hooks/useOpenQuiz'
 import { Colors } from '../utils/constants'
 import { countItemsInTopic, importItem } from '../utils/getQuizData'
 import { Item } from '../utils/types'
-import { quiz } from '../../data/quiz/quizModule'
 
 export default function Questions({ route }) {
   const [itemsCount, setItemsCount] = useState(0)

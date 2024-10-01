@@ -9,7 +9,6 @@ import { Colors } from '../../utils/constants'
 import utilStyles from '../../utils/styles'
 import { getValue, setValue } from '../../utils/utilStorage'
 import MistakeButton from './atoms/MistakeButton'
-import { Colors } from '../../utils/constants'
 
 export default function ResultPopup({ item }) {
   const [saved, setSaved] = useState(false)

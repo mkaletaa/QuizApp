@@ -21,28 +21,5 @@ export default function RandomQuestionButton({ chapName }) {
     return
   }
 
-  return (
-    <>
-      {noQuestionModal()}
-      <PaperButton
-        mode="elevated"
-        icon="dice-5"
-        onPress={instantQuestion}
-        elevation={5}
-        buttonColor={Colors.primary}
-        textColor="white"
-        style={{
-          alignItems: 'center',
-          borderRadius: 10,
-          justifyContent: 'center',
-          bottom: 40,
-          position: 'absolute',
-          zIndex: 2,
-          flexDirection: 'row',
-        }}
-      >
-        {randomQuestion}
-      </PaperButton>
-    </>
-  )
+  return null
 }

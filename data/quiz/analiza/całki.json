@@ -11,7 +11,7 @@
       { "id": "1", "val": "1", "correct": false },
       { "id": "2", "val": "0", "correct": false },
       { "id": "3", "val": "x + c", "correct": true },
-      { "id": "3", "val": "ln|x| + c", "correct": false }
+      { "id": "4", "val": "ln|x| + c", "correct": false }
     ],
     "explanation": "Jak nie ma nic w całce to tak jakby było tam 1"
   },
@@ -27,7 +27,7 @@
       { "id": "1", "val": "cosx + c", "correct": false },
       { "id": "2", "val": "-cosx + c", "correct": true },
       { "id": "3", "val": "sinx + c", "correct": false },
-      { "id": "3", "val": "-sinx + c", "correct": false }
+      { "id": "4", "val": "-sinx + c", "correct": false }
     ]
   },
   {
@@ -42,7 +42,7 @@
       { "id": "1", "val": "cosx + c", "correct": false },
       { "id": "2", "val": "-cosx + c", "correct": false },
       { "id": "3", "val": "sinx + c", "correct": true },
-      { "id": "3", "val": "-sinx + c", "correct": false }
+      { "id": "4", "val": "-sinx + c", "correct": false }
     ]
   },
   {
@@ -57,7 +57,7 @@
       { "id": "1", "val": "ln|sinx| + c", "correct": false },
       { "id": "2", "val": "-ln|sinx| + c", "correct": false },
       { "id": "3", "val": "ln|cosx| + c", "correct": false },
-      { "id": "3", "val": "-ln|cosx| + c", "correct": true }
+      { "id": "4", "val": "-ln|cosx| + c", "correct": true }
     ]
   },
   {
@@ -72,7 +72,7 @@
       { "id": "1", "val": "ln|x^2+3x| + c", "correct": true },
       { "id": "2", "val": "-ln|x^2+3x| + c", "correct": false },
       { "id": "3", "val": "ln|2x+3| + c", "correct": false },
-      { "id": "3", "val": "-ln|2x+3| + c", "correct": false }
+      { "id": "4", "val": "-ln|2x+3| + c", "correct": false }
     ],
     "explanation": [
       {

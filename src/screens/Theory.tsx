@@ -174,7 +174,7 @@ export default function Theory({
 
   const renderFooter = () => (
     <React.Fragment>
-      <Ad size="large" id="ca-app-pub-8755010348178299/4621756035"></Ad>
+      <Ad size="large" id="..."></Ad>
       <View
         style={{
           padding: 30,
@@ -206,7 +206,7 @@ export default function Theory({
           keyExtractor={(item, index) => index.toString()}
         />
         <View style={{ position: 'absolute', bottom: 80 }}>
-          <Ad id="ca-app-pub-8755010348178299/4621482962" />
+          <Ad id="..." />
         </View>
       </React.Fragment>
     ) : (

@@ -292,7 +292,7 @@ export default function ResultsHeader({
         </View>
       </View>
       {settings.ads && (
-        <Ad size={'large'} id="ca-app-pub-8755010348178299/7495058311"></Ad>
+        <Ad size={'large'} id="..."></Ad>
       )}
     </View>
   )

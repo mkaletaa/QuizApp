@@ -26,24 +26,26 @@ export default function Donate() {
           > */}
       <View
         style={{
-          //   padding: 12,
-          backgroundColor: Colors.surfaceBg,
-          padding: 10,
-          borderRadius: 10,
           gap: 20,
-          elevation: 5,
           marginTop: '5%',
           width: '90%',
-          borderWidth: 2,
-          borderColor: Colors.border,
           zIndex: 2,
           alignSelf: 'center',
-
-          // justifyContent: 'center',
+          padding: 7,
+          overflow: 'hidden',
+          marginVertical: 20,
+          position: 'relative', // Ensure proper positioning of absolute elements
+          backgroundColor: Colors.gradientLight,
+          borderRadius: 10,
+          elevation: 1,
+          borderWidth: 1,
+          borderColor: Colors.gradient,
         }}
       >
         <Text style={{ fontSize: 17, color: Colors.text, lineHeight: 23 }}>
-          Aplikacja jest darmowa i nie posiada reklam. Jeśli okazała się pomocna i chcesz wyrazić wdzięczność za trud wzłożony w jej rozwój, możesz przelać grosza. Zignoruj jeśli chcesz, żeby kiciuś był smutny.
+          Aplikacja jest darmowa i nie posiada reklam. Jeśli okazała się pomocna
+          i chcesz wyrazić wdzięczność za trud wzłożony w jej rozwój, możesz
+          przelać grosza. Zignoruj jeśli chcesz, żeby kiciuś był smutny.
         </Text>
         <Button
           mode="elevated"
