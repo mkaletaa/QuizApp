@@ -1,6 +1,8 @@
-import { Modal, View, StyleSheet } from 'react-native'
+import { Modal, StyleSheet, View } from 'react-native'
 import { Button, Dialog, Portal, Text } from 'react-native-paper'
+
 import { Colors } from '../utils/constants'
+
 export default function CustomModal({
   children = null,
   visible,
@@ -41,7 +43,7 @@ export default function CustomModal({
         visible={visible}
         onDismiss={onRequestClose}
       >
-        {icon && <Dialog.Icon icon={icon} size={50}/>}
+        {icon && <Dialog.Icon icon={icon} color={Colors.ripple} size={50} />}
         {title && <Dialog.Title>{title}</Dialog.Title>}
         <Dialog.Content>
           <Text
@@ -51,18 +53,17 @@ export default function CustomModal({
               textAlign: 'center',
               fontSize: 18,
             }}
-            variant="bodyMedium"
+            variant="bodyLarge"
           >
             {text}
           </Text>
         </Dialog.Content>
         <Dialog.Actions>
-          {!children && <Button onPress={onRequestClose}>
-            <Text style={{fontSize: 20, color: '#7d609f'}}>
-
-            Ok
-            </Text>
-            </Button>}
+          {!children && (
+            <Button onPress={onRequestClose}>
+              <Text style={{ fontSize: 20, color: '#7d609f' }}>Ok</Text>
+            </Button>
+          )}
           {children}
         </Dialog.Actions>
       </Dialog>

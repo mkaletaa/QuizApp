@@ -137,57 +137,55 @@ const Settings = () => {
         )}
       />
 
-      <List.Section>
-        <List.Item
-          rippleColor={Colors.ripple}
-          title={savedQuestions}
-          left={() => (
-            <FontAwesome6
-              name="bookmark"
-              size={24}
-              color={'#654DA1'}
-              style={styles.leftIcon}
-            />
-          )}
-          right={() => (
-            <AntDesign name="right" size={24} color={Colors.border} />
-          )}
-          //@ts-ignore
-          onPress={() => navigation.navigate('Saved')}
-          style={{
-            borderBottomWidth: 1,
-            borderBottomColor: Colors.border,
-            paddingLeft: 15,
-            marginTop: -8,
-          }}
-          titleStyle={{ color: Colors.text }}
-        />
+      <List.Item
+        rippleColor={Colors.ripple}
+        title={savedQuestions}
+        left={() => (
+          <FontAwesome6
+            name="bookmark"
+            size={24}
+            color={'#654DA1'}
+            style={styles.leftIcon}
+          />
+        )}
+        right={() => (
+          <AntDesign name="right" size={24} color={Colors.border} />
+        )}
+        //@ts-ignore
+        onPress={() => navigation.navigate('Saved')}
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: Colors.border,
+          paddingLeft: 15,
+          // marginTop: -8,
+        }}
+        titleStyle={{ color: Colors.text }}
+      />
 
-        <List.Item
-          rippleColor={Colors.ripple}
-          title={aboutTheApp}
-          left={() => (
-            <Ionicons
-              name="information"
-              size={32}
-              color={'#654DA1'}
-              style={styles.leftIcon}
-            />
-          )}
-          right={() => (
-            <AntDesign name="right" size={24} color={Colors.border} />
-          )}
-          //@ts-ignore
-          onPress={() => navigation.navigate('About')}
-          style={{
-            borderBottomWidth: 1,
-            borderBottomColor: Colors.border,
-            paddingLeft: 15,
-            marginTop: 0,
-          }}
-          titleStyle={{ color: Colors.text }}
-        />
-      </List.Section>
+      <List.Item
+        rippleColor={Colors.ripple}
+        title={aboutTheApp}
+        left={() => (
+          <Ionicons
+            name="information"
+            size={32}
+            color={'#654DA1'}
+            style={styles.leftIcon}
+          />
+        )}
+        right={() => (
+          <AntDesign name="right" size={24} color={Colors.border} />
+        )}
+        //@ts-ignore
+        onPress={() => navigation.navigate('About')}
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: Colors.border,
+          paddingLeft: 15,
+          marginTop: 0,
+        }}
+        titleStyle={{ color: Colors.text }}
+      />
 
       <Text style={{ opacity: 0.6, marginTop: 10, paddingLeft: 15 }}>
         {contact}: <Text>learn.everything.app@proton.me</Text>
@@ -207,6 +205,8 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     marginLeft: 5,
     width: 25,
+    height: 28,
+    lineHeight: 28,
     textAlign: 'center',
   },
 })

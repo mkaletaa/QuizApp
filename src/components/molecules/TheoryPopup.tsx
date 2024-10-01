@@ -100,6 +100,12 @@ export default function TheoryPopup({ topicName, chapterName }) {
                   },
                 ]}
               >
+                <QuizListItem
+                  chapterName={chapterName}
+                  topicName={topicName}
+                  handlePress={() => setShowPopup(false)}
+                  iconStyle={styles.icon}
+                />
                 <List.Item
                   rippleColor={Colors.ripple}
                   title={reportAMistake}
@@ -138,12 +144,6 @@ export default function TheoryPopup({ topicName, chapterName }) {
                   }}
                 />
                 {/* <Divider></Divider> */}
-                <QuizListItem
-                  chapterName={chapterName}
-                  topicName={topicName}
-                  handlePress={() => setShowPopup(false)}
-                  iconStyle={styles.icon}
-                />
                 {/* <MistakeButton prop={topicName} /> */}
                 {/* <QuizButton chapterName={chapterName} topicName={topicName} /> */}
               </Animated.View>
