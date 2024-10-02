@@ -2,7 +2,7 @@
   "expo": {
     "name": "IwIK - niezbędnik studenta",
     "slug": "iwik-niezbednik-studenta",
-    "version": "3.0.0-alpha.0",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -46,8 +46,5 @@
     "updates": {
       "url": "https://u.expo.dev/69bb6743-1782-4108-bf6b-4c87b15031fb"
     }
-  },
-  "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-8755010348178299~4784433482"
   }
 }
