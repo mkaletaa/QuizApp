@@ -22,7 +22,7 @@ export const chapters = [
   },
   {
     name: 'metody_programowania',
-    image: 'https://i.postimg.cc/cJjqYrV8/image.png',
+    image: 'https://i.postimg.cc/Tw7KJYG8/MP.png',
     des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić. Na szczęście często się powtarzają. I nie ma quizów, bo miałem ważniejszą sprawę na głowie.',
   },
   // {

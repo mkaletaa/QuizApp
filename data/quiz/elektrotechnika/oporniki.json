@@ -123,8 +123,8 @@
       { "id": "1", "val": "szeregowy", "correct": false },
       { "id": "2", "val": "równoległy", "correct": true },
       { "id": "3", "val": "trójkąt", "correct": false },
-      { "id": "3", "val": "gwiazda", "correct": false },
-      { "id": "3", "val": "żaden z powyższych", "correct": false }
+      { "id": "4", "val": "gwiazda", "correct": false },
+      { "id": "5", "val": "żaden z powyższych", "correct": false }
     ]
   }
 ]

@@ -16,7 +16,7 @@ import Theory from './screens/Theory';
 import Topics from './screens/Topics';
 import { Colors } from './utils/constants';
 import { removeUnderscores } from './utils/functions';
-import Achievements from './screens/Achievements';
+// import Achievements from './screens/Achievements';
 import Donate from './screens/Donate';
 
 
@@ -123,7 +123,7 @@ const MyStack = () => {
         })}
         />
 
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Achievements"
         component={Achievements}
         //@ts-ignore
@@ -133,7 +133,7 @@ const MyStack = () => {
           }),
           ...headerOptions,
         })}
-        />
+        /> */}
 
       <Stack.Screen
         name="Settings"
