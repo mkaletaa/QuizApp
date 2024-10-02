@@ -17,7 +17,7 @@ export const chapters = [
   },
   {
     name: 'elektrotechnika',
-    image: 'https://i.postimg.cc/B6XZwN99/image.png',
+    image: 'https://i.postimg.cc/VLh5xM9h/elektrotechnika.png',
     des: '',
   },
   {
