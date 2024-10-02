@@ -102,6 +102,7 @@ export default function Card({
                   }
                 : require('../../assets/failImage.png')
             }
+            defaultSource={require('../../assets/icon.png')}
           />
 
           <View style={styles.footer}>
