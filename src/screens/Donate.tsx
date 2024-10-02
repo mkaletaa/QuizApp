@@ -58,7 +58,7 @@ export default function Donate() {
             borderRadius: 8,
           }}
           onPress={() => {
-            Alert.alert('dd')
+            Alert.alert('O cholibka!', 'nie dodałem jeszcze adresu')
           }}
         >
           <Text style={{ color: 'white' }}>Wesprzyj</Text>

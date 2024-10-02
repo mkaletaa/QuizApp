@@ -3,11 +3,11 @@ export const chapters = [
   {
     name: 'C++',
     image: 'https://i.postimg.cc/zvkLpPFP/cpp.png',
-    des: ''
+    des: '',
   },
   {
     name: 'analiza',
-    image: 'https://i.postimg.cc/Df9Ht5kQ/image.png',
+    image: 'https://i.postimg.cc/yYL8FRrd/analiza.png',
     des: 'Znajduje się tu tylko analiza, bo algebry mi się już nie chciało dodawać xD. Ale jak coś to okrutnie polecam <a href="https://www.youtube.com/watch?v=qoaaCboDWR8&list=PLl2G2wgLAhWA5pRMSfPd9ISEaqOGQoHtk">tę playlistę</a> o macierzach. Gość tłumaczy lepiej niż Piękosz.',
   },
   {
@@ -23,7 +23,7 @@ export const chapters = [
   {
     name: 'metody_programowania',
     image: 'https://i.postimg.cc/cJjqYrV8/image.png',
-    des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić. Na szczęście często się powtarzają. I nie ma quizów, bo miałem ważniejszą sprawę na głowie.'
+    des: 'Tego przedmiotu miało tu nie być, ale że Kokos wyciąga te zadania z dupy jelenia uznałem, że przyda się je omówić. Na szczęście często się powtarzają. I nie ma quizów, bo miałem ważniejszą sprawę na głowie.',
   },
   // {
   //   name: 'VHDL',
