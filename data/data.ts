@@ -13,7 +13,7 @@ export const chapters = [
   },
   {
     name: 'data_types',
-    image: 'https://i.postimg.cc/qgfFyLqw/data-types.png',
+    image: 'https://i.postimg.cc/tT39V1sR/data-types.png',
     des: "Some say everything is an object in JavaScript. Is that true? You'll find the answer in this chapter.",
   },
   {
