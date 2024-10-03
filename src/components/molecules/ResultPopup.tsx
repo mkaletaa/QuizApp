@@ -149,7 +149,7 @@ export default function ResultPopup({ item }) {
                   },
                 ]}
               >
-                <MistakeButton prop={`id: ${item.id}`} />
+                <MistakeButton handlePress={() => setShowPopup(false)} prop={`id: ${item.id}`} />
 
                 <View
                   style={{
